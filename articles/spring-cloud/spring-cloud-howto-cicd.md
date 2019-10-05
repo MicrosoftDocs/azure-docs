@@ -17,6 +17,7 @@ ms.author: v-vasuke
 Continuous integration and continuous delivery tools allow developers to quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. Currently, Azure Spring Cloud does not offer a specific Azure DevOps plugin.  However, you can integrate your Spring Cloud applications with DevOps using an [Azure CLI task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). This article will show you how to use an Azure CLI task with Azure Spring Cloud to integrate with Azure DevOps.
 
 ## Create an Azure Resource Manager service connection
+
 Read [this article](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
 ## Azure CLI task templates
@@ -42,7 +43,7 @@ steps:
 
 ### Deploy from source
 
-It is possible to deploy directly to Azure without a separate build step. 
+It is possible to deploy directly to Azure without a separate build step.
 
 ```yaml
 - task: AzureCLI@1

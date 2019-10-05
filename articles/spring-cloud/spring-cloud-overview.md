@@ -5,16 +5,16 @@ author: jpconnock
 
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 09/26/2019
+ms.date: 10/04/2019
 ms.author: jeconnoc
 ---
 # Azure Spring Cloud
 
-Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud allows developers to focus on their code by managing the lifecycle of Spring Cloud applications.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, Blue-Green deployments, and more.
+Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud allows developers to focus on their code by managing the lifecycle of Spring Cloud applications.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
-To get started, complete the Spring Cloud quickstart using the Azure CLI, the Azure portal, or Maven.
+To get started, complete the Spring Cloud quickstart using the [Azure CLI](spring-cloud-launch-app-cli), the [Azure portal](spring-cloud-launch-app-portal), or [Maven](spring-cloud-launch-app-maven).
 
 ## Application Configuration
 
@@ -28,7 +28,7 @@ Azure Spring Cloud supports blue/green deployments for releasing and updating co
 
 ### Automate CI/CD pipelines
 
-Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  Using Azure DevOps, you can automate code integration and deployment to your Spring application.  To learn more, visit this How-To article.
+Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  Using Azure DevOps, you can automate code integration and deployment to your Spring application.  To learn more, visit this [How-To article(spring-cloud-how-to-cicd)].
 
 ### Scale your application
 
