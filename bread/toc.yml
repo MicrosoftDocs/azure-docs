@@ -151,7 +151,7 @@
     items:
     - name: Durable Functions
       tocHref: /azure/azure-functions/durable/
-      topicHref: /azure/azure-functions/durable/durable-functions-overview
+      topicHref: /azure/azure-functions/durable/
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/
