@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
