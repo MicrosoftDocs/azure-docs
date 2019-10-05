@@ -40,7 +40,7 @@
       href: entitlement-management-scenarios.md
     - name: Administrators and department managers
       items:
-      - name: Delegate to others
+      - name: Delegate to department managers
         href: entitlement-management-delegate.md
       - name: Create a catalog of resources
         href: entitlement-management-catalog-create.md
