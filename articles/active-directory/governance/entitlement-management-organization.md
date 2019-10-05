@@ -30,6 +30,8 @@ Azure AD entitlement management enables you to collaborate with people outside y
 
 Follow these steps to add an external Azure AD directory or a domain as a connected organization.
 
+**Prerequisite role:** Global administrator, User administrator, or Guest inviter
+
 1. Open the Add connected organizations page. There are two ways that you can open this page.
 
     If you are [creating a policy](entitlement-management-access-package-create.md#policy) for an access package, in the **Users who can request access** section, click **Specific connected organizations** and then click **Add connected organization**.
