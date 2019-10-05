@@ -20,7 +20,7 @@ This guide gives examples of the possible client authentication configurations f
 
 See [Security and authentication](security-authentication.md) guide for all the possible configurations.
 
-## Example 1: Enable certificate-based client authentication, no self-signed certificates
+## Enable certificate-based client authentication, no self-signed certificates
 
 ```json
  {
@@ -33,7 +33,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
 }
  ```
 
-## Example 2: Enable certificate-based client authentication, allow self-signed certificates
+## Enable certificate-based client authentication, allow self-signed certificates
 
 ```json
  {
@@ -49,7 +49,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
 >[!NOTE]
 >Set the property **inbound:clientAuth:clientCert:allowUnknownCA** to **true** only in test environments as you might typically use self-signed certificates. For production workloads, we recommend that you set this property to **false** and certificates from a certificate authority (CA).
 
-## Example 3: Enable certificate-based and sas-key based client authentication
+## Enable certificate-based and sas-key based client authentication
 
 ```json
  {

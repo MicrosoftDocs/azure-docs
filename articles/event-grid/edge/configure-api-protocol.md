@@ -22,7 +22,7 @@ This guide gives examples of the possible protocol configurations of an Event Gr
 
 See [Security and authentication](security-authentication.md) guide for all the possible configurations.
 
-## Example 1: Expose HTTPS to IoT Modules on the same edge network
+## Expose HTTPS to IoT Modules on the same edge network
 
 ```json
  {
@@ -33,7 +33,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
 }
  ```
 
-## Example 2: Enable HTTPS to other IoT Modules and non-IoT workloads
+## Enable HTTPS to other IoT modules and non-IoT workloads
 
 ```json
  {
@@ -56,7 +56,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
 >[!NOTE]
 > The **PortBindings** section allows you to map internal ports to ports of the container host. This feature makes it possible to reach the Event Grid module from outside the IoT Edge container network, if the IoT edge device is reachable publicly.
 
-## Example 3: Expose HTTP and HTTPS to IoT Modules on the same edge network
+## Expose HTTP and HTTPS to IoT modules on the same edge network
 
 ```json
  {
@@ -67,7 +67,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
 }
  ```
 
-## Example 4: Enable HTTP and HTTPS to other IoT Modules and non-IoT workloads
+## Enable HTTP and HTTPS to other IoT modules and non-IoT workloads
 
 ```json
  {
