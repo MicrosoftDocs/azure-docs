@@ -59,9 +59,9 @@ staging.folderPath | If you're using a SQL DW source or sink, the folder path in
 
 ### Data Flow integration runtime
 
-You must select which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the auto-resolve Azure Integration runtime with four worker cores and no time to live (TTL). This IR has a general purpose compute type and runs in the same region as your factory. You can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
+Choose which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the autoresolve Azure Integration runtime with four worker cores and no time to live (TTL). This IR has a general purpose compute type and runs in the same region as your factory. You can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
-For pipeline executions, the cluster is a job cluster which takes several minutes to start-up before execution starts. If no TTL is specified, this start up time is required on every pipeline run. If you specify a TTL, than a warm cluster pool will stay active for that amount of time after the last execution, resulting in very short start up times. For example, if you have a TTL of 60 minutes and run a data flow on it once an hour, the cluster pool will stay active. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
+For pipeline executions, the cluster is a job cluster, which takes several minutes to start up before execution starts. If no TTL is specified, this start-up time is required on every pipeline run. If you specify a TTL, a warm cluster pool will stay active for the time specified after the last execution, resulting in shorter start-up times. For example, if you have a TTL of 60 minutes and run a data flow on it once an hour, the cluster pool will stay active. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
@@ -70,7 +70,7 @@ For pipeline executions, the cluster is a job cluster which takes several minute
 
 ### PolyBase
 
-If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. This drastically reduces the load time into the SQL DW.
+If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into the SQL DW.
 
 ## Parameterizing Data Flows
 
@@ -96,7 +96,7 @@ The debug pipeline runs against the active debug cluster, not the integration ru
 
 ## Monitoring the Data Flow activity
 
-The Data Flow activity has a special monitoring experience where you can view partitioning, stage time, and data lineage information. This can be accessed via the eyeglasses icon under **Actions**. For more information, see [Monitoring Data Flows](concepts-data-flow-monitoring.md).
+The Data Flow activity has a special monitoring experience where you can view partitioning, stage time, and data lineage information. Open the monitoring pane via the eyeglasses icon under **Actions**. For more information, see [Monitoring Data Flows](concepts-data-flow-monitoring.md).
 
 ## Next steps
 
