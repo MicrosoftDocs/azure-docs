@@ -4,8 +4,8 @@ description: REST API on Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/18/2019
+ms.reviewer: spelluru
+ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -23,19 +23,19 @@ Event Grid on IoT Edge has the following APIs exposed over HTTP (port 5888) and 
 * Base URL for HTTP: http://eventgridmodule:5888
 * Base URL for HTTPS: https://eventgridmodule:4438
 
-### Request Query String
+### Request query string
 All API requests require the following query string parameter:
 
 ```?api-version=2019-01-01-preview```
 
-### Request Content Type
-All API requests must have a Content-Type header with one of the following values:
+### Request content type
+All API requests must have a **Content-Type** header with one of the following values:
 
 ```Content-Type: application/json```
 
 ```Content-Type: application/json; charset=utf-8```
 
-### Error Response
+### Error response
 All APIs return an error with the following payload:
 
 ```json
@@ -52,9 +52,9 @@ All APIs return an error with the following payload:
 }
 ```
 
-## Manage Topics
+## Manage topics
 
-### Put Topic (Create / Update)
+### Put topic (create / update)
 
 **Request**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
@@ -87,7 +87,7 @@ All APIs return an error with the following payload:
 }
 ```
 
-### Get Topic
+### Get topic
 
 **Request**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
@@ -107,7 +107,7 @@ All APIs return an error with the following payload:
 }
 ```
 
-### Get All Topics
+### Get all topics
 
 **Request**: ``` GET /topics?api-version=2019-01-01-preview ```
 
@@ -139,16 +139,16 @@ All APIs return an error with the following payload:
 ]
 ```
 
-### Delete Topic
+### Delete topic
 
 **Request**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Response**: HTTP 200, empty payload
 
-## Manage Event Subscriptions
-All the samples below are using EndpointType=Webhook; json samples for EndpointType=EdgeHub / EndpointType=EventGrid are laid out in the next section. 
+## Manage event subscriptions
+Samples in this section use `EndpointType=Webhook;`. The json samples for `EndpointType=EdgeHub / EndpointType=EventGrid` are in the next section. 
 
-### Put Event Subscription (Create / Update)
+### Put event subscription (create / update)
 
 **Request**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
@@ -358,7 +358,7 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 ```
 
 
-### Get Event Subscription
+### Get event subscription
 
 **Request**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
@@ -466,7 +466,7 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 }
 ```
 
-### Get Event Subscriptions
+### Get event subscriptions
 
 **Request**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
@@ -483,16 +483,16 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 ]
 ```
 
-### Delete Event Subscription
+### Delete event subscription
 
 **Request**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Response**: HTTP 200, no payload
 
 
-## Publish Events API
+## Publish events API
 
-### Send Batch of Events (in Event Grid Schema)
+### Send batch of events (in Event Grid schema)
 
 **Request**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
@@ -515,8 +515,8 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 **Response**: HTTP 200, empty payload
 
 
-**Payload Field Descriptions**
-- ```Id``` is mandatory, can be any string value that's populated by the caller, Event Grid does NOT do any duplicate detection or enforce any semantics on this field.
+**Payload field descriptions**
+- ```Id``` is mandatory. It can be any string value that's populated by the caller. Event Grid does NOT do any duplicate detection or enforce any semantics on this field.
 - ```Topic``` is optional, but if specified must match the topic_name from the request URL
 - ```Subject``` is mandatory, can be any string value
 - ```EventType``` is mandatory, can be any string value
@@ -525,7 +525,7 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 - ```MetadataVersion``` is optional, if specified it MUST be a string with the value ```"1"```
 - ```Data``` is optional, and can be any JSON token (number, string, boolean, array, object)
 
-### Send Batch of Events (in Custom Schema)
+### Send batch of events (in custom schema)
 
 **Request**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
@@ -547,7 +547,7 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 
 ## Examples
 
-### Set up Topic with EventGrid Schema
+### Set up topic with EventGrid schema
 Sets up a topic to require events to be published in **eventgridschema**.
 
 ```json
@@ -560,7 +560,7 @@ Sets up a topic to require events to be published in **eventgridschema**.
     }
 ```
 
-### Set up Topic with Custom Schema
+### Set up topic with custom schema
 Sets up a topic to require events to be published in `customschema`.
 
 ```json
@@ -625,8 +625,7 @@ Use this destination to send events to IoT Edge Hub and be subjected to edge hub
 
 ### Set up Event Grid Cloud as destination
 
-Use this destination to send events to Event Grid in the cloud.
-You'll need to first set up a user topic in the cloud to which events should be sent to, before creating an event subscription on the edge.
+Use this destination to send events to Event Grid in the cloud (Azure). You'll need to first set up a user topic in the cloud to which events should be sent to, before creating an event subscription on the edge.
 
 ```json
 {
@@ -653,7 +652,7 @@ EndpointUrl:
 - It must have `api-version=2018-01-01` in the query string.
 - If outbound__eventgrid__httpsOnly is set to true in the EventGridModule settings (true by default), it must be HTTPS only.
 - If outbound__eventgrid__httpsOnly is set to false, it can be HTTP or HTTPS.
-- If outbound__eventgrid__allowInvalidHostnames is set to false (false by default), it must target one of the following:
+- If outbound__eventgrid__allowInvalidHostnames is set to false (false by default), it must target one of the following endpoints:
    - `eventgrid.azure.net`
    - `eventgrid.azure.us`
    - `eventgrid.azure.cn`
