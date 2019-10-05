@@ -37,18 +37,20 @@ Instead of granting unrestricted permissions to non-administrators, you can gran
 
 Entitlement management has the following roles that are specific to entitlement management.
 
-| Role | Description |
+| Entitlement management role | Description |
 | --- | --- |
 | Catalog creator | Create and manage catalogs. Typically an IT administrator who is not a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add additional catalog owners. A catalog creator can’t manage or see catalogs that they don’t own and can’t add resources they don’t own to a catalog. If the catalog creator needs to manage another catalog or add resources they don’t own, they can request to be a co-owner of that catalog or resource. |
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owners, or a user who the catalog owner has designated. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 
 In addition, a designated approver and a requestor of an access package also have rights, although they are not roles.
- 
-* Approver: Authorized by a policy to approve or deny requests to access packages, though they cannot change the access package definitions.
-* Requestor: Authorized by a policy of an access package to request that access package.
 
-The following table lists the tasks that these roles can perform.
+| Right | Description |
+| --- | --- |
+| Approver | Authorized by a policy to approve or deny requests to access packages, though they cannot change the access package definitions. |
+| Requestor | Authorized by a policy of an access package to request that access package. |
+
+The following table lists the tasks that the entitlement management roles and approver can perform.
 
 | Task | Catalog creator | Catalog owner | Access package manager | Approver |
 | --- | :---: | :---: | :---: | :---: |
