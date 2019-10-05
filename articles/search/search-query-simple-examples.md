@@ -1,18 +1,17 @@
 ---
-title: Create a simple query - Azure Search
-description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Search index.
-author: HeidiSteen
+title: Create a simple query
+titleSuffix: Azure Cognitive Search
+description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Cognitive Search index.
+
 manager: nitinme
-tags: Simple query analyzer syntax
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Create a simple query in Azure Search
+# Create a simple query in Azure Cognitive Search
 
 In Azure Search, the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
 

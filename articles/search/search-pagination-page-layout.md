@@ -1,17 +1,17 @@
 ---
-title: How to work with search results - Azure Search
-description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Search.
-author: HeidiSteen
+title: How to work with search results
+titleSuffix: Azure Cognitive Search
+description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Cognitive Search.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: 
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
-# How to work with search results in Azure Search
+
+# How to work with search results in Azure Cognitive Search
 This article provides guidance on how to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation. Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Search Service. 
 
 In the REST API, requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response. In the .NET SDK, the equivalent API is [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).

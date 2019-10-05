@@ -1,18 +1,18 @@
 ---
-title: Use full Lucene query syntax - Azure Search
-description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
-author: HeidiSteen
+title: Use full Lucene query syntax
+titleSuffix: Azure Cognitive Search
+description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Cognitive Search service.
+
 manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 tags: Lucene query analyzer syntax
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Use the "full" Lucene search syntax (advanced queries in Azure Search)
+# Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
 
 When constructing queries for Azure Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more expansive [Lucene Query Parser in Azure Search](query-lucene-syntax.md) to formulate specialized and advanced query definitions. 
 

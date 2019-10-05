@@ -1,16 +1,17 @@
 ---
-title: 'C# Tutorial: Index multiple data sources - Azure Search'
-description: Learn how to import data from multiple data sources into a single Azure Search index.
-author: RobDixon22
+title: 'C# Tutorial: Index multiple data sources'
+titleSuffix: Azure Cognitive Search
+description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 06/21/2019
+author: HeidiSteen
 ms.author: heidist
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
-# C# Tutorial: Combine data from multiple data sources in one Azure Search index
+# C# Tutorial: Combine data from multiple data sources in one Azure Cognitive Search index
 
 Azure Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 

@@ -1,13 +1,14 @@
 ---
-title: OData full-text search function reference - Azure Search
-description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData full-text search function reference
+titleSuffix: Azure Cognitive Search
+description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData full-text search functions in Azure Search - `search.ismatch` and `search.ismatchscoring`
+# OData full-text search functions in Azure Cognitive Search - `search.ismatch` and `search.ismatchscoring`
 
 Azure Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

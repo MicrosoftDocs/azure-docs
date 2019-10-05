@@ -1,16 +1,17 @@
 ---
-title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview) - Azure Search 
-description: Supplement server-side encryption over indexes and synonym maps in Azure Search through keys that you create and manage in Azure Key Vault.
-author: NatiNimni
+title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview)
+titleSuffix: Azure Cognitive Search
+description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search through keys that you create and manage in Azure Key Vault.
+
 manager: nitinme
+author: NatiNimni
 ms.author: natinimn
-services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.custom: 
 ---
-# Azure Search encryption using customer-managed keys in Azure Key Vault
+
+# Content encryption of Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
 > [!Note]
 > Encryption with customer-managed keys is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. You can also use the .NET SDK version 8.0-preview.

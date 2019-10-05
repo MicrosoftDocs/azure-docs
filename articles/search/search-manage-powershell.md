@@ -1,18 +1,18 @@
 ---
-title: PowerShell scripts using Az.Search module - Azure Search
-description: Create and configure an Azure Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query system information.
-author: HeidiSteen
-manager: nitinme
+title: PowerShell scripts using Az.Search module
+titleSuffix: Azure Cognitive Search
+description: Create and configure an Azure Cognitive Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-services: search
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-
+ms.date: 10/04/2019
 ---
-# Manage your Azure Search service with PowerShell
+
+# Manage your Azure Cognitive Search service with PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)

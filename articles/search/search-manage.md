@@ -1,17 +1,17 @@
 ---
-title: Service administration for Azure Search in the portal - Azure Search
-description: Manage an Azure Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
-author: HeidiSteen
+title: Service administration for Azure Search in the portal
+titleSuffix: Azure Cognitive Search
+description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
+
 manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 tags: azure-portal
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Service administration for Azure Search in the Azure portal
+# Service administration for Azure Cognitive Search in the Azure portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)

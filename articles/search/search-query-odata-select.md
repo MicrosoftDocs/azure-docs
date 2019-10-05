@@ -1,13 +1,14 @@
 ---
-title: OData select reference - Azure Search
-description: OData language reference for select syntax in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData select reference
+titleSuffix: Azure Cognitive Search
+description: OData language reference for select syntax in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData $select syntax in Azure Search
+# OData $select syntax in Azure Cognitive Search
 
  You can use the [OData **$select** parameter](query-odata-filter-orderby-syntax.md) to choose which fields to include in search results from Azure Search. This article describes the syntax of **$select** in detail. For more general information about how to use **$select** when presenting search results, see [How to work with search results in Azure Search](search-pagination-page-layout.md).
 

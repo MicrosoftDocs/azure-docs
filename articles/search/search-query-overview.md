@@ -1,15 +1,16 @@
 ---
-title: Query types and composition - Azure Search
-description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
-author: HeidiSteen
+title: Query types and composition
+titleSuffix: Azure Cognitive Search
+description: Basics for building a search query in Azure Cognitive Search, using parameters to filter, select, and sort results.
+
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/04/2019
 ---
-# Query types and composition in Azure Search
+# Query types and composition in Azure Cognitive Search
 
 In Azure Search, a query is a full specification of a round-trip operation. Parameters on the request provide match criteria for finding documents in an index, which fields to include or exclude, execution instructions passed to the engine, and directives for shaping the response. Unspecified (`search=*`), a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 

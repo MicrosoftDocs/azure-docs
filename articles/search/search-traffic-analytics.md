@@ -1,17 +1,18 @@
 ---
-title: implement search traffic analytics - Azure Search
-description: Enable search traffic analytics for Azure Search to add telemetry and user-initiated events to log files.
-author: HeidiSteen
+title: Implement search traffic analytics in your client app
+titleSuffix: Azure Cognitive Search
+description: Enable search traffic analytics to add telemetry and user-initiated events to log files.
+
 manager: nitinme
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Implement search traffic analytics in Azure Search
+# Implement search traffic analytics in your client app
+
 Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data and how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.

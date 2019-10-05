@@ -1,13 +1,14 @@
 ---
-title: OData collection operator reference - Azure Search
-description: OData collection operators, any and all, and lambda expressions in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData collection operator reference
+titleSuffix: Azure Cognitive Search
+description: OData collection operators, any and all, and lambda expressions in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,8 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData collection operators in Azure Search - `any` and `all`
+
+# OData collection operators in Azure Cognitive Search - `any` and `all`
 
 When writing an [OData filter expression](query-odata-filter-orderby-syntax.md) to use with Azure Search, it is often useful to filter on collection fields. You can achieve this using the `any` and `all` operators.
 

@@ -1,17 +1,17 @@
 ---
-title: Security filters for trimming results - Azure Search
-description: Access control on Azure Search content using security filters and user identities.
-ms.service: search
-ms.topic: conceptual
-services: search
-ms.date: 05/02/2019
+title: Security filters for trimming results
+titleSuffix: Azure Cognitive Search
+description: Access control on Azure Cognitive Search content using security filters and user identities.
+
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
-ms.custom: seodec2018
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
-# Security filters for trimming results in Azure Search
+# Security filters for trimming results in Azure Cognitive Search
 
 You can apply security filters to trim search results in Azure Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
 

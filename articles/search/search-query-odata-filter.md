@@ -1,13 +1,14 @@
 ---
-title: OData filter reference - Azure Search
-description: OData language reference for filter syntax in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData filter reference
+titleSuffix: Azure Cognitive Search
+description: OData language reference for filter syntax in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,8 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData $filter syntax in Azure Search
+
+# OData $filter syntax in Azure Cognitive Search
 
 Azure Search uses [OData filter expressions](query-odata-filter-orderby-syntax.md) to apply additional criteria to a search query besides full-text search terms. This article describes the syntax of filters in detail. For more general information about what filters are and how to use them to realize specific query scenarios, see [Filters in Azure Search](search-filters.md).
 
