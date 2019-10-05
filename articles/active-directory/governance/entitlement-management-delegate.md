@@ -138,4 +138,4 @@ To determine the least privileged role for a task, you can also reference [Admin
 ## Next steps
 
 - [Delegate access governance to catalog creators](entitlement-management-delegate-catalog.md)
-- [Delegate access governance to access package managers](entitlement-management-delegate-managers.md)
+- [Create and manage a catalog of resources](entitlement-management-catalog-create.md)

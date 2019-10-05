@@ -53,6 +53,6 @@ Follow these steps to assign a user to the catalog creator role.
 
 ## Next steps
 
-- [Create and manage a catalog](entitlement-management-catalog-create.md)
+- [Create and manage a catalog of resources](entitlement-management-catalog-create.md)
 - [Delegate access governance to access package managers](entitlement-management-delegate-managers.md)
 
