@@ -5,7 +5,7 @@ summary: Learn how to use Personalizer to allow your application to choose the b
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/10/2019
+  ms.date: 10/03/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -23,6 +23,10 @@ landingContent:
         links:
           - text: What is Personalizer?
             url: what-is-personalizer.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md            
       - linkListType: concept
         links:
           - text: How Personalizer works

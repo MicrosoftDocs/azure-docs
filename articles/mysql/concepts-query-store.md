@@ -1,6 +1,6 @@
 ---
 title: Query Store in Azure Database for MySQL
-description: This article describes the Query Store feature in Azure Database for MySQL
+description: Learn about the Query Store feature in Azure Database for MySQL to help you track performance over time.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
