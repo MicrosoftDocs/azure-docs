@@ -54,26 +54,6 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Click **Create** to create the catalog.
 
-## Add additional catalog owners
-
-The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
-
-Follow these steps to assign a user to the catalog owner role:
-
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
-
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
-
-1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
-
-1. In the left menu, click **Roles and administrators**.
-
-    ![Catalogs roles and administrators](./media/entitlement-management-shared/catalog-roles-administrators.png)
-
-1. Click **Add owners** to select the members for these roles.
-
-1. Click **Select** to add these members.
-
 ## Add resources to a catalog
 
 To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
@@ -115,6 +95,26 @@ You can remove resources from a catalog. A resource can only be removed from a c
 1. Select the resources you want to remove.
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
+
+## Add additional catalog owners
+
+The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
+
+Follow these steps to assign a user to the catalog owner role:
+
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
+
+1. In the left menu, click **Roles and administrators**.
+
+    ![Catalogs roles and administrators](./media/entitlement-management-shared/catalog-roles-administrators.png)
+
+1. Click **Add owners** to select the members for these roles.
+
+1. Click **Select** to add these members.
 
 ## Edit a catalog
 
