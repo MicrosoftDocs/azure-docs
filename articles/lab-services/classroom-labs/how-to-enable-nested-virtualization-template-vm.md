@@ -22,11 +22,11 @@ This article covers how to set up nested virtualization on a template virtual ma
 ## Considerations
 Before setting up a lab with nested virtualization, here are a few things to take into consideration.
 
-1. When creating a new lab, select **Medium (Nested Virtualization)** or **Large** sizes for the virtual machine size. These virtual machine sizes support nested virtualization.  
-1. Choose a size that will provide good performance for both the host and client virtual machines.  Remember, when using virtualization, the size you choose must be adequate for not just one machine, but the host as well as any client machines that must be run concurrently.
-1. Client virtual machines will not have access to Azure resources, such as DNS servers on the Azure virtual network.  
-1. Host virtual machine requires setup to allow for the client machine to have internet connectivity. 
-1. Client virtual machines are licensed as independent machines. See [Microsoft Licensing](https://www.microsoft.com/licensing/default) for information about licensing for Microsoft operation systems and products. Check licensing agreements for any other software being used before setting up the template machine.
+- When creating a new lab, select **Medium (Nested Virtualization)** or **Large** sizes for the virtual machine size. These virtual machine sizes support nested virtualization. 
+- Choose a size that will provide good performance for both the host and client virtual machines.  Remember, when using virtualization, the size you choose must be adequate for not just one machine, but the host as well as any client machines that must be run concurrently.
+- Client virtual machines will not have access to Azure resources, such as DNS servers on the Azure virtual network.
+- Host virtual machine requires setup to allow for the client machine to have internet connectivity. 
+- Client virtual machines are licensed as independent machines. See [Microsoft Licensing](https://www.microsoft.com/licensing/default) for information about licensing for Microsoft operation systems and products. Check licensing agreements for any other software being used before setting up the template machine.
 
 ## Enable nested virtualization on a template VM
 The steps in this section focus on setting up nested virtualization for Windows Server 2016 or Windows Server 2019. You will use a script to set up template machine with Hyper-V. For an automated solution, see scripts at [Lab Services Hyper-V Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV). The following steps will walk you through how to use the script.

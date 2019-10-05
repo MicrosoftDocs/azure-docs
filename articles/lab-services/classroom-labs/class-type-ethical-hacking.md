@@ -41,10 +41,8 @@ After the template machine is created, start the machine and connect to it to co
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 3. Set up the Metasploitable image. For this example, the [Metasploitable3](https://github.com/rapid7/metasploitable3) image will be used. This image is created to purposely have security vulnerabilities.
 
-    ![Overall image](../media/class-type-ethical-hacking/overall-image.png)
-
 ### Prepare template machine for nested virtualization
-Follow instructions in [this article](how-to-enable-netsted-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization. 
+Follow instructions in [this article](how-to-enable-nested-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization. 
 
 ### Set up a nested virtual machine with Kali Linux Image
 Kali is a Linux distribution that includes tools for penetration testing and security auditing.
