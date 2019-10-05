@@ -19,8 +19,8 @@
   items:
   - name: Entitlement management
     items:
-    - name: Roles
-      href: entitlement-management-roles.md
+    - name: Delegation and roles
+      href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
   - name: Access reviews
@@ -40,8 +40,6 @@
       href: entitlement-management-scenarios.md
     - name: Administrators
       items:
-      - name: Delegation and roles
-        href: entitlement-management-delegate.md
       - name: Delegate to catalog creators
         href: entitlement-management-delegate-catalog.md
       - name: View reports and logs
