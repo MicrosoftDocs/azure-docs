@@ -120,6 +120,8 @@ Follow these steps to assign a user to the catalog owner role:
 
 1. In the left menu, click **Roles and administrators**.
 
+    ![Catalogs roles and administrators](./media/entitlement-management-delegate/catalog-roles-administrators.png)
+
 1. Click **Add owners** to select the members for these roles.
 
 1. Click **Select** to add these members.
@@ -146,6 +148,8 @@ Follow these steps to assign a user to the access package manager role:
 1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
 
 1. In the left menu, click **Roles and administrators**.
+
+    ![Catalogs roles and administrators](./media/entitlement-management-delegate/catalog-roles-administrators.png)
 
 1. Click **Add access package managers** to select the members for these roles.
 

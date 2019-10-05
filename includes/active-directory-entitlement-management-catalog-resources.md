@@ -22,11 +22,13 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. Click **Add resources**.
 
-1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
+1. Click a resource type: **Groups and Teams**, **Applications**, or **SharePoint sites**.
 
     If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](../articles/active-directory/governance/entitlement-management-roles.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Select one or more resources of the type that you would like to add to the catalog.
+
+    ![Add resources to a catalog](./media/active-directory-entitlement-management-catalog-resources/catalog-add-resources.png)
 
 1. When finished, click **Add**.
 
