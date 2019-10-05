@@ -39,7 +39,7 @@ Ensure the zipkin sender is set to web by going to the application.properties fi
 spring.zipkin.sender.type = web
 ```
 
-You can skip the next step if you properly followed our [guide for prepping an Azure Spring Cloud application](./spring-cloud-prepare-app-deployment). Go to your local development environment and edit your `pom.xml` file to include the Spring Cloud Sleuth dependency:
+You can skip the next step if you properly followed our [guide for prepping an Azure Spring Cloud application](spring-cloud-tutorial-prepare-app-deployment.md). Go to your local development environment and edit your `pom.xml` file to include the Spring Cloud Sleuth dependency:
 
 ```xml
 <dependencyManagement>

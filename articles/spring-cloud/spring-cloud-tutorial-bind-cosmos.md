@@ -73,7 +73,7 @@ Cosmos DB has 5 different API types and all of them are supported for binding.
     </dependency>
     ```
 
-1. Apply the new dependency to your application by updating the current deployment or creating a new application. Instructions on how to do that can be found [here](./spring-cloud-tutorial-launch-cli).
+1. Apply the new dependency to your application by updating the current deployment or creating a new application. Instructions on how to do that can be found [here](spring-cloud-quickstart-launch-app-cli.md).
 
 1. Go to your Azure Spring Cloud service page in the Azure portal. Then go to the **Application Dashboard** and click the application which you want to bind to Cosmos DB (the same application you updated or deployed in the previous step). Next, choose `Service binding` and click the `Create service binding` button. Fill out the form, being sure to select **Binding type** `Azure Cosmos DB`, the same API type you added the dependency for, the same database name you used earlier, and the same Cosmos DB account you used earlier.
 
