@@ -43,7 +43,6 @@ Using entity linking in various languages requires using a corresponding knowled
 | Quantity      | Number        | "6", "six"     |
 | Quantity      | Percentage    | "50%", "fifty percent"|
 | Quantity      | Ordinal       | "2nd", "second"     |
-| Quantity      | NumberRange   | "4 to 8"     |
 | Quantity      | Age           | "90 day old", "30 years old"    |
 | Quantity      | Currency      | "$10.99"     |
 | Quantity      | Dimension     | "10 miles", "40 cm"     |
@@ -55,7 +54,6 @@ Using entity linking in various languages requires using a corresponding knowled
 | DateTime      | TimeRange     | "6pm to 7pm"     |
 | DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | Set           | "every Tuesday"     |
-| DateTime      | TimeZone      |    |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 

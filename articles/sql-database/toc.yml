@@ -6,6 +6,8 @@
     href: sql-database-technical-overview.md
   - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Feature comparison
+    href: sql-database-features.md
   - name: Release notes
     href: sql-database-release-notes.md
   - name: Gateway IP migration updates
@@ -162,7 +164,7 @@
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
       href: sql-database-service-tiers-prs.md
-  - name: Compute & storage
+  - name: Service tiers
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -300,6 +302,8 @@
           href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Virtual network endpoints - PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Private Link
+        href: sql-database-private-endpoint-overview.md
     - name: Access control
       items:
       - name: Access control
@@ -331,7 +335,7 @@
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
     - name: Security attributes
-      href: sql-database-security-attributes.md
+      href: sql-database-security-controls.md
     - name: Feature restrictions
       href: sql-database-feature-restrictions.md
   - name: Scalability
@@ -390,10 +394,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: SQL Database feature documentation
+    - name: Overview
       href: sql-database-features-index.yml
-    - name: SQL features comparison
-      href: sql-database-features.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
@@ -512,6 +514,8 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Restore point in time
+      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
     - name: Create new VNet and subnet for managed instance
@@ -582,6 +586,8 @@
         href: sql-database-xevent-code-ring-buffer.md
   - name: Configure features
     items:
+    - name: Configure failover group
+      href: sql-database-configure-failover-group.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
     - name: Conditional Access
@@ -772,29 +778,35 @@
   items:
   - name: Glossary of terms
     href: sql-database-glossary-terms.md
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-sql-database
-  - name: SQL Server Blog
-    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
-  - name: Microsoft Azure Blog
-    href: https://azure.microsoft.com/blog/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Public data sets
-    href: sql-database-public-data-sets.md  
-  - name: Troubleshoot connectivity
-    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Architecture center
     href: /azure/architecture/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Microsoft Azure Blog
+    href: https://azure.microsoft.com/blog/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Public data sets
+    href: sql-database-public-data-sets.md  
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/sql-azure
+  - name: Troubleshoot
+    items:
+    - name: Connectivity issues
+      href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+    - name: Problem Resolution
+      items: 
+      - name: Import/Export service hangs
+        href: azure-sql-database-hangs-importing-exporting.md
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database

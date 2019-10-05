@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -168,9 +168,6 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with managed instances
 
-> [!IMPORTANT]
-> Auto-failover groups for Managed Instance is in public preview.
-
 The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. 
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
@@ -185,6 +182,9 @@ If your application uses managed instance as the data tier, follow these general
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
   To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API. 
+
+> [!IMPORTANT]
+> First instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.   
 
   For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
@@ -232,6 +232,10 @@ If your application uses managed instance as the data tier, follow these general
 
   > [!IMPORTANT]
   > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
+
+- **Acknowledge known limitations of failover groups**
+
+  Database rename and instance resize are not supported for instances in failover group. You will need to temporarily delete failover group to be able to preform these actions.
 
 ## Failover groups and network security
 
@@ -353,7 +357,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
-### REST API: Manage failover groups with Managed Instances (preview)
+### REST API: Manage failover groups with Managed Instances
 
 | API | Description |
 | --- | --- |

@@ -112,18 +112,19 @@ The following offers are SKUs are currently available for general use:
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Linux Agent | RHEL 7 family of images. <br> Not attached to EUS repositories by default.
-|             | 7-LVM    | LVM    | Linux Agent | RHEL 7 family of images. <br> Not attached to EUS repositories by default.
-|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7 family of images. <br> Not attached to EUS repositories by default.
-|             | 6.7      | RAW    | Linux Agent | RHEL 6.7 images, old naming convention
-|             | 6.8      | RAW    | Linux Agent | Same as above for RHEL 6.8
-|             | 6.9      | RAW    | Linux Agent | Same as above for RHEL 6.9
-|             | 6.10     | RAW    | Linux Agent | Same as above for RHEL 6.10
-|             | 7.2      | RAW    | Linux Agent | Same as above for RHEL 7.2
-|             | 7.3      | RAW    | Linux Agent | Same as above for RHEL 7.3
-|             | 7.4      | RAW    | Linux Agent | Same as above for RHEL 7.4. <br> Attached to EUS repositories by default as of April 2019
-|             | 7.5      | RAW    | Linux Agent | Same as above for RHEL 7.5. <br> Attached to EUS repositories by default as of June 2019
-|             | 7.6      | RAW    | Linux Agent | Same as above for RHEL 7.6. <br> Attached to EUS repositories by default as of May 2019
+RHEL          | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Not attached to EUS repositories by default.
+|             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Not attached to EUS repositories by default.
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7.x family of images. <br> Not attached to EUS repositories by default.
+|             | 6.7      | RAW    | Linux Agent |
+|             | 6.8      | RAW    | Linux Agent |
+|             | 6.9      | RAW    | Linux Agent |
+|             | 6.10     | RAW    | Linux Agent |
+|             | 7.2      | RAW    | Linux Agent |
+|             | 7.3      | RAW    | Linux Agent |
+|             | 7.4      | RAW    | Linux Agent | Attached to EUS repositories by default as of April 2019.
+|             | 7.5      | RAW    | Linux Agent | Attached to EUS repositories by default as of June 2019.
+|             | 7.6      | RAW    | Linux Agent | Attached to EUS repositories by default as of May 2019.
+|             | 7.7      | LVM    | Linux Agent | Attached to EUS repositories by default.
 RHEL-SAP      | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps
 |             | 7.5      | LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps
 RHEL-SAP-HANA | 6.7      | RAW    | Linux Agent | RHEL 6.7 for SAP HANA

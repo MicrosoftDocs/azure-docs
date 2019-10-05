@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 01/16/2019
+ ms.date: 09/12/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -17,7 +17,7 @@ Generate the CA certificate.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Print the CA certificate in base64 format. This is the format that is supported by Azure. You will later upload this to Azure as part of your P2S configuration.
+Print the CA certificate in base64 format. This is the format that is supported by Azure. You upload this certificate to Azure as part of the [P2S configuration steps](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

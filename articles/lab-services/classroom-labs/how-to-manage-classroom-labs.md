@@ -91,9 +91,11 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 | ---- | ----- | --- | ----------- | 
 | Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
 | Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
-| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student need multiple VMs. Teachers can use nested virtualization to set up a few small size nested virtual machines inside the virtual machine. </p> |
+| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Teachers can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
 | Large | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization |  
-| GPU | 12 | 112 GB | This size is best suited for compute-intensive, graphics-intensive, and visualization workloads | 
+| Small GPU (Visualization) | 6 | 56 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
+| Small GPU (Compute) | 6 | 56 GB | This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications. | 
+| Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).

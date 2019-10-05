@@ -57,7 +57,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
 
-Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). Additionally, when a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
+Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNET configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
 
 Private virtual IP (VIP) addresses are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -98,5 +98,6 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
 * Azure Virtual Network is added to or removed from the service.
+* API Management service is switched between External and Internal Vnet deployment mode.
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.

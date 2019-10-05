@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 ## Create an Amazon application
 
-To use an Amazon account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don't already have an Amazon account you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
+To use an Amazon account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have an Amazon account you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
 
 1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
 1. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.

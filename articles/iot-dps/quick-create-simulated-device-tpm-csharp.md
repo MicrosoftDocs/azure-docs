@@ -22,6 +22,7 @@ The sample code uses the Windows TPM simulator as the [Hardware Security Module 
 If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
+
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 - [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
@@ -37,18 +38,16 @@ This article will demonstrate individual enrollments.
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 1. Open a command prompt or Git Bash. Clone the Azure IoT Samples for C# GitHub repo:
-    
+
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## Provision the simulated device
 
-
 1. Sign in to the Azure portal. Click the **All resources** button on the left-hand menu and open your Device Provisioning service. From the **Overview** blade, note down the **_ID Scope_** value.
 
     ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
-
 
 2. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
@@ -62,7 +61,7 @@ This article will demonstrate individual enrollments.
     dotnet run <IDScope>
     ```
 
-    This command will launch the TPM chip simulator in a separate command prompt.  
+    This command will launch the TPM chip simulator in a separate command prompt. On Windows, you may encounter a Windows Security Alert that asks whether you want to allow Simulator.exe to communicate on public networks. For the purposes of this sample, you may cancel the request.
 
 1. The command window displays the **_Endorsement Key_**,  the **_Registration ID_**, and a suggested **_Device ID_** needed for device enrollment. Take note of these values. You will use these value to create an individual enrollment in your Device Provisioning Service instance. 
    > [!NOTE]
@@ -91,7 +90,6 @@ This article will demonstrate individual enrollments.
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
-
 
 ## Clean up resources
 

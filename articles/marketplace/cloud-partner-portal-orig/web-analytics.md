@@ -92,7 +92,7 @@ Here is an example:
         <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
     2. Landing Page URL (**Ensure that this URL has utm\_campaign and
         utm\_source added to this URL**) =
-        [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+        [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 How to evaluate the success of a Campaign
 -----------------------------------------

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -53,7 +53,6 @@ To configure the integration of Watch by Colors into Azure AD, you need to add W
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Watch by Colors** in the search box.
 1. Select **Watch by Colors** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Watch by Colors
 
@@ -121,13 +120,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Watch by Colors SSO
 
-1. Open a new web browser window and sign into your Watch by Colors company site as an administrator and perform the following steps:
+1. To automate the configuration within Watch by Colors, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-1. On the top-right corner of the page, click on **profile** > **Account Settings** > **SSO (Single Sign On)**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **setup Watch by Colors** will direct you to the Watch by Colors application. From there, provide the admin credentials to sign into Watch by Colors. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Watch by Colors manually, open a new web browser window and sign into your Watch by Colors company site as an administrator and perform the following steps:
+
+4. On the top-right corner of the page, click on **profile** > **Account Settings** > **SSO (Single Sign On)**.
 
 	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config01.png)
 
-1. On the **SSO (Single Sign On)** page, perform the following steps:
+5. On the **SSO (Single Sign On)** page, perform the following steps:
 
 	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config02.png)
 
@@ -181,5 +188,5 @@ When you click the Watch by Colors tile in the Access Panel, you should be autom
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Slack with Azure AD](https://aad.portal.azure.com/)
+- [Try Watch by Colors with Azure AD](https://aad.portal.azure.com/)
 
