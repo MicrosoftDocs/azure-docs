@@ -44,7 +44,7 @@ Follow these steps to add an external Azure AD directory or a domain as a connec
 
     ![Access package - Policy - Add connected organization - Basics tab](./media/entitlement-management-organization/organization-basics.png)
 
-1. On the **Directories** tab, click **Add connected organization**.
+1. On the **Directories** tab, click **Add connected organization** to open the Select directories pane.
 
 1. Type a domain name to search for the Azure AD directory or domain. You must type the entire domain name.
 
