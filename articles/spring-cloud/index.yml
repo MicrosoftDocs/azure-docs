@@ -42,7 +42,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Prepare a Java Spring app for deployment
-            url: spring-cloud-overview.md ## must update when article checked in
+            url: spring-cloud-tutorial-prepare-app-deployment.md
 
   # Card
   - title: Monitor your application

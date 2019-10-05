@@ -20,7 +20,7 @@ This quickstart shows you how to prepare an existing Java Spring Cloud applicati
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Both Java 8 and Java 11 are supported. The latest Azul Zulu OpenJDK for Azure are used in the hosting environment. Find more details about Azul Zulu OpenJDK for Azure at [here](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install).
+Both Java 8 and Java 11 are supported. The latest Azul Zulu OpenJDK for Azure are used in the hosting environment. Find more details about Azul Zulu OpenJDK for Azure at [here](https://docs.microsoft.com/azure/java/jdk/java-jdk-install).
 
 ## Spring Boot and Spring Cloud versions
 
@@ -159,7 +159,7 @@ Include spring-boot-starter-actuator in the dependencies section of your pom.xml
 
 ### Distributed Tracing
 
-Include spring-cloud-starter-sleuth and spring-cloud-starter-zipkin in the dependencies section of your pom.xml as below. Also, you need to enable an Azure App Insights instance to work with your Azure Spring Cloud service instance. Read more on how to enable App Insights with Azure Spring Cloud [here](./spring-cloud-tutorial-distributed-tracing).
+Include spring-cloud-starter-sleuth and spring-cloud-starter-zipkin in the dependencies section of your pom.xml as below. Also, you need to enable an Azure App Insights instance to work with your Azure Spring Cloud service instance. Read more on how to enable App Insights with Azure Spring Cloud [here](spring-cloud-tutorial-distributed-tracing).
 
 ```xml
 <dependency>

@@ -14,6 +14,10 @@
       href: spring-cloud-quickstart-launch-app-cli.md
     - name: Launch a Java Spring app by using Maven
       href: spring-cloud-quickstart-launch-app-maven.md 
+- name: Tutorials
+  items:
+    - name: Prepare a Java Spring app for deployment
+      href: spring-cloud-tutorial-prepare-app-deployment.md
 - name: Concepts
   items: 
     - name: Service plans and quotas for Azure Spring Cloud
