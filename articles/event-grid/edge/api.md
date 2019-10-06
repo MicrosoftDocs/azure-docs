@@ -471,6 +471,7 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
 **Request**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Response**: HTTP 200
+
 **Payload**:
 ```json
 [
