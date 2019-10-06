@@ -516,6 +516,7 @@ indexingPolicy.setCompositeIndexes(compositeIndexes);
 
  client.replaceCollection(container, null);
 });
+```
 
 To track the index transformation progress on a container, pass a `RequestOptions` object that requests the quota info to be populated, then retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
 
