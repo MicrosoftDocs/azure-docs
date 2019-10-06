@@ -26,7 +26,7 @@ Prerequisites:
 
 Cosmos DB has 5 different API types and all of them are supported for binding.
 
-1. Create an Azure Cosmos DB database. If you need instructions on how to do that, [click here](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal). Note the name of your database; ours is named `testdb`.
+1. Create an Azure Cosmos DB database. If you need instructions on how to do that, [refer to this article](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal). Note the name of your database; ours is named `testdb`.
 
 1. Add one of the following dependencies in your Spring Cloud application's `pom.xml` according to your API type.
     
@@ -89,7 +89,11 @@ Here's an example screenshot for API type `Core(SQL)`. You may see slightly diff
 
 1. To check whether the service binding is correct, click the binding name and verify its detail. The `property` field should be similar to this:
     ```
-    azure.cosmosdb.uri=https:/someaccount.documents.azure.com:443
+    azure.cosmosdb.uri=https:/<some account>.documents.azure.com:443
     azure.cosmosdb.key=abc******
     azure.cosmosdb.database=testdb
     ```
+
+## Next steps
+
+[Find out how to bind the Azure Cache for Redis service to your Azure Spring Cloud service](spring-cloud-bind-redis.md).

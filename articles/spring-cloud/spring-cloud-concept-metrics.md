@@ -53,8 +53,6 @@ Each metric is measured every minute. The Aggregation type indicates how to aggr
 
 We provide some default options for time range, or you can create a custom range.
 
-screenshot???
-
 ### Modifying the granularity of your metric query
 
 By default we provide the metrics for all an Azure Spring Cloud service's applications combined. If you need metrics at a per application or per instance granularity, use the filter function:
@@ -62,4 +60,4 @@ By default we provide the metrics for all an Azure Spring Cloud service's applic
 Click **Add filter**, set the property to **App** and select the target application you want to monitor. You can also use the **Apply splitting** option, which draws separate lines for each app in the chart.
 
 >[!TIP]
-> You can build your own charts in metrics page and pin them to your **Dashboard**. First give your chart a name. Then, click **Pin to dashboard in the top right corner**. Now you can check on your application at your Portal **Dashboard** like the below screenshot.
+> You can build your own charts in metrics page and pin them to your **Dashboard**. First give your chart a name. Then, click **Pin to dashboard in the top right corner**. Now you can check on your application at your Portal **Dashboard**.

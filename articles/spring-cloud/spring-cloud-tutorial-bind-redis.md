@@ -26,12 +26,12 @@ Azure Spring Cloud allows you to bind select Azure services to your applications
 ## Bind Azure Cache for Redis
 
 1. Add the following dependency in your project's `pom.xml`
-```
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+    </dependency>
+    ```
 1. Remove `spring.redis.*` properties, if any, in the `application.properties` file
 
 1. Update current deployment by `az spring-cloud app update` or create a new one for this change by `az spring-cloud app deployment create`.

@@ -82,5 +82,7 @@ landingContent:
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
             url: spring-cloud-howto-cicd.md
+          - text: Use persistent storage in Azure Spring Cloud
+            url: spring-cloud-howto-persistent-storage.md 
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: spring-cloud-overview.md ## must update when article checked in

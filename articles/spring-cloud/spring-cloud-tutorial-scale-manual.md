@@ -34,9 +34,6 @@ To complete this tutorial, you need:
 
 1. Go to the **Scale** tab under the **Settings** heading in the menu on the left side. Now you should see a form with lines for each of the scaling attributes we mentioned earlier, like the screenshot below.
 
-[screenshot]
-
-
 ## Scale your application
 
 Now you can modify the scaling attributes. Keep the following notes in mind.

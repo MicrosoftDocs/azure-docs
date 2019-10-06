@@ -35,24 +35,25 @@ Persistent storage is a file share container managed by Azure that is allocated 
 1. Go to your Azure Spring Cloud service page in the Azure portal and click **Application Dashboard**. Then click the application you want to enable persistent storage for.
 1. In the **Overview** tab, locate the **Persistent Storage** attribute and click on the **Disabled** hyperlinked text.
 1. Click **Enable** to enable persistent storage, and click the **OK** button to apply this change.
-> [!WARNING]
-> *Disabling* persistent storage will deallocate the storage for that application, permanently losing any data that was stored there. 
-1. When persistent storage is enabled, its size and path are shown in **Persistent Storage** attribute of the **Overview** page.
+    > [!WARNING]
+    > *Disabling* persistent storage will deallocate the storage for that application, permanently losing any data that was stored there. 
+
+When persistent storage is enabled, its size and path are shown in **Persistent Storage** attribute of the **Overview** page.
 
 #### Using the Azure CLI
 
-1. Create an app with persistent disk enabled:
-```
-az spring-cloud app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
-```
-2. Enable persistent storage in an existing app:
-```
-az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
-```
-3. Disable persistent storage in an existing app:
-> [!WARNING]
-> Disabling persistent storage will deallocate the storage for that application, permanently losing any data that was stored there. 
+- Create an app with persistent disk enabled:
+    ```
+    az spring-cloud app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
+    ```
+- Enable persistent storage in an existing app:
+    ```
+    az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
+    ```
+- Disable persistent storage in an existing app:
+    > [!WARNING]
+    > Disabling persistent storage will deallocate the storage for that application, permanently losing any data that was stored there. 
 
-```
-az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
-```
+    ```
+    az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
+    ```
