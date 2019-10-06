@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru 
-ms.date: 08/27/2019
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Deploy Azure Function IoT Edge module
 
-This article shows you how deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
+This article shows you how to deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Provide the name, image, and container create options of the container:
 
    * **Name**: subscriber
-   * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest
+   * **Image URI**: `msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
    * **Container Create Options**:
 
        ```json

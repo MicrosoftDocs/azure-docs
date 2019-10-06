@@ -4,8 +4,8 @@ description: Configure webhook subscriber authentication
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/26/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,9 +13,9 @@ services: event-grid
 
 # Configure webhook subscriber authentication
 
-This guide gives examples of the possible webhook subscriber configurations an Event Grid module can be deployed under. By default only HTTPS endpoints are accepted for webhook subscribers and Event Grid module will reject if a self-signed certificate is presented by the subscriber.
+This guide gives examples of the possible webhook subscriber configurations for an Event Grid module. By default, only HTTPS endpoints are accepted for webhook subscribers. The Event Grid module will reject if the subscriber presents a self-signed certificate.
 
-## Example 1: Allow only HTTPS subscriber
+## Allow only HTTPS subscriber
 
 ```json
  {
@@ -27,7 +27,7 @@ This guide gives examples of the possible webhook subscriber configurations an E
 }
  ```
 
-## Example 2: Allow only HTTPS subscriber configured with self-signed certificate
+## Allow HTTPS subscriber with self-signed certificate
 
 ```json
  {
@@ -40,9 +40,9 @@ This guide gives examples of the possible webhook subscriber configurations an E
  ```
 
 >[!NOTE]
->Set the property **outbound:webhook:allowUnknownCA** to **true** only in test environments as you might typically use self-signed certificates. For production workloads we recommend them to be set to **false**.
+>Set the property `outbound:webhook:allowUnknownCA` to `true` only in test environments as you might typically use self-signed certificates. For production workloads we recommend them to be set to **false**.
 
-## Example 3: Allow only HTTPS subscriber but skip subscriber certificate validation
+## Allow HTTPS subscriber but skip certificate validation
 
 ```json
  {
@@ -55,9 +55,9 @@ This guide gives examples of the possible webhook subscriber configurations an E
  ```
 
 >[!NOTE]
->Set the property **outbound:webhook:skipServerCertValidation** to **true** only in test environments as you might not be presenting a certificate that needs to be authenticated. For production workloads we recommend them to be set to **false**
+>Set the property `outbound:webhook:skipServerCertValidation` to `true` only in test environments as you might not be presenting a certificate that needs to be authenticated. For production workloads we recommend them to be set to **false**
 
-## Example 4: Allow both HTTP and HTTPS with self-signed
+## Allow both HTTP and HTTPS with self-signed certificates
 
 ```json
  {
@@ -70,4 +70,4 @@ This guide gives examples of the possible webhook subscriber configurations an E
  ```
 
 >[!NOTE]
->Set the property **outbound:webhook:httpsOnly** to **false** only in test environments as you might want to bring up a HTTP subscriber first. For production workloads we recommend them to be set to **true**
+>Set the property `outbound:webhook:httpsOnly` to `false` only in test environments as you might want to bring up a HTTP subscriber first. For production workloads we recommend them to be set to **true**
