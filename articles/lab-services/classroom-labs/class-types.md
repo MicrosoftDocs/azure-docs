@@ -31,6 +31,13 @@ Students taking these scripting classes get a Linux virtual machine to learn the
 
 For detailed information on how to set up this type of a lab, see [Shell scripting on Linux](class-type-shell-scripting-linux.md).
 
+## Ethical hacking 
+You can set up a lab for a class that focuses on forensics side of ethical hacking. Penetration testing, a practice used by the ethical hacking community, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker may exploit. 
+
+In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a Windows Server host virtual machine that has two nested virtual machines – one virtual machine with **Metaspoiltable** image and another machine with [Kali Linux](https://www.kali.org/) image. The Metasploitable virtual machine is used for exploiting purposes and Kali virtual machine provides access to the tools needed to execute forensic tasks.
+
+For detailed information on how to set up this type of a lab, see [Set up a lab to teach ethical hacking class](class-type-ethical-hacking.md).
+
 ## Next steps
 See the following articles: 
 

@@ -47,6 +47,7 @@ The following sections show Security Center features that are available for thei
 |NSG assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
+|Adaptive network hardening|✔|X|X|✔|X|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
 |Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
