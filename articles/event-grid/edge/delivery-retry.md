@@ -4,8 +4,8 @@ description: Delivery and retry in Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/18/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -16,11 +16,11 @@ services: event-grid
 Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  Currently Event Grid module delivers an event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!IMPORTANT]
->There is no persistence support for event data. This means redeploying or restart of Event Grid module will cause you to lose any events that were not yet delivered.
+>There is no persistence support for event data. This means redeploying or restart of the Event Grid module will cause you to lose any events that aren't yet delivered.
 
-## Retry Schedule
+## Retry schedule
 
-Event Grid waits up to 60 seconds for a response after delivering a message. If the subscriber's endpoint does not ACK the response, then the message will be enqueued in one of our back off queues for subsequent retries.
+Event Grid waits up to 60 seconds for a response after delivering a message. If the subscriber's endpoint doesn't ACK the response, then the message will be enqueued in one of our back off queues for subsequent retries.
 
 There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:-
 
@@ -31,40 +31,37 @@ There are two pre-configured back off queues that determine the schedule on whic
 
 ### How it works
 
-1. Message arrives into Event Grid module. Attempt is made to deliver it immediately.
-
+1. Message arrives into the Event Grid module. Attempt is made to deliver it immediately.
 1. If delivery fails, then the message is enqueued into 1-minute queue and retried after a minute.
-
 1. If delivery continues to fail, then the message is enqueued into 10-minute queue and retried every 10 minutes.
-
 1. Deliveries are attempted until successful or retry policy limits are reached.
 
-## Retry policy Limits
+## Retry policy limits
 
 There are two configurations that determine retry policy. They are:-
 
 * Maximum number of attempts
-* Event TTL
+* Event time-to-live (TTL)
 
-An event will be dropped if either of the limits of the retry policy is reached. The retry schedule itself was described above. Configuration of these limits can be done either for all subscribers or per subscription basis. The below section describes each one is further detail.
+An event will be dropped if either of the limits of the retry policy is reached. The retry schedule itself was described in the Retry Schedule section. Configuration of these limits can be done either for all subscribers or per subscription basis. The following section describes each one is further detail.
 
 ## Configuring defaults for all subscribers
 
-There are two properties `brokers:defaultMaxDeliveryAttempts` and `broker:defaultEventTimeToLiveInSeconds` that can be configured as part of Event Grid deployment, which controls retry policy defaults for all subscribers.
+There are two properties: `brokers:defaultMaxDeliveryAttempts` and `broker:defaultEventTimeToLiveInSeconds` that can be configured as part of the Event Grid deployment, which controls retry policy defaults for all subscribers.
 
 | Property Name | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default 30.
-| `broker:defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default **7200** seconds
+| `broker:defaultMaxDeliveryAttempts` | Maximum number of attempts to deliver an event. Default value: 30.
+| `broker:defaultEventTimeToLiveInSeconds` | Event TTL in seconds after which an event will be dropped if not delivered. Default value: **7200** seconds
 
 ## Configuring defaults per subscriber
 
 You can also specify retry policy limits on a per subscription basis.
-Refer to our [API  documentation](api.md) on how to do configure defaults per subscriber. Subscription level defaults override the module level configurations.
+See our [API  documentation](api.md) for information on how to do configure defaults per subscriber. Subscription level defaults override the module level configurations.
 
 ## Examples
 
-### Set up retry policy in Event Grid module with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
+The following example sets up retry policy in the Event Grid module with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
 {
@@ -84,7 +81,7 @@ Refer to our [API  documentation](api.md) on how to do configure defaults per su
 }
 ```
 
-### Set up Web hook subscription with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
+The following example sets up a Web hook subscription with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
 {

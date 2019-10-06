@@ -4,8 +4,8 @@ description: Event schemas in Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/18/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -18,7 +18,7 @@ Event Grid module accepts and delivers events in JSON format. There are currentl
 * **EventGridSchema**
 * **CustomSchema**
 
-You can configure the schema that a publisher needs to conform to during topic creation. If unspecified, it defaults to **EventGridSchema**. Events that do not conform to the expected schema will be rejected.
+You can configure the schema that a publisher needs to conform to during topic creation. If unspecified, it defaults to **EventGridSchema**. Events that don't conform to the expected schema will be rejected.
 
 Subscribers can also configure the schema in which they want the events delivered. If unspecified, default will be topic's schema.
 Currently subscriber delivery schema has to match its topic's input schema. 
@@ -50,12 +50,12 @@ All events have the following top-level data:
 
 | Property | Type | Required | Description |
 | -------- | ---- | ----------- |-----------
-| topic | string | No | Should match the topic on which it is published. Event Grid populates it with the name of the topic on which it is published if unspecified. |
+| topic | string | No | Should match the topic on which it's published. Event Grid populates it with the name of the topic on which it's published if unspecified. |
 | subject | string | Yes | Publisher-defined path to the event subject. |
 | eventType | string | Yes | Event type for this event source, for example, BlobCreated. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
-| id | string | No | Unique identifier for the event. |
-| data | object | No | Used to capture Event data specific to the publishing entity. |
+| ID | string | No | Unique identifier for the event. |
+| data | object | No | Used to capture event data that's specific to the publishing entity. |
 | dataVersion | string | Yes | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
@@ -79,11 +79,11 @@ All events have the following top-level data:
 
 ## CustomEvent schema
 
-In custom schema, there are no mandatory properties that are enforced like the EventGrid schema. Publishing entity can control the event schema entirely. This provides maximum flexibility and enables scenarios where you have an event-based system already in place and would like to reuse existing events and/or do not want to be tied down to a specific schema.
+In custom schema, there are no mandatory properties that are enforced like the EventGrid schema. Publishing entity can control the event schema entirely. It provides maximum flexibility and enables scenarios where you have an event-based system already in place and would like to reuse existing events and/or don't want to be tied down to a specific schema.
 
 ### Custom schema properties
 
-No mandatory properties. It is up to the publishing entity to determine the payload.
+No mandatory properties. It's up to the publishing entity to determine the payload.
 
 ### Example - Custom Schema Event
 
