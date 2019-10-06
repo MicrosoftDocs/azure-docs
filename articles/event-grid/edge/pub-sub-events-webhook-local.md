@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 08/27/2019
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -25,7 +25,7 @@ To complete this tutorial, you'll need:
 - **Azure Event Grid module on An IoT Edge device**. If you don't have this set up already, follow steps in the [Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article.
 - **Azure Function subscriber module on the same IoT Edge Device**. If you haven't deployed this module already, follow steps in the [Deploy Azure Function IoT Edge module](deploy-func-webhook-module-portal.md) article. 
 
-## Step 1: Create topic
+## Create a topic
 
 As a publisher of an event, you need to create an event grid topic. In Azure Event Grid, a topic refers to an endpoint where publishers can send events to.
 
@@ -68,7 +68,7 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
         ]
    ```
 
-## Step 2: Create event subscription
+## Create an event subscription
 
 Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest.
 
@@ -89,13 +89,11 @@ Subscribers can register for events published to a topic. To receive any event, 
 
     >[!NOTE]
     > The **endpointType** property specifies that the subscriber is a **Webhook**.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you deployed earlier.
-
 2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
-
 3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
 
     ```sh
@@ -121,7 +119,7 @@ Subscribers can register for events published to a topic. To receive any event, 
         }
     ```
 
-## Step 3: Publish event
+## Publish an event
 
 1. Create event.json with the following content. For details about the payload, see our [API documentation](api.md).
 
@@ -140,14 +138,13 @@ Subscribers can register for events published to a topic. To receive any event, 
           }
         ]
     ```
-
 1. Run the following command to publish an event.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01-preview
     ```
 
-## Step 4: Verify event delivery
+## Verify event delivery
 
 1. SSH or RDP into your IoT Edge VM.
 1. Check the subscriber logs:
@@ -191,14 +188,13 @@ Subscribers can register for events published to a topic. To receive any event, 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
-
 * Delete the subscriber module from your IoT Edge device.
 
 ## Next steps
 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
-*Create/update subscription with filters.
-*Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+*Create/update subscription with [filters](advanced-filtering.md).
+*Enable persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 *Follow [documentation](configure-client-auth.md) to configure client authentication
 *Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)

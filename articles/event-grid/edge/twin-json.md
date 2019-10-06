@@ -4,8 +4,8 @@ description: Configuration via Module Twin.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
-ms.reviewer: 
-ms.date: 08/29/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,17 +13,16 @@ services: event-grid
 
 # Module twin JSON schema
 
-Event Grid on IoT Edge integrates with the IoT Edge ecosystem and supports creating topics and subscriptions via the Module Twin.
-It also reports the current metadata state of what all topics and event subscriptions have been successfully created back to the Reported properties on the Module Twin.
+Event Grid on IoT Edge integrates with the IoT Edge ecosystem and supports creating topics and subscriptions via the Module Twin. It also reports the current state of all the topics and event subscriptions to the reported properties on the Module Twin.
 
-> [!CAUTION]
-> Because of limitations in the IoT Edge ecosystem, all array elements in the json below have been encoded to json strings. See the EventSubscription.Filter.EventTypes and EventSubscription.Filter.AdvancedFilters keys below.
+> [!WARNING]
+> Because of limitations in the IoT Edge ecosystem, all array elements in the following json example have been encoded as json strings. See `EventSubscription.Filter.EventTypes` and `EventSubscription.Filter.AdvancedFilters` keys in the following example.
 
 ## Desired properties JSON
 
-* The value of each key-value pair in the Topics section has exactly the same json schema as what is used for `Topic.Properties` on the API when creating topics.
-* The value of each key-value pair in the EventSubscriptions section has exactly the same json schema as what is used for `EventSubscription.Properties` on the API when creating topics.
-* To delete a topic, set its' value to `null` in the desired properties.
+* The value of each key-value pair in the topics section has exactly the same JSON schema that's used for `Topic.Properties` on the API when creating topics.
+* The value of each key-value pair in the **EventSubscriptions** section has exactly the same json schema that's used for `EventSubscription.Properties` on the API when creating topics.
+* To delete a topic, set its value to `null` in the desired properties.
 * Deleting event subscriptions via desired properties is not supported.
 
 ```json
@@ -77,11 +76,11 @@ It also reports the current metadata state of what all topics and event subscrip
 
 ## Reported properties JSON
 
-The reported properties section of the module twin is supposed to show:
+The reported properties section of the module twin includes the following information:
 
 * The set of topics and subscriptions that exist in the module's store
-* Any errors encountered when created desired topics/event subscriptions
-* Any boot up errors (such as desired properties json parsing failed)
+* Any errors encountered when creating desired topics/event subscriptions
+* Any boot up errors (such as desired properties JSON parsing failed)
 
 ```json
 {
