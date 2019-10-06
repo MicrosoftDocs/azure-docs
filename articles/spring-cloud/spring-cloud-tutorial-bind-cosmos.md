@@ -79,11 +79,8 @@ Cosmos DB has 5 different API types and all of them are supported for binding.
 
 > [!NOTE]
 > Use a key space for the database name if you are using Cassandra
->
 
 Here's an example screenshot for API type `Core(SQL)`. You may see slightly different parameters for other API types.
-
-    ![Creating a binding for Cosmos DB(SQL)](../images/service-binding-cosmosdb.png)
 
 1. Restart the application by clicking the **Restart** button on the application page.
 

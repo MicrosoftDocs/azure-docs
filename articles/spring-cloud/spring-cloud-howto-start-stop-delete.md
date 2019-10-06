@@ -14,6 +14,8 @@ ms.author: v-vasuke
 ---
 # How to start, stop, and delete your Azure Spring Cloud application
 
+This is a simple guide on how to change the state of an application in Azure Spring Cloud via both the Azure portal and CLI.
+
 ## Using the Azure portal
 
 Once you have an application deployed, you can **Start**, **Stop**, and **Delete** it via the Azure portal.
