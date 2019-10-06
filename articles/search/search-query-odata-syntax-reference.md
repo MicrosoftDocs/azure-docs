@@ -1,13 +1,14 @@
 ---
-title: OData expression syntax reference - Azure Search
-description: Formal grammar and syntax specification for OData expressions in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData expression syntax reference
+titleSuffix: Azure Cognitive Search
+description: Formal grammar and syntax specification for OData expressions in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData expression syntax reference for Azure Search
+# OData expression syntax reference for Azure Cognitive Search
 
 Azure Search uses [OData expressions](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Search REST API. For example, path expressions are used to refer to sub-fields of complex fields everywhere in the API, such as when listing sub-fields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
 

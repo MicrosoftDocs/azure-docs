@@ -1,13 +1,14 @@
 ---
-title: OData geo-spatial function reference - Azure Search
-description: OData geo-spatial functions, geo.distance and geo.intersects, in Azure Search queries.
-ms.date: 09/13/2019
-services: search
+title: OData geo-spatial function reference
+titleSuffix: Azure Cognitive Search
+description: OData geo-spatial functions, geo.distance and geo.intersects, in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData geo-spatial functions in Azure Search - `geo.distance` and `geo.intersects`
+# OData geo-spatial functions in Azure Cognitive Search - `geo.distance` and `geo.intersects`
 
 Azure Search supports geo-spatial queries in [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `geo.distance` and `geo.intersects` functions. The `geo.distance` function returns the distance in kilometers between two points, one being a field or range variable, and one being a constant passed as part of the filter. The `geo.intersects` function returns `true` if a given point is within a given polygon, where the point is a field or range variable and the polygon is specified as a constant passed as part of the filter.
 

@@ -1,13 +1,14 @@
 ---
-title: OData logical operator reference - Azure Search
-description: OData logical operators, and, or, and not, in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData logical operator reference
+titleSuffix: Azure Cognitive Search
+description: OData logical operators, and, or, and not, in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData logical operators in Azure Search - `and`, `or`, `not`
+# OData logical operators in Azure Cognitive Search - `and`, `or`, `not`
 
 [OData filter expressions](query-odata-filter-orderby-syntax.md) in Azure Search are Boolean expressions that evaluate to `true` or `false`. You can write a complex filter by writing a series of [simpler filters](search-query-odata-comparison-operators.md) and composing them using the logical operators from [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
 

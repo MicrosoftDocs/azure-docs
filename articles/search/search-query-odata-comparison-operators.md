@@ -1,13 +1,14 @@
 ---
-title: OData comparison operator reference - Azure Search
-description: OData comparison operators, eq, ne, gt, lt, ge, and le, in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData comparison operator reference
+titleSuffix: Azure Cognitive Search
+description: OData comparison operators, eq, ne, gt, lt, ge, and le, in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData comparison operators in Azure Search - `eq`, `ne`, `gt`, `lt`, `ge`, and `le`
+# OData comparison operators in Azure Cognitive Search - `eq`, `ne`, `gt`, `lt`, `ge`, and `le`
 
 The most basic operation in an [OData filter expression](query-odata-filter-orderby-syntax.md) in Azure Search is to compare a field to a given value. Two types of comparison are possible -- equality comparison, and range comparison. You can use the following operators to compare a field to a constant value:
 

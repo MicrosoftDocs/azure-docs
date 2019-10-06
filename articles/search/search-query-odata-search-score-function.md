@@ -1,13 +1,14 @@
 ---
-title: OData search.score function reference - Azure Search
-description: OData search.score function in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData search.score function reference
+titleSuffix: Azure Cognitive Search
+description: OData search.score function in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData `search.score` function in Azure Search
+# OData `search.score` function in Azure Cognitive Search
 
 When you send a query to Azure Search without the [**$orderby** parameter](search-query-odata-orderby.md), the results that come back will be sorted in descending order by relevance score. Even when you do use **$orderby**, the relevance score will be used to break ties by default. However, sometimes it is useful to use the relevance score as an initial sort criteria, and some other criteria as the tie-breaker. The `search.score` function allows you to do this.
 

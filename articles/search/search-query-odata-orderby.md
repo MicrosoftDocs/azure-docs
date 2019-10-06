@@ -1,13 +1,14 @@
 ---
-title: OData order-by reference - Azure Search
-description: OData language reference for order-by syntax in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData order-by reference
+titleSuffix: Azure Cognitive Search
+description: OData language reference for order-by syntax in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData $orderby syntax in Azure Search
+# OData $orderby syntax in Azure Cognitive Search
 
  You can use the [OData **$orderby** parameter](query-odata-filter-orderby-syntax.md) to apply a custom sort order for search results in Azure Search. This article describes the syntax of **$orderby** in detail. For more general information about how to use **$orderby** when presenting search results, see [How to work with search results in Azure Search](search-pagination-page-layout.md).
 

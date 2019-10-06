@@ -1,16 +1,16 @@
 ---
-title: Create an index definition and concepts - Azure Search
-description: Introduction to index terms and concepts in Azure Search, including component parts and physical structure.
-author: HeidiSteen
+title: Create an index definition and concepts
+titleSuffix: Azure Cognitive Search
+description: Introduction to index terms and concepts in Azure Cognitive Search, including component parts and physical structure.
+
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Create a basic index in Azure Search
+# Create a basic index in Azure Cognitive Search
 
 In Azure Search, an *index* is a persistent store of *documents* and other constructs used for filtered and full text search on an Azure Search service. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 

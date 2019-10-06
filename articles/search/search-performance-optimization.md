@@ -1,17 +1,18 @@
 ---
-title: Deployment strategies and best practices for optimizing performance - Azure Search
-description: Learn techniques and best practices for tuning Azure Search performance and configuring optimum scale.
-author: LiamCavanagh
+title: Deployment strategies and best practices for optimizing performance
+titleSuffix: Azure Cognitive Search
+description: Learn techniques and best practices for tuning Azure Cognitive Search performance and configuring optimum scale.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 03/02/2019
+author: LiamCavanagh
 ms.author: liamca
-ms.custom: seodec2018
+ms.devlang: rest-api
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
-# Deployment strategies and best practices for optimizing performance on Azure Search
+
+# Deployment strategies and best practices for optimizing performance on Azure Cognitive Search
 
 This article describes best practices for advanced scenarios with sophisticated requirements for scalability and availability. 
 

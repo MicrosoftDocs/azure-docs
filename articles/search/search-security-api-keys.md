@@ -1,19 +1,17 @@
 ---
-title: Create, manage, and secure admin and query api-keys - Azure Search
-description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
-author: HeidiSteen
-manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: heidist
+title: Create, manage, and secure admin and query api-keys
+titleSuffix: Azure Cognitive Search
+description: An api-key controls access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
-# Create and manage api-keys for an Azure Search service
+# Create and manage api-keys for an Azure Cognitive Search service
 
 All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 

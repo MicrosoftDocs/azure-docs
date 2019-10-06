@@ -1,17 +1,17 @@
 ---
-title: Choose a pricing tier or SKU for Azure Search service - Azure Search
-description: 'Azure Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
-services: search
-author: HeidiSteen
+title: Choose a pricing tier or SKU for Azure Search service
+titleSuffix: Azure Cognitive Search
+description: 'Azure Cognitive Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
+
 manager: nitinme
-tags: 
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/15/2019
-ms.author: heidist
+ms.date: 10/04/2019
 ---
 
-# Choose a pricing tier for Azure Search
+# Choose a pricing tier for Azure Cognitive Search
 
 When you create an Azure Search service, a [resource is created](search-create-service-portal.md) at a pricing tier (or SKU) that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
 

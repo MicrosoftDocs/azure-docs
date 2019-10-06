@@ -1,16 +1,16 @@
 ---
-title: Security filters to trim results using Active Directory - Azure Search
-description: Access control on Azure Search content using security filters and Azure Active Directory (AAD) identities.
-author: brjohnstmsft
+title: Security filters to trim results using Active Directory
+titleSuffix: Azure Cognitive Search
+description: Access control on Azure Cognitive Search content using security filters and Azure Active Directory (AAD) identities.
+
 manager: nitinme
-services: search
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/07/2017
-ms.author: brjohnst
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Security filters for trimming Azure Search results using Active Directory identities
+# Security filters for trimming Azure Cognitive Search results using Active Directory identities
 
 This article demonstrates how to use Azure Active Directory (AAD) security identities together with filters in Azure Search to trim search results based on user group membership.
 

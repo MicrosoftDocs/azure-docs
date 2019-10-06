@@ -1,16 +1,18 @@
 ---
-title: Monitor resource usage and query metrics for an search service - Azure Search
-description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
-author: HeidiSteen
+title: Monitor resource usage and query metrics 
+titleSuffix: Azure Cognitive Search
+description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
+
 manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 tags: azure-portal
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/16/2019
-ms.author: heidist
+ms.date: 10/04/2019
 ---
-# Monitor resource consumption and query activity in Azure Search
+
+# Monitor resource consumption and query activity in Azure Cognitive Search
 
 In the Overview page of your Azure Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
 

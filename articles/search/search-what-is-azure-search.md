@@ -1,15 +1,16 @@
 ---
-title: Introduction to Azure Search - Azure Search
-description: Azure Search is a fully managed hosted cloud search service from Microsoft. Review feature descriptions, the development workflow, comparisons to other Microsoft search products, and how to get started.
+title: Introduction to Azure Cognitive Search
+titleSuffix: Azure Cognitive Search
+description: AzureCognitive  Search is a fully managed hosted cloud search service from Microsoft. Read feature descriptions, the development workflow, comparisons to other Microsoft search products, and how to get started.
+
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 09/03/2019
 ms.author: heidist
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
-# What is Azure Search?
+# What is Azure Cognitive Search?
 
 Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 

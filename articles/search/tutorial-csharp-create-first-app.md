@@ -1,15 +1,17 @@
 ---
-title: C# tutorial to create your first app - Azure Search
-description: This tutorial provides a step-by-step guide to building your first app for Azure Search. The tutorial provides both a link to a working app on GitHub, and the complete process to build the app from scratch. Learn about the essential components of Azure Search.
-services: search
+title: C# tutorial to create your first app
+titleSuffix: Azure Cognitive Search
+description: Learn how to build your first search app step by step. The tutorial provides both a link to a working app on GitHub, and the complete process to build the app from scratch. Learn about the essential components of Azure Cognitive Search.
+
+manager: nitinme
+author: PeterTurcan
+ms.author: v-pettur
 ms.service: search
 ms.topic: tutorial
-ms.author: v-pettur
-author: PeterTurcan
-ms.date: 05/01/2019
+ms.date: 10/04/2019
 ---
 
-# C# tutorial: Create your first app - Azure Search
+# C# tutorial: Create your first app - Azure Cognitive Search
 
 Learn how to create a web interface to query and present search results from an index using Azure Search. This tutorial starts with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 

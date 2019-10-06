@@ -1,16 +1,17 @@
 ---
-title: Security and data privacy - Azure Search
-description: Azure Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
-author: HeidiSteen
+title: Security and data privacy
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in filter expressions.
+
 manager: nitinme
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Security and data privacy in Azure Search
+
+# Security and data privacy in Azure Cognitive Search
 
 Comprehensive security features and access controls are built into Azure Search to ensure private content remains that way. This article enumerates the security features and standards compliance built into Azure Search.
 

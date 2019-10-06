@@ -1,13 +1,14 @@
 ---
-title: OData search.in function reference - Azure Search
-description: OData search.in function in Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData search.in function reference
+titleSuffix: Azure Cognitive Search
+description: OData search.in function in Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData `search.in` function in Azure Search
+# OData `search.in` function in Azure Cognitive Search
 
 A common scenario in [OData filter expressions](query-odata-filter-orderby-syntax.md) is to check whether a single field in each document is equal to one of many possible values. For example, this is how some applications implement [security trimming](search-security-trimming-for-azure-search.md) -- by checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query. One way to write a query like this is to use the [`eq`](search-query-odata-comparison-operators.md) and [`or`](search-query-odata-logical-operators.md) operators:
 
