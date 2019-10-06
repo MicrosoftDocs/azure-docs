@@ -55,19 +55,19 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-```Azure CLI
-az login
-az account list -o table
-az account set --subscription
-```
+    ```azurecli
+        az login
+        az account list -o table
+        az account set --subscription
+    ```
 
 2. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+
 3. Create a resource group to contain your Azure Spring Cloud service.
 
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-
     Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).
 
 4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
@@ -87,7 +87,7 @@ az account set --subscription
 
 ## Setup your configuration server
 
-1. Update your config-server with the location of the git repository for our project:
+Update your config-server with the location of the git repository for our project:
 
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
@@ -97,23 +97,23 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 
 1. Create a new folder and clone the sample app repository to your Azure Cloud account.  
 
-```azurecli
-mkdir source-code
-git clone https://github.com/Azure-Samples/piggymetrics
-```
+    ```azurecli
+        mkdir source-code
+        git clone https://github.com/Azure-Samples/piggymetrics
+    ```
 
 2. Change directory and build the project.
 
-```azurecli
-cd PiggyMetrics
-mvn clean package -D skipTests
-```
+    ```azurecli
+        cd PiggyMetrics
+        mvn clean package -D skipTests
+    ```
 
 Compiling the project takes about 5 minutes.  Once completed, you should have individual JAR files for each service in their respective folders.
 
 ## Create the microservices
 
-1. Create Spring Cloud microservices using the JAR files built in the previous step. You will create three microservices: **gateway**, **auth-service**, and **account-service**.
+Create Spring Cloud microservices using the JAR files built in the previous step. You will create three microservices: **gateway**, **auth-service**, and **account-service**.
 
 ```azurecli
 az spring-cloud app create --name gateway
@@ -126,7 +126,7 @@ az spring-cloud app create --name account-service
 
 ## Deploy applications and set environment variables
 
-1. Finally, we need to actually deploy our applications to Azure. Use the following commands to deploy all three applications:
+We need to actually deploy our applications to Azure. Use the following commands to deploy all three applications:
 
 ```azurecli
 az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
@@ -136,7 +136,7 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## Assign public endpoint to gateway
 
-Finally, we need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
+We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
