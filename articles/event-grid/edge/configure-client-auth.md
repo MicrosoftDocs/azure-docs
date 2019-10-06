@@ -15,7 +15,7 @@ services: event-grid
 
 This guide gives examples of the possible client authentication configurations for the Event Grid module. The Event Grid module supports two types of client authentication:-
 
-* Shared Access Signature (SAS) key-based
+* Shared access signature (SAS) key-based
 * Certificate-based
 
 See [Security and authentication](security-authentication.md) guide for all the possible configurations.
