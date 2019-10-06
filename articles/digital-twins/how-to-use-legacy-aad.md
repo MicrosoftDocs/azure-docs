@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/03/2019
 ---
 
 # Register your Azure Digital Twins app with Azure Active Directory legacy
