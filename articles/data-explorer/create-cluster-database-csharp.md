@@ -69,10 +69,10 @@ For running the examples in this article, we need an Azure AD Application and se
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
-   | clusterName | *mykustocluster* | The wanted name of your cluster.|
+   | clusterName | *mykustocluster* | The desired name of your cluster.|
    | skuName | *Standard_D13_v2* | The SKU that will be used for your cluster. |
    | tier | *Standard* | The SKU tier. |
-   | capacity | *number* | The number of the instances of the cluster. |
+   | capacity | *number* | The number of instances of the cluster. |
    | resourceGroupName | *testrg* | The resource group name where the cluster will be created. |
 
     > [!NOTE]

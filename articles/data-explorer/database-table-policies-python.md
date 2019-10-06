@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# Create database/table policies for Azure Data Explorer by using Python
+# Create database and table policies for Azure Data Explorer by using Python
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you create database/table policies for Azure Data Explorer using Python.
 
@@ -30,9 +30,9 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from the step of creating [A test cluster and database](create-cluster-database-csharp.md). If you want to use a different Azure AD Application, Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, check [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/bs-latn-ba/azure/data-explorer/manage-database-permissions).   
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from [a test cluster and database](create-cluster-database-csharp.md#authentication). If you want to use a different Azure AD Application, see [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, see [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/bs-latn-ba/azure/data-explorer/manage-database-permissions).    
 
-## Alter database's retention policy
+## Alter database retention policy
 Sets a retention policy with a 10 day soft-delete period.
 
 ```python
@@ -60,13 +60,13 @@ resource_group_name = "testrg";
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
-#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, see https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
                                            parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10)))
 ```
 
-## Alter a database's cache policy
-Sets a cache policy for the database that the last five days of data and indexes will be on the cluster SSD.
+## Alter database cache policy
+Sets a cache policy for the database that the last five days of data will be on the cluster SSD.
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -93,12 +93,12 @@ resource_group_name = "testrg";
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
-#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, see https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
                                            parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5)))
 ```
 
-## Alter a table's cache policy
+## Alter table cache policy
 Sets a cache policy for the table that the last five days of data will be on the cluster SSD.
 
 ```python

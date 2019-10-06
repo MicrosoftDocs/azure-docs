@@ -78,11 +78,11 @@ For running the examples in this article, we need an Azure AD Application and se
    | cluster_name | *mykustocluster* | The desired name of your cluster.|
    | sku_name | *Standard_D13_v2* | The SKU that will be used for your cluster. |
    | tier | *Standard* | The SKU tier. |
-   | capacity | *number* | The number of the instances of the cluster. |
+   | capacity | *number* | The number of instances of the cluster. |
    | resource_group_name | *testrg* | The resource group name where the cluster will be created. |
 
     > [!NOTE]
-    > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, please check [LROPoller class](https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
+    > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, see [LROPoller class](/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
 
 1. Run the following command to check whether your cluster was successfully created:
 
@@ -109,7 +109,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
-	#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+	#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
