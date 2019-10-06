@@ -79,11 +79,11 @@ The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsof
 
 ```dos
 > cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
-> AzureDTExec.exe
-  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx
-  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig
-  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"
-  /Set \package.variables[MyVariable].Value;MyValue
+> AzureDTExec.exe  ^
+  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx  ^
+  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig  ^
+  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"  ^
+  /Set \package.variables[MyVariable].Value;MyValue  ^
   /De MyEncryptionPassword
 ```
 
