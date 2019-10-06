@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
 

@@ -1,13 +1,13 @@
 ---
 title: 'Understand API authentication using Azure Digital Twins | Microsoft Docs'
 description: Learn how to connect to and authenticate with APIs using Azure Digital Twins.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.author: lyhughes
+ms.date: 09/30/2019
 ---
 
 # Connect to and authenticate with APIs
@@ -29,7 +29,10 @@ To integrate an application or service with Azure AD, a developer must first reg
 * Web application to web API: A web application needs to get resources from a web API secured by Azure AD.
 * Daemon or server application to web API: A daemon application or a server application with no web UI needs to get resources from a web API secured by Azure AD.
 
-The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For details on the library and code samples, see [the ADAL.NET Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+> [!IMPORTANT]
+> Azure Digital Twins supports both of the following authentication libraries:
+> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## Call Digital Twins from a middle-tier web API
 
