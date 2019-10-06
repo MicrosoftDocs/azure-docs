@@ -106,24 +106,22 @@ If you encounter a timeout error with a custom skill you have created, there are
 
 The maximum value that you can set for the `timeout` parameter is 230 seconds.  If your custom skill is unable to execute consistently within 230 seconds, you may consider reducing the `batchSize` of your custom skill so that it will have fewer documents to process within a single execution.  If you have already set your `batchSize` to 1, you will need to rewrite the skill to be able to execute in under 230 seconds or otherwise split it into multiple custom skills so that the execution time for any single custom skill is a maximum of 230 seconds. Review the [custom skill documentation](cognitive-search-custom-skill-web-api.md) for more information.
 
-## Could not '`MergeOrUpload`' | '`Delete`' document to the search index
+### Could not '`MergeOrUpload`' | '`Delete`' document to the search index
 
-When pushing data into its target index, an indexer might encounter errors under a few different circumstances. If these circumstances persist even after a few retry attempts, the indexer will reach a state of `transientFailure`; documents that didn't get pushed to the index show up as errors when you monitor the [indexer execution status](search-howto-monitor-indexers.md). Depending on the type of document operation, the error could state that `MergeOrUpload` failed, or `Delete` failed. The indexer error message will also contain a brief note about which circumstance resulted in the failure.
+The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
 
-The following circumstances could result in such error messages:
-
-* If the search service is under **heavy load**, an indexer might have intermittent trouble establishing connection with the target index. We try to perform a best effort retry of the indexing operation under such circumstances. Retries might not be effective if the heavy load is persistent. If you see such instances too often, we recommend that you scale up your search service appropriately.
-
-* If the search service is being patched for regular service updates, or it is in the middle of a topology reconfiguration (addition/removal of replicas/partitions) the indexing operations could fail due to the **transitioning nature of the search service**. If such occurrences happen too often, per our [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/), we recommend you configure your search service with at least three replicas.
-
-* There are occasions when the underlying compute or network infrastructure could have **unexpected failures**. Such occasions should be rare, but could result in the indexing operations failing as well if they persist for long durations.
-
-All of the above circumstances are **transient**. We recommend that you configure indexers to [run on a schedule](search-howto-schedule-indexers.md), so that the next scheduled execution of your indexer can pick up from where it last left off. Once the transient condition is mitigated, the indexer will make progress.
+| Reason | Example | Action |
+| --- | --- | --- |
+| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
+| Failed to establish connection to update index. Search service is under heavy load. | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | [Scale up your search service](search-capacity-planning)
+| Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Failed to establish connection to update index. An unknown failure occurred. | Failure in the underlying compute/networking resource (rare) | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
 
 By default, on encountering any of these transient errors, indexer execution will stop - if you want indexers to ignore these errors (and skip over "failed documents"), consider updating the `maxFailedItems` and `maxFailedItemsPerBatch` as described [here](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Each failed document along with its document key will show up as an error in the indexer execution status. You can utilize the [index api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to manually upload the documents at a later point if you have set the indexer to not terminate on failure.
+> Each failed document along with its document key will show up as an error in the indexer execution status. You can utilize the [index api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to manually upload the documents at a later point if you have set the indexer to tolerate failure.
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
