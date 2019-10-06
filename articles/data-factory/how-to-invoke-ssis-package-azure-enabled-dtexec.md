@@ -102,7 +102,7 @@ Invoking **AzureDTExec** offers similar options as invoking **dtexec**, see [dte
 > [!NOTE]
 Invoking **AzureDTExec** with new values for its options will generate a new pipeline except for the option **/De[cript]**.
 
-## Next
+## Next steps
 
 Once unique pipelines with Execute SSIS Package activity in them are generated and run after invoking **AzureDTExec**, they can be monitored on ADF portal. See [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.
 
