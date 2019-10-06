@@ -15,6 +15,9 @@ ms.author: billmath
 # Understanding Azure AD Connect 1.4.xx.x and device disappearance
 With version 1.4.xx.x of Azure AD Connect, some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. This change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join.
 
+[!WARNING]
+Devive registration with federated domain does not reqire syncing devices to Azure AD using AD connect. So you may have device objects without the correct certificate populated under userCertificate attribute. Those devices will be deleted from Azure AD with this version, and to fix them, you need to rejoin them again by running the commands "dsregcmd /leave" and "dsregcmd /join" (you can run these commands using GPO).
+
 If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow the deletions to go through. [How To: allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## Background
