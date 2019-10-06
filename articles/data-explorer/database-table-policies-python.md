@@ -11,7 +11,7 @@ ms.date: 09/24/2019
 
 # Create database and table policies for Azure Data Explorer by using Python
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you create database/table policies for Azure Data Explorer using Python.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you create database and table policies for Azure Data Explorer using Python.
 
 ## Prerequisites
 
