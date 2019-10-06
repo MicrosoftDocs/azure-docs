@@ -4,21 +4,19 @@ description: Advanced filtering in Event Grid on IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
-ms.reviewer: 
-ms.date: 08/29/2019
+ms.reviewer: spelluru
+ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
 ---
 
 # Advanced filtering
-
-Event Grid allows specifying filters on any property in the json payload. These filters are modeled as set of `AND` conditions, with each outer condition having optional inner `OR` conditions. For each `AND` condition, you specify the:
+Event Grid allows specifying filters on any property in the json payload. These filters are modeled as set of `AND` conditions, with each outer condition having optional inner `OR` conditions. For each `AND` condition, you specify the following values:
 
 * `OperatorType` - The type of comparison.
 * `Key` - The json path to the property on which to apply the filter.
-* (either) `Value` - The reference value against which the filter is run.
-* (or) `Values` - The set of reference values against which the filter is run.
+* `Value` - The reference value against which the filter is run (or) `Values` - The set of reference values against which the filter is run.
 
 ## JSON syntax
 
@@ -43,13 +41,13 @@ The JSON syntax for an advanced filter is as follows:
 
 ## Filtering on array values
 
-Event Grid does not support filtering on array values today. If an incoming event has an array value for the advanced filter's key, matching fails. The incoming event ends up not matching with the Event Subscription.
+Event Grid doesn't support filtering on an array of values today. If an incoming event has an array value for the advanced filter's key, the matching operation fails. The incoming event ends up not matching with the event subscription.
 
 ## AND-OR-NOT semantics
 
-Notice in the json above that `AdvancedFilters` is an array. Think of each `AdvancedFilter` array element as an `AND` condition.
+Notice that in the json example given earlier, `AdvancedFilters` is an array. Think of each `AdvancedFilter` array element as an `AND` condition.
 
-For the operators that support multiple values (such as `NumberIn`, `NumberNotIn`, `StringIn`, etc.), each value is treated as an `OR` condition. Thus a `StringBeginsWith("a", "b", "c")` will match any string value that starts with either `a` or `b` or `c`.
+For the operators that support multiple values (such as `NumberIn`, `NumberNotIn`, `StringIn`, etc.), each value is treated as an `OR` condition. So, a `StringBeginsWith("a", "b", "c")` will match any string value that starts with either `a` or `b` or `c`.
 
 > [!CAUTION]
 > The NOT operators - `NumberNotIn` and `StringNotIn` behave as AND conditions on each value given in the `Values` field.
@@ -58,23 +56,23 @@ For the operators that support multiple values (such as `NumberIn`, `NumberNotIn
 
 ## Floating-point rounding behavior
 
-Event Grid uses the `decimal` .NET type to handle all numeric values. Thus number values specified on the Event Subscription JSON are not subject to floating point rounding behavior.
+Event Grid uses the `decimal` .NET type to handle all numeric values. The number values specified in the event subscription JSON aren't subject to floating point rounding behavior.
 
 ## Case sensitivity of string filters
 
-All String comparisons are case-insensitive. There is no way to change this behavior today.
+All string comparisons are case-insensitive. There's no way to change this behavior today.
 
 ## Allowed advanced filter keys
 
 The `Key` property can either be a well-known top-level property, or be a json path with multiple dots, where each dot signifies stepping into a nested json object.
 
-Event Grid does not have any special meaning for the `$` character in the Key, unlike the JSONPath specification.
+Event Grid doesn't have any special meaning for the `$` character in the Key, unlike the JSONPath specification.
 
 ### Event grid schema
 
 For events in the Event Grid schema:
 
-* Id
+* ID
 * Topic
 * Subject
 * EventType
@@ -84,7 +82,7 @@ For events in the Event Grid schema:
 
 ### Custom event schema
 
-There is no restriction on the `Key` in Custom Event Schema since Event Grid does not enforce any envelope schema on the payload.
+There's no restriction on the `Key` in custom event schema since Event Grid doesn't enforce any envelope schema on the payload.
 
 ## Numeric single-value filter examples
 
