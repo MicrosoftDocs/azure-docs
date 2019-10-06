@@ -40,6 +40,8 @@
       href: spring-cloud-howto-cicd.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md 
+    - name: How to start, stop, and delete an Azure Spring Cloud application
+    - href: spring-cloud-howto-start-stop-delete.md
 - name: Reference
   items: 
     - name: The Azure CLI

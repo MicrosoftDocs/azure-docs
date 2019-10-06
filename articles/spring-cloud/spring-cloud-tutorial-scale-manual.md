@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.reviewer: jeconnoc
 ms.author: v-vasuke
 author: v-vasuke
-ms.date: 08/08/2019
+ms.date: 10/06/2019
 ---
 
 # Tutorial: Scale an application in Azure Spring Cloud

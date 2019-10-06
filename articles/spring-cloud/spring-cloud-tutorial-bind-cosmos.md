@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 10/06/2019
 ms.author: v-vasuke
 
 ---
@@ -96,4 +96,4 @@ Here's an example screenshot for API type `Core(SQL)`. You may see slightly diff
 
 ## Next steps
 
-[Find out how to bind the Azure Cache for Redis service to your Azure Spring Cloud service](spring-cloud-bind-redis.md).
+[Find out how to bind the Azure Cache for Redis service to your Azure Spring Cloud service](spring-cloud-tutorial-bind-redis.md).

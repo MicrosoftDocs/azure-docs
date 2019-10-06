@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 10/06/2019
 ms.author: v-vasuke
 
 ---
