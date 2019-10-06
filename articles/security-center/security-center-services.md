@@ -33,15 +33,15 @@ The following sections show Security Center features that are available for thei
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|Virtual Machine Behavioral Analytics threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
 |Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
 |Microsoft Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
 |Missing patches|✔|✔|✔|✔|✔|✔|Free|
 |Security configurations|✔|✔|✔|✔|✔|✔|Free|
 |Endpoint protection assessment|✔|✔|✔|X|X|X|Free|
-|JIT VM access|✔|X|X|✔|X|X|Standard|
+|Just-In-Time VM access|✔|X|X|✔|X|X|Standard|
 |Adaptive application controls|✔|X|✔|✔|X|✔|Standard|
-|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|File Integrity Monitoring|✔|✔|✔|✔|✔|✔|Standard|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
 |NSG assessment|✔|✔|X|✔|✔|X|Free|
