@@ -1,7 +1,6 @@
 ---
 title: Support matrix for Microsoft Azure Backup server and System Center DPM
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server or System Center DPM to back up on-premises and Azure VM resources.
-
 author: dcurwin
 ms.service: backup
 ms.date: 02/17/2019
@@ -20,9 +19,11 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 
 MABS is a server product that can be used to back up on-premises physical servers, VMs, and apps running on them.
 
-MABS is based on System Center DPM and provides similar functionality with a couple of differences:
+MABS is based on System Center DPM and provides similar functionality with a few differences:
+
 - No System Center license is required to run MABS.
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
+- You can back up a primary DPM server with a secondary DPM server. The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
 You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
 
@@ -52,7 +53,6 @@ For more information:
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
 
-
 ## Supported deployments
 
 DPM/MABS can be deployed as summarized in the following table.
@@ -62,7 +62,6 @@ DPM/MABS can be deployed as summarized in the following table.
 **Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | If DPM/MABS is installed as a VMware VM, it only backs up VMware VMs and workloads that are running on those VMs.
 **Deployed as an Azure Stack VM** | MABS only | DPM can't be used to back up Azure Stack VMs.
 **Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | DPM/MABS running in Azure can't back up on-premises machines.
-
 
 ## Supported MABS and DPM operating systems
 
@@ -75,8 +74,6 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **MABS on-premises** | Supported 64-bit operating systems:<br/><br/> MABS v3 and later: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 and later: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> All MABS versions: Windows Server 2012 R2.<br/><br/>All MABS versions: Windows Storage Server 2012 R2.
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
 
-
-
 ## Management support
 
 **Issue** | **Details**
@@ -86,7 +83,6 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
 **MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Moving MABS** | Moving MABS to a new server while retaining the storage is supported if you're using MBS.<br/><br/> The server must have the same name as the original. You can't change the name if you want to keep the same storage pool, and use the same MABS database to store data recovery points.<br/><br/> You will need a backup of the MABS database because you'll need to restore it.
-
 
 ## MABS support on Azure Stack
 
@@ -140,8 +136,8 @@ Data that is backed up to DPM/MABS is stored on local disk storage.
 **MABS storage on Azure VM** | Data is stored on Azure disks that are attached to the DPM/MABS VM, and that are managed in DPM/MABS. The number of disks that can be used for DPM/MABS storage pool is limited by the size of the VM.<br/><br/> A2 VM: 4 disks; A3 VM: 8 disks; A4 VM: 16 disks, with a maximum size of 1 TB for each disk. This determines the total backup storage pool that is available.<br/><br/> The amount of data you can back up depends on the number and size of the attached disks.
 **MABS data retention on Azure VM** | We recommend that you retain data for one day on the DPM/MABS Azure disk, and back up from DPM/MABS to the vault for longer retention. You can thus protect a larger amount of data by offloading it to Azure Backup.
 
-
 ### Modern backup storage (MBS)
+
 From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take advantage of modern backup storage (MBS).
 
 - MBS backups are stored on a Resilient File System (ReFS) disk.
@@ -149,11 +145,9 @@ From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take a
 - When you add volumes to the local DPM/MABS storage pool, you configure them with drive letters. You can then configure workload storage on different volumes.
 - When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you might store backups for SQL or other high IOPS workloads on a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
 
-
 ## Supported backups to MABS
 
 The following table summarizes what can be backed up to MABS from on-premises machines and Azure VMs.
-
 
 **Backup** | **Versions** | **MABS** | **Details** |
 --- | --- | --- | --- |
@@ -173,13 +167,9 @@ The following table summarizes what can be backed up to MABS from on-premises ma
 **Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (with SP1)** | MABS v3, v2 | On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine. |
 **VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine. |
 
-
-
 ## Supported backups to DPM
 
 The following table summarizes what can be backed up to DPM from on-premises machines and Azure VMs.
-
-
 
 **Backup** | **DPM** | **Details**
 --- | --- | ---
@@ -200,11 +190,8 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 **Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | Hyper-V on 2016 supported for DPM 2016 and later.<br/><br/> On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine.
 **VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) <br/><br/>On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
 
-
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.
-
-
 
 ## Next steps
 
