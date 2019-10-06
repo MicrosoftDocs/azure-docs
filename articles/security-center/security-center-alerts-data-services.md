@@ -22,7 +22,7 @@ ms.author: memildin
 
 ## SQL Database and SQL Data Warehouse <a name="data-sql"></a>
 
-SQL threat detection identifies anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Security Center analyzes the SQL audit logs and runs natively in the SQL engine.
+SQL threat detection identifies anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. 
 
 |Alert|Description|
 |---|---|
