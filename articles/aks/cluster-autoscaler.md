@@ -10,33 +10,15 @@ ms.date: 07/18/2019
 ms.author: mlearned
 ---
 
-# Preview - Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)
+# Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)
 
 To keep up with application demands in Azure Kubernetes Service (AKS), you may need to adjust the number of nodes that run your workloads. The cluster autoscaler component can watch for pods in your cluster that can't be scheduled because of resource constraints. When issues are detected, the number of nodes in a node pool is increased to meet the application demand. Nodes are also regularly checked for a lack of running pods, with the number of nodes then decreased as needed. This ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.
 
-This article shows you how to enable and manage the cluster autoscaler in an AKS cluster. The cluster autoscaler should only be tested in preview on AKS clusters.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article shows you how to enable and manage the cluster autoscaler in an AKS cluster. 
 
 ## Before you begin
 
-This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-### Install aks-preview CLI extension
-
-To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+This article requires that you are running the Azure CLI version 2.0.76 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Limitations
 
@@ -118,7 +100,7 @@ az aks update \
 The above example updates cluster autoscaler on the single node pool in *myAKSCluster* to a minimum of *1* and maximum of *5* nodes.
 
 > [!NOTE]
-> During preview, you can't set a higher minimum node count than is currently set for the node pool. For example, if you currently have min count set to *1*, you can't update the min count to *3*.
+> You can't set a higher minimum node count than is currently set for the node pool. For example, if you currently have min count set to *1*, you can't update the min count to *3*.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 

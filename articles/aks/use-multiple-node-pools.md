@@ -262,7 +262,7 @@ It takes a few minutes for the scale operation to complete.
 
 ## Scale a specific node pool automatically by enabling the cluster autoscaler
 
-AKS offers a separate feature in preview to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature is an AKS add-on that can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## Delete a node pool
 
