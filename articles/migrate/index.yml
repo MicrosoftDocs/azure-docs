@@ -79,7 +79,7 @@ landingContent:
           - text: Learn about assessments
             url: ./concepts-assessment-calculation.md
           - text: Learn about dependency visualization
-            url: ./concepts-dependency-visualization.m
+            url: ./concepts-dependency-visualization.md
             
   - title: Get involved
     linkLists:
