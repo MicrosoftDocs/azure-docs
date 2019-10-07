@@ -77,21 +77,21 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Add the following to your `pom.xml` or `settings.xml` to enable Maven to work with Azure Spring Cloud.
 
-```xml
-<pluginRepositories>
-  <pluginRepository>
-    <id>maven.snapshots</id>
-    <name>Maven Central Snapshot Repository</name>
-    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    <releases>
-      <enabled>false</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </pluginRepository>
-</pluginRepositories>
-```
+    ```xml
+    <pluginRepositories>
+      <pluginRepository>
+        <id>maven.snapshots</id>
+        <name>Maven Central Snapshot Repository</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <releases>
+          <enabled>false</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </pluginRepository>
+    </pluginRepositories>
+    ```
 
 1. Generate a configuration by running the following command.
 
@@ -117,7 +117,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 ## Next Steps
 
-In this quick start, you've deployed a Spring Cloud application from a Maven repository.  To learn more about Azure Spring Cloud, continue to the tutorial on preparing your app for deployment.
+In this quickstart, you've deployed a Spring Cloud application from a Maven repository.  To learn more about Azure Spring Cloud, continue to the tutorial on preparing your app for deployment.
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
