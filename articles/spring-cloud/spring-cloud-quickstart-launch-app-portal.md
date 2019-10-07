@@ -143,3 +143,6 @@ In this quickstart, you learned how to:
 > * Deploy each microservice
 > * Edit environment variables for applications
 > * Assign public IP for your application gateway
+
+> [!div class="nextstepaction"]
+> [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
