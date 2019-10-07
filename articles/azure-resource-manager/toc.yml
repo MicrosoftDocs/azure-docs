@@ -134,8 +134,7 @@
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
+    - name: Subscription level resources
       href: deploy-to-subscription.md
   - name: Deploy templates
     items:

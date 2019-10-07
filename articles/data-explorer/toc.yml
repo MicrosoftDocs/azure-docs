@@ -114,28 +114,34 @@
       href: sisense.md
   - name: Manage
     items:
-    - name: Check cluster health
-      href: check-cluster-health.md
-    - name: Select cluster VM SKU
-      href: manage-cluster-choose-sku.md
-    - name: Manage cluster horizontal scaling
-      href: manage-cluster-horizontal-scaling.md
-    - name: Manage cluster vertical scaling
-      href: manage-cluster-vertical-scaling.md
-    - name: Manage cluster security
-      href: manage-cluster-security.md
-    - name: Manage database permissions
-      href: manage-database-permissions.md
-    - name: Create policies
+    - name: Cluster
       items:
-      - name: C#
-        href: database-table-policies-csharp.md
-      - name: Python
-        href: database-table-policies-python.md
-    - name: Delete data
-      href: delete-data.md
-    - name: Deal with duplicate data
-      href: dealing-with-duplicates.md
+      - name: Select cluster VM SKU
+        href: manage-cluster-choose-sku.md
+      - name: Manage cluster horizontal scaling
+        href: manage-cluster-horizontal-scaling.md
+      - name: Manage cluster vertical scaling
+        href: manage-cluster-vertical-scaling.md
+      - name: Manage cluster security
+        href: manage-cluster-security.md
+      - name: Check cluster health
+        href: check-cluster-health.md
+    - name: Database
+      items:
+      - name: Manage database permissions
+        href: manage-database-permissions.md
+      - name: Policies
+        items:
+        - name: C#
+          href: database-table-policies-csharp.md
+        - name: Python
+          href: database-table-policies-python.md
+    - name: Data
+      items:
+      - name: Delete data
+        href: delete-data.md
+      - name: Deal with duplicate data
+        href: dealing-with-duplicates.md
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
