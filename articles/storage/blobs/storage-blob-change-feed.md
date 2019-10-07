@@ -11,58 +11,28 @@ ms.subservice: blobs
 
 # Change feed support in Azure Blob Storage (Preview)
 
-The change feed records all changes that occur to the blobs and the blob metadata in your storage account. Changes are recorded the order in which they were modified. The changes are stored as an immutable, read-only log which can be read by any client application. You can use the change feed to build efficient and scalable solutions that process change events that occur in your Blob Storage account.
+The purpose of the change feed is to record all changes that occur to the blobs and the blob metadata in your storage account. The change feed provides an ordered, guaranteed, durable, immutable, read-only log of the changes. Client applications can read these logs at any time either in real-time or in batch-mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account.
 
 > [!NOTE]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
+> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues](#known-issues) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
 
-Log files are are stored as blobs in the **$blobchangefeed** container of your storage account. These logs are durable, immutable, and read only, and you can store them for any period of time based on your requirements. The cost to store these logs is standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Log files are stored as blobs in a special container in your storage account under standard blob pricing cost. You can control the retention period of these log files based on your requirements. See [[Limitations]](#known-issues). Change events are appended to the log files as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
 
-You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace, and you can distribute these logs to one or more consumers of your application for parallel processing. Also, analytic applications can consume logs directly which lets you process them in batch-mode, at low cost, and without having to write a custom application.
+You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace. Analytics applications can consume logs directly as Avro files which lets you process them in batch-mode, at low-cost, high-throughput,and without having to write a custom application.
 
-## Scenarios
+Change feed support is well suited for scenarios that process data based on objects that have changed. For example, applications can:
 
-Here's some examples of actions that applications can take based on objects that have changed.  
-
-> [!div class="checklist"]
-> * Execute a custom application-level process or action based on objects or metadata is changed.
-> * Stream or batch processing for IoT or to perform analytics.
-> * Move data by synchronizing with a cache, search engine, or data warehouse, or by archiving data to cold storage.
-> * Audit or analyze changes over any period of time.
-> * Perform zero down-time migrations to another storage account.
-> * Audit or analyze changes over any period of time.
-> * Implement lambda pipelines on Azure or custom solutions.
+  - Update a secondary index, synchronize with a cache, or search-engine.
+  - Stream or batch process for IoT or to perform analytics.
+  - Audit or analyze changes over any period of time for security, compliance or intelligence.
+  - Perform zero down-time migrations to another storage account.
+  - Implement lambda pipelines on Azure or custom solutions.
 
 ## Change feed versus events
 
-Unlike *Blob Storage events*, which enable your functions or applications to react individual events in real-time, The change feed gives you a fully-managed, durable ordered log of *change event records* that you can store for any lifetime that you choose, and at a low cost. Any number of applications can process the log of changes in real-time, or for batched analytical processing all by using Azure Blob APIs.
+Unlike [Blob Storage events](storage-blob-event-overview.md), which enable your functions or applications to react individual events in real-time, The change feed gives you a fully-managed, durable ordered log of change event records that you can store for any lifetime that you choose, and at a low cost. Any number of applications can process the log of changes in real-time, or for batched analytical processing all by using Azure Blob APIs.
 
-Changes are appended to the change feed every 60 - 120 seconds. If your application has to react to events much quicker than this, consider using blob storage events instead. To learn more about how to handle Blob Storage events, see [Reacting to Blob storage events](storage-blob-event-overview.md).
-
-<a id="register" />
-
-## Register your subscription
-
-Because the change feed is only in public preview, you'll need to register your subscription to use the feature.
-
-# [PowerShell](#tab/azure-powershell)
-
-In a PowerShell console, run these commands:
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
-# [Azure CLI](#tab/azure-cli)
-
-In Azure Cloud Shell, run these commands:
-
-```cli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
+Changes are appended to the change feed at 60 - 120 seconds of delay. If your application has to react to events much quicker than this, consider using blob storage events instead. To learn more about how to handle Blob Storage events, see [Reacting to Blob storage events](storage-blob-event-overview.md).
 
 ## Enabling and disabling the change feed
 
@@ -73,31 +43,22 @@ Show screenshot here.
 Here's a few things to keep in mind when you enable the change feed.
 
 - The storage account has only one change feed. 
-- You can't exclude event types. If you enable the change feed, you'll capture all supported events.
-  In the current public preview, that list includes the create, update, delete and copy operations.
+- Changes are captured at the storage account level only.
+- The change feed captures all of changes for all of the available events that occur on the account. A client application can filter out event types as required.
+  In the current public preview, the list of available events include the create, update, delete and copy operations.
 - Changes are captured only as they relate to blobs and blob metadata in the storage account, and not at the resource group level.
 
-## Understanding the Change feed files
+## Consuming Change feed
 
-The change feed creates several files. This table describes each file and how to use it.
+Your client applications can consume the change feed by using the Change feed processor library that is provided with the SDK. See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
-| File    | Blob virtual directory | Purpose    |
-|--------|-----------|---|
-| Segment files | `$blobchangefeed/idx/segments/` | A *segment* represents 60 minutes worth of change events. A segment file contains a path to the associated change feed logs for that segment. The `$blobchangefeed/idx/segments/` virtual directory contains a list (or *index*) of these files. You can use that list to filter out the logs of interest to you. <br><br>To learn more, see the [Segment files](#segment-index) section of this article.|
-| Log files | `$blobchangefeed/log/`|A log file contains a series of change event records. For each individual blob (identified by a *blob key*), these records are listed in the order in which they occurred for that blob key. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. <br><br>To learn more, see the [Log files](#log-files) section of this article.|
-| Segments.json | `$blobchangefeed/meta/`|There is only one of these files. You can use it to determine the last consumable log file. <br><br>To learn more, see the [Segments.json](#segment-json) section of this article.|
+## Understanding Change feed organization
 
-In your client applications, read the segment files of interest based on your custom check pointing and filtering logic. Each segment file points to log files associated with that segment. Read each log file and iterate through all the change event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. There are several libraries available to process files in that format. 
+<a id="segment-index"></a>
 
-You can read files by using an SDK (For example: .NET, Java, or Python), or just use [Get Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob) and [List Blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operations of the Blob Service REST API. Your application must use it's own filtering logic and check pointing logic. Because the change feed logs are immutable and append-only, your check points will be stable.
+### Segments
 
-To see an example of processing change feed logs by using the Azure Blob Storage client library for .NET, and the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
-<a id="segment-index" />
-
-### Segment files
-
-Segment files use the json file format, and have a suffix of `meta.json`. To view all segments, list the contents of the `$blobchangefeed/idx/segments/` virtual directory. Here's an example listing of that directory.
+The Change feed is a log of changes which is organized into **hourly** *segments* [[Specifications]](#specifications). This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. An available segment of the log is represented as a manifest file that specifies the paths to the associated change feed log files for that segment. The `$blobchangefeed/idx/segments/` virtual directory contains a list (or index) of these segments. The path of the segment describes the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are interest to you. 
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -109,11 +70,9 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty.
+> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty. 
 
-Each segment file contains meta data that describes that segment. 
-
-Here's an example of a segment file.
+The segment manifest file (`meta.json`) shows the path of the log files for that segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
 
 ```json
 {
@@ -141,20 +100,23 @@ Here's an example of a segment file.
         }
     }
 }
-
 ```
 
-You can ignore values in the `storageDiagnonstics` property bag. That property bag is for internal use only and not designed for use by your application. In fact, the only property that your application needs to use is the `chunkFilePaths` property. That property contains the path to log files that are associated with the segment.
+If you list the containers in your storage account, the `$blobchangefeed` container appears only after you've enabled the change feed feature on your account. You'll have to wait a few minutes after you enable the change feed before you can see the container.
 
-<a id="log-files" />
+<a id="log-files"></a>
 
-### Log files
+### Log files and change event records
 
-Log files are stored in the `$blobchangefeed/log/` virtual directory. Change feed log files are stored as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Change event records are batched and appended to log files every 60 to 120 seconds. For each individual blob (identified by a *blob key*), these records are listed in the order in which they occurred for that blob key. There is no defined order across all records in the file. 
+A log file contains a series of change event records. Each change event record corresponds to one change to an individual blob. The records are serialized into the log file by using the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format specification. The records can be read by using the Avro file format specification. There are several libraries available to process files in that format.
 
-Change event records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format so the log file has the *.avro* file extension. The first log file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`). 
+Log files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).  The path under which the log files are available for an hourly segment is indicated in the `chunkFilePaths` of the manifest file for the segment. The first log file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`). 
 
-Here's an example of a log file.
+Any number of your client applications can read the log files independently at any time. The log files are immutable and change records are only appended and is position stable. Client applications can maintain their own checkpoint on the read position of the log.
+
+Change event records are batched and appended to log files every 60 to 120 seconds. Clients can read by periodic polling for newer changes in the feed based on this frequency.
+
+Here's an example of change event record from log file converted to Json.
 
 ```json
 {
@@ -185,15 +147,24 @@ Here's an example of a log file.
 ```
 For a description of each property, see [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
-You can ignore records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. You can also ignore values in the `storageDiagnonstics` property bag. That property bag is for internal use only and not designed for use by your application.
+Ignore records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. Also ignore values in the `storageDiagnonstics` property bag. That property bag is for internal use only, so your applications shouldn't take a contractual dependency on that data. 
 
-<a id="segment-json" />
+Log files don't immediately appear after a segment is created. The length of delay is within the normal interval of the change feed (60 to 120 seconds).
 
-### Segments.json file
+<a id="specifications"></a>
 
-This file appears in the `$blobchangefeed/meta/` virtual directory. Use this file to determine the last segment that your application can safely consume. That date is recorded in the `LastConsumable` property of the segments.json file. Segments that appear in the `$blobchangefeed/idx/segments/` virtual directory that are dated after the date of the `LastConsumable`property, are not finalized and should not be consumed by your application.  
+## Specifications
 
-Here's an example segments.json file.
+- Change events records are only appended to the log files. Once these files are appended, they are immutable. 
+- Change event records are appended with a delay of 60 - 120 seconds. Client applications can choose to consume records as they are appended, or,  in bulk at any other time.
+- Accounts that have a hierarchical namespace are not supported.
+- Change event records are ordered by modification order **per blob**. Order of changes across blobs is undefined in Azure Blob Storage. All changes in a prior Segment are 'before' any subsequent segments.
+- Change event records are serialized into the log file by using the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format specification. 
+- Change event records where the `eventType` has a value of `Control` are internal system records and don't reflect a change to objects in your account. You can ingnore them.
+- Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data.
+- The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within an specified time, consume the consecutive previous and next hour segment.
+- Each segment can have a different number of `chunkFilePaths`. This is due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually-exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
+- Log files in any segment that is dated after the date of the `LastConsumable`property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
 
 ```json
 {
@@ -211,27 +182,45 @@ Here's an example segments.json file.
 
 ```
 
-You can also ignore values in the `storageDiagnonstics` property bag. That property bag is for internal use only and not designed for use by your application.
+<a id="register" />
 
-<a id="known-issues" />
+## Register your subscription (Preview)
 
-## Known issues and limitations
+Because the change feed is only in public preview, you'll need to register your subscription to use the feature.
+
+### [PowerShell](#tab/azure-powershell)
+
+In a PowerShell console, run these commands:
+
+   ```powershell
+   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+   ```
+### [Azure CLI](#tab/azure-cli)
+
+In Azure Cloud Shell, run these commands:
+
+```cli
+az feature register --namespace Microsoft.Storage --name Changefeed
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
+
+<a id="known-issues"></a>
+
+## Limitations and Known Issues (Preview)
 
 This section describes known issues and limitations in the current public preview of the change feed.
 
 - The change feed captures only create, update, delete, and copy operations.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them.
 - The `url` property of the log file is always empty.
-- The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments are accurately captured in the `LastConsumable` property. 
-- If you list the containers in your storage account, the **$blobchangefeed** container appears only after you've enabled the change feed feature on your account. You'll have to wait a few minutes after you enable the change feed before you can see the container.
-- Log files don't immediately appear after a segment is created. The length of delay is within the normal interval of the change feed (60 to 120 seconds).
-- Accounts that have a hierarchical namespace are not yet supported.
-
+- The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property. 
 
 ## Next steps
 
 - See an example of how to read the change feed by using a .NET client application. See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
 - Learn about how to react to events in real time. See [Reacting to Blob storage events](storage-blob-event-overview.md)
 
 
