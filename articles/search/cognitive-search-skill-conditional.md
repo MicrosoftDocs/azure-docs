@@ -171,5 +171,5 @@ Some parameters are evaluated, so you need to be especially careful to follow th
 
 ## Next steps
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

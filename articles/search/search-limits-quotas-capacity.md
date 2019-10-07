@@ -141,9 +141,9 @@ Estimates are more predictable when calculated on services running on dedicated 
 
 For the Storage Optimized tiers,  you should expect a lower query throughput and higher latency than the Standard tiers.  The methodology for estimating the query performance you'll experience is the same as the Standard tiers.
 
-## Data limits (cognitive search)
+## Data limits (AI enrichment)
 
-A [cognitive search pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Throttling limits
 
