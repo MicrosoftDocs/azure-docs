@@ -56,7 +56,7 @@ landingContent:
           - text: Learn about Azure Migrate appliance deployment
             url: ./migrate-replication-appliance.md
           - text: Review the Azure Migrate support matrix
-            url: migrate-support-matrix
+            url: migrate-support-matrix.md
           - text: Review the VMware support matrix
             url: migrate-support-matrix-vmware.md
           - text: Review the Hyper-V support matrix
