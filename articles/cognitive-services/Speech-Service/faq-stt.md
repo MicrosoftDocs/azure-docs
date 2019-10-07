@@ -1,4 +1,4 @@
----
+﻿---
 title: Frequently asked questions about the Speech to Text service in Azure
 titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Speech to Text service.
@@ -92,7 +92,7 @@ Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20fo
 
 **A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload. 
 
-**Q: Can I zip my text files so I can upload a larger text file?** 
+**Q: Can I zip my text files so I can upload a larger text file?** 
 
 **A**: No. Currently, only uncompressed text files are allowed.
 
@@ -137,7 +137,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **A**: The results show a comparison between the baseline model and the model you customized. You should aim to beat the baseline model to make customization worthwhile.
 
-**Q: How do I determine the WER of a base model so I can see if there was an improvement?** 
+**Q: How do I determine the WER of a base model so I can see if there was an improvement?** 
 
 **A**: The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
 
