@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -82,10 +82,11 @@ Other points to keep in mind before an account transfer:
 - Approval from an EA Administrator is required for the target and source enrollment
   - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
 - If an account transfer doesn't meet your requirements, consider an enrollment transfer.
-- The account transfer transfers all services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators.
-- The account transfer sets the source enrollment status to _Transferred_. The transferred account is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to an enrollment with transferred status. The status prevents additional usage against the enrollment.
-- Any remaining monetary commitment balance in the source agreement is lost, including future terms.
+- The account transfer transfers all services and subscriptions related to the specific accounts.
+- The transferred account will show as inactive under the source enrollment after the transfer is completed.
+- An account transfer can be backdated to any date within the target enrollment start date.
+- The account will show the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
+- Any usage occurred for the account prior to the effective transfer date will remain under the source enrollment.
 
 
 ## Transfer enterprise enrollment to a new one
