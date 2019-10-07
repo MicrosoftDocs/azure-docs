@@ -7,6 +7,7 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
+ms.reviewer: sadodd
 ---
 
 # Change feed support in Azure Blob Storage (Preview)
