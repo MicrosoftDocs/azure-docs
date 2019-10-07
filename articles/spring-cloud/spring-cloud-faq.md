@@ -62,7 +62,7 @@ If you have created your Spring service instances in Azure Spring Cloud, you can
 
 ## Developement
 ### I am a Spring developer but new to Azure, what is the quickest way for me to learn developing Azure Spring Cloud applications?
-Regardless of to create a new application or to migrate an existing one to Azure Spring Cloud, we suggest you to firstly go through [Getting-Started guide of Azure Spring Cloud](spring-cloud-launch-app-portal.md).
+Regardless of to create a new application or to migrate an existing one to Azure Spring Cloud, we suggest you to firstly go through [Getting-Started guide of Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md).
 
 ### What Java runtime does Azure Spring Cloud support?
 Azure Spring Cloud officially supports Java 8 and 11.
@@ -73,7 +73,7 @@ The metrics can be found at App Overview blade and [Azure Monitor](https://docs.
 Azure Spring Cloud supports exporting your Spring application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is `AppPlatformLogsforSpring`. To enable it, please go through [Diagnostic settings Guide](spring-cloud-tutorial-diagnostics.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
-Yes, please visit [Distributed Tracing](distributed-tracing.md) for more details.
+Yes, please visit [Distributed Tracing](spring-cloud-tutorial-distributed-tracing.md) for more details.
 
 ### What resource types does Service Binding support?
 In private preview, 3 services are supported: Azure Cosmos DB, Azure Database for MySQL and Azure Cache for Redis.
