@@ -25,7 +25,7 @@ Absolute value of a number.
 ___
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a consine inverse value
+Calculates a cosine inverse value
 * ``acos(1) -> 0.0``
 ___
 ### <code>add</code>
