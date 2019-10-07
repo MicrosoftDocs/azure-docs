@@ -63,7 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Azure public peering
 
 > [!NOTE]
-> Azure public peering is not avialable for new circuits.
+> Azure public peering is not available for new circuits.
 > 
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
