@@ -4,8 +4,8 @@ description: Security and authentication in Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/18/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,27 +13,26 @@ services: event-grid
 
 # Security and authentication
 
-Security and Authentication is an advanced concept and requires familiarity with Event Grid basics first. Start [here](concepts.md) if new to Event Grid on edge. Event Grid module builds on the existing security infrastructure on IoT Edge. Refer to [documentation](https://docs.microsoft.com/en-us/azure/iot-edge/security) available here for details and setup.
+Security and authentication is an advanced concept and it requires familiarity with Event Grid basics first. Start [here](concepts.md) if you are new to Event Grid on IoT Edge. Event Grid module builds on the existing security infrastructure on IoT Edge. Refer to [this documentation](../../iot-edge/security.md) for details and setup.
 
-The following sections describe in detail how the following are secured and authenticated:-
+The following sections describe in detail how these settings are secured and authenticated:-
 
-* TLS Configuration
-* Inbound Client Authentication
-* Outbound Server Authentication
-* Outbound Client Authentication
-
->[!IMPORTANT]
->Event Grid module security and authentication leverage's the existing  infrastructure available on IoT Edge. The assumption is that IoT edge sub system is secure.
+* TLS configuration
+* Inbound client authentication
+* Outbound server authentication
+* Outbound client authentication
 
 >[!IMPORTANT]
->Event Grid configuration is **secure by default**. The subsections below explain all the options and possible value(s) that you can use to override aspects of authentication. Please understand the impact before making any changes. For any changes to take effect Event Grid module will need to be redeployed.
+>Event Grid module security and authentication leverage's the existing  infrastructure available on IoT Edge. The assumption is that IoT Edge sub system is secure.
 
-## TLS Configuration (a.k.a Server Authentication)
+>[!IMPORTANT]
+>Event Grid configuration is **secure by default**. The following subsections explain all the options and possible value(s) that you can use to override aspects of authentication. Understand the impact before making any changes. For any changes to take effect, the Event Grid module will need to be redeployed.
 
-Event Grid module hosts both HTTP and HTTPS endpoints.
-Every IoT Edge module is assigned a Server Certificate by the IoT Edge's security daemon. We use the server certificate to secure the endpoint. On expiration, the module automatically refreshes with a new certificate from the IoT Edge security daemon.
+## TLS configuration (a.k.a server authentication)
 
-By default only HTTPS communication is allowed. You can override this behavior via  **inbound:serverAuth:tlsPolicy** configuration. The below table captures the possible value(s) of this property.
+Event Grid module hosts both HTTP and HTTPS endpoints. Every IoT Edge module is assigned a server certificate by the IoT Edge's security daemon. We use the server certificate to secure the endpoint. On expiration, the module automatically refreshes with a new certificate from the IoT Edge security daemon.
+
+By default, only HTTPS communication is allowed. You can override this behavior via  **inbound:serverAuth:tlsPolicy** configuration. The following table captures the possible value(s) of this property.
 
 | Possible Value(s) | Description |
 | ---------------- | ------------ |
@@ -41,34 +40,34 @@ By default only HTTPS communication is allowed. You can override this behavior v
 | Enabled | Enables both HTTP and HTTPS
 | Disabled | Enables HTTP Only
 
-## Inbound Client Authentication
+## Inbound client authentication
 
 Clients are entities doing management and/or runtime operations. Clients can be other IoT Edge modules, non-IoT Applications.
 
 Event Grid module supports two types of client authentication:-
 
-* SASKey based
+* SAS key-based
 * certificate-based
 
-By default Event Grid module is configured to accept only certificate-based authentication. On startup, Event Grid module retrieves "TrustBundle" from IoT Edge security daemon and uses that to validate any client certificate. Client certificates that do not resolve to this chain will be rejected with `UnAuthorized`.
+By default, the Event Grid module is configured to accept only certificate-based authentication. On startup, Event Grid module retrieves "TrustBundle" from IoT Edge security daemon and uses it to validate any client certificate. Client certificates that do not resolve to this chain will be rejected with `UnAuthorized`.
 
-### Certificate-based client Authentication
+### Certificate-based client authentication
 
 Certificate-based authentication is on by default. You can choose to disable certificate-based authentication via the property
-**inbound:clientAuth:clientCert:enabled**. Below table captures possible value(s).
+**inbound:clientAuth:clientCert:enabled**. The following table captures possible value(s).
 
 | Possible Value(s) | Description |
 | ----------------  | ------------ |
-| true | Default. Requires all requests into Event Grid module to present a client certificate. Additionally will need to configure **inbound:clientAuth:clientCert:source**.
+| true | Default. Requires all requests into the Event Grid module to present a client certificate. Additionally, you will need to configure **inbound:clientAuth:clientCert:source**.
 | false | Don't force a client to present certificate.
 
-Below table captures possible value(s) for **inbound:clientAuth:clientCert:source**
+The following table captures possible value(s) for **inbound:clientAuth:clientCert:source**
 
 | Possible Value(s) | Description |
 | ---------------- | ------------ |
 | IoT Edge | Default. Uses the IoT Edge's Trustbundle to validate all client certificates.
 
-If a client presents a self-signed, then by default Event Grid module will reject such requests. You can choose to allow self-signed client certificates via **inbound:clientAuth:clientCert:allowUnknownCA** property. Below table captures possible value(s).
+If a client presents a self-signed, by default, the Event Grid module will reject such requests. You can choose to allow self-signed client certificates via **inbound:clientAuth:clientCert:allowUnknownCA** property. The following table captures possible value(s).
 
 | Possible Value(s) | Description |
 | ----------------  | ------------|
@@ -76,26 +75,26 @@ If a client presents a self-signed, then by default Event Grid module will rejec
 | false | Will fail requests if self-signed certificates are presented.
 
 >[!IMPORTANT]
->In production scenarios you will want to set **inbound:clientAuth:clientCert:allowUnknownCA** to **false**.
+>In production scenarios, you may want to set **inbound:clientAuth:clientCert:allowUnknownCA** to **false**.
 
-### SAS key based client Authentication
+### SAS key-based client Authentication
 
-In addition to certificate-based authentication, Event Grid module can also do SASKey based authentication. SASKey is like a secret configured in the Event Grid module that it should use to validate all incoming calls. Clients need to specify the secret in the HTTP Header 'aeg-sas-key'. Request will be rejected with `UnAuthorized` if it does not match.
+In addition to certificate-based authentication, the Event Grid module can also do SAS Key-based authentication. SAS key is like a secret configured in the Event Grid module that it should use to validate all incoming calls. Clients need to specify the secret in the HTTP Header 'aeg-sas-key'. Request will be rejected with `UnAuthorized` if it doesn't match.
 
-The configuration to control SASKey based authentication is
+The configuration to control SAS key-based authentication is
 **inbound:clientAuth:sasKeys:enabled**.
 
 | Possible Value(s) | Description  |
 | ----------------  | ------------ |
-| true | Allows SASKey based authentication. Requires **inbound:clientAuth:sasKeys:key1** or **inbound:clientAuth:sasKeys:key2**
+| true | Allows SAS key-based authentication. Requires **inbound:clientAuth:sasKeys:key1** or **inbound:clientAuth:sasKeys:key2**
 
  **inbound:clientAuth:sasKeys:key1** and **inbound:clientAuth:sasKeys:key2**
- are keys that you configure Event Grid module with to check against incoming requests. At least one of the keys needs to be configured. Client making the request will need to present the key as part of the request header '**aeg-sas-key**'. If both the keys are configured, then client can present either one of the keys.
+ are keys that you configure the Event Grid module to check against incoming requests. At least one of the keys needs to be configured. Client making the request will need to present the key as part of the request header '**aeg-sas-key**'. If both the keys are configured, the client can present either one of the keys.
 
 > [!NOTE]
->You can configure both authentication methods. In such a case SASKey is checked first and only if that fails certificate-based authentication is performed. For a request to succeed only one of the authentication methods needs to succeed.
+>You can configure both authentication methods. In such a case SAS key is checked first and only if that fails, the certificate-based authentication is performed. For a request to succeed, only one of the authentication methods needs to succeed.
 
-## Outbound Client Authentication
+## Outbound client authentication
 
 Client in outbound context refers to Event Grid module. The operation being done is delivering events to subscribers. Subscribing modules are considered as the server.
 
@@ -134,7 +133,7 @@ By default, Event Grid module will validate the subscriber's server certificate.
 | true | Don't validate subscriber's server certificate.
 | false | Default. Validate subscriber's server certificate.
 
-If subscriber's certificate is self-signed, then by default Event Grid module will reject such subscribers. To allow self-signed certificate, you can override **outbound:webhook:allowUnknownCA**. Below table captures the possible value(s).
+If subscriber's certificate is self-signed, then by default Event Grid module will reject such subscribers. To allow self-signed certificate, you can override **outbound:webhook:allowUnknownCA**. The following table captures the possible value(s).
 
 | Possible Value(s) | Description |
 | ----------------  | ------------ |

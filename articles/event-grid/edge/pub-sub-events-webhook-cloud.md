@@ -4,8 +4,8 @@ description: Publish, subscribe to events in cloud using Webhook with Event Grid
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 07/29/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,21 +13,19 @@ services: event-grid
 
 # Tutorial: Publish, subscribe to events in cloud
 
-This article walks through all the steps needed to publish  and subscribe to events using Event Grid on IoT Edge.
+This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge.
 
-Refer to [Event Grid Concepts](concepts.md) documentation to understand what an event grid topic, subscription is before proceeding.
+See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need an
+To complete this tutorial, you will need the **Azure Event Grid module on an IoT Edge Device** - Follow steps in described in [this article](deploy-event-grid-portal.md) if the module isn't already deployed.
 
-**Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
+## Create an Azure function in the Azure portal
 
-## Step 1: Create Azure Function in Cloud via portal
+Follow the steps outlined in the [tutorial](../../azure-functions/functions-create-first-azure-function.md) to create an Azure function. 
 
-Follow the steps outlined in the [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) to create an Azure Function in cloud. 
-
-Replace the code snippet like below:
+Replace the code snippet with the following code:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -51,16 +49,16 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-In your new function, click </> Get function URL at the top right, select default (Function key), and then click Copy. You will need to use the function URL value later in the tutorial.
+In your new function, select **Get function URL** at the top right, select default (**Function key**), and then select **Copy**. You will use the function URL value later in the tutorial.
 
 > [!NOTE]
-> Refer to [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) documentation for more samples and tutorials on reacting to events and how to use EventGridEvent triggers instead of HTTP Triggers.
+> Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events an using EventGrid event triggers.
 
-## Step 2: Create topic
+## Create a topic
 
-As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to.
+As a publisher of an event, you need to create an event grid topic. Topic refers to an end point where publishers can send events to.
 
-1. Create topic2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create topic2.json with the following content. See our [API documentation](api.md) for details about the payload.
 
     ```json
          {
@@ -70,13 +68,11 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
           }
         }
     ```
-
 1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
-
 1. Run the following command to verify topic was created successfully. HTTP Status Code of 200 OK should be returned.
 
     ```sh
@@ -99,11 +95,11 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
         ]
    ```
 
-## Step 3: Create event subscription
+## Create an event subscription
 
-   Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, the subscribers will need to create an Event grid subscription on a topic of interest.
 
-1. Create subscription2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create subscription2.json with the following content. Refer to our [API documentation](api.md) for details about the payload.
 
     ```json
         {
@@ -120,13 +116,11 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
    >[!NOTE]
    > The **endpointType** specifies that the subscriber is a Webhook.  The **endpointUrl** specifies the URL at which the subscriber is listening for events. This URL corresponds to the Azure Function sample you setup earlier.
-
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
-
 3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
 
     ```sh
@@ -152,9 +146,9 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
         }
     ```
 
-## Step 4: Publish event
+## Publish an event
 
-1. Create event2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create event2.json with the following content. Refer to our [API documentation](api.md) for details about the payload.
 
     ```json
         [
@@ -171,14 +165,13 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
           }
         ]
     ```
-
 1. Run the following command to publish event
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
     ```
 
-## Step 5: Verify event delivery
+## Verify event delivery
 
 You can view the event delivered in the Azure portal under the **Monitor** option of your function.
 
@@ -190,13 +183,13 @@ You can view the event delivered in the Azure portal under the **Monitor** optio
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-* Delete the Azure Function created in the cloud.
+* Delete the Azure function created in the Azure portal.
 
 ## Next steps
 
-In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps:
+In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles:
 
-* Create/update subscription with filters
+* Create/update subscription with [filters](advanced-filtering.md).
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
 * Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)

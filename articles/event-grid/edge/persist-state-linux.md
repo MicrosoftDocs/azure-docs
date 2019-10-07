@@ -4,8 +4,8 @@ description: Persist metadata in Linux
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 08/30/2019
+ms.reviewer: spelluru
+ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -13,16 +13,16 @@ services: event-grid
 
 # Persist state in Linux
 
-Topics and subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted, then any undelivered events will be lost.
+Topics and subscriptions created in the Event Grid module are by default stored in the container file system. Without persistence, if the module is redeployed, all the metadata created would be lost. Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted, then any undelivered events will be lost.
 
-The rest of the document details the steps needed to deploy Event Grid module with persistence in Linux deployments.
+This article provides the steps to deploy the Event Grid module with persistence in Linux deployments.
 
 > [!NOTE]
->The Event Grid module runs as a low-privileged user with UID **2000** and name **eventgriduser**.
+>The Event Grid module runs as a low-privileged user with UID `2000` and name `eventgriduser`.
 
-## Option 1: Persistence via volume mount
+## Persistence via volume mount
 
- We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to preserve the data across deployments. You can let docker automatically create a named volume as part of deploying Event Grid module. This is the simplest option. You can specify the volume name to be created in the **Binds** section as follows:
+ [Docker volumes](https://docs.docker.com/storage/volumes/) are used to preserve the data across deployments. You can let docker automatically create a named volume as part of deploying the Event Grid module. This option is the simplest option. You can specify the volume name to be created in the **Binds** section as follows:
 
 ```json
   {
@@ -35,9 +35,9 @@ The rest of the document details the steps needed to deploy Event Grid module wi
 ```
 
 >[!IMPORTANT]
->Do not change the second part of the bind value. It points to a specific location within the module. For Event Grid module on linux it has to be **/app/metadata**.
+>Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadata**.
 
-For example, below configuration will result in the creation of  volume **egmetadataDbVol** where metadata will be persisted.
+For example, the following configuration will result in the creation of the volume **egmetadataDbVol** where metadata will be persisted.
 
 ```json
  {
@@ -69,31 +69,29 @@ For example, below configuration will result in the creation of  volume **egmeta
 }
 ```
 
-Alternatively you can create a docker volume using docker client commands. Refer to docker documentation on how to do this.
+Alternatively, you can create a docker volume using docker client commands. 
 
-## Option 2: Persistence via host directory mount
+## Persistence via host directory mount
 
-Instead of docker volume, you also have the option to mount a host folder.
+Instead of a docker volume, you also have the option to mount a host folder.
 
 1. First create a user with name **eventgriduser** and ID **2000** on the host machine by running the following command:
 
     ```sh
     sudo useradd -u 2000 eventgriduser
     ```
-
-1. Create a directory on the host filesystem by running the below command.
+1. Create a directory on the host file system by running the following command.
 
    ```sh
    md <your-directory-name-here>
    ```
 
-    For example, running the below command will create a directory called **myhostdir**.
+    For example, running the following command will create a directory called **myhostdir**.
 
     ```sh
     md /myhostdir
     ```
-
-1. Next, make **eventgriduser** owner of this folder by running the below command.
+1. Next, make **eventgriduser** owner of this folder by running the following command.
 
    ```sh
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
@@ -104,8 +102,7 @@ Instead of docker volume, you also have the option to mount a host folder.
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
     ```
-
-1. Use **Binds** to mount the directory and redeploy Event Grid module from Azure portal
+1. Use **Binds** to mount the directory and redeploy the Event Grid module from Azure portal.
 
     ```json
     {
@@ -150,4 +147,4 @@ Instead of docker volume, you also have the option to mount a host folder.
     ```
 
     >[!IMPORTANT]
-    >Do not change the second part of the bind value. It points to a specific location within the module. For Event Grid module on linux it has to be **/app/metadata**.
+    >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadata**.
