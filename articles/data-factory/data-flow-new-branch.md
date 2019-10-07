@@ -11,7 +11,7 @@ ms.date: 02/12/2019
 
 # Azure Data Factory Mapping Data Flow New Branch Transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Branch options](media/data-flow/menu.png "menu")
 

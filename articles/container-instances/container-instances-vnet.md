@@ -26,6 +26,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
+
 ## Virtual network deployment limitations
 
 Certain limitations apply when you deploy container groups to a virtual network.
@@ -259,6 +260,10 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### Delete network resources
+
+
+> [!NOTE]
+> If you recieve an error while attempting to remove the Network Profile allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the Network Profile [open a support reqest.](https://azure.microsoft.com/support/create-ticket/)
 
 The initial preview of this feature requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
 
