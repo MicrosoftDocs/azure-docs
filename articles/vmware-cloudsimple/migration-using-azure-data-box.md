@@ -72,7 +72,7 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 
 The NFS share from your Data Box must be mounted as a datastore on your on-premises vCenter cluster or VMware ESXi host in order to copy the data to the NFS datastore:
 
-1. Sign in to your on-premises vCenter server.
+1. Log in to your on-premises vCenter server.
 
 2. Right-click **Datacenter**, select **Storage**, select **New Datastore**, and then select **Next**.
 
