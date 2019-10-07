@@ -393,7 +393,8 @@ Ideally, you should keep the machine updated at the *patch level*. If this isn't
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
-Note: To avoid an accidental reboot during VM Provisioning, it's recommended to ensure that all Windows Update installations are complete and not pending. One way is to install all possible Windows Updates and reboot once before executing the SYSPREP command.
+> [!NOTE]
+> To avoid an accidental reboot during VM provisioning, we recommend ensuring that all Windows Update installations are finished and that no updates are pending. One way to do this is to install all possible Windows updates and reboot once before you run the Sysprep command.
 
 ### Determine when to use Sysprep <a id="step23"></a>    
 
