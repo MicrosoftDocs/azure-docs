@@ -85,7 +85,7 @@ There is a default [active job and job schedule quota](batch-quota-limit.md#reso
 
 ## Tasks
 
-Tasks are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by the Batch on to compute nodes. There are several design considerations to make when creating and executing tasks. The following sections explain common scenarios and how to design your tasks to resist issues and perform efficiently.
+Tasks are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by Batch on to compute nodes. There are several design considerations to make when creating and executing tasks. The following sections explain common scenarios and how to design your tasks to handle issues and perform efficiently.
 
 ### Task lifetime
 
