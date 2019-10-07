@@ -128,7 +128,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 ## Next steps
 
-In this quick start, you learned how to:
+In this quickstart, you learned how to:
 
 > [!div class="checklist"]
 > * Provision a service instance
