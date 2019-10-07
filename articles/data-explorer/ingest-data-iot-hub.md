@@ -77,8 +77,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     | IoT Hub | IoT Hub name |
     | Shared access policy | The name of the shared access policy. Must have read permissions |
     | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint |
-	| Event system properties | The [IoT Hub event system properties](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) If there are multiple records per event message, the system properties will be added to the first one.|
-    | | 
+	| Event system properties | The [IoT Hub event system properties](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). When adding system properties, [create](/azure/kusto/management/tables#create-table) or [update](/azure/kusto/management/tables#alter-table-and-alter-merge-table) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. | | | 
 
     > [!NOTE]
     > In case of a [manual failover](/azure/iot-hub/iot-hub-ha-dr#manual-failover), you must recreate the data connection.
@@ -92,7 +91,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     |---|---|---|
     | Table | *TestTable* | The table you created in **testdb**. |
     | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, and TXT. |
-    | Column mapping | *TestMapping* | The mapping you created in **testdb**, which maps incoming JSON data to the column names and data types of **testdb**. Required for JSON, MULTILINE JSON, and AVRO, and optional for other formats.|
+    | Column mapping | *TestMapping* | The [mapping](/azure/kusto/management/mappings) you created in **testdb**, which maps incoming JSON data to the column names and data types of **testdb**. Required for JSON, MULTILINE JSON, and AVRO, and optional for other formats.|
     | | |
 
     > [!NOTE]
