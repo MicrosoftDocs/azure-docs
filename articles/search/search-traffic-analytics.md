@@ -17,7 +17,7 @@ Search traffic analytics is a pattern for implementing a feedback loop for your 
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
 
-Azure Search offers a telemetry solution that integrates Azure Application Insights and Power BI to provide in-depth monitoring and tracking. Because interaction with Azure Search is only through APIs, the telemetry must be implemented by the developers using search, following the instructions in this page.
+Azure Cognitive Search offers a telemetry solution that integrates Azure Application Insights and Power BI to provide in-depth monitoring and tracking. Because interaction with Azure Cognitive Search is only through APIs, the telemetry must be implemented by the developers using search, following the instructions in this page.
 
 ## Identify relevant search data
 
@@ -33,9 +33,9 @@ By linking search and click events with a correlation id, it's possible to analy
 
 ## Add search traffic analytics
 
-The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Search to make the analysis of data easier.
+The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Cognitive Search to make the analysis of data easier.
 
-In the [portal](https://portal.azure.com) page for your Azure Search service, the Search Traffic Analytics blade contains a cheat sheet for following this telemetry pattern. You can also select or create an Application Insights resource, and see the necessary data, all in one place.
+In the [portal](https://portal.azure.com) page for your Azure Cognitive Search service, the Search Traffic Analytics blade contains a cheat sheet for following this telemetry pattern. You can also select or create an Application Insights resource, and see the necessary data, all in one place.
 
 ![Search Traffic Analytics instructions][1]
 
@@ -71,11 +71,11 @@ This is the object that sends events to the Application Insights Resource.
 For other languages and platforms, see the complete [list](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
 **Step 2: Request a Search ID for correlation**
-To correlate search requests with clicks, it's necessary to have a correlation id that relates these two distinct events. Azure Search provides you with a Search Id when you request it with a header:
+To correlate search requests with clicks, it's necessary to have a correlation id that relates these two distinct events. Azure Cognitive Search provides you with a Search Id when you request it with a header:
 
 *C#*
 
-    // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
+    // This sample uses the Azure Cognitive Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
     var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -168,11 +168,11 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 ## 3 - Analyze in Power BI
 
-After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop. 
+After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Cognitive Search for Power BI desktop. 
 
-Azure search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. T The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Azure Cognitive Search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. T The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
 
-1. In the Azure Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
+1. In the Azure Cognitive Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
 
 2. On the **Search traffic analytics** page, in step 3, click **Get Power BI Desktop** to install Power BI.
 
@@ -198,7 +198,7 @@ Metrics included the following items:
 
 The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
 
-![Power BI dashboard for Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Search")
+![Power BI dashboard for Azure Cognitive Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Cognitive Search")
 
 ## Next steps
 Instrument your search application to get powerful and insightful data about your search service.

@@ -33,7 +33,7 @@ Two types of keys are used to access your search service: admin (read-write) and
  Visually, there is no distinction between an admin key or query key. Both keys are strings composed of 32 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](https://portal.azure.com) or use the [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to return the value and key type.  
 
 > [!NOTE]  
->  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
+>  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Cognitive Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
 
 ## Find existing keys
 
@@ -60,7 +60,7 @@ Restricting access and operations in client apps is essential to safeguarding th
    ![Create or use a query key](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> A code example showing query key usage can be found in [Query an Azure Search index in C#](search-query-dotnet.md).
+> A code example showing query key usage can be found in [Query an Azure Cognitive Search index in C#](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -91,6 +91,6 @@ Members of the following roles can view and regenerate keys: Owner, Contributor,
 
 ## See also
 
-+ [Role-based access control in Azure Search](search-security-rbac.md)
++ [Role-based access control in Azure Cognitive Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization article](search-performance-optimization.md)
