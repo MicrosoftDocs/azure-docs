@@ -7,7 +7,6 @@ ms.author: dacoulte
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
 ---
 # Get resource changes
 

@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
 
