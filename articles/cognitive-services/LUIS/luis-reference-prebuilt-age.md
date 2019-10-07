@@ -21,33 +21,9 @@ Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 
 ## Resolution for prebuilt age entity
 
-#### [V2 prediction endpoint response](#tab/V2)
 
-The following example shows the resolution of the **builtin.age** entity.
 
-```json
-{
-  "query": "A 90 day old utilities bill is quite late.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.8236133
-  },
-  "entities": [
-    {
-      "entity": "90 day old",
-      "type": "builtin.age",
-      "startIndex": 2,
-      "endIndex": 11,
-      "resolution": {
-        "unit": "Day",
-        "value": "90"
-      }
-    }
-  ]
-}
-```
-
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -73,7 +49,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     }
 }
 ```
-
+#### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
@@ -109,7 +85,31 @@ The following JSON is with the `verbose` parameter set to `true`:
     }
 }
 ```
+#### [V2 prediction endpoint response](#tab/V2)
 
+The following example shows the resolution of the **builtin.age** entity.
+
+```json
+{
+  "query": "A 90 day old utilities bill is quite late.",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.8236133
+  },
+  "entities": [
+    {
+      "entity": "90 day old",
+      "type": "builtin.age",
+      "startIndex": 2,
+      "endIndex": 11,
+      "resolution": {
+        "unit": "Day",
+        "value": "90"
+      }
+    }
+  ]
+}
+```
 * * * 
 
 ## Next steps

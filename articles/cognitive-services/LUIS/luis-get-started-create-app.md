@@ -99,37 +99,6 @@ Select **Test** again to collapse the test pane.
 
 1. Go to the end of the URL in the address and enter `turn off the living room light`, and then press Enter. 
 
-    #### [V2 prediction endpoint](#tab/V2)
-
-    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
-
-    The browser displays the **V2 API** version of the JSON response of your HTTP endpoint.
-
-    ```json
-    {
-      "query": "turn off the lights",
-      "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOff",
-        "score": 0.995867
-      },
-      "entities": [
-        {
-          "entity": "lights",
-          "type": "HomeAutomation.DeviceType",
-          "startIndex": 13,
-          "endIndex": 18,
-          "resolution": {
-            "values": [
-              "light"
-            ]
-          }
-        }
-      ]
-    }
-    ```
-    
-    #### [V3 prediction endpoint](#tab/V3)
-
     For a [V3 API query](luis-migration-api-v3.md), in the browser, change the GET method HTTPS request, changing out the values in angle brackets for your own values.     
 
     `https://<region>.api.cognitive.microsoft.com/luis/**v3.0**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
@@ -158,7 +127,6 @@ Select **Test** again to collapse the test pane.
 
     Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
     
-    * * * 
 
 ## Clean up resources
 

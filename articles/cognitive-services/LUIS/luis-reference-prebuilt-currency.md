@@ -21,45 +21,7 @@ Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Rec
 
 ## Resolution for currency entity
 
-#### [V2 prediction endpoint response](#tab/V2)
-
-The following example shows the resolution of the **builtin.currency** entity.
-
-```json
-{
-  "query": "search for items under $10.99",
-  "topScoringIntent": {
-    "intent": "SearchForItems",
-    "score": 0.926173568
-  },
-  "intents": [
-    {
-      "intent": "SearchForItems",
-      "score": 0.926173568
-    },
-    {
-      "intent": "None",
-      "score": 0.07376878
-    }
-  ],
-  "entities": [
-    {
-      "entity": "$10.99",
-      "type": "builtin.currency",
-      "startIndex": 23,
-      "endIndex": 28,
-      "resolution": {
-        "unit": "Dollar",
-        "value": "10.99"
-      }
-    }
-  ]
-}
-```
-
-
-
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -84,7 +46,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     }
 }
 ```
-
+#### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
@@ -121,7 +83,41 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+#### [V2 prediction endpoint response](#tab/V2)
 
+The following example shows the resolution of the **builtin.currency** entity.
+
+```json
+{
+  "query": "search for items under $10.99",
+  "topScoringIntent": {
+    "intent": "SearchForItems",
+    "score": 0.926173568
+  },
+  "intents": [
+    {
+      "intent": "SearchForItems",
+      "score": 0.926173568
+    },
+    {
+      "intent": "None",
+      "score": 0.07376878
+    }
+  ],
+  "entities": [
+    {
+      "entity": "$10.99",
+      "type": "builtin.currency",
+      "startIndex": 23,
+      "endIndex": 28,
+      "resolution": {
+        "unit": "Dollar",
+        "value": "10.99"
+      }
+    }
+  ]
+}
+```
 * * * 
 
 ## Next steps

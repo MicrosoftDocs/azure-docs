@@ -18,12 +18,69 @@ ms.author: diberry
 The **datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
 
 ## Types of datetimeV2
-DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub repository
+DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub repository.
 
 ## Example JSON 
-The following example JSON response has a `datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
 
-#### [V2 prediction endpoint response](#tab/V2)
+The following utterance and its partial JSON response is shown below.
+
+`8am on may 2nd 2019`
+
+#### [V3 response](#tab/V3-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2019-05-02T08",
+                    "value": "2019-05-02 08:00:00"
+                }
+            ]
+        }
+    ],
+    "number": [
+        2019
+    ]
+}
+```
+
+#### [V3 verbose response](#tab/V3-verbose-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2019-05-02T08",
+                    "value": "2019-05-02 08:00:00"
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.datetime",
+                "text": "8am on may 2nd 2019",
+                "startIndex": 0,
+                "length": 19,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### [V2 response](#tab/V2-1)
 
 ```json
 "entities": [
@@ -53,9 +110,6 @@ The following example JSON response has a `datetimeV2` entity with a subtype of 
 |endIndex|**int** - The index in the utterance at which the entity ends.|
 |resolution|Has a `values` array that has one, two, or four [values of resolution](#values-of-resolution).|
 |end|The end value of a time, or date range, in the same format as `value`. Only used if `type` is `daterange`, `timerange`, or `datetimerange`|
-
-
-#### [V3 prediction endpoint response](#tab/V3)
 
 * * * 
 
@@ -97,14 +151,79 @@ The **datetimeV2** supports dates between the following ranges:
 
 If the date can be in the past or future, LUIS provides both values. An example is an utterance that includes the month and date without the year.  
 
-For example, given the utterance "May 2nd":
+For example, given the following utterance:
+
+`May 2nd`
+
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
 * When today's date is May 1st 2017, LUIS provides both "2016-05-02" and "2017-05-02" as values.
 
 The following example shows the resolution of the entity "may 2nd". This resolution assumes that today's date is a date between May 2nd 2017 and May 1st 2018.
 Fields with `X` in the `timex` field are parts of the date that aren't explicitly specified in the utterance.
 
-#### [V2 prediction endpoint response](#tab/V2)
+## Date resolution example
+
+#### [V3 response](#tab/V3-date)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-05-02",
+                    "value": "2019-05-02"
+                },
+                {
+                    "timex": "XXXX-05-02",
+                    "value": "2020-05-02"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### [V3 verbose response](#tab/V3-verbose-date)
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-05-02",
+                    "value": "2019-05-02"
+                },
+                {
+                    "timex": "XXXX-05-02",
+                    "value": "2020-05-02"
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "may 2nd",
+                "startIndex": 0,
+                "length": 7,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### [V2 response](#tab/V2-date)
 
 ```json
   "entities": [
@@ -130,17 +249,77 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
     }
   ]
 ```
-
-
-#### [V3 prediction endpoint response](#tab/V3)
-
 * * * 
 
 ## Date range resolution examples for numeric date
 
-The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
+The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance `May 2nd to May 5th`, LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
 
-#### [V2 prediction endpoint response](#tab/V2)
+#### [V3 response](#tab/V3-daterange)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "start": "2019-05-02",
+                    "end": "2019-05-05"
+                },
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "start": "2020-05-02",
+                    "end": "2020-05-05"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+#### [V3 verbose response](#tab/V3-verbose-daterange)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "start": "2019-05-02",
+                    "end": "2019-05-05"
+                },
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "start": "2020-05-02",
+                    "end": "2020-05-05"
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.daterange",
+                "text": "May 2nd to May 5th",
+                "startIndex": 0,
+                "length": 18,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### [V2 response](#tab/V2-daterange)
 
 ```json
 "entities": [
@@ -162,17 +341,77 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
     }
   ]
 ```
-
-
-#### [V3 prediction endpoint response](#tab/V3)
-
 * * * 
 
 ## Date range resolution examples for day of week
 
-The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance `Tuesday to Thursday`. In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
-#### [V2 prediction endpoint response](#tab/V2)
+
+#### [V3 response](#tab/V3-daterange-2)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "start": "2019-10-01",
+                    "end": "2019-10-03"
+                },
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "start": "2019-10-08",
+                    "end": "2019-10-10"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### [V3 verbose response](#tab/V3-verbose-daterange-2)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "start": "2019-10-01",
+                    "end": "2019-10-03"
+                },
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "start": "2019-10-08",
+                    "end": "2019-10-10"
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.daterange",
+                "text": "Tuesday to Thursday",
+                "startIndex": 0,
+                "length": 19,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### [V2 response](#tab/V2-daterange)
 
 ```json
   "entities": [
@@ -194,19 +433,73 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     }
   ]
 ```
-
-
-#### [V3 prediction endpoint response](#tab/V3)
-
 * * * 
+
 ## Ambiguous time
 The values array has two time elements if the time, or time range is ambiguous. When there's an ambiguous time, values have both the A.M. and P.M. times.
 
 ## Time range resolution example
 
-The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
+DatetimeV2 JSON response has changed in the API V3. The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
 
-#### [V2 prediction endpoint response](#tab/V2)
+Changes from API V2:
+* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
+* The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
+
+#### [V3 response](#tab/V3-datetime-2)
+
+For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
+
+```JSON
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2017-05-02T08",
+                    "value": "2017-05-02 08:00:00"
+                }
+            ]
+        }
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose-datetime-2)
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2017-05-02T08",
+                    "value": "2017-05-02 08:00:00"
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.datetime",
+                "text": "8am on may 2nd 2017",
+                "startIndex": 0,
+                "length": 19,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2-datetime-2)
 
 ```json
   "entities": [
@@ -229,89 +522,82 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
-#### [V3 prediction endpoint response](#tab/V3)
+* * * 
 
+## Time resolution example
 
+#### [V3 response](#tab/V3-time-1)
 
-DatetimeV2 JSON response has changed in the API V3. 
-
-Changes from API V2:
-* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
-* The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
-
-For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
-
-```JSON
-{
-    "query": "8am on may 2nd 2017",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6826963
-            }
-        },
-        "entities": {
-            "datetimeV2": [
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "time",
+            "values": [
                 {
-                    "type": "datetime",
-                    "values": [
-                        {
-                            "timex": "2017-05-02T08",
-                            "value": "2017-05-02 08:00:00"
-                        }
-                    ]
+                    "timex": "T08",
+                    "value": "08:00:00"
                 }
             ]
         }
-    }
+    ]
 }
-```
 
-The following JSON is with the `verbose` parameter set to `false`:
+```
+#### [V3 verbose response](#tab/V3-verbose-time-1)
 
 ```json
-{
-    "query": "8am on may 2nd 2017",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6826963
-            }
-        },
-        "entities": {
-            "datetimeV2": [
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "time",
+            "values": [
                 {
-                    "type": "datetime",
-                    "values": [
-                        {
-                            "timex": "2017-05-02T08",
-                            "value": "2017-05-02 08:00:00"
-                        }
-                    ]
+                    "timex": "T08",
+                    "value": "08:00:00"
                 }
-            ],
-            "$instance": {
-                "datetimeV2": [
-                    {
-                        "type": "builtin.datetimeV2.datetime",
-                        "text": "8am on may 2nd 2017",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.time",
+                "text": "8am",
+                "startIndex": 0,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
-```
 
+```
+#### [V2 response](#tab/V2-time-1)
+
+```json
+"entities": [
+  {
+    "entity": "8am",
+    "type": "builtin.datetimeV2.time",
+    "startIndex": 0,
+    "endIndex": 2,
+    "resolution": {
+      "values": [
+        {
+          "timex": "T08",
+          "type": "time",
+          "value": "08:00:00"
+        }
+      ]
+    }
+  }
+]
+```
 
 * * * 
 

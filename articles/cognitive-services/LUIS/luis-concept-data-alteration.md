@@ -32,7 +32,7 @@ The endpoint requires two params for spelling corrections to work:
 
 When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detects an error, the original utterance, and the corrected utterance are returned along with predictions from the endpoint.
 
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
  
 ```JSON
 {
@@ -49,7 +49,7 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 }
 ```
 
-#### [V2 prediction endpoint response](#tab/V2)
+#### [V2 response](#tab/V2)
 
 ```JSON
 {
@@ -81,7 +81,7 @@ The timezone is corrected by adding the user's timezone to the [endpoint](https:
 If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the `timezoneOffset` querystring parameter with a +/- value in minutes for the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) query.
 
 
-#### [V3 prediction endpoint request](#tab/V3)
+#### [V3 request](#tab/V3-1)
 
 Add 60 minutes:
 
@@ -92,7 +92,7 @@ Remove 60 minutes:
 https://{region}.api.cognitive.microsoft.com/luis/v3.0/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction endpoint request](#tab/V2)
+#### [V2 request](#tab/V2-1)
 
 Add 60 minutes: 
 

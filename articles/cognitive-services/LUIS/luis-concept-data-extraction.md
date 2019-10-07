@@ -61,7 +61,7 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-4)
+#### [V2 response](#tab/V2-4)
 
 ```JSON
 {
@@ -108,7 +108,7 @@ Set the querystring parameter, `show-all-intents=true`. The endpoint response is
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-6)
+#### [V2 response](#tab/V2-6)
 
 Set the querystring parameter, `verbose=true`. The endpoint response is:
 
@@ -169,7 +169,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-8)
+#### [V2 response](#tab/V2-8)
 
 ```JSON
 {
@@ -221,7 +221,7 @@ All entities are returned in the **entities** array of the response from the end
 }
 ```
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-10)
+#### [V2 response](#tab/V2-10)
 
 ```JSON
 "entities": [
@@ -448,7 +448,7 @@ With the querystring parameter, `verbose=true`:
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-13)
+#### [V2 response](#tab/V2-13)
 
 ```JSON
 "entities": [
@@ -645,7 +645,7 @@ With the querystring parameter, `verbose=true`:
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-16)
+#### [V2 response](#tab/V2-16)
 
 Entity name is `Location`, with two roles, `Origin` and `Destination`.
 
@@ -779,7 +779,7 @@ With the querystring parameter, `verbose=true`:
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-19)
+#### [V2 response](#tab/V2-19)
 
 ```JSON
 {
@@ -1004,7 +1004,7 @@ With `verbose=true` as a querystring parameter.
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-22)
+#### [V2 response](#tab/V2-22)
 
 ```JSON
 {
@@ -1229,7 +1229,7 @@ With `verbose=true` in the query string:
 ```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
-#### [V2 prediction response](#tab/V2-25)
+#### [V2 response](#tab/V2-25)
 
 ```JSON
 {
