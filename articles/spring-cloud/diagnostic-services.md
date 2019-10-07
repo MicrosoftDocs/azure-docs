@@ -1,6 +1,6 @@
 ---
-title: Analyze logs and metrics with Diagnostics settings | Microsoft Docs
-description: Analyze logs and metrics with Diagnostics settings
+title: Analyze logs and metrics in Azure Spring Cloud| Microsoft Docs
+description: Learn how to analyze diagnostic data in Azure Spring Cloud
 services: spring-cloud
 author: jpconnock
 manager: gwallace
@@ -12,9 +12,9 @@ ms.date: 10/06/2019
 ms.author: jeconnoc
 
 ---
-# Analyze logs and metrics with Diagnostics settings
+# Analyze logs and metrics with Diagnostic settings
 
-The Diagnostics functionality of Azure Spring Cloud allows you to analyze logs and metrics using one of the following services:
+The Diagnostic functionality of Azure Spring Cloud allows you to analyze logs and metrics using one of the following services:
 
 * Analyze them with Azure Log Analytics, where the data is written immediately to Azure Log Analytics with no need to first write the data to storage.
 * Save them to a Storage Account for auditing or manual inspection. You can specify the retention time (in days).
@@ -43,13 +43,13 @@ To get started, you'll need to enable one of these services to receive the data.
 ### Using Log Analytics
 
 1. From the Azure portal, select Log Analytics from the left-hand navigation menu.
-1. Select the Log Analytics workspace you chose when adding Diagnostics settings.
+1. Select the Log Analytics workspace you chose when adding Diagnostic settings.
 1. Select `Logs` to open the Log Search blade.
 1. Enter a simple query into the Log search box.  For example:
 
-```sql
-AppPlatformLogsforSpring
-| limit 50
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
 ```
 
 1. Select `Run` to see the search result.
@@ -66,22 +66,22 @@ Learn more about the Query Language used in Log Analytics [in this article](../a
 ### Using logs and metrics in Storage Account
 
 1. From the Azure portal, select Storage accounts from the left-hand navigation menu.
-2. Select the Storage account you chose when adding Diagnostics settings.
+2. Select the Storage account you chose when adding Diagnostic settings.
 3. Select `Blobs` entry to open the Blob Container blade.
 4. Find a container called `insights-logs-applicationconsole` to review application logs.
 5. Find a container called `insights-metrics-pt1m` to review application metrics.
 
-[Learn more about sending diagnostic information to a storage account.](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-to-storage)
+[Learn more about sending diagnostic information to a storage account.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage)
 
 ### Using Event Hubs
 
 1. From the Azure portal, select Event Hubs from the left-hand navigation menu.
-1. Locate and select the Event Hubs you chose when adding Diagnostics settings.
+1. Locate and select the Event Hubs you chose when adding Diagnostic settings.
 1. Select `Event Hubs` to open the Event Hub List blade.
 1. Find an event hub called `insights-logs-applicationconsole` to review application logs.
 1. Find an event hub called `insights-metrics-pt1m` to review application metrics.
 
-[Learn more about sending diagnostic information to an event hub.](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+[Learn more about sending diagnostic information to an event hub.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
 
 ## Analyzing logs
 
@@ -126,4 +126,4 @@ AppPlatformLogsforSpring
 
 ### Learn more about querying application logs
 
-Azure Monitor provides extensive support for querying application logs using Log Analytics.  To learn more about this service, review the tutorial on [log queries](../azure-monitor/log-query/get-started-queries.md) using Azure Monitor. The [Overview of Log Queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md) provides more information about building queries to analyse your application logs.
+Azure Monitor provides extensive support for querying application logs using Log Analytics.  To learn more about this service, review the tutorial on [log queries](../azure-monitor/log-query/get-started-queries.md) using Azure Monitor. The [Overview of Log Queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md) provides more information about building queries to analyze your application logs.

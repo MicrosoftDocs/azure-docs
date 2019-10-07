@@ -149,3 +149,10 @@ az spring-cloud app show --name gateway | grep url
 ```
 
 Navigate to the URL provided by the previous command to see the PiggyMetrics application running.
+
+## Next Steps
+
+In this quick start, you've deployed a Spring Cloud application from the Azure CLI.  To learn more about Azure Spring Cloud, continue to the tutorial on preparing your app for deployment.
+
+> [!div class="nextstepaction"]
+> [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)

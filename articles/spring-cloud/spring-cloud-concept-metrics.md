@@ -1,6 +1,6 @@
 ---
-title: Conceptual article for metrics in Azure Spring Cloud | Microsoft Docs
-description: Conceptual article for metrics in Azure Spring Cloud
+title: Understanding metrics for Azure Spring Cloud
+description: Learn how to review metrics in the Azure Spring Cloud
 services: spring-cloud
 author: v-vasuke
 manager: jeconnoc
@@ -15,7 +15,7 @@ ms.author: v-vasuke
 
 # Metrics for Azure Spring Cloud
 
-Azure Monitor Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Use the metrics explorer to investigate the health and utilization of your resources. In Azure Spring Cloud, we offer two options for viewing metrics: charts in the **Application Overview** page and the service level Metrics page.
+Azure Monitor Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. In Azure Spring Cloud, we offer two options for viewing metrics: charts in the **Application Overview** page and the service level Metrics page.
 
 ## Application Overview page
 

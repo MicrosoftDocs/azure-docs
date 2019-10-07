@@ -18,7 +18,7 @@ ms.author: v-vasuke
 Azure Spring Cloud's Maven plug-in allows you to easily create and update your Azure Spring Cloud service applications. By pre-defining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, we use a sample application called PiggyMetrics to demonstrate this feature.
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a  preview service, we ask customers to reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us (YAOJIN TO PROVIDE INSTRUCTIONS).
+> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a  preview service, we ask customers to reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us by email: azure-spring-cloud@service.microsoft.com.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -114,3 +114,10 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
    ```
 
 1. You can access PiggyMetrics using the URL provided in the output from the previous command.
+
+## Next Steps
+
+In this quick start, you've deployed a Spring Cloud application from a Maven repository.  To learn more about Azure Spring Cloud, continue to the tutorial on preparing your app for deployment.
+
+> [!div class="nextstepaction"]
+> [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
