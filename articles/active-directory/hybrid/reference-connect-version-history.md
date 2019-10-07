@@ -40,8 +40,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.25.0
 
->[!WARNING]
->We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
+
 
 ### Release status
 9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
@@ -54,12 +53,15 @@ Under certain circumstances, servers that were auto upgraded to version 1.4.18.0
 
 ## 1.4.18.0
 
+>[!WARNING]
+>We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
+
 >[!IMPORTANT]
 >With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
 
 
 ### Release status
-9/25/2019: Released for auto-upgrade and download
+9/25/2019: Removed from manual download until incident investigation is complete.
 
 ### New features and improvements
 - New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
