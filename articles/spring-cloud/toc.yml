@@ -52,6 +52,8 @@
       href: spring-cloud-howto-persistent-storage.md 
     - name: How to start, stop, and delete an Azure Spring Cloud application
       href: spring-cloud-howto-start-stop-delete.md
+    - name: How to set up a staging environment
+      href: spring-cloud-howto-staging-environment.md
 - name: Reference
   items: 
     - name: Azure CLI Plugin
