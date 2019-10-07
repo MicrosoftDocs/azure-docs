@@ -70,7 +70,7 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into the SQL DW.
 
-## Parameterizing Data Flows 
+## Parameterizing Data Flows
 
 ### Parameterized datasets
 
