@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/13/2019
 ms.author: magattus
 
 ---
@@ -53,9 +53,12 @@ If you are using Azure Blob storage as the origin for your content, you also inc
 
 - Actual GB used: The actual storage of your source objects.
 
+- Transactions: As needed to fill the cache.
+
 - Transfers in GB: The amount of data transferred to fill the CDN caches.
 
-- Transactions: As needed to fill the cache.
+> [!NOTE]
+> Starting October 2019, If you are using Azure CDN from Microsoft, the cost of data transfer from Origins hosted in Azure to CDN PoPs is free of charge. Azure CDN from Verizon and Azure CDN from Akamai are subject to the rates described below.
 
 For more information about Azure Storage billing, see [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
@@ -79,6 +82,36 @@ Each time a CDN POP needs to fill its cache, it makes a request to the origin fo
 - How many nodes need to load the object: Each time a node loads an object from the origin, it incurs a billable transaction. As a result, more global content (accessed from more nodes) results in more billable transactions.
 
 - TTL influence: A higher TTL for an object means it needs to be fetched from the origin less frequently. It also means clients, such as browsers, can cache the object longer, which can reduce the transactions to the CDN.
+
+## Which origin services are eligible for free data transfer with Azure CDN from Microsoft? 
+If you use one of the following Azure services as your CDN origin, you will not be charged from Data transfer from the Origin to the CDN PoPs. 
+
+- Azure Storage
+- Azure Media Services
+- Azure Virtual Machines
+- Virtual Network
+- Load Balancer
+- Application Gateway
+- Azure DNS
+- ExpressRoute
+- VPN Gateway
+- Traffic Manager
+- Network Watcher
+- Azure Firewall
+- Azure Front Door Service
+- Azure Bastion
+- Azure App service
+- Azure Functions
+- Azure Data Factory
+- Azure API Management
+- Azure Batch 
+- Azure Data Explorer
+- HDInsight
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure Machine Learning service 
+- Azure SQL database
+- Azure Cache for Redis
 
 ## How do I manage my costs most effectively?
 Set the longest TTL possible on your content. 

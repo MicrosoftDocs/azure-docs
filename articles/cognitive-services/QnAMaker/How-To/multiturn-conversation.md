@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ---
 
@@ -50,23 +50,37 @@ When you create a knowledge base, the **Populate your KB** section displays an *
 
 ![Check box for enabling multi-turn extraction](../media/conversational-context/enable-multi-turn.png)
 
-When you select this option for an imported document, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
+When you select this option you, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
 
 Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Because of the size of this PDF file, the QnA Maker resource requires a **Search pricing tier** of **B** (15 indexes) or greater. 
 
 ![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-When you import the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
+### Determine multi-turn structure from format
 
-1. In QnA Maker, select **Create a knowledge base**.
-1. Create or use an existing QnA Maker service. In the preceding Microsoft Surface example, because the PDF file is too large for a smaller tier, use a QnA Maker service with a **Search service** of **B** (15 indexes) or greater.
-1. Enter a name for your knowledge base, such as **Surface manual**.
-1. Select the **Enable multi-turn extraction from URLs, .pdf or .docx files** check box. 
-1. Select the Surface manual URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf**.
+QnA Maker determines multi-turn structure from:
 
-1. Select the **Create your KB** button. 
+* Heading font size - if you use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts. 
 
-    After the knowledge base is created, a view of the question-and-answer pairs is displayed.
+Rules of headings include:
+
+* Do not end a heading with a question mark, `?`. 
+
+### Add file with multi-turn prompts
+
+When you add a multi-turn document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
+
+1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. 
+1. Go to the **Settings** page, select the file or URL to add. 
+1. **Save and train** the knowledge base.
+
+> [!Caution]
+> Support for using an exported TSV or XLS multi-turn knowledge base file as a data source for a new or empty knowledge base isn't supported. You need to **Import** that file type, from the **Settings** page of the QnA Maker portal, in order to add exported multi-turn prompts to a knowledge base.
+
+
+## Create knowledge base with multi-turn prompts with the Create API
+
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
 
 ## Show questions and answers with context
 
@@ -121,29 +135,6 @@ When a follow-up prompt is created, and an existing question-and-answer pair is 
 1. When you're done editing the display text, select **Save**. 
 1. In the top navigation bar, **Save and train**.
 
-
-<!--
-
-## To find the best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
-
-1. Add metadata to each of the two follow-up question-and-answer pairs:
-
-    |Question|Add metadata|
-    |--|--|
-    |*Feedback on a QnA Maker service*|"Feature":"all"|
-    |*Feedback on an existing feature*|"Feature":"one"|
-    
-    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Select **Save and train**. 
-
-    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
-
--->
 
 ## Add a new question-and-answer pair as a follow-up prompt
 
@@ -369,21 +360,13 @@ You have added prompts in your knowledge base and tested the flow in the test pa
 
 The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-<!--
-
-FIX - Need to go to parent, then answer column, then edit answer. 
-
--->
-
-## Create knowledge base with multi-turn prompts with the Create API
-
-You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
-
-
 ## Add or delete multi-turn prompts with the Update API
 
 You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array. 
 
+## Export knowledge base for version control
+
+QnA Maker [supports version control](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) in the QnA Maker portal by including multi-turn conversation steps in the exported file.
 
 ## Next steps
 

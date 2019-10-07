@@ -1,13 +1,14 @@
 ---
 title: Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-ms.service: hdinsight
 author: nakhanha
 ms.author: nakhanha
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/29/2019
 ---
+
 # Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
 
 The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
@@ -16,7 +17,7 @@ The Hive Warehouse Connector allows you to take advantage of the unique features
 
 Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 and Apache Hive 3.1.0 have separate metastores, which can make interoperability difficult. The Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel, making it  more efficient and scalable than using a standard JDBC connection from Spark to Hive.
 
-![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+![hive warehouse connector architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
 Some of the operations supported by the Hive Warehouse Connector are:
 
@@ -36,14 +37,14 @@ Follow these steps to setup the Hive Warehouse Connector between a Spark and Int
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
 1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. View the contents of the updated file with `cat /etc/hosts`. The output should look something like what is shown in the screenshot below.
 
-    ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+    ![hive warehouse connector hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. Configure the Spark cluster settings by doing the following steps: 
     1. Go to Azure portal, select HDInsight clusters, and then click on your cluster name.
     1. On the right side, under **Cluster dashboards**, select **Ambari home**.
     1. In the Ambari web UI, click **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
 
-        ![Spark2 Ambari configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+        ![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
     1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **hive.llap.daemon.service.hosts** under ** Advanced hive-interactive-site**. For example, `@llap0`
 
@@ -53,7 +54,7 @@ Follow these steps to setup the Hive Warehouse Connector between a Spark and Int
         jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
         ```
 
-        >[!Note] 
+        > [!Note]
         > The JDBC URL should contain credentials for connecting to Hiveserver2 including a username and password.
 
     1. Set `spark.datasource.hive.warehouse.load.staging.dir` to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it. For example, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` where `STORAGE_ACCOUNT_NAME` is the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` is the name of the storage container.
@@ -153,14 +154,14 @@ Spark doesn’t natively support writing to Hive’s managed ACID tables. Using 
     ```
 
 2. Filter the table `hivesampletable` where the column `state` equals `Colorado`. This query of the Hive table is returned as a Spark DataFrame. Then the DataFrame is saved in the Hive table `sampletable_colorado` using the `write` function.
-    
+
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
 You can see the resulting table in the screenshot below.
 
-![show resulting table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+![hive warehouse connector show hive table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ###	Structured streaming writes
 
@@ -179,7 +180,9 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     1. Open another terminal on the same Spark cluster.
     1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
     1. Type the words that you would like the Spark stream to ingest, followed by carriage return.
-        ![input data to spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
+        ![input data to Apache spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
 1. Create a new Hive table to hold the streaming data. At the spark-shell, type the following commands:
 
     ```scala
@@ -225,8 +228,10 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     1. Click on the Hive service for your cluster under **Hive**.
         ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Click on the **Masking** tab and then **Add New Policy**
-        ![hive policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
+
+        ![hive warehouse connector ranger hive policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+
+    a. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
                 ![create policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 

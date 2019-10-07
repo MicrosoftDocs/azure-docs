@@ -92,6 +92,6 @@ Use the ?? operator to efficiently check for a property in an item when querying
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Keywords](sql-query-keywords.md)
 - [SELECT clause](sql-query-select.md)

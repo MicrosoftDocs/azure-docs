@@ -1,6 +1,6 @@
 ---
 title: Read replicas in Azure Database for MariaDB
-description: This article describes read replicas for Azure Database for MariaDB.
+description: 'Learn about read replicas in Azure Database for MariaDB: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -14,7 +14,7 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
-To learn more about GTID replication, please see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
+To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 ## When to use a read replica
 
@@ -30,12 +30,15 @@ The read replica feature uses asynchronous replication. The feature isn't meant 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
+> [!NOTE]
+> Cross region replication is in preview.
+
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
 [ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
-You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
+You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
 Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
 
@@ -106,7 +109,7 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 ### Master server restart
 
-When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
+When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 ### New replicas
 
@@ -150,4 +153,4 @@ The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variable
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-cli.md)
+- Learn how to [create and manage read replicas using the Azure CLI and REST API](howto-read-replicas-cli.md)

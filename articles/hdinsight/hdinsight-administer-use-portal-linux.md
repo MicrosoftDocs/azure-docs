@@ -166,7 +166,7 @@ From the [cluster home page](#homePage):
 
 1. Select **Cluster dashboards**.
 
-    ![HDInsight Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    ![HDInsight Apache Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. Select **Ambari home** from the new page.
 1. Enter the cluster username and password.  The default cluster username is _admin_.

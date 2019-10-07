@@ -177,6 +177,8 @@ Some features of [Azure Functions](../azure-functions/functions-overview.md) req
 A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings. To access these features, you will need the [Contributor](built-in-roles.md#contributor) role.
 
 ## Next steps
-* [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
-* [View activity logs for RBAC changes to Azure resources](change-history-report.md)
+
+- [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
+- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
+- [View activity logs for RBAC changes to Azure resources](change-history-report.md)
 

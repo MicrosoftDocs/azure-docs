@@ -51,7 +51,7 @@ When you are ready to publish your prediction endpoint, create and assign author
 1. Select **+ Create a resource**.
 1. In the search box, enter `Language understanding`.
 1. Select **Create** to begin the creation process. 
-1. Create **Both** to create an authoring and a prediction endpoint runtime key. 
+1. Select **Both** to create an authoring and a prediction endpoint runtime key. 
 1. Enter the information required to create the resource then select **Create** to finish the process.
 
     ![Create the language understanding resource](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)

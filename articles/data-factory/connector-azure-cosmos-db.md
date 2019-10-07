@@ -29,6 +29,11 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This Azure Cosmos DB (SQL API) connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Azure Cosmos DB (SQL API) to any supported sink data store, or copy data from any supported source data store to Azure Cosmos DB (SQL API). For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You can use the Azure Cosmos DB (SQL API) connector to:
@@ -248,6 +253,9 @@ The following properties are supported in the Copy Activity **source** section:
     }
 ]
 ```
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Import or export JSON documents
 

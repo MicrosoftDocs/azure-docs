@@ -614,5 +614,13 @@ When data is copied from or to Azure SQL Database, the following mappings are us
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data with precision larger than 28, consider converting to a string in SQL query.
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

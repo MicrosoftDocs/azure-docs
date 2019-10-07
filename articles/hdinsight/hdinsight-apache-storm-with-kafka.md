@@ -368,7 +368,7 @@ The project contains a file named `dev.properties` that is used to pass paramete
 | `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
 | `kafka.topic` | The Kafka topic that the topologies use. |
 | `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
-| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Storage Gen2, use a value of `abfs:///`. For Azure Data Lake Storage Gen1, use a value of `adl:///`. |
+| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb://`. For Azure Data Lake Storage Gen2, use a value of `abfs://`. For Azure Data Lake Storage Gen1, use a value of `adl://`. |
 
 ## Create the clusters
 
@@ -384,11 +384,11 @@ The following diagram shows how communication flows between Storm and Kafka:
 To create an Azure Virtual Network, and then create the Kafka and Storm clusters within it, use the following steps:
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
-   
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+
     The Azure Resource Manager template is located at **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. It creates the following resources:
-    
+
     * Azure resource group
     * Azure Virtual Network
     * Azure Storage account
