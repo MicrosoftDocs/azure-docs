@@ -587,8 +587,8 @@
         - name: Replicate MySQL tables to Delta Lake tables
           href: /azure/databricks/delta/optimizations/mysql-delta
           maintainContext: true
-          - name: Optimize join performance
-            items:
+        - name: Optimize join performance
+          items:
             - name: Optimize join performance overview
               href: /azure/databricks/delta/join-performance/index
               maintainContext: true
