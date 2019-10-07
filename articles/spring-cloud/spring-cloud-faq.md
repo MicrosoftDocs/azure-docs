@@ -62,15 +62,15 @@ If you have created your Spring service instances in Azure Spring Cloud, you can
 
 ## Developement
 ### I am a Spring developer but new to Azure, what is the quickest way for me to learn developing Azure Spring Cloud applications?
-Regardless of to create a new application or to migrate an existing one to Azure Spring Cloud, we suggest you to firstly go through [Getting-Started guide of Azure Spring Cloud](../README.md). From there you can go to many directions shown in [How-To guide of using Azure Spring Cloud](how-to.md).
+Regardless of to create a new application or to migrate an existing one to Azure Spring Cloud, we suggest you to firstly go through [Getting-Started guide of Azure Spring Cloud](spring-cloud-launch-app-portal.md).
 
 ### What Java runtime does Azure Spring Cloud support?
 Azure Spring Cloud officially supports Java 8 and 11.
 
 ### Where can I see my Spring application logs and metrics?
-The metrics can be found at [App Overview](metrics.md) blade and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) blade.
+The metrics can be found at App Overview blade and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) blade.
 
-Azure Spring Cloud supports exporting your Spring application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is `AppPlatformLogsforSpring`. To enable it, please go through [Diagnostic settings Guide](diagnostic-settings-guide.md).
+Azure Spring Cloud supports exporting your Spring application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is `AppPlatformLogsforSpring`. To enable it, please go through [Diagnostic settings Guide](spring-cloud-tutorial-diagnostics.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
 Yes, please visit [Distributed Tracing](distributed-tracing.md) for more details.
@@ -92,7 +92,7 @@ No.
 Yes, please visit [Deploy from source](spring-cloud-launch-from-source.md) for more details.
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
-Not yet, but please stay tuned.
+No.
 
 ### What are the best practices for migrating existing Spring microservices to Azure Spring Cloud?
 Before migrating existing Spring microservices to Azure Spring Cloud,
