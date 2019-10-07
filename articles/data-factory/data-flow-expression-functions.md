@@ -11,7 +11,7 @@ ms.date: 02/15/2019
 
 # Data transformation expressions in Mapping Data Flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Expression functions
 

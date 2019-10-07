@@ -92,8 +92,6 @@
         href: classroom-labs/how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-      - name: Enable nested virtualization on a template VM
-        href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
     - name: Create and configure classroom labs (instructor)
       items:        
       - name: Create and manage classroom labs
@@ -112,6 +110,8 @@
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
       - name: Set or reset passwords for virtual machines 
         href: classroom-labs/how-to-set-virtual-machine-passwords.md
+      - name: Enable nested virtualization on a template VM
+        href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
     - name: Connect to VMs in classroom labs (student)
       items:        
       - name: Access classroom labs
