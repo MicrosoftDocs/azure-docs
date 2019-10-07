@@ -20,11 +20,11 @@ ms.author: yegu
 
 Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
-Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with managed service identity (MSI) support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code has to know only the service endpoint for an app configuration store in order to access it. You can embed this URL in your code directly without the concern of exposing any secret.
+Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with managed service identity (MSI) support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code can access the app configuration store using only the service endpoint. You can embed this URL in your code directly without the concern of exposing any secret.
 
 This tutorial shows how you can take advantage of MSI to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-In addition, this tutorial optionally shows how you can use MSI in conjunction with App Configuration's Key Vault references to seamlessly access secrets stored in Key Vault. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
+In addition, this tutorial optionally shows how you can use MSI in conjunction with App Configuration's Key Vault references. This allows you to seamlessly access secrets stored in Key Vault as well as configuration values in App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -88,7 +88,7 @@ To set up a managed identity in the portal, you first create an application as n
     }
     ```
 
-1. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+1. If you wish to access only values stored directly in App Configuration, open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -102,7 +102,7 @@ To set up a managed identity in the portal, you first create an application as n
             .UseStartup<Startup>();
     ```
 
-1. If you wish to use Key Vault references from App Configuration, simply create a new `KeyVaultClient` using an `AzureServiceTokenProvider`. Then pass this to a call to the `UseAzureKeyVault` method.
+1. If you wish to use App Configuration values as well as Key Vault references, open *Program.cs*, and update the `CreateWebHostBuilder` method as shown below. This creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -133,7 +133,7 @@ The easiest way to enable local Git deployment for your app with the Kudu build 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Enable local Git with Kudu
-If you do not yet have a local git repository for your app, you'll need to initialize one by running the following commands from your app's project directory:
+If you don't have a local git repository for your app, you'll need to initialize one. To do this, run the following commands from your app's project directory:
 
 ```cmd
 git init
