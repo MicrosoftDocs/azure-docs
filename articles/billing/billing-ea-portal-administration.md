@@ -83,10 +83,10 @@ Other points to keep in mind before an account transfer:
   - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
 - If an account transfer doesn't meet your requirements, consider an enrollment transfer.
 - The account transfer transfers all services and subscriptions related to the specific accounts.
-- The transferred account will show as inactive under the source enrollment after the transfer is completed.
+- After the transfer is complete, the transferred account appears inactive under the source enrollment.
 - An account transfer can be backdated to any date within the target enrollment start date.
-- The account will show the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
-- Any usage occurred for the account prior to the effective transfer date will remain under the source enrollment.
+- The account shows the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
+- Any usage occurred for the account prior to the effective transfer date remains under the source enrollment.
 
 
 ## Transfer enterprise enrollment to a new one
