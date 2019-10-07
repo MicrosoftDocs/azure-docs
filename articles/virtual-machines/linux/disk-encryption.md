@@ -34,7 +34,7 @@ By default, your managed disk uses Microsoft-managed encryption keys.
 
 ## Customer-managed keys
 
-You can choose to manage Azure Storage encryption at the level of the subscription with your own keys. When you specify a customer-managed key at the level of the managed disk, that key is used to encrypt and decrypt all data in the managed disk.  Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+You can choose to manage Azure Storage encryption at the level of each managed disk, with your own keys. When you specify a customer-managed key at the level of the managed disk, that key is used to encrypt and decrypt all data in the managed disk.  Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 ![Interaction of disk set and customer managed keys](media/disk-encryption/how-sse-customer-managed-keys-works-for-managed-disks.png)
 
