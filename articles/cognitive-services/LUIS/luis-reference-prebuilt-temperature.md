@@ -61,7 +61,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "set the temperature to 30 degrees",
     "prediction": {
-        "normalizedQuery": "set the temperature to 30 degrees",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -86,7 +85,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "set the temperature to 30 degrees",
     "prediction": {
-        "normalizedQuery": "set the temperature to 30 degrees",
         "topIntent": "None",
         "intents": {
             "None": {

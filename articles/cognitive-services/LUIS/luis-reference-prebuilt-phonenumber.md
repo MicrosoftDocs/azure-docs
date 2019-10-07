@@ -61,7 +61,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "my mobile is 1 (800) 642-7676",
     "prediction": {
-        "normalizedQuery": "my mobile is 1 (800) 642-7676",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -83,7 +82,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "my mobile is 1 (800) 642-7676",
     "prediction": {
-        "normalizedQuery": "my mobile is 1 (800) 642-7676",
         "topIntent": "None",
         "intents": {
             "None": {

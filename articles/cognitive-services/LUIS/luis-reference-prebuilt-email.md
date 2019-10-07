@@ -57,7 +57,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -80,7 +79,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {

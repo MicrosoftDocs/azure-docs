@@ -53,7 +53,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "where is the educational requirements form for the development and engineering group",
     "prediction": {
-        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
         "topIntent": "GetJobInformation",
         "intents": {
             "GetJobInformation": {
@@ -76,7 +75,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "where is the educational requirements form for the development and engineering group",
     "prediction": {
-        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
         "topIntent": "GetJobInformation",
         "intents": {
             "GetJobInformation": {

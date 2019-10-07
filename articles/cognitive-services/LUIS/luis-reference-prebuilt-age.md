@@ -80,7 +80,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "A 90 day old utilities bill is quite late.",
     "prediction": {
-        "normalizedQuery": "a 90 day old utilities bill is quite late.",
         "topIntent": "None",
         "intents": {
             "None": {

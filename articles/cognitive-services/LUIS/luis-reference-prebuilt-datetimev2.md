@@ -245,7 +245,6 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 {
     "query": "8am on may 2nd 2017",
     "prediction": {
-        "normalizedQuery": "8am on may 2nd 2017",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -275,7 +274,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "8am on may 2nd 2017",
     "prediction": {
-        "normalizedQuery": "8am on may 2nd 2017",
         "topIntent": "None",
         "intents": {
             "None": {

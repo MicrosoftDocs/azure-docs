@@ -146,7 +146,6 @@ The top JSON properties for V3 are:
 {
     "query": "this is your utterance you want predicted",
     "prediction":{
-        "normalizedQuery": "this is your utterance you want predicted - after normalization",
         "topIntent": "intent-name-1",
         "intents": {}, 
         "entities":{}

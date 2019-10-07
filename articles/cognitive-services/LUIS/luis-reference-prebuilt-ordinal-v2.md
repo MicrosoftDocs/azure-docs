@@ -58,7 +58,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "what is the second to last choice in the list",
     "prediction": {
-        "normalizedQuery": "what is the second to last choice in the list",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -83,7 +82,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "what is the second to last choice in the list",
     "prediction": {
-        "normalizedQuery": "what is the second to last choice in the list",
         "topIntent": "None",
         "intents": {
             "None": {

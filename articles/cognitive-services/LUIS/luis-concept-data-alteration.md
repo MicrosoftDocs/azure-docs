@@ -52,7 +52,6 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 {
     "query": "Book a flite to London?",
     "prediction": {
-        "normalizedQuery": "book a flight to london?",
         "topIntent": "BookFlight",
         "intents": {
             "BookFlight": {

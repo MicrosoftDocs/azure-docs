@@ -64,7 +64,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "Order the second option",
     "prediction": {
-        "normalizedQuery": "order the second option",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -84,7 +83,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "Order the second option",
     "prediction": {
-        "normalizedQuery": "order the second option",
         "topIntent": "None",
         "intents": {
             "None": {

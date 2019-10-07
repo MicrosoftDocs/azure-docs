@@ -59,7 +59,6 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 {
   "query": "when do you open next?",
   "prediction": {
-    "normalizedQuery": "when do you open next?",
     "topIntent": "GetStoreInfo",
     "intents": {
         "GetStoreInfo": {
@@ -115,7 +114,6 @@ Set the querystring parameter, `show-all-intents=true`. The endpoint response is
 {
     "query": "when do you open next?",
     "prediction": {
-        "normalizedQuery": "when do you open next?",
         "topIntent": "GetStoreInfo",
         "intents": {
             "GetStoreInfo": {
@@ -176,7 +174,6 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 {
     "query": "Turn on the lights next monday at 9am",
     "prediction": {
-        "normalizedQuery": "Turn on the lights next monday at 9am",
         "topIntent": "Utilities.ShowNext",
         "intents": {
             "Utilities.ShowNext": {
@@ -1184,7 +1181,6 @@ Without `verbose=true` in the query string:
 {
     "query": "when is the best time to go to red rock",
     "prediction": {
-        "normalizedQuery": "when is the best time to go to red rock",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -1214,7 +1210,6 @@ With `verbose=true` in the query string:
 {
     "query": "when is the best time to go to red rock",
     "prediction": {
-        "normalizedQuery": "when is the best time to go to red rock",
         "topIntent": "None",
         "intents": {
             "None": {

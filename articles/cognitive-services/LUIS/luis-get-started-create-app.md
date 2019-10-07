@@ -138,7 +138,6 @@ Select **Test** again to collapse the test pane.
     {
         "query": "turn off the lights",
         "prediction": {
-            "normalizedQuery": "turn off the lights",
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {

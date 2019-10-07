@@ -78,7 +78,6 @@ In order to query a public app, you need:
     {
         "query": "turn on all lights",
         "prediction": {
-            "normalizedQuery": "turn on all lights",
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
                 "HomeAutomation.TurnOn": {
@@ -151,7 +150,6 @@ In order to query a public app, you need:
     {
         "query": "turn on all lights",
         "prediction": {
-            "normalizedQuery": "turn on all lights",
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
                 "HomeAutomation.TurnOn": {

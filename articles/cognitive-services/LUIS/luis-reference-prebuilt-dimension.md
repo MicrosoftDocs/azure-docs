@@ -64,7 +64,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
     "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -89,7 +88,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
     "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
         "topIntent": "None",
         "intents": {
             "None": {

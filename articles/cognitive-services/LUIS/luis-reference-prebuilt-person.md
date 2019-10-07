@@ -48,7 +48,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "Is Jill Jones in Cairo?",
     "prediction": {
-        "normalizedQuery": "is jill jones in cairo?",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -70,7 +69,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "Is Jill Jones in Cairo?",
     "prediction": {
-        "normalizedQuery": "is jill jones in cairo?",
         "topIntent": "None",
         "intents": {
             "None": {

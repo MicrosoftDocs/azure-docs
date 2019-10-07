@@ -96,7 +96,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "prediction": {
-        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -122,7 +121,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "prediction": {
-        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
         "topIntent": "None",
         "intents": {
             "None": {

@@ -60,7 +60,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "set a trigger when my stock goes up 2%",
     "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -82,7 +81,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "set a trigger when my stock goes up 2%",
     "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
         "topIntent": "None",
         "intents": {
             "None": {

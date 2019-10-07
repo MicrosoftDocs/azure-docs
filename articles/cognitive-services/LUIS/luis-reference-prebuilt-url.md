@@ -57,7 +57,6 @@ The following JSON is with the `verbose` parameter set to `false`:
 {
     "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
     "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -79,7 +78,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 {
     "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
     "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
         "topIntent": "None",
         "intents": {
             "None": {
