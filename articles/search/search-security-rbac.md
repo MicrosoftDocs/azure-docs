@@ -20,7 +20,7 @@ Azure provides a [global role-based authorization model](../role-based-access-co
 
 ## Management tasks by role
 
-For Azure Search, roles are associated with permission levels that support the following management tasks:
+For Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
 | --- | --- |
@@ -34,5 +34,5 @@ Roles do not grant access rights to the service endpoint. Search service operati
 ## See also
 
 + [Manage using PowerShell](search-manage-powershell.md) 
-+ [Performance and optimization in Azure Search](search-performance-optimization.md)
++ [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
 + [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
