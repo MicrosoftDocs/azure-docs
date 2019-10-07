@@ -34,7 +34,7 @@ Azure portal quickstart. This logic app monitors a website's RSS feed and
 sends email for each new item in that feed. Your finished logic app 
 looks like this high-level workflow:
 
-![High-level logic app workflow](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![High-level logic app workflow overview](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -253,7 +253,7 @@ When you have an existing Azure Resource Group project, you can add a new blank 
 
 1. To add a resource to the template file, choose **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, right-click **resources**, and select **Add New Resource**.
 
-   ![In JSON Outline window, add new resource](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window.png)
+   ![In JSON Outline window, add new resource](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. In the **Add Resource** dialog box, find and select **Logic App**. Name your logic app, and choose **Add**.
 
