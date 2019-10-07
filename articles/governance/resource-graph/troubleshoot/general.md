@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
 ---
 # Troubleshoot errors using Azure Resource Graph
 
