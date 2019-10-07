@@ -28,19 +28,13 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. [Set database-level/table-level policies](database-table-policies-csharp.md) (Optional)
+1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
 1. [An event hub with data for ingestion](ingest-data-event-hub.md#create-an-event-hub) for adding a EventHub data connection. 
 
-## Install C# Nuget
+[!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
-1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-
-1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
-
-
-## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
+[!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add an Event Hub data connection
 The following example shows how to add an Event Hub data connection programmatically. Check [Connect to the event hub](ingest-data-event-hub.md#connect-to-the-event-hub) for adding an Event Hub data connection through Azure portal.

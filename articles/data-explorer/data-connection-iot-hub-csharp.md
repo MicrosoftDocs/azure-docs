@@ -32,16 +32,12 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT hub data connection.
 
-## Install C# Nuget
+[!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
-1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+[!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
+## Add an IoT Hub data connection 
 
-## Authentication
-To run the following example, you need an Azure AD Application and service principal that can access resources. See [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription level. You also need the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
-
-## Add an IoT Hub data connection (Preview)
 The following example shows you how to add an IoT Hub data connection programmatically. See[connect Azure Data Explorer table to IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through the Azure portal.
 
 ```csharp

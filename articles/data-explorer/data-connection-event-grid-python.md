@@ -26,20 +26,13 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test table and column mapping](python-ingest-data.md#create-a-table-on-your-cluster)
 
-1. [Set database-level/table-level policies](database-table-policies-csharp.md) (Optional)
+1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
 1. [A storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding a EventGrid data connection. 
 
-## Install Python package
+[!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
-To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
-
-```
-pip install azure-common
-pip install azure-mgmt-kusto
-```
-## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
+[!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add an Event Grid data connection
 The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure portal.
