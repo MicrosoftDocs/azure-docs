@@ -56,6 +56,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 2.	Click on the plus sign on the upper right side of the screen to create a new **API Key**.
 
+	![Meta Networks Connector plus icon](media/meta-networks-connector-provisioning-tutorial/plusicon.png)
+
 3.	Set the **API Key Name** and **API Key Description**.
 
 	![Meta Networks Connector Create Token](media/meta-networks-connector-provisioning-tutorial/keyname.png)
@@ -64,7 +66,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Meta Networks Connector privileges](media/meta-networks-connector-provisioning-tutorial/privileges.png)
 
-5.	Click on **Add**. Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Meta Networks Connector application in the Azure portal. **Note that the SECRET disappears once the pop-up window is closed**.
+5.	Click on **Add**. Copy the **SECRET** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Meta Networks Connector application in the Azure portal.
 
 	![Meta Networks Connector Create Token](media/meta-networks-connector-provisioning-tutorial/token.png)
 
