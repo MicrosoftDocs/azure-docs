@@ -10,7 +10,7 @@ ms.date: 02/03/2019
 
 # Sink transformation for a data flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 

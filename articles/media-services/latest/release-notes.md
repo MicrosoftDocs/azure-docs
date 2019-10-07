@@ -272,4 +272,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-[Overview](media-services-overview.md)
+- [Overview](media-services-overview.md)
+- [Media Services v2 release notes](../previous/media-services-release-notes.md)
