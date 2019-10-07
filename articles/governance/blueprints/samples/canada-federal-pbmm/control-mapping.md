@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
 
