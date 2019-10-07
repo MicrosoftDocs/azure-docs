@@ -5,6 +5,10 @@
   - name: What is Azure Firewall Manager?
     href: overview.md
 - name: Tutorials
+  expanded: true
+  items:
+  - name: Secure your cloud network - portal
+    href: secure-cloud-network.md
 - name: Samples
 - name: Concepts
   items:
