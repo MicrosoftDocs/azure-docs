@@ -46,6 +46,10 @@ This diagram shows how Azure Storage uses Azure Active Directory and Azure Key V
 
 The following list explains the numbered steps in the diagram:
 
+1. An administrator creates a disk encryption set and keyvault resources.
+1. That administrator can then have every managed disk associated with that specific disk encryption set.
+1. When a managed disk is associated with a disk encryption set, Azure AD creates the associated managed identities for authentication with the managed disk.
+
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
 2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
 3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
