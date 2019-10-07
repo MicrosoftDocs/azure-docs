@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/07/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -107,7 +107,7 @@ The following Docker examples are for the Read container.
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  mcr.microsoft.com/azure-cognitive-services/read \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -117,7 +117,7 @@ The following Docker examples are for the Read container.
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  mcr.microsoft.com/azure-cognitive-services/read \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} \

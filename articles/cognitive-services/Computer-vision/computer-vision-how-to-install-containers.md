@@ -33,10 +33,6 @@ You must meet the following prerequisites before using the containers:
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## Request access to the private container registry
-
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
-
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -51,14 +47,14 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-| Read | `mcr.microsoft.com/azure-cognitive-services/read:latest` |
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read container
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -78,7 +74,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/read \
+containerpreview.azurecr.io/microsoft/cognitive-services-read \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
