@@ -62,7 +62,7 @@ If your Azure AD tenant doesn't have a user yet, create one by following the ste
 Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
 ```azurecli-interactive
-azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+$azureaduser = (az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
 ```
 > [!TIP]
 > To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
