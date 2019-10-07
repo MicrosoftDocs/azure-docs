@@ -100,7 +100,7 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 ### Task execution
 
 - **Task execution order**  
-    Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example, first in, first out order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
+    Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example: `first in, first out` order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
 
 - **Maximize tasks on a node**  
     When the `maxTasksPerNode` setting is set to a higher number than the default of 1 on the pool, the Batch scheduler packs tasks within each node first. This can be controlled by setting [ComputeNodeFillType](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.computenodefilltype?view=azure-dotnet) to spread tasks across compute nodes prior to packing. If you use the pack setting, there will be more tasks per node, maximizing the use of compute nodes and allowing associated autoscale formulas to minimize the target number of nodes.
