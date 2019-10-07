@@ -694,11 +694,11 @@ def list_directory_contents():
 
 Learn to set access control lists on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl-dotnet.md).
 
-Explore more APIs. See the relevant tab below:
+Explore more APIs. 
 
 # [.NET](#tab/dotnet)
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 # [Java](#tab/java)
 

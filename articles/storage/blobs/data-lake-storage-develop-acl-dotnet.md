@@ -12,7 +12,7 @@ ms.reviewer: prishet
 
 # Manage file and directory level permissions in Azure Storage by using code
 
-This article shows you how to use the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).NET to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace. 
+This article shows you how to use code to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace. 
 
 To learn more about ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -116,12 +116,6 @@ public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
 }
 ```
 
-The short form of an ACL might look something like the following:
-
-`user::rwx group::r-x other::--`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions.
-
 # [Java](#tab/java)
 
 Get the ACL of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
@@ -159,12 +153,6 @@ throws URISyntaxException, StorageException{
 
 ```
 
-The short form of an ACL might look something like the following:
-
-`user::rwx group::r-x other::--`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
-
 # [Python](#tab/python)
 
 Get the access permissions of a directory by calling the **BlockBlobService.get_path_access_control** method. Pass these items as parameters to the method:
@@ -190,13 +178,13 @@ def get_directory_permissions(container_name):
         print(e)
 ```
 
+---
+
 The short form of an ACL might look something like the following:
 
-`user::rwx,group::r-x,other::---`
+`user::rwx group::r-x other::--`
 
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
-
----
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions.
 
 ## Get the ACL of a file
 
@@ -546,11 +534,11 @@ def set_file_ACL(container_name):
 
 Learn to create, rename, list, move, and delete directories. See [Create and manage directories in Azure Storage by using code](data-lake-storage-develop-manage-directories.md).
 
-Explore more APIs. See the relevant tab below:
+Explore more APIs.
 
 # [.NET](#tab/dotnet)
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 # [Java](#tab/java)
 
