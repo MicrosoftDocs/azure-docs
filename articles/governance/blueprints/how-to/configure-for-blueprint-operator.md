@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Configure your environment for a Blueprint Operator
 
