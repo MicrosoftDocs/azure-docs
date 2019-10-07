@@ -65,6 +65,6 @@
     - name: Frequently Asked Questions
       href: spring-cloud-faq.md
     - name: Troubleshooting Guide
-      href: spring-cloud-troubleshooting.md
+      href: spring-cloud-troubleshoot.md
 
       

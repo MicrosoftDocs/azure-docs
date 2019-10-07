@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions for Azure Spring Cloud | Microsoft Docs
+title: Frequently asked questions for Azure Spring Cloud | Microsoft Docs
 description: An FAQ of Azure Spring Cloud, which automates many aspects of deploying Java microservice applications made in Spring and provides tools for managing others.
 services: spring-cloud
 author: v-vasuke
@@ -14,6 +14,8 @@ ms.author: v-vasuke
 ---
 
 # Frequently Asked Questions
+
+This article consolidates the answers to typical questions about Azure Spring Cloud. For more specific guidance, refer to the corresponding article within our documentation. 
 
 ## General
 ### Why Azure Spring Cloud?
@@ -39,7 +41,6 @@ Persistent volumes | 10 x 50 GBytes
 For more details, please refer to [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
 ### How secure is Azure Spring Cloud?
-Azure Spring Cloud is secured, all application and configuration data are stored under the EU General Data Protection Regulation (GDPR).
 
 Security and privacy are one of the top priorities for Azure and Azure Spring Cloud customers. Microsoft has no access to application data, logs, or configurations as they are encrypted in Azure. All the service instances in Azure Spring Cloud are isolated from each other.
 
@@ -53,7 +54,7 @@ East US, West US 2, West Europe, and Southeast Asia.
 ### What are the known limitations right now?
 - `spring.application.name` will be overridden by the application name used to create each application.
 - `server.port` is not allowed in configuration file from Git repo. Adding it to the configuration file will likely to cause your application not reachable from other applications or internet.
-- The Azure portal and ARM templates do not support uploading application packages. This can only be done via application deployment by Azure CLI.
+- The Azure portal and Resource Manager templates do not support uploading application packages. This can only be done via application deployment by Azure CLI.
 - For quota limitations, refer to [What service plans does Azure Spring Cloud offer](#what-service-plans-does-azure-spring-cloud-offer).
 
 ### How can I provide feedback and report issues?
@@ -82,13 +83,13 @@ Yes.
 
 ## Deployment
 ### Does Azure Spring Cloud support Blue-green deployment?
-Yes, please visit [staging environment guide](spring-cloud-howto-staging-environment.md) for more details.
+Yes, visit [staging environment guide](spring-cloud-howto-staging-environment.md) for more details.
 
 ### Can I access Kubernetes to manipulate my application containers?
 No.
 
 ### Does Azure Spring Cloud support building containers from the source?
-Yes, please visit [Deploy from source](spring-cloud-launch-from-source.md) for more details.
+Yes, visit [Deploy from source](spring-cloud-launch-from-source.md) for more details.
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 No.
@@ -96,7 +97,7 @@ No.
 ### What are the best practices for migrating existing Spring microservices to Azure Spring Cloud?
 Before migrating existing Spring microservices to Azure Spring Cloud,
 - You need to have the knowledge of minimum requirement for starting them.
-- You need to have the configuration entries, environment variables and JVM parameters ready so you can compare them with the deployment in Azure Spring Cloud later.
+- You need to have the configuration entries, environment variables, and JVM parameters ready so you can compare them with the deployment in Azure Spring Cloud later.
 - If you want to use Service Binding, go through your Azure services to be bound. Your applications need to have proper privileges to access them.
 - We recommend you remove or disable embedded services that might conflict with services managed by Azure Spring Cloud such as Eureka, Config Server, etc.
 - We recommend you use official and stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no SLA supports.

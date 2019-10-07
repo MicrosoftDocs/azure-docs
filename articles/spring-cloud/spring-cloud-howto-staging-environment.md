@@ -1,5 +1,5 @@
 ---
-title: How to set up a staging environment | Microsoft Docs
+title: How to set up a staging environment in Azure Spring Cloud | Microsoft Docs
 description: In this how-to, learn how to use blue-green deployment with Azure Spring Cloud
 services: spring-cloud
 author: v-vasuke
@@ -18,13 +18,13 @@ This article will show you how to create a staging (blue-green) deployment in Az
 
 ## Prerequisites
 
-* An Azure Spring Cloud service instance that is already deployed and running. In this article, we use "PiggyMetrics" from our [tutorial on launching an application](spring-cloud-quickstart-launch-app-portal.md). It is comprised of three applications: "gateway", "account-service", and "auth-service".
+* An Azure Spring Cloud service instance that is already deployed and running. In this article, we use "PiggyMetrics" from our [tutorial on launching an application](spring-cloud-quickstart-launch-app-portal.md). It is composed of three applications: "gateway", "account-service", and "auth-service".
 * [Azure Spring Cloud extension for Azure CLI](spring-cloud-quickstart-launch-app-cli.md) installed.
 	
 
 ## View all deployments
 
-1. Go to your service instance in the Azure portal and click **Deployment management** to view all deployments. You can click each deployment for more details.
+Go to your service instance in the Azure portal and click **Deployment management** to view all deployments. You can click each deployment for more details.
 
 
 ## Create a staging deployment
@@ -38,7 +38,7 @@ This article will show you how to create a staging (blue-green) deployment in Az
     az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. Once deployment is successfully created, you can go to the gateway page from the **Application Dashboard** and see all your instances in **App Instances** blade.
+1. Once deployment is successfully created, you can go to the gateway page from the **Application Dashboard** and see all your instances in **App Instances** tab on the left.
   
 > [!NOTE]
 > The discovery status is "OUT_OF_SERVICE" so that traffic will not be routed to this deployment before verification is done.

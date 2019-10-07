@@ -1,5 +1,5 @@
 ---
-title: Set up a Spring Cloud Config Server for your service | Microsoft Docs
+title: Set up your Config Server in Azure Spring Cloud | Microsoft Docs
 description: In this tutorial, you learn how to set up a Spring Cloud Config Server for your Azure Spring Cloud on the Azure portal
 services: spring-cloud
 ms.service: spring-cloud
@@ -32,8 +32,8 @@ server.port
 spring.cloud.config.tls.keystore
 spring.application.name
 ```
-
-We strongly suggest you __DO NOT__ put the above properties in your __Config Server__  application files.
+> [!CAUTION]
+> We strongly suggest you __DO NOT__ put the above properties in your __Config Server__  application files.
 
 ## Create your Config Server files
 
@@ -138,7 +138,7 @@ If your repository is public, simply click the **Public** button and paste the U
 
 ### Private Repository
 
-Azure Spring Cloud supports 'SSH` authentication. Follow the instructions on the Azure portal for adding the public key to your repository. Then, be sure to include your private key in the configuration file.
+Azure Spring Cloud supports SSH authentication. Follow the instructions on the Azure portal for adding the public key to your repository. Then, be sure to include your private key in the configuration file.
 
 Click **Apply** to finish setting up your Config Server.
 
