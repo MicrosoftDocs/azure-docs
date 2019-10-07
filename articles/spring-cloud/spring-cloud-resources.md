@@ -20,7 +20,7 @@ Below is a list of resources that could be useful outside of the Azure Spring Cl
 | :------------------- | -------------------: |
 | Azure Roadmap | https://azure.microsoft.com/updates/ |
 | Frequently Asked Questions| [Link to document](spring-cloud-faq.md)|
-| Troubleshooting Guide| [Link to document](spring-cloud-troubleshooting.md) |
+| Troubleshooting Guide| [Link to document](spring-cloud-troubleshoot.md) |
 | MSDN Forum| https://social.msdn.microsoft.com/Forums/home |
 | Java Spring Cloud website|https://spring.io/ |
 | Spring framework|https://cloud.spring.io/spring-cloud-azure/ |

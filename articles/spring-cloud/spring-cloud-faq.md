@@ -106,4 +106,4 @@ After the migration, monitor CPU/RAM metrics and network traffics to make sure t
 
 ## Next steps
 
-[Check out the troubleshooting guide if you have more questions](spring-cloud-troubleshooting.md).
+[Check out the troubleshooting guide if you have more questions](spring-cloud-troubleshoot.md).
