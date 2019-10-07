@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy for Azure Kubernetes Service
 
