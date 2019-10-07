@@ -2,7 +2,6 @@
 title: Sample - Audit Key Vaults for no virtual network endpoints
 description: This sample policy definition audits Key Vault vaults to detect instances that have no virtual network service endpoints.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
