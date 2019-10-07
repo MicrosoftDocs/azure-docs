@@ -78,7 +78,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 ## Add a Key Vault reference to App Config
 
-4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
 
 1. Click **Configuration Explorer**
 
