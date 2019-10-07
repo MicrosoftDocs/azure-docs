@@ -70,7 +70,7 @@ In the case that a node fails, Batch automatically attempts to recover these com
 
 ## Jobs
 
-A job is a heavyweight container designed to contain hundreds, thousands, or even millions of tasks.
+A job is a container designed to contain hundreds, thousands, or even millions of tasks.
 
 - **Put many tasks in a job**  
     Using a job to run a single task is inefficient. For example, it's much more efficient to use a single job containing 1000 tasks rather than creating 10 jobs that contain 100 tasks each. Executing as many tasks under as few jobs as possible efficiently uses your job and job schedule quotas.
