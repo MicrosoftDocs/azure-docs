@@ -199,7 +199,7 @@
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
-    - name: Define API server authorized IP ranges (preview)
+    - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json

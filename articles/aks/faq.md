@@ -29,7 +29,7 @@ Yes, you can deploy an AKS cluster into an existing virtual network by using the
 
 ## Can I limit who has access to the Kubernetes API server?
 
-Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges], which is currently in preview.
+Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges].
 
 ## Can I make the Kubernetes API server accessible only within my virtual network?
 
