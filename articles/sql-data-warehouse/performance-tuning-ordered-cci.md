@@ -38,7 +38,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  
+> In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  In Azure SQL Data Warehouse, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
 
 ## Query performance
 
