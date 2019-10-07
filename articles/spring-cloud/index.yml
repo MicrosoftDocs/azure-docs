@@ -84,5 +84,4 @@ landingContent:
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: spring-cloud-howto-staging-environment.md           
           - text: Use persistent storage in Azure Spring Cloud
-            url: spring-cloud-howto-persistent-storage.md 
- in
+            url: spring-cloud-howto-persistent-storage.md
