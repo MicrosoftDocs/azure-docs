@@ -18,18 +18,18 @@ Guidance here: https://review.docs.microsoft.com/help/contribute/contribute-how-
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- [A machine learning account](template-howto.md)
+
 
 ## Section here H2 
 Paragraph here. 
 **This phrase is bold.**
 *This phrase is italics.*
 
-This is a [hyperlink to an article](./template-concepts.md)
+
 
 This is an image:
 
-![This is an image description](media/overview-what-is-azure-ml/aml-concepts.png)
+
 Note that images need to be stored in the media folder with a subdirectory matching the name of the article and then the filename.
 
 ## Section here H2
@@ -68,4 +68,4 @@ This is a numbered list:
 
 ## Next steps
 
-For information about machine learning, see [Another article](template-howto.md)
+
