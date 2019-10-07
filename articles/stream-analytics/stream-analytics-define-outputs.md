@@ -47,21 +47,20 @@ The following table lists property names and their descriptions to configure you
 
 You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article.
 
+You can also use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) as an output. You have to [configure public endpoint in Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+
 The following table lists the property names and their description for creating a SQL Database output.
 
 | Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The SQL Database server name. |
+| Server name | The SQL Database server name. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
 | Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
-
-> [!NOTE]
-> The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached or in a SQL Azure Managed Instance is not supported yet. This is subject to change in future releases.
 
 ## Blob storage and Azure Data Lake Gen2
 
