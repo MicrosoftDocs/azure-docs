@@ -8,13 +8,13 @@ editor: ''
 
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/6/2019
+ms.date: 10/7/2019
 ms.author: v-vasuke
 
 ---
 # Resources
 
-Below is a list of resources that could be useful outside of the Azure Spring Cloud documentation.
+Below is a list of resources that could be useful for Azure Spring Cloud developers.
 
 | Name                  | Link                 |
 | :------------------- | -------------------: |
