@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # SCIM user provisioning with Azure Active Directory
 
-System for Cross-Domain Identity Management (SCIM) is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
+System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
 
 Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](../saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal.
 
