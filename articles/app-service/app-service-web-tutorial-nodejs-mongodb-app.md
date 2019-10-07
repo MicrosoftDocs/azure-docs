@@ -1,4 +1,4 @@
----
+﻿---
 title: Node.js (MEAN.js) with MongoDB - Azure App Service | Microsoft Docs 
 description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string. MEAN.js is used in the tutorial.
 services: app-service\web
@@ -307,7 +307,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
