@@ -26,7 +26,7 @@ landingContent:
           
   - title: Azure VMs
     linkLists:
-       linkListType: quickstart
+      - linkListType: quickstart
         links:
           - text: Quickly try out disaster recovery for an Azure VM
             url: ./azure-to-azure-quickstart.md
