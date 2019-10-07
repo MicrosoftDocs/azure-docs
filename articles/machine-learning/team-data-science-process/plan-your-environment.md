@@ -26,8 +26,6 @@ Answer key questions in the following areas to identify your scenario:
 * dataset quality
 * preferred tools and languages
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Logistic questions: data locations and movement
 
 The logistic questions cover the following items:
