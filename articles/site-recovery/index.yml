@@ -24,7 +24,7 @@ landingContent:
           - text: What's new in Site Recovery
             url: ./site-recovery-whats-new.md
           
-  - title: Disaster recovery: Azure VMs
+  - title: Disaster recovery for Azure VMs
     linkLists:
       - linkListType: quickstart
         links:
@@ -53,7 +53,7 @@ landingContent:
           - text: Disaster recovery after migration to Azure
             url: ./azure-to-azure-replicate-after-migration.md
 
-  - title: Disaster recovery: On-premises machines
+  - title: Disaster recovery for on-premises machines
     linkLists:
       - linkListType: tutorial
         links:
