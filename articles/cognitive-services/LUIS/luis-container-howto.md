@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/07/2019
 ms.author: dapine
 ---
 
@@ -230,29 +230,6 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## Languages supported
-
-LUIS containers support a subset of the [languages supported](luis-language-support.md#languages-supported) by LUIS proper. The LUIS containers are capable of understanding utterances in the following languages:
-
-| Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
-|--|--|:--:|:--:|:--:|:--:|
-| American English | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
-| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
-| French (France) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
-| French (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
-| German |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
-| Italian |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Korean |`ko-KR` | ✔️ | ❌ | ❌ | Key phrase only |
-| Portuguese (Brazil) |`pt-BR` | ✔️ | ✔️ | ✔️ | not all sub-cultures |
-| Spanish (Spain) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
-| Spanish (Mexico)|`es-MX` | ❌ | ❌ |✔️|✔️|
-| Turkish | `tr-TR` |✔️| ❌ | ❌ | Sentiment only |
-
-[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
-
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
-
 ## Endpoint APIs supported by the container
 
 Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available with the container. 
@@ -408,8 +385,8 @@ You can use a LUIS application if it **doesn't include** any of the following de
 Unsupported app configurations|Details|
 |--|--|
 |Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
-|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
-|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
+|Unsupported entities for all cultures|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) prebuilt entity for all cultures|
+|Unsupported entities for English (en-US) culture|[GeographyV2](luis-reference-prebuilt-geographyV2.md) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
 |Sentiment analysis|External dependencies are not supported in the container.|
 |Bing spell check|External dependencies are not supported in the container.|
@@ -432,7 +409,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-* Review [Configure containers](luis-container-configuration.md) for configuration settings
+* Review [Configure containers](luis-container-configuration.md) for configuration settings.
+* See [LUIS container languages supported](luis-container-language-support.md) the available languages.
 * Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 

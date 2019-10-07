@@ -263,6 +263,9 @@
       href: luis-container-configuration.md
     - name: Use container instances
       href: deploy-luis-on-container-instances.md
+    - name: Container language support
+      href: luis-container-language-support.md
+      displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
 - name: Reference
   items:
   - name: User privacy
@@ -414,7 +417,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support
     href: luis-language-support.md
-    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092089
   - name: Glossary
