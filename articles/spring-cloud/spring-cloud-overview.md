@@ -32,13 +32,13 @@ Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  
 
 ### Scale your application
 
-Azure Spring Cloud allows you to easily scale the micro-services in your Azure Spring Cloud dashboard.  Both the number of vCPUs and the amount of memory available to your micro-services can be scaled up or down to suit your requirements.  Scaling takes effect in seconds and does not require code changes or redeployment.  To learn more, complete this tutorial.
+Azure Spring Cloud allows you to easily scale the micro-services in your Azure Spring Cloud dashboard.  Both the number of vCPUs and the amount of memory available to your micro-services can be scaled up or down to suit your requirements.  Scaling takes effect in seconds and does not require code changes or redeployment.  To learn more, complete this [tutorial](spring-cloud-tutorial-scale-manual.md).
 
 ## Application Monitoring
 
 ### Monitor your application using distributed tracing and Azure App Insights
 
-Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in their application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/insights/insights-overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this tutorial.
+Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in their application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/insights/insights-overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this [tutorial](spring-cloud-distributed-tracing.md).
 
 ## Next steps
 
