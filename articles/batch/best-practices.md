@@ -41,7 +41,7 @@ Batch pools are the compute resources for executing jobs scheduled to the Batch 
 
 ### Pool lifetime and billing
 
-Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It is your responsibility to manage the compute nodes in the pool either explicitly, or through automatic means provided by the service (autoscale or autopool).
+Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It is your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service (autoscale or autopool).
 
 - **Keep pools fresh.**  
     You should delete your pools every couple of months to ensure you get the latest updates and bug fixes made to the node agent. Your pool won't receive node agent updates unless it is resized to 0 compute nodes, or if the pool is recreated. Before you resize or recreate your pool, it's recommended to download any node agent logs for debugging purposes.
