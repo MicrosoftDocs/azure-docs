@@ -4,6 +4,8 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
+  - name: What's new in Media Services
+    href: release-notes.md    
 - name: Tutorials
   expanded: true
   items:
