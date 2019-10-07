@@ -1022,7 +1022,7 @@
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB
       items: 
-      - name: Options for migrating data into Cosmos DB
+      - name: Options to migrate data into Cosmos DB
         href: cosmosdb-migrationchoices.md
       - name: Migrate to SQL API using Striim
         href: cosmosdb-sql-api-migrate-data-striim.md
