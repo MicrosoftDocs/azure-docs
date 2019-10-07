@@ -1661,6 +1661,12 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+<li> 
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361.svg" alt="" />
+                                                <p>Azure Firewall Manager</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
@@ -5578,6 +5584,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Private Link</h3>
                                                     <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/icon-networking-361.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall Manager</h3>
+                                                    <p>A globally distributed security management service</p>
                                                 </div>
                                             </div>
                                         </div>

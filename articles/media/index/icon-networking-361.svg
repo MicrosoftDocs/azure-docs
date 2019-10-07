@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="eb2389cd-9caf-4ff6-95db-db280e212273" viewBox="0 0 18 18" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="fluent_icons">
+  <defs>
+    <linearGradient id="aff00c46-82ad-419a-bce9-5905c29e8829" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 -230)" x1="13.3" y1="235.75" x2="13.3" y2="246.01">
+      <stop stop-color="rgb(255, 215, 15)" offset="0"/>
+      <stop stop-color="rgb(255, 204, 17)" offset="0.12"/>
+      <stop stop-color="rgb(254, 181, 23)" offset="0.44"/>
+      <stop stop-color="rgb(254, 166, 26)" offset="0.75"/>
+      <stop stop-color="rgb(254, 161, 27)" offset="1"/>
+    </linearGradient>
+  </defs>
+  <title>Icon-networking-361</title>
+  <g>
+    <path fill="#821010" d="M 8.28 6.45 c 0 -0.22 0.1 -0.33 0.32 -0.33 C 11.66 6 11 4.7 13.19 4.7 a 2.63 2.63 0 0 1 1.73 0.51 V 2 a 0.46 0.46 0 0 0 -0.5 -0.6 H 0.62 A 0.58 0.58 0 0 0 0 2 V 9.1 a 0.65 0.65 0 0 0 0.6 0.6 H 8.28 Z"/>
+    <rect fill="#e62323" x="0.92" y="2.2" width="4.1" height="1.8"/>
+    <rect fill="#ff7381" x="5.52" y="2.2" width="4.1" height="1.8"/>
+    <rect fill="#e62323" x="10.22" y="2.2" width="4.1" height="1.8"/>
+    <rect fill="#e62323" x="0.92" y="4.7" width="1.7" height="1.8"/>
+    <rect fill="#ff7381" x="3.22" y="4.7" width="4.1" height="1.8"/>
+    <path fill="#e62323" d="M 7.82 6.5 h 0.46 v 0 c 0 -0.22 0.1 -0.33 0.32 -0.33 c 2.24 -0.08 2.49 -0.8 3.32 -1.18 V 4.7 H 7.82 Z"/>
+    <rect fill="#e62323" x="0.92" y="7.1" width="4.1" height="1.8"/>
+    <rect fill="#ff7381" x="5.52" y="7.1" width="2.76" height="1.8"/>
+    <rect fill="none" x="7.75" y="5.5" width="11.1" height="11.1"/>
+    <path fill="#dfa500" d="M 17.85 10.45 c 0 3 -3.45 5.63 -4.39 5.89 a 0.58 0.58 0 0 1 -0.32 0 c -0.94 -0.26 -4.39 -2.9 -4.39 -5.89 V 6.85 a 0.27 0.27 0 0 1 0.3 -0.3 c 2.8 -0.1 2.2 -1.3 4.2 -1.3 s 1.4 1.2 4.2 1.3 a 0.27 0.27 0 0 1 0.3 0.3 Z"/>
+    <path fill="url(#aff00c46-82ad-419a-bce9-5905c29e8829)" d="M 13.25 10.85 V 5.75 c 1.9 0 1.3 1.1 3.9 1.2 a 0.32 0.32 0 0 1 0.3 0.3 h 0 v 3.5 Z m 0 0 H 9.15 c 0.2 2.6 3.3 4.6 4 5 l 0.2 0.1 h 0 Z"/>
+    <path fill="#ffd400" d="M 9.35 7 c 2.6 -0.1 2 -1.2 3.9 -1.2 v 5.1 H 9.15 V 7.25 C 9.15 7.05 9.25 7 9.35 7 Z"/>
+    <path fill="#ffd400" d="M 17.45 10.75 l -4.2 0.1 l 0.1 5.1 h 0.1 C 14.15 15.45 17.15 13.35 17.45 10.75 Z"/>
+  </g>
+</svg>
