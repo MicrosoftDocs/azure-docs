@@ -33,9 +33,9 @@ This article describes the different authentication flows and the application sc
 
 Tokens can be acquired from several types of applications including:
 
-- Desktop apps
-- Mobile apps
 - Web apps
+- Mobile apps
+- Desktop apps
 - Web APIs
 
 They can also be acquired from apps running on devices that don't have a browser or are running on IoT.
@@ -110,7 +110,7 @@ For more information, see [Single-page applications](scenario-spa-overview.md).
 
 ### A web app that is signing in a user
 
-![A web app signing in a user](media/scenarios/scenario-webapp-signs-in-users.svg)
+![A web app that signs in a user](media/scenarios/scenario-webapp-signs-in-users.svg)
 
 To protect a web app that is signing in a user:
 
@@ -120,7 +120,7 @@ To protect a web app that is signing in a user:
 
 For more information, see [Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
-### A web app signing in a user and calling a web API on behalf of the user
+### A web app that signs in a user and calling a web API on behalf of the user
 
 ![A web app calling web APIs](media/scenarios/web-app.svg)
 
@@ -280,8 +280,7 @@ Microsoft Authentication libraries support multiple platforms:
 - JavaScript
 - .NET Framework
 - .NET Core
-- Windows 10
-- UWP
+- Windows 10/UWP
 - Xamarin.iOS
 - Xamarin.Android
 - native iOS
