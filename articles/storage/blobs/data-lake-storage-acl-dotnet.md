@@ -228,5 +228,3 @@ public async Task SetFileACL(CloudBlobClient cloudBlobClient,
 
 }
 ```
-
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources.md)]
