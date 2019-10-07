@@ -24,6 +24,8 @@ Azure App Configuration and its .NET Core, .NET, and Java Spring client librarie
 
 This tutorial shows how you can take advantage of MSI to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
+In addition, this tutorial optionally shows how you can use MSI in conjunction with App Configuration's Key Vault references to seamlessly access secrets stored in Key Vault. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
+
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 In this tutorial, you learn how to:
@@ -31,6 +33,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Grant a managed identity access to App Configuration.
 > * Configure your app to use a managed identity when you connect to App Configuration.
+> * Optionally, configure your app to use a managed identity when you connect to Key Vault through an App Configuration Key Vault reference
 
 ## Prerequisites
 
@@ -59,23 +62,25 @@ To set up a managed identity in the portal, you first create an application as n
 
 1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the app configuration store that you created in the quickstart.
 
-2. Select **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-3. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
+1. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
 
-4. Under **Role**, select **Contributor**. Under **Assign access to**, select **App Service** under **System assigned managed identity**.
+1. Under **Role**, select **Contributor**. Under **Assign access to**, select **App Service** under **System assigned managed identity**.
 
-5. Under **Subscription**, select your Azure subscription. Select the App Service resource for your app.
+1. Under **Subscription**, select your Azure subscription. Select the App Service resource for your app.
 
-6. Select **Save**.
+1. Select **Save**.
 
     ![Add a managed identity](./media/add-managed-identity.png)
+
+1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Provide Key Vault authentication with a managed identity](https://docs.microsoft.com/en-us/azure/key-vault/managed-identity).
 
 ## Use a managed identity
 
 1. Find the URL to your app configuration store by going into its configuration screen in the Azure portal, then clicking on the **Access Keys** tab.
 
-2. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store. 
+1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store. 
 
     ```json
     "AppConfig": {
@@ -83,7 +88,7 @@ To set up a managed identity in the portal, you first create an application as n
     }
     ```
 
-3. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+1. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -96,6 +101,24 @@ To set up a managed identity in the portal, you first create an application as n
             })
             .UseStartup<Startup>();
     ```
+
+1. If you wish to use Key Vault references from App Configuration, simply create a new `KeyVaultClient` using an `AzureServiceTokenProvider`. Then pass this to a call to the `UseAzureKeyVault` method.
+
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                    
+                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

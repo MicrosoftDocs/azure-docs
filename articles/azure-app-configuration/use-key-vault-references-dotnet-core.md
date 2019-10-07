@@ -3,8 +3,8 @@ title: Tutorial for using Azure App Configuration dynamic configuration in an AS
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 
 ms.assetid: 
@@ -12,15 +12,21 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: yegu
+ms.date: 10/04/2019
+ms.author: lcozzens
 ms.custom: mvc
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use Key Vault references in an ASP.NET Core app
 
-Introductory paragraph explaining Key Vault references and why they are awesome goes here...
+App Configuration and Key Vault are complementary Azure services, which will be used side-by-side in most application deployments. 
+
+App Configuration helps developers manage application settings and control feature availability. With App Configuration, you can create hierarchical namespaces, attach multiple labels to the same key, and retrieve multiple keys in a batch. 
+
+Key Vault provides a place to securely store and access secrets, such as API keys, passwords, or certificates. With Key Vault, you can tightly control access to a secret, monitor access and use, and automate tasks like certificate renewal.
+
+To faciliate side-by-side usage, App Configuration allows you to create keys that reference values stored in Key Vault. When you do this, App Configuration stores the URI to the Key Vault value. Your application retrieves this key using the App Configuration client provider, just like any other key stored in App Configuration. The client provider recognizes it as a Key Vault reference, and calls out to Key Vault to retrieve the value. Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services do not communicate directly.
 
 This tutorial shows how you can implement Key Vault references in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
@@ -108,12 +114,16 @@ To add a secret to the vault, you just need to take a couple of additional steps
     ```
 
 1. Run the following command to allow the service principal to access your key vault:
+
         az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 
 1. Add secrets for *clientId* and *clientSecret* to Secrets Manager. These commands must be executed in the same directory as the *.csproj* file.
 
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
+        dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>        
+        dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
+
+> [!NOTE]
+> These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service.
 
 ## Update your code to pull a Key Vault reference from Azure App Config
 
@@ -157,7 +167,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     <h1>@Configuration["TestApp:Settings:Message"] and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    Note that the value of the Key Vault reference *TestApp:Settings:KeyVaultMessage* is accessed in the same way as the value of the configuration value *TestApp:Settings:Message* 
+    Note that the value of the Key Vault reference *TestApp:Settings:KeyVaultMessage* is accessed in the same way as the value of the configuration value *TestApp:Settings:Message*
 
 ## Build and run the app locally
 
