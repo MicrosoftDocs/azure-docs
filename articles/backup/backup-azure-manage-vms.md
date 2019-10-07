@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage and monitor Azure VM backups by using the Azure Backup service
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
@@ -43,7 +43,7 @@ To view VMs on the vault dashboard:
 
     ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. On the **Backup Items** blade, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
+6. On the **Backup Items** blade, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
 
     ![View the Backup Items blade](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -60,7 +60,7 @@ To manage a backup policy:
 
     ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. On the **Backup Items** blade, you can view the list of protected VMs and last backup status with latest restore points time.
+3. On the **Backup Items** blade, you can view the list of protected VMs and last backup status with latest restore points time.
 
     ![View the Backup Items blade](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
