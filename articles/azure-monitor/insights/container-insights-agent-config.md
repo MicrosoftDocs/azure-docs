@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: magoedte
 ---
 
@@ -44,15 +44,7 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stdout] exclude_namespaces =`|String | Comma-separated array |Array of Kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMap, the default value is `enabled = true`. |
-
->[!NOTE]
-> If you want to disable collection for a specific container or every individual container and you have already deployed ConfigMaps, you specify the setting `[log_collection_settings.env_var] enabled = true` in the ConfigMap file and configure either the [Dockerfile](https://docs.docker.com/engine/reference/builder/) by specifying `ENV AZMON_COLLECT_ENV False` or in Pod spec by specifying the following under the **env:** section:
->
->     - name: AZMON_COLLECT_ENV  
->       value: "False" 
->
->If ConfigMaps has not been deployed, collection will still happen because the default value is `enabled = true`, except for containers where you specify the *false* flag in either the Dockerfile or Pod spec env entry. Under the cluster configuration, you can accomplish this cluster-wide with ConfigMaps by specifying `[log_collection_settings.env_var] enabled = false` where it stops collecting for all containers in the cluster.
+| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This setting controls environment variable collection across all pods/nodes in the cluster and defaults to `enabled = true` when not specified in ConfigMaps. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in Pod spec under the **env:** section. If collection of environment variables is globally disabled, then you cannot enable collection for a specific container. (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
 
 ### Prometheus scraping settings
 
