@@ -1,10 +1,14 @@
 ---
-author: mmacy
-ms.service: active-directory-b2c
-ms.topic: include
-ms.date: 09/30/2019
-ms.author: marsma
-# Used by the ROPC configuration articles for both user flows and custom policies
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: msmbaldwin
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 10/06/2019
+ ms.author: mbaldwin
+ ms.custom: include file
+---
 ---
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
