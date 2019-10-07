@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/08/2019
 ms.author: robinsh
 ---
 
@@ -61,10 +61,10 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 
 The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-csharp) is tested with and supports the following configurations.
 
-| OS                  | Standard                                                   |
-|---------------------|------------------------------------------------------------|
-| Linux               | .NET Core 2.1                                              |
-| Windows 10 family   | .NET Core 2.1, .NET Framework 4.5.1, or .NET Framework 4.7 |
+| OS                                   | Standard                                                   |
+|--------------------------------------|------------------------------------------------------------|
+| Linux                                | .NET Core 2.1                                              |
+| Windows 10 Desktop and Server SKUs   | .NET Core 2.1, .NET Framework 4.5.1, or .NET Framework 4.7 |
 
 ### Node.js SDK
 
@@ -110,7 +110,7 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 ## Connecting to IoT Hub without an SDK
 
-If you are unable to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS responses.
+If you are unable to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
 
 ## Support and other resources
 
