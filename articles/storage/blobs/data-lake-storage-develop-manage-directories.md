@@ -692,7 +692,7 @@ def list_directory_contents():
 
 ## Next steps
 
-Learn to set access control lists on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl-dotnet.md).
+Learn to set access control lists on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl.md).
 
 Explore more APIs. 
 

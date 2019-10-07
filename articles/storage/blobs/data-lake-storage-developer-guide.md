@@ -12,15 +12,15 @@ ms.reviewer: prishet
 
 # Developer guide for Data Lake Storage
 
-Put something here
+This guide points you to content that helps you develop applications that create and manage files (blobs), create and manage directories, and manage directory and file permissions.
 
-## Something here for file system semantic table
+Some of the content featured in these links use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is represented as a *blob*, and a *file system* is represented as a *container*. 
 
-Put table here that helps data lake storage developers bridge their understanding of blobs / files nomenclature.
+Use this table as a guide to understanding terminology: Include Priya's awesome table (or something similar).
 
-## Work with blobs
+## Developer tasks
 
-Intro text goes here.
+This section provides links to articles that help 
 
 # [.NET](#tab/dotnet)
 
@@ -36,25 +36,7 @@ Links for Python.
 
 ---
 
-## Work blob accounts that have a hierarchical namespace (Data Lake Storage)
-
-Intro text goes here.
-
-# [.NET](#tab/dotnet)
-
-Links for .NET.
-
-# [Java](#tab/java)
-
-Links for Java.
-
-# [Python](#tab/python)
-
-Links for Python.
-
----
-
-## Next steps
+## Resources
 
 Explore more APIs.
 
