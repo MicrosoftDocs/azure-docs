@@ -28,7 +28,7 @@ In this article you will learn how to:
 
 To complete this quickstart:
 
-* An already provisioned and running Azure Spring Cloud service.  Complete [this quick start](spring-cloud-quickstart-launch-app-cli.md) to provision and launch an Azure Spring Cloud service.
+* An already provisioned and running Azure Spring Cloud service.  Complete [this quickstart](spring-cloud-quickstart-launch-app-cli.md) to provision and launch an Azure Spring Cloud service.
 	
 ## Add dependencies
 
@@ -99,6 +99,6 @@ Application Insights provides monitoring capabilities in addition to the applica
 1. In the Monitoring section, click on **Distributed Tracing**.
 1. Click **Disable** to disable Application Insights
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to enable and understand distributed tracing in the Azure Spring Cloud.  To learn how to bind your application to an Azure Redis Cache, [continue to the next tutorial](spring-cloud-tutorial-bind-redis.md).
