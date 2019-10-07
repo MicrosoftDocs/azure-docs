@@ -46,7 +46,7 @@ In this example, replace the placeholders in the resource with your subscription
 
 ## Download the publishing profile
 
-You can download the publishing profile of your functionapp by going to the **Overview** page of your app and clicking **Get publish profile**.
+You can download the publishing profile of your functionapp, by going to the **Overview** page of your app and clicking **Get publish profile**.
 
    ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
 
