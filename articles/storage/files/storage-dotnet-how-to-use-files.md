@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -68,7 +68,7 @@ Refer to these packages in your project to complete this tutorial:
 You can use NuGet to obtain both packages. Follow these steps:
 
 1. In **Solution Explorer**, right-click your project and choose **Manage NuGet Packages**.
-1. In **NuGet Package Manager**, select **Browse**. Search for and choose **Microsoft.Azure.Storage.Blob**, and then select **Install**.
+1. In **NuGet Package Manager**, select **Browse**. Then search for and choose **Microsoft.Azure.Storage.Blob**, and then select **Install**.
 
    This step installs the package and its dependencies.
 1. Search for and install these packages:
@@ -149,7 +149,7 @@ Run the console application to see the output.
 
 ## Set the maximum size for a file share
 
-Beginning with version 5.x of the Azure Storage Client Library, you can set the quota or maximum size for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
+Beginning with version 5.x of the Azure Storage Client Library, you can set the quota (maximum size) for a file share. You can also check to see how much data is currently stored on the share.
 
 Setting the quota for a share limits the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, clients can't increase the size of existing files. Clients can't create new files, unless those files are empty.
 
@@ -187,9 +187,9 @@ if (share.Exists())
 
 ### Generate a shared access signature for a file or file share
 
-Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. We recommend creating a shared access policy because a shared access policy offers a means of revoking the SAS if it should be compromised.
+Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. We recommend creating a shared access policy because it lets you revoke the SAS if it becomes compromised.
 
-The following example creates a shared access policy on a share. The example uses that policy to provide the constraints for an SAS on a file in the share.
+The following example creates a shared access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -221,7 +221,7 @@ if (share.Exists())
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
-    // Generate an SAS for a file in the share and associate this access policy with it.
+    // Generate a SAS for a file in the share and associate this access policy with it.
     CloudFileDirectory rootDir = share.GetRootDirectoryReference();
     CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
     CloudFile file = sampleDir.GetFileReference("Log1.txt");
@@ -295,7 +295,7 @@ if (share.Exists())
 
 ### Copy a file to a blob
 
-The following example creates a file and copies it to a blob within the same storage account. The example creates an SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
+The following example creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -319,8 +319,8 @@ CloudBlobContainer container = blobClient.GetContainerReference("sample-containe
 container.CreateIfNotExists();
 CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
-// Create an SAS for the file that's valid for 24 hours.
-// Note that when you are copying a file to a blob, or a blob to a file, you must use an SAS
+// Create a SAS for the file that's valid for 24 hours.
+// Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
 // to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
@@ -341,7 +341,7 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-You can copy a blob to a file in the same way. If the source object is a blob, then create an SAS to authorize access to that blob during the copy operation.
+You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authorize access to that blob during the copy operation.
 
 ## Share snapshots
 
@@ -419,7 +419,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation by using the REST API or one of its analogs in the Storage Client Library.
+You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation with the REST API or one of its analogs in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 
@@ -473,11 +473,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Also, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
+If you encounter any problems, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
 ## Next steps
 
-For more information about Azure Files, see the following resources.
+For more information about Azure Files, see the following resources:
 
 ### Conceptual articles and videos
 
