@@ -366,14 +366,9 @@ If you would like to use certificate authentication, you can upload one to your 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
-## <a name="bkmk_CertKEK"></a> Certificate-based authentication and a KEK (optional)
+## Certificate-based authentication and a KEK (optional)
 
 If you would like to use certificate authentication and wrap the encryption key with a KEK, you can use the below script as an example. Before using the PowerShell script, you should be familiar with  all of the previous Azure Disk Encryption prerequisites to understand the steps in the script. The sample script might need changes for your environment.
-
-> [!IMPORTANT]
-> Azure AD certificate-based authentication is currently not supported on Linux VMs.
-
-
 
      
  ```powershell
@@ -461,4 +456,4 @@ If you would like to use certificate authentication and wrap the encryption key 
  
 ## Next steps
 
-[Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)](disk-encryption-linux-aad.md)
+[Enable Azure Disk Encryption with Azure AD on Windows VMs (previous release)](disk-encryption-windows-aad.md)
