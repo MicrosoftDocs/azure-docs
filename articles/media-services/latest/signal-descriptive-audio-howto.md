@@ -82,7 +82,7 @@ For more information, see [Handling Event Grid events](reacting-to-media-service
 Upload the additional audio-only MP4 file (AAC codec) containing descriptive audio into the output asset.  
 
 ```csharp
-private static void UpoadAudioIntoOutputAsset(
+private static async Task UpoadAudioIntoOutputAsset(
     IAzureMediaServicesClient client,
     string resourceGroupName,
     string accountName,
