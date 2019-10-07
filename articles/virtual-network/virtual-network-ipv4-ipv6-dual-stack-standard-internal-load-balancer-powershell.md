@@ -40,7 +40,7 @@ It takes up to 30 minutes for feature registration to complete. You can check yo
 Check on the registration as follows:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
@@ -314,7 +314,10 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ## View IPv6 dual stack virtual network in Azure portal
 You can view the IPv6 dual stack virtual network in Azure portal as follows:
 1. In the portal's search bar, enter *dsVnet*.
-2. When **myVirtualNetwork** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+
+![IPv6 Dual Stack Virtual Network with Standard Internal Load Balancer](./media/virtual-network-ipv4-ipv6-dual-stack-standard-internal-load-balancer-powershell/ipv6-dual-stack-virtual-network.png)
+
 
 > [!NOTE]
 > The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
