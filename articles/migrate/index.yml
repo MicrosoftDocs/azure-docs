@@ -14,7 +14,7 @@ metadata:
   ms.date: 10/07/2019
 
 landingContent:
-  - title: About Site Recovery
+  - title: About Azure Migrate
     linkLists:
       - linkListType: overview
         links:
@@ -24,35 +24,7 @@ landingContent:
             url: ./whats-new.md
           - text: Common questions
             url: ./resources-faq.md
-            
-  - title: Review concepts
-    linkLists:   
-      - linkListType: learn
-        links:
-          - text: VMware agent-based migration architecture
-            url: ./agent-based-migration-architecture.md
-          - text: Hyper-V migration architecture
-            url: ./hyper-v-migration-architecture.md
-          - text: Learn about assessments
-            url: ./concepts-assessment-calculation.md
-          - text: Learn about dependency visualization
-            url: ./concepts-dependency-visualization.md
-            
-  - title: Review requirements
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Review best practices for Server Assessment
-            url: ./best-practices-assessment.md
-          - text: Learn about Azure Migrate appliance deployment
-            url: ./migrate-replication-appliance.md
-          - text: Review the Azure Migrate support matrix
-            url: migrate-support-matrix.md
-          - text: Review the VMware support matrix
-            url: migrate-support-matrix-vmware.md
-          - text: Review the Hyper-V support matrix
-            url: migrate-support-matrix-hyper-v.md    
-            
+  
   - title: Get started
     linkLists:
       - linkListType: tutorial
@@ -68,7 +40,22 @@ landingContent:
           - text: Migrate physical servers/VMs with Server Migration
             url: ./tutorial-migrate-physical-virtual-machines.md
             
-  - title: Deploy
+  - title: Start deployment 
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Review best practices for Server Assessment
+            url: ./best-practices-assessment.md
+          - text: Learn about Azure Migrate appliance deployment
+            url: ./migrate-replication-appliance.md
+          - text: Review the Azure Migrate support matrix
+            url: migrate-support-matrix.md
+          - text: Review the VMware support matrix
+            url: migrate-support-matrix-vmware.md
+          - text: Review the Hyper-V support matrix
+            url: migrate-support-matrix-hyper-v.md              
+  
+  - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -80,7 +67,20 @@ landingContent:
             url: ./how-to-migrate-at-scale.md
           - text: Troubleshoot assessment and migration
             url: ./troubleshooting-general.md
-  
+            
+  - title: Learn more
+    linkLists:   
+      - linkListType: learn
+        links:
+          - text: VMware agent-based migration architecture
+            url: ./agent-based-migration-architecture.md
+          - text: Hyper-V migration architecture
+            url: ./hyper-v-migration-architecture.md
+          - text: Learn about assessments
+            url: ./concepts-assessment-calculation.md
+          - text: Learn about dependency visualization
+            url: ./concepts-dependency-visualization.m
+            
   - title: Get involved
     linkLists:
       - linkListType: get-started
