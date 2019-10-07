@@ -187,7 +187,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 * [Can I create the shared image gallery in a different location than the one for the image definition and image version?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
 * [What are the charges for using the Shared Image Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [What API version should I use to create Shared Image Gallery and Image Definition and Image Version?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
-* [What API version should I use to create Shared VM or VMSS out of the Image Version?](#what-api-version-should-i-use-to-create-shared-vm-or-vmss-out-of-the-image-version)
+* [What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 
 ### How can I list all the Shared Image Gallery resources across subscriptions?
 
@@ -275,6 +275,6 @@ There are no charges for using the Shared Image Gallery service, except the stor
 
 To work with shared image galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. Zone Redundant Storage (ZRS) requires version 2019-03-01 or later.
 
-### What API version should I use to create Shared VM or VMSS out of the Image Version?
+### What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?
 
 For VM and Virtual Machine Scale Set deployments using an image version, we recommend you use API version 2018-04-01 or higher.
