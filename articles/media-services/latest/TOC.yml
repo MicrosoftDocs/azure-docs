@@ -345,8 +345,6 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Release notes
-    href: release-notes.md
   - name: Quotas and limitations
     href: limits-quotas-constraints.md       
   - name: FAQ
