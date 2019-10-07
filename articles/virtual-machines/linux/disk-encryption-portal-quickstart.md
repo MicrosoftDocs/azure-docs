@@ -88,4 +88,4 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 In this quickstart, you created a Key Vault that was enable for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
 
 > [!div class="nextstepaction"]
-> [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)
+> [Azure Disk Encryption overview](disk-encryption-overview.md)
