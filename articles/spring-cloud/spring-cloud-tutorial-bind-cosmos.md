@@ -13,7 +13,7 @@ ms.author: v-vasuke
 
 ---
 
-# Bind an Azure Cosmos DB to your Azure Spring Cloud application
+# Tutorial: Bind an Azure Cosmos DB to your Azure Spring Cloud application
 
 Azure Spring Cloud allows you to bind select Azure services to your applications automatically, instead of manually configuring your Spring Boot application. This article demonstrates how to bind your application to an Azure Cosmos DB.
 
