@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Programmatically create policies
 

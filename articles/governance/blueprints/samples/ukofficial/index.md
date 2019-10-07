@@ -7,7 +7,6 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the UK OFFICIAL and UK NHS blueprint samples
 
