@@ -15,7 +15,7 @@ ms.author: tomfitz
 | Tag key length |512 |512 |
 | Tag value length |256 |256 |
 
-<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. You can delete entries from the history with [az group deployment delete](/cli/azure/group/deployment) for Azure CLI, or [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell.  For a PowerShell script that automates deleting deployments in a continuous integration and continuous delivery (CI/CD) scenario, see [remove-deployments.ps1](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f).
+<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Resolve error when deployment count exceeds 800](../articles/azure-resource-manager/deployment-quota-exceeded.md).
 
 #### Template limits
 
