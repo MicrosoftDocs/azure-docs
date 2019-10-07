@@ -82,9 +82,12 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 The performance of data loading into an ordered CCI table is similar to a partitioned table.  Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI.  
 
 Here is an example performance comparison of loading data into tables with different schemas.
+
 ![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
+
 Here is an example query performance comparison between CCI and ordered CCI.
+
 ![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
 
  
