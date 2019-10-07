@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: dapine
 ---
 
@@ -31,6 +31,21 @@ An application that accesses a Cognitive Services resource when network rules ar
 To secure your Cognitive Services resource, you should first configure a rule to deny access to traffic from all networks (including internet traffic) by default. Then, you should configure rules that grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications. You can also configure rules to grant access to traffic from select public internet IP address ranges, enabling connections from specific internet or on-premises clients.
 
 Network rules are enforced on all network protocols to Azure Cognitive Services, including REST and WebSocket. To access data using tools such as the Azure test consoles, explicit network rules must be configured. You can apply network rules to existing Cognitive Services resources, or when you create new Cognitive Services resources. Once network rules are applied, they're enforced for all requests.
+
+## Supported regions and service offerings
+
+Virtual network support for Cognitive Services is limited to the *Canary - Central US EUAP*, *West Europe*, and *West US 2* Azure regions. Additionally, not all of the Cognitive Services offerings support virtual networks. The following Cognitive Service offerings allow for the use of virtual networks. If the service offering is not listed here, it doesn't support virtual networks.
+
+> [!div class="checklist"]
+> * [Anomaly Detector](./anomaly-detector/index.yml)
+> * [Computer Vision](./computer-vision/index.yml)
+> * [Content Moderator](./content-moderator/index.yml)
+> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Face](./face/index.yml)
+> * [Form Recognizer](./form-recognizer/index.yml)
+> * [LUIS](./luis/index.yml)
+> * [Personalizer](./personalizer/index.yml)
+> * [Text Analytics](./text-analytics/index.yml)
 
 ## Change the default network access rule
 
