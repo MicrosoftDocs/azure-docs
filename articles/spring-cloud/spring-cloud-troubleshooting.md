@@ -14,11 +14,11 @@ ms.author: v-vasuke
 ---
 # Troubleshooting Guide of Common Problems
 
-When you create or manage _Azure Spring Cloud_, you might occasionally encounter problems. This article details some common problems and troubleshooting steps. It is strongly recommended to read the [FAQ article](spring-cloud-faq.md) and other documentation to supplement this.
+When you create or manage _Azure Spring Cloud_, you might occasionally encounter problems. This article details some common problems and troubleshooting steps. We recommend that you read the [FAQ article](spring-cloud-faq.md) and other documentation in addition to this one.
 
 ## Availability, performance and application issues
-### My application cannot start (e.g. the endpoint cannot be connected, or returns 502 after few retries)
-Please export the logs to _Azure Log Analytics_. The table for Spring application logs is named `AppPlatformLogsforSpring`. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md)
+### My application cannot start (for example, the endpoint cannot be connected, or returns 502 after few retries)
+Export the logs to _Azure Log Analytics_. The table for Spring application logs is named `AppPlatformLogsforSpring`. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md)
 
 Application start fails because of various reasons, but if you see the following error in the beginning of your logs:
 
@@ -26,7 +26,7 @@ Application start fails because of various reasons, but if you see the following
 
 Basically they can be in either of the two following reasons:
 1. One of the beans or one of its dependencies is missing.
-2. One of the bean properties is missing or invalid. Likely you will see `java.lang.IllegalArgumentException` in this case.
+2. One of the bean properties is missing or invalid. You will likely see `java.lang.IllegalArgumentException` in this case.
 
 Application start fails might be related with the enabled service bindings as well. Use keywords related to the bound services to query the logs.
 
@@ -46,13 +46,13 @@ Application crashes and errors happen because of various reasons. It's good to s
 - If the discovery status is _UP_, you can go to _Metrics_ to check the application's health, especially the following metrics:
 
   - `TomcatErrorCount` (_tomcat.global.error_):
-    All Spring application exceptions will be counted here. If you see this number is large, please go to _Azure Log Analytics_ to inspect your application logs.
+    All Spring application exceptions will be counted here. If you see this number is large, go to _Azure Log Analytics_ to inspect your application logs.
 
   - `AppMemoryMax` (_jvm.memory.max_):
     The maximum amount of memory available to the application. It may be undefined or may change over time if defined. The amount of used and committed memory will always be less than or equal to max if it is defined. However, a memory allocation may fail with `OutOfMemoryError` if it attempts to increase the used memory such that used > committed even if used <= max would still be true. In such a situation, try to increase the maximum heap size via the `-Xmx` parameter.
 
   - `AppMemoryUsed` (_jvm.memory.used_):
-    The amount of memory in bytes that is currently used by the application. For a normal load Java application, this metric series will form into a 'sawtooth' pattern, where the memory usage steadily increases and decreases in small increments and drops a lot suddenly and this pattern repeats. This is because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawteeth.
+    The amount of memory in bytes that is currently used by the application. For a normal load Java application, this metric series will form into a 'sawtooth' pattern, where the memory usage steadily increases and decreases in small increments and drops a lot suddenly and this pattern repeats. This is because of garbage collection inside Java virtual machine, where collection actions represent drops on the 'sawteeth'.
     This metric is important for identify memory issues, such as
     1) memory explosion at the very beginning;
     2) surge memory allocation for a specific logic path;
@@ -60,7 +60,7 @@ Application crashes and errors happen because of various reasons. It's good to s
 
   For more details, please visit [Metrics](spring-cloud-concept-metrics.md).
 
-To get started with _Azure Log Analytics_, please visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
+To get started with _Azure Log Analytics_, visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
 
 ### My application experiences high CPU usage or high memory usage
 If your application experiences high CPU/memory usage, it is basically in either of two situations:
@@ -75,13 +75,13 @@ To confirm which situation it is,
 
 If the situation happens to be that all instances are experiencing high CPU/memory, you need to either scale out the application or scale up the CPU/Memory. For more details, please visit [Scale Applications](spring-cloud-tutorial-scale-manual.md)
 
-If the situation happens to be that some of the instances are experiencing high CPU/memory, please check the instance status and its discovery status.
+If the situation happens to be that some of the instances are experiencing high CPU/memory, check the instance status and its discovery status.
 
-For more details, please visit [Metrics](spring-cloud-concept-metrics.md).
+For more details, visit [Metrics](spring-cloud-concept-metrics.md).
 
-If all instances are up and running, please go to _Azure Log Analytics_ to query your application logs and review your code logics to see if any of them might impact scale partitioning. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md).
+If all instances are up and running, go to _Azure Log Analytics_ to query your application logs and review your code logics to see if any of them might impact scale partitioning. For more details, visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md).
 
-To get started with _Azure Log Analytics_, please visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
+To get started with _Azure Log Analytics_, visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
 
 ### Checklist before onboard your Spring application to Azure Spring Cloud
 - The application can be run locally with the specified Java runtime version.
@@ -96,7 +96,7 @@ To get started with _Azure Log Analytics_, please visit https://docs.microsoft.c
 ### I encountered a problem in creating Azure Spring Cloud service instance
 When you try to provision an _Azure Spring Cloud_ service instance via the portal, it will do validation for you.
 
-However, if you try to provision the _Azure Spring Cloud_ service instance via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/), please verify:
+However, if you try to provision the _Azure Spring Cloud_ service instance via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/), verify:
 1. The subscription is active.
 2. The location is [supported](spring-cloud-faq.md) by _Azure Spring Cloud_.
 3. The resource group for the instance is already created.
@@ -116,7 +116,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Please make sure that you application is packaged in the correct [executable jar format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If not, you will see an error like the following:
+Please make sure that your application is packaged in the correct [executable jar format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If not, you will see an error like the following:
 
 `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
@@ -129,19 +129,20 @@ If the polling is interrupted, you can still use the following command to fetch 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-However, please note that one _Azure Spring Cloud_ service instance can only trigger one build job for one source package at one time. For more details, please refer to [Deploy an application](spring-cloud-quickstart-launch-app-portal.md) and [Staging environment guide](spring-cloud-howto-staging-environment.md).
+However, note that one _Azure Spring Cloud_ service instance can only trigger one build job for one source package at one time. For more details, please refer to [Deploy an application](spring-cloud-quickstart-launch-app-portal.md) and [Staging environment guide](spring-cloud-howto-staging-environment.md).
 
 ### My application cannot be registered
 
 In most case, it is because you have not configured Required Dependencies/Service Discovery in your pom file. After configured, the built-in Eureka server endpoint will be automatically injected as environment variable with your application. Then applications will be able to register themselves with Eureka server and discover other dependent microservices.
 
-Please wait at least 2 minutes before a newly registered instance start receiving traffic. This is because of a few reasons:
+Wait at least 2 minutes before a newly registered instance start receiving traffic for the following reasons: 
+
 1. The first heartbeat happens 30 seconds after startup, this heartbeat is for client registration.
 2. The server maintains a response cache that is updated per 30 seconds, so even if the instance is just registered it will not appear in the _Eureka_ response immediately.
 3. _Eureka_ client maintains a cache of registry information. The cache is refreshed per 30 seconds.
 4. _Ribbon_ also maintains a local cache to avoid calling the client for every request. It may take another 30s.
 
-If you are migrating an existing Spring Cloud based solution to Azure, please make sure your ad-hoc _Eureka_ and _Config Server_ instances are removed (or disabled) to avoid confliction with the managed instances provided by _Azure Spring Cloud_.
+If you are migrating an existing Spring Cloud based solution to Azure, make sure your ad-hoc _Eureka_ and _Config Server_ instances are removed (or disabled) to avoid conflicting with the managed instances provided by _Azure Spring Cloud_.
 
 You may also check _Eureka_ client logs in _Azure Log Analytics_. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md)
 
@@ -159,4 +160,4 @@ If you can see metrics from _JVM_ but no metrics from _Tomcat_, please check if 
 </dependency>
 ```
 
-If your application logs can be archived to a storage account, but not sent to _Azure Log Analytics_, please check whether you [set up your workspace correctly](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). If you are using a free tier of _Azure Log Analytics_, please be aware that [the free tier does not provide SLA](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account, but not sent to _Azure Log Analytics_, please check whether you [set up your workspace correctly](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). If you are using a free tier of _Azure Log Analytics_, note that [the free tier does not provide SLA](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
