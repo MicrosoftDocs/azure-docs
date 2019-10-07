@@ -21,17 +21,17 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Prerequisites
 
-1. If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. Create [a cluster and database](create-cluster-database-csharp.md)
+* Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. Set [database and table policies](database-table-policies-csharp.md) (optional)
+* Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-1. Create a [storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
+* Create a [storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 

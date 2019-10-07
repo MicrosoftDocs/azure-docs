@@ -20,15 +20,15 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. Create [a cluster and database](create-cluster-database-csharp.md)
+* Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. Set [database and table policies](database-table-policies-csharp.md) (optional)
+* Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-1. Create an [IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
+* Create an [IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

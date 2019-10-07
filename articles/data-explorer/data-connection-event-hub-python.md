@@ -20,15 +20,15 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. Create [a cluster and database](create-cluster-database-csharp.md)
+* Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. Set [database and table policies](database-table-policies-csharp.md) (optional)
+* Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-1.  Create an [Event Hub with data for ingestion](ingest-data-event-hub.md#create-an-event-hub). 
+* Create an [Event Hub with data for ingestion](ingest-data-event-hub.md#create-an-event-hub). 
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
@@ -70,7 +70,7 @@ location = "Central US";
 table_name = "StormEvents";
 mapping_rule_name = "StormEvents_CSV_Mapping";
 data_format = "csv";
-#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                         parameters=EventHubDataConnection(event_hub_resource_id=event_hub_resource_id, consumer_group=consumer_group, location=location,
                                                                             table_name=table_name, mapping_rule_name=mapping_rule_name, data_format=data_format))
