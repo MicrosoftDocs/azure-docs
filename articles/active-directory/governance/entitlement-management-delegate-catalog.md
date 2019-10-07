@@ -29,7 +29,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To delegate to department managers so that they can create their own catalogs, you need to add users to the catalog creator role. You can add individual users, or you can add a group, whose members are then able to create catalogs.
+To delegate to users who aren't administrators, so that they can create their own catalogs, you can add those users to the Azure AD entitlement management-defined catalog creator role. You can add individual users, or you can add a group, whose members are then able to create catalogs.
 
 ## As an IT administrator, delegate to catalog creators
 
