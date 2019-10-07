@@ -132,7 +132,7 @@
       href: cluster-autoscaler.md
     - name: Use Availability Zones
       href: availability-zones.md
-    - name: Use multiple node pools (preview)
+    - name: Use multiple node pools
       href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md

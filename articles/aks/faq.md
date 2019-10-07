@@ -37,7 +37,7 @@ Not at this time, but this is planned. You can track progress on the [AKS GitHub
 
 ## Can I have different VM sizes in a single cluster?
 
-Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools], which is currently in preview.
+Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools].
 
 ## Are security updates applied to AKS agent nodes?
 

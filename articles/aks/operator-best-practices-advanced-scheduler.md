@@ -27,7 +27,7 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 
 When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to deploy, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
 
-This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools. Support for multiple node pools in AKS is currently in preview.
+This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools.
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
 
