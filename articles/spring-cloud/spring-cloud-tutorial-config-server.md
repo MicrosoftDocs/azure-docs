@@ -149,7 +149,9 @@ Once you've saved a configuration file, the **Delete app configuration** button 
 
 ## Next steps
 
-In this tutorial, you learned how to enable and configure the Config Server.  To learn how to bind your application to an Azure CosmosDB, continue to the next tutorial.
+In this tutorial, you learned how to enable and configure the Config Server. 
+ To learn more about managing your application, continue to the tutorial for manually scaling your app.
 
 > [!div class="nextstepaction"]
-> [Learn how to bind your application to an Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md).
+> [Learn how to manually scale your Azure Spring Cloud application](spring-cloud-tutorial-scale-manual.md).
+

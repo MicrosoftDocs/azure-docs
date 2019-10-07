@@ -101,7 +101,7 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this tutorial, you learned how to enable and understand distributed tracing in the Azure Spring Cloud.  To learn how to enable the Config Server, continue to the next tutorial.
+In this tutorial, you learned how to enable and understand distributed tracing in the Azure Spring Cloud. To learn how to bind your application to an Azure CosmosDB, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
+> [Learn how to bind your application to an Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md).

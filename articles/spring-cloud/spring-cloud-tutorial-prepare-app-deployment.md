@@ -171,7 +171,8 @@ Include `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` in the d
 
 ## Next steps
 
-In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud.  To learn how to monitor your application, continue to the next tutorial.
+In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud.  To learn how to enable the Config Server, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Learn how to monitor your application](spring-cloud-tutorial-distributed-tracing.md)
+> [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
+
