@@ -23,7 +23,36 @@ In this article, you'll create, view, and delete [**Azure Machine Learning works
 
 To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription. 
+
+1. In the upper-left corner of Azure portal, select **+ Create a resource**.
+
+      ![Create a new resource](media/aml-create-in-portal/portal-create-resource.png)
+
+1. Use the search bar to find **Machine Learning service workspace**.
+
+1. Select **Machine Learning service workspace**.
+
+1. In the **Machine Learning service workspace** pane, select **Create** to begin.
+
+1. Provide the following information to configure your new workspace:
+
+   Field|Description 
+   ---|---
+   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
+   Workspace type | Select **Basic** or **Enterprise**.  This workspace type determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise SKU offerings](overview-what-is-azure-ml.md#sku). 
+   Subscription |Select the Azure subscription that you want to use.
+   Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
+   Location | Select the location closest to your users and the data resources to create your workspace.
+
+1. After you are finished configuring the workspace, select **Create**. 
+
+   > [!Warning] 
+   > It can take several minutes to create your workspace in the cloud.
+
+   When the process is finished, a deployment success message appears. 
+ 
+ 1. To view the new workspace, select **Go to resource**.
 
 ### Download a configuration file
 
@@ -35,6 +64,18 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    
    Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
 
+## <a name="upgrade"></a>Upgrade to Enterprise SKU
+
+You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantage of the enhanced features such low-code experiences and enhanced security features.
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+
+1. Select the workspace that you wish to upgrade.
+
+1. Select **Upgrade**.
+
+> [!IMPORTANT]
+> You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
 
 ## <a name="view"></a>View a workspace
 
