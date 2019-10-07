@@ -34,7 +34,7 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-Virtual network support for Cognitive Services is limited to the *Canary - Central US EUAP*, *West Europe*, and *West US 2* Azure regions. Additionally, not all of the Cognitive Services offerings support virtual networks. The following Cognitive Service offerings allow for the use of virtual networks. If the service offering is not listed here, it doesn't support virtual networks.
+Virtual network support for Cognitive Services is limited to the *Canary - Central US EUAP*, *West Europe*, and *West US 2* Azure regions. Additionally, not all of the Cognitive Service offerings support virtual networks. The following Cognitive Service offerings allow for the use of virtual networks. If the service offering is not listed here, it doesn't support virtual networks.
 
 > [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
