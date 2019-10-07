@@ -733,10 +733,12 @@
           href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop applications
       items:
+      - name: Developer guide
+        href: ../blobs/data-lake-storage-developer-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Create and manage directories
         href: ../blobs/data-lake-storage-develop-manage-directories.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage directory and file permissions 
-        href: ../blobs/data-lake-storage-develop-acl-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../blobs/data-lake-storage-develop-acl.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate data
       items:
         - name: Upgrade from Data Lake Storage Gen1
