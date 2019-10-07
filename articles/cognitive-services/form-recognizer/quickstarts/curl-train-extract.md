@@ -20,6 +20,7 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to t
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
@@ -33,7 +34,7 @@ To complete this quickstart, you must have:
 
 First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following cURL command. Before you run the command, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **Train Custom Model** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
@@ -43,13 +44,23 @@ To train a Form Recognizer model with the documents in your Azure blob container
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-You'll receive a `201 (Success)` response with a **Location** header. The value of this header is the ID of the new model being trained. Pass this model ID into a new call to check the training status:
+You'll receive a `201 (Success)` response with a **Location** header. The value of this header is the ID of the new model being trained. 
+
+## Get training results
+
+After you've started the train operation, you use a new operation, **Get Custom Model** to check the training status. Pass the model ID into this API call to check the training status:
+
+1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key.
+1. Replace `<subscription key>` with your subscription key
+1. Replace `<model ID>` with the model ID you received in the previous step
 
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-You'll receive a `200 (Success)` response with a JSON body in the following format. 
+You'll receive a `200 (Success)` response with a JSON body in the following format. Notice the `"status"` field. This will have the value `"ready"` once training is complete. If the model is not finished training, you'll need to query the service again by rerunning the command. We recommend an interval of one second or more between calls.
+
+The `"modelId"` field contains the ID of the model you're training. You'll need this for the next step.
 
 ```json
 {
@@ -99,11 +110,9 @@ You'll receive a `200 (Success)` response with a JSON body in the following form
 }
 ```
 
-When the `"status"` value under each `"trainingDocuments"` entry is `"succeeded"`, then you are ready to query your model.
+## Analyze forms for key-value pairs and tables
 
-## Extract key-value pairs and tables from forms
-
-Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the cURL command that follows. Before you run the command, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **Analyze Form** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<model ID>` with the model ID that you received in the previous section.
@@ -111,16 +120,19 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
 1. Replace `<subscription key>` with your subscription key.
 
-
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-You'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID to track the result of the Analyze operation. Save this result ID for the next step.
+You'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID you use to track the results of the Analyze operation. Save this ID for the next step.
 
 ### Get the Analyze results
 
 Use the following API to query the results of the Analyze operation.
+
+1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<result ID>` with the ID that you received in the previous section.
+1. Replace `<subscription key>` with your subscription key.
 
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"

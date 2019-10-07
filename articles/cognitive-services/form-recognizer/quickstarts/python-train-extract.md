@@ -20,6 +20,7 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with Python to
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
@@ -33,7 +34,7 @@ To complete this quickstart, you must have:
 
 First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following python code. Before you run the code, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **TrainC Custom Model** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
@@ -62,13 +63,13 @@ To train a Form Recognizer model with the documents in your Azure blob container
     except Exception as e:
         print(str(e))
     ```
-1. Save the code in a file with a .py extension. For example, *form-recognize-train.py*.
+1. Save the code in a file with a .py extension. For example, *form-recognizer-train.py*.
 1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-train.py`.
+1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-train.py`.
 
-## Get the training result
+## Get training results
 
-After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
 
 ```python 
 operationId = operationURL.split("operations/")[1]
@@ -139,9 +140,9 @@ When the training process is completed, you'll receive a `200 (Success)` respons
 }
 ```
 
-## Extract key-value pairs and tables from forms
+## Analyze forms for key-value pairs and tables
 
-Next, you'll use your trained model to analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the following code in a new Python script. Before you run the script, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **Analyze Form** API by running the following code in a new Python script. Before you run the script, make these changes:
 
 1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
 1. Replace `<modelID>` with the model ID you received in the previous section.
@@ -177,14 +178,15 @@ Next, you'll use your trained model to analyze a document and extract key-value 
         print(str(e))
     ```
 
-1. Save the code in a file with a .py extension. For example, *form-recognize-analyze.py*.
+1. Save the code in a file with a .py extension. For example, *form-recognizer-analyze.py*.
 1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
+1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-analyze.py`.
+
+When you call the **Analyze Form** API, you'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID you'll use to track the results of the Analyze operation. The script above prints the value of this header to the console.
 
 ## Get the Analyze results
 
-After you've started the Analyze operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the call and passes 
-it to a new API call. The Analyze operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+Add the following code to the bottom of your Python script. This extracts the ID value from the previous call and passes it to a new API call to retrieve the analysis results. The **Analyze Form** operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python 
 operationId = operationURL.split("operations/")[1]
@@ -205,7 +207,7 @@ while True:
         exit()
 ```
 
-When the process is completed, you'll receive a `200 (Success)` response with JSON content like the following:
+When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format:
 
 ```bash
 {
