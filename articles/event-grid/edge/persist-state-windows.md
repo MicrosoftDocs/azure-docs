@@ -65,7 +65,7 @@ This article provides the steps needed to deploy Event Grid module with persiste
 1. Add the **Users** group to value pointed by **Mountpoint** as follows:
     1. Launch File Explorer.
     1. Navigate to the folder pointed by **Mountpoint**.
-    1. Right-click and go to properties.
+    1. Right-click, and then select **Properties**.
     1. Select **Security**.
     1. Under *Group or user names, select **Edit**.
     1. Select **Add**, enter `Users`, select **Check Names**, and select **Ok**.

@@ -195,6 +195,6 @@ Subscribers can register for events published to a topic. To receive any event, 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
 *Create/update subscription with [filters](advanced-filtering.md).
-*Enable persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+*Enable persistence of Event Grid module on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 *Follow [documentation](configure-client-auth.md) to configure client authentication
 *Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)

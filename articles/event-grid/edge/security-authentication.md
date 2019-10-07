@@ -46,7 +46,7 @@ Clients are entities doing management and/or runtime operations. Clients can be 
 
 Event Grid module supports two types of client authentication:-
 
-* SAS key-based
+* Shared Access Signature (SAS) key-based
 * certificate-based
 
 By default, the Event Grid module is configured to accept only certificate-based authentication. On startup, Event Grid module retrieves "TrustBundle" from IoT Edge security daemon and uses it to validate any client certificate. Client certificates that do not resolve to this chain will be rejected with `UnAuthorized`.
@@ -77,7 +77,7 @@ If a client presents a self-signed, by default, the Event Grid module will rejec
 >[!IMPORTANT]
 >In production scenarios, you may want to set **inbound:clientAuth:clientCert:allowUnknownCA** to **false**.
 
-### SAS key-based client Authentication
+### SAS key-based client authentication
 
 In addition to certificate-based authentication, the Event Grid module can also do SAS Key-based authentication. SAS key is like a secret configured in the Event Grid module that it should use to validate all incoming calls. Clients need to specify the secret in the HTTP Header 'aeg-sas-key'. Request will be rejected with `UnAuthorized` if it doesn't match.
 
