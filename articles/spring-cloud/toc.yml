@@ -30,8 +30,6 @@
   items: 
     - name: Understanding Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understanding Azure Monitor Metrics for Spring Cloud
-      href: spring-cloud-concept-metrics.md
 - name: How-to guides
   items: 
     - name: Analyze application logs and Metrics
@@ -40,12 +38,7 @@
       href: spring-cloud-service-registration.md
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
-    - name: Use persistent storage in Azure Spring Cloud
-      href: spring-cloud-howto-persistent-storage.md 
-    - name: How to start, stop, and delete an Azure Spring Cloud application
-      href: spring-cloud-howto-start-stop-delete.md
 - name: Reference
   items: 
     - name: Azure CLI
       href: spring-cloud-cli-reference.md
-      
