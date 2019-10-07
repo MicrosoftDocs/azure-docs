@@ -52,7 +52,7 @@ landingContent:
           - text: Monitor your application by using distributed tracing and App Insights
             url: spring-cloud-tutorial-distributed-tracing.md
           - text: Enable Diagnostic Services on your Java Spring application
-            url: spring-cloud-overview.md ## must update when article checked in
+            url: diagnostic-services.md
       - linkListType: concept
         links:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
