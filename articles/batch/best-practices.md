@@ -31,20 +31,20 @@ Batch pools are the compute resources for executing jobs scheduled to the Batch 
   When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. To learn more about creating a user subscription account, see [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Pools should have more than one compute node.**  
-    It's inefficient to create a pool for a single node. For example, if you have 1000 tasks to process, and have a dedicated pool with one compute node for each job, every job incurs the overhead and cost of node allocation. Additionally, if there are provisioning issues, the compute node will stop that particular task. Instead, create a single pool with many compute nodes. The overhead of provisioning the compute nodes is shared by all of the tasks. Any potential issues with provisioning one compute node will have no material impact on processing.
+    It's inefficient to create a pool for a single task or job. For example, if you have 1000 tasks to process, and have a dedicated pool with one compute node for each job, every job incurs the overhead and cost of node allocation. Additionally, if there are provisioning issues, the compute node will stop that particular task. Instead, create a single pool with many compute nodes. The overhead of provisioning the compute nodes is shared by all of the tasks. Any potential issues with provisioning one compute node will have no material impact on processing.
 
 - **Use unique names for your pools.**  
     It's helpful to use unique names for pools, tasks, and jobs across different Azure regions or even in the same region. Different names help with logging because they are unique and more easily identifiable. Unique names also help avoid potential collisions between similarly named resources.
 
-- **Use pools dynamically.**  
+- **Continuity during pool maintenance and failure.**  
     It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that your jobs won't run if something goes wrong with the pool. This is especially important for time-sensitive workloads. To fix this, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
 
 ### Pool lifetime and billing
 
-Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It is your responsibility to manage the compute nodes in the pool either explicitly, or through automatic means provided by the service (autoscale or autopool).
+Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service (autoscale or autopool).
 
 - **Keep pools fresh.**  
-    You should delete your pools every couple of months to ensure you get the latest updates and bug fixes made to the node agent. Your pool won't receive node agent updates unless it is resized to 0 compute nodes, or if the pool is recreated. Before you resize or recreate your pool, it's recommended to download any node agent logs for debugging purposes.
+    You should delete your pools every couple of months to ensure you get the latest updates and bug fixes made to the node agent. Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes.
 
 - **Pool recreation**  
     On a similar note, it's not recommended to delete and recreate your pools on a daily basis. Instead, use an [autoscale](batch-automatic-scaling.md) formula to resize the pool to 0 compute nodes. An autoscale formula will resize your pool automatically and save costs by quickly releasing compute nodes.
@@ -70,7 +70,7 @@ In the case that a node fails, Batch automatically attempts to recover these com
 
 ## Jobs
 
-A job is a heavyweight container designed to contain hundreds, thousands, or even millions of tasks.
+A job is a container designed to contain hundreds, thousands, or even millions of tasks.
 
 - **Put many tasks in a job**  
     Using a job to run a single task is inefficient. For example, it's much more efficient to use a single job containing 1000 tasks rather than creating 10 jobs that contain 100 tasks each. There is no quota for tasks, so executing as many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
@@ -84,12 +84,12 @@ There is a default [active job and job schedule quota](batch-quota-limit.md#reso
 
 ## Tasks
 
-Tasks are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by the Batch on to compute nodes. There are several design considerations to make when creating and executing tasks. The following sections explain common scenarios and how to design your tasks to resist issues and perform efficiently.
+Tasks are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by Batch on to compute nodes. There are several design considerations to make when creating and executing tasks. The following sections explain common scenarios and how to design your tasks to handle issues and perform efficiently.
 
 ### Task lifetime
 
 - **Delete tasks when they're complete**  
-    A task has a default lifetime of seven days until it's deleted from the system. Anything generated by the task, such as log files or program output, is stored on the compute node disk until the task is deleted. It's recommended to delete tasks explicitly when they are no longer needed, or set a [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the corresponding `retentionTime` expires.
+    A task has a default lifetime of 180 days until it's deleted from the system. Anything generated by the task, such as log files or program output, is stored on the compute node disk until the task is deleted. It's recommended to delete tasks explicitly when they are no longer needed, or set a [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the corresponding `retentionTime` expires.
 
 ### Task submission
 
@@ -99,7 +99,7 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 ### Task execution
 
 - **Task execution order**  
-    Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example, first in, first out order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
+    Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example: `first in, first out` order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
 
 - **Maximize tasks on a node**  
     When the `maxTasksPerNode` setting is set to a higher number than the default of 1 on the pool, the Batch scheduler packs tasks within each node first. This can be controlled by setting [ComputeNodeFillType](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.computenodefilltype?view=azure-dotnet) to spread tasks across compute nodes prior to packing. If you use the pack setting, there will be more tasks per node, maximizing the use of compute nodes and allowing associated autoscale formulas to minimize the target number of nodes.
@@ -115,7 +115,8 @@ Although rare, a task can be retried internally due to failures on the compute n
 
     A common example is to create a task to copy files to a compute node. The task copies the specified files **every** time it runs, which is inefficient and isn't built to withstand failure. Instead, create a task to ensure the files are on the compute node. This task doesn't recopy files that are already present, and the task picks up where it left off if it was interrupted.
 
-There are no design differences when executing your tasks on dedicated or low-priority nodes. Whether a task is preempted while running on a low-priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
+- **Low priority nodes**  
+    There are no design differences when executing your tasks on dedicated or low-priority nodes. Whether a task is preempted while running on a low-priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
 
 ## Security
 
