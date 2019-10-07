@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
-manager: carmonm
 ---
 # Overview of the Azure Resource Graph service
 

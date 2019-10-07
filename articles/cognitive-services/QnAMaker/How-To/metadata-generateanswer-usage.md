@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
 ---
 
@@ -54,7 +54,7 @@ You can also get your endpoint details from the **Settings** tab of your knowled
 
 ## GenerateAnswer request configuration
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md). 
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
 
 The POST request uses:
 
@@ -244,4 +244,4 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 The **Publish** page also provides information to generate an answer with [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) and [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
-> [Create a knowledge base](./create-knowledge-base.md)
+> [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)

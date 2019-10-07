@@ -32,8 +32,10 @@
     items:
     - name: Server-level IP firewall rules
       href: sql-database-server-level-firewall-rule.md
-    - name: Configure public endpoint on Managed Instance
+    - name: Configure public endpoint on managed instance
       href: sql-database-managed-instance-public-endpoint-configure.md
+    - name: Configure connection types on managed instance
+      href: sql-database-managed-instance-connection-type.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance
@@ -586,6 +588,8 @@
         href: sql-database-xevent-code-ring-buffer.md
   - name: Configure features
     items:
+    - name: Configure failover group
+      href: sql-database-configure-failover-group.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
     - name: Conditional Access
@@ -776,29 +780,35 @@
   items:
   - name: Glossary of terms
     href: sql-database-glossary-terms.md
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-sql-database
-  - name: SQL Server Blog
-    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
-  - name: Microsoft Azure Blog
-    href: https://azure.microsoft.com/blog/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Public data sets
-    href: sql-database-public-data-sets.md  
-  - name: Troubleshoot connectivity
-    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Architecture center
     href: /azure/architecture/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Microsoft Azure Blog
+    href: https://azure.microsoft.com/blog/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Public data sets
+    href: sql-database-public-data-sets.md  
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/sql-azure
+  - name: Troubleshoot
+    items:
+    - name: Connectivity issues
+      href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+    - name: Problem Resolution
+      items: 
+      - name: Import/Export service hangs
+        href: azure-sql-database-hangs-importing-exporting.md
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
