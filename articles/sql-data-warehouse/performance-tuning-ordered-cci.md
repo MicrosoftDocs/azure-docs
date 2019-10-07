@@ -40,6 +40,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 > [!NOTE] 
 > In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  
 
+## Query performance
+
+A query's performance gain from an ordered CCI depends on the query patterns, the size of data, how well the data is sorted, the physical structure of segments, and the DWU and resource class chosen for the query execution.  Users should review all these factors before choosing the ordering columns when designing an ordered CCI table.
+
+Queries with all these patterns typically run faster with ordered CCI.  
+1. The queries have equality, inequality, or range predicates
+1. The predicate columns and the ordered CCI columns are the same.  
+1. The predicate columns are used in the same order as the column ordinal of ordered CCI columns.  
+ 
+In this example, table T1 has a clustered columnstore index ordered in the sequence of Col_C, Col_B, and Col_A.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+The performance of query 1 can benefit more from ordered CCI than the other 3 queries. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
+
 ## Data loading performance
 
 The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  

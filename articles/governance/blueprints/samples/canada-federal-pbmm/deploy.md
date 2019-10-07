@@ -7,7 +7,6 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Deploy the Canada Federal PBMM blueprint samples
 
