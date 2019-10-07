@@ -78,20 +78,20 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux. 
 
 - Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. 
-    - See: [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) as well as [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
-    > [!NOTE]
-    > In managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  - See: [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) as well as [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
+  > [!NOTE]
+  > In managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - Using Azure AD groups simplifies permission management and both the group owner, and the resource owner can add/remove members to/from the group. 
 
 - Create a separate group for Azure AD administrator for SQL DB servers .
 
-    - See the article, [Provision an Azure Active Directory administrator for your Azure SQL Database server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
+  - See the article, [Provision an Azure Active Directory administrator for your Azure SQL Database server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
 - Monitor Azure AD group membership changes using Azure Active Directory audit activity reports. 
 
 - For managed instance, a separate step is required to create Azure AD admin. 
-    - See the article, [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). 
+  - See the article, [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). 
 
 > [!NOTE]
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
@@ -113,10 +113,10 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 **Best practices**:
 
 - Activate Conditional Access in Azure AD (requires Premium subscription). 
-    - See the article, [Conditional Access in Azure AD](../active-directory/conditional-access/overview.md).  
+  - See the article, [Conditional Access in Azure AD](../active-directory/conditional-access/overview.md).  
 
 - Create Azure AD group(s) and enable MFA policy for selected groups using Azure AD Conditional Access. 
-    - See the article, [Plan Conditional Access Deployment](../active-directory/conditional-access/plan-conditional-access.md). 
+  - See the article, [Plan Conditional Access Deployment](../active-directory/conditional-access/plan-conditional-access.md). 
 
 - Alternatively, MFA can be enabled for the entire Azure AD or for the whole Active Directory federated with Azure AD. 
 
@@ -131,9 +131,9 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
     - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive) 
 
 - Implement your applications to connect to Azure SQL Database using interactive authentication with MFA support. 
-    - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md). 
-    > [!NOTE]
-    > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), MFA does not apply.
+  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md). 
+  > [!NOTE]
+  > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), MFA does not apply.
 
 ### Minimize the use of password-based authentication for users
 
@@ -147,7 +147,7 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 **Best practices**:
 
 - Use single sign-on authentication using Windows credentials. Federate the on premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
-    - See the articles, [SSMS support for Azure AD Integrated authentication](sql-database-aad-authentication-configure.md#active-directory-integrated-authentication) and [application sample for integrated authentication](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/integrated) for enabling access SQL DB without any SQL tools.
+  - See the articles, [SSMS support for Azure AD Integrated authentication](sql-database-aad-authentication-configure.md#active-directory-integrated-authentication) and [application sample for integrated authentication](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/integrated) for enabling access SQL DB without any SQL tools.
 
 ### Minimize the use of password-based authentication for applications 
 
@@ -161,12 +161,12 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 **Best practices**:
 
 - Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
-    - [System-assigned managed identity](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) 
-    - [User-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-    - [Use Azure SQL Database from app service with managed identity (without code changes)](https://azure.microsoft.com/resources/samples/app-service-msi-entityframework-dotnet/)
+  - [System-assigned managed identity](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) 
+  - [User-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+  - [Use Azure SQL Database from app service with managed identity (without code changes)](https://azure.microsoft.com/resources/samples/app-service-msi-entityframework-dotnet/)
 
 - Use cert-based authentication for an application. 
-    - See this [code sample](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/token). 
+  - See this [code sample](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/token). 
 
 - Use Azure AD authentication for integrated federated domain and domain-joined machine (see section above).
 
@@ -191,12 +191,12 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 **Best practices**:
 
 - As a server admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
-    - See the article, [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
+  - See the article, [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
 
 - Follow password management best practices:
-    - Provide a complex password, composed of Latin upper and lowercase letters, digits (0-9) and non-alphanumeric characters (like $, !, #, or %).
-    - Use longer passphrases instead of shorter randomly selected characters.
-    - Enforce manual password change at least every 90 days.
+  - Provide a complex password, composed of Latin upper and lowercase letters, digits (0-9) and non-alphanumeric characters (like $, !, #, or %).
+  - Use longer passphrases instead of shorter randomly selected characters.
+  - Enforce manual password change at least every 90 days.
 
 ## Access Management
 
@@ -224,14 +224,14 @@ Assign only the necessary permissions to complete the required tasks by doing th
     - Make sure to not assign users to unnecessary roles.
 
 - In Azure ARM:
-    - Use builtin-roles if the permissions just fit or custom RBAC roles to assign just the necessary permissions 
-           - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
-           - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) 
+  - Use builtin-roles if the permissions just fit or custom RBAC roles to assign just the necessary permissions 
+    - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
+    - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) 
 - Further resources: 
-    - [Permissions (Database Engine)](/sql/relational-databases/security/permissions-database-engine)
-    - [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-    - [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview) 
-    - [Privileged Account Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+  - [Permissions (Database Engine)](/sql/relational-databases/security/permissions-database-engine)
+  - [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+  - [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview) 
+  - [Privileged Account Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
 **Best practices**:
 
@@ -244,19 +244,19 @@ The following best practices are optional but will result in better manageabilit
 - Use built-in roles when the permissions match exactly the needed permissions – if the union of all permissions from multiple built-in roles leads to a 100% match, you can assign multiple roles concurrently as well. 
 
 - Create and use custom roles when built-in roles grant too many permissions or insufficient permissions. Typical Roles that are used in practice: 
-    - Security deployment 
-    - Administrator 
-    - Developer 
-    - Support personnel 
-    - Auditor 
-    - Automated processes 
-    - End user 
+  - Security deployment 
+  - Administrator 
+  - Developer 
+  - Support personnel 
+  - Auditor 
+  - Automated processes 
+  - End user 
 
 - Remember that permissions in SQL Server can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
-    - Logical server (special roles in master database) 
-    - Database 
-    - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind). 
-    - Object (table, view, procedure, etc.) 
+  - Logical server (special roles in master database) 
+  - Database 
+  - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind). 
+  - Object (table, view, procedure, etc.) 
 
 It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons, plus the fact that the standard rules for [DENY](/sql/t-sql/statements/deny-object-permissions-transact-sql) do not apply for columns.
 
@@ -283,29 +283,29 @@ If meeting a specific requirement is the goal, it is up to the auditors to advis
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
 - Create roles according to the needed user-groups and assign permissions to roles. 
-    - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create a custom RBAC role using the available permissions 
-    - Create Server roles for server-wide tasks (creating new logins, databases) in Azure SQL Database managed instance. 
-    - Create Database Roles for database-level tasks.
+  - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create a custom RBAC role using the available permissions 
+  - Create Server roles for server-wide tasks (creating new logins, databases) in Azure SQL Database managed instance. 
+  - Create Database Roles for database-level tasks.
 
 - For certain sensitive tasks consider creating special stored procedures signed by a certificate to execute the tasks on behalf of the users. 
-    - Example: [Tutorial: Signing Stored Procedures with a Certificate](/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
+  - Example: [Tutorial: Signing Stored Procedures with a Certificate](/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - In cases when it is not feasible at least not without major costs and efforts that may render the system near unusable, compromises can be made and mitigated through the use of compensating controls such as: 
-    - Human intervention in processes 
-    - Audit trails – for more details on Auditing see, **Audit critical security events - NEED LINK**
+  - Human intervention in processes 
+  - Audit trails – for more details on Auditing see, **Audit critical security events - NEED LINK**
 
 Additional resources: 
 
 - For Azure SQL Database:  
-    - [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md)
-    - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
-    - Separation of Duties in SQL Server 2014 
-    - Signing Stored Procedures in SQL Server **NEED LINK**
+  - [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md)
+  - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
+  - Separation of Duties in SQL Server 2014 
+  - Signing Stored Procedures in SQL Server **NEED LINK**
 
 - For Azure Resource Management:
-    - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
-    - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
-    - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/en-us/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
+  - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
+  - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
+  - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/en-us/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 **Best practices on achieving SoD through permissions**:
 
@@ -330,10 +330,10 @@ Additional resources:
 **How to implement SoD through encryption**:
 
 - Implement Transparent Data Encryption (TDE) with customer-managed keys in Azure Key Vault (AKV) to enable Separation of Duties between data owner and security owner. 
-    - See the article, [Configure customer-managed keys for Azure Storage encryption from the Azure portal](../storage/common/storage-encryption-keys-portal.md). 
+  - See the article, [Configure customer-managed keys for Azure Storage encryption from the Azure portal](../storage/common/storage-encryption-keys-portal.md). 
 
 - To ensure that a DBA cannot see data that is considered highly sensitive and still can perform DBA tasks, you can use Always Encrypted with role separation. 
-    - See the articles, [Overview of Key Management for Always Encrypted](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Key Provisioning with Role Separation](/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRole), and [Column Master Key Rotation with Role Separation](/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
+  - See the articles, [Overview of Key Management for Always Encrypted](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Key Provisioning with Role Separation](/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRole), and [Column Master Key Rotation with Role Separation](/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
 **Best practices on achieving SoD through encryption**:
 
@@ -354,9 +354,9 @@ It is not possible to keep a db_owner from viewing user data with permissions on
 - Create baselines to avoid negative results in succeeding scans when the issue in question does not apply to your system. 
 
 - Additional resources: 
-    - [SQL Vulnerability Assessment](/sql/relational-databases/security/sql-vulnerability-assessment)
-    - [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md)
-    - [Get started with SQL database auditing](sql-database-auditing.md)
+  - [SQL Vulnerability Assessment](/sql/relational-databases/security/sql-vulnerability-assessment)
+  - [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md)
+  - [Get started with SQL database auditing](sql-database-auditing.md)
 
 ### Perform regular code reviews
 
@@ -380,8 +380,8 @@ It is not possible to keep a db_owner from viewing user data with permissions on
 - Further checks can be done in a QA environment using Advanced Threat Protection that scans for code that is vulnerable to SQL-injection.
 
 - Examples of what to look out for: 
-    - Creation of a user or changing security settings from within an automated SQL-code-update deployment. 
-    - A stored procedure, which, depending on the parameters provided, updates a monetary value in a cell in a non-conforming way. 
+  - Creation of a user or changing security settings from within an automated SQL-code-update deployment. 
+  - A stored procedure, which, depending on the parameters provided, updates a monetary value in a cell in a non-conforming way. 
 
 - Make sure the person conducting the review is an individual other than the originating code author and knowledgeable in code-reviews and secure coding.
 
