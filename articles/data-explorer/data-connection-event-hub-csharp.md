@@ -1,20 +1,20 @@
 ---
-title: 'Add data connections for Azure Data Explorer by using C#'
-description: In this article, you learn how to add data connections for Azure Data Explorer by using C#.
+title: 'Create an Azure Data Explorer data connection from Event Hub by using C#'
+description: In this article, you learn how to create an Azure Data Explorer data connection from Event Hub by using C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/07/2019
 ---
 
-# Create an Azure Data Explorer data connection by using C#
+# Create an Azure Data Explorer data connection from Event Hub by using C#
 
 > [!div class="op_single_selector"]
-> * [C#](data-connection-csharp.md)
-> * [Python](data-connection-python.md)
->
+> * [Portal](ingest-data-event-hub.md)
+> * [C#](data-connection-event-hub-csharp.md)
+> * [Python](data-connection-event-hub-python.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, and blobs written to blob containers. In this article, you create data connections for Azure Data Explorer by using C#.
 

@@ -1,20 +1,20 @@
 ---
-title: 'Add data connections for Azure Data Explorer by using Python'
-description: In this article, you learn how to add data connections for Azure Data Explorer by using Python.
+title: 'Create an Azure Data Explorer data connection from Event Grid by using Python'
+description: In this article, you learn how to Create an Azure Data Explorer data connection from Event Grid by using Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/07/2019
 ---
 
-# Create an Azure Data Explorer data connection by using Python
+# Create an Azure Data Explorer data connection from Event Grid by using Python
 
 > [!div class="op_single_selector"]
-> * [C#](data-connection-csharp.md)
-> * [Python](data-connection-python.md)
->
+> * [Portal](ingest-data-event-grid.md)
+> * [C#](data-connection-event-grid-csharp.md)
+> * [Python](data-connection-event-grid-python.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, and blobs written to blob containers. In this article, you create data connections for Azure Data Explorer by using Python.
 
