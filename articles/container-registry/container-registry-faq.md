@@ -27,7 +27,7 @@ This article addresses frequently asked questions and known issues about Azure C
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
+Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
@@ -257,6 +257,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -406,6 +407,17 @@ curl $redirect_url
 ### Why does the Azure portal not list all my repositories or tags? 
 
 If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+
+### Why does the Azure portal fail to fetch repositories or tags?
+
+The browser might not be able to send the request for fetching repositories or tags to the server. There could be various reasons such as:
+
+* Lack of network connectivity
+* Firewall
+* Ad blockers
+* DNS errors
+
+Please contact your network administrator or check your network configuration and connectivity. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### How do I collect http traces on Windows?
 

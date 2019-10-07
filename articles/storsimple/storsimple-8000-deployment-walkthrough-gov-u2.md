@@ -19,6 +19,8 @@ ms.author: alkohli
 ---
 # Deploy your on-premises StorSimple device in the Government portal
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to the StorSimple 8000 Series running Update 3 software or later in the Azure Government portal. This series of tutorials includes a configuration checklist, a list of configuration prerequisites, and detailed configuration steps for your StorSimple device.
 

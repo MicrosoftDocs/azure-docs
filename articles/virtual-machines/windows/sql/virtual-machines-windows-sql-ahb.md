@@ -6,10 +6,9 @@ documentationcenter: na
 author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
@@ -47,7 +46,7 @@ The use of the SQL VM resource provider requires the SQL Server IaaS extension. 
 
 ## Change the license for VMs already registered with the resource provider 
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -61,7 +60,7 @@ You can modify the license model directly from the portal:
 ![Azure Hybrid Benefit in the portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# [Azure CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to change your license model.  
 
@@ -83,7 +82,7 @@ The following code snippet switches your bring-your-own-license model to pay-as-
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 You can use PowerShell to change your license model.
 
 The following code snippet switches your pay-as-you-go license model to bring-your-own-license (or using Azure Hybrid Benefit):
@@ -121,7 +120,7 @@ If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, 
 
 You are only eligible to self-install SQL Server on an Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
 
-You can change the license type of a SQL Server VM as pay-as-you-go or Azure Hybrid Benefit only if the SQL Server VM is registered with the SQL VM resource provider. All SQL Server VMs should be registered with the resource provider for license compliance.
+You can change the license type of a SQL Server VM as pay-as-you-go or Azure Hybrid Benefit only if the SQL Server VM is registered with the SQL VM resource provider.
 
 ## Remarks
 

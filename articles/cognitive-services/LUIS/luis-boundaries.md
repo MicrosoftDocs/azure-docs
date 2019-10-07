@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -23,6 +23,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 |Area|Limit|
 |--|:--|
 | [App name][luis-get-started-create-app] | *Default character max |
+| Applications| 500 applications per Azure authoring resource |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
 | External entities | no limits |
@@ -38,7 +39,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application - there is no limit on the number of utterances per intent|
-| [Versions](luis-concept-version.md)| no limit |
+| [Versions](luis-concept-version.md)| 100 versions per application |
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 
 *Default character max is 50 characters. 
@@ -58,19 +59,24 @@ Do not use the following characters in the following names.
 
 Language Understand has separate keys, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
 
-## Key limits
+<a name="key-limits"></a>
 
-The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
+## Resource key limits
 
+The resource keys have different limits for authoring and endpoint. The LUIS prediction query endpoint key is only valid for endpoint queries. 
+
+* 500 applications per Azure authoring resource 
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
-|Language Understanding Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
-|Language Understanding [Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|Language Understanding [Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
-|Cognitive Service [Subscription][pricing] - S0 - Standard tier|invalid|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
-|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
+|Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
+|F0 - Free tier |1 million/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
+|S0 - Basic tier|-|50/second|Querying your LUIS endpoint|
+|S0 - Standard tier|-|50/second|Querying your LUIS endpoint|
+|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Adding sentiment information including key phrase data extraction is provided without requiring another Azure resource. |
+|[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 thousand endpoint requests per unit cost|Convert spoken utterance to text utterance and return LUIS results|
+
+[Learn more about pricing.][pricing]
 
 ## Keyboard controls
 

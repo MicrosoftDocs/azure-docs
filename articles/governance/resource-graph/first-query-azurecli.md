@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
 ---
 # Quickstart: Run your first Resource Graph query using Azure CLI
 
@@ -37,7 +36,7 @@ Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally install
    az extension add --name resource-graph
    ```
 
-1. Validate that the extension has been installed and is the expected version (at least **0.1.11**):
+1. Validate that the extension has been installed and is the expected version (at least **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)

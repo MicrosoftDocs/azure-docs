@@ -28,6 +28,7 @@ Your application will connect to a SignalR Service instance in Azure.
     | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Free | Try Azure SignalR Service for free. |
     | **Unit count** |  Not applicable | Unit count specifies how many connections your SignalR Service instance can accept. It is only configurable in the Standard tier. |
+    | **Service mode** |  Serverless | For use with Azure Functions or REST API. |
 
     ![Create SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

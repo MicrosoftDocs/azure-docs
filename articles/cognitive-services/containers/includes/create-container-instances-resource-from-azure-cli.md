@@ -13,7 +13,7 @@ ms.author: dapine
 
 ## Create an Azure Container Instance resource from the Azure CLI
 
-The YAML below defines the Azure Container Instance resource. Copy and paste the contents into a new file, named `my-aci.yaml` and replace the commented values with your own. Refer to the [template format][template-formant] for valid YAML. Refer to the [container repositories and images][repositories-and-images] for the available image names and their corresponding repository.
+The YAML below defines the Azure Container Instance resource. Copy and paste the contents into a new file, named `my-aci.yaml` and replace the commented values with your own. Refer to the [template format][template-format] for valid YAML. Refer to the [container repositories and images][repositories-and-images] for the available image names and their corresponding repository.
 
 ```YAML
 apiVersion: 2018-10-01

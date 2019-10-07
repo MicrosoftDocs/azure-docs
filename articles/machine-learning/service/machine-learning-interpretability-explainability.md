@@ -1,6 +1,6 @@
 ---
 title: Model interpretability
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.date: 06/21/2019
 ---
 
-# Model interpretability with Azure Machine Learning service
+# Model interpretability with Azure Machine Learning
 
 In this article, you learn how to explain why your model made the predictions it did with the various interpretability packages of the Azure Machine Learning Python SDK.
 
@@ -67,7 +67,7 @@ __Direct explainers__ come from integrated libraries. The SDK wraps all the expl
 * **Permutation Feature Importance Explainer**: Permutation Feature Importance is a technique used to explain classification and regression models that is inspired by [Breiman's Random Forests paper](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (see section 10). At a high level, the way it works is by randomly shuffling data one feature at a time for the entire dataset and calculating how much the performance metric of interest decreases. The larger the change, the more important that feature is.
 
 * **LIME Explainer** (`contrib`): Based on LIME, LIME Explainer uses the state-of-the-art Local interpretable model-agnostic explanations (LIME) algorithm to create local surrogate models. Unlike the global surrogate models, LIME focuses on training local surrogate models to explain individual predictions.
-* **HAN Text Explainer** (`contrib`): HAN Text Explainer uses a Hierarchical Attention Network for getting model explanations from text data for a given black box text model. We train the HAN surrogate model on a given teacher model's predicted outputs. After training globally across the text corpus, we have added a fine-tune step for a specific document in order to improve the accuracy of the explanations. HAN uses a bidirectional RNN with two attention layers, for sentence and word attention. Once the DNN is trained on the teacher model and fine-tuned on a specific document, we can extract the word importances from the attention layers. We have found HAN to be more accurate than LIME or SHAP for text data but more costly in terms of training time as well. However, we have made improvements to the training time by giving the user the option to initialize the network with GloVe word embeddings, although it is still slow. The training time can be improved significantly by running HAN on a remote Azure GPU VM. The implementation of HAN is described in 'Hierarchical Attention Networks for Document Classification (Yang et al., 2016)' ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
+* **HAN Text Explainer** (`contrib`): HAN Text Explainer uses a Hierarchical Attention Network for getting model explanations from text data for a given black box text model. We train the HAN surrogate model on a given teacher model's predicted outputs. After training globally across the text corpus, we have added a fine-tune step for a specific document in order to improve the accuracy of the explanations. HAN uses a bidirectional RNN with two attention layers, for sentence and word attention. Once the DNN is trained on the teacher model and fine-tuned on a specific document, we can extract the word importances from the attention layers. We have found HAN to be more accurate than LIME or SHAP for text data but more costly in terms of training time as well. However, we have made improvements to the training time by giving the user the option to initialize the network with GloVe word embeddings, although it is still slow. The training time can be improved significantly by running HAN on a remote Azure GPU VM. The implementation of HAN is described in ['Hierarchical Attention Networks for Document Classification (Yang et al., 2016)'](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
 
 
 __Meta explainers__ automatically select a suitable direct explainer and generate the best explanation info based on the given model and data sets. The meta explainers leverage all the libraries (SHAP, LIME, Mimic, etc.) that we have integrated or developed. The following are the meta explainers available in the SDK:
@@ -148,8 +148,7 @@ The `explain` package is designed to work with both local and remote compute tar
     
     # you can use one of the following four interpretable models as a global surrogate to the black box model
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import SGDExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel,SGDExplainableModel
     from azureml.explain.model.mimic.models.tree_model import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
@@ -208,7 +207,7 @@ The `explain` package is designed to work with both local and remote compute tar
 
     ```python
     # explain the first five data points in the test set
-    local_explanation = explainer.explain_local(x_test[0:4])
+    local_explanation = explainer.explain_local(x_test[0:5])
 
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
@@ -217,7 +216,7 @@ The `explain` package is designed to work with both local and remote compute tar
 
 ### Train and explain remotely
 
-While you can train on the various compute targets supported by Azure Machine Learning service, the example in this section shows how to do this using an Azure Machine Learning Compute target.
+While you can train on the various compute targets supported by Azure Machine Learning, the example in this section shows how to do this using an Azure Machine Learning Compute target.
 
 1. Create a training script in a local Jupyter notebook (for example, run_explainer.py).
 
@@ -472,7 +471,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Deploy the image to a compute target:
 
-   1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+   1. Create a scoring file (before this step, follow the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
 
         ```python
         %%writefile score.py

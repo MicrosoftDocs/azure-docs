@@ -20,6 +20,8 @@ Make sure you have a code editor such as [Visual Studio Code](https://code.visua
 
 Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) to run Azure Function apps locally.
 
+Azure Functions requires [Node.js](https://nodejs.org/en/download/) version 8 or 10.
+
 In order to install extensions, Azure Functions Core Tools currently require the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -78,4 +80,4 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Functions with VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Deploy Azure Functions with VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)

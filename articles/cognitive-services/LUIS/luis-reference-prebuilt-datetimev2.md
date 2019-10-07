@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -180,6 +180,8 @@ The values array has two time elements if the time, or time range is ambiguous. 
 
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
 
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -201,7 +203,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
-## Preview API version 3.x
+#### [V3 prediction endpoint response](#tab/V3)
 
 DatetimeV2 JSON response has changed in the API V3. 
 
@@ -284,6 +286,9 @@ The following JSON is with the `verbose` parameter set to `false`:
 }
 ```
 
+
+* * * 
+
 ## Deprecated prebuilt datetime
 
 The `datetime` prebuilt entity is deprecated and replaced by **datetimeV2**. 
@@ -296,6 +301,8 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 4. Select **datetimeV2** and click **Save**.
 
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md). 
 

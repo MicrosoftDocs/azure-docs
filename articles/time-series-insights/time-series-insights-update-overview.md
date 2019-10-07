@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
 ---
 
@@ -76,7 +76,7 @@ With the introduction of these key industrial IoT capabilities, Time Series Insi
 | Smooth and continuous integration with other data solutions | Data in Time Series Insights is [stored](./time-series-insights-update-storage-ingress.md) in open-sourced Apache Parquet files. This integration with other data solutions, whether first or third party, is easy for end-to-end scenarios. These scenarios include business intelligence, advanced machine learning, and predictive analytics. |
 | Near real-time data exploration | The [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) user experience provides visualization for all data streaming through the ingestion pipeline. Shortly after you connect an event source, you can view, explore, and query event data. In this way, you can validate whether a device emits data as expected. You also can monitor an IoT asset for health, productivity, and overall effectiveness. |
 | Root-cause analysis and anomaly detection | The [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) supports both pattern and perspective views to conduct and save multistep, root-cause analysis. In combination with Azure Stream Analytics, you can use Time Series Insights to detect alerts and anomalies in near real time. |
-| Custom applications built on Time Series Insights platform | Time Series Insights supports the [JavaScript SDK](./tutorial-explore-js-client-lib.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Time Series Insights to suit your specific business needs. You also can use the Time Series Insights [Query APIs](./time-series-insights-update-tsq.md) directly to drive data into custom IoT applications. |
+| Custom applications built on Time Series Insights platform | Time Series Insights supports the [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Time Series Insights to suit your specific business needs. You also can use the Time Series Insights [Query APIs](./time-series-insights-update-tsq.md) directly to drive data into custom IoT applications. |
 
 ## Next steps
 

@@ -89,7 +89,7 @@ Edge objects have a default direction that is followed by a traversal when using
 
 However, traversing in the opposite direction of an edge, using the `in()` function, will always result in a cross-partition query. Learn more about [graph partitioning](graph-partitioning.md). If there's a need to constantly traverse using the `in()` function, it's recommended to add edges in both directions.
 
-You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [BulkExecutor library for Gremlin API](bulk-executor-graph-dotnet.md).
+You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [bulk executor library for Gremlin API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Edge objects have a direction by default.

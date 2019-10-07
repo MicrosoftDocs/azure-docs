@@ -96,7 +96,7 @@ Take the following steps to order Data Box Disk.
 
     ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
 13. Click **Next**.
 

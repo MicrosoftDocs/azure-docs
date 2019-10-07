@@ -3,17 +3,16 @@ title: Create Python app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -21,11 +20,9 @@ ms.custom: seodec18
 experimental: false
 experiment_id: 1e304dc9-5add-4b
 ---
-# Create a Python app in Azure App Service on Linux (Preview)
+# Create a Python app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-You can follow the steps in this article using a Mac, Windows, or Linux machine.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image in App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -40,7 +37,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
@@ -163,8 +160,6 @@ The left menu provides different pages for configuring your app.
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
-
-The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)

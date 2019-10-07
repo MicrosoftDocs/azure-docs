@@ -15,6 +15,15 @@
     - name: 3 - Delete an Azure Red Hat OpenShift cluster
       href: tutorial-delete-cluster.md
 
+- name: Cluster administration
+  items:
+  - name: Azure Red Hat OpenShift cluster administration
+    items:
+    - name: 1 - Azure Red Hat OpenShift cluster administrator role
+      href: cluster-administration-cluster-admin-role.md
+    - name: 2 - Managing security context constraints
+      href: cluster-administration-security-context-constraints.md
+
 - name: How-to guides
   expanded: true
   items:
@@ -28,6 +37,8 @@
       href: howto-aad-app-configuration.md
   - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
     href: howto-deploy-prometheus.md
+  - name: Manage projects in an Azure Red Hat OpenShift cluster
+    href: howto-manage-projects.md
 
 - name: Reference
   items:

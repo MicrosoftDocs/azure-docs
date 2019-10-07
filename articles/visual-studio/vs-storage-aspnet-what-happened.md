@@ -3,7 +3,7 @@ title: What happened to my ASP.NET project? | Microsoft Docs
 description: Describes what happens after adding Azure Storage to an ASP.NET project using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: e1fe1b6d-4e3d-476d-8b2f-f7ade050515e
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure

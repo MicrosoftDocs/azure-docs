@@ -5,11 +5,13 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/09/2019
+ms.date: 10/4/2019
 ms.topic: conceptual
 ---
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *This topic applies to administrators.*
 
@@ -24,12 +26,19 @@ Use the Power BI Solution for Azure IoT Central to create a powerful Power BI da
 
 This solution sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous Data Export](howto-export-data.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
+> [!Note] 
+> The Power BI Solution for Azure IoT Central works with IoT Central apps that don't support IoT Plug and Play (Preview apps today)
+
 ## Get the [Power BI Solution for Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) from Microsoft AppSource.
 
 ## Prerequisites
 Setting up the solution requires the following:
 - Access to an Azure subscription
-- Exported data using [Continuous Data Export](howto-export-data.md) from your IoT Central app. We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
+- IoT Central application that does not support IoT Plug and Play (Preview apps today)
+- Continuous data export set up to Azure Blob Storage from your IoT Central app
+    - Ensure the data format is Avro
+    - We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
+    - Learn [how to set up continuous data export](howto-export-data-blob-storage.md)
 - Power BI Desktop (latest version)
 - Power BI Pro (if you want to share the dashboard with others)
 

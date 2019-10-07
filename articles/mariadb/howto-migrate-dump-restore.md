@@ -74,10 +74,6 @@ To back up more than one database at once, use the --database switch and list th
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-To back up all the databases in the server at one time, you should use the --all-databases option.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
-```
 
 ## Create a database on the target server
 Create an empty database on the target Azure Database for MariaDB server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.

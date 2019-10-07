@@ -2,18 +2,18 @@
 documentType: LandingData
 title: Bing Custom Search Documentation 
 metadata:
-  title: Bing Custom Search API Documentation - Tutorials, quickstarts, API reference - Microsoft Cognitive Services | Microsoft Docs
+  title: Bing Custom Search API Documentation - Tutorials, quickstarts, API reference
+  titleSuffix: Azure Cognitive Services
   description: Learn how to use the Bing Custom Search portal and API to create a custom search experience
   services: cognitive-services
-  author: v-deken
+  author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
-  ms.author: v-deken
+  ms.author: aahill
 abstract:
   description: Use the Bing Custom Search API to create a search instance for topics that you care about. Specify the domains and webpages to be searched and adjust search rankings to fully customize your search experience.
 sections:

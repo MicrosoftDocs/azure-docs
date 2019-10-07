@@ -3,20 +3,17 @@ title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virtua
 description: Use a custom script extension to deploy the LAMP Stack in a load=balanced virtual machine scale set on Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
-editor: tysonn
+author: cynthn
+ms.author: cynthn
 tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-ms.author: douge
 ms.custom: mvc
+ms.date: 04/05/2017
+
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set

@@ -8,7 +8,7 @@ ms.author: mjbrown
 ms.date: 06/20/2019
 ---
 
-# Use the Azure Cosmos Emulator for local development and testing
+# Azure Cosmos Emulator - Release notes and download information
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
@@ -20,6 +20,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.4.6
+
+- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos emulator](local-emulator.md). It also fixes several bugs related to emulator shutdown when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### 2.4.3
 

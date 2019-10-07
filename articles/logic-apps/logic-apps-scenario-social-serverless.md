@@ -170,7 +170,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment) 
+[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 

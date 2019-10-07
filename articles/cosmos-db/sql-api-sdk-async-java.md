@@ -22,8 +22,8 @@ ms.author: moderakh
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
@@ -147,6 +147,10 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
+> [!WARNING]
+> All versions **1.x** of the Async Java SDK for SQL API will be retired on **August 30, 2020**.
+> 
+>
 <br/>
 
 | Version | Release Date | Retirement Date |
@@ -164,9 +168,9 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [2.1.0](#2.1.0) |September 5, 2018|--- |
 | [2.0.1](#2.0.1) |August 16, 2018|--- |
 | [2.0.0](#2.0.0) |June 20, 2018|--- |
-| [1.0.2](#1.0.2) |May 18, 2018|--- |
-| [1.0.1](#1.0.1) |April 20, 2018|--- |
-| [1.0.0](#1.0.0) |February 27, 2018|--- |
+| [1.0.2](#1.0.2) |May 18, 2018|August 30, 2020 |
+| [1.0.1](#1.0.1) |April 20, 2018|August 30, 2020 |
+| [1.0.0](#1.0.0) |February 27, 2018|August 30, 2020 |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

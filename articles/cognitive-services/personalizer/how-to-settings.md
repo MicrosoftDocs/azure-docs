@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/30/2019
 ms.author: diberry
 #Customer intent: 
 ---
@@ -63,7 +63,7 @@ The latest model, trained from Reward API calls from every active event, isn't a
 
 High model update frequencies are useful for situations where you want to closely track changes in user behaviors. Examples include sites that run on live news, viral content, or live product bidding. You could use a 15-minute frequency in these scenarios. For most use cases, a lower update frequency is effective. One-minute update frequencies are useful when debugging an application's code using Personalizer, doing demos, or interactively testing machine learning aspects.
 
-![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings.png)
+![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 After changing this setting, make sure to select **Save**.
 
@@ -82,6 +82,22 @@ From the Resource management's section for **Model and Policy**, review model cr
 ## Import and export learning policy
 
 From the Resource management's section for **Model and Policy**, import a new learning policy or export the current learning policy.
+You can get learning policy files from previous exports, or downloading the optimized policies discovered during Offline Evaluations. Making manual changes to these files will affect machine learning performance and accuracy of offline evaluations, and Microsoft cannot vouch for the accuracy of machine learning and evaluations, or service exceptions resulting from manually edited policies.
+
+## Clear data for your learning loop
+
+1. In the Azure portal, for your Personalizer resource, on the **Model and Policy** page, select **Clear data**.
+1. In order to clear all data, and reset the learning loop to the original state, select all 3 check boxes.
+
+    ![In Azure portal, clear data from Personalizer resource.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Setting|Purpose|
+    |--|--|
+    |Logged personalization and reward data.|This logging data is used in offline evaluations. Clear the data if you are resetting your resource.|
+    |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Settings** page. |
+    |Set the learning policy to default.|If you have changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
+
+1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation. 
 
 ## Next steps
 

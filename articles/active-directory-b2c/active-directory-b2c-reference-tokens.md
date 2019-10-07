@@ -1,5 +1,5 @@
 ---
-title: Overview of tokens - Azure Active Directory B2C | Microsoft Docs
+title: Overview of tokens - Azure Active Directory B2C
 description: Learn about the tokens used in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD) B2C emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
 
 ## Token types
 
@@ -27,7 +27,7 @@ The following tokens are used in communication with Azure AD B2C:
 
 - *ID token* - A JWT that contains claims that you can use to identify users in your application. This token is securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an application. ID tokens are signed, but they are not encrypted. When your application or API receives an ID token, it must validate the signature to prove that the token is authentic. Your application or API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
 - *Access token* -  A JWT that contains claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they aren't encrypted. Access tokens are used to provide access to APIs and resource servers.  When your API receives an access token, it must validate the signature to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
-- *Refresh token* - Refresh tokens are used to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your application with long-term access to resources on behalf of users without requiring interaction with those users. Refresh tokens are opaque to your application. They are issued by Azure AD B2C and can be inspected and interpreted only by Azure AD B2C. They are long-lived, but your application shouldn't be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD B2C. When you redeem a refresh token for a new token, you receive a new refresh token in the token response. Save the new refresh token. It replaces the refresh token that you previously used in the request. This action helps guarantee that your refresh tokens remain valid for as long as possible. 
+- *Refresh token* - Refresh tokens are used to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your application with long-term access to resources on behalf of users without requiring interaction with those users. Refresh tokens are opaque to your application. They are issued by Azure AD B2C and can be inspected and interpreted only by Azure AD B2C. They are long-lived, but your application shouldn't be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD B2C. When you redeem a refresh token for a new token, you receive a new refresh token in the token response. Save the new refresh token. It replaces the refresh token that you previously used in the request. This action helps guarantee that your refresh tokens remain valid for as long as possible.
 
 ## Endpoints
 
@@ -36,11 +36,11 @@ A [registered application](tutorial-register-applications.md) receives tokens an
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the `/authorize` endpoint, they are done so using the [implicit flow](active-directory-b2c-reference-spa.md), which is often used for users signing into to javascript-based web applications. When ID tokens are acquired from the `/token` endpoint, they are done so using the [confidential code flow](active-directory-b2c-reference-oidc.md), which keeps the token hidden from the browser.
+Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the `/authorize` endpoint, it's done using the [implicit flow](active-directory-b2c-reference-spa.md), which is often used for users signing in to JavaScript-based web applications. When ID tokens are acquired from the `/token` endpoint, it's done using the [authorization code flow](active-directory-b2c-reference-oidc.md#get-a-token), which keeps the token hidden from the browser.
 
 ## Claims
 
-When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [user flows](active-directory-b2c-reference-policies.md) and [custom policies](active-directory-b2c-overview-custom.md) to send certain sets of user data in claims that are required for your application. These claims can include standard properties such as **displayName** and **emailAddress**. Your applications can use these claims to securely authenticate users and requests. 
+When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [user flows](active-directory-b2c-reference-policies.md) and [custom policies](active-directory-b2c-overview-custom.md) to send certain sets of user data in claims that are required for your application. These claims can include standard properties such as **displayName** and **emailAddress**. Your applications can use these claims to securely authenticate users and requests.
 
 The claims in ID tokens are not returned in any particular order. New claims can be introduced in ID tokens at any time. Your application shouldn't break as new claims are introduced. You can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) in your claims.
 
@@ -60,7 +60,7 @@ The following table lists the claims that you can expect in ID tokens and access
 | Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | The principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
 | Authentication context class reference | `acr` | Not applicable | Used only with older policies. |
 | Trust framework policy | `tfp` | `b2c_1_signupsignin1` | The name of the policy that was used to acquire the ID token. |
-| Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. |
+| Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. There is no discrimination between that authentication being a fresh sign-in, a single sign-on (SSO) session, or another sign-in type. The `auth_time` is the last time the application (or user) initiated an authentication attempt against Azure AD B2C. The method used to authenticate is not differentiated. |
 | Scope | `scp` | `Read`| The permissions granted to the resource for an access token. Multiple granted permissions are separated by a space. |
 | Authorized Party | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | The **application ID** of the client application that initiated the request. |
 
@@ -79,7 +79,7 @@ The following use cases are enabled using these properties:
 - Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **Unbounded** in your sign-in user flow.
 - Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
-These settings are not available for password reset user flows. 
+These settings are not available for password reset user flows.
 
 ## Compatibility
 
@@ -95,7 +95,7 @@ The following properties are used to [manage token compatibility](configure-toke
 
 When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You [enable a claim in your user flow](idp-pass-through-user-flow.md) or [define a claim in your custom policy](idp-pass-through-custom.md) to pass the token through to the applications that you register in Azure AD B2C. Your application must be using a [v2 user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
 
-Azure AD B2C currently only supports passing the access token of OAuth 2.0 identity providers, which include Facebook and Google. For all other identity providers, the claim is returned blank. 
+Azure AD B2C currently only supports passing the access token of OAuth 2.0 identity providers, which include Facebook and Google. For all other identity providers, the claim is returned blank.
 
 ## Validation
 
@@ -103,7 +103,7 @@ To validate a token, your application should check both the signature and claims
 
 ### Validate signature
 
-A JWT contains three segments, a *header*, a *body*, and a *signature*. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your application. Azure AD B2C tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. 
+A JWT contains three segments, a *header*, a *body*, and a *signature*. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your application. Azure AD B2C tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256.
 
 The header of the token contains information about the key and encryption method used to sign the token:
 
@@ -143,7 +143,7 @@ When your applications or API receives an ID token, it should also perform sever
 - **issuer** - Verifies that the token was issued to your application by Azure AD B2C.
 - **nonce** - A strategy for token replay attack mitigation.
 
-For a full list of validations your application should perform, refer to the [OpenID Connect specification](https://openid.net).  
+For a full list of validations your application should perform, refer to the [OpenID Connect specification](https://openid.net).
 
 ## Next steps
 

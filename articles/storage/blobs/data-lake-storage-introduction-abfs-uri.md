@@ -1,9 +1,7 @@
 ---
 title: Use the Azure Data Lake Storage Gen2 URI
 description: Use the Azure Data Lake Storage Gen2 URI
-services: storage
 author: normesta
-
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 12/06/2018

@@ -2,18 +2,22 @@
 title: Customize feed for Windows Virtual Desktop users - Azure
 description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: v-hevem
+ms.date: 08/29/2019
+ms.author: helohr
 ---
 # Customize feed for Windows Virtual Desktop users
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## Customize the display name for a RemoteApp
 

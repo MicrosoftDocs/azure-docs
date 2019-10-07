@@ -19,7 +19,7 @@ The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
 * Reduces backup and restore times by retaining snapshots locally, for two days by default. This default snapshot retention value is configurable to any value between 1 to 5 days.
-* Supports disk sizes up to 4 TB. Resizing of disk is not recommended by Azure Backup.
+* Supports disk sizes up to 4 TB. Resizing of disks is not recommended by Azure Backup. To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, see [Backup of VM with disk sizes up to 30 TB](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 * Ability to use an unmanaged VMs original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 * For backup of VMs that are using premium storage, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete.

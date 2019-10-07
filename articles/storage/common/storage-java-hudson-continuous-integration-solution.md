@@ -7,7 +7,7 @@ author: seguler
 ms.service: storage
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
 ---
@@ -16,7 +16,7 @@ ms.subservice: common
 ## Overview
 The following information shows how to use Blob storage as a repository of build artifacts created by a Hudson Continuous Integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive.  Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
-In this tutorial you will be using the Azure Storage plugin for Hudson CI made available by Microsoft.
+In this tutorial, you will be using the Azure Storage plugin for Hudson CI made available by Microsoft.
 
 ## Introduction to Hudson
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
@@ -45,7 +45,7 @@ You will need the following to use the Blob service with your Hudson CI solution
 
   3. In your browser, open `http://localhost:8080/`. This will open the Hudson dashboard.
   4. Upon first use of Hudson, complete the initial setup at `http://localhost:8080/`.
-  5. After you complete the initial setup, cancel the running instance of the Hudson WAR, start the Hudson WAR again, and  re-open the Hudson dashboard, `http://localhost:8080/`, which you will use to install and configure the Azure Storage plugin.
+  5. After you complete the initial setup, cancel the running instance of the Hudson WAR, start the Hudson WAR again, and  reopen the Hudson dashboard, `http://localhost:8080/`, which you will use to install and configure the Azure Storage plugin.
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
@@ -69,11 +69,11 @@ To use the Blob service with Hudson, you'll need to install the Azure Storage pl
 2. On the **Manage Hudson** page, click **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
    
-    a. Enter your storage account name, which you can obtain from the [Azure Portal](https://portal.azure.com).
+    a. Enter your storage account name, which you can obtain from the [Azure portal](https://portal.azure.com).
    
-    b. Enter your storage account key, also obtainable from the [Azure Portal](https://portal.azure.com).
+    b. Enter your storage account key, also obtainable from the [Azure portal](https://portal.azure.com).
    
-    c. Use the default value for **Blob Service Endpoint URL** if you are using the public Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal](https://portal.azure.com) for your storage account.
+    c. Use the default value for **Blob Service Endpoint URL** if you are using the global Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure portal](https://portal.azure.com) for your storage account.
    
     d. Click **Validate storage credentials** to validate your storage account.
    
@@ -103,8 +103,8 @@ For instruction purposes, first we'll need to create a job that will create seve
    
     **Tip**
    
-    Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Hudson. Click that link to learn the environment variable names and descriptions. Note that environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
-8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
+    Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Hudson. Click that link to learn the environment variable names and descriptions. Environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
+8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](storage-sas-overview.md).)
 9. [Optional] Click **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
 10. For **List of Artifacts to upload**, enter **text/*.txt**.
 11. For **Common virtual path for uploaded artifacts**, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -112,7 +112,7 @@ For instruction purposes, first we'll need to create a job that will create seve
 13. In the Hudson dashboard, click **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure Storage will be included in the console output when the post-build action starts to upload build artifacts.
 14. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
     
-    a. Sign in to the [Azure Portal](https://portal.azure.com).
+    a. Sign in to the [Azure portal](https://portal.azure.com).
     
     b. Click **Storage**.
     
@@ -122,7 +122,7 @@ For instruction purposes, first we'll need to create a job that will create seve
     
     e. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Hudson job. Container names and blob names are lowercase (and case-sensitive) in Azure Storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
 
-Only one post-build action that uploads artifacts to Azure Blob storage can be created per job. Note that the single post-build action to upload artifacts to Azure Blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Hudson build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure Blob storage, use the following for the **List of Artifacts to upload** value: **build/\*.jar;build/\*.txt**. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following for the **List of Artifacts to upload** value: **build/\*.jar::binaries;build/\*.txt::notices**.
+Only one post-build action that uploads artifacts to Azure Blob storage can be created per job. The single post-build action to upload artifacts to Azure Blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Hudson build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure Blob storage, use the following for the **List of Artifacts to upload** value: **build/\*.jar;build/\*.txt**. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following for the **List of Artifacts to upload** value: **build/\*.jar::binaries;build/\*.txt::notices**.
 
 ## How to create a build step that downloads from Azure Blob storage
 The following steps show how to configure a build step to download items from Azure Blob storage. This would be useful if you want to include items in your build, for example, JARs that you keep in Azure Blob storage.
@@ -147,7 +147,7 @@ The following provides an overview of the Blob service components.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (The format above applies to the public Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure Portal](https://portal.azure.com) to determine your URL endpoint.)
+    (The format above applies to the global Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure portal](https://portal.azure.com) to determine your URL endpoint.)
   
     In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
   

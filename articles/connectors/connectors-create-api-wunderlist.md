@@ -37,7 +37,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your Wunderlist account and user credentials
 

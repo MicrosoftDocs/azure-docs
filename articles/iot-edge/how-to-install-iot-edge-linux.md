@@ -187,6 +187,7 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
+To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
 Save and close the file.
 
@@ -226,6 +227,8 @@ Find the provisioning configurations of the file and uncomment the section appro
        registration_id: "{registration_id}"
    ```
 
+To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
+
 Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
@@ -257,6 +260,8 @@ And, list running modules with:
 ```bash
 sudo iotedge list
 ```
+
+After installing IoT Edge on your device, the only module you should see running is **edgeAgent**. Once you create your first deployment, the other system module **$edgeHub** will start on the device as well. For more information, see [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
 ## Tips and troubleshooting
 
