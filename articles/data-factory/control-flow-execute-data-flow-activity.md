@@ -16,8 +16,6 @@ ms.date: 10/07/2019
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
-
-
 ## Syntax
 
 ```json
