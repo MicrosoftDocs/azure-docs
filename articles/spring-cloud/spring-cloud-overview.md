@@ -14,6 +14,8 @@ Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applic
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
+Azure Spring Cloud is currently in preview.  For access to this service while it is in preview, please reach out to us by email: azure-spring-cloud@service.microsoft.com.
+
 To get started, complete the Spring Cloud quickstart using the [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), the [Azure portal](spring-cloud-quickstart-launch-app-portal.md), or [Maven](spring-cloud-quickstart-launch-app-maven.md).
 
 ## Application Configuration
@@ -24,7 +26,7 @@ Azure Spring Cloud Config Server provides externalized configuration in a distri
 
 ### Enable blue/green deployments
 
-Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  Leveraging this common change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Azure allows developers to concentrate on writing code by managing multiple production environments and making it easy to update or rollback code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this How-To article.
+Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  Leveraging this change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Azure allows developers to concentrate on writing code by managing multiple production environments and making it easy to update or rollback code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this [How-To article](spring-cloud-staging-environment.md).
 
 ### Automate CI/CD pipelines
 
