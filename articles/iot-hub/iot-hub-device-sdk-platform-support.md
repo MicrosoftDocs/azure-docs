@@ -11,7 +11,7 @@ ms.author: robinsh
 
 # Azure IoT Device SDKs Platform Support
 
-Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python. Microsoft tests each SDK to ensure that it runs on the supported configurations detailed for it in the [Microsoft SDKs and device platform support](#microsoft-sdks-and-device-platform-support) section.
+Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. Microsoft publishes open-source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python. Microsoft tests each SDK to ensure that it runs on the supported configurations detailed for it in the [Microsoft SDKs and device platform support](#microsoft-sdks-and-device-platform-support) section.
 
 In addition to the device SDKs, Microsoft provides several other avenues to empower customers and developers to connect their devices to Azure IoT:
 
@@ -25,7 +25,7 @@ This topic provides information about the Microsoft SDKs and the platform config
 
 ## Microsoft SDKs and device platform support
 
-Microsoft publishes open source SDKs on GitHub for the following languages: C, .NET (C#), Node.js, Java, and Python. The SDKs and their dependencies are listed in this section. The SDKs are supported on any device platform that satisfies these dependencies.
+Microsoft publishes open-source SDKs on GitHub for the following languages: C, .NET (C#), Node.js, Java, and Python. The SDKs and their dependencies are listed in this section. The SDKs are supported on any device platform that satisfies these dependencies.
 
 For each of the listed SDKs, Microsoft:
 
@@ -33,7 +33,7 @@ For each of the listed SDKs, Microsoft:
 
 * Provides installation guidance or installation packages if applicable.
 
-* Fully supports the SDKs on GitHub with open source code, a path for customer contributions, and product team engagement with GitHub issues.
+* Fully supports the SDKs on GitHub with open-source code, a path for customer contributions, and product team engagement with GitHub issues.
 
 ### C SDK
 
@@ -98,7 +98,7 @@ Microsoft works with various partners to provide development kits for several mi
 
 ## Porting the Microsoft Azure IoT C SDK
 
-If your device platform is not covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily involves implementing the platform abstraction layer (PAL) of the SDK. The PAL defines primitives that provide the glue between your device and higher-level functions in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
+If your device platform isn't covered by one of the previous sections, you can consider porting the Azure IoT C SDK. Porting the C SDK primarily involves implementing the platform abstraction layer (PAL) of the SDK. The PAL defines primitives that provide the glue between your device and higher-level functions in the SDK. For more information, see [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
 ## Microsoft partners and certified Azure IoT devices
 
@@ -110,7 +110,7 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 ## Connecting to IoT Hub without an SDK
 
-If you are unable to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
+If you're not able to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
 
 ## Support and other resources
 
