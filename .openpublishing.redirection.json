@@ -27270,6 +27270,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/time-series-insights/tutorial-explore-js-client-lib.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorial-create-tsi-sample-spa.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-powerbi.md",
       "redirect_url": "https://docs.microsoft.com/azure/security-center",
       "redirect_document_id": false
