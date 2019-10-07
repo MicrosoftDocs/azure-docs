@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Stages of a blueprint deployment
 
