@@ -24,7 +24,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-learn-about.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_recognition_from_file_file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -43,7 +43,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-create-skill.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_recognition_from_microphone_file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -62,7 +62,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-personalize.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_recognition_from_blob.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -81,7 +81,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-authentication.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -100,7 +100,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-language.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -119,7 +119,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-smarter.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -143,11 +143,11 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-principles.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_synthesis_to_file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Render text-to-speech to file</h3>
+                                                    <h3>Synthesize speech to file</h3>
                                                     <p>Learn how to convert text-to-speech and save it to file.</p>
                                                 </div>
                                             </div>
@@ -162,11 +162,11 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-invocation.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_synthesis_to_audio_out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Render text-to-speech to audio output device</h3>
+                                                    <h3>Synthesize speech to an audio output device</h3>
                                                     <p>Learn how to convert text-to-speech and play the audio on an output device.</p>
                                                 </div>
                                             </div>
@@ -181,12 +181,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-performance.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Render text-to-speech to stream</h3>
-                                                    <p>Learn how to convert text-to-speech and push the result to a stream.</p>
+                                                    <h3>Speech Synthesis Markup Language</h3>
+                                                    <p>Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developer specify how input text is converted into synthesize speech using the text-to-speech service.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +200,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-performance.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -219,7 +219,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-performance.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -238,7 +238,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-design-skills-performance.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -262,12 +262,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-debugging.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_intent_recognition.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Testing and debugging</h3>
-                                                    <p>Learn about the options for testing and debugging your skill.</p>
+                                                    <h3>Intent recognition with LUIS</h3>
+                                                    <p>Lorum ipsum.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,12 +281,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-known-issues.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Known issues</h3>
-                                                    <p>Provides a list of known issues and possible workarounds.</p>
+                                                    <h3>LUIS documentation</h3>
+                                                    <p>Learn more about LUIS.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -305,7 +305,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-debugging.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_translation_from_file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -324,7 +324,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-debugging.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_translation_from_microphone_file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -343,7 +343,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-debugging.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_translation_from_microphone_audio_out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -362,7 +362,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-authentication.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -381,12 +381,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-language.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Sample code</h3>
-                                                    <p>Explore sample code for speech translation on GitHub.</p>
+                                                    <h3>Concepts, features, and how-to guides</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -400,7 +400,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-smarter.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -424,7 +424,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-debugging.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_conversation_transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -443,31 +443,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-known-issues.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_conversation_transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multiple participants</h3>
                                                     <p>Learn how you can use conversation transcription for multi-participant scenarios.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/known-issues">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-testing-known-issues.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Translation</h3>
-                                                    <p>Learn more about using translation services with conversation transcription.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,7 +462,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-authentication.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -500,12 +481,12 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-language.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Sample code</h3>
-                                                    <p>Explore sample code for conversation transcription on GitHub.</p>
+                                                    <h3>Concepts, features, and how-to guides</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, products.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -519,7 +500,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-smarter.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -534,8 +515,8 @@ description: Get started with the Speech service.
                         </ul>
                     </li>
                     <li>
-                        <a href="#conversationalagents">Conversational assistants</a>
-                        <ul id="conversationalassistants" class="cardsC">
+                        <a href="#conversational-assistants">Conversational assistants</a>
+                        <ul id="conversational-assistants" class="cardsC">
                             <li>
                                 <a href="/cortana/skills/publish-skill">
                                     <div class="cardSize">
@@ -543,7 +524,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-publish-publishing.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -562,7 +543,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-publish-review-guidelines.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_conversational_agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -581,7 +562,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-publish-review-guidelines.svg" alt="" />
+                                                        <img src="includes/illustrations/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -615,7 +596,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Get started with Custom Speech</h3>
-                                                    <p>A set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your apps, tools, and products. All it takes to get started are a handful of test audio files.</p>
+                                                    <p>A set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your apps, tools, and products.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -664,7 +645,7 @@ description: Get started with the Speech service.
                         </ul>
                     </li>
                     <li>
-                        <a href="#text-to-speech-customization">Speech-to-text</a>
+                        <a href="#text-to-speech-customization">Text-to-speech</a>
                         <ul id="text-to-speech-customization" class="cardsC">
                             <li>
                                 <a href="/cortana/skills/speech-synthesis-markup-language">
@@ -769,7 +750,7 @@ description: Get started with the Speech service.
                 </ul>
             </li>
             <li>
-                <a href="#platforms">Languages</a>
+                <a href="#languages">Languages</a>
                 <ul id="languages">
                     <li>
                         <a href="#resources-all"></a>
@@ -806,83 +787,6 @@ description: Get started with the Speech service.
                                                 <div class="cardText">
                                                     <h3>Human languages</h3>
                                                     <p>Learn what spoken and written human languages that you can use with the Speech service.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/terms-of-use">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-resources-terms-guidelines.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Terms of use guidelines</h3>
-                                                    <p>Get a sample Terms of Use.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/privacy-policy-guidelines">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-resources-policy.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Privacy policy guidelines</h3>
-                                                    <p>Learn about Cortana’s privacy policy requirements and where you can get help generating one.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/cortana-samples">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-resources-samples.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Concepts, features, and how-to guides</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://techcommunity.microsoft.com/t5/Cortana-Skills-Kit-Blog/bg-p/cortanaskillskit">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-resources-blog.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Blog</h3>
-                                                    <p>Stay current with what’s happening in the Cortana Skills world such as new features and upcoming events.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
