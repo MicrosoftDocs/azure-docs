@@ -372,7 +372,7 @@
       
   - name: Disaster recovery for apps
     items:
-    - name: Set up disaster recovery to Azure for on-premises apps
+    - name: About disaster recovery for on-premises apps
       href: site-recovery-workload.md
     - name: Active Directory and DNS
       href: site-recovery-active-directory.md
@@ -426,7 +426,7 @@
     href: hyper-v-azure-powershell-resource-manager.md
   - name: Set up disaster recovery of Hyper-V VMs (with VMM) to Azure using PowerShell
     href: hyper-v-vmm-powershell-resource-manager.md
-  - name: Add Azure Automation runbooks to recovery plans to orchestrate failover
+  - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
 - name: Monitoring
   items:

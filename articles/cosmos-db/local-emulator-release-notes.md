@@ -8,7 +8,7 @@ ms.author: mjbrown
 ms.date: 06/20/2019
 ---
 
-# Use the Azure Cosmos Emulator for local development and testing
+# Azure Cosmos Emulator - Release notes and download information
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 

@@ -23,7 +23,7 @@ The next version of Sentiment Analysis is now available for public preview, and 
 * Automatic labeling for different sentiments in text.
 * Sentiment analysis and output on a document and sentence level. 
 
-It supports English, Japanese, and Simplified Chinese and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
+It supports English, French, Italian, Japanese, Simplified-Chinese, and Traditional-Chinese and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
 
 > [!div class="nextstepaction"]
 > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)

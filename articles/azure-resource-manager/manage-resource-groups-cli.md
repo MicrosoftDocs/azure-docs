@@ -74,11 +74,11 @@ See [Deploy resources to an existing resource group](./manage-resources-cli.md#d
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails).
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./rollback-on-error.md).
 
 ## Move to another resource group or subscription
 

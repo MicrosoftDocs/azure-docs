@@ -33,7 +33,7 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
-| [Message routing](iot-hub-devguide-messages-read-custom.md) and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
+| [Message routing](iot-hub-devguide-messages-read-custom.md), [message enrichments](iot-hub-message-enrichments-overview.md), and [Event Grid integration](iot-hub-event-grid.md) | Yes | Yes |
 | [HTTP, AMQP, and MQTT protocols](iot-hub-devguide-protocols.md) | Yes | Yes |
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoring and diagnostics](iot-hub-monitor-resource-health.md) | Yes | Yes |
@@ -41,6 +41,7 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md), and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
+| [IoT Plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard.
 

@@ -197,9 +197,9 @@ The following sample request to the API returns the count of alerts within one s
   }
 }
 ```
-You can query the alerts for their [essential](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fields.
+You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
 
-Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get more information about specific alerts, including their [alert context](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fields.
+Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
 
 ## Next steps
 

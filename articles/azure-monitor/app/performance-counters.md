@@ -142,11 +142,12 @@ Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a s
 
 ## Performance counters in ASP.NET Core applications
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
+Support for performance counters in ASP.NET Core is limited:
 
-* SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
-* For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
-* This article will be updated when performance counter support in non-Windows is added.
+* [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
+* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
+* For applications targeting the .NET Framework, all versions of the SDK support performance counters.
+* SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
 Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
