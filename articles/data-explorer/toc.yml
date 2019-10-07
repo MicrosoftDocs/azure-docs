@@ -37,7 +37,7 @@
     - name: C#
       href: create-cluster-database-csharp.md
     - name: Python
-      href: create-cluster-database-python.md
+      href: create-cluster-database-python.md  
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
@@ -47,7 +47,7 @@
     - name: Event Grid
       href: ingest-data-event-grid.md
     - name: IoT Hub
-      href: ingest-data-iot-hub.md
+      href: ingest-data-iot-hub.md 
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
@@ -126,6 +126,12 @@
       href: manage-cluster-security.md
     - name: Manage database permissions
       href: manage-database-permissions.md
+    - name: Create policies
+      items:
+      - name: C#
+        href: database-table-policies-csharp.md
+      - name: Python
+        href: database-table-policies-python.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data
