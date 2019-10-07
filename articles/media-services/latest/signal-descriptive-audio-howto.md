@@ -79,7 +79,50 @@ For more information, see [Handling Event Grid events](reacting-to-media-service
 
 ## Upload the audio-only MP4 file
 
-Upload the additional audio-only MP4 file (AAC codec) containing descriptive audio into the output asset.
+Upload the additional audio-only MP4 file (AAC codec) containing descriptive audio into the output asset.  
+
+```csharp
+private static void UpoadAudioIntoOutputAsset(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string outputAssetName,
+    string fileToUpload)
+{
+    // Use the Assets.Get method to get the existing asset. 
+    // In Media Services v3, the Get method on entities returns null 
+    // if the entity doesn't exist (a case-insensitive check on the name).
+
+    // Call Media Services API to create an Asset.
+    // This method creates a container in storage for the Asset.
+    // The files (blobs) associated with the asset will be stored in this container.
+    Asset asset = await client.Assets.GetAsync(resourceGroupName, accountName, outputAssetName);
+    
+    if (asset != null)
+    {
+      // Use Media Services API to get back a response that contains
+      // SAS URL for the Asset container into which to upload blobs.
+      // That is where you would specify read-write permissions 
+      // and the exparation time for the SAS URL.
+      var response = await client.Assets.ListContainerSasAsync(
+          resourceGroupName,
+          accountName,
+          outputAssetName,
+          permissions: AssetContainerPermission.ReadWrite,
+          expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime());
+
+      var sasUri = new Uri(response.AssetContainerSasUrls.First());
+
+      // Use Storage API to get a reference to the Asset container
+      // that was created by calling Asset's CreateOrUpdate method.  
+      CloudBlobContainer container = new CloudBlobContainer(sasUri);
+      var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+
+      // Use Strorage API to upload the file into the container in storage.
+      await blob.UploadFromFileAsync(fileToUpload);
+    }
+}
+```
 
 ## Edit the .ism file
 
