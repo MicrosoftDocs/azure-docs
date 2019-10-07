@@ -24,7 +24,35 @@ landingContent:
             url: ./whats-new.md
           - text: Common questions
             url: ./resources-faq.md
-          
+            
+  - title: Review concepts
+    linkLists:   
+      - linkListType: learn
+        links:
+          - text: VMware agent-based migration architecture
+            url: ./agent-based-migration-architecture.md
+          - text: Hyper-V migration architecture
+            url: ./hyper-v-migration-architecture.md
+          - text: Learn about assessments
+            url: ./concepts-assessment-calculation.md
+          - text: Learn about dependency visualization
+            url: ./concepts-dependency-visualization.md
+            
+  - title: Review requirements
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Review best practices for Server Assessment
+            url: ./best-practices-assessment.md
+          - text: Learn about Azure Migrate appliance deployment
+            url: ./migrate-replication-appliance.md
+          - text: Review the Azure Migrate support matrix
+            url: migrate-support-matrix.md
+          - text: Review the VMware support matrix
+            url: migrate-support-matrix-vmware.md
+          - text: Review the Hyper-V support matrix
+            url: migrate-support-matrix-hyper-v.md    
+            
   - title: Get started
     linkLists:
       - linkListType: tutorial
@@ -39,28 +67,9 @@ landingContent:
             url: ./tutorial-migrate-hyper-v.md
           - text: Migrate physical servers/VMs with Server Migration
             url: ./tutorial-migrate-physical-virtual-machines.md
-      - linkListType: learn
-        links:
-          - text: VMware agent-based migration architecture
-            url: ./agent-based-migration-architecture.md
-          - text: Hyper-V migration architecture
-            url: ./hyper-v-migration-architecture.md
-          - text: Learn about assessments
-            url: ./concepts-assessment-calculation.md
-          - text: Learn about dependency visualization
-            url: ./concepts-dependency-visualization.md
-      - linkListType: deploy
-        links:
-          - text: Review best practices for Server Assessment
-            url: ./best-practices-assessment.md
-          - text: Learn about Azure Migrate appliance deployment
-            url: ./migrate-replication-appliance.md
-          - text: Review the Azure Migrate support matrix
-            url: migrate-support-matrix.md
-          - text: Review the VMware support matrix
-            url: migrate-support-matrix-vmware.md
-          - text: Review the Hyper-V support matrix
-            url: migrate-support-matrix-hyper-v.md    
+            
+  - title: Deploy
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Add migration tools
@@ -82,3 +91,5 @@ landingContent:
             url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration
+            
+            
