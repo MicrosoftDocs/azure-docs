@@ -96,7 +96,7 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
 
-- Request access to additional apps in your My Apps (preview) portal. For more information, see [Add or request access to applications in the My Apps (preview) portal](my-applications-portal-add-apps.md).
+- Request access to additional apps in your **My Apps** portal. For more information, see [Add or request access to applications in the My Apps (preview) portal](my-applications-portal-add-apps.md).
 
 - Review, update, or revoke permissions granted to applications and saved accounts. For more information, see [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
 

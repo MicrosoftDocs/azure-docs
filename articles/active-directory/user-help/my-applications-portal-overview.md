@@ -33,7 +33,7 @@ For detailed information and instructions about what's available from the **My A
 | [Access and use apps in the My Apps (preview) portal](my-applications-portal-access.md) | Instructions about how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device. |
 | [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md) | Instructions about how to use the **My Apps** web portal to organize your cloud-based apps into your organization's categories. |
 | [Add or request access to applications in the My Apps (preview) portal](my-applications-portal-add-apps.md) | Instructions about how to use the **My Apps** web portal to add or request access to additional cloud-based apps available in your organization. |
-| [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md) | Instructions about how to use the **My Apps** web portal to add or request access to additional cloud-based apps available in your organization. |
+| [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md) | Instructions about how to review and manage your app permissions and saved account credentials in the **My Apps** web portal. |
 
 ## Related articles
 

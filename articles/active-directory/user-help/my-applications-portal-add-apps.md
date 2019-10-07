@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Add or request access to applications in the My Apps (preview) portal
 
-The My Apps (preview) portal lists your organization's applications for use. If there are other apps you need, you can add them to your workspace using a self-service process. If you don't see the app you need, it means that your administrator hasn't set up or shared it with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared app.
+The **My Apps** (preview) portal lists your organization's applications for use. If there are other apps you need, you can add them to your workspace using a self-service process. If you don't see the app you need, it means that your administrator hasn't set up or shared it with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared app.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -32,7 +32,9 @@ You can find and request access to the other applications in a workspace by choo
 
 ** SCREENSHOT OF ADDING APPS TO A WORKSPACE **
 
-When you add an app, there's a category called *Your Company Apps* that shows all the apps your administrator has set up for self-service. You can also see categories for the My Apps workspaces available to you. Select and add one of the apps from the list. The app is added to both your *All* workspace, as well as the workspace the category was named after.
+When you add an app, there's a category called *Your Company Apps* that shows all the apps your administrator has set up for self-service. You can also see categories for the **My Apps** workspaces available to you.
+
+Select and add one of the apps from the list. The app is added to both your *All* workspace, as well as the workspace the category was named after.
 
 ** SCREENSHOT OF FLOW TO ADD APP **
 
