@@ -36,6 +36,8 @@
       href: spring-cloud-tutorial-bind-mysql.md
     - name: Manually scale your application
       href: spring-cloud-tutorial-scale-manual.md
+    - name: Using diagnostic services for applications
+      href: spring-cloud-tutorial-diagnostics.md
 - name: Concepts
   items: 
     - name: Understanding Spring Cloud quotas and limits
