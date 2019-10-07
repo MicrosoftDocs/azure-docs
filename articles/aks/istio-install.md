@@ -175,6 +175,8 @@ Now move on to the next section to [Install the Istio CRDs on AKS](#install-the-
 Istio uses [Custom Resource Definitions (CRDs)][kubernetes-crd] to manage its runtime configuration. We need to install the Istio CRDs first, since the Istio components have a dependency on them. Use Helm and the `istio-init` chart to install the Istio CRDs into the `istio-system` namespace in your AKS cluster:
 
 ```azurecli
+kubectl create namespace istio-system
+
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
