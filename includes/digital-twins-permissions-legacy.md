@@ -11,6 +11,8 @@
  ms.custom: include file
 ---
 
+## Azure Active Directory legacy registration
+
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
 
     [![Azure Active Directory directory ID](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png#lightbox)
