@@ -6,20 +6,14 @@
 - name: Quickstarts
   expanded: true 
   items:
-    - name: Launch your Spring Cloud app using the portal
-      href: spring-cloud-quickstart-launch-app-portal.md 
     - name: Launch your Spring Cloud app using the Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md 
-- name: Tutorials
-  items:
+    - name: Launch your Spring Cloud app using the portal
+      href: spring-cloud-quickstart-launch-app-portal.md
+    - name: Launch a Java Spring app by using Maven
+      href: spring-cloud-quickstart-launch-app-maven.md
     - name: Launch your Spring Cloud app from source
       href: spring-cloud-launch-from-source.md
-    - name: Launch your Spring Cloud app by using the portal
-      href: spring-cloud-quickstart-launch-app-portal.md 
-    - name: Launch a Java Spring app by using the Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Launch a Java Spring app by using Maven
-      href: spring-cloud-quickstart-launch-app-maven.md 
 - name: Tutorials
   items:
     - name: Prepare a Java Spring app for deployment
@@ -36,16 +30,16 @@
       href: spring-cloud-tutorial-bind-mysql.md
     - name: Manually scale your application
       href: spring-cloud-tutorial-scale-manual.md
-    - name: Using diagnostic services for applications
-      href: spring-cloud-tutorial-diagnostics.md
 - name: Concepts
   items: 
-    - name: Understanding Spring Cloud quotas and limits
+    - name: Understanding Azure Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understanding Azure Monitor Metrics for Spring Cloud
+    - name: Understanding metrics in the Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
 - name: How-to guides
   items: 
+    - name: Analyze application logs and Metrics
+      href: diagnostic-services.md
     - name: Enable Service Registration
       href: spring-cloud-service-registration.md
     - name: Automate your CI/CD pipeline in Azure Spring Cloud
