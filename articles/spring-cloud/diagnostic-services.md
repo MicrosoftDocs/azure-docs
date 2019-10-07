@@ -22,7 +22,6 @@ The Diagnostics functionality of Azure Spring Cloud allows you to analyze logs a
 
 To get started, you'll need to enable one of these services to receive the data.  To learn about configuring Log Analytics, review [this tutorial](../azure-monitor/log-query/get-started-portal.md).  
 
-
 ## Configure Diagnostic settings
 
 1. Go to your Azure Spring Cloud instance in the Azure portal.
@@ -54,7 +53,7 @@ AppPlatformLogsforSpring
 ```
 
 1. Select `Run` to see the search result.
-1. You can search the logs of the specific application or instance by setting a filter condition as below and you can find more query samples from [here](./log-query-samples.md):
+1. You can search the logs of the specific application or instance by setting a filter condition as below and you can find more query samples from [here](../azure-monitor/log-query/log-query-samples.md):
 
 ```sql
 AppPlatformLogsforSpring
@@ -62,7 +61,7 @@ AppPlatformLogsforSpring
 | limit 50
 ```
 
-Learn more about the Query Language used in Log Analytics [in this article](../azure-monitor/log-query/query-language)
+Learn more about the Query Language used in Log Analytics [in this article](../azure-monitor/log-query/query-language.md)
 
 ### Using logs and metrics in Storage Account
 
