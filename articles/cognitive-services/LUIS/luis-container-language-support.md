@@ -12,7 +12,7 @@ ms.date: 10/07/2019
 ms.author: dapine
 ---
 
-## Languages supported
+#gi Languages supported
 
 LUIS containers support a subset of the [languages supported](luis-language-support.md#languages-supported) by LUIS proper. The LUIS containers are capable of understanding utterances in the following languages:
 
