@@ -69,6 +69,7 @@ You can also perform the following workspace management tasks:
 | Create a workspace        | **&check;**     | **&check;** | **&check;** |
 | Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
 | Manage workspace access    | **&check;**   | |  **&check;**    |
+| Upgrade to Enterprise SKU    | **&check;**   | |     |
 | Create a notebook VM | **&check;**   | |     |
 
 ## <a name='create-workspace'></a> Create a workspace
