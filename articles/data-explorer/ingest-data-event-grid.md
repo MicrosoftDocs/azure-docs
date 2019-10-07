@@ -79,7 +79,7 @@ Create a table in Azure Data Explorer where Event Hubs will send data. Create th
 
 ## Create an Event Grid data connection in Azure Data Explorer
 
-Now connect to the event grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table.
+Now connect to the Event Grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table. 
 
 1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 

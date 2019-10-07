@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center Tutorial - Protect your resources with Azure Security Center | Microsoft Docs
-description: This tutorial shows you how to configure a Just-in-time VM access policy and an application control policy.
+description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -22,7 +22,7 @@ Security Center limits your exposure to threats by using access and application 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Configure a Just-in-time VM access policy
+> * Configure a just-in-time VM access policy
 > * Configure an application control policy
 
 If you don’t have an Azure subscription, create a  [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
@@ -33,7 +33,7 @@ To step through the features covered in this tutorial, you must be on Security C
 ## Manage VM access
 JIT VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When Just-in-time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 1. In the Security Center main menu, select **Just-in-time VM access** under **ADVANCED CLOUD DEFENSE**.
 
