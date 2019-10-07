@@ -22,8 +22,8 @@ Azure API Management is an Azure service that lets you manage your REST API endp
 ## Prerequisites
 To complete this guide, you need:
 
-* An Azure account. If you don’t have an Azure account, click [here](https://azure.microsoft.com/pricing/free-trial/) for details on how to create a free trial account.
-* An AzureML account. If you don’t have an AzureML account, click [here](https://studio.azureml.net/) for details on how to create a free trial account.
+* An Azure account.
+* An AzureML account.
 * The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](create-experiment.md) for details on how to create an AzureML experiment. Click [here](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ## Create an API Management instance

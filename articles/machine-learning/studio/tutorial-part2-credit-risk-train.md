@@ -33,9 +33,6 @@ In this part of the tutorial you:
 
 In [part three of the tutorial](tutorial-part3-credit-risk-deploy.md), you'll deploy the model as a web service.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## Prerequisites
 
 Complete [part one of the tutorial](tutorial-part1-credit-risk.md).

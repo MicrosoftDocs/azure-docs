@@ -37,8 +37,6 @@ This quickstart follows the default workflow for an experiment:
 [Choose and apply an algorithm]: #choose-and-apply-an-algorithm
 [Predict new automobile prices]: #predict-new-automobile-prices
 
-If you don't have a Studio account, go to the [Studio homepage](https://studio.azureml.net) and select **Sign up here** to create a free account. The free workspace will have all the features you need for this quickstart.
-
 ## Get the data
 
 The first thing you need in machine learning is data.

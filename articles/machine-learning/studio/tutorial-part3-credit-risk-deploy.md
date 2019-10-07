@@ -34,8 +34,6 @@ In this part of the tutorial you:
 > * Manage the web service
 > * Access the web service
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Prerequisites
 
 Complete [part two of the tutorial](tutorial-part2-credit-risk-train.md).
