@@ -26,7 +26,7 @@ Azure Spring Cloud Config Server provides externalized configuration in a distri
 
 ### Enable blue/green deployments
 
-Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  Leveraging this change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Azure allows developers to concentrate on writing code by managing multiple production environments and making it easy to update or rollback code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this [How-To article](spring-cloud-staging-environment.md).
+Azure Spring Cloud supports blue/green deployments for releasing and updating code to production environments.  Leveraging this change management pattern allows developers to implement features and code changes with the security of an immediate fallback when necessary.  Azure allows developers to concentrate on writing code by managing multiple production environments and making it easy to update or rollback code changes without interrupting the application.  To learn more about staging environments and blue/green deployments, visit this [How-To article](spring-cloud-howto-staging-environment.md).
 
 ### Automate CI/CD pipelines
 
