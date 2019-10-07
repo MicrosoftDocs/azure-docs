@@ -43,8 +43,7 @@ Azure platform details
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|Broad availability|Currently available in [at least nine regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Azure Compute-supported DC regions, premium disks are broadly available and recommended for Storage Spaces Direct|
 |Redundancy|LRS/ZRS/GRS|Locally redundant, cross-region replication coming soon|LRS/ZRS/GRS|
-|Tiers|Standard Premium|Standard Premium Ultra|Standard HDD, Standard SSD|
-|Performance|Up to max 100k IOPs, 5 GBps, and about 3 ms latency per share|Up to 320k (16K) IOPS with 4.5 GBps per volume and about 1 ms latency|Standard HDD: 500 IOPS per disk limits<br>Standard SSD Up to 4k IOPS per disk limits<br>Premium SSD: Up to 20k IOPS per disk limits|
+|Tiers and performance|Standard Premium Up to max 100k IOPS per share with 5 GBps per share at about 3 ms latency|Standard Premium Ultra Up to 320k (16K) IOPS with 4.5 GBps per Volume at about 1 ms latency|Standard HDD Up to 500 IOPS per-disk limits Standard SSD Up to 4k IOPS per-disk limits Premium SSD Up to 20k IOPS per-disk limits|
 |Capacity|100 TiB per share|100 TiB per volume, up to 12.5 PiB per subscription|Max. 32 TiB per disk|
 |Required infrastructure|At least one file share|Minimum capacity pool 4 TiB, min volume size 100 GiB|At least two virtual machines on Azure IaaS with Cloud Witness, or at least three virtual machines without Cloud Witness and costs for disks|
 |Protocols|SMB 2.1, SMB 3.x, REST|NFSv3, NFSv4.1 (preview), SMB 3.x, SMB 2.x||
