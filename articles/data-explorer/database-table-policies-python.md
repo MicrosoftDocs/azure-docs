@@ -15,11 +15,11 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-python.md)
+* [A test cluster and database](create-cluster-database-python.md)
 
-1. [A test table](python-ingest-data.md#create-a-table-on-your-cluster)
+* [A test table](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## Install the data libraries
 
@@ -30,7 +30,7 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from [a test cluster and database](create-cluster-database-csharp.md#authentication). If you want to use a different Azure AD Application, see [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, see [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/bs-latn-ba/azure/data-explorer/manage-database-permissions).    
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from [a test cluster and database](create-cluster-database-csharp.md#authentication). If you want to use a different Azure AD Application, see [create an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, see [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
 
 ## Alter database retention policy
 Sets a retention policy with a 10 day soft-delete period.
@@ -60,7 +60,7 @@ resource_group_name = "testrg";
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
                                            parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10)))
 ```
@@ -93,7 +93,7 @@ resource_group_name = "testrg";
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
                                            parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5)))
 ```
@@ -157,3 +157,7 @@ type_name = "App"
 kustoManagementClient.databases.add_principals(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
                          value=[DatabasePrincipal(role=role, name=principle_name, type=type_name, app_id=client_id_to_add, tenant_name=tenant_id)])
 ```
+
+## Next steps
+
+* [Read more about database and table policies](https://docs.microsoft.com/azure/kusto/management/policies)

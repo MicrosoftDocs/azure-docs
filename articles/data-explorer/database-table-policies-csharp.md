@@ -20,24 +20,24 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Prerequisites
 
-1. If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-csharp.md)
+* [A test cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+* [A test table](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 ## Install C# Nuget
 
-1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-1. Install the [Microsoft.Azure.Kusto.Data.NETStandard nuget package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/) (Optional, for changing table's policies).
+* Install the [Microsoft.Azure.Kusto.Data.NETStandard nuget package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/) (Optional, for changing table's policies).
 
-1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
+* Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
 
 ## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from [a test cluster and database](create-cluster-database-csharp.md#authentication). If you want to use a different Azure AD Application, see [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, see [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/bs-latn-ba/azure/data-explorer/manage-database-permissions).   
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from [a test cluster and database](create-cluster-database-csharp.md#authentication). If you want to use a different Azure AD Application, see [create an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, see [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).   
 
 ## Alter database retention policy
 Sets a retention policy with a 10 day soft-delete period.
@@ -124,7 +124,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ```
 
 ## Add a new principal for database
-Add a new Azure Ad application as admin principal for the database
+Add a new Azure AD application as admin principal for the database
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -156,3 +156,6 @@ await kustoManagementClient.Databases.AddPrincipalsAsync(resourceGroupName, clus
                     }
                 });
 ```
+## Next steps
+
+* [Read more about database and table policies](https://docs.microsoft.com/azure/kusto/management/policies)
