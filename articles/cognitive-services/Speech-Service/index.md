@@ -104,8 +104,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Sample code</h3>
-                                                    <p>Explore sample code for speech-to-text on GitHub.</p>
+                                                    <h3>Concepts, features, and how-to guides</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,8 +223,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Samples</h3>
-                                                    <p>Check out sample code on GitHub.</p>
+                                                    <h3>Concepts, features, and how-to guides</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -785,8 +785,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Support</h3>
-                                                    <p>Having an issue with your skill? Find out where you can get help.</p>
+                                                    <h3>Programming languages and platforms</h3>
+                                                    <p>Learn which programming languages and platforms are supported by the Speech service.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -804,8 +804,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>FAQs</h3>
-                                                    <p>Learn what others are asking and see answers to their questions.</p>
+                                                    <h3>Human languages</h3>
+                                                    <p>Learn what spoken and written human languages that you can use with the Speech service.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -861,8 +861,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Samples</h3>
-                                                    <p>Get a list of samples that can help you get started using the different skill features.</p>
+                                                    <h3>Concepts, features, and how-to guides</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
                                                 </div>
                                             </div>
                                         </div>
