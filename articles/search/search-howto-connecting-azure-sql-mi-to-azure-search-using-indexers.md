@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # Configure a connection from an Azure Cognitive Search indexer to SQL Managed Instance
 
-As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Managed Instances** is supported by Azure Search through the public endpoint.
+As noted in [Connecting Azure SQL Database to Azure Cognitive Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Managed Instances** is supported by Azure Cognitive Search through the public endpoint.
 
 ## Create Azure SQL Managed Instance with public endpoint
 Create a SQL Managed Instance with the **Enable public endpoint** option selected.
@@ -36,4 +36,4 @@ Make sure you use the connection string for the **public endpoint** (port 3342, 
    ![Public endpoint connection string](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Public endpoint connection string")
 
 ## Next steps
-With configuration out of the way, you can now specify a SQL Managed Instance as the data source for an Azure Search indexer using either the portal or REST API. See [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for more information.
+With configuration out of the way, you can now specify a SQL Managed Instance as the data source for an Azure Cognitive Search indexer using either the portal or REST API. See [Connecting Azure SQL Database to Azure Cognitive Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for more information.
