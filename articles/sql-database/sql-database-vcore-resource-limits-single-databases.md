@@ -304,14 +304,12 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 ### Notes
 
-**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
-
-**Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
-
-**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
+1. Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+1. Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
+1. Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
 
  
-### Next steps
+## Next steps
 
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore-based purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
