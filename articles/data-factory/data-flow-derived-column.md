@@ -10,8 +10,6 @@ ms.date: 10/08/2018
 
 # Derived Column transformation in Mapping Data Flow
 
-
-
 Use the Derived Column transformation to generate new columns in your data flow or to modify existing fields.
 
 ## Derived Column settings

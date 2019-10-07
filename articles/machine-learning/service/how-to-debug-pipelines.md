@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
+ms.date: 10/03/2019
 
 ---
 
@@ -23,7 +23,7 @@ The following sections provide an overview of common pitfalls when building pipe
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure portal. 
 
-Pipelines themselves cannot be run locally, but unit-testing your underlying scripts is an easy way to make sure that your scripts are doing what you expect in isolation, without waiting for the full pipeline run duration. Some development work is required to do this:
+Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don’t have to wait for the compute and environment build process. Some development work is required to do this:
 
 * If your data is in a cloud datastore, you will need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
 * If you are attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
@@ -34,6 +34,10 @@ Once you have a script setup to run on your local environment, it is much easier
 * Attaching a custom debug configuration
 * Pausing execution and inspecting object-state
 * Catching type or logical errors that won't be exposed until runtime
+
+> [!TIP] 
+> Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before 
+> attempting to run it in a pipeline with multiple steps.
 
 ## Debugging scripts from remote context
 

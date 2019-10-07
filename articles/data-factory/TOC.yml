@@ -80,6 +80,8 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+  - name: Transform data using Mapping Data Flow
+    href: tutorial-data-flow.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -143,7 +145,7 @@
     href: concepts-integration-runtime.md
   - name: Mapping Data Flows
     items:
-    - name: Mapping data flow concepts
+    - name: Mapping data flow overview
       href: concepts-data-flow-overview.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
@@ -161,8 +163,6 @@
       href: concepts-data-flow-move-nodes.md
     - name: Expression builder
       href: concepts-data-flow-expression-builder.md
-    - name: Reference nodes
-      href: concepts-data-flow-reference-node.md
     - name: Expression language
       href: data-flow-expression-functions.md
   - name: Roles and permissions
@@ -386,6 +386,8 @@
   - name: Transform data
     href: transform-data.md
     items:
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
     - name: Custom Activity
@@ -420,8 +422,6 @@
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
-    - name: Execute Data Flow Activity
-      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
