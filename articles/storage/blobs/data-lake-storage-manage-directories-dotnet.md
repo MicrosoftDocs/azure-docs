@@ -264,4 +264,4 @@ public async Task ListFilesInDirectory(CloudBlobClient cloudBlobClient, string c
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
