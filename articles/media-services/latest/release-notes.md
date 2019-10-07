@@ -44,7 +44,7 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 ### Deprecation of media processors
 
 **Type:** Plan for change  
-**Service category:** Media Services v2
+**Service category:** Media Services v2  
 **Product capability:** Media processors
 
 We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](../previous/media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
@@ -55,8 +55,8 @@ For more information, see [Migrate from Azure Media Indexer and Azure Media Inde
 
 ### South Africa regional pair is open for Media Services 
 
-**Type:** New feature
-**Service category:** Media Services v3
+**Type:** New feature  
+**Service category:** Media Services v3  
 **Product capability:** Cloud regions
 
 Media Services is now available in South Africa North and South Africa West regions.
@@ -66,7 +66,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 ### Deprecation of media processors
 
 **Type:** Plan for change  
-**Service category:** Media Services v2
+**Service category:** Media Services v2  
 **Product capability:** Media processors
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on Nov 30, 2019.
