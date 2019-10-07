@@ -28,9 +28,9 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. [Set database and table policies](database-table-policies-csharp.md) (optional)
+1. Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT Hub data connection.
+1. Create an [IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 

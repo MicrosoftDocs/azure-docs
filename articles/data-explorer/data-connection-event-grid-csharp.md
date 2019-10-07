@@ -29,9 +29,9 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
-1. [Set database and table policies](database-table-policies-csharp.md) (optional)
+1. Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-1. Create [a storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding an Event Grid data connection. 
+1. Create a [storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
