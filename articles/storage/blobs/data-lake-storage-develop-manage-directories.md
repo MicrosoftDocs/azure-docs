@@ -692,4 +692,21 @@ def list_directory_contents():
 
 ## Next steps
 
-Put something here. Maybe reference to the ACL stuff.
+Learn to set access control lists on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl-dotnet.md).
+
+Explore more APIs. See the relevant tab below:
+
+# [.NET](#tab/dotnet)
+
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
+
+# [Java](#tab/java)
+
+See the [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob?view=azure-java-preview) namespace of the [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-preview) docs. 
+
+# [Python](#tab/python)
+
+See the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
+
+---
+
