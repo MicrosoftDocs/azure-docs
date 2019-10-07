@@ -1,5 +1,5 @@
 ---
-title: Access and start apps from the My Apps (preview) portal - Azure Active Directory| Microsoft Docs
+title: Access and start apps from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
 description: Learn how to access and start your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
 author: eross-msft
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/11/2019
+ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
@@ -88,18 +88,20 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 
 - From the **Apps** page, select the app you want to start using.
 
-    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
+    A new page opens for the app, where you can sign in (if necessary) or begin using the app.
 
 ## Next steps
 
 After you get to the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see []().
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
 
-- Request that new apps are added to the My Apps (preview) portal. For more information, see [](). 
+- Request access to additional apps in your My Apps (preview) portal. For more information, see [Add or request access to applications in the My Apps (preview) portal](my-applications-portal-add-apps.md).
+
+- Review, update, or revoke permissions granted to applications and saved accounts. For more information, see [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->If you don't see any workspaces or categories av
+>If you don't see any workspaces or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared workspaces.
 
 ## Related articles
 
