@@ -3,6 +3,7 @@ title: Expression functions in the Mapping Data Flow feature of Azure Data Facto
 description: Learn about expression functions in Mapping Data Flow.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
