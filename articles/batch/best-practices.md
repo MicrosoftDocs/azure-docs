@@ -31,10 +31,10 @@ Batch pools are the compute resources for executing jobs scheduled to the Batch 
   When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. To learn more about creating a user subscription account, see [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Pools should have more than one compute node.**  
-    It's inefficient to create a pool for a single node. For example, if you have 1000 items to process, and have a dedicated pool with one compute node for each job, every job incurs the overhead and cost of node allocation. Additionally, if there are provisioning issues, the compute node will stop that particular item. Instead, create a single pool with many compute nodes. The overhead of provisioning the compute nodes is shared by all of the items. Any potential issues with provisioning one compute node will have no material impact on processing.
+    It's inefficient to create a pool for a single node. For example, if you have 1000 tasks to process, and have a dedicated pool with one compute node for each job, every job incurs the overhead and cost of node allocation. Additionally, if there are provisioning issues, the compute node will stop that particular task. Instead, create a single pool with many compute nodes. The overhead of provisioning the compute nodes is shared by all of the tasks. Any potential issues with provisioning one compute node will have no material impact on processing.
 
 - **Use unique names for your pools.**  
-    It's helpful to use unique names for pools, tasks, and jobs across different Azure regions or even in the same region. Different names help with logging because they are unique and more easily identifiable.
+    It's helpful to use unique names for pools, tasks, and jobs across different Azure regions or even in the same region. Different names help with logging because they are unique and more easily identifiable. Unique names also help avoid potential collisions between similarly named resources.
 
 - **Use pools dynamically.**  
     It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that your jobs won't run if something goes wrong with the pool. This is especially important for time-sensitive workloads. To fix this, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
@@ -66,20 +66,19 @@ It's possible for Batch pools to experience downtime events in Azure. This is im
 In the case that a node fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger rescheduling any running task on the node that is recovered. See [Designing for retries](#designing-for-retries) to learn more about interrupted tasks.
 
 - **Azure region dependency**  
-    It's advised to not depend on a single Azure region if you have a time-sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up pools in multiple regions before your start time. Scaled pools in multiple regions provide a ready, easily accessible backup if something goes wrong with another pool.
+    It's advised to not depend on a single Azure region if you have a time-sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up pools in multiple regions before your start time. Scaled pools in multiple regions provide a ready, easily accessible backup if something goes wrong with another pool. If you must have your resources in a single region, consider using multiple pools instead of relying on a single pool.
 
 ## Jobs
 
 A job is a heavyweight container designed to contain hundreds, thousands, or even millions of tasks.
 
 - **Put many tasks in a job**  
-    Using a job to run a single task is inefficient. For example, it's much more efficient to use a single job containing 1000 tasks rather than creating 10 jobs that contain 100 tasks each. Executing as many tasks under as few jobs as possible efficiently uses your job and job schedule quotas.
+    Using a job to run a single task is inefficient. For example, it's much more efficient to use a single job containing 1000 tasks rather than creating 10 jobs that contain 100 tasks each. There is no quota for tasks, so executing as many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
 
 - **Job lifetime**  
-    A Batch job has an indefinite lifetime until it's deleted from the system. A job’s state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly or automatically performed through the `onAllTasksComplete` property.
+    A Batch job has an indefinite lifetime until it's deleted from the system. A job’s state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly or automatically performed through the [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) property.
 
-- **Jobs with no tasks**  
-    A job with no tasks is considered complete. If `onAllTasksComplete` is used outside of a job manager context, the job should set this property to `noAction` first, then patched to `terminateJob` after tasks have been added.
+    A job with no tasks is considered complete if `onAllTasksComplete` is set to `terminateJob`. If `onAllTasksComplete` is used outside of a job manager context, the job should set this property to `noAction` first, then patched to `terminateJob` after tasks have been added. If you use a large amount of jobs, you should delete any unused jobs to avoid reaching your job quota.
 
 There is a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state do not count towards this quota.
 
@@ -95,7 +94,7 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 ### Task submission
 
 - **Submit a large number of tasks in a collection**  
-    Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) when doing bulk submission of tasks to reduce overhead and submission time. The C# SDK has built-in helpers to do this on your behalf while the other SDKs have separate add task collection interfaces.
+    Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) when doing bulk submission of tasks to reduce overhead and submission time. The C# SDK has built-in helpers to do this on your behalf. The Python SDK always submit tasks as a list. Other SDKs have separate add task collection interfaces.
 
 ### Task execution
 
