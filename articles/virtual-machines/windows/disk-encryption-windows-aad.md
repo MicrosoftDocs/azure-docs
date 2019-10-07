@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Enable Azure Disk Encryption for Windows IaaS VMs (previous release)
 
-**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Windows VMS](azure-security-disk-encryption-windows.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
+**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Windows VMS](disk-encryption-windows.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Windows IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](disk-encryption-overview-aad.md) need to be completed. 
@@ -45,7 +45,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
          ```
 
      -  Select the VM, then click on **Disks** under the **Settings** heading to verify encryption status in the portal. In the chart under **Encryption**, you'll see if it's enabled. 
-           ![Azure portal - Disk Encryption Enabled](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
+           ![Azure portal - Disk Encryption Enabled](../media/disk-encryption/disk-encryption-fig2.png)
 The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Azure AD client ID:
 
 | Parameter | Description | 
@@ -180,7 +180,7 @@ In this scenario, you can enable encrypting by using the Resource Manager templa
 
 Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
 
-* [Prepare a pre-encrypted Windows VHD](azure-security-disk-encryption-appendix.md#bkmk_preWin)
+* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#bkmk_preWin)
 
 
 ### <a name="bkmk_VHDprePSH"> </a> Encrypt VMs with pre-encrypted VHDs with Azure PowerShell
@@ -258,7 +258,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Enable encryption using Azure AD client certificate-based authentication.
-You can use client certificate authentication with or without KEK. The scripts require that [Azure Disk Encryption prerequisites](disk-encryption-prerequisites-aad.md) are complete. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](azure-security-disk-encryption-prerequisites-aad.md#bkmk_Cert) section of the prerequisites article.
+You can use client certificate authentication with or without KEK. The scripts require that [Azure Disk Encryption prerequisites](disk-encryption-prerequisites-aad.md) are complete. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-overview-aad.md#bkmk_Cert) section of the prerequisites article.
 
 
 ### Enable encryption using certificate-based authentication with Azure PowerShell

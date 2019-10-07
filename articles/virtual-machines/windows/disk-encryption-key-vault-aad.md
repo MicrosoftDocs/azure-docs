@@ -162,9 +162,9 @@ Give the service principal you created via the Azure CLI access to get secrets a
 5. For **Secret permissions**, check **Set** under **Secret Management Operations**.
 6. Click **OK** to save the access policy. 
 
-![Azure Key Vault cryptographic operations - Wrap Key](./media/disk-encryption/keyvault-portal-fig3.png)
+![Azure Key Vault cryptographic operations - Wrap Key](../media/disk-encryption/keyvault-portal-fig3.png)
 
-![Azure Key Vault Secret permissions - Set](./media/disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault Secret permissions - Set](../media/disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Set key vault advanced access policies
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes. Enable disk encryption on the key vault or deployments will fail.  
@@ -217,7 +217,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed. 
 4. Click **Save**.
 
-![Azure key vault advanced access policies](./media/disk-encryption/keyvault-portal-fig4.png)
+![Azure key vault advanced access policies](../media/disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> Set up a key encryption key (optional)

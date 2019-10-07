@@ -17,7 +17,7 @@ Azure Disk Encryption helps protect and safeguard your data to meet your organiz
 
 If you use [Azure Security Center](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
 
-![Azure Security Center disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Azure Security Center disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 

@@ -14,15 +14,7 @@ ms.custom: seodec18
 
 **The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
-This article provides supplements [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md) with additional requirements and prerequisites for Azure Disk Encryption with Azure AD (previous release).
-
-The information in these sections remains the same:
-
-- [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Additional VM requirements](disk-encryption-overview.md#additional-vm-requirements)
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+This article supplements [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md) with additional requirements and prerequisites for Azure Disk Encryption with Azure AD (previous release). The [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems) section remains the same.
 
 ## Networking and Group Policy
 

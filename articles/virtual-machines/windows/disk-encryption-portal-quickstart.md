@@ -32,14 +32,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Select  a **Subscription**.
 1.  Under **Resource group**, select **Create new**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK**. 
 
-    ![Resource Group creation screen](./media/disk-encryption/portal-qs-keyvaultcreation.png)
+    ![Resource Group creation screen](../media/disk-encryption/portal-qs-keyvaultcreation.png)
 
 1. In the **Location** pull-down menu, choose **East US**.
 1. Leave the other options to their defaults.
 1. Select "Access Polices", which will take you to a new screen.
 1. Select the checkbox next to "Enable access to Azure Disk Encryption for volume encryption.
 
-    ![ResourceGroup creation screen](./media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
+    ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
 
 1. At the bottom of the Access Policies screen, click "Review + Create".
 1. After reviewing, click "Create".
@@ -55,9 +55,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. For **Region**, select the same region you used when making your key vault above (e.g., **East US**).
 1. Make sure the **Size** is *Standard D2s v3*.
 1. Under **Administrator account**, select **Password**. Enter a user name and a password.
-    ![ResourceGroup creation screen](./media/disk-encryption/portal-qs-vm-creation.png)
+    ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-vm-creation.png)
 1. Select the "Management" tab and verify that you have a Diagnostics Storage Account. If you have no storage accounts, select "Create New", give your new account a name, and select "Ok"
-    ![ResourceGroup creation screen](./media/disk-encryption/portal-qs-vm-creation-storage.png)
+    ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Click "Review + Create".
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
@@ -69,13 +69,13 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 1. On the left-hand sidebar, select **Disks**.
 1. On the Disks screen, select **Encryption**. 
 
-    ![disks and encryption selection](./media/disk-encryption/portal-qs-disks-to-encryption.png)
+    ![disks and encryption selection](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. On the encryption screen, under **Disks to encrypt**, choose **OS and data disks**.
 1. Under **Encryption settings**, click "Select a key vault and key for encryption".
 1. In the right-hand sidebar, select the name of the key vault you created earlier as the value for *Key vault**, and click **Select**.
 
-    ![disks and encryption selection](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
+    ![disks and encryption selection](../media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. At the top of the encryption screen, click "Save". A popup will warn you that the VM will reboot. Click **Yes**.
 
 
