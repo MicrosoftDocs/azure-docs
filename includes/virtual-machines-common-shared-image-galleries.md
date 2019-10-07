@@ -177,7 +177,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 * [Can I move my existing image to the shared image gallery?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
 * [Can I move the Shared Image Gallery resource to a different subscription after it has been created?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud?)
+* [Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
