@@ -38,7 +38,7 @@ landingContent:
             url: ./azure-to-azure-tutorial-migrate.md
       - linkListType: learn
         links:
-          - text: Azure to Azure disaster recovery architecture
+          - text: Azure VM disaster recovery architecture
             url: ./azure-to-azure-architecture.md
           - text: Azure to Azure support matrix
             url: ./azure-to-azure-support-matrix.md
