@@ -28,7 +28,7 @@ Azure Spring Cloud supports blue/green deployments for releasing and updating co
 
 ### Automate CI/CD pipelines
 
-Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  Using Azure DevOps, you can automate code integration and deployment to your Spring application.  To learn more, visit this [How-To article(spring-cloud-how-to-cicd.md)].
+Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  Using Azure DevOps, you can automate code integration and deployment to your Spring application.  To learn more, visit this [How-To article](spring-cloud-how-to-cicd.md)].
 
 ### Scale your application
 
