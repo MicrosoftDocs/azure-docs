@@ -53,7 +53,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 1 - Start the Import data wizard and create a data source
 
-1. On the Azure Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+1. On the Azure Cognitive Search service dashboard, click **Import data** on the command bar to create and populate a search index.
 
    ![Import data command](media/search-get-started-portal/import-data-cmd.png)
 
@@ -122,13 +122,13 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The main service page provides links to the resources created in your Azure Search service.  To view the index you just created, click **Indexes** from the list of links. 
+The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
    ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
-The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
@@ -143,7 +143,7 @@ Moving forward, you should now have a search index that's ready to query using t
 **Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
 > [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Click **Search explorer** on the command bar.
@@ -178,7 +178,7 @@ You can enter terms and phrases, similar to what you might do in a Bing or Googl
 
 * The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
 
-* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
+* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
 
 ### <a name="filter-query"></a> Filter the query
 
@@ -197,7 +197,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 #### Example (faceted with scope reduction): `search=*&facet=Category&$top=2`
 
 * **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
 * **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
@@ -207,7 +207,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 * Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Highlight search results
@@ -222,7 +222,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 * Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
 
-* Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer.
+* Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
@@ -238,9 +238,9 @@ This example now returns documents that include matches on "Seattle".
 
 When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax.
 
-Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
+Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
 
-For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Try geospatial search
 
@@ -254,7 +254,7 @@ Geospatial search is useful if your search application has a "find near me" feat
 
 ## Takeaways
 
-This tutorial provided a quick introduction to Azure Search using the Azure portal.
+This tutorial provided a quick introduction to Azure Cognitive Search using the Azure portal.
 
 You learned how to create a search index using the **Import data** wizard. You learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
@@ -272,8 +272,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-You can explore more of Azure Search using the programmatic tools:
+You can explore more of Azure Cognitive Search using the programmatic tools:
 
 * [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Create an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Create an index using Postman or Fiddler and the Azure Search REST APIs](search-get-started-postman.md)
+* [Create an index using Postman or Fiddler and the Azure Cognitive Search REST APIs](search-get-started-postman.md)
