@@ -11,7 +11,7 @@ ms.date: 02/03/2019
 
 # Azure data factory filter transformation
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 The Filter transforms provides row filtering. Build an expression that defines the filter condition. Click in the text box to launch the Expression Builder. Inside the expression builder, build a filter expression to control which rows from current data stream are allowed to pass through (filter) to the next transformation. Think of the Filter transformation as the WHERE clause of a SQL statement.
 
