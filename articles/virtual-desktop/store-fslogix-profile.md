@@ -36,7 +36,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises (via ExpressRoute)|Cloud, on-premises|
-|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|Azure AD Domain Services and Native Active Directory|Native Active Directory or Azure Active Directory Domain Services support only|Standard Premium Ultra Up to 320k (16K) IOPS with 4.5 GBps per Volume at about 1 ms latency|Standard HDD Up to 500 IOPS per-disk limits Standard SSD Up to 4k IOPS per-disk limits Premium SSD Up to 20k IOPS per-disk limits|
+|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|Azure AD Domain Services and Native Active Directory|Native Active Directory or Azure Active Directory Domain Services support only|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots|Azure backup snapshot integration|
 |Security and compliance|All Azure-supported certificates|Azure AD Domain Services and Native Active Directory|Native Active Directory or Azure Active Directory Domain Services support only|
 
