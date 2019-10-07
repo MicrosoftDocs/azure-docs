@@ -4,8 +4,8 @@ description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
+ms.date: 10/07/2019
+ms.author: rohogue
 ---
 
 # Move data to Azure Blob storage
@@ -72,7 +72,7 @@ Each copy process has a throughput rate and a files-transferred rate, which can 
 
 Strategies for parallel data ingest with Azure HPC Cache include:
 
-* Manual copying - You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths. Read [Azure HPC Cloud data ingest - manual copy method](hpc-cache-ingest-manual.md) for details.
+* Manual copying - You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths. Read [Azure HPC Cache data ingest - manual copy method](hpc-cache-ingest-manual.md) for details.
 
 * Partially automated copying with ``msrsync`` - ``msrsync`` is a wrapper utility that runs multiple parallel ``rsync`` processes. For details, read [Azure HPC Cache data ingest - msrsync method](hpc-cache-ingest-msrsync.md).
 
