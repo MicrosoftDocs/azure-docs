@@ -18,7 +18,7 @@ Spring Cloud Config provides server and client-side support for externalized con
 
 ## Prerequisites
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* A deployed Azure Spring Cloud instance
+* An already provisioned and running Azure Spring Cloud service.  Complete [this quickstart](spring-cloud-quickstart-launch-app-cli.md) to provision and launch an Azure Spring Cloud service.
 
 
 ## Restriction
@@ -146,3 +146,10 @@ Click **Apply** to finish setting up your Config Server.
 ## Delete your app configuration
 
 Once you've saved a configuration file, the **Delete app configuration** button will appear in the **Configuration** tab. This will erase your existing settings completely. You should do this if you wish to connect your config server to another source, such as moving from GitHub to Azure DevOps.
+
+## Next steps
+
+In this tutorial, you learned how to enable and configure the Config Server.  To learn how to bind your application to an Azure CosmosDB, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Learn how to bind your application to an Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md).

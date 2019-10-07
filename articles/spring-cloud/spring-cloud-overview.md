@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 10/04/2019
 ms.author: jeconnoc
 ---
-# Azure Spring Cloud
+# What is Azure Spring Cloud?
 
 Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud allows developers to focus on their code by managing the lifecycle of Spring Cloud applications.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 

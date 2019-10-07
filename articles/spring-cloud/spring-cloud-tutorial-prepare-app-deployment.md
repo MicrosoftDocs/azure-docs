@@ -14,13 +14,13 @@ ms.author: v-vasuke
 ---
 # Quickstart: Prepare a Java Spring application for deployment in Azure Spring Cloud
 
-This quickstart shows you how to prepare an existing Java Spring Cloud application for deployment to Azure Spring Cloud. In order for Azure Spring Cloud to work optimally, these preparations are essential. Particularly, Azure Spring Cloud has several Spring Cloud features baked directly into the service; for them to work, some dependencies need to be added to your application. When you're finished, you can move on to provisioning your Azure Spring Cloud service.
+This quickstart shows you how to prepare an existing Java Spring Cloud application for deployment to Azure Spring Cloud.  Configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Spring Cloud application. 
 
 ## Java Runtime Version
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Both Java 8 and Java 11 are supported. The latest Azul Zulu OpenJDK for Azure are used in the hosting environment. Find more details about Azul Zulu OpenJDK for Azure [here](https://docs.microsoft.com/azure/java/jdk/java-jdk-install).
+Both Java 8 and Java 11 are supported. The hosting environment contains the latest Azul Zulu OpenJDK for Azure. Refer to [this article](https://docs.microsoft.com/azure/java/jdk/java-jdk-install). for more information about Azul Zulu OpenJDK for Azure. 
 
 ## Spring Boot and Spring Cloud versions
 
@@ -33,8 +33,7 @@ Spring Boot version | Spring Cloud version
 
 Verify your `pom.xml` file has the Spring Boot and Spring Cloud dependencies based on your version.
 
-2.0:
-
+### Version 2.0:
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -58,7 +57,7 @@ Verify your `pom.xml` file has the Spring Boot and Spring Cloud dependencies bas
     </dependencyManagement>
 ```
 
-2.1:
+### Version 2.1:
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -84,9 +83,16 @@ Verify your `pom.xml` file has the Spring Boot and Spring Cloud dependencies bas
 
 ## Azure Spring Cloud client dependency
 
-Azure Spring Cloud hosts and manages Spring Cloud components for you, such as Spring Cloud Service Registry and Spring Cloud Config Server. Include Azure Spring Cloud's client library in your dependencies in order to correctly communicate with Azure Spring Cloud service instance.
+Azure Spring Cloud hosts and manages Spring Cloud components for you, such as the Spring Cloud Service Registry and the Spring Cloud Config Server. Include Azure Spring Cloud's client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
 
-Include below snippet in `pom.xml`:
+The table below lists the correct versions for your Spring Boot/Spring Cloud app.
+
+Spring Boot version | Spring Cloud version | Azure Spring Cloud version
+---|---|---
+2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
+2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
+
+Include this snippet in  your `pom.xml` with the correct Azure Spring Cloud version in the 'dependency':
 
 ```xml
     <repositories>
@@ -106,21 +112,15 @@ Include below snippet in `pom.xml`:
     </dependency>
 ```
 
-Refer to below table to find the correct version for your Spring Boot/Spring Cloud app.
-
-Spring Boot version | Spring Cloud version | Azure Spring Cloud version
----|---|---
-2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
-2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
-
 ## Other required dependencies
 
-To fully utilize the built-in features of Azure Spring Cloud, your application needs to include below dependencies. Then your application will be automatically wired up with each component (Eureka Server, Config Server etc.).
-
+To enable the built-in features of Azure Spring Cloud, your application must include the following dependencies. This will ensure that your application configures itself correctly with each component.  
 
 ### Service Registry
-To use the managed Eureka Server in Azure Spring Cloud, you need to include `spring-cloud-starter-netflix-eureka-client` in `POM.xml` as below.
-The endpoint of the managed Eureka Server will be automatically injected as environment variables with your app. Then applications will be able to register themselves with Eureka server and discover other dependent microservices.
+
+To use the managed Azure Service Registry service, include `spring-cloud-starter-netflix-eureka-client` in `POM.xml` as shown below.
+
+The endpoint of the Service Registry server will be automatically injected as environment variables with your app. Applications will be able to register themselves with Service Registry server and discover other dependent microservices.
 
 ```xml
     <dependency>
@@ -131,7 +131,7 @@ The endpoint of the managed Eureka Server will be automatically injected as envi
 
 ### Distributed Configuration
 
-To enable Distributed Configuration, include spring-cloud-config-client in the dependencies section of your pom.xml as below.
+To enable Distributed Configuration, include `spring-cloud-config-client` in the dependencies section of your `pom.xml`.
 
 ```xml
 <dependency>
@@ -140,12 +140,12 @@ To enable Distributed Configuration, include spring-cloud-config-client in the d
 </dependency>
 ```
 
-> [!NOTE]
-> Don't specify `spring.cloud.config.enabled=false` in bootstrap configuration, as it will stop the application from working with config server.
+> [!WARNING]
+> Don't specify `spring.cloud.config.enabled=false` in bootstrap configuration, as it will stop the application from working with the Config Server.
 
 ### Metrics
 
-Include spring-boot-starter-actuator in the dependencies section of your pom.xml as below. Metrics will be periodically pulled from the JMX endpoints and can be visualized from Azure portal.
+Include `spring-boot-starter-actuator` in the dependencies section of your pom.xml. Metrics will be periodically pulled from the JMX endpoints and can be visualized using the Azure portal.
 
 ```xml
 <dependency>
@@ -156,7 +156,7 @@ Include spring-boot-starter-actuator in the dependencies section of your pom.xml
 
 ### Distributed Tracing
 
-Include spring-cloud-starter-sleuth and spring-cloud-starter-zipkin in the dependencies section of your pom.xml as below. Also, you need to enable an Azure App Insights instance to work with your Azure Spring Cloud service instance. Read more on how to enable App Insights with Azure Spring Cloud [here](spring-cloud-tutorial-distributed-tracing.md)
+Include `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` in the dependencies section of your pom.xml as below. Also, you need to enable an Azure App Insights instance to work with your Azure Spring Cloud service instance. Read more on how to enable App Insights with Azure Spring Cloud [here](spring-cloud-tutorial-distributed-tracing.md)
 
 ```xml
 <dependency>
@@ -168,3 +168,10 @@ Include spring-cloud-starter-sleuth and spring-cloud-starter-zipkin in the depen
     <artifactId>spring-cloud-starter-zipkin</artifactId>
 </dependency>
 ```
+
+## Next steps
+
+In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud.  To learn how to monitor your application, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Learn how to monitor your application](spring-cloud-tutorial-distributed-tracing.md)

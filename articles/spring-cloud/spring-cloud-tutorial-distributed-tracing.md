@@ -3,7 +3,7 @@ title: "Tutorial: Use Distributed Tracing with Azure Spring Cloud | Microsoft Do
 description: Learn how to use Spring Cloud's Distributed Tracing through Azure Application Insights
 services: spring-cloud
 author: v-vasuke
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: spring-cloud
@@ -26,7 +26,7 @@ In this article you will learn how to:
 
 ## Prerequisites
 
-To complete this quickstart:
+To complete this tutorial:
 
 * An already provisioned and running Azure Spring Cloud service.  Complete [this quickstart](spring-cloud-quickstart-launch-app-cli.md) to provision and launch an Azure Spring Cloud service.
 	
@@ -101,4 +101,7 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this tutorial, you learned how to enable and understand distributed tracing in the Azure Spring Cloud.  To learn how to bind your application to an Azure Redis Cache, [continue to the next tutorial](spring-cloud-tutorial-bind-redis.md).
+In this tutorial, you learned how to enable and understand distributed tracing in the Azure Spring Cloud.  To learn how to enable the Config Server, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Learn how to set up your Config Server](spring-cloud-tutorial-config-server.md).
