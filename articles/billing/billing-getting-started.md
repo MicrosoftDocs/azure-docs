@@ -17,7 +17,7 @@ ms.author: banders
 When you sign up for Azure, there are several things you can do to get a better idea of your spending:
 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
-- Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
+- Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts, and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with [detailed usage files](billing-download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/en-us/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
@@ -70,11 +70,11 @@ After you have your Azure services running, regularly check costs to track your 
 
 1. Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management/understand-work-scopes.md#scopes)
+2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management/understand-work-scopes.md#scopes)
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.png)
 
-4. You can filter by various properties such as [tags](#tags), resource type, and time span. Click **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
+4. You can filter by various properties such as tags, resource type, and time span. Click **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
 
 5. Additionally, you can click the labels of the chart to see the daily spend history for that label. For ex: In the screenshot below, clicking on virtual machines displays the daily cost of running your VMs.
 
@@ -141,12 +141,12 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You're an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs.
     - You're a Department Administrator and your Enrollment Administrator has disabled the **DA view charges** setting.  Contact your Enrollment Administrator to get access.
     - You bought Azure through a channel partner, and the partner didn't release pricing information.  
-- If you update settings related to cost access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
+- If you update settings related to cost,  access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
 - Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access
 
-To view costs, you need account or subscription level access to cost or billing information. The access vary by type of billing account. To learn more about billing accounts and check the type of your billing account, see [View billing accounts in Azure portal](billing-view-all-accounts.md).
+To view costs, you need account or subscription level access to cost or billing information. The access varies by type of billing account. To learn more about billing accounts and check the type of your billing account, see [View billing accounts in Azure portal](billing-view-all-accounts.md).
 
 If you have access to Azure through a Microsoft Online Service Program (MOSP) billing account, see [Manage access to billing information for Azure](billing-manage-access.md).
 
@@ -160,7 +160,7 @@ The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime
 
 To request a credit:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. 
+1. Sign in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. 
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
 4. Under **Problem type**, select **Refund Request**.
