@@ -84,16 +84,16 @@ Articles
 
 ## Advanced cloud defense
 
-Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities include just in time virtual machine (VM) access, and adaptive application controls.
+Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities include just-in-time virtual machine (VM) access, and adaptive application controls.
 
 Use the following resources to learn how to use these capabilities in Security Center.
 
 Videos	
-* [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles	
-* [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## Hands-on activities
