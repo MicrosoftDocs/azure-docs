@@ -1,13 +1,13 @@
 ---
 title: 'How to create user-defined functions in Azure Digital Twins | Microsoft Docs'
 description: How to create user-defined functions, matchers, and role assignments in Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
+ms.date: 10/02/2019
 ms.custom: seodec18
 ---
 
