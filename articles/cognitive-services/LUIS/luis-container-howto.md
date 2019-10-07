@@ -230,6 +230,29 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## Languages supported
+
+LUIS containers support a subset of the [languages supported](luis-language-support.md#languages-supported) by LUIS proper. The LUIS containers are capable of understanding utterances in the following languages:
+
+| Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
+|--|--|:--:|:--:|:--:|:--:|
+| American English | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
+| French (France) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
+| French (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
+| German |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
+| Italian |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Korean |`ko-KR` | ✔️ | ❌ | ❌ | Key phrase only |
+| Portuguese (Brazil) |`pt-BR` | ✔️ | ✔️ | ✔️ | not all sub-cultures |
+| Spanish (Spain) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
+| Spanish (Mexico)|`es-MX` | ❌ | ❌ |✔️|✔️|
+| Turkish | `tr-TR` |✔️| ❌ | ❌ | Sentiment only |
+
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
+
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+
 ## Endpoint APIs supported by the container
 
 Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available with the container. 
