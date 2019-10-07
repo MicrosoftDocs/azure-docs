@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Remediate non-compliant resources with Azure Policy
 
