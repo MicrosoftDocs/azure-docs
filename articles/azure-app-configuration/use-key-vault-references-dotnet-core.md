@@ -181,7 +181,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+    ![Quickstart app launch local](./media/key-vault-reference-launch-local.png)
 
 
 ## Clean up resources
