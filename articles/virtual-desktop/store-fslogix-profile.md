@@ -53,7 +53,7 @@ Azure management details
 
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
-|Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, [on-prem (ExpressRoute)](./azure-netapp-files/azure-netapp-files-network-topologies#hybrid-environments) ||
+|Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, [on-prem (ExpressRoute)](../azure-netapp-files/azure-netapp-files-network-topologies#hybrid-environments) ||
 |Azure Active Directory integration||||
 |Backup||||
 |Security compliance||||
