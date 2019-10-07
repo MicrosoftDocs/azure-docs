@@ -20,6 +20,7 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to e
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
@@ -41,7 +42,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the cUR
 curl -i -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-You'll receive a `201 (Success)` response that includes an **Location** header. The value of this header contains an operation ID that you can use to query the status of the operation and get the results. In the following example, the string after `operations/` is the operation ID.
+You'll receive a `201 (Success)` response that includes an **Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `operations/` is the operation ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -49,13 +50,14 @@ https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data.
+After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
+1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt//prebuilt/receipt/analyzeResults/{resultId}/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response

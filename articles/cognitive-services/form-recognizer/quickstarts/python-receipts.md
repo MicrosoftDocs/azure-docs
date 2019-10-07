@@ -20,6 +20,7 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with Python to
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
@@ -67,7 +68,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-receipts.py`.
 
-You'll receive a `201 (Success)` response that includes an **Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the operation and get the analysis results. In the following example value, the string after `operations/` is the operation ID.
+You'll receive a `201 (Success)` response that includes an **Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -75,7 +76,7 @@ https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. The operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
 operationId = operationURL.split("operations/")[1]
