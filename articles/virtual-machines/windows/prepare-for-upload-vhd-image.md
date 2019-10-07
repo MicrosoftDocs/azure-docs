@@ -393,6 +393,8 @@ Ideally, you should keep the machine updated at the *patch level*. If this isn't
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
+Note: To avoid an accidental reboot during VM Provisioning, it's recommended to ensure that all Windows Update installations are complete and not pending. One way is to install all possible Windows Updates and reboot once before executing the SYSPREP command.
+
 ### Determine when to use Sysprep <a id="step23"></a>    
 
 System Preparation Tool (Sysprep) is a process you can run to reset a Windows installation. Sysprep provides an "out of the box" experience by removing all personal data and resetting several components. 
