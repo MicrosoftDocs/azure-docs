@@ -178,7 +178,7 @@ for blob in generator:
 
 
 Download blobs to your local disk using the `get_blob_to_path` method.
-The following code downloads the blob you uploaded previously. The system appends *_DOWNLOADED* to the blob name so you can see both files on your local disk.”
+The following code downloads the blob you uploaded previously. The system appends *_DOWNLOADED* to the blob name so you can see both files on your local disk.
 
 ```python
 # Download the blob(s).
