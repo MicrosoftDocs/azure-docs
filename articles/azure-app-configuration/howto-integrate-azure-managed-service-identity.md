@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Grant a managed identity access to App Configuration.
 > * Configure your app to use a managed identity when you connect to App Configuration.
-> * Optionally, configure your app to use a managed identity when you connect to Key Vault through an App Configuration Key Vault reference
+> * Optionally, configure your app to use a managed identity when you connect to Key Vault through an App Configuration Key Vault reference.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ To set up a managed identity in the portal, you first create an application as n
 
     ![Add a managed identity](./media/add-managed-identity.png)
 
-1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Provide Key Vault authentication with a managed identity](https://docs.microsoft.com/en-us/azure/key-vault/managed-identity).
+1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## Use a managed identity
 
