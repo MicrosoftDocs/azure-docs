@@ -25,20 +25,21 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-csharp.md)
+1. Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
-1. [A storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding a EventGrid data connection. 
+1. Create [a storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding an Event Grid data connection. 
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add an Event Grid data connection
-The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure portal.
+
+The following example shows you how to add an Event Grid data connection programmatically. See [create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection using the Azure portal.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -74,22 +75,23 @@ var dataFormat = DataFormat.CSV;
 await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, dataConnectionName,
     new EventGridDataConnection(storageAccountResourceId, eventHubResourceId, consumerGroup, tableName: tableName, location: location, mappingRuleName: mappingRuleName, dataFormat: dataFormat));
 ```
+
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of your tenant, also known as Directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of the subscription you create resources with.|
-| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The Client ID of the application that can access resources in your tenant.|
-| clientSecret | *xxxxxxxxxxxxxx* | The Client Secret of the application that can access resources in your tenant. |
+| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
+| clientSecret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resourceGroupName | *testrg* | The name of the resource group containing your cluster.|
 | clusterName | *mykustocluster* | The name of your cluster.|
 | databaseName | *mykustodatabase* | The name of the target database in your cluster.|
-| dataConnectionName | *myeventhubconnect* | The wanted name of your data connection.|
-| tableName | *StormEvents* | The name of the target tableName in the target database.|
+| dataConnectionName | *myeventhubconnect* | The desired name of your data connection.|
+| tableName | *StormEvents* | The name of the target table in the target database.|
 | mappingRuleName | *StormEvents_CSV_Mapping* | The name of your column mapping related to the target table.|
 | dataFormat | *csv* | The data format of the message.|
-| eventHubResourceId | *Resource ID* | The resource ID of your event hub, where the event grid is configured to send events. |
-| storageAccountResourceId | *Resource ID* | The resource ID of your storage account, which holds the data for ingestion. |
-| consumerGroup | *$Default* | The consumer group of your event hub.|
+| eventHubResourceId | *Resource ID* | The resource ID of your Event Hub where the Event Grid is configured to send events. |
+| storageAccountResourceId | *Resource ID* | The resource ID of your storage account that holds the data for ingestion. |
+| consumerGroup | *$Default* | The consumer group of your Event Hub.|
 | location | *Central US* | The location of the data connection resource.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../../includes/data-explorer-data-connection-clean-resources-csharp.md)]

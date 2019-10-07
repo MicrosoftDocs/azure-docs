@@ -22,20 +22,21 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-csharp.md)
+1. Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table and column mapping](python-ingest-data.md#create-a-table-on-your-cluster)
+1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
-1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT hub data connection
+1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT Hub data connection
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## Add an IoT Hub data connection (Preview)
-The following example shows how to add an IoT Hub data connection programmatically. Check [Connect Azure Data Explorer table to IoT hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through Azure portal.
+## Add an IoT Hub data connection 
+
+The following example shows you how to add an IoT Hub data connection programmatically. See [connect Azure Data Explorer table to IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection using the Azure portal.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -71,7 +72,7 @@ table_name = "StormEvents";
 mapping_rule_name = "StormEvents_CSV_Mapping";
 data_format = "csv";
 
-#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                             parameters=IotHubDataConnection(iot_hub_resource_id=iot_hub_resource_id, shared_access_policy_name=shared_access_policy_name, 
                                                                                 consumer_group=consumer_group, table_name=table_name, location=location, mapping_rule_name=mapping_rule_name, data_format=data_format))
@@ -79,19 +80,19 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of your tenant, also known as Directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of the subscription you create resources with.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The Client ID of the application that can access resources in your tenant.|
-| client_secret | *xxxxxxxxxxxxxx* | The Client Secret of the application that can access resources in your tenant. |
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
+| client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resource_group_name | *testrg* | The name of the resource group containing your cluster.|
 | cluster_name | *mykustocluster* | The name of your cluster.|
 | database_name | *mykustodatabase* | The name of the target database in your cluster.|
 | data_connection_name | *myeventhubconnect* | The desired name of your data connection.|
-| table_name | *StormEvents* | The name of the target tableName in the target database.|
+| table_name | *StormEvents* | The name of the target table in the target database.|
 | mapping_rule_name | *StormEvents_CSV_Mapping* | The name of your column mapping related to the target table.|
 | data_format | *csv* | The data format of the message.|
-| iot_hub_resource_id | *Resource ID* | The resource ID of your IoT hub, which holds the data for ingestion.|
-| shared_access_policy_name | *iothubforread* | The name of the shared access policy, which defines the permissions for devices and services to connect to IoT Hub. |
+| iot_hub_resource_id | *Resource ID* | The resource ID of your IoT hub that holds the data for ingestion.|
+| shared_access_policy_name | *iothubforread* | The name of the shared access policy that defines the permissions for devices and services to connect to IoT Hub. |
 | consumer_group | *$Default* | The consumer group of your event hub.|
 | location | *Central US* | The location of the data connection resource.|
 

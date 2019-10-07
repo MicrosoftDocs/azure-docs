@@ -24,13 +24,13 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-csharp.md)
+1. Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
+1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
-1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT hub data connection.
+1. [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT Hub data connection.
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
@@ -38,7 +38,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Add an IoT Hub data connection 
 
-The following example shows you how to add an IoT Hub data connection programmatically. See[connect Azure Data Explorer table to IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through the Azure portal.
+The following example shows you how to add an IoT Hub data connection programmatically. See [connect Azure Data Explorer table to IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection using the Azure portal.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -74,21 +74,22 @@ var dataFormat = DataFormat.CSV;
 await kustoManagementClient.DataConnections.CreateOrUpdate(resourceGroupName, clusterName, databaseName, dataConnectionName,
             new IotHubDataConnection(iotHubResourceId, consumerGroup, sharedAccessPolicyName, tableName: tableName, location: location, mappingRuleName: mappingRuleName, dataFormat: dataFormat));
 ```
+
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of your tenant, also known as Directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of the subscription you create resources with.|
-| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The Client ID of the application that can access resources in your tenant.|
-| clientSecret | *xxxxxxxxxxxxxx* | The Client Secret of the application that can access resources in your tenant. |
+| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
+| clientSecret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resourceGroupName | *testrg* | The name of the resource group containing your cluster.|
 | clusterName | *mykustocluster* | The name of your cluster.|
 | databaseName | *mykustodatabase* | The name of the target database in your cluster.|
-| dataConnectionName | *myeventhubconnect* | The wanted name of your data connection.|
-| tableName | *StormEvents* | The name of the target tableName in the target database.|
+| dataConnectionName | *myeventhubconnect* | The desired name of your data connection.|
+| tableName | *StormEvents* | The name of the target table in the target database.|
 | mappingRuleName | *StormEvents_CSV_Mapping* | The name of your column mapping related to the target table.|
 | dataFormat | *csv* | The data format of the message.|
-| iotHubResourceId | *Resource ID* | The resource ID of your IoT hub, which holds the data for ingestion. |
-| sharedAccessPolicyName | *iothubforread* | The name of the shared access policy, which defines the permissions for devices and services to connect to IoT Hub. |
+| iotHubResourceId | *Resource ID* | The resource ID of your IoT hub that holds the data for ingestion. |
+| sharedAccessPolicyName | *iothubforread* | The name of the shared access policy that defines the permissions for devices and services to connect to IoT Hub. |
 | consumerGroup | *$Default* | The consumer group of your event hub.|
 | location | *Central US* | The location of the data connection resource.|
 

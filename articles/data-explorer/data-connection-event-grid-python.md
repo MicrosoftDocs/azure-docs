@@ -22,20 +22,21 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-1. [A test cluster and database](create-cluster-database-csharp.md)
+1. Create [a cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table and column mapping](python-ingest-data.md#create-a-table-on-your-cluster)
+1. Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 1. [Set database and table policies](database-table-policies-csharp.md) (optional)
 
-1. [A storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding a EventGrid data connection. 
+1. [A storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding an Event Grid data connection. 
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
 ## Add an Event Grid data connection
-The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure portal.
+
+The following example shows you how to add an Event Grid data connection programmatically. See [create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection using the Azure portal.
 
 
 ```Python
@@ -79,20 +80,20 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 ```
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of your tenant, also known as Directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The ID of the subscription you create resources with.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The Client ID of the application that can access resources in your tenant.|
-| client_secret | *xxxxxxxxxxxxxx* | The Client Secret of the application that can access resources in your tenant. |
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
+| client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resource_group_name | *testrg* | The name of the resource group containing your cluster.|
 | cluster_name | *mykustocluster* | The name of your cluster.|
 | database_name | *mykustodatabase* | The name of the target database in your cluster.|
 | data_connection_name | *myeventhubconnect* | The desired name of your data connection.|
-| table_name | *StormEvents* | The name of the target tableName in the target database.|
+| table_name | *StormEvents* | The name of the target table in the target database.|
 | mapping_rule_name | *StormEvents_CSV_Mapping* | The name of your column mapping related to the target table.|
 | data_format | *csv* | The data format of the message.|
-| event_hub_resource_id | *Resource ID* | The resource ID of your event hub, where the event grid is configured to send events. |
-| storage_account_resource_id | *Resource ID* | The resource ID of your storage account, which holds the data for ingestion. |
-| consumer_group | *$Default* | The consumer group of your event hub.|
+| event_hub_resource_id | *Resource ID* | The resource ID of your Event Hub where the Event Grid is configured to send events. |
+| storage_account_resource_id | *Resource ID* | The resource ID of your storage account that holds the data for ingestion. |
+| consumer_group | *$Default* | The consumer group of your Event Hub.|
 | location | *Central US* | The location of the data connection resource.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]
