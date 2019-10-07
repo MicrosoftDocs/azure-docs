@@ -1,9 +1,9 @@
 ---
 title: Bind an Azure Cosmos DB to your Azure Spring Cloud application | Microsoft Docs
-description: This article will show you how to bind Azure Cosmos DB to your Azure Spring Cloud application
+description: Learn how to bind Azure Cosmos DB to your Azure Spring Cloud application
 services: spring-cloud
 author: v-vasuke
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: spring-cloud
@@ -15,10 +15,10 @@ ms.author: v-vasuke
 
 # Bind an Azure Cosmos DB to your Azure Spring Cloud application
 
-Azure Spring Cloud allows you to bind select Azure services to your applications automatically, instead of manually configuring your Spring Boot application code. This article demonstrates how to bind your application to an Azure Cosmos DB.
+Azure Spring Cloud allows you to bind select Azure services to your applications automatically, instead of manually configuring your Spring Boot application. This article demonstrates how to bind your application to an Azure Cosmos DB.
 
 Prerequisites:
-* A deployed Azure Spring Cloud instance
+* A deployed Azure Spring Cloud instance.  Follow our [quick start](spring-cloud-quickstart-launch-app-cli.md) to get started.
 * An Azure Cosmos DB account with a minimum permissions level of contributor
 
 ## Bind Azure Cosmos DB
@@ -30,7 +30,8 @@ Cosmos DB has 5 different API types that support binding.
 1. Add one of the following dependencies in your Spring Cloud application's `pom.xml` according to your API type.
     
     #### API type: Core (SQL)
-    ```
+
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
@@ -39,7 +40,8 @@ Cosmos DB has 5 different API types that support binding.
     ```
     
     #### API type: MongoDB
-    ```
+
+    ```xml
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -47,7 +49,8 @@ Cosmos DB has 5 different API types that support binding.
     ```
 
     #### API type: Cassandra
-    ```
+
+    ```xml
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-cassandra</artifactId>
@@ -55,7 +58,8 @@ Cosmos DB has 5 different API types that support binding.
     ```
 
     #### API type: Gremlin (graph)
-    ```
+
+    ```xml
     <dependency>
         <groupId>com.microsoft.spring.data.gremlin</groupId>
         <artifactId>spring-data-gremlin</artifactId>
@@ -64,7 +68,8 @@ Cosmos DB has 5 different API types that support binding.
     ```
 
     #### API type: Azure Table
-    ```
+
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-storage-spring-boot-starter</artifactId>
@@ -72,9 +77,9 @@ Cosmos DB has 5 different API types that support binding.
     </dependency>
     ```
 
-1. Apply the new dependency to your application by updating the current deployment or creating a [new application](spring-cloud-quickstart-launch-app-cli.md).
+1. Update the current deployment using `az spring-cloud app update` or create a new deployment for this change using `az spring-cloud app deployment create`.  These commands will either update or create the application with the new dependency.
 
-1. Go to your Azure Spring Cloud service page in the Azure portal. find the **Application Dashboard** and select the application to bind to the Cosmos DB. Next, select `Service binding` and select the `Create service binding` button. Fill out the form, selecting **Binding type** `Azure Cosmos DB`, the API type, your database name, and the  Cosmos DB account.
+1. Go to your Azure Spring Cloud service page in the Azure portal. This is the same application you updated or deployed in the previous step. Find the **Application Dashboard** and select the application to bind to the Cosmos DB. Next, select `Service binding` and select the `Create service binding` button. Fill out the form, selecting **Binding type** `Azure Cosmos DB`, the API type, your database name, and the  Cosmos DB account.
 
     > [!NOTE]
     > Use a key space for the database name if you are using Cassandra.
@@ -91,4 +96,7 @@ Cosmos DB has 5 different API types that support binding.
 
 ## Next steps
 
-[Learn how to bind the Azure Cache for Redis service to your Azure Spring Cloud service](spring-cloud-tutorial-bind-redis.md).
+In this tutorial, you learned how to bind your Azure Spring Cloud application to a CosmosDB.  To learn how to bind your application to an Azure Redis Cache, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Bind an Azure Spring Cloud application to an Azure Redis Cache](spring-cloud-tutorial-bind-redis.md).
