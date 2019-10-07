@@ -16,7 +16,7 @@ PostgreSQL provides the ability to extend the functionality of your database by 
 
 PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from the psql tool to load the packaged objects into your database.
 
-Azure Database for PostgreSQL - Hyperscale (Citus) Preview currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
+Azure Database for PostgreSQL - Hyperscale (Citus) currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
 
 ## Extensions supported by Azure Database for PostgreSQL
 

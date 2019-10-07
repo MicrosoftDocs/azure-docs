@@ -1,6 +1,6 @@
 ---
-title: 'Design a real-time dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
-description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
+title: 'Design a real-time dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) tutorial'
+description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -11,9 +11,9 @@ ms.date: 05/14/2019
 #Customer intent: As a developer, I want to parallelize queries so that I can make a realtime dashboard application.
 ---
 
-# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -30,7 +30,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
 
 Let's create a table that will consume all of our raw web traffic data. Run the following commands in the psql terminal:
 
