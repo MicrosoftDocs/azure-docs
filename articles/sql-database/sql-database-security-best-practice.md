@@ -124,11 +124,11 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
     - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
     - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
     - Use other SQL tools supporting MFA.
-            - [DacFx support](sql-database-ssms-mfa-authentication.md)  
-            - SSMS Wizard support for Export/Extract/Deploy database  
-            - [sqlpackage.exe](/sql/tools/sqlpackage): option ‘/ua’ 
-            - [sqlcmd Utility](/sql/tools/sqlcmd-utility): option -G (interactive) 
-            - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive) 
+           - [DacFx support](sql-database-ssms-mfa-authentication.md)  
+           - SSMS Wizard support for Export/Extract/Deploy database  
+           - [sqlpackage.exe](/sql/tools/sqlpackage): option ‘/ua’ 
+           - [sqlcmd Utility](/sql/tools/sqlcmd-utility): option -G (interactive) 
+           - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive) 
 
 - Implement your applications to connect to Azure SQL Database using interactive authentication with MFA support. 
     - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md). 
