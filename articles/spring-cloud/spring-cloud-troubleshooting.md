@@ -73,7 +73,7 @@ To confirm which situation it is,
 2. Add an `App=` filter to specify which application you want to monitor, and
 3. Split the metrics by `Instance`.
 
-If the situation happens to be that all instances are experiencing high CPU/memory, you need to either scale out the application or scale up the CPU/Memory. For more details, please visit [Scale Applications](spring-cloud-tutorial-manual-scale.md)
+If the situation happens to be that all instances are experiencing high CPU/memory, you need to either scale out the application or scale up the CPU/Memory. For more details, please visit [Scale Applications](spring-cloud-tutorial-scale-manual.md)
 
 If the situation happens to be that some of the instances are experiencing high CPU/memory, please check the instance status and its discovery status.
 

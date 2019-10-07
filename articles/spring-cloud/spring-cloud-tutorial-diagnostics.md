@@ -54,7 +54,7 @@ AppPlatformLogsforSpring
 ```
 
 5. Click `Run` button and you can see the search result.
-6. You can search the logs of the specific application or instance by setting a filter condition as below and you can find more query samples from [here](./log-query-samples.md):
+6. You can search the logs of the specific application or instance by setting a filter condition as below and you can find more query samples from [here](spring-cloud-overview.md):
 
 ```sql
 AppPlatformLogsforSpring
