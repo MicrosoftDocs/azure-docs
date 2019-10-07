@@ -53,13 +53,13 @@ To remove your spending limit, follow these steps:
 
 The spending limit could prevent you from deploying or using certain third-party and Microsoft services. Here are the situations where you should remove the spending limit on your subscription.
 
--  You plan to deploy first party images like Oracle and services such as Azure DevOps Services. This situation causes you to exceed your spending limit almost immediately and causes your subscription to be disabled.
-- You have services that you don't want disrupted.
-- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when the services and resources are de-allocated.
+-  You plan to deploy first party images like Oracle or services such as Azure DevOps Services. This situation causes you to reach your spending limit almost immediately and causes your subscription to be disabled.
+- You have services that you don't want disrupted. When you reach your spending limit, Azure resources that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. If you have services that you don't want disrupted, you must remove your spending limit.
+- You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when your reach your spending limit and the services and resources are de-allocated.
 
 ## Turn on the spending limit after removing
 
-This feature is available only when the spending limit has been removed indefinitely. Change it to turn on automatically at the start of the next billing period.
+This feature is available only when the spending limit has been removed indefinitely for subscription types that include credits over multiple months. You can use this feature to turn on your spending limit automatically at the start of the next billing period.
 
 1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
 1. Click the yellow banner to change the spending limit option.
