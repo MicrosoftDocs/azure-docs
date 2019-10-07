@@ -1,4 +1,4 @@
----
+﻿---
 title: How to trigger complex actions with Azure Monitor alerts 
 description: Learn how to create a logic app action to process Azure Monitor alerts.
 author: dkamstra
@@ -32,7 +32,7 @@ The process is similar if you want the logic app to perform a different action.
 
 1.  In the Azure portal, select **Create a resource** in the upper-left corner.
 
-2.  Search for and select **Logic App**, then select **Create**.
+2.  Search for and select **Logic App**, then select **Create**.
 
 3.  Give your logic app a **Name**, choose a **Resource group**, and so on.
 
