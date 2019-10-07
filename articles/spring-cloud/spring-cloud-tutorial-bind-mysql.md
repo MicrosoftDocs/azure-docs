@@ -65,4 +65,4 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 In this tutorial, you learned to bind your Azure Spring Cloud application to a MySQL DB.  To learn more about managing your application, continue to the tutorial for manually scaling your app.
 
 > [!div class="nextstepaction"]
-> [Learn how to manually scale your Azure Spring Cloud application](spring-cloud-scale-manual.md).
+> [Learn how to manually scale your Azure Spring Cloud application](spring-cloud-tutorial-scale-manual.md).
