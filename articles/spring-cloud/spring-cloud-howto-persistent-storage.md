@@ -26,7 +26,7 @@ Persistent storage is a file share container managed by Azure that is allocated 
 
 1. In your Azure Spring Cloud service page, select **Application Dashboard**, then select the application that requires persistent storage.
 1. In the **Overview** tab, locate the **Persistent Storage** attribute and select **Disabled**.
-2. Click **Enable** to enable persistent storage, and select **OK** button to apply the change.
+1. Click **Enable** to enable persistent storage, and select **OK** button to apply the change.
 
 When persistent storage is enabled, its size and path are shown in the **Persistent Storage** attribute of the **Overview** page.
 

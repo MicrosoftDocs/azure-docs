@@ -50,26 +50,26 @@ To get started, you'll need to enable one of these services to receive the data.
     ```sql
     AppPlatformLogsforSpring
     | limit 50
-```
+    ```
 
 1. Select `Run` to see the search result.
 1. You can search the logs of the specific application or instance by setting a filter condition:
 
-```sql
-AppPlatformLogsforSpring
-| where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
-| limit 50
-```
+    ```sql
+    AppPlatformLogsforSpring
+    | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
+    | limit 50
+    ```
 
 Learn more about the Query Language used in Log Analytics [in this article](../azure-monitor/log-query/query-language.md)
 
 ### Using logs and metrics in Storage Account
 
 1. From the Azure portal, select Storage accounts from the left-hand navigation menu.
-2. Select the Storage account you chose when adding Diagnostic settings.
-3. Select `Blobs` entry to open the Blob Container blade.
-4. Find a container called `insights-logs-applicationconsole` to review application logs.
-5. Find a container called `insights-metrics-pt1m` to review application metrics.
+1. Select the Storage account you chose when adding Diagnostic settings.
+1. Select `Blobs` entry to open the Blob Container blade.
+1. Find a container called `insights-logs-applicationconsole` to review application logs.
+1. Find a container called `insights-metrics-pt1m` to review application metrics.
 
 [Learn more about sending diagnostic information to a storage account.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage)
 
@@ -85,7 +85,7 @@ Learn more about the Query Language used in Log Analytics [in this article](../a
 
 ## Analyzing logs
 
-Azure Log Analytics allows you to use Kusto to query your logs for analysis.  Review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md) for a quick introduction to querying logs using Kusto.
+Azure Log Analytics provides Kusto so you can query your logs for analysis.  Review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md) for a quick introduction to querying logs using Kusto.
 
 Application logs provide critical information about your application's health, performance, and more.  Below are some simple queries to help you understand your application's current and past states.
 
