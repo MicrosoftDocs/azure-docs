@@ -29,7 +29,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it is users within the respective departments or projects who know who they are collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
+By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it is users within the respective departments, teams, or projects who know who they are collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
 
 This video provides an overview of how to delegate access governance from IT administrator to users who aren't administrators.
 
@@ -43,7 +43,7 @@ To understand how you might delegate access governance in entitlement management
 
 As the IT administrator, Hana has contacts in each department -- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
-With entitlement management, you can delegate access governance to these managers because they are the ones who know which users needs access, for how long, and to which resources. This ensures the right people are managing access for their departments.
+With entitlement management, you can delegate access governance to these non-administrators because they are the ones who know which users needs access, for how long, and to which resources. This ensures the right people are managing access for their departments.
 
 Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
