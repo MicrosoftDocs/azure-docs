@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ai
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Airstack tenant](https://airstack.com/pricing/)
+* [An Airstack tenant](https://airstack.com/pricing/)
 * A user account in Airstack with Admin permissions.
 
 ## Assigning users to Airstack
@@ -50,7 +50,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Airstack for provisioning
 
-1. Sign in to your [Airstack Admin Console](https://airstack-qa.lenovosoftware.com/). Navigate to **Menu > Settings**.
+1. Sign in to your [Airstack Admin Console](https://airstack-qa.lenovosoftware.com/). Navigate to **Settings**.
 
 	![Airstack Admin Console](media/airstack-provisioning-tutorial/airstackadminmenu.png)
 
@@ -58,7 +58,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Airstack Add SCIM](media/airstack-provisioning-tutorial/azureconfig.png)
 
-3.	Click on **Generate** button. Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Airstack application in the Azure portal.
+3.	Click on **Generate** button. Copy the **Secret Token for Azure**. This value will be entered in the Secret Token field in the Provisioning tab of your Airstack application in the Azure portal.
 
 	![Airstack Create Token](media/airstack-provisioning-tutorial/generatetoken.png)
 
