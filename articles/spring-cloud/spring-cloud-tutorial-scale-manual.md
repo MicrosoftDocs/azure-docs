@@ -18,7 +18,7 @@ This tutorial demonstrates how to scale any microservice application using the A
 
 To complete this tutorial, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* A deployed Azure Spring Cloud service instance.  Follow our [quick start](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud service instance.  Follow our [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
 * At least one application already created in that service instance.
 
 
