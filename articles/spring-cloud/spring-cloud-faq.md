@@ -70,7 +70,7 @@ Azure Spring Cloud officially supports Java 8 and 11.
 ### Where can I see my Spring application logs and metrics?
 The metrics can be found at App Overview tab and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) tab.
 
-Azure Spring Cloud supports exporting your Spring application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is `AppPlatformLogsforSpring`. To enable it, go through [Diagnostic settings Guide](spring-cloud-tutorial-diagnostics.md).
+Azure Spring Cloud supports exporting your Spring application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is `AppPlatformLogsforSpring`. To enable it, go through [Diagnostic settings Guide](diagnostic-services.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
 Yes, visit [Distributed Tracing](spring-cloud-tutorial-distributed-tracing.md) for more details.

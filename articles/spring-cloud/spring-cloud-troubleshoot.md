@@ -18,7 +18,7 @@ When you create or manage _Azure Spring Cloud_, you might occasionally encounter
 
 ## Availability, performance, and application issues
 ### My application cannot start (for example, the endpoint cannot be connected, or returns 502 after few retries)
-Export the logs to _Azure Log Analytics_. The table for Spring application logs is named `AppPlatformLogsforSpring`. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md)
+Export the logs to _Azure Log Analytics_. The table for Spring application logs is named `AppPlatformLogsforSpring`. For more details, please visit [Analyze logs and metrics with Diagnostic settings](diagnostic-services.md)
 
 Application start fails because of various reasons, but if you see the following error in the beginning of your logs:
 
@@ -79,7 +79,7 @@ If the situation happens to be that some of the instances are experiencing high 
 
 For more details, visit [Metrics](spring-cloud-concept-metrics.md).
 
-If all instances are up and running, go to _Azure Log Analytics_ to query your application logs and review your code logics to see if any of them might impact scale partitioning. For more details, visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md).
+If all instances are up and running, go to _Azure Log Analytics_ to query your application logs and review your code logics to see if any of them might impact scale partitioning. For more details, visit [Analyze logs and metrics with Diagnostic settings](diagnostic-services.md).
 
 To get started with _Azure Log Analytics_, visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
 
@@ -143,7 +143,7 @@ Wait at least 2 minutes before a newly registered instance start receiving traff
 
 If you are migrating an existing Spring Cloud based solution to Azure, make sure your ad-hoc _Eureka_ and _Config Server_ instances are removed (or disabled) to avoid conflicting with the managed instances provided by _Azure Spring Cloud_.
 
-You may also check _Eureka_ client logs in _Azure Log Analytics_. For more details, please visit [Analyze logs and metrics with Diagnostic settings](spring-cloud-tutorial-diagnostics.md)
+You may also check _Eureka_ client logs in _Azure Log Analytics_. For more details, please visit [Analyze logs and metrics with Diagnostic settings](diagnostic-services.md)
 
 To get started with _Azure Log Analytics_, please visit https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal. You will need to query the logs by using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
 
