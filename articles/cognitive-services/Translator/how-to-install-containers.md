@@ -156,13 +156,26 @@ The container provides a REST-based translate endpoint API. Several example usag
 # [cURL](#tab/curl)
 
 
+Execute the following cURL command, from your desired CLI.
+
 ```curl
-curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-CN"
-    -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=de-DE"
+    -H "Content-Type: application/json" -d "[{'Text':'hello, how are you'}]"
 ```
 
 > [!TIP]
 > If you attempt this cURL POST before the container is ready, you'll end up getting a "Service is temporarily unavailable" response. Simply wait until the container is ready, then try again.
+
+The following output will be printed to the console.
+
+```console
+"translations": [
+    {
+        "text": "hallo, wie geht es dir",
+        "to": "de-DE"
+    }
+]
+```
 
 # [Swagger](#tab/Swagger)
 
@@ -174,7 +187,7 @@ Navigate to the swagger page, http://localhost:5000/swagger/index.html
 1. Enter the **To** parameter as `de-DE`
 1. Enter the **api-version** parameter as `3.0`
 1. Under **texts**, replace `string` with the following JSON
-    ```
+    ```json
     [
         {
             "text": "hello, how are you"
@@ -182,7 +195,7 @@ Navigate to the swagger page, http://localhost:5000/swagger/index.html
     ]
     ```
 1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following:
-    ```
+    ```json
     "translations": [
       {
           "text": "hallo, wie geht es dir",
@@ -193,56 +206,66 @@ Navigate to the swagger page, http://localhost:5000/swagger/index.html
 
 # [.NET Core](#tab/netcore)
 
-Launch Visual Studio, and create a new console application. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node - this specifies C# 7.1. Add the [Newtoonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
+1. Launch Visual Studio, and create a new console application.
+1. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node - this specifies C# 7.1.
+1. Add the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
+1. In the `Program.cs` replace all the existing code with the following:
+    ```csharp
+    using Newtonsoft.Json;
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
 
-In the `Program.cs` replace all the existing code with the following:
-
-```csharp
-using Newtonsoft.Json;
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TranslateContainer
-{
-    class Program
+    namespace TranslateContainer
     {
-        const string ApiHostEndpoint = "http://localhost:5000";
-        const string TranslateApi = "/translate?api-version=3.0&from=en-US&to=de-DE";
-
-        static async Task Main(string[] args)
+        class Program
         {
-            var textToTranslate = "Sunny day in Seattle";
-            var result = await TranslateTextAsync(textToTranslate);
+            const string ApiHostEndpoint = "http://localhost:5000";
+            const string TranslateApi = "/translate?api-version=3.0&from=en-US&to=de-DE";
 
-            Console.WriteLine(result);
-            Console.ReadLine();
-        }
-
-        static async Task<string> TranslateTextAsync(string textToTranslate)
-        {
-            var body = new object[] { new { Text = textToTranslate } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            var client = new HttpClient();
-            using (var request =
-                new HttpRequestMessage
-                {
-                    Method = HttpMethod.Post,
-                    RequestUri = new Uri($"{ApiHostEndpoint}{TranslateApi}"),
-                    Content = new StringContent(requestBody, Encoding.UTF8, "application/json")
-                })
+            static async Task Main(string[] args)
             {
-                // Send the request and await a response.
-                var response = await client.SendAsync(request);
+                var textToTranslate = "hello, how are you";
+                var result = await TranslateTextAsync(textToTranslate);
 
-                return await response.Content.ReadAsStringAsync();
+                Console.WriteLine(result);
+                Console.ReadLine();
+            }
+
+            static async Task<string> TranslateTextAsync(string textToTranslate)
+            {
+                var body = new object[] { new { Text = textToTranslate } };
+                var requestBody = JsonConvert.SerializeObject(body);
+
+                var client = new HttpClient();
+                using (var request =
+                    new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri($"{ApiHostEndpoint}{TranslateApi}"),
+                        Content = new StringContent(requestBody, Encoding.UTF8, "application/json")
+                    })
+                {
+                    // Send the request and await a response.
+                    var response = await client.SendAsync(request);
+
+                    return await response.Content.ReadAsStringAsync();
+                }
             }
         }
     }
-}
-```
+    ```
+1. Press **F5** to run the program.
+1. The following output will be printed to the console.
+    ```console
+    "translations": [
+      {
+          "text": "hallo, wie geht es dir",
+          "to": "de-DE"
+      }
+    ]
+    ```
 
 ***
 
