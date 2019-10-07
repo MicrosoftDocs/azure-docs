@@ -19,7 +19,7 @@ When you sign up for Azure, there are several things you can do to get a better 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
 - Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with [detailed usage files](billing-download-azure-invoice-daily-usage-date.md).
-- Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/en-us/rest/api/billing/] and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs.
+- Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/en-us/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
 - Make use of [some of the most popular Azure services for free for 12 months](billing-create-free-services-included-free-account.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](billing-avoid-charges-free-account.md).
 
@@ -38,7 +38,7 @@ Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ![Screenshot of the pricing calculator menu](./media/billing-getting-started/pricing-calc.png)
 
-You can view estimated cost for any first party Azure service. For example, in the screenshot below, an A1 Windows Virtual Machine (VM) is estimated to cost $x.xx per month in compute hours if you leave it running the whole time:
+You can view estimated cost for any first party Azure service. For example, in the screenshot below, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 per month in compute hours if you leave it running the whole time:
 
 ![Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month](./media/billing-getting-started/pricing-calcvm.png)
 
@@ -70,13 +70,13 @@ After you have your Azure services running, regularly check costs to track your 
 
 1. Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by service,location and resource group. After you add a service, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management/understand-work-scopes.md#scopes)
+2. Click **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../cost-management/understand-work-scopes.md#scopes)
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.png)
 
 4. You can filter by various properties such as [tags](#tags), resource type, and time span. Click **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
 
-5. Additionally, you can click the labels of the chart to see the daily spend history for that label. For ex: In the screenshot below, clicking on testVM displays the daily cost of the VM.
+5. Additionally, you can click the labels of the chart to see the daily spend history for that label. For ex: In the screenshot below, clicking on virtual machines displays the daily cost of running your VMs.
 
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.png)
 
@@ -97,17 +97,17 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and review Azure Advisor recommendations
 
-[Azure Advisor](../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Visit Advisor in the Azure portal:
+[Azure Advisor](../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
 
 ![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.png)
 
-You can get actionable recommendations in the **Cost** tab in the Advisor dashboard:
+Select **Cost** from the left-hand side. You'll see actionable recommendations in the **Cost** tab:
 
 ![Screenshot of Advisor cost recommendation example](./media/billing-getting-started/advisor-action.png)
 
 Review the [Optimize costs from recommendations](../cost-management/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
 
-## Review costs against your latest invoice
+## Review charges against your latest invoice
 
 At the end of the billing cycle, your invoice is available. You can [download invoices and detailed usage files](billing-download-azure-invoice-daily-usage-date.md) and compare them to make sure you were charged correctly. For more information about comparing your daily usage with your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
@@ -115,7 +115,7 @@ If you are using Azure through a Microsoft Customer Agreement (MCA), you can als
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](https://docs.microsoft.com/en-us/rest/api/billing/] and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
+Use the Azure [billing](https://docs.microsoft.com/en-us/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
