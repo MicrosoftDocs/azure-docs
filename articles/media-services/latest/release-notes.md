@@ -31,13 +31,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
-
 ## September 2019
 
 ### Live linear encoding of live events
 
 **Type:** New feature  
-**Service category:** Media Services v3
+**Service category:** Media Services v3  
 **Product capability:** Live encoding
 
 Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
