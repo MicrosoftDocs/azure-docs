@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Understand resource locking in Azure Blueprints
 
