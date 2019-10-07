@@ -55,7 +55,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Access control (IAM)|Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.|
     |Diagnose and solve problems|Display troubleshooting information.|
-    |Quick start|Displays information that helps you get started using HDInsight.|
+    |Quickstart|Displays information that helps you get started using HDInsight.|
     |Tools|Help information for HDInsight related tools.|
 
   - **Settings menu**  
