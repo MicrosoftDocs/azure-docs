@@ -320,8 +320,8 @@ mitigate brute force attacks on PostgreSQL database servers.
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure an Azure Active Directory administrator is provisioned for SQL servers. CIS Microsoft Azure
-Foundations Benchmark includes this recommendation; however, it is a duplicate of recommendation
-4.8.
+Foundations Benchmark includes this recommendation; however, it is a duplicate of [recommendation
+4.8](#48-ensure-that-azure-active-directory-admin-is-configured).
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 
