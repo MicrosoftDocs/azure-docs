@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/07/2019
 tags: connectors
 ---
 
@@ -32,6 +32,10 @@ An HTTP webhook action is also event-based and *subscribes* to a specific servic
 * Before the logic app times out
 
 For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
+
+> [!NOTE]
+> Logic Apps enforces Transport Layer Security (TLS) 1.2 when 
+> receiving the call back to the HTTP webhook trigger or action.
 
 For more information, see these topics:
 
