@@ -32,8 +32,10 @@
     items:
     - name: Server-level IP firewall rules
       href: sql-database-server-level-firewall-rule.md
-    - name: Configure public endpoint on Managed Instance
+    - name: Configure public endpoint on managed instance
       href: sql-database-managed-instance-public-endpoint-configure.md
+    - name: Configure connection types on managed instance
+      href: sql-database-managed-instance-connection-type.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance
