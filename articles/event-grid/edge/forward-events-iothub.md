@@ -188,7 +188,7 @@ See the IoT Hub [routing tutorial](../../iot-hub/tutorial-routing.md) for the st
 
 ## Cleanup resources
 
-* Run the following command to delete the topic and all its subscriptions in the edge:
+* Run the following command to delete the topic and all its subscriptions at the edge:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview

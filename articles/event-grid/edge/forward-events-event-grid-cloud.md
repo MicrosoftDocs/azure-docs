@@ -26,9 +26,9 @@ To complete this tutorial, you will need:
 
 **Azure Event Grid module on IoT Edge device** - Follow steps in described in [this article](deploy-event-grid-portal.md) to deploy the Event Grid module on an IoT Edge device if it isn't already deployed. 
 
-## Create event grid topic and subscription in cloud
+## Create Event Grid topic and subscription in cloud
 
-Create an event grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you will use later in the tutorial.
+Create an Event Grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you will use later in the tutorial.
 
 For example, if you created a topic named `testegcloudtopic` in West US, the values would look something like:
 
@@ -36,7 +36,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
 * **TopicName**: `testegcloudtopic`
 * **SasKey**: Available under **AccessKey** of your topic. Use **key1**.
 
-## Create event grid topic in edge
+## Create Event Grid topic at the edge
 
 1. Create topic3.json with the following content. See our [API documentation](api.md) for details about the payload.
 
@@ -75,7 +75,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
         ]
    ```
   
-## Create Event Grid subscription in edge
+## Create Event Grid subscription at the edge
 
 
 1. Create subscription3.json with the following content. See our [API documentation](api.md) for details about the payload.
@@ -148,7 +148,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
         }
     ```
 
-## Publish an event in edge
+## Publish an event at the edge
 
 1. Create event3.json with the following content. See [API documentation](api.md) for details about the payload.
 
