@@ -33,7 +33,7 @@ This article shows how to list an application in the Azure Active Directory (Azu
 - A quick search finds your application in the gallery.
 - Free, Basic, and Premium Azure AD customers can all use this integration.
 - Mutual customers get a step-by-step configuration tutorial.
-- Customers who use the System for Cross-domain Identity Management (SCIM) can use provisioning for the same app.
+- Customers who use the System for Cross-domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) can use provisioning for the same app.
 
 ## Prerequisites
 
