@@ -17,7 +17,7 @@ ms.date: 08/20/2019
 
 This quickstart introduces how to build your first automated workflow with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). In this article, you create a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
 
-![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-overview.png)
+![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
 To follow this quickstart, you need an email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
 
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Create logic app - Azure portal](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
+   ![Create logic app - Azure portal](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
 
 1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
 
@@ -48,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 1. After Azure deploys your app, on the Azure toolbar, select **Notifications** > **Go to resource** for your deployed logic app.
 
-   ![Go to newly created logic app resource](./media/quickstart-create-first-logic-app-workflow/go-to-logic-app.png)
+   ![Go to newly created logic app resource](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    Or, you can find and select your logic app by typing the name in the search box.
 
@@ -66,11 +66,11 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. In the search box, enter "rss". From the triggers list, select this trigger: **When a feed item is published - RSS**
 
-   ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. Provide this information for your trigger as shown and described here:
 
-   ![Set up trigger with RSS feed, frequency, and interval](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
+   ![Set up trigger with RSS feed, frequency, and interval](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
@@ -95,7 +95,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. Under the **When a feed item is published** trigger, select **New step**.
 
-   ![Under trigger, select "New step"](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
+   ![Under trigger, select "New step"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. Under **Choose an action** and the search box, select **All**.
 
@@ -133,7 +133,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
    1. In the **Body** box, enter this text, and select these tokens for the email body. To add blank lines in an edit box, press Shift + Enter.
 
-      ![In the "Body" property, select properties for email body content](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
+      ![Select properties for email body content](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Property | Description |
       |----------|-------------|
@@ -164,7 +164,7 @@ When you no longer need this sample, delete the resource group that contains you
 
 1. On the main Azure menu, select **Resource groups**, and then select your logic app's resource group. On the **Overview** pane, select **Delete resource group**.
 
-   ![Select "Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+   ![Find, select, and delete resource group](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
 1. Enter the resource group name as confirmation, and select **Delete**.
 
