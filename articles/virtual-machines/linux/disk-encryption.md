@@ -1,13 +1,12 @@
 ---
 title: Azure Storage encryption for data at rest | Microsoft Docs
 description: Azure Storage protects your data by automatically encrypting it before persisting it to the cloud. You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys.
-services: storage
 author: roygara
 
-ms.service: storage
 ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: rogarana
+ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
@@ -57,9 +56,8 @@ To revoke access to customer-managed keys on the storage account, see [Azure Key
 
 To learn how to use customer-managed keys with Azure Storage, see one of these articles:
 
-- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Use customer-managed keys with Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
+- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](../../storage/common/storage-encryption-keys-cli.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](../../storage/common/storage-encryption-keys-powershell.md)
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
@@ -71,6 +69,5 @@ With Azure Storage encryption, all Azure Storage accounts and the resources they
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
-- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](../../storage/common/storage-encryption-keys-powershell.md)
+- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](../../storage/common/storage-encryption-keys-cli.md)
