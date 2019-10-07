@@ -53,7 +53,7 @@ AppPlatformLogsforSpring
 ```
 
 1. Select `Run` to see the search result.
-1. You can search the logs of the specific application or instance by setting a filter condition as below and you can find more query samples from [here](../azure-monitor/log-query/log-query-samples.md):
+1. You can search the logs of the specific application or instance by setting a filter condition:
 
 ```sql
 AppPlatformLogsforSpring
