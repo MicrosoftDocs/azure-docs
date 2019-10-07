@@ -69,8 +69,8 @@ At this point, your Azure account is the only one authorized to perform operatio
 To add a secret to the vault, you just need to take a couple of additional steps. In this case, we add a message that we can use to test Key Vault retrieval. The message is called **Message** and we store the value of **Hello from Key Vault** in it.
 
 1. On the Key Vault properties pages select **Secrets**.
-2. Click on **Generate/Import**.
-3. On the **Create a secret** screen choose the following values:
+1. Click on **Generate/Import**.
+1. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
     - **Name**: Message
     - **Value**: Hello from Key Vault
