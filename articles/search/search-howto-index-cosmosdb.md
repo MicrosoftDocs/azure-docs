@@ -74,11 +74,11 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 ### 4 - Skip the "Add cognitive search" page in the wizard
 
-Adding cognitive skills is not necessary for document import. Unless you have a specific need to [include Cognitive Services APIs and transformations](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
+Adding cognitive skills is not necessary for document import. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
 
 To skip the step, first go to the next page.
 
-   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
+   ![Next page button for add enrichment](media/search-get-started-portal/next-button-add-cog-search.png)
 
 From that page you can skip ahead to index customization.
 

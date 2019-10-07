@@ -1,7 +1,7 @@
 ---
 title: Create a knowledge store in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: Create an Azure Cognitive Search knowledge store for persisting enrichments from an enrichment pipeline, using the Import data wizard in the Azure portal.
+description: Create an Azure Cognitive Search knowledge store for persisting output from an AI enrichment pipeline, using the Import data wizard in the Azure portal.
 
 author: lisaleib
 manager: nitinme
@@ -14,10 +14,10 @@ ms.date: 10/04/2019
 # Create an Azure Cognitive Search knowledge store in the Azure portal
 
 > [!Note]
-> Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+> Knowledge store is in preview and should not be used in production. The [Azure Cognitive Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
+Knowledge store is a feature in Azure Cognitive Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Cognitive Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
 
 In this article, you will use the Import Data wizard on the Azure portal to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blog Storage and the results are saved as a knowledge store in Azure Table Storage.
 
@@ -25,13 +25,13 @@ After you create the knowledge store, you can learn how to access this knowledge
 
 ## Prerequisites
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-WEas your Azure Search service, and the *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
++ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-WEas your Azure Cognitive Search service, and the *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
 
 ## Load the data
 
-Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Search indexer and fed through the AI enrichment pipeline.
+Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Cognitive Search indexer and fed through the AI enrichment pipeline.
 
 ### Create an Azure Blob container with the data
 
@@ -74,11 +74,11 @@ In this wizard step, you will create a data source from the Azure Blob with your
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
 1. Enter your storage service **Connection String** that you saved in a previous step.
 1. For **Container name**, enter `hotel-reviews`.
-1. Click **Next: Add cognitive search (Optional)**.
+1. Click **Next: Add AI enrichment (Optional)**.
 
       ![Create a data source object](media/knowledge-store-create-portal/hotel-reviews-ds.png "Create a data source object")
 
-## Add cognitive search (Import data wizard)
+## Add AI enrichment (Import data wizard)
 
 In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. These enrichments will be "projected" into a knowledge store as Azure tables.
 
@@ -131,11 +131,11 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 ### Monitor the Notifications queue for status
 
-1. In the Azure portal, monitor the Notifications activity log for a clickable **Azure Search notification** status link. Execution may take several minutes to complete.
+1. In the Azure portal, monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
 
 ## Next steps
 
-Now that you have enriched your data using cognitive services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+Now that you have enriched your data using Cognitive Services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
 
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 

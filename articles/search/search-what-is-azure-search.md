@@ -26,7 +26,7 @@ Azure Search is well suited for the following application scenarios:
 
 + Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Indexing unstructured text, or extracting text and information from image files. The [cognitive search](cognitive-search-concept-intro.md) feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
++ Indexing unstructured text, or extracting text and information from image files. The [AI enrichment](cognitive-search-concept-intro.md) feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
 
 + Linguistic requirements satisfied using the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
 
@@ -44,7 +44,7 @@ Azure Search is well suited for the following application scenarios:
 
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Features |
 |-------------------|----------|
-|AI enriched documents | [**Cognitive search**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
+|AI enriched documents | [**AI enrichment**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
 | Stored enrichments for analysis and consumption| [**Knowledge store (preview)**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
 
 | Data&nbsp;import/indexing | Features |

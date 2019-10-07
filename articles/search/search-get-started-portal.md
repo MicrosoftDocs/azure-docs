@@ -67,7 +67,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 2 - Skip Cognitive skills
 
-The wizard supports the creation of a [cognitive skills pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 

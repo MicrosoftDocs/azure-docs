@@ -17,7 +17,7 @@ When you create an Azure Search service, a [resource is created](search-create-s
 
 Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments.
 
-Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
+Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
 
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
@@ -70,9 +70,9 @@ Using [Azure Search indexers](search-indexer-overview.md) might affect billing, 
 
 Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
 
-### Cognitive search AI enrichment with Cognitive Services
+### AI enrichment with Cognitive Services
 
-For [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md), you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
 | Operation | Billing impact |
 |-----------|----------------|

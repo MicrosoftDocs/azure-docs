@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # Create an Azure Cognitive Search knowledge store using REST
 
-Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
+Knowledge store is a feature in Azure Cognitive Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Cognitive Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
 
 In this article, you will use the REST API interface to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blob Storage and the results are saved as a knowledge store in Azure Table Storage.
 
@@ -21,15 +21,15 @@ After you create the knowledge store, you can learn about accessing this knowled
 
 ## 1 - Create Services
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Search service. The *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
++ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Cognitive Search service. The *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
 
-+ Recommended: [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs and will be used in this article. Further, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
++ Recommended: [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Cognitive Search. You can use the REST API with any tool capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs and will be used in this article. Further, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
 
 ## 2 - Store the Data
 
-Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Search indexer and fed through the AI enrichment pipeline.
+Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Cognitive Search indexer and fed through the AI enrichment pipeline.
 
 ### Create an Azure Blob container with the data
 
@@ -79,8 +79,8 @@ You'll find the value for `admin-key` in the Search Service's **Keys** tab. You'
 
 Creating a Knowledge Store requires you to issue four HTTP requests: 
 
-1. A PUT request to create the index. This index holds the data used and returned by Azure Search.
-1. A POST request to create the datasource. This datasource connects your Azure Search behavior to the data and knowledge store's storage account. 
+1. A PUT request to create the index. This index holds the data used and returned by Azure Cognitive Search.
+1. A POST request to create the datasource. This datasource connects your Azure Cognitive Search behavior to the data and knowledge store's storage account. 
 1. A PUT request to create the skillset. The skillset specifies the enrichments applied to your data and the structure of the knowledge store.
 1. A PUT request to create the indexer. Running the indexer reads the data, applies the skillset, and stores the results. You must run this request last.
 
@@ -94,11 +94,11 @@ The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/
 > orange text, as with `{{admin-key}}` in the screenshot. If the variable is misspelled, it will render in red text.
 >
 
-## 4 - Create an Azure Search index
+## 4 - Create an Azure Cognitive Search index
 
-You need to create an Azure Search index to represent the data on which you're interested in searching, filtering, and doing enhancements. You create the index by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman will replace symbols enclosed in double braces, such as `{{search-service-name}}`, `{{index-name}}`, and `{{api-version}}` with the values specified in [Step 3](#3---configure-postman). If you're using another tool to issue your REST commands, you'll have to substitute those variables yourself.
+You need to create an Azure Cognitive Search index to represent the data on which you're interested in searching, filtering, and doing enhancements. You create the index by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman will replace symbols enclosed in double braces, such as `{{search-service-name}}`, `{{index-name}}`, and `{{api-version}}` with the values specified in [Step 3](#3---configure-postman). If you're using another tool to issue your REST commands, you'll have to substitute those variables yourself.
 
-Specify the structure of your Azure Search index in the body of the request. In Postman, after setting the `api-key` and `Content-type` headers, switch to the **Body** pane of the request. You should see the following JSON, but if not, choose **Raw** and **JSON (application/json)** and paste the following code as the body:
+Specify the structure of your Azure Cognitive Search index in the body of the request. In Postman, after setting the `api-key` and `Content-type` headers, switch to the **Body** pane of the request. You should see the following JSON, but if not, choose **Raw** and **JSON (application/json)** and paste the following code as the body:
 
 ```JSON
 {
@@ -139,7 +139,7 @@ Press the **Send** button to issue the PUT request. You should receive the statu
 
 ## 5 - Create the Datasource
 
-Now, you need to connect Azure Search to the hotel data you stored in [Step 2](#2---store-the-data). Creating the datasource is done with a POST to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Again, you'll need to set the `api-key` and `Content-Type` headers as specified previously. 
+Now, you need to connect Azure Cognitive Search to the hotel data you stored in [Step 2](#2---store-the-data). Creating the datasource is done with a POST to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Again, you'll need to set the `api-key` and `Content-Type` headers as specified previously. 
 
 In Postman, open the "Create Datasource" request. Switch to the **Body** pane, which should have the following code:
 
@@ -298,7 +298,7 @@ The final step is to create the indexer, which actually reads the data and activ
 
 The `"parameters/configuration"` object controls how the indexer ingests the data. In this case, the input data are in a single document with a header line and comma-separated values. The document key is a unique identifier for the document, which before encoding is the URL of the source document. Finally, the skillset output values such as language code, sentiment, and key phrases, are mapped to their appropriate locations in the document. Notice that while there's a single value for `Language`, `Sentiment` is applied to each element in the array of `pages`. `Keyphrases` is itself an array and is also applied to each element in the `pages` array.
 
-After you've set the `api-key` and `Content-type` headers and confirmed that the Body of the request is similar to the source code that follows, press **Send** in Postman. Postman will PUT the request to `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search will create and run the indexer. 
+After you've set the `api-key` and `Content-type` headers and confirmed that the Body of the request is similar to the source code that follows, press **Send** in Postman. Postman will PUT the request to `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Cognitive Search will create and run the indexer. 
 
 ```json
 {
@@ -335,7 +335,7 @@ In the Azure portal, navigate to the Search Service's **Overview** and select th
 
 ## Next steps
 
-Now that you've enriched your data using cognitive services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+Now that you've enriched your data using Cognitive Services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
 
 To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
 
