@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the ISO 27001 blueprint sample
 
