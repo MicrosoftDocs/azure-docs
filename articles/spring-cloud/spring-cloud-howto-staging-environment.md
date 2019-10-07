@@ -19,8 +19,9 @@ This article will show you how to leverage a staging deployment using the blue-g
 
 ## Prerequisites
 
-* An Azure Spring Cloud service instance that is already deployed and running. In this article, we use "PiggyMetrics" from our [tutorial on launching an application](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprises three applications: "gateway", "account-service", and "auth-service".
-* [Azure Spring Cloud extension for Azure CLI](spring-cloud-quickstart-launch-app-cli.md) installed.
+This article assumes that you have already deployed the PiggyMetrics application from our [tutorial on launching an application](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprises three applications: "gateway", "account-service", and "auth-service".  
+
+If you have a different application that you'd like to use for this example, you'll need to make a simple change in a public facing portion of the application.  This change differentiates your staging deployment from production.
 
 >[!NOTE]
 > Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us by email: azure-spring-cloud@service.microsoft.com.
@@ -46,11 +47,11 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 	
 ## View all deployments
 
-Go to your service instance in the Azure portal and click **Deployment management** to view all deployments. You can select each deployment for more details.
+Go to your service instance in the Azure portal and select **Deployment management** to view all deployments. You can select each deployment for more details.
 
 ## Create a staging deployment
 
-1. In your local development environment, make a small modification to the Piggy Metric's gateway application. For instance, change the color in `gateway/src/main/resources/static/css/launch.css`. This will allow you to easily differentiate the two deployments in this example. Then, build the jar package by running the following command: 
+1. In your local development environment, make a small modification to the Piggy Metric's gateway application. For instance, change the color in `gateway/src/main/resources/static/css/launch.css`. This will allow you to easily differentiate the two deployments. Run the following command to build the jar package: 
 
     ```azurecli
     mvn clean package
@@ -62,7 +63,7 @@ Go to your service instance in the Azure portal and click **Deployment managemen
     az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. Once deployment completes successfully, access the gateway page from the **Application Dashboard** and see all your instances in **App Instances** tab on the left.
+1. Once the deployment completes successfully, access the gateway page from the **Application Dashboard** and see all your instances in **App Instances** tab on the left.
   
 > [!NOTE]
 > The discovery status is "OUT_OF_SERVICE" so that traffic will not be routed to this deployment before verification is complete.
@@ -74,8 +75,8 @@ Go to your service instance in the Azure portal and click **Deployment managemen
 1. In the **Overview** page, you should see a **Test Endpoint**. Copy and paste it into a new browser page, and you should see the new Piggy Metrics page.
 
 >[!TIP]
-> * You should confirm test endpoint is end with "/" to ensure CSS loading.  
-> * If your browser requires you to enter login credentials to view the page, you should use [URL decode](https://www.urldecoder.org/) to decode your test endpoint, you can get a "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green" URL to use instead of the Azure portal supplied URL.
+> * Confirm that your test endpoint ends with "/" to ensure the CSS loads correctly.  
+> * If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the form "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green".  Use this to access your endpoint.
 
 >[!NOTE]    
 > Config server settings apply to your staging environment as well as production. For example, if you set the context path (`server.servlet.context-path`) for your app gateway in config server as *somepath*, the path to your green deployment changes: "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/..."
@@ -84,17 +85,17 @@ Go to your service instance in the Azure portal and click **Deployment managemen
     
 ## Set the green as production deployment
 
-1. Having verified your change in your staging environment, you can push it to production for the end user. Go back to **Deployment management** and select the checkbox before "gateway" application.
-1. Select "Set deployment".
-1. Select "green" from the "PRODUCTION DEPLOYMENT" menu and select **Apply**
-1. Go to your gateway application **Overview** page. If you have already assigned a domain for your gateway application, the URL will appear on the **Overview** page. Visit the URL and you will see the modified Piggy Metrics page.
+1. Having verified your change in your staging environment, you can push it to production. Return to **Deployment management** and select the checkbox before "gateway" application.
+2. Select "Set deployment".
+3. Select "Green" from the "PRODUCTION DEPLOYMENT" menu and select **Apply**
+4. Go to your gateway application **Overview** page. If you have already assigned a domain for your gateway application, the URL will appear on the **Overview** page. Visit the URL and you will see the modified Piggy Metrics page.
 
 >[!NOTE]
 > Once the green deployment is set to production environment, the previous deployment becomes the staging deployment.
 
 ## Modify the staging deployment
 
-If you are not satisfied with your change, you can modify your application code, build a new jar package, and upload it to your green deployment by Azure CLI.
+If you are not satisfied with your change, you can modify your application code, build a new jar package, and upload it to your green deployment using the Azure CLI.
 
 ```azurecli
 az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
