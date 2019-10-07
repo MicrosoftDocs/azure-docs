@@ -40,7 +40,7 @@ The following example creates a resource group named **myResourceGroupNAT** in t
 ```azurecli-interactive
   az group create \
     --name myResourceGroupNAT \
-    --location westus
+    --location eastus2
 ```
 
 ## Create the NAT Gateway
@@ -64,7 +64,7 @@ You can use one or more public IP address resources or one or more public IP pre
   az network public-ip prefix create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPprefixsource \
-  --length 28
+  --length 31
 ```
 
 ### Create a NAT gateway resource
@@ -94,12 +94,12 @@ We will guide you through configuration of a full test environment and the execu
 
 Before you deploy a VM and can test your NAT gateway, we need to create the virtual network.
 
-Create a virtual network named *myVnetsource* with a subnet named *mySubnetsource* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named *myVnetsource* with a subnet named *mySubnetsource* in the *myResourceGroupNAT* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus \
+    --location eastus2 \
     --name myVnetsource \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetsource \
@@ -112,9 +112,10 @@ We already created the NAT gateway and now configure the source subnet **mySubne
 
 ```azurecli-interactive
     az network vnet subnet update \
+    --resource-group myResourceGroupNAT
     --vnet-name myVnetsource \
     --name mySubnetsource \
-    --nat-gateway myNATsource
+    --nat-gateway myNATgateway
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It is not necessary to configure a UDR.
