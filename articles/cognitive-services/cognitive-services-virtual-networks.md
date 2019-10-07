@@ -62,11 +62,12 @@ You can manage default network access rules for Cognitive Services resources thr
 
 1. Go to the Cognitive Services resource you want to secure.
 
-1. Select on the **RESOURCE MANAGEMENT** menu called **Virtual network**.
+1. Select the **RESOURCE MANAGEMENT** menu called **Virtual network**.
 
    ![Virtual network option](media/vnet/virtual-network-blade.png)
 
-1. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+1. To deny access by default, choose to allow access from **Selected networks**. With the **Selected networks** setting alone, unaccompanied by configured **Virtual networks** or **Address ranges** - all access is effectively denied. When all access is denied, requests attempting to consume the Cognitive Services resource aren't permitted. The Azure portal, Azure PowerShell or, Azure CLI can still be used to configure the Cognitive Services resource.
+1. To allow traffic from all networks, choose to allow access from **All networks**.
 
    ![Virtual networks deny](media/vnet/virtual-network-deny.png)
 
@@ -338,7 +339,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 1. Go to the Cognitive Services resource you want to secure.
 
-1. Select on the **RESOURCE MANAGEMENT** menu called **Virtual network**.
+1. Select the **RESOURCE MANAGEMENT** menu called **Virtual network**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 
