@@ -43,7 +43,7 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 
 
 
-#### [V3 prediction response](#tab/V3-3)
+#### [V3 response](#tab/V3-3)
 
 ```JSON
 {
@@ -84,7 +84,7 @@ If your chatbot or LUIS-calling app makes a decision based on more than one inte
 
 
 
-#### [V3 prediction response](#tab/V3-5)
+#### [V3 response](#tab/V3-5)
 
 Set the querystring parameter, `show-all-intents=true`. The endpoint response is:
 
@@ -145,7 +145,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 
 
-#### [V3 prediction response](#tab/V3-7)
+#### [V3 response](#tab/V3-7)
 
 ```JSON
 {
@@ -212,7 +212,7 @@ All entities are returned in the **entities** array of the response from the end
 
 
 
-#### [V3 prediction response](#tab/V3-9)
+#### [V3 response](#tab/V3-9)
 
 ```JSON
 "entities": {
@@ -269,7 +269,7 @@ A [composite entity](reference-entity-composite.md) is made up of other entities
 
 
 
-#### [V3 prediction response](#tab/V3-11)
+#### [V3 response](#tab/V3-11)
 
 Without the querystring parameter, `verbose=true`:
 
@@ -312,7 +312,7 @@ Without the querystring parameter, `verbose=true`:
     ]
 }
 ```
-#### [V3 prediction verbose response](#tab/V3-verbose-12)
+#### [V3 verbose response](#tab/V3-verbose-12)
 
 With the querystring parameter, `verbose=true`:
 
@@ -560,7 +560,7 @@ Roles are contextual differences of entities.
 
 
 
-#### [V3 prediction response](#tab/V3-14)
+#### [V3 response](#tab/V3-14)
 
 In V3, the **role name** is the primary name of the object. 
 
@@ -581,7 +581,7 @@ Without the querystring parameter, `verbose=true`:
     ]
 }
 ```
-#### [V3 prediction verbose response](#tab/V3-verbose-15)
+#### [V3 verbose response](#tab/V3-verbose-15)
 With the querystring parameter, `verbose=true`:
 
 ```json
@@ -713,7 +713,7 @@ The key phrase extraction entity returns key phrases in the utterance, provided 
 
 
 
-#### [V3 prediction response](#tab/V3-17)
+#### [V3 response](#tab/V3-17)
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
@@ -728,7 +728,7 @@ Without the querystring parameter, `verbose=true`:
     ]
 }
 ```
-#### [V3 prediction verbose response](#tab/V3-verbose-18)
+#### [V3 verbose response](#tab/V3-verbose-18)
 With the querystring parameter, `verbose=true`:
 
 ```json
@@ -826,7 +826,7 @@ The LUIS endpoint can discover the same data in different entities.
 
 
 
-#### [V3 prediction response](#tab/V3-20)
+#### [V3 response](#tab/V3-20)
 
 Without `verbose=true` as a querystring parameter.
 
@@ -864,7 +864,7 @@ Without `verbose=true` as a querystring parameter.
     ]
 }
 ```
-#### [V3 prediction verbose response](#tab/V3-verbose-21)
+#### [V3 verbose response](#tab/V3-verbose-21)
 With `verbose=true` as a querystring parameter.
 
 
@@ -1141,7 +1141,7 @@ For the query `when is the best time to go to red rock?`, and the app has the wo
 
 
 
-#### [V3 prediction response](#tab/V3-23)
+#### [V3 response](#tab/V3-23)
 
 Without `verbose=true` in the query string:
 
@@ -1170,7 +1170,7 @@ Without `verbose=true` in the query string:
     }
 }
 ```
-#### [V3 prediction verbose response](#tab/V3-verbose-24)
+#### [V3 verbose response](#tab/V3-verbose-24)
 
 With `verbose=true` in the query string:
 
