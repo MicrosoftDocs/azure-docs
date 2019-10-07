@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # How to update an existing blueprint assignment
 
