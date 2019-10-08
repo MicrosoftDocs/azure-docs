@@ -20,7 +20,7 @@ This quickstart shows you how to prepare an existing Java Spring Cloud applicati
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Both Java 8 and Java 11 are supported. The hosting environment contains the latest Azul Zulu OpenJDK for Azure. Refer to [this article](https://docs.microsoft.com/azure/java/jdk/java-jdk-install). for more information about Azul Zulu OpenJDK for Azure. 
+Both Java 8 and Java 11 are supported. The hosting environment contains the latest Azul Zulu OpenJDK for Azure. Refer to [this article](https://docs.microsoft.com/azure/java/jdk/java-jdk-install) for more information about Azul Zulu OpenJDK for Azure. 
 
 ## Spring Boot and Spring Cloud versions
 
