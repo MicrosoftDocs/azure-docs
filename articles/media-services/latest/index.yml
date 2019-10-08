@@ -61,7 +61,25 @@ landingContent:
             url: https://github.com/Azure-Samples/media-services-v3-java
           - text: REST Postman collection samples
             url: https://github.com/Azure-Samples/media-services-v3-rest-postman
-                        
+  
+# Card
+  - title: Stream live
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Packaging
+            url: dynamic-packaging-overview.md                               
+          - text: Live Streaming
+            url: live-streaming-overview.md           
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+          - text: Player clients
+            url: use-azure-media-player.md  
+      - linkListType: tutorial
+        links:
+          - text: Stream live
+            url: stream-live-tutorial-with-api.md
+
 # Card
   - title: Stream on demand
     linkLists:
@@ -83,24 +101,6 @@ landingContent:
             url: stream-files-tutorial-with-rest.md
           - text: Encode uploaded file and stream
             url: stream-files-tutorial-with-api.md
-  
-# Card
-  - title: Stream live
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Packaging
-            url: dynamic-packaging-overview.md                               
-          - text: Live Streaming
-            url: live-streaming-overview.md           
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
-          - text: Player clients
-            url: use-azure-media-player.md  
-      - linkListType: tutorial
-        links:
-          - text: Stream live
-            url: stream-live-tutorial-with-api.md
   
 # Card
   - title: Encrypt content
