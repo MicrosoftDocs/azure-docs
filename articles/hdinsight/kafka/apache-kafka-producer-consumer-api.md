@@ -148,11 +148,10 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     export password='PASSWORD'
     ```
 
-1. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following command:
+1. To get the Kafka broker hosts, use the following command:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-    | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
 1. Create Kafka topic, `myTest`, by entering the following command:
