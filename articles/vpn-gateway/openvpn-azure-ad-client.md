@@ -32,7 +32,7 @@ When working with a certificate-based profile, make sure that the appropriate ce
 
 Once you have a working profile and need to distribute it to other users, you can export it using the following steps:
 
-1. Hi-lite the VPN client profile that you want to export, click the **...**, then click **Export**.
+1. Hilight the VPN client profile that you want to export, click the **...**, then click **Export**.
 
     ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
@@ -134,4 +134,4 @@ These steps help you configure your connection to connect automatically with Alw
 
 ## Next steps
 
-For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use AAD authentication](openvpn-azure-ad-tenant.md).
