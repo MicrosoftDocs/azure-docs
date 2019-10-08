@@ -119,6 +119,8 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
+<a name="how-azure-search-indexes-blobs"></a>
+
 ## How Azure Cognitive Search indexes blobs
 
 Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content.
