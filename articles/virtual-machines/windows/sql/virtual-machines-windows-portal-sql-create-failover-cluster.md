@@ -78,7 +78,7 @@ Additionally, you should have a general understanding of the following technolog
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the FCI and then register them with the SQL VM resouce provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 ### What to have
 
