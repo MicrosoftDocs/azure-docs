@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: magoedte
 ---
 
@@ -121,7 +121,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          fielddrop = ["metric_to_drop"] ​
         ```
 
-        - Scrape Prometheus metrics by specifying a pod annotation.
+        - Scrape Prometheus metrics by specifying a pod annotation in your pod so the agent knows where to scrape metrics from for your specific pod(s).
 
         ```
          prometheus-data-collection-settings: |- ​
