@@ -96,10 +96,7 @@ The "Bek volume" is a local data volume that securely stores the encryption keys
 Azure Disk Encryption uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
-No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](disk-encryption-windows.md#use-encryptformatall-feature-for-data-disks-on-windows-vms).        
-
-## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-windows.md#use-encryptformatall-feature-for-data-disks-on-windows-vms).
+No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 
 
 ## Can I backup and restore an encrypted VM? 
 

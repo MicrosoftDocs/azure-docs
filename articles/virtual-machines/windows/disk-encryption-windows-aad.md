@@ -258,7 +258,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Enable encryption using Azure AD client certificate-based authentication.
-You can use client certificate authentication with or without KEK. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-overview-aad.md#bkmk_Cert) section of the prerequisites article.
+You can use client certificate authentication with or without KEK. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-key-vault-aad.md#certificate-based-authentication-optional) section of the prerequisites article.
 
 
 ### Enable encryption using certificate-based authentication with Azure PowerShell

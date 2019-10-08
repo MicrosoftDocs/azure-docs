@@ -234,6 +234,10 @@
     items:
     - name: Security and policy
       href: security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machines-windows-security-controls.md
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
@@ -242,8 +246,6 @@
     href: backup-recovery.md
   - name: Infrastructure example
     href: infrastructure-example.md
-  - name: Built-in security controls
-    href: virtual-machines-windows-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -286,8 +288,31 @@
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
-      href: encrypt-disks.md
-      displayName: encryption
+      items:
+        - name: Disk encryption scenarios for Windows
+          href: disk-encryption-windows.md
+        - name: VM encryption with Azure CLI
+          href: disk-encryption-cli-quickstart.md
+        - name: VM encryption with Azure PowerShell
+          href: disk-encryption-powershell-quickstart.md
+        - name: VM encryption with Azure portal
+          href: disk-encryption-portal-quickstart.md
+        - name: Key vault for Azure Disk Encryption
+          href: disk-encryption-key-vault.md
+        - name: Disk encryption sample scripts
+          href: disk-encryption-sample-scripts.md
+        - name: Disk encryption troubleshooting
+          href: disk-encryption-troubleshooting.md
+        - name: Disk encryption FAQ
+          href: disk-encryption-faq.md
+        - name: Disk encryption - previous version (AAD)
+          items:
+          - name: Overview
+            href: disk-encryption-overview-aad.md
+          - name: Key vault for Azure Disk Encryption
+            href: disk-encryption-key-vault-aad.md
+          - name: Disk encryption scenarios for Windows
+            href: disk-encryption-windows-aad.md
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls

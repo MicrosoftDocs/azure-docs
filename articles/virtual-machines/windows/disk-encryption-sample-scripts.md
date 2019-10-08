@@ -67,7 +67,7 @@ The sections that follow are necessary to prepare a pre-encrypted Windows VHD fo
 ### Update group policy to allow non-TPM for OS protection
 Configure the BitLocker Group Policy setting **BitLocker Drive Encryption**, which you'll find under **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components**. Change this setting to **Operating System Drives** > **Require additional authentication at startup** > **Allow BitLocker without a compatible TPM**, as shown in the following figure:
 
-![Microsoft Antimalware in Azure](../media/azure-security-disk-encryption/disk-encryption-fig8.png)
+![Microsoft Antimalware in Azure](../media/disk-encryption/disk-encryption-fig8.png)
 
 ### Install BitLocker feature components
 For Windows Server 2012 and later, use the following command:
