@@ -45,7 +45,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
-* Download [the templates and the artifacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) that is used by this tutorial.
+* Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) that is used by this tutorial.
 
 ## Create a health check service simulator
 
@@ -53,8 +53,8 @@ In production, you typically use one or more monitoring providers. In order to m
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
-* A Resource Manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
-* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
+* A Resource Manager template located in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
+* A zip file of the Azure Function source code stored in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
 
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**.
 
@@ -68,7 +68,7 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 To verify and test the Azure function:
@@ -232,8 +232,8 @@ The purpose of this section is to show you how to include a health check step in
 
 To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Artifacts store: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: https:\//raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/ADMTemplates/CreateADMServiceTopology.json
+* Artifacts store: https:\//github.com/Azure/azure-docs-json-samples/tree/master/tutorial-adm/ArtifactStore
 
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
