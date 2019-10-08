@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Custom voice-first virtual assistant, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Cognitive Services Speech Software Development Kit (SDK) in a Java console application. You will learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice-first virtual assistant experience.
 services: cognitive-services
@@ -29,7 +29,7 @@ This quickstart requires:
 * A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
 
     > [!NOTE]
-    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
 
 If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse:
 
@@ -141,7 +141,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     * Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
     > [!NOTE]
-    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret

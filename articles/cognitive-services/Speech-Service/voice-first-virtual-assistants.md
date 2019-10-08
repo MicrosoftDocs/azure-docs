@@ -1,5 +1,5 @@
 ---
-title: Custom voice-first virtual assistants (Preview) - Speech Service
+title: Custom voice-first virtual assistants - Speech Service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for custom voice-first virtual assistants using the Direct Line Speech channel on the Bot Framework and the Cognitive Services Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: travisw
 ---
 
-# About custom voice-first virtual assistants preview
+# About custom voice-first virtual assistants
 
 Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. These bots can use Microsoft's Language Understanding (LUIS) for natural language interaction. Direct Line Speech is accessed by devices using the Speech Software Development Kit (SDK).
 

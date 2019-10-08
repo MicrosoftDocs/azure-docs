@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: travisw
 ---
 
-# Voice-first virtual assistants Preview: Frequently asked questions
+# Voice-first virtual assistants: Frequently asked questions
 
 If you can't find answers to your questions in this document, check out [other support options](support.md).
 
@@ -30,7 +30,7 @@ If you can't find answers to your questions in this document, check out [other s
 
 **Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** In preview, Direct Line Speech has specific limitations on which subscriptions you can use. Ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Only [a subset of Speech Services regions](regions.md#voice-first-virtual-assistants) are currently supported for Direct Line Speech.
+**A:** When managing your subscription on the Azure Portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice-first virtual assistants](regions.md#voice-first-virtual-assistants).
 
 ![correct subscription for direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 

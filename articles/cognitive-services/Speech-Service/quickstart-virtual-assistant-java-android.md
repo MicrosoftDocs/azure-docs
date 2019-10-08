@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Service'
+title: 'Quickstart: Custom voice-first virtual assistant, Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a voice-first virtual assistant application in Java on Android using the Speech SDK
 services: cognitive-services
@@ -30,7 +30,7 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 * [Android Studio](https://developer.android.com/studio/) v3.3 or later
 
     > [!NOTE]
-    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure a project
 
