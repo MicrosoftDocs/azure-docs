@@ -97,11 +97,11 @@ select **Sign in to Azure**.
 1. Copy the authentication code, and then choose **Copy & Open**, 
 which opens a new browser window.
 
-   ![Copy authentication code to use for sign in](./media/create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
+   ![Copy authentication code to use for Azure sign-in](./media/create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
 1. Enter your authentication code. When prompted, choose **Continue**.
 
-   ![To sign in, enter authentication code](./media/create-logic-apps-visual-studio-code/authentication-code.png)
+   ![Enter authentication code for Azure sign-in](./media/create-logic-apps-visual-studio-code/authentication-code.png)
 
 1. Select your Azure account. After you sign in, 
 you can close your browser, and return to Visual Studio Code.
