@@ -12,7 +12,7 @@ manager: dikamath
 
 # Networking prerequisites for Azure VMware Solution by CloudSimple
 
-Azure VMware Solution by CloudSimple offers a VMware private cloud environment that's accessible for users and applications from on-premises environments, from enterprise managed devices, and from Azure resources. The connectivity is delivered through networking services such as VPNs and ExpressRoute connections. Some of these networking services require you to specify network address ranges for enabling the services. Tables in this article describe the set of address ranges and corresponding services that use the specified addresses. Some of the addresses are mandatory and some depend on the services you want to deploy. These address spaces should not overlap with any of your on-premises subnets, Azure Virtual Network subnets, or planned CloudSimple workload subnets.
+Azure VMware Solution by CloudSimple offers a VMware private cloud environment that's accessible for users and applications from on-premises environments, enterprise-managed devices, and Azure resources. The connectivity is delivered through networking services such as VPNs and ExpressRoute connections. Some of these networking services require you to specify network address ranges for enabling the services. Tables in this article describe the set of address ranges and corresponding services that use the specified addresses. Some of the addresses are mandatory and some depend on the services you want to deploy. These address spaces should not overlap with any of your on-premises subnets, Azure Virtual Network subnets, or planned CloudSimple workload subnets.
 
 ## Network address ranges required for creating a private cloud
 
@@ -47,11 +47,11 @@ A point-to-site VPN connection enables access to the CloudSimple network from a 
 
 | Address/address range | Description                                                                                                                                                                                                                                                                                                  |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Client subnet         | DHCP addresses are provided by the client subnet when you connect by using a point-to-site VPN. This subnet is required while creating a point-to-site VPN gateway on CloudSimple portal.  The network is divided into two subnets; one is used for UDP connection and the other for TCP connections. |
+| Client subnet         | DHCP addresses are provided by the client subnet when you connect by using a point-to-site VPN. This subnet is required while creating a point-to-site VPN gateway on a CloudSimple portal.  The network is divided into two subnets; one for the UDP connection and the other for TCP connections. |
 
 ## Next steps
 
-* [Quickstart - Create CloudSimple service](quickstart-create-cloudsimple-service.md)
-* [quickstart-create-private-cloud](quickstart-create-private-cloud.md)
+* [Quickstart - Create a CloudSimple service](quickstart-create-cloudsimple-service.md)
+* [Quickstart- Configure a private cloud](quickstart-create-private-cloud.md)
 * Learn more about [Azure network connections](cloudsimple-azure-network-connection.md)
 * Learn more about [VPN gateways](cloudsimple-vpn-gateways.md)
