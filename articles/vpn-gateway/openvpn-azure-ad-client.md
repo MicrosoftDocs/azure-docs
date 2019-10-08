@@ -32,29 +32,29 @@ When working with a certificate-based profile, make sure that the appropriate ce
 
 Once you have a working profile and need to distribute it to other users, you can export it using the following steps:
 
-1. Hilight the VPN client profile that you want to export, click the **...**, then click **Export**.
+1. Hilight the VPN client profile that you want to export, select the **...**, then select **Export**.
 
     ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
-2. Select the location that you want to save this profile to, leave the file name as is, then click **Save** to save the xml file.
+2. Select the location that you want to save this profile to, leave the file name as is, then select **Save** to save the xml file.
 
     ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>To import a client profile
 
-1. On the page, click **Import**.
+1. On the page, select **Import**.
 
     ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Browse to the profile xml file and select it. With the file selected, click **Open**.
+2. Browse to the profile xml file and select it. With the file selected, select **Open**.
 
     ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. Specify the name of the profile and click **Save**.
+3. Specify the name of the profile and select **Save**.
 
     ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
 
-4. Click **Connect** to connect to the VPN.
+4. Select **Connect** to connect to the VPN.
 
     ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
@@ -64,29 +64,29 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 ### <a name="delete"></a>To delete a client profile
 
-1. Select the ellipses next to the client profile that you want to delete. Then, click **Remove**.
+1. Select the ellipses next to the client profile that you want to delete. Then, select **Remove**.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
-2. Click **Remove** to delete.
+2. Select **Remove** to delete.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>Create a connection
 
-1. On the page, click **+**, then **+ Add**.
+1. On the page, select **+**, then **+ Add**.
 
     ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Fill out the connection information. If you are unsure of the values, contact your administrator. After filling out the values, click **Save**.
+2. Fill out the connection information. If you are unsure of the values, contact your administrator. After filling out the values, select **Save**.
 
     ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
 
-3. Click **Connect** to connect to the VPN.
+3. Select **Connect** to connect to the VPN.
 
     ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Select the proper credentials, then click **Continue**.
+4. Select the proper credentials, then select **Continue**.
 
     ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
 
@@ -98,11 +98,11 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 These steps help you configure your connection to connect automatically with Always-on.
 
-1. On the home page for your VPN client, click **VPN Settings**.
+1. On the home page for your VPN client, select **VPN Settings**.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
-2. Click **Yes** on the switch apps dialogue box.
+2. Select **Yes** on the switch apps dialogue box.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
@@ -110,17 +110,17 @@ These steps help you configure your connection to connect automatically with Alw
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
-4. Click **Connect** to initiate the VPN connection.
+4. Select **Connect** to initiate the VPN connection.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose"></a>Diagnose connection issues
 
-1. To diagnose connection issues, you can use the **Diagnose** tool. Click the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then click **Diagnose**.
+1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. On the **Connection Properties** page, click **Run Diagnosis**.
+2. On the **Connection Properties** page, select **Run Diagnosis**.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
