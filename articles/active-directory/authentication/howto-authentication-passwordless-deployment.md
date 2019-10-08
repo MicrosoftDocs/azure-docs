@@ -48,7 +48,7 @@ Microsoft’s passwordless authentication methods enable different scenarios. Co
 
 ### Passwordless authentication scenarios
 
-| Requirements and Scenarios | Phone Authentication | Security keys | Windows Hello for Business |
+| Scenario | Phone authentication | Security keys | Windows Hello for Business |
 | --- | --- | --- | --- |
 | **Computer sign in**: <br> From assigned Windows 10 device | **No** | **Yes** <br> With biometric, PIN | **Yes**<br>with biometric recognition and or PIN |
 | **Computer sign in**: <br> From shared Windows 10 device | **No** | **Yes** <br> With biometric, PIN  | **No** |
@@ -129,9 +129,9 @@ The following table outlines the use cases to be implemented during this project
 | Area | Description |
 | --- | --- |
 | **Access** | Passwordless sign in is available from a corporate or personal device within or outside the corporate network. |
-| **Auditing** | Usage data is available to administrators to audit in near real time. <br> Usage data is downloaded into corporate systems at least every 29 days, or Azure Monitor is used. |
-| **Governance** | Lifecycle of user assignments to appropriate Authentication Method and associated groups is defined and monitored. |
-| **Security** | Access to appropriate Authentication Method is controlled via user and group assignments. <br> Only authorized users can use passwordless sign in. |
+| **Auditing** | Usage data is available to administrators to audit in near real time. <br> Usage data is downloaded into corporate systems at least every 29 days, or SIEM tool is used. |
+| **Governance** | Lifecycle of user assignments to appropriate authentication method and associated groups is defined and monitored. |
+| **Security** | Access to appropriate authentication method is controlled via user and group assignments. <br> Only authorized users can use passwordless sign in. |
 | **Performance** | Access assignment propagation timelines are documented and monitored. <br> Sign in times is measured for ease of use. |
 | **User Experience** | Users are aware of mobile compatibility. <br> Users can configure the Authenticator app passwordless sign in. |
 | **Support** | Users are aware of how to find support for passwordless sign in issues. |
@@ -162,12 +162,12 @@ At each stage of your deployment, ensure that you’re testing that results are 
 
 The following are sample test cases for passwordless authentication with the Microsoft Authenticator app
 
-| Scenario| Expected results |
+| Scenario | Expected results |
 | --- | --- |
 | User can register Microsoft Authenticator app | User can register app from aka.ms/mysecurityinfo |
 | User can enable phone sign in | Phone sign in configured for work account |
 | User can access an app with phone sign in | User goes through phone sign in flow and reaches designated application. |
-| Test rolling back phone sign in registration by turning off Microsoft Authenticator passwordless sign in within the Authentication Methods screen in the Azure Active Directory portal | Previously enabled users unable to use passwordless sign in from Microsoft Authenticator. |
+| Test rolling back phone sign in registration by turning off Microsoft Authenticator passwordless sign in within the Authentication methods screen in the Azure Active Directory portal | Previously enabled users unable to use passwordless sign in from Microsoft Authenticator. |
 | Removing phone sign in from Microsoft Authenticator app | Work account no longer available on Microsoft Authenticator |
 
 #### Testing security keys
@@ -208,7 +208,7 @@ Azure AD adds entries to the audit logs when:
 
 The table below provides some examples of typical reporting scenarios.
 
-|   | Manage Risk | Increase productivity | Governance and compliance |
+|   | Manage risk | Increase productivity | Governance and compliance |
 | --- | --- | --- | --- |
 | **Report types** | Authentication methods- users registered for combined security registration | Authentication methods – users registered for app notification | Sign-ins: review who is accessing the tenant and how |
 | **Potential actions** | Target users not yet registered | Drive adoption of Microsoft Authenticator app or security keys | Revoke access or enforce additional security policies for admins |
