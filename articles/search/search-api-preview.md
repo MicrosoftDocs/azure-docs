@@ -45,7 +45,7 @@ Azure Cognitive Search service is available in multiple versions. For more infor
 
 ## Next steps
 
-Review the Azure Cognitive Search Service REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Azure Cognitive Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)

@@ -143,7 +143,7 @@ You can define a fielded search operation with the **fieldName:searchExpression*
 
 Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. Also, ensure the operator is capitalized as you see with NOT and AND.
 
-The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
+The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
 > [!NOTE]
 > In the example above, we did not need to use the `searchFields` parameter because each part of the query has a field name explicitly specified. However, you can still use the `searchFields` parameter if you want to run a query where some parts are scoped to a specific field, and the rest could apply to several fields. For example, the query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` would match `senior NOT junior` only to the `business_title` field, while it would match "external" with the `posting_type` field. The field name provided in **fieldName:searchExpression** always takes precedence over the `searchFields` parameter, which is why in this example, we do not need to include `business_title` in the `searchFields` parameter.

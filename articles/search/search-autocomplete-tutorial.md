@@ -297,7 +297,7 @@ Until now, you've been using the hosted NYCJobs demo index. If you want full vis
 
 1. In the DataLoader folder of the NYCJobs sample code, open **DataLoader.sln** in Visual Studio.
 
-1. Add the connection information for your Azure Cognitive Search service. Open the App.config within the DataLoader project and change the TargetSearchServiceName and TargetSearchServiceApiKey appSettings to reflect your Azure Cognitive Search service and Azure Cognitive Search Service API Key. This information can be found in the Azure portal.
+1. Add the connection information for your Azure Cognitive Search service. Open the App.config within the DataLoader project and change the TargetSearchServiceName and TargetSearchServiceApiKey appSettings to reflect your Azure Cognitive Search service and Azure Cognitive Search service API Key. This information can be found in the Azure portal.
 
 1. Press F5 to launch the application, creating two indexes and importing the NYCJob sample data.
 

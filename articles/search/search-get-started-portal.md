@@ -20,22 +20,22 @@ ms.date: 10/04/2019
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against an index within minutes.
+For a fast ramp up on Azure Cognitive Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against an index within minutes.
 
 > [!div class="checklist"]
 > * Start with a free public sample data set hosted on Azure
-> * Run the **Import data** wizard in Azure Search to load data and generate an index
+> * Run the **Import data** wizard in Azure Cognitive Search to load data and generate an index
 > * Monitor indexing progress in the portal
 > * View an existing index and options for modifying it
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**
 
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+If the tools are too limiting, you can consider a [code-based introduction to programming Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 

@@ -21,7 +21,7 @@ ms.date: 10/04/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure Cognitive Search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable),  and the [Azure Cognitive Search Service REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries an Azure Cognitive Search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable),  and the [Azure Cognitive Search REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -691,7 +691,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
 1. Add the following code to the `SearchServiceClient` class. This code builds Azure Cognitive Search REST service URLs to search the indexed data and prints the search results.
 
-    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Cognitive Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Cognitive Search Service REST API)](/rest/api/searchservice/search-documents).
+    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Cognitive Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents).
 
     The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
 

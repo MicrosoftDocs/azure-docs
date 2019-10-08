@@ -1,7 +1,7 @@
 ---
 title: moreLikeThis (preview) query feature
 titleSuffix: Azure Cognitive Search
-description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure Search REST API.
+description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure Cognitive Search REST API.
 
 manager: nitinme
 author: brjohnstmsft
@@ -45,4 +45,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 You can use any web testing tool to experiment with this feature.  We recommend using Postman for this exercise.
 
 > [!div class="nextstepaction"]
-> [Explore Azure Search REST APIs using Postman](search-get-started-postman.md)
+> [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md)

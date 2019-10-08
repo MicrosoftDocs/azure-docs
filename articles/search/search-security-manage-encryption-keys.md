@@ -162,7 +162,7 @@ If you are using an AAD application for Key Vault authentication instead of usin
 ```
 
 ## Example: Index encryption
-The details of creating a new index via the REST API could be found at [Create Index (Azure Cognitive Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition: 
+The details of creating a new index via the REST API could be found at [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition: 
 
 ```json
 {
@@ -190,7 +190,7 @@ You can now send the index creation request, and then start using the index norm
 
 ## Example: Synonym map encryption
 
-The details of creating a new synonym map via the REST API can be found at [Create Synonym Map (Azure Cognitive Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), where the only difference here is specifying the encryption key details as part of the synonym map definition: 
+The details of creating a new synonym map via the REST API can be found at [Create Synonym Map (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), where the only difference here is specifying the encryption key details as part of the synonym map definition: 
 
 ```json
 {   

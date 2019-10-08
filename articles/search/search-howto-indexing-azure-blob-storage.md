@@ -16,6 +16,8 @@ ms.date: 10/04/2019
 
 This article shows how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
+<a name="SupportedFormats"></a>
+
 ## Supported document formats
 The blob indexer can extract text from the following document formats:
 
