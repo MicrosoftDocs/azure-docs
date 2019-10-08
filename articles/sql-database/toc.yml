@@ -742,6 +742,8 @@
       items:
       - name: Public endpoint
         href: sql-database-managed-instance-public-endpoint-configure.md
+      - name: Configure connection types
+        href: sql-database-managed-instance-connection-type.md
       - name: Client VM connection
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
@@ -871,6 +873,14 @@
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/sql-azure
+  - name: Troubleshoot
+    items:
+    - name: Connectivity issues
+      href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+    - name: Problem resolution
+      items: 
+      - name: Import/Export service hangs
+        href: azure-sql-database-hangs-importing-exporting.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
