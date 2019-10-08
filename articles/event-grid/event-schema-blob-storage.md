@@ -317,8 +317,6 @@ The data object has the following properties:
 | recursive | string | `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | sequencer | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
 | storageDiagnostics | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
-|Property|Type|Description|
-|-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## Next steps
 

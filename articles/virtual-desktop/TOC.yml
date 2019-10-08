@@ -54,7 +54,7 @@
     href: install-office-on-wvd-master-image.md
   - name: Configure GPU for Windows Virtual Desktop
     href: configure-vm-gpu.md
-  - name: Automatically scale session hosts
+  - name: Scale session hosts dynamically
     href: set-up-scaling-script.md
   - name: Customize feed for Windows Virtual Desktop users
     href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify issues with the diagnostics feature
+  - name: Identify and diagnose issues
     href: diagnostics-role-service.md
   - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md
@@ -106,6 +106,10 @@
     href: /rest/api/virtual-desktop/
 - name: Resources
   items:
+  - name: Experience estimator
+    href: https://azure.microsoft.com/services/virtual-desktop/assessment/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum
