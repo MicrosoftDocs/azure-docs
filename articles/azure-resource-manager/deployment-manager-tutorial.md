@@ -77,7 +77,7 @@ There are two services allocated in the west U.S. and the east U.S. locations.  
 
 ## Download the tutorial files
 
-1. Download [the templates and the artifacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) used by this tutorial.
+1. Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) used by this tutorial.
 2. Unzip the files to your location computer.
 
 Under the root folder, there are two folders:
