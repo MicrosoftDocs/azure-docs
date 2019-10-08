@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: dapine
 ---
 
@@ -16,7 +16,7 @@ ms.author: dapine
 
 <!--
     ACOM forward link:
-    https://docs.microsoft.com/en-us/azure/cognitive-services/translator/howto-install-containers
+    https://docs.microsoft.com/azure/cognitive-services/translator/howto-install-containers
 -->
 
 Containers enable you to run the Translator Text APIs in your own environment and are great for specific security and data governance requirements.
@@ -50,7 +50,7 @@ The host is an x64-based computer with a Linux OS that runs the Docker container
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Translator Text container.
 
-| Container | Minimum | Language Pair |
+| Container | Minimum | Language pair |
 |-----------|---------|---------------|
 | Translator Text | 4 core, 4 GB memory | 4 |
 
@@ -60,7 +60,7 @@ For every language pair, it's recommended to have 1 GB of memory. By default, th
 
 Container images for Translator Text are available in the following container repository. The table also maps the container image tags and their corresponding supported languages.
 
-| Container | Image Tag | Languages Supported |
+| Container | Image tag | Languages supported |
 |-----------|-----------|---------------------|
 | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` | `ar_de_en_ru_zh_1.0.0` | `ar-SA`, `zh-CN`, `de-DE`, and `ru-RU` |
 | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` | `de_en_es_fr_1.0.0` | `de-DE`, `fr-FR`, and `es-ES` |
@@ -69,7 +69,7 @@ Container images for Translator Text are available in the following container re
 
 ### Docker pull for the Translator Text container
 
-To perform the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need access to the container registry. From the Azure CLI you can login to the Azure Container Registry using the [`az acr login`](https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-login) command.
+To perform the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need access to the container registry. From the Azure CLI you can login to the Azure Container Registry using the [`az acr login`](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-login) command.
 
 ```azureinteractive
 az acr login --name containerpreview.azurecr.io
@@ -137,7 +137,7 @@ The `POST /translate` method supports the following languages conversions, movin
 > [!NOTE]
 > For optimal quality, consumers should only send one sentence per request.
 
-| Language Conversion | Language ISO Conversion | Image Tags |
+| Language conversion | Language ISO conversion | Image tags |
 |--|--|:--|
 | English :left_right_arrow: Chinese | `en-US` :left_right_arrow: `zh-CN` | `ar_de_en_ru_zh_1.0.0` |
 | English :left_right_arrow: Russian | `en-US` :left_right_arrow: `ru-RU` | `ar_de_en_ru_zh_1.0.0` |
@@ -209,7 +209,7 @@ Navigate to the swagger page, http://localhost:5000/swagger/index.html
 1. Launch Visual Studio, and create a new console application.
 1. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node - this specifies C# 7.1.
 1. Add the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
-1. In the `Program.cs` replace all the existing code with the following:
+1. In `Program.cs`, replace all the existing code with the following:
     ```csharp
     using Newtonsoft.Json;
     using System;
@@ -291,3 +291,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Container images are downloaded from the "Container Preview" registry.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Translator Text containers by specifying the host URI of the container.
+
+## Next steps
+
+* Review [Configure containers](translator-text-container-config.md) for configuration settings
+* Refer to [container frequently asked questions (FAQ)](../containers/container-faq.md) to resolve issues related to functionality.
