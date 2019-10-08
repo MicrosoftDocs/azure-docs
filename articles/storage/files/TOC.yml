@@ -25,7 +25,7 @@
   items:
   - name: Planning for an Azure Files deployment
     href: storage-files-planning.md
-  - name: Planning for Azure File Sync
+  - name: Planning for an Azure File Sync deployment
     href: storage-sync-files-planning.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
