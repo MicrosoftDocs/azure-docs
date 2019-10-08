@@ -236,7 +236,7 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
-The following command forces the site to use https.
+The following command forces the app to use https.
 
 ```azurecli-interactive
 az webapp update \
