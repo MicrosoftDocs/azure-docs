@@ -23,7 +23,7 @@ Due to the increased risk associated with legacy authentication protocols, Micro
 
 The following steps will help create a Conditional Access policy to block legacy authentication requests.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
