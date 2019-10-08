@@ -14,7 +14,7 @@ ms.author: sngun
 # Azure Cosmos DB .NET SDK for SQL API: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET](sql-api-sdk-dotnet-standard.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
