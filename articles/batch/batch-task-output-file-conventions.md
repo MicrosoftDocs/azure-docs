@@ -64,7 +64,7 @@ To persist job and task output data with the File Conventions library, create a 
 For more information about working with containers and blobs in Azure Storage, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, [storage throttling limits](../storage/common/storage-performance-checklist.md#blobs) may be enforced.
+> All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, Azure Storage throttling limits may be enforced. For more information about throttling limits, see [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist-blobs.md).
 
 ### Create storage container
 

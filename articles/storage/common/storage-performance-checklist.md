@@ -28,7 +28,7 @@ For proven practices specific to each Azure Storage service, see:
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
 | &nbsp; | Azure Storage |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#scalability-targets) |
-| &nbsp; | Azure Storage |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partition-naming-convention) |
+| &nbsp; | Azure Storage |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
 | &nbsp; | Azure Storage |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; | Azure Storage |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; | Azure Storage |Networking |[Is the client application in the same region as the storage account?](#location) |
@@ -36,9 +36,10 @@ For proven practices specific to each Azure Storage service, see:
 | &nbsp; | Azure Storage |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; | Azure Storage |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
 | &nbsp; | Azure Storage |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
+| &nbsp; | Azure Storage |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
 | &nbsp; | Azure Storage |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
 | &nbsp; | Azure Storage |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; | Azure Storage |.NET Configuration |[For .NET applications, are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
+| &nbsp; | Azure Storage |.NET Configuration |[For .NET framework applications, are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
 | &nbsp; | Azure Storage |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
 | &nbsp; | Azure Storage |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; | Azure Storage |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#throttling-and-server-busy-errors) |
@@ -51,8 +52,8 @@ Each of the Azure Storage services has scalability targets for capacity, transac
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes for some storage transactions. This section discusses how to design for scalability targets, and for bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
 - [Blob bandwidth and requests per second](#bandwidth-and-operations-per-blob)
-- [Table entities per second](#subheading24)
-- [Queue messages per second](#subheading39)  
+- Table entities per second
+- Queue messages per second  
 
 ### Approaching a scalability target
 
@@ -69,9 +70,9 @@ If your application is approaching the scalability targets for a single storage 
 - If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. Howver, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
+- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
 
-## Partition naming convention
+## Partitioning
 
 Azure Storage uses a range-based partitioning scheme to scale and load balance the system. The partition key (account+container+blob) is used to partition data into ranges and these ranges are load-balanced across the system. This means naming conventions such as lexical ordering (for example, *mypayroll*, *myperformance*, *myemployees*, etc.) or using timestamps (*log20160101*, *log20160102*, *log20160102*, etc.) will lend itself to the partitions being potentially co-located on the same partition server, until a load-balancing operation splits them out into smaller ranges. For example, all blobs within a container can be served by a single server until the load on these blobs requires further re-balancing of the partition ranges. Similarly, a group of lightly loaded accounts with their names arranged in lexical order may be served by a single server until the load on one or all of these accounts require them to be split across multiple partitions servers. Each load-balancing operation may impact the latency of storage calls during the operation. The system's ability to handle a sudden burst of traffic to a partition is limited by the scalability of a single partition server until the load-balancing operation kicks-in and re-balances the partition key range.
 
@@ -110,11 +111,11 @@ For more information about Azure CDN, see [Azure CDN](https://azure.microsoft.co
 
 ## SAS and CORS
 
-When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use a service application as a proxy. The user's device authenticates with the service, which in turn authorizes access to Azure Storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this approach places a significant overhead on the service application because all the data transferred between the user's device and the storage service must pass through the web role. 
+When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use a service application as a proxy. The user's device authenticates with the service, which in turn authorizes access to Azure Storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this approach places a significant overhead on the service application because all the data transferred between the user's device and the storage service must pass through the web role.
 
 You can avoid using a service application as a proxy for Azure Storage by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user's device to make requests directly to Azure Storage by means of a limited access token. For example, if a user wants to upload a photo to your application, then your service application can generate and send to the user's device a SAS token that grants permission to write to a specific blob or container for a specified interval (after which the SAS token expires). For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).  
 
-Normally, a browser will not allow JavaScript in a page hosted by a website on one domain to perform specific operations such as a "PUT" to another domain. For example, if you host a web role at "contosomarketing.cloudapp.net," and want to use client-side JavaScript to upload a blob to your storage account at "contosoproducts.blob.core.windows.net," the browsers "same origin policy" will forbid this operation. CORS is a browser feature that allows the target domain (in this case the storage account) to communicate to the browser that it trusts requests originating in the source domain (in this case the web role). For more information about CORS, see [Cross-Origin Resource Sharing (CORS) support for Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
+Typically, a browser will not allow JavaScript in a page hosted by a website on one domain to perform certain operations, such as PUT operations, to another domain. Cross-origin resource sharing (CORS) is a browser feature that allows the target domain (in this case the storage account) to communicate to the browser that it trusts requests originating in the source domain (in this case the web role). For more information about CORS, see [Cross-origin resource sharing (CORS) support for Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
 Both SAS and CORS can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
@@ -137,6 +138,15 @@ In some application scenarios, you can aggregate data locally, and then periodic
 ## .NET configuration
 
 If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements.  If using other languages, check to see if similar concepts apply in your chosen language.  
+
+### Use .NET Core
+
+Develop your Azure Storage applications with .NET Core 2.1 or later to take advantage of performance enhancements. Using .NET Core 3.x is recommended when possible.
+
+For more information on performance improvements in .NET Core, see the following blog posts:
+
+- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
 ### Increase default connection limit
 

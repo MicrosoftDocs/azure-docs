@@ -35,9 +35,7 @@ Each of the Azure Storage services has scalability targets for capacity, transac
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes for some storage transactions. This section discusses how to design for scalability targets, and for bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
-- [Blob bandwidth and requests per second](#bandwidth-and-operations-per-blob)
-- [Table entities per second](#subheading24)
-- [Queue messages per second](#subheading39)  
+- Queue messages per second  
 
 ### Approaching a scalability target
 
@@ -54,7 +52,7 @@ If your application is approaching the scalability targets for a single storage 
 - If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. Howver, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
+-If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries.  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse. For more information, see the section titled **Retries** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#content-distribution?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).  
 
 
 ## Scalability limits
@@ -96,5 +94,5 @@ Use queues to make your application architecture scalable. The following lists s
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md)
+- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
