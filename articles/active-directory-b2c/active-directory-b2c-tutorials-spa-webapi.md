@@ -42,7 +42,7 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Record the **FULL SCOPE VALUE** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Record the value under **SCOPES** for the `demo.read` scope to use in a later step when you configure the single-page application. The full scope value is similar to `api://00000000-0000-0000-0000-000000000000/demo.read`.
 
 ## Grant permissions
 
