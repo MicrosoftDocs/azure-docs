@@ -39,7 +39,7 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 
 ## Registration ID
 
-The registration ID is used to uniquely identify a device in the Device Provisioning Service. The device ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
+The registration ID is used to uniquely identify a device in the Device Provisioning Service. The registration ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
 
 * In the case of TPM, the registration ID is provided by the TPM itself.
 * In the case of X.509-based attestation, the registration ID is provided as the subject name of the certificate.
