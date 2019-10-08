@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
 ---
-# Single and multi-resource export to template in Azure portal
+# Single and multi-resource export to a template in Azure portal
 
 To assist with creating Azure Resource Manager templates, you can export a template from existing resources. The exported template helps you understand the JSON syntax and properties that deploy your resources. To automate future deployments, start with the exported template and modify it for your scenario.
 

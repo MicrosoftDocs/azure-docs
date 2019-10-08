@@ -120,8 +120,8 @@ To better understand entitlement management and its documentation, you should re
 | Term or concept | Description |
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
-| access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
-| access request | A request to access an access package. A request typically goes through a workflow. |
+| access package | A bundle of resources that a team or project needs and is governed with policies. An access package is always contained in a catalog. |
+| access request | A request to access the resources in an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
 | catalog | A container of related resources and access packages. |
 | General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
