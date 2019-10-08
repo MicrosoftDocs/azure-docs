@@ -59,6 +59,10 @@ There are some things that VNet Integration doesn't support including:
 
 ## Regional VNet Integration 
 
+> [!NOTE]
+> Peering is not yet available for Linux based App Service.
+>
+
 When VNet Integration is used with VNets in the same region as your app, it requires the use of a delegated subnet with at least 32 addresses in it. The subnet cannot be used for anything else. Outbound calls made from your app will be made from the addresses in the delegated subnet. When you use this version of VNet Integration, the calls are made from addresses in your VNet. Using addresses in your VNet enables your app to:
 
 * Make calls to service endpoint secured services
