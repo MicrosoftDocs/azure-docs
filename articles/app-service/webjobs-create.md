@@ -12,7 +12,7 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-#Customer intent: As a web developer, I want leverage background tasks to keep my application running smoothly.
+#Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 
 ---
 
@@ -168,7 +168,7 @@ when making changes in one don't forget the other two.
 
 ## NCRONTAB expressions
 
-You can enter a [NCRONRAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [NCRONTAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {
