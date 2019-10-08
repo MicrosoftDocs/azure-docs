@@ -21,10 +21,12 @@ landingContent:
         links:
           - text: About Ansible on Azure
             url: ansible-overview.md
-      - linkListType: architecture
+      - linkListType: reference
         links:
-          - text: Ansible module and version matrix
-            url: ansible-matrix.md
+          - text: Releases and features
+            url: ./ansible-matrix.md  
+          - text: All modules for Azure
+            url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 
   # Card
   - title: Install and Configure Ansible

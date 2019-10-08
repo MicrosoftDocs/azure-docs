@@ -102,14 +102,14 @@ This section describes common HTTP request headers and parameters used to make q
 
 ### Authentication
 
-To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
 
 > [!IMPORTANT]
 > The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
 > * Your [Postman](https://www.getpostman.com/) **AuthURL** with therefore conform to: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> See the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md#authentication) tutorial to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+> See the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
 
 ### HTTP headers
 

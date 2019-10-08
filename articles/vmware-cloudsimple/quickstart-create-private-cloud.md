@@ -13,6 +13,10 @@ manager: dikamath
 
 In this article, learn how to create a CloudSimple Private Cloud and set up your Private Cloud environment.
 
+## Before you begin
+
+Review [Networking Prerequisites](cloudsimple-network-checklist.md).
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -32,7 +36,7 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 
 5. In the CloudSimple portal, provide a name for your Private Cloud.
 6. Select the **Location** of your Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure. You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+7. Select **Node type**, consistent with what you purchased on Azure.
 8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
