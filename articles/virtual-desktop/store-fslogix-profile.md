@@ -36,9 +36,9 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises (via ExpressRoute)|Cloud, on-premises|
-|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|Azure AD Domain Services and Native Active Directory|Native Active Directory or Azure Active Directory Domain Services support only|
+|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|Azure Active Directory Domain Services and Native Active Directory|Native Active Directory or Azure Active Directory Domain Services support only|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots|Azure backup snapshot integration|
 |Security and compliance|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completed|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|[Azure AD Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
+|Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
 
 Once you've chosen your storage method, check out [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
