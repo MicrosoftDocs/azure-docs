@@ -38,7 +38,7 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 Azure Machine Learning offers two SKUs that are tailored for your machine learning needs –  Enterprise SKU and Basic SKU. These SKUs make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic SKU is available in general availability (GA), while Enterprise SKU  is currently available in public preview. Customers are responsible for costs incurred on underlying compute during this time. See the [SKUs pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for up to date pricing details.
 
-Learn how to [upgrade your workspace from Basic to Enterprise SKU](concept-workspace.md#upgrade). 
+Learn how to [upgrade your workspace from Basic to Enterprise SKU](how-to-manage-workspace.md#upgrade). 
 
 ## What can I do with Azure Machine Learning?
 

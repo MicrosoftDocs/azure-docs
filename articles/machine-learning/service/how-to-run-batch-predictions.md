@@ -1,7 +1,7 @@
 ---
-title: Run Batch Inference on large datasets 
-titleSuffix: Azure Machine Learning service
-description: Learn how to get inferences asynchronously on large amounts of data by using Azure Machine Learning Batch Inference service. Batch Inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
+title: Run batch inference on large amounts of data 
+titleSuffix: Azure Machine Learning
+description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in the Azure Machine Learning service. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,19 +14,19 @@ ms.date: 10/01/2019
 ms.custom: Ignite2019
 ---
 
-# Run Batch Inference on large datasets by using the Azure Machine Learning service (preview)
+# Run batch inference on large amounts of data by using Azure Machine Learning
 
-In this article, you learn how to get inferences on large amounts of data asynchronously and in parallel, by using Azure Machine Learning Batch Inference. Batch Inference is a high-performance and high-throughput service for generating inferences and processing data. It provides asynchronous capabilities out of the box.
+In this tutorial, you learn how to get inferences on large quantities of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
-With Batch Inference, it's straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
+With batch inference, it's straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
 > * Create a remote compute resource.
 > * Write a custom inference script.
 > * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
-> * Use the model to run Batch Inference on sample images available in your Azure Blob storage account. 
+> * Use the model to run batch inference on sample images available in your Azure Blob storage account. 
 
 ## Prerequisites
 
@@ -38,15 +38,15 @@ In this tutorial, you learn how to:
 
 ## Set up machine learning resources
 
-The following actions set up the resources that you need to run a Batch Inference pipeline:
+The following actions set up the resources that you need to run a batch inference pipeline:
 
-- Create a datastore that points to a blob container that contains images to inference.
-- Set up data references as inputs and outputs for the Batch Inference pipeline step.
-- Set up a compute cluster where the Batch Inference step will run.
+- Create a datastore that points to a blob container that has images to inference.
+- Set up data references as inputs and outputs for the batch inference pipeline step.
+- Set up a compute cluster where the batch inference step will run.
 
 ### Create a datastore with sample images
 
-Get the MNIST evaluation set from the public blob container `sampledata` on an account named `pipelinedata`. Create a datastore with the name `mnist_datastore`, which points to this container. In the call to `register_azure_blob_container` below, setting the `overwrite` flag to `True` overwrites any datastore that was created previously with that name. 
+Get the MNIST evaluation set from the public blob container `sampledata` on an account named `pipelinedata`. Create a datastore with the name `mnist_datastore`, which points to this container. In the following call to `register_azure_blob_container`, setting the `overwrite` flag to `True` overwrites any datastore that was created previously with that name. 
 
 You can change this step to point to your blob container by providing your own values for `datastore_name`, `container_name`, and `account_name`.
 
@@ -82,10 +82,10 @@ Now you need to configure data inputs and outputs, including:
 - The directory that contains the labels.
 - The directory for output.
 
-`Dataset` is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: `TabularDataset` and `FileDataset`. In this example, you'll use `FileDataset` as the inputs to the Batch Inference pipeline step. 
+`Dataset` is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: `TabularDataset` and `FileDataset`. In this example, you'll use `FileDataset` as the inputs to the batch inference pipeline step. 
 
 > [!NOTE] 
-> `FileDataset` support in Batch Inference is restricted to Azure Blob storage for now. 
+> `FileDataset` support in batch inference is restricted to Azure Blob storage for now. 
 
 You can also use `Dataset` as side input to your script. For example, you can use it to access labels in your script for labeling images.
 
@@ -218,20 +218,20 @@ def run(mini_batch):
         np_im = np.array(data).reshape((1, 784))
         # Perform inference
         inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
-        # Find best probability, and add it to the result list
+        # Find the best probability, and add it to the result list
         best_result = np.argmax(inference_result)
         resultList.append("{}: {}".format(os.path.basename(image), best_result))
 
     return resultList
 ```
 
-## Build and run the Batch Inference pipeline
+## Build and run the batch inference pipeline
 
 Now you have everything you need to build the pipeline.
 
 ### Prepare the run environment
 
-First specify the dependencies for your script. You use this object later when you create the pipeline step.
+First, specify the dependencies for your script. You use this object later when you create the pipeline step.
 
 ```python
 from azureml.core import Environment
@@ -248,14 +248,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 
-### Specify the parameters for your Batch Inference pipeline step
+### Specify the parameters for your batch inference pipeline step
 
-`ParallelRunConfig` is the major configuration for the newly introduced Batch Inference `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following:
+`ParallelRunConfig` is the major configuration for the newly introduced batch inference `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directly` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
-- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (Optional; the default value is 1.)
-    - For `FileDataset`, it's the number of files with a minimum value of 1. Multiple files can be combined into one mini-batch.
-    - For `TabularDataset`, it's the size of data. Example values are 1024, 1024KB, 10MB, and 1GB. The minimum value is 1MB. Note that the mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100k and the largest is 10MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1MB will be treated as one mini-batch. Files with a size larger than 1MB will be split into multiple mini-batches.
-- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be stopped. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. `-1` indicates ignoring all failures during processing.
+- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (Optional; the default value is `1`.)
+    - For `FileDataset`, it's the number of files with a minimum value of 1. You can combine multiple files into one mini-batch.
+    - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The minimum value is `1MB`. Note that the mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
+- `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be stopped. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
     - `file`: For each input file, a corresponding file with the same name will be in the output folder.
@@ -265,7 +265,7 @@ batch_env.spark.precache_packages = False
 - `node_count`: The number of compute nodes to be used for running the user script.
 - `process_count_per_node`: The number of processes per node.
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
-- `logging_level`: Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. The default is INFO (optional).
+- `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. The default is `INFO` (optional).
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is 30.
 
 ```python
@@ -285,14 +285,14 @@ parallel_run_config = ParallelRunConfig(
 
 ### Create the pipeline step
 
-Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for the script. Use `ParallelRunStep` to create the Batch Inference pipeline step, which takes all the following parameters:
+Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for the script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
 - `name`: The name of the step, with the following naming restrictions: unique, 3-32 characters, and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
 - `models`: Zero or more model names already registered in the Azure Machine Learning model registry.
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets.
 - `output`: A `PipelineData` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script (optional).
-- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this is False, a new run will always be generated for this step during pipeline execution. (Optional; default value is True.)
+- `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (Optional; the default value is `True`.)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep
@@ -322,9 +322,9 @@ pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
 pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 ```
 
-## Monitor the Batch Inference job
+## Monitor the batch inference job
 
-A Batch Inference job can take a long time to finish. This example monitors progress by using a Jupyter widget. You can also manage the job's progress by using:
+A batch inference job can take a long time to finish. This example monitors progress by using a Jupyter widget. You can also manage the job's progress by using:
 
 * Azure Machine Learning Studio. 
 * Console output from the [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) object.
@@ -338,7 +338,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## Next steps
 
-To see this working end to end, try the [Batch Inference notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+To see this process working end to end, try the [batch inference notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
 
 For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 

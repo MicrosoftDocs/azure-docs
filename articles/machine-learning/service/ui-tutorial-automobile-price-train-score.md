@@ -41,11 +41,11 @@ To create a pipeline in the designer, you first need  an Azure Machine Learning 
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning workspace, skip to the next section.
+If you have an Azure Machine Learning workspace with an **Enterprise SKU**, [skip to the next section](#experiment).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
-### Create an experiment
+### <a name="experiment">Create an experiment
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com/).
 
