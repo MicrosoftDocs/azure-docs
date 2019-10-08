@@ -21,7 +21,54 @@ Temperature is managed from the [Recognizers-text](https://github.com/Microsoft/
 
 ## Resolution for prebuilt temperature entity
 
-#### [V2 prediction endpoint response](#tab/V2)
+The following entity objects are returned for the query:
+
+`set the temperature to 30 degrees`
+
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "temperature": [
+        {
+            "number": 30,
+            "unit": "Degree"
+        }
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "temperature": [
+        {
+            "number": 30,
+            "unit": "Degree"
+        }
+    ],
+    "$instance": {
+        "temperature": [
+            {
+                "type": "builtin.temperature",
+                "text": "30 degrees",
+                "startIndex": 23,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2)
 
 The following example shows the resolution of the **builtin.temperature** entity.
 
@@ -52,69 +99,6 @@ The following example shows the resolution of the **builtin.temperature** entity
   ]
 }
 ```
-
-#### [V3 prediction endpoint response](#tab/V3)
-
-The following JSON is with the `verbose` parameter set to `false`:
-
-```json
-{
-    "query": "set the temperature to 30 degrees",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.656305432
-            }
-        },
-        "entities": {
-            "temperature": [
-                {
-                    "number": 30,
-                    "units": "Degree"
-                }
-            ]
-        }
-    }
-}
-```
-
-The following JSON is with the `verbose` parameter set to `true`:
-
-```json
-{
-    "query": "set the temperature to 30 degrees",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.656305432
-            }
-        },
-        "entities": {
-            "temperature": [
-                {
-                    "number": 30,
-                    "units": "Degree"
-                }
-            ],
-            "$instance": {
-                "temperature": [
-                    {
-                        "type": "builtin.temperature",
-                        "text": "30 degrees",
-                        "startIndex": 23,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## Next steps

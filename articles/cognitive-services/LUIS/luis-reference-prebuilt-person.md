@@ -18,6 +18,48 @@ The prebuilt personName entity detects people names. Because this entity is alre
 
 ## Resolution for personName entity
 
+The following entity objects are returned for the query:
+
+`Is Jill Jones in Cairo?`
+
+
+#### [V3 response](#tab/V3)
+
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "personName": [
+        "Jill Jones"
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "personName": [
+        "Jill Jones"
+    ],
+    "$instance": {
+        "personName": [
+            {
+                "type": "builtin.personName",
+                "text": "Jill Jones",
+                "startIndex": 3,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+    }
+}
+```
 #### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.personName** entity.
@@ -39,63 +81,6 @@ The following example shows the resolution of the **builtin.personName** entity.
   ]
 }
 ```
-#### [V3 prediction endpoint response](#tab/V3)
-
-
-The following JSON is with the `verbose` parameter set to `false`:
-
-```json
-{
-    "query": "Is Jill Jones in Cairo?",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6544678
-            }
-        },
-        "entities": {
-            "personName": [
-                "Jill Jones"
-            ]
-        }
-    }
-}
-```
-
-The following JSON is with the `verbose` parameter set to `true`:
-
-```json
-{
-    "query": "Is Jill Jones in Cairo?",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6544678
-            }
-        },
-        "entities": {
-            "personName": [
-                "Jill Jones"
-            ],
-            "$instance": {
-                "personName": [
-                    {
-                        "type": "builtin.personName",
-                        "text": "Jill Jones",
-                        "startIndex": 3,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## Next steps

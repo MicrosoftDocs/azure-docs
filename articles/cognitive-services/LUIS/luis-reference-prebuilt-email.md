@@ -31,7 +31,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     "patti@contoso.com"
 ]
 ```
-#### [V3 response](#tab/V3-verbose)
+#### [V3 verbose response](#tab/V3-verbose)
 
 The following JSON is with the `verbose` parameter set to `true`:
 

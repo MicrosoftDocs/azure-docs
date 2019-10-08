@@ -37,7 +37,47 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 
 ## Resolution for prebuilt number
 
+The following entity objects are returned for the query:
 
+`order two dozen eggs`
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "number": [
+        24
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "number": [
+        24
+    ],
+    "$instance": {
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "two dozen",
+                "startIndex": 6,
+                "length": 9,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
 #### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
@@ -77,63 +117,6 @@ The following example shows a JSON response from LUIS, that includes the resolut
   ]
 }
 ```
-
-#### [V3 prediction endpoint response](#tab/V3)
-
-The following JSON is with the `verbose` parameter set to `false`:
-
-```json
-{
-    "query": "order two dozen eggs",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "number": [
-                24
-            ]
-        }
-    }
-}
-```
-
-The following JSON is with the `verbose` parameter set to `true`:
-
-```json
-{
-    "query": "order two dozen eggs",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "number": [
-                24
-            ],
-            "$instance": {
-                "number": [
-                    {
-                        "type": "builtin.number",
-                        "text": "two dozen",
-                        "startIndex": 6,
-                        "length": 9,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## Next steps
