@@ -59,6 +59,7 @@ The following outbound use cases suggest how to use App Service networking featu
 | Access resources secured with service endpoints | VNet Integration </br> ASE |
 | Access resources in a private network not connected to Azure | Hybrid Connections |
 | Access resources across ExpressRoute circuits | VNet Integration (restricted to RFC 1918 addresses for now) </br> ASE | 
+| Control all outbound traffic from your app | ILB ASE |
 
 
 ### Default networking behavior
@@ -194,6 +195,7 @@ The ASE provides the best story around isolated and dedicated app hosting but do
  * An ASE does have a higher upfront cost associated with it. In order to get the most out of your ASE, you should plan on putting many workloads into one ASE rather than have it used for small efforts.
  * When communicating between apps within an ASE, the ASE cannot restrict access to some apps but not others.
  * The ASE is in a subnet and any networking rules apply to all the traffic to and from that ASE. If you want to assign inbound traffic rules for just one app, use Access Restrictions.
+ * Deploying and configuring ASEs requires some knowledge of Azure VNets and networking services.
 
 ## Combining features 
 
