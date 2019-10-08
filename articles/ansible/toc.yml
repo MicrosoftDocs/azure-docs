@@ -12,14 +12,17 @@
     - name: Install Ansible on Linux virtual machines
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
-    - name: Configure Linux virtual machines
-      href: /azure/virtual-machines/linux/ansible-create-vm
-      maintainContext: true
-    - name: Manage Linux virtual machines
-      href: /azure/virtual-machines/linux/ansible-manage-linux-vm
-      maintainContext: true
     - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
+    - name: Work with Linux Virtual Machines
+      expanded: true
+      items:
+      - name: Configure Linux virtual machines
+        href: /azure/virtual-machines/linux/ansible-create-vm
+        maintainContext: true
+      - name: Manage Linux virtual machines
+        href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+        maintainContext: true
 - name: Tutorials 
   items:
   - name: Azure Application Gateway
@@ -84,6 +87,12 @@
       href: ./ansible-vnet-peering-configure.md
     - name: Configure route tables
       href: ./ansible-create-configure-route-table.md
+- name: Samples
+  items:
+  - name: Ansible labs for Azure
+    href: https://github.com/microsoft/ansiblelabs
+  - name: Ansible Azure playbook samples
+    href: https://github.com/Azure-Samples/ansible-playbooks
 - name: Reference
   items:
   - name: Playbook roles
@@ -94,14 +103,6 @@
       href: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Releases and features
     href: ./ansible-matrix.md  
-  - name: Azure Container Instances
-    href: https://docs.ansible.com/ansible/latest/azure_rm_containerinstance_module.html
-  - name: Azure Functions
-    href: https://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html
-  - name: Load balancers
-    href: https://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html
-  - name: Virtual machines
-    href: https://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 - name: Tools
