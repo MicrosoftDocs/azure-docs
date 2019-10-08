@@ -1,17 +1,19 @@
 - name: SQL Database Documentation
   href: index.yml
-
-- name: What is SQL Database?
-  href: sql-database-technical-overview.md
-
-- name: Release notes
-  href: sql-database-release-notes.md
-
-
 - name: Overview
   items:
-  - name: Which deployment option should I choose?
+  - name: What is SQL Database?
+    href: sql-database-technical-overview.md
+  - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Release notes
+    items:
+    - name: Release notes
+      href: sql-database-release-notes.md
+    - name: Gateway IP address updates
+      href: sql-database-gateway-migration.md
+    - name: Periodic maintenance events
+      href: sql-database-planned-maintenance.md
   - name: Price and performance options
     items:
     - name: Purchasing models
@@ -41,12 +43,13 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
-  - name: Gateway IP address updates
-    href: sql-database-gateway-migration.md
-  - name: Periodic maintenance events
-    href: sql-database-planned-maintenance.md
-
-
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: SQL databases
+    href: sql-database-single-database-quickstart-guide.md
+  - name: SQL managed instances
+    href: sql-database-managed-instance-quickstart-guide.md
 - name: Concepts
   items:
   - name: Common features documentation
@@ -500,8 +503,6 @@
 
   - name: Quickstarts
     items:
-    - name: Quickstart guide
-      href: sql-database-single-database-quickstart-guide.md
     - name: Create
       items: 
       - name: Using Azure Portal
@@ -731,8 +732,6 @@
     href: sql-database-managed-instance-faq.md
   - name: Quickstarts
     items:
-    - name: Quickstart guide
-      href: sql-database-managed-instance-quickstart-guide.md
     - name: Create
       items: 
       - name: Using Azure Portal
