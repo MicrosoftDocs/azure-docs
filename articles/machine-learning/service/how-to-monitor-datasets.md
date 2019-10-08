@@ -38,7 +38,7 @@ To create and work with dataset monitors, you need:
 
 In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
 
-In general, data drift is a significant statistical change in data. Causes of data drift include: upstream process changes, such as a sensor being replaced that changes the units of measurement from inches to centimeters; data quality issues, such as a broken sensor always reading 0; natural drift in the data, such as mean temperature changing with the seasons; change in relation between features, or covariate shift. The Azure Machine Learning service data drift capability, utilized through dataset monitors, measures and alerts to data drift.
+In general, data drift is a significant statistical change in data. Causes of data drift include: upstream process changes, such as a sensor being replaced that changes the units of measurement from inches to centimeters; data quality issues, such as a broken sensor always reading 0; natural drift in the data, such as mean temperature changing with the seasons; change in relation between features, or covariate shift. The Azure Machine Learning service data drift capability, utilized through dataset monitors, measures and alerts for data drift.
 
 ## Azure Machine Learning data drift concepts
 
@@ -104,7 +104,7 @@ This table contains basic settings used for the dataset monitor.
 | Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time | Set to a model's target dataset | 
 | Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset | 
 | Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill | Adjust this setting to include a comparable size of data to the baseline | 
-| Features | White list of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can change this setting after the monitor is created | 
+| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can change this setting after the monitor is created | 
 | Compute target | Azure Machine Learning compute target to run the dataset monitor jobs | | 
 
 **Monitor settings** 

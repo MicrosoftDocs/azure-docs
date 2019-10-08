@@ -147,7 +147,7 @@
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
-    - name: Detect drift with datasets
+    - name: Detect drift on datasets
       displayName: data, dataset
       href: how-to-monitor-datasets.md
   - name: Train models
