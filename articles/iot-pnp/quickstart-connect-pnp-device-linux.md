@@ -53,7 +53,7 @@ Add the Microsoft Azure IoT Extension for Azure CLI:
 az extension add --name azure-cli-iot-ext
 ```
 
-The steps in this quickstart require version **0.8.0** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
+The steps in this quickstart require version **0.8.3** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
 If you're using CLI locally, sign in to your Azure subscription with the following command:
 
@@ -63,7 +63,9 @@ az login
 
 If you're using Azure Cloud Shell, you're already automatically signed in.
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** placeholder with your actual name. If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
+If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md). During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
+
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** placeholder with your actual IoT hub name:
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name [YourIoTHubName] --device-id mydevice
@@ -89,7 +91,7 @@ This command takes several minutes to complete.
 
 ## Build the code
 
-You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
 
@@ -148,10 +150,10 @@ The simulated device starts sending telemetry, listening for commands, and liste
 
 After the device client sample starts, verify it's working with the Azure CLI.
 
-Use the following command to view the telemetry the sample device is sending:
+Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot hub monitor-events --hub-name {your IoT hub} --device-id mydevice
+az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice  --source private --repo-login "{your company model repository connection string}"
 ```
 
 Use the following command to view the properties sent by the device:

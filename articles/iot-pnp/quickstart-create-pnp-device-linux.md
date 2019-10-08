@@ -64,7 +64,7 @@ Add the Microsoft Azure IoT Extension for Azure CLI:
 az extension add --name azure-cli-iot-ext
 ```
 
-The steps in this quickstart require version **0.8.0** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
+The steps in this quickstart require version **0.8.3** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
 If don't have an IoT hub, create one using the following commands, replacing `{YourIoTHubName}` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
 
@@ -137,7 +137,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
     > [!NOTE]
     > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
 
-1. Choose the DCM file you want to use to generate the device code stub.
+1. Choose the **SampleDevice.capabilitymodel.json** file to use to generate the device code stub.
 
 1. Enter the project name **sample_device**, it will be the name of your device application.
 
@@ -211,10 +211,10 @@ To validate the device code with the **az** CLI, you need to publish the files t
 
 After the device client sample starts, you can check it's working with the Azure CLI.
 
-Use the following command to view the telemetry the sample device is sending:
+Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot hub monitor-events --hub-name {your IoT hub} --device-id {your device ID}
+az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice  --source private --repo-login "{your company model repository connection string}"
 ```
 
 Use the following command to view all the properties sent by the device:

@@ -133,7 +133,7 @@ az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} 
 
 #### Digital twin events
 
-Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub endpoint:
+Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub consumer group:
 
 ```cmd/sh
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
