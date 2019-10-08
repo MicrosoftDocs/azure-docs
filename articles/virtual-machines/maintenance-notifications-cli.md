@@ -17,6 +17,8 @@ ms.author: shants
 
 # Handling planned maintenance notifications using the Azure CLI
 
+**This article applies to virtual machines running both Windows and Linux.**
+
 [!INCLUDE [maintenance-notifications-common.md](maintenance-notifications-common.md)]
 
 You can also handle planned maintenance using the [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
