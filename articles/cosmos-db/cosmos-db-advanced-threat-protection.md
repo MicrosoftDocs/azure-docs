@@ -5,7 +5,7 @@ author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: rkarlin
+ms.author: sngun
 ms.custom: seodec18
 ---
 
