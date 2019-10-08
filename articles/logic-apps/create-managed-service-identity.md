@@ -141,7 +141,7 @@ To complete this task for your function app, have these values ready:
 
 * The resource ID for the target resource that you want to access
 
-   This ID is the same value that you specify in the your Azure function's **Audience** property. This property appears after you set the **Authentication type** property to **Managed Identity**, for example:
+  This ID is the same value that you specify in the your Azure function's **Audience** property. This property appears after you set the **Authentication type** property to **Managed Identity**, for example:
 
   !["Audience" property set to target resource ID](./media/create-managed-service-identity/functions-authentication-audience-property.png)
 
@@ -151,21 +151,29 @@ To complete this task for your function app, have these values ready:
 
 1. On the function app pane, select **Platform features**. Under **Networking**, select **Authentication / Authorization**.
 
-1. Change the **App Service Authentication** setting to **On**.
+   ![View authentication and authorization settings](./media/create-managed-service-identity/view-authentication-authorization-settings.png)
 
-1. From the **Action to take when request is not authenticated** list, select **Log in with Azure Active Directory**.
+1. Change the **App Service Authentication** setting to **On**. From the **Action to take when request is not authenticated** list, select **Log in with Azure Active Directory**. Under **Authentication Providers**, select **Azure Active Directory**.
 
-1. Under **Authentication Providers**, select **Azure Active Directory**.
+   ![Turn on authentication with Azure AD](./media/create-managed-service-identity/turn-on-authentication-azure-active-directory.png)
 
-1. On the **Azure Active Directory Settings** pane, set the **Management Mode** property to **Advanced**.
+1. On the **Azure Active Directory Settings** pane, follow these steps:
 
-1. In the **Client ID** property, enter the object ID for your logic app's system-assigned identity.
+   1. Set **Management mode** to **Advanced**.
 
-1. In the **Issuer Url** property, enter the `https://sts.windows.net/` URL and append your Azure AD tenant's directory ID:
+   1. In the **Client ID** property, enter the object ID for your logic app's system-assigned identity.
 
-   `https://sts.windows.net/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+   1. In the **Issuer Url** property, enter the `https://sts.windows.net/` URL and append your Azure AD tenant's directory ID:
 
-1. In the **Allowed Token Audiences** property, enter the URL that you use for the **Audience** property in your Azure function from your logic app.
+      `https://sts.windows.net/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+   1. In the **Allowed Token Audiences** property, enter the URL that you'll use for the **Audience** property from your Azure function in your logic app.
+
+   Here's an example that shows how your version might look:
+
+   ![Azure Active Directory authentication settings](./media/create-managed-service-identity/azure-active-directory-authentication-settings.png)
+
+1. When you're done, select **OK**.
 
 <a name="template-system-logic-app"></a>
 
