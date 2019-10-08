@@ -108,11 +108,6 @@ New-AzRoleAssignment `
     -ResourceGroupName myRGName `  
 ```
 
-To learn how to use customer-managed keys with Azure Storage, see one of these articles:
-
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](../../storage/common/storage-encryption-keys-cli.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](../../storage/common/storage-encryption-keys-powershell.md)
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
@@ -123,5 +118,3 @@ With Azure Storage encryption, all Azure Storage accounts and the resources they
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](../../storage/common/storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](../../storage/common/storage-encryption-keys-cli.md)
