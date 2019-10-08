@@ -40,17 +40,6 @@ This utterance has a single intention:
 
 * Buying a plane ticket
 
-## Multiple-intent utterances
-
-An utterance can have more than one intent:
-
-`Buy an airline ticket from Seattle to Cairo and purchase the vegan meal`
-
-This utterance has two intentions:
-
-* Buying a plane ticket 
-* Buying the meal for the plane flight
-
 ## Intents versus entities
 
 An intent is the desired outcome of the utterance while entities are pieces of data extracted from the utterance.
