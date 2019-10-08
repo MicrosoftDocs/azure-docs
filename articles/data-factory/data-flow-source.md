@@ -10,7 +10,7 @@ ms.date: 09/06/2019
 
 # Source transformation for Mapping Data Flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 
@@ -162,7 +162,7 @@ From your source table, select a column to partition on. Also set the number of 
 
 You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
 
-For more information on optimization within Mapping Data Flow, see [Optimize tab](concepts-data-flow-optimize-tab.md).
+For more information on optimization within Mapping Data Flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
 ## Next steps
 
