@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect to Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -184,11 +184,15 @@ This section introduces a sample application to connect an Azure IoT Python devi
 
 ## Test the gateway connection
 
-This is a sample command that tests that everything has been set up correctly. You should see a message saying "verified OK".
+This is a sample command that tests that everything has been set up correctly: 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+The output of this comman may be very long, including information about all the certificates in the chain. If your connection is successful, you'll see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
+
+![Verify gateway connection](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## Troubleshoot the gateway connection
 
