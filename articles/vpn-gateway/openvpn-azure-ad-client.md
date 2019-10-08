@@ -32,7 +32,7 @@ When working with a certificate-based profile, make sure that the appropriate ce
 
 Once you have a working profile and need to distribute it to other users, you can export it using the following steps:
 
-1. Hilight the VPN client profile that you want to export, select the **...**, then select **Export**.
+1. Highlight the VPN client profile that you want to export, select the **...**, then select **Export**.
 
     ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
