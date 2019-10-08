@@ -26,35 +26,35 @@ A Security Center user assigned the role of Reader, Owner, Contributor, or Accou
 ## Searching for and identifying personal data
 A Security Center user can view their personal data through the Azure portal. Security Center only stores security contact details such as email addresses and phone numbers. See [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information.
 
-In the Azure portal, a user can view allowed IP configurations using Security Center's just in time VM access feature. See [Manage virtual machine access using just in time](security-center-just-in-time.md) for more information.
+In the Azure portal, a user can view allowed IP configurations using Security Center's just-in-time VM access feature. See [Manage virtual machine access using just-in-time](security-center-just-in-time.md) for more information.
 
 In the Azure portal, a user can view security alerts provided by Security Center including IP addresses and attacker details. See [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information.
 
 ## Classifying personal data
 You do not need to classify personal data found in Security Center's security contact feature. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Security Center.
 
-You do not need to classify the IP addresses and port numbers saved by Security Center's [just in time](security-center-just-in-time.md) feature.
+You do not need to classify the IP addresses and port numbers saved by Security Center's [just-in-time](security-center-just-in-time.md) feature.
 
 Only a user assigned the role of Administrator can classify personal data by [viewing alerts](security-center-managing-and-responding-alerts.md) in Security Center.
 
 ## Securing and controlling access to personal data
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access [security contact data](security-center-provide-security-contact-details.md).
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access their [just in time](security-center-just-in-time.md) policies.
+A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access their [just-in-time](security-center-just-in-time.md) policies.
 
 A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can view their [alerts](security-center-managing-and-responding-alerts.md).
 
 ## Updating personal data
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can update [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
 
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can update their [just in time policies](security-center-just-in-time.md).
+A Security Center user assigned the role of Owner, Contributor, or Account Administrator can update their [just-in-time policies](security-center-just-in-time.md).
 
 An Account Administrator cannot edit alert incidents. An [alert incident](security-center-managing-and-responding-alerts.md) is considered security data and is read only.
 
 ## Deleting personal data
 A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
 
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the [just in time policies](security-center-just-in-time.md) via the Azure portal.
+A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the [just-in-time policies](security-center-just-in-time.md) via the Azure portal.
 
 A Security Center user cannot delete alert incidents. Due to security needs, an [alert incident](security-center-managing-and-responding-alerts.md) is considered read only data.
 
@@ -67,7 +67,7 @@ A Security Center user assigned the role of Reader, Owner, Contributor, or Accou
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
   ```
 
-A Security Center user assigned the role of Account Administrator can export the [just in time policies](security-center-just-in-time.md) containing the IP addresses by:
+A Security Center user assigned the role of Account Administrator can export the [just-in-time policies](security-center-just-in-time.md) containing the IP addresses by:
 
 - Performing a copy from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
@@ -88,12 +88,12 @@ See [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt
 ## Restricting the use of personal data for profiling or marketing without consent
 A Security Center user can choose to opt out by deleting their [security contact data](security-center-provide-security-contact-details.md).
 
-[Just in time data](security-center-just-in-time.md) is considered non-identifiable data and is retained for a period of 30 days.
+[Just-in-time data](security-center-just-in-time.md) is considered non-identifiable data and is retained for a period of 30 days.
 
 [Alert data](security-center-managing-and-responding-alerts.md) is considered security data and is retained for a period of two years.
 
 ## Auditing and reporting
-Audit logs of security contact, just in time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
 
 ## Next steps
 For more information about managing user data, see [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md).
