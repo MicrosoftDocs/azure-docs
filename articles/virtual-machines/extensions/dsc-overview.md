@@ -22,7 +22,7 @@ The Azure VM Agent and associated extensions are part of Microsoft Azure infrast
 
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
-The service provides [benefits](/powershell/dsc/metaconfig#pull-service)
+The service provides [benefits](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)
 that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
 Using the extension to register VM's to the service provides a flexible solution that even works across Azure subscriptions.
 
