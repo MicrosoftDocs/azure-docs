@@ -35,7 +35,7 @@ This example uses the cloud notebook server in your workspace for an install-fre
 
 From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning.
 
-1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  If you're not sure how to locate your workspace, see how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  
 
 1. On your workspace page in the Azure Machine Learning studio, select **Notebook VMs** on the left.
 

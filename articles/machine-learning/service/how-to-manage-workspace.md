@@ -77,7 +77,7 @@ You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantag
 > [!IMPORTANT]
 > You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
 
-## <a name="view"></a>View a workspace
+## <a name="view"></a>Find a workspace
 
 1. In top left corner of the portal, select **All services**.
 
@@ -97,6 +97,7 @@ You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantag
 Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](media/how-to-manage-workspace/delete-workspace.png)
+
 
 ## Clean up resources
 
