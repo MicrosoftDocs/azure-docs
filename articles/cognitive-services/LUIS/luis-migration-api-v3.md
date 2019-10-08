@@ -26,7 +26,7 @@ This V3 API provides the following new features, which include significant JSON 
 
 * [External entities](luis-migration-api-v3-prediction.md#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](luis-migration-api-v3-prediction.md#dynamic-lists-passed-in-at-prediction-time)
-* [Prebuilt entity JSON changes](luis-migration-api-v3-prediction.md#prebuilt-entities-with-new-json)
+* [Prebuilt entity JSON changes](luis-migration-api-v3-prediction.md##prebuilt-entity-changes)
 * [Prediction response object changes](luis-migration-api-v3-prediction.md#top-level-json-changes)
 * [Entity role name references instead of entity name](luis-migration-api-v3-prediction.md#entity-role-name-instead-of-entity-name)
 * [Properties to mark entities in utterances](luis-migration-api-v3-prediction.md#marking-placement-of-entities-in-utterances)

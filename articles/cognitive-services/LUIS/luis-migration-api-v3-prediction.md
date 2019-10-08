@@ -24,7 +24,7 @@ The V3 API provides the following new features:
 
 * [External entities](#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](#dynamic-lists-passed-in-at-prediction-time)
-* [Prebuilt entity JSON changes](#prebuilt-entities-with-new-json)
+* [Prebuilt entity JSON changes](#prebuilt-entity-changes)
 
 The prediction endpoint [request](#request-changes) and [response](#response-changes) have significant changes to support the new features listed above, including the following:
 
@@ -125,6 +125,8 @@ The query response JSON changed to allow greater programmatic access to the data
 
 ### Top level JSON changes
 
+
+
 The top JSON properties for V2 are, when `verbose` is set to true, which returns all intents and their scores in the `intents` property:
 
 ```JSON
@@ -179,6 +181,8 @@ If you need entity metadata, the query string needs to use the `verbose=true` fl
 #### Each predicted entity is represented as an array
 
 The `prediction.entities.<entity-name>` object contains an array because each entity can be predicted more than once in the utterance. 
+
+<a name="prebuilt-entities-with-new-json"></a>
 
 #### Prebuilt entity changes
 
