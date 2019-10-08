@@ -331,6 +331,8 @@
       href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Sentiment 
+    href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
