@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
 ---
 # Explore your Azure resources with Resource Graph
 

@@ -221,7 +221,7 @@ This example shows you how to remove an assignment:
 |SQL Auditing |Monitor unaudited SQL database in Azure Security Center |sqlAuditingMonitoringEffect|
 |System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
 |Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
-|JIT Network access |Monitor possible network Just In Time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
+|JIT Network access |Monitor possible network just-in-time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
 |Adaptive application controls |Monitor possible app Whitelisting in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 

@@ -2,7 +2,6 @@
 title: Sample - Audit if applications aren't installed inside Linux VMs
 description: This sample Policy Guest Configuration initiative and definitions audit if the specified applications are not installed inside Linux virtual machines.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019

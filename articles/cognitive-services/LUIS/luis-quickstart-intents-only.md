@@ -18,6 +18,8 @@ ms.author: diberry
 
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
@@ -43,9 +45,9 @@ This app has a few intents.
 
 |Intent|Purpose|
 |--|--|
-|ApplyForJob|Determine if user is applying for a job.|
-|GetJobInformation|Determine if user is looking for information about jobs in general or a specific job.|
-|None|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
+|`ApplyForJob`|Determine if user is applying for a job.|
+|`GetJobInformation`|Determine if user is looking for information about jobs in general or a specific job.|
+|`None`|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
 
 ## Create a new app
 
@@ -63,22 +65,22 @@ This app has a few intents.
 
     | Example utterances|
     |--|
-    |Any new jobs posted today?|
-    |Are there any new positions in the Seattle office?|
-    |Are there any remote worker or telecommute jobs open for engineers?|
-    |Is there any work with databases?|
-    |I'm looking for a co-working situation in the tampa office.|
-    |Is there an internship in the san francisco office?|
-    |Is there any part-time work for people in college?|
-    |Looking for a new situation with responsibilities in accounting|
-    |Looking for a job in new york city for bilingual speakers.|
-    |Looking for a new situation with responsibilities in accounting.|
-    |New jobs?|
-    |Show me all the jobs for engineers that were added in the last 2 days.|
-    |Today's job postings?|
-    |What accounting positions are open in the london office?|
-    |What positions are available for Senior Engineers?|
-    |Where is the job listings|
+    |`Any new jobs posted today?`|
+    |`Are there any new positions in the Seattle office?`|
+    |`Are there any remote worker or telecommute jobs open for engineers?`|
+    |`Is there any work with databases?`|
+    |`I'm looking for a co-working situation in the tampa office.`|
+    |`Is there an internship in the san francisco office?`|
+    |`Is there any part-time work for people in college?`|
+    |`Looking for a new situation with responsibilities in accounting`|
+    |`Looking for a job in new york city for bilingual speakers.`|
+    |`Looking for a new situation with responsibilities in accounting.`|
+    |`New jobs?`|
+    |`Show me all the jobs for engineers that were added in the last 2 days.`|
+    |`Today's job postings?`|
+    |`What accounting positions are open in the london office?`|
+    |`What positions are available for Senior Engineers?`|
+    |`Where is the job listings`|
 
     [![Screenshot of entering new utterances for MyStore intent](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
@@ -145,29 +147,22 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
     | Example utterances|
     |--|
-    |Fill out application for Job 123456|
-    |Here is my c.v. for position 654234|
-    |Here is my resume for the part-time receptionist post.|
-    |I'm applying for the art desk job with this paperwork.|
-    |I'm applying for the summer college internship in Research and Development in San Diego|
-    |I'm requesting to submit my resume to the temporary position in the cafeteria.|
-    |I'm submitting my resume for the new Autocar team in Columbus, OH|
-    |I want to apply for the new accounting job|
-    |Job 456789 accounting internship paperwork is here|
-    |Job 567890 and my paperwork|
-    |My papers for the tulsa accounting internship are attached.|
-    |My paperwork for the holiday delivery position|
-    |Please send my resume for the new accounting job in seattle|
-    |Submit resume for engineering position|
-    |This is my c.v. for post 234123 in Tampa.|
+    |`Fill out application for Job 123456`|
+    |`Here is my c.v. for position 654234`|
+    |`Here is my resume for the part-time receptionist post.`|
+    |`I'm applying for the art desk job with this paperwork.`|
+    |`I'm applying for the summer college internship in Research and Development in San Diego`|
+    |`I'm requesting to submit my resume to the temporary position in the cafeteria.`|
+    |`I'm submitting my resume for the new Autocar team in Columbus, OH`|
+    |`I want to apply for the new accounting job`|
+    |`Job 456789 accounting internship paperwork is here`|
+    |`Job 567890 and my paperwork`|
+    |`My papers for the tulsa accounting internship are attached.`|
+    |`My paperwork for the holiday delivery position`|
+    |`Please send my resume for the new accounting job in seattle`|
+    |`Submit resume for engineering position`|
+    |`This is my c.v. for post 234123 in Tampa.`|
 
-<!--
-
-    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
-
-    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
-
--->
 
 ## Train again
 

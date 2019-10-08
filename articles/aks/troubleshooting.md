@@ -101,9 +101,9 @@ You may receive errors that indicate your AKS cluster is not on a virtual machin
 
 **AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
 
-To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster. Virtual machine scale set support is currently in preview in AKS.
+To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster.
 
-Follow the *Before you begin* steps in the appropriate doc to correctly register for the virtual machine scale set feature preview and create an AKS cluster:
+Follow the *Before you begin* steps in the appropriate doc to correctly create an AKS cluster:
 
 * [Use the cluster autoscaler](cluster-autoscaler.md)
 * [Create and use multiple node pools](use-multiple-node-pools.md)

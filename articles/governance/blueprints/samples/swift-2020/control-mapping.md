@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample
 
