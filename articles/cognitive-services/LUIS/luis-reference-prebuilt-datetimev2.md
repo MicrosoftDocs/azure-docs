@@ -26,7 +26,7 @@ The following utterance and its partial JSON response is shown below.
 
 `8am on may 2nd 2019`
 
-#### [V3 response](#tab/V3-1)
+#### [V3 response](#tab/1-1)
 
 ```json
 "entities": {
@@ -47,7 +47,7 @@ The following utterance and its partial JSON response is shown below.
 }
 ```
 
-#### [V3 verbose response](#tab/V3-verbose-1)
+#### [V3 verbose response](#tab/1-2)
 
 ```json
 "entities": {
@@ -80,7 +80,7 @@ The following utterance and its partial JSON response is shown below.
 }
 ```
 
-#### [V2 response](#tab/V2-1)
+#### [V2 response](#tab/1-3)
 
 ```json
 "entities": [
@@ -163,7 +163,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 ## Date resolution example
 
-#### [V3 response](#tab/V3-date)
+#### [V3 response](#tab/2-1)
 
 ```json
 "entities": {
@@ -185,7 +185,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 }
 ```
 
-#### [V3 verbose response](#tab/V3-verbose-date)
+#### [V3 verbose response](#tab/2-2)
 
 ```json
 
@@ -223,7 +223,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 }
 ```
 
-#### [V2 response](#tab/V2-date)
+#### [V2 response](#tab/2-3)
 
 ```json
   "entities": [
@@ -255,7 +255,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance `May 2nd to May 5th`, LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
 
-#### [V3 response](#tab/V3-daterange)
+#### [V3 response](#tab/3-1)
 
 ```json
 "entities": {
@@ -280,7 +280,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 ```
 
 
-#### [V3 verbose response](#tab/V3-verbose-daterange)
+#### [V3 verbose response](#tab/3-2)
 
 ```json
 "entities": {
@@ -319,7 +319,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 }
 ```
 
-#### [V2 response](#tab/V2-daterange)
+#### [V2 response](#tab/3-3)
 
 ```json
 "entities": [
@@ -348,7 +348,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance `Tuesday to Thursday`. In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
 
-#### [V3 response](#tab/V3-daterange-2)
+#### [V3 response](#tab/4-1)
 
 ```json
 "entities": {
@@ -372,7 +372,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 }
 ```
 
-#### [V3 verbose response](#tab/V3-verbose-daterange-2)
+#### [V3 verbose response](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 }
 ```
 
-#### [V2 response](#tab/V2-daterange)
+#### [V2 response](#tab/4-3)
 
 ```json
   "entities": [
@@ -446,7 +446,7 @@ Changes from API V2:
 * `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
 * The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
 
-#### [V3 response](#tab/V3-datetime-2)
+#### [V3 response](#tab/5-1)
 
 For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 
@@ -465,7 +465,7 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
     ]
 }
 ```
-#### [V3 verbose response](#tab/V3-verbose-datetime-2)
+#### [V3 verbose response](#tab/5-2)
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
@@ -499,7 +499,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     }
 }
 ```
-#### [V2 response](#tab/V2-datetime-2)
+#### [V2 response](#tab/5-3)
 
 ```json
   "entities": [
@@ -526,7 +526,7 @@ The following JSON is with the `verbose` parameter set to `false`:
 
 ## Time resolution example
 
-#### [V3 response](#tab/V3-time-1)
+#### [V3 response](#tab/6-1)
 
 ```json
 "entities": {
@@ -544,7 +544,7 @@ The following JSON is with the `verbose` parameter set to `false`:
 }
 
 ```
-#### [V3 verbose response](#tab/V3-verbose-time-1)
+#### [V3 verbose response](#tab/6-2)
 
 ```json
 "entities": {
@@ -577,7 +577,7 @@ The following JSON is with the `verbose` parameter set to `false`:
 }
 
 ```
-#### [V2 response](#tab/V2-time-1)
+#### [V2 response](#tab/6-3)
 
 ```json
 "entities": [

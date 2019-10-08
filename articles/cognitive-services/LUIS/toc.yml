@@ -253,13 +253,14 @@
     - name: Migrate to V2 REST API
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
-      items: 
-      - name: Authoring changes
+      items:
+      - name: Overview
         href: luis-migration-api-v3.md 
-
-      - name: Prediction endpoint
+      - name: Authoring 
+        href: luis-migration-api-v3.md 
+      - name: Prediction
         href: luis-migration-api-v3-endpoint.md   
-        displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override         
+        displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
   - name: Use containers
     items:
     - name: Install and run containers

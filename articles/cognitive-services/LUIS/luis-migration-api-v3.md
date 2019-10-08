@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/08/2019
 ms.author: diberry
 ---
 
@@ -18,21 +18,18 @@ ms.author: diberry
 
 The V3 APIs are significantly different from V2. Use this guide to understand how to migrate to version 3 APIs. 
 
-## Preview: authoring changes
+## Generally available APIs 
 
-Authoring changes in the V3 API focus on entity and labeling changes. 
-
-## Generally available: prediction endpoint changes
+### Prediction endpoint changes
 
 This V3 API provides the following new features, which include significant JSON request and/or response changes: 
 
 * [External entities](luis-migration-api-v3-prediction.md#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](luis-migration-api-v3-prediction.md#dynamic-lists-passed-in-at-prediction-time)
 * [Prebuilt entity JSON changes](luis-migration-api-v3-prediction.md#prebuilt-entities-with-new-json)
-* [Multi-intent detection of utterance](luis-migration-api-v3-prediction.md#multi-intent-detection-of-utterance)
-* [Response object changes](#top-level-json-changes)
-* [Entity role name references instead of entity name](#entity-role-name-instead-of-entity-name)
-* [Properties to mark entities in utterances](#marking-placement-of-entities-in-utterances)
+* [Prediction response object changes](luis-migration-api-v3-prediction.md#top-level-json-changes)
+* [Entity role name references instead of entity name](luis-migration-api-v3-prediction.md#entity-role-name-instead-of-entity-name)
+* [Properties to mark entities in utterances](luis-migration-api-v3-prediction.md#marking-placement-of-entities-in-utterances)
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 

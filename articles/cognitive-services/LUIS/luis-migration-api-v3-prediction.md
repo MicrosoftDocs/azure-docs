@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/08/2019/
+ms.date: 10/08/2019
 ms.author: diberry
 ---
 
@@ -24,7 +24,6 @@ This V3 API provides the following new features, which include significant JSON 
 * [Dynamic lists](#dynamic-lists-passed-in-at-prediction-time)
 * [Prebuilt entity JSON changes](#prebuilt-entities-with-new-json)
 * [Multi-intent detection of utterance](#multi-intent-detection-of-utterance)
-
 
 The query prediction endpoint [request](#request-changes) and [response](#response-changes) have significant changes to support the new features listed above, including the following:
 
