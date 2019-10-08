@@ -372,7 +372,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 }
 ```
 
-#### [V3 verbose response](#tab/4-1)
+#### [V3 verbose response](#tab/4-2)
 
 ```json
 "entities": {
