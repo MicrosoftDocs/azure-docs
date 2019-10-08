@@ -19,11 +19,19 @@ ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
-# Sign in users and call the Microsoft Graph from an Android app
+# Tutorial: Sign in users and call the Microsoft Graph from an Android app
 
-In this tutorial, you'll learn how to integrate an Android app with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.  
+In this tutorial, you'll learn how to:
 
-When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory.
+> [!div class="checklist"]
+> * Integrate an Android app with the Microsoft identity platform
+> * Sign in a user
+> * Get an access token to call the Microsoft Graph API
+> * Call the Microsoft Graph API.  
+
+When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## How this tutorial works
 
@@ -531,6 +539,10 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 ### Consent
 
 The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+
+## Clean up resources
+
+When no longer needed, delete the app object that you created in the [Register your application](register-your-application) step.
 
 ## Get help
 
