@@ -22,7 +22,7 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 
 In order to query a public app, you need:
 
-* Your own Language Understanding (LUIS) key. If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/).
+* Your own Language Understanding (LUIS) key. If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/). The LUIS authoring key will not work. 
 * The public app's ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## Use the browser to see predictions
@@ -33,62 +33,34 @@ In order to query a public app, you need:
     The format of the V3 URL for a **GET** endpoint (by slots) request is:
     
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
+    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?show-all-intents=true&verbose=true&query=turn off the living room light&subscription-key={your-key}
     `
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
 
     ```JSON
     {
-        "query": "turn on all lights",
+        "query": "turn off the living room light",
         "prediction": {
-            "topIntent": "HomeAutomation.TurnOn",
+            "normalizedQuery": "turn off the living room light",
+            "topIntent": "HomeAutomation.TurnOff",
             "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ]
-            }
-        }
-    }
-    ```
-
-1. To see all the intents add the appropriate query string parameter. 
-
-    Add `show-all-intents=true` to the end of the querystring to **show all intents**:
-
-    `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
-    `
-
-    ```JSON
-    {
-        "query": "turn on all lights",
-        "prediction": {
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
                 "HomeAutomation.TurnOff": {
-                     "score": 0.0207554
+                    "score": 0.173280165
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.0881227553
                 },
                 "None": {
-                     "score": 0.08687421
+                    "score": 0.07255802
                 }
             },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ]
-            }
+            "entities": {}
         }
     }
     ```
+
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
 
 ## Next steps
 

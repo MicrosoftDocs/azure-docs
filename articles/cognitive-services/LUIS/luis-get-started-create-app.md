@@ -29,7 +29,7 @@ You can create and manage your applications on **My Apps**.
 
 1. Select **+ Create**.
 
-    [![Screenshot of app list](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
+    [![Screenshot of app list](./media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](./media/luis-quickstart-new-app/app-list.png)
 
 1. In the dialog box, name your application "Home Automation".
 
@@ -93,37 +93,90 @@ Select **Test** again to collapse the test pane.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the V2 API prediction endpoint
+## Query the V3 API prediction endpoint
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/how-to-get-v3-prediction-endpoint.md)] 
 
-1. Go to the end of the URL in the address and enter `turn off the living room light`, and then press Enter. 
+1. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
 
-    For a [V3 API query](luis-migration-api-v3.md), in the browser, change the GET method HTTPS request, changing out the values in angle brackets for your own values.     
+    |Name/value pair|
+    |--|
+    |`verbose=true`|
+    |`show-all-intents=true`|
 
-    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
+1. In the browser address bar, go to the end of the URL and enter `turn off the living room light` for the _query_ value, then press Enter.
 
     ```json
     {
-        "query": "turn off the lights",
+        "query": "turn off the living room light",
         "prediction": {
+            "normalizedQuery": "turn off the living room light",
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.99649024
+                    "score": 0.967174649
                 }
             },
             "entities": {
+                "HomeAutomation.Location": [
+                    "living room"
+                ],
+                "HomeAutomation.DeviceName": [
+                    [
+                        "living room light"
+                    ]
+                ],
                 "HomeAutomation.DeviceType": [
                     [
                         "light"
                     ]
-                ]
+                ],
+                "$instance": {
+                    "HomeAutomation.Location": [
+                        {
+                            "type": "HomeAutomation.Location",
+                            "text": "living room",
+                            "startIndex": 13,
+                            "length": 11,
+                            "score": 0.9494325,
+                            "modelTypeId": 1,
+                            "modelType": "Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceName": [
+                        {
+                            "type": "HomeAutomation.DeviceName",
+                            "text": "living room light",
+                            "startIndex": 13,
+                            "length": 17,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceType": [
+                        {
+                            "type": "HomeAutomation.DeviceType",
+                            "text": "light",
+                            "startIndex": 25,
+                            "length": 5,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
         }
     }
     ```
-
 
     Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
     
