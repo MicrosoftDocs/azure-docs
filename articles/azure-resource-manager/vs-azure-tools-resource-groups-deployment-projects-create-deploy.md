@@ -9,7 +9,7 @@ ms.author: tomfitz
 ---
 # Creating and deploying Azure resource groups through Visual Studio
 
-With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, web site, and code for the web site. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
+With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
 This article shows how to use [Visual Studio 2019 or later with the Azure development and ASP.NET workloads installed](/visualstudio/install/install-visual-studio?view=vs-2019). If you use Visual Studio 2017, your experience is largely the same.
 
