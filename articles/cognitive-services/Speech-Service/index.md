@@ -424,7 +424,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hubspeech_conversation_transcription.jpg" alt="" />
+                                                        <img src="media/hubspeech_conversation_transcription_single.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
