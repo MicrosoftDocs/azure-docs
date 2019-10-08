@@ -53,12 +53,6 @@ landingContent:
             url: create-account-cli-how-to.md          
           - text: Access API
             url: access-api-cli-how-to.md    
-          - text: Develop REST using Postman
-            url: media-rest-apis-with-postman.md
-          - text: Connect with Java
-            url: configure-connect-java-howto.md
-          - text: Connect with .NET
-            url: configure-connect-dotnet-howto.md
       - linkListType: download
         links:
           - text: .NET SDK samples
