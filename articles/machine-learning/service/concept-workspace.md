@@ -85,16 +85,7 @@ There are multiple ways to create a workspace:
 
 ## <a name="upgrade"></a> Upgrade to Enterprise SKU
 
-You can upgrade your workspace from Basic SKU to Enterprise SKU.  
-
-1. Sign in to the [Azure portal](https://portal.azure.com)
-
-1. Select the workspace that you wish to upgrade.
-
-1. Select **Upgrade**.
-
-> [!IMPORTANT]
-> You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
+You can [upgrade your workspace from Basic SKU to Enterprise SKU](how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace. 
 
 ## <a name="resources"></a> Associated resources
 

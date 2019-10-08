@@ -68,7 +68,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantage of the enhanced features such low-code experiences and enhanced security features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select the workspace that you wish to upgrade.
 

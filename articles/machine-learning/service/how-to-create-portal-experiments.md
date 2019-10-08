@@ -24,7 +24,7 @@ ms.date: 09/09/2019
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace with a type of **Enterprise SKU**. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  To upgrade an existing workspace to Enterprise SKU, see [[Upgrade to Enterprise SKU?](concept-workspace.md#upgrade)]
+* An Azure Machine Learning workspace with a type of **Enterprise SKU**. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  To upgrade an existing workspace to Enterprise SKU, see [Upgrade to Enterprise SKU](how-to-manage-workspace.md#upgrade).
 
 ## Get started
 
