@@ -53,3 +53,7 @@ landingContent:
         links:
           - text: Open a support ticket
             url: hpc-cache-support-ticket.md
+      - linkListType: concept
+        links:
+          - text: Recover from a regional outage
+            url: hpc-region-recovery.md
