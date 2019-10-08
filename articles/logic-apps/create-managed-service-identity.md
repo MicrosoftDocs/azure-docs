@@ -75,9 +75,9 @@ To set up the system-assigned identity, here are the options that you can use:
    | **Object ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in an Azure AD tenant |
    ||||
 
-1. To use the logic app's system-assigned identity with the built-in Azure Functions or Azure API Management actions in your logic app, follow the step for the corresponding action:
+1. To use the logic app's system-assigned identity with the built-in Azure Functions or Azure API Management actions in your logic app, follow the step for the corresponding action type:
 
-   * **Azure Functions**: [Set up authentication for Azure Functions](#set-authentication-function-app)
+   * [Set up authentication for Azure Functions](#set-authentication-function-app)
 
    * **API Management service**: In the Azure portal, find and select your API Management service. On that service's menu, under **Settings**, select **Managed identities**. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
 
@@ -115,21 +115,35 @@ To use the logic app's system-assigned identity for authenticating an Azure Func
 
 1. When you're done, save your settings, and then continue to the next section.
 
+<a name="set-azure-ad-authentication"></a>
+
 #### Set up Azure AD authentication for Azure Functions
 
-To complete this task, have these values ready:
+To complete this task for your function app, have these values ready:
 
-* The object ID that's generated for the system-assigned identity that represents your logic app.
+* The object ID that's generated for the system-assigned identity that represents your logic app
 
-  * To generate this ID, follow these steps to enable the system-assigned identity for your logic app.
+  * To generate this object ID, follow these [steps to enable your logic app's system-assigned identity](#azure-portal-system-logic-app).
 
   * Otherwise, to find this object ID, open your logic app in the Logic App Designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
 
-* The directory ID for your tenant in Azure Active Directory (Azure AD). To get this value, you can run the `Get-AzureAccount` Powershell command, or in the Azure portal, find and select your tenant.
+* The directory ID for your tenant in Azure Active Directory (Azure AD)
 
-* The resource ID for the target resource that you want to access. This ID is the same value that you specify for the **Audience** property after you select the authentication type to use when calling your Azure function from your logic app.
+  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
 
-  !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
+  1. Find and select your Azure AD tenant.
+
+  1. On the tenant's menu, under **Manage**, select **Properties**.
+
+  1. Copy your tenant's directory ID, for example, and save that ID somewhere:
+
+     ![Find and copy Azure AD tenant's directory ID](./media/create-managed-service-identity/azure-active-directory-tenant-id.png)
+
+* The resource ID for the target resource that you want to access
+
+   This ID is the same value that you specify in the your Azure function's **Audience** property. This property appears after you set the **Authentication type** property to **Managed Identity**, for example:
+
+  !["Audience" property set to target resource ID](./media/create-managed-service-identity/functions-authentication-audience-property.png)
 
   This resource ID value must exactly match the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -147,11 +161,11 @@ To complete this task, have these values ready:
 
 1. In the **Client ID** property, enter the object ID for your logic app's system-assigned identity.
 
-1. In the **Issuer Url** property, enter the URL for your tenant in Azure Active Directory.
+1. In the **Issuer Url** property, enter the `https://sts.windows.net/` URL and append your Azure AD tenant's directory ID:
 
-1. In the **Allowed Token Audiences** property, enter the URL from the **Audience** property from the Azure function action in your logic app.
-    Enter “Client 
-ID”(object id of logic app -> settings -> Identity) , “Issuer Url” and the “ALLOWED TOKEN AUDIENCES” (audience from step 1)
+   `https://sts.windows.net/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+1. In the **Allowed Token Audiences** property, enter the URL that you use for the **Audience** property in your Azure function from your logic app.
 
 <a name="template-system-logic-app"></a>
 
