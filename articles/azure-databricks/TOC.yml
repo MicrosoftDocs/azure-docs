@@ -100,7 +100,7 @@
       - name: Clear Cache
         href: /azure/databricks/spark/latest/spark-sql/language-manual/clear-cache
         maintainContext: true
-      - name: Convert To Delta (Delta Lake on Azure    Databricks
+      - name: Convert To Delta (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
         maintainContext: true
       - name: Create Database
@@ -115,7 +115,7 @@
       - name: Create View
         href: /azure/databricks/spark/latest/spark-sql/language-manual/create-view
         maintainContext: true
-      - name: Delete From  (Delta Lake on AzureDatabricks
+      - name: Delete from (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
         maintainContext: true
       - name: Describe Database
@@ -139,7 +139,7 @@
       - name: Explain
         href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
         maintainContext: true
-      - name: Fsck Repair Table  (Delta Lake on Azure    Databricks
+      - name: Fsck Repair Table (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
         maintainContext: true
       - name: Functions
@@ -151,10 +151,10 @@
       - name: Load Data
         href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
         maintainContext: true
-      - name: Merge Into  (Delta Lake on AzureDatabricks
+      - name: Merge Into (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
         maintainContext: true
-      - name: Optimize  (Delta Lake on AzureDatabricks
+      - name: Optimize (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
         maintainContext: true
       - name: Refresh Table
@@ -196,7 +196,7 @@
       - name: Uncache Table
         href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
         maintainContext: true
-      - name: Update  (Delta Lake on Azure Databricks
+      - name: Update (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/update
         maintainContext: true
       - name: Use Database
@@ -705,7 +705,7 @@
       - name: Advanced MLib example
         href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
         maintainContext: true
-    - name: Auto ML
+    - name: AutoML
       items:
       - name: Hyperopt
         items:
@@ -912,7 +912,7 @@
       - name: Variant IO with Apache Spark SQL
         href: /azure/databricks/applications/genomics/etl/variant-data 
         maintainContext: true
-      - name: Create Geomics Delta Lake
+      - name: Create Genomics Delta Lake
         href: /azure/databricks/applications/genomics/etl/vcf2delta
         maintainContext: true
       - name: Variant quality control
@@ -1356,7 +1356,7 @@
       - name: Notebook autosave fails due to file size limits
         href: /azure/databricks/kb/notebooks/notebook-autosave 
         maintainContext: true
-      - name: Can't run notebook after cancelling streaming cell
+      - name: Can't run notebook after canceling streaming cell
         href: /azure/databricks/kb/notebooks/streaming-notebook-stuck 
         maintainContext: true
     - name: Python
@@ -1373,7 +1373,7 @@
       - name: Command fails after installing Bokeh
         href: /azure/databricks/kb/python/python-cmd-fails-tornado-version 
         maintainContext: true
-      - name: Command cancelled due to library conflict
+      - name: Command canceled due to library conflict
         href: /azure/databricks/kb/python/python-command-cancelled 
         maintainContext: true
       - name: Command fails with AttributeError
