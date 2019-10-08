@@ -598,6 +598,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Troubleshooting Data Flows
+      href: data-flow-troubleshoot-guide.md
 - name: Scenarios
   items:
   - name: Data migration for data lake & EDW
