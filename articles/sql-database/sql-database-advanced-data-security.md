@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: 
 ms.topic: conceptual
-author: monhaber
-ms.author: v-mohabe
+author: rkarlin
+ms.author: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ---
