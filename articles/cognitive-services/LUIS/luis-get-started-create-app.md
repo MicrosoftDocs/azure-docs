@@ -97,7 +97,7 @@ Select **Test** again to collapse the test pane.
 
 ## Query the V3 API prediction endpoint
 
-[!INCLUDE [LUIS How to get endpoint first step](./includes/how-to-get-v3-prediction-endpoint.md)] 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
 
 1. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
 
