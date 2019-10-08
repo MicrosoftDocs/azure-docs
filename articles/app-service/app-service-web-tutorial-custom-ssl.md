@@ -231,9 +231,18 @@ The following command adds an SNI-based SSL binding, using the thumbprint from t
 ```azurecli-interactive
 az webapp config ssl bind \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
+```
+
+The following command forces the app to use https.
+
+```azurecli-interactive
+az webapp update \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --https-only true
 ```
 
 The following command enforces minimum TLS version of 1.2.
@@ -241,7 +250,7 @@ The following command enforces minimum TLS version of 1.2.
 ```azurecli-interactive
 az webapp config set \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --min-tls-version 1.2
 ```
 
