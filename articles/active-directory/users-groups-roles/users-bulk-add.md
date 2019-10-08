@@ -29,11 +29,11 @@ In order to bulk create users in the administration portal, you must be signed i
 1. In Azure AD, select **Users** > **Bulk create**.
 1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add add users you want to create.
 
-   ![The CSV file contains names and IDs of the users to create](./media/users-bulk-add/add-csv-file.png)
+   ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
 1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Then save the file.
 
-   ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
+   ![The CSV file contains names and IDs of the users to create](./media/users-bulk-add/add-csv-file.png)
 
 1. On the **Bulk create user (Preview)** page, under Upload your CSV file, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. After the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.

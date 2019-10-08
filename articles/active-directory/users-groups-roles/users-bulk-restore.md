@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-restore/upload-button.png)
 
-1. On the ****Bulk restore (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
+1. On the **Bulk restore (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that restores the users.
 1. When the restore operation completes, you'll see a notification that the bulk operation succeeded.

@@ -25,11 +25,11 @@ Using Azure Active Directory (Azure AD) portal, you can remove a large number of
 1. In Azure AD, select **Users** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties.
 
-   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
-
-1. Open the .csv file and add a line for each user you want to delete. The only required value is User principal name. Then save the file.
-
    ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/bulk-delete.png)
+
+1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Then save the file.
+
+   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
 
 1. On the **Bulk delete user (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
 1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
