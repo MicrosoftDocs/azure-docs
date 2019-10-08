@@ -140,19 +140,13 @@ In this section, you get the host information from the Apache Ambari REST API on
     sudo apt -y install jq
     ```
 
-2. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
+1. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
 
     ```bash
     export password='PASSWORD'
     ```
 
-3. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and store it in a variable. Enter the following command:
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-
-4. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
+1. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -162,9 +156,14 @@ In this section, you get the host information from the Apache Ambari REST API on
 
     > [!NOTE]
     > If you can't access the Ambari service on the cluster headnode (if for e.g. you're executing these commands on a different VM), use the public endpoint.
-    > `export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')`
+    >
+    > `export clusterName=$(curl -u admin:$password -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters | jq -r '.items[].Clusters.cluster_name')`
+    >
+    > `export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);`
+    >
+    > `export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);`
 
-5. To verify that the environment variable is set correctly, use the following command:
+1. To verify that the environment variable is set correctly, use the following command:
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -174,13 +173,13 @@ In this section, you get the host information from the Apache Ambari REST API on
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-6. To set an environment variable with Apache Kafka broker host information, use the following command:
+1. To set an environment variable with Apache Kafka broker host information, use the following command:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-7. To verify that the environment variable is set correctly, use the following command:
+1. To verify that the environment variable is set correctly, use the following command:
 
     ```bash
     echo $KAFKABROKERS
