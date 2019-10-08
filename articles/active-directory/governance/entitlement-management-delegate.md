@@ -43,7 +43,7 @@ To understand how you might delegate access governance in entitlement management
 
 As the IT administrator, Hana has contacts in each department -- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
-With entitlement management, you can delegate access governance to these non-administrators because they are the ones who know which users needs access, for how long, and to which resources. This ensures the right people are managing access for their departments.
+With entitlement management, you can delegate access governance to these non-administrators because they are the ones who know which users need access, for how long, and to which resources. This ensures the right people are managing access for their departments.
 
 Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 

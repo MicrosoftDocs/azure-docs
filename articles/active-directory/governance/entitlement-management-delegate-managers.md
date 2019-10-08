@@ -40,7 +40,7 @@ This video provides an overview of how to delegate access governance from catalo
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq08]
 
-## As a catalog owner, delegate to access package manager
+## As a catalog owner, delegate to an access package manager
 
 Follow these steps to assign a user to the access package manager role:
 
