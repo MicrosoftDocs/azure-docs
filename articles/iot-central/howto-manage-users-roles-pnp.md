@@ -18,7 +18,6 @@ This article describes how, as an administrator, you can add, edit, and delete u
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
-
 ## Add users
 
 Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
@@ -51,7 +50,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 ## Manage roles
 
-Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three roles you can assign to users of your application.
+Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) if you require finer-grained control.
 
 ### Administrator
 
@@ -69,4 +68,4 @@ Users in the **Application Operator** role can't make changes to device template
 
 ## Next steps
 
-Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+Now that you've learned about how to manage users and roles in your Azure IoT Central application, the suggested next step is to learn how to [Configure role-based access controls](howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
