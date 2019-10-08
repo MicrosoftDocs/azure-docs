@@ -31,7 +31,7 @@ Some of the operations supported by the Hive Warehouse Connector are:
 
 ## Hive Warehouse Connector setup
 
-Follow these steps to setup the Hive Warehouse Connector between a Spark and Interactive Query cluster in Azure HDInsight:
+Follow these steps to set up the Hive Warehouse Connector between a Spark and Interactive Query cluster in Azure HDInsight:
 
 ### Create clusters
 
@@ -41,7 +41,7 @@ Follow these steps to setup the Hive Warehouse Connector between a Spark and Int
 
 ### Modify hosts file
 
-Copy the node information from the `/etc/hosts` file on headnode0 of your Interactive Query cluster and concatenate the information to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. View the contents of the updated file with `cat /etc/hosts`. The output should look something like what is shown in the screenshot below.
+Copy the node information from the `/etc/hosts` file on headnode0 of your Interactive Query cluster and concatenate the information to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. View the contents of the updated file with `cat /etc/hosts`. The final output should look something like what is shown in the screenshot below.
 
 ![hive warehouse connector hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
@@ -69,14 +69,14 @@ From your Spark Ambari web UI, navigate to **Spark2** > **CONFIGS** > **Custom s
 
 Select **Add Property...** as needed to add/update the following:
 
-| Key | Value | Comment |
-|----|----|----|
-|`spark.hadoop.hive.llap.daemon.service.hosts`|The value you obtained earlier from **hive.llap.daemon.service.hosts**.||
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`|Set to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. REPLACE `LLAPCLUSTERNAME` with the name of your Interactive Query cluster. Replace `PWD` with the actual password.|
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`|Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container.|
-|`spark.datasource.hive.warehouse.metastoreUri`|The value you obtained earlier from **hive.metastore.uris**.||
-|`spark.security.credentials.hiveserver2.enabled`|`false`|`false` for YARN client deploy mode.|
-|`spark.hadoop.hive.zookeeper.quorum`|The value you obtained earlier from **hive.zookeeper.quorum**.||
+| Key | Value |
+|----|----|
+|`spark.hadoop.hive.llap.daemon.service.hosts`|The value you obtained earlier from **hive.llap.daemon.service.hosts**.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Set to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. REPLACE `LLAPCLUSTERNAME` with the name of your Interactive Query cluster. Replace `PWD` with the actual password.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container.|
+|`spark.datasource.hive.warehouse.metastoreUri`|The value you obtained earlier from **hive.metastore.uris**.|
+|`spark.security.credentials.hiveserver2.enabled`|`false` for YARN client deploy mode.|
+|`spark.hadoop.hive.zookeeper.quorum`|The value you obtained earlier from **hive.zookeeper.quorum**.|
 
 Save changes and restart components as needed.
 
@@ -167,7 +167,7 @@ Spark doesn’t natively support writing to Hive’s managed ACID tables. Using 
 1. View the results with the following command:
 
     ```scala
-    hive.table("sampletable_colorado2").show()
+    hive.table("sampletable_colorado").show()
     ```
     
     ![hive warehouse connector show hive table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
@@ -190,7 +190,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     1. Open a second SSH session on the same Spark cluster.
     1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
 
-1. Return the the first SSH session and create a new Hive table to hold the streaming data. At the spark-shell, enter the following command:
+1. Return to the first SSH session and create a new Hive table to hold the streaming data. At the spark-shell, enter the following command:
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
@@ -213,7 +213,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     bar
     ```
 
-1. Return to the first SSH session and note the activity. Use the following command to view the data:
+1. Return to the first SSH session and note the brief activity. Use the following command to view the data:
 
     ```scala
     hive.table("stream_table").show()
