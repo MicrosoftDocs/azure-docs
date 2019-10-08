@@ -63,7 +63,7 @@ A floating **Acoustics** window will open. This window is where you set the prop
 ![The Unity editor with the Acoustics window open](media/unity-editor-plugin-window.png)  
 
 ## Experiment with the design controls
-Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use the W, A, S, and D keys and the mouse to move around. To compare how the scene sounds with and without acoustics, press the R key until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, press F1. You can also right-click to select an action and then left-click to do that action.
+Open the sample scene in the *ProjectAcousticsSample* folder, and select the play button in the Unity editor. Use the W, A, S, and D keys and the mouse to move around. To compare how the scene sounds with and without acoustics, select the R key until the overlay text turns red and shows "Acoustics: Disabled." To see keyboard shortcuts for more controls, select F1. You can also right-click to select an action and then left-click to do that action.
 
 The *AcousticsAdjust* script is attached to the sound sources in the sample scene. It enables the per-source design parameters.
 

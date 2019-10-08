@@ -31,15 +31,15 @@ Download the [Project Acoustics Unreal and Wwise sample package](https://www.mic
 First, install the Project Acoustics plug-in into Wwise. Next, deploy the Wwise binaries to the Unreal project. Then, adjust the Wwise Unreal plug-in to support Project Acoustics.
 
 ### Install the Project Acoustics Wwise plug-in
-Open Wwise Launcher. On the **Plugins** tab, under **Install New Plug-ins**, select **Add from directory**. Choose the *AcousticsWwisePlugin\ProjectAcoustics* directory that was included in the package that you downloaded.
+Open the Wwise Launcher. On the **Plugins** tab, under **Install New Plug-ins**, select **Add from directory**. Choose the *AcousticsWwisePlugin\ProjectAcoustics* directory that was included in the package that you downloaded.
 
-![The option to install the Wwise plug-in in Wwise Launcher](media/wwise-install-new-plugin.png)
+![The option to install the Wwise plug-in in the Wwise Launcher](media/wwise-install-new-plugin.png)
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
 1. In Wwise Launcher, select the **Unreal Engine** tab. 
 1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.uproject* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
-   ![The Unreal tab in Wwise Launcher](media/wwise-unreal-tab.png)
+   ![The Unreal tab in the Wwise Launcher](media/wwise-unreal-tab.png)
 
 3. Next to the Project Acoustics sample project, select **Integrate Wwise in Project**.
 
@@ -67,7 +67,7 @@ If opening the project fails because of build failures, check that you installed
 If you use a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than version 2019.1, you can't generate sound banks by using the Project Acoustics sample project. You need to integrate Wwise version 2019.1 into the sample project.
 
 ## Experiment with Project Acoustics design controls
-Listen to how the scene sounds by clicking the play button in the Unreal editor. Use the W, A, S, and D keys and the mouse to move around. To see keyboard shortcuts for additional controls, press F1.
+Listen to how the scene sounds by selecting the play button in the Unreal editor. Use the W, A, S, and D keys and the mouse to move around. To see keyboard shortcuts for additional controls, select F1.
 
 The following information describes some design activities to try.
 

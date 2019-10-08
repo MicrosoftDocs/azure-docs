@@ -43,7 +43,7 @@ The bake portion of the acoustics toolkit requires the .NET 4.*x* scripting runt
 ![The Unity Player Settings panel with .NET 4.5 selected](media/net45.png)
 
 ## Set up audio DSP
-Project Acoustics includes audio runtime DSP that integrates into the Unity audio engine spatializer framework. It includes both HRTF-based and panning spatialization. To enable the Project Acoustics DSP, go to **Edit > Project Settings > Audio** to open the Unity audio settings. Select **Project Acoustics** as the **Spatializer Plugin** for your project. Make sure that **DSP Buffer Size** is set to *Best performance*.
+Project Acoustics includes audio runtime DSP that integrates into the Unity audio engine spatializer framework. It includes both HRTF-based and panning spatialization. To enable the Project Acoustics DSP, go to **Edit** > **Project Settings** > **Audio** to open the Unity audio settings. Select **Project Acoustics** as the **Spatializer Plugin** for your project. Make sure that **DSP Buffer Size** is set to *Best performance*.
 
 ![The Unity Project Settings menu](media/project-settings.png)  
 
@@ -54,12 +54,12 @@ Next, open the Audio Mixer (**Window** > **Audio Mixer**). Make sure that you ha
 ![The Unity Audio Mixer hosting the Project Acoustics mixer](media/audio-mixer.png)
 
 ## Enable acoustics on sound sources
-Create an audio source: Select the **Spatialize** checkbox at the bottom of the AudioSource inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
+Create an audio source: Select the **Spatialize** check box at the bottom of the AudioSource inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
 
 ![The Unity Audio Source panel](media/audio-source.png)
 
 ## Enable acoustic design
-Attach the *AcousticsAdjust* script to a sound source in your scene to enable additional source design parameters: Select **Add Component** and choose **Scripts** > Acoustics Adjust**.
+Attach the *AcousticsAdjust* script to a sound source in your scene to enable additional source design parameters: Select **Add Component** and choose **Scripts** > **Acoustics Adjust**.
 
 ![The Unity AcousticsAdjust script](media/acoustics-adjust.png)
 

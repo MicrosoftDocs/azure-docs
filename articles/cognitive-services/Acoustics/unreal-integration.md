@@ -36,9 +36,9 @@ An Unreal Engine plug-in and a Wwise mixer plug-in are included in the package. 
 Follow these steps to install the package and deploy it in your game.
 
 ### Install the Project Acoustics mixer plug-in
-1. Open Wwise launcher. On the **Plug-ins** tab, under **Install New Plug-ins**, select **Add from Directory**.
+1. Open the Wwise launcher. On the **Plug-ins** tab, under **Install New Plug-ins**, select **Add from Directory**.
 
-    ![Install a plug-in in Wwise launcher](media/wwise-install-new-plugin.png)
+    ![Install a plug-in in the Wwise launcher](media/wwise-install-new-plugin.png)
 
 1. Select the *AcousticsWwisePlugin\ProjectAcoustics* directory that's in the download package. It contains the Wwise mixer plug-in bundle.
 
@@ -148,7 +148,7 @@ If you're using game-defined or user-defined sends for reverb on any actor-mixer
 #### Spatialization
 The Project Acoustics Wwise mixer plug-in applies convolution reverb by default, leaving Wwise to do panning spatialization. When you use Project Acoustics in this default reverb-only configuration, you can use any channel configuration and spatialization method on your dry mix. So, you can mix and match almost any spatializer with the Project Acoustics reverb. Your options include [Ambisonics-based binaural spatializers](https://www.audiokinetic.com/products/ambisonics-in-wwise/) and [Windows Sonic](https://docs.microsoft.com/windows/desktop/CoreAudio/spatial-sound).
  
-Project Acoustics includes an optional spatializer that supports both object-based high-resolution HRTF rendering and panning. Select the **Perform Spatialization** checkbox in the mixer plug-in settings, and choose between *HRTF* or *Panning*. Also, disable user-defined aux sends to all the dry buses to avoid spatializing twice by the Project Acoustics mixer plug-in and Wwise. The spatialization mode can't be changed in real time because it requires a sound bank regeneration. Restart Unreal, and then regenerate soundbanks before you select play to integrate mixer plug-in config changes, such as the **Perform Spatialization** checkbox setting.
+Project Acoustics includes an optional spatializer that supports both object-based high-resolution HRTF rendering and panning. Select the **Perform Spatialization** check box in the mixer plug-in settings, and choose between *HRTF* or *Panning*. Also, disable user-defined aux sends to all the dry buses to avoid spatializing twice by the Project Acoustics mixer plug-in and Wwise. The spatialization mode can't be changed in real time because it requires a sound bank regeneration. Restart Unreal, and then regenerate soundbanks before you select play to integrate mixer plug-in config changes, such as the **Perform Spatialization** check box setting.
 
 ![Wwise Mixer Plug-in Spatialization settings](media/mixer-spatial-settings.png)
 
@@ -174,9 +174,9 @@ Unfortunately, other object-based spatializer plug-ins aren't currently supporte
         
     <sup>2</sup> The **Play on Start** box is selected by default. This setting triggers an associated Wwise event at level startup.</li>
          
-    <sup>3</sup> Use the **Show Acoustics Parameters** checkbox to print on-screen debug information about the source.
+    <sup>3</sup> Use the **Show Acoustics Parameters** check box to print on-screen debug information about the source.
 
-        ![The Unreal editor Acoustics panel on sound source with debug values enabled](media/debug-values.png)
+    ![The Unreal editor Acoustics panel on sound source with debug values enabled](media/debug-values.png)
 
     <sup>4</sup> Assign a Wwise event per the usual Wwise workflow.
        
