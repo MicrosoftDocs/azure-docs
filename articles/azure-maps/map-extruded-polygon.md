@@ -21,7 +21,7 @@ This article shows you how to use the polygon extrusion layer to render areas of
 When a [polygon extrusion layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) is connected to the data source and loaded on the map, it renders the areas of a `Polygon` and `MultiPolygon` features as extruded shapes. The  `height` and `base` properties of the polygon extrusion layer define the base distance from the ground and height of the extruded shape in **meters**. The following code shows how to create a polygon, add it to a data source and render it using the Polygon extrusion layer class.
 
 > [!Note]
-> The base value should be less than or equal to that of the height.
+> The `base` value defined in the polygon extrusion layer should be less than or equal to that of the `height`.
 
 <br/>
 
