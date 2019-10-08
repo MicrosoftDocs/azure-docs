@@ -18,6 +18,8 @@ ms.author: diberry
 
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
