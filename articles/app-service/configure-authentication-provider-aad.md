@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 
 ---
 
-# Configure your App Service app to authenticate with Azure Active Directory
+# Configure your App Service app to use Azure AD login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

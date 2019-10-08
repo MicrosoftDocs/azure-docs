@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# How to configure your App Service application to use Twitter login
+# Configure your App Service app to use Twitter login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

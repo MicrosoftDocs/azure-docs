@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# How to configure your App Service application to use Google login
+# Configure your App Service app to use Google login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

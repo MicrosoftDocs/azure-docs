@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# How to configure your App Service application to use Microsoft Account login
+# Configure your App Service app to use Microsoft Account login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -26,11 +26,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
 
-1. Sign in to the [Azure portal], and go to your application.
-
-<!-- Copy your **URL**, which you will use later to configure your app with Microsoft Account.-->
-
-1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). If needed, sign in with your Microsoft account.
+1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)in the Azure portal. If needed, sign in with your Microsoft account.
 1. Select **New registration**, then enter an application name.
 1. In **Redirect URIs**, select **Web**, and then enter `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Replace *\<app-domain-name>* with the domain name of your app.  For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Be sure to use the HTTPS scheme in the URL.
 

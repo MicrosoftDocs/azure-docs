@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# How to configure your App Service application to use Facebook login
+# Configure your App Service app to use Facebook login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
