@@ -94,7 +94,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
-    - The following examples demonstrates how to configure the ConfigMap file metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and by specifying a pod annotation
+    - The following examples demonstrates how to configure Prometheus endpoints to scrape metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and by specifying a pod annotation
 
         - Scrape Prometheus metrics from a specific URL across the cluster.
 
