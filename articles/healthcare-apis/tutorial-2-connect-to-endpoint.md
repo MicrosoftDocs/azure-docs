@@ -76,7 +76,7 @@ Here we will use a sample JS code to authenticate to Azure AD and obtain the tok
 
 first we configure MSAL library and Azure AD configuration. 
 
-**Note:** In real world scenario we would store initialization information in a separate file and not hardcode it.
+**Note:** In real world scenario we would store initialization information in a separate file and not hard-code it.
 
 ``` javascript
         var msalConfig = {
