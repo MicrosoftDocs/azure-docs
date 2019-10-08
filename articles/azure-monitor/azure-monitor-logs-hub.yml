@@ -1,0 +1,149 @@
+### YamlMime:Hub
+
+title: Azure Monitor Logs documentation 
+summary: Azure Monitor can collect data from different sources as log data and store it for correlation and analysis using its query language.
+brand: azure
+
+metadata:
+  title: Azure Monitor Logs documentation
+  services: azure-monitor
+  description: Azure Monitor can collect data from different sources as log data and store it for correlation and analysis using its query language. 
+  services: azure-monitor
+  ms.service: azure-monitor
+  ms.topic: hub-page 
+  ms.collection: collection
+  author: mgoedtel 
+  ms.author: magoedte
+  ms.date: 09/17/2019 
+
+highlightedContent:
+  items:
+  - title: About Azure Monitor
+    itemType: overview
+    url: overview.md
+  - title: What is Azure Monitor Logs?
+    itemType: concept
+    url: ./platform/data-platform-logs.md
+  - title: Sources of monitoring data
+    itemType: concept
+    url: ./platform/data-sources.md
+
+conceptualContent: 
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:         
+   - title: Security
+     links:
+        - url: ./platform/data-security.md
+          itemType: concept
+          text: Azure Monitor Logs data security
+        - url: ./platform/personal-data-mgmt.md
+          itemType: concept
+          text: Personal log data handling
+        - url: ./platform/roles-permissions-security.md
+          itemType: how-to-guide
+          text: Azure Monitor security permissioning 
+
+   - title: Design
+     links:
+        - url: ./platform/design-logs-deployment.md
+          itemType: how-to-guide
+          text: Design a workspace deployment
+        - url: ./platform/service-providers.md
+          itemType: how-to-guide
+          text: Workspace design for Service Providers
+        - url: ./platform/manage-access.md
+          itemType: how-to-guide
+          text: Configure access to log data
+
+   - title: Monitor
+     links: 
+        - url: ./platform/manage-cost-storage.md
+          itemType: how-to-guide
+          text: Log data usage and cost
+        - url: ./platform/data-locations.md
+          itemType: concept
+          text: Monitoring data locations
+        - url: ./platform/data-ingestion-time.md
+          itemType: concept
+          text: Log data ingestion time
+
+   - title: Create workspace
+     links:
+        - url: ./learn/quick-create-workspace.md
+          itemType: learn
+          text: Create workspace in the Azure portal
+        - url: ./learn/quick-create-workspace-cli.md
+          itemType: learn
+          text: Create worksapce with Azure CLI
+        - url: ./learn/quick-create-workspace-posh.md
+          itemType: learn
+          text: Create workspace with Azure PowerShell
+
+   - title: Analyze data
+     links:
+        - url: ./log-query/get-started-queries.md
+          itemType: how-to-guide
+          text: Get started with queries
+        - url: ./log-query/search-queries.md
+          itemType: how-to-guide
+          text: Understand Log queries
+        - url: ./log-query/logs-structure.md
+          itemType: how-to-guide
+          text: Log data structure
+        - url: ./log-query/query-language.md
+          itemType: how-to-guide
+          text: Query language documentation
+   
+   - title: Monitor Windows VM
+     links:
+       - url: ./platform/log-analytics-agent.md
+         itemType: how-to-guide
+         text: Log Analytics agent overview
+       - url: ./platform/data-sources-windows-events.md
+         itemType: how-to-guide
+         text: Collect Windows events
+       - url: ./platform/data-sources-performance-counters.md
+         itemType: how-to-guide
+         text: Collect performance data
+   
+   - title: Monitor Linux VM
+     links:
+       - url: ./platform/log-analytics-agent.md
+         itemType: how-to-guide
+         text: Log Analytics agent overview
+       - url: ./platform/data-sources-syslog.md
+         itemType: how-to-guide
+         text: Collect syslog
+       - url: ./platform/data-sources-collectd.md
+         itemType: how-to-guide
+         text: Collect data from Collectd 
+  
+   - title: Collect custom data
+     links:
+       - url: ./platform/data-sources-custom-logs.md
+         itemType: how-to-guide
+         text: Collect custom logs
+       - url: ./platform/data-collector-api.md
+         itemType: how-to-guide
+         text: HTTP data collector API
+
+   - title: Alerting
+     links:
+       - url: ./platform/alerts-unified-log.md
+         itemType: concept
+         text: Log alerts overview
+       - url: ./platform/alerts-log.md
+         itemType: how-to-guide
+         text: Create and manage log alerts
+       - url: ./platform/alert-log-troubleshoot.md
+         itemType: how-to-guide
+         text: Troubleshoot log alerts
+
+   - title: Use System Center
+     links:
+       - url: ./platform/om-agents.md
+         itemType: how-to-guide
+         text: Connect System Center Operations Manager
+       - url: ./platform/collect-sccm.md
+         itemType: how-to-guide
+         text: Connect System Center Configuration Manager

@@ -27,9 +27,13 @@ landingContent:
             url: overview.md
           - text: What is Azure Monitor logs / Log Analytics?
             url: overview.md
+          - text: Azure Monitor logs / Log Analytics content hub page
+            url: azure-monitor-logs-hub.yml
           - text: What is Application Insights?
             url: app/app-insights-overview.md
-                   
+          - text: Application Insights content hub page
+            url: azure-monitor-app-hub.md
+
   # Card 
   - title: About monitoring data   
     linkLists:     
@@ -114,7 +118,11 @@ landingContent:
             url: /rest/api/monitor
           - text: Log Analytics
             url: /rest/api/loganalytics
-          - text: Application Insights (which?)
+          - text: Application Insights 
             url: https://dev.applicationinsights.io
-          - text: Application Insights (2 which?)
+          - text: Application Insights (migrating from )
             url: /rest/api/application-insights/  
+
+
+
+
