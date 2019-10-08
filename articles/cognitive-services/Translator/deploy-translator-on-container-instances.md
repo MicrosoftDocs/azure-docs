@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/08/2019
 ms.author: dapine
 ---
 
-# Deploy the Translator Text container to Azure Container instances
+# Deploy the Translator Text container to Azure Container Instances
 
 Learn how to deploy the Cognitive Services [Translator Text](how-to-install-containers.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Azure Translator Text resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
@@ -20,7 +20,7 @@ Learn how to deploy the Cognitive Services [Translator Text](how-to-install-cont
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/translatorcontainerform) to request access to the container. 
+You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/translatorcontainerform) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
