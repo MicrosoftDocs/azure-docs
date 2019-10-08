@@ -432,6 +432,8 @@
       href: control-flow-get-metadata-activity.md
     - name: If Condition Activity
       href: control-flow-if-condition-activity.md
+    - name: Switch Activity
+      href: control-flow-switch-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
     - name: Set Variable Activity
