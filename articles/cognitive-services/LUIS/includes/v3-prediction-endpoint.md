@@ -11,4 +11,11 @@ ms.author: diberry
 ---
 
 
-In the LUIS portal, in the **Manage** section (top right menu), on the **Keys and endpoints** page (left menu), select the **endpoint** URL at the bottom of the page. This action opens another browser tab with the endpoint URL in the address bar. 
+1. In the LUIS portal, in the Manage section (top right menu), on the Keys and endpoints page (left menu), select the endpoint URL at the bottom of the page.
+
+    This action opens browser tab with the endpoint URL in the address bar.
+
+    The URL has your app ID, key, and slot name. The V3 prediction endpoint URL looks like:
+
+    `https://REGION.api.cognitive.microsoft.com/luis/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
+
