@@ -29,8 +29,8 @@ landingContent:
             url: media-services-overview.md
       - linkListType: whats-new
         links:
-        - text: "What's new in Media Services?"
-            url: release-notes.md
+         - text: "What's new in Media Services?"
+           url: release-notes.md
       - linkListType: download
         links:
           - text: Media Services v3 OpenAPI Specification
