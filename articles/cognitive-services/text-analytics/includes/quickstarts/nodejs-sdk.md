@@ -86,7 +86,7 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azu
 
 ## Sentiment analysis
 
-Create a list of dictionary objects, containing the documents you want to analyze. Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#sentiment-object-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/sentimentbatchresult?view=azure-node-latest). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 [!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
 
@@ -100,7 +100,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-Create a list of dictionary objects containing your documents. Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#detectlanguage-object-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-textanalytics/languagebatchresult?view=azure-node-latest). Then iterate through the results, and print each document's ID, and language.
 
 [!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
@@ -115,7 +115,7 @@ ID: 1 Language English
 
 ## Entity recognition
 
-Create a list of objects, containing your documents. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+Create a list of objects, containing your documents. Call the client's [entities()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#entities-object-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/entitiesbatchresult?view=azure-node-latest) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
 [!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
 
@@ -143,7 +143,7 @@ Document ID: 1
 
 ## Key phrase extraction
 
-Create a list of objects, containing your documents. Call `client.keyPhrases()` and get the result. Then iterate through the results and print each document's ID, and any detected key phrases.
+Create a list of objects, containing your documents. Call the client's [keyPhrases()](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest#keyphrases-object-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/keyphrasebatchresult?view=azure-node-latest) object. Iterate through the results and print each document's ID, and any detected key phrases.
 
 [!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
 

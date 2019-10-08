@@ -29,11 +29,9 @@ Get a key to authenticate your applications by Azure Cognitive Services are repr
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXT_ANALYTICS_SUBSCRIPTION_KEY`.
 
-### Create a new C# application
+### Create a new .NET Core application
 
-Create a new .NET Core application in your preferred editor or IDE. 
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `text-analytics quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `text-analytics quickstart`. This command creates a simple "Hello World" project with a single C# source file: *program.cs*. 
 
 ```console
 dotnet new console -n text-analytics-quickstart
@@ -63,26 +61,6 @@ In the application's `Program` class, create variables for your resource's Azure
 
 
 [!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
-
-```csharp
-private const string key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
-
-private const string endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
-
-static Program()
-{
-    if (null == subscriptionKey)
-    {
-        throw new Exception("Please set/export the environment variable: " + key_var);
-    }
-    if (null == endpoint)
-    {
-        throw new Exception("Please set/export the environment variable: " + endpoint_var);
-    }
-}
-```
 
 In the application's `Main` method, create credentials to access the Text Analytics endpoint.  You will define the methods called by the `Main` method later.
 
@@ -119,7 +97,7 @@ Create a new `ApiKeyServiceClientCredentials` class to store the credentials and
 
 [!code-csharp[Client class](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=clientClass)]
 
-In the `main()` method, instantiate the client with your key and endpoint.
+In the `main()` method, be sure to instantiate the [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object with your endpoint and a `ApiKeyServiceClientCredentials` object containing your key.
 
 ```csharp
 var credentials = new ApiKeyServiceClientCredentials(key);
