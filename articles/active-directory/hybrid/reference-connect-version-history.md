@@ -56,6 +56,9 @@ Under certain circumstances, servers that were auto upgraded to version 1.4.18.0
 >[!WARNING]
 >We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
 
+[!WARNING]
+Device registration with federated domain does not require syncing devices to Azure AD using AD connect. So you may have device objects without the correct certificate populated under userCertificate attribute. Those devices will be deleted from Azure AD with this version if their number is less than the deletion threshold or if “export deletion threshold” feature is disabled. To fix those devices, you need to rejoin them again by running the commands "dsregcmd /leave" and "dsregcmd /join" (you can run these commands using GPO).
+
 >[!IMPORTANT]
 >With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
 
