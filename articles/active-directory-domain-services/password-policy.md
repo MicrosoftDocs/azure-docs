@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: iainfou
 
 ---
@@ -42,7 +42,7 @@ Policies are distributed through group association in an Azure AD DS managed dom
 
 Password policies behave a little differently depending on how the user account they're applied to was created. There are two ways a user account can be created in Azure AD DS:
 
-* The user account can be synchronized in from Azure AD. This includes hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
+* The user account can be synchronized in from Azure AD. This includes cloud-only user accounts created directly in Azure, and hybrid user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
     * The majority of user accounts in Azure AD DS are created through the synchronization process from Azure AD.
 * The user account can be manually created in an Azure AD DS managed domain, and doesn't exist in Azure AD.
 
@@ -51,15 +51,17 @@ All users, regardless of how they're created, have the following account lockout
 * **Account lockout duration:** 30
 * **Number of failed logon attempts allowed:** 5
 * **Reset failed logon attempts count after:** 30 minutes
+* **Maximum password age (lifetime):** 90 days
 
 With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 
 Account lockouts only occur within the managed domain. User accounts are only locked out in Azure AD DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Azure AD or on-premises aren't locked out in their source directories, only in Azure AD DS.
 
+If you have an Azure AD password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Azure AD DS. You can configure a custom password policy to define a different maximum password age in Azure AD DS. Take care if you have a shorter maximum password age configured in an Azure AD DS password policy than in Azure AD or an on-premises AD DS environment. In that scenario, a user's password may expire in Azure AD DS before they're prompted to change in Azure AD on an on-premises AD DS environment.
+
 For user accounts created manually in an Azure AD DS managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
 
 * **Minimum password length (characters):** 7
-* **Maximum password age (lifetime):** 90 days
 * **Passwords must meet complexity requirements**
 
 You can't modify the account lockout or password settings in the default password policy. Instead, members of the *AAD DC Administrators* group can create custom password policies and configure it to override (take precedence over) the default built-in policy, as shown in the next section.
@@ -68,7 +70,7 @@ You can't modify the account lockout or password settings in the default passwor
 
 As you build and run applications in Azure, you may want to configure a custom password policy. For example, you could create a policy to set different account lockout policy settings.
 
-Custom password policies are applied to groups in an Azure AD DS managed domain. This configuration effectively overrides the default policy. You can also create custom password policies and apply them to any custom OUs in an Azure AD DS managed domain.
+Custom password policies are applied to groups in an Azure AD DS managed domain. This configuration effectively overrides the default policy.
 
 To create a custom password policy, you use the Active Directory Administrative Tools from a domain-joined VM. The Active Directory Administrative Center lets you view, edit, and create resources in an Azure AD DS managed domain, including OUs.
 
