@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -82,10 +82,11 @@ Other points to keep in mind before an account transfer:
 - Approval from an EA Administrator is required for the target and source enrollment
   - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
 - If an account transfer doesn't meet your requirements, consider an enrollment transfer.
-- The account transfer transfers all services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators.
-- The account transfer sets the source enrollment status to _Transferred_. The transferred account is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to an enrollment with transferred status. The status prevents additional usage against the enrollment.
-- Any remaining monetary commitment balance in the source agreement is lost, including future terms.
+- The account transfer transfers all services and subscriptions related to the specific accounts.
+- After the transfer is complete, the transferred account appears inactive under the source enrollment.
+- An account transfer can be backdated to any date within the target enrollment start date.
+- The account shows the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
+- Any usage occurred for the account prior to the effective transfer date remains under the source enrollment.
 
 
 ## Transfer enterprise enrollment to a new one
@@ -151,7 +152,7 @@ If the subscription is transferred to an account in a different Azure AD tenant,
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 - Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict access to their Azure resources, they should consider updating any secrets associated with the service. Most resources are be updated by using the following steps:
+If the recipient needs to restrict access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, select **All resources**.
