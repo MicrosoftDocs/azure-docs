@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 

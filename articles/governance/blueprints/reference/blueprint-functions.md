@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
-manager: carmonm
 ---
 # Functions for use with Azure Blueprints
 
