@@ -12,7 +12,7 @@
       href: spring-cloud-quickstart-launch-app-cli.md 
     - name: Launch your Spring Cloud app from source
       href: spring-cloud-launch-from-source.md
-    - name: Launch a Java Spring app by using Maven
+    - name: Launch your Spring Cloud app using Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutorials
   items:
