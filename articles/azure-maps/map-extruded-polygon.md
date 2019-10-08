@@ -50,6 +50,7 @@ Azure Maps uses an extended version of the GeoJSON schema that provides a defini
 
 The Azure Maps Web SDK converts these `Point` features into `Polygon` features under the hood and can be rendered on the map using polygon extrusion layer as shown in the following code sample.
 
+
 <iframe height="500" style="width: 100%;" scrolling="no" title="Drone airspace polygon" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone airspace polygon</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
