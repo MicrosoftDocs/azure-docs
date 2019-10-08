@@ -196,3 +196,5 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
+## Fairfax limitations
+Azure Cloud Shell in Fairfax is only accessible through the Azure Portal. 
