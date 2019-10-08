@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\liya\\AppData\\Local\\Arduino15\\packages\\AZ3166\\tools\\**",
+                "C:\\Users\\liya\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.9.9\\**"
+            ],
+            "forcedInclude": [
+                "C:\\Users\\liya\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.9.9\\cores\\arduino\\Arduino.h"
+            ]
+        }
+    ]
+}
