@@ -58,6 +58,22 @@ Follow these steps to assign a user to the access package manager role:
 
 1. Click **Select** to add these members.
 
+## Remove an access package manager
+
+Follow these steps to remove a user from the access package manager role:
+
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
+
+1. In the left menu, click **Roles and administrators**.
+
+1. Add a checkmark next to an access package manager you want to remove.
+
+1. Click **Remove**.
+
 ## Next steps
 
 - [Create a new access package](entitlement-management-access-package-create.md)
