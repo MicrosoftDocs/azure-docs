@@ -434,6 +434,9 @@ The following settings are available to change how the managed dependencies are 
 | MDNewSnapshotCheckPeriod          | “01:00:00” (1 hour)       | After the new module versions are installed to the file system, every PS Worker needs to be restarted. Restarting PS Workers may affect your app availability because it may interrupt current function invocations. Until all PS Workers are restarted, function invocations may use either the old or the new module versions. Restarting all PS Workers will complete within MDNewSnapshotCheckPeriod. Increasing this value will decrease the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. |
 | MDMinBackgroundUpgradePeriod      | “1.00:00:00” (1 day)     | In order to avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades will not be performed if any worker already initiated that within the last MDMinBackgroundUpgradePeriod. |
 
+> [!NOTE]
+> Managed dependencies relies on access to www.powershellgallery.com to download modules. You need to ensure the function runtime has access to this url by adding any required firewall rules.
+
 Leveraging your own custom modules is a little different than how you would do it normally.
 
 When you install the module on your local machine, it goes in one of the globally available folders in your `$env:PSModulePath`. Since your function runs in Azure, you won't have access to the modules installed on your machine. This requires that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
