@@ -33,7 +33,7 @@ By default, Global administrators and User administrators can create and manage 
 
 This video provides an overview of how to delegate access governance from IT administrator to users who aren't administrators.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq00]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq00]
 
 ## Delegate example
 

@@ -38,7 +38,7 @@ To delegate the creation and management of access packages in a catalog, you add
 
 This video provides an overview of how to delegate access governance from catalog owner to access package manager.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq08]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
 
 ## As a catalog owner, delegate to an access package manager
 
