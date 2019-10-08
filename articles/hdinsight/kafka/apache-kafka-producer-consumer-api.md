@@ -148,6 +148,12 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     export password='PASSWORD'
     ```
 
+1. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    ```
+
 1. To get the Kafka broker hosts, use the following command:
 
     ```bash
