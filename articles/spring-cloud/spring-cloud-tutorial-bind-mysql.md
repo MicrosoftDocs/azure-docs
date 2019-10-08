@@ -13,7 +13,7 @@ ms.author: v-vasuke
 
 ---
 
-# Bind Azure services to your Azure Spring Cloud application: Azure Database for MySQL
+# Tutorial: Bind Azure services to your Azure Spring Cloud application: Azure Database for MySQL
 
 Azure Spring Cloud allows you to bind select Azure services to your applications automatically, instead of manually configuring your Spring Boot application. This tutorial will show you how to bind your application to Azure MySQL.
 
@@ -62,7 +62,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## Next steps
 
-In this tutorial, you learned to bind your Azure Spring Cloud application to a MySQL DB.  To learn more about managing your application, continue to the tutorial for manually scaling your app.
+In this tutorial, you learned to bind your Azure Spring Cloud application to a MySQL DB.  To learn more about managing your Azure Spring Cloud service, read on to learn about service discovery and registration.
 
 > [!div class="nextstepaction"]
-> [Learn how to manually scale your Azure Spring Cloud application](spring-cloud-tutorial-scale-manual.md).
+> [Learn how to enable service discovery and registrations using the Spring Cloud Service Registry](spring-cloud-service-registration.md).
+

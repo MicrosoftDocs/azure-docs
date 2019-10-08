@@ -13,7 +13,7 @@ ms.author: v-vasuke
 
 ---
 
-# Bind Azure services to your Azure Spring Cloud application: Azure Cache for Redis
+# Tutorial: Bind Azure services to your Azure Spring Cloud application: Azure Cache for Redis
 
 Azure Spring Cloud allows you to bind select Azure services to your applications automatically, instead of manually configuring your Spring Boot application. This article demonstrates how to bind your application to Azure Cache for Redis.
 

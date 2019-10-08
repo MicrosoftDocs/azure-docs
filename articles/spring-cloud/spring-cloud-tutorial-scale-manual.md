@@ -50,7 +50,7 @@ After a few seconds, the changes you made will be displayed in the **Overview** 
 
 ## Next steps
 
-In this tutorial, you learned how to manually scale your Azure Spring Cloud applications.  To learn more about managing your Azure Spring Cloud service, read on to learn about service discovery and registration.
+In this tutorial, you learned how to manually scale your Azure Spring Cloud applications.  To learn how to monitor your application, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Learn how to enable service discovery and registrations using the Spring Cloud Service Registry](spring-cloud-service-registration.md).
+> [Learn how to monitor your application](spring-cloud-tutorial-distributed-tracing.md)
