@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Author policies for array properties on Azure resources
 

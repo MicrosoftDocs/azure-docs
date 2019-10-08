@@ -6,6 +6,16 @@
     href: resource-group-overview.md
   - name: Template overview
     href: template-deployment-overview.md
+- name: Quickstart
+  items:
+    - name: Create templates - portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Create templates - VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Create templates - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: Create templates - IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Beginner
@@ -32,14 +42,6 @@
       href: template-tutorial-use-parameter-file.md
   - name: Advanced
     items:
-    - name: Create templates - portal
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: Create templates - VS Code
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: Create templates - Visual Studio
-      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-    - name: Create templates - IntelliJ IDEA
-      href: resource-manager-quickstart-create-templates-use-intellij.md
     - name: Utilize template reference
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
     - name: Create multiple instances
@@ -71,6 +73,8 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
+    - name: Update VS Deployment script to Az Powershell
+      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
     - name: Troubleshoot template deployment
       href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
@@ -132,8 +136,7 @@
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
+    - name: Subscription level resources
       href: deploy-to-subscription.md
   - name: Deploy templates
     items:
@@ -141,14 +144,17 @@
       displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy-rest.md
+    - name: Redeploy on error
+      displayName: rollback
+      href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions

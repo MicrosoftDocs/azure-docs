@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
 

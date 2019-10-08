@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure migrate landing zone blueprint sample

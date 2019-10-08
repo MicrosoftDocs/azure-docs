@@ -106,7 +106,7 @@ In this article you learned how to onboard Azure and non-Azure resources in orde
 
 - [Enable data collection](security-center-enable-data-collection.md)
 - [Threat intelligence report](security-center-threat-report.md)
-- [Just in time VM access](security-center-just-in-time.md)
+- [Just-in-time VM access](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
