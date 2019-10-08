@@ -27,7 +27,7 @@ This article describes how to move users and groups between service license plan
 
 Before you update the license assignments, it's important to verify certain assumptions are true for all of the users or groups to be updated. If the assumptions aren't true for all of the users in a group, the migration might fail for some. As a result, some of the users might lose access to services or data. Ensure that:
 
-- Users have the current license plan (in this case, Office 365 E1) that's assigned to a group snd inherited by the user and not assigned directly.
+- Users have the current license plan (in this case, Office 365 E1) that's assigned to a group and inherited by the user and not assigned directly.
 
 - You have enough available licenses for the license plan you're assigning. If you don't have enough licenses, some users might not be assigned the new license plan. You can check the number of available licenses.
 
