@@ -538,13 +538,6 @@
   - name: Concepts
     items:
 
-      - name: Database server resources
-        items:
-        - name: Database server resource limits 
-          href: sql-database-resource-limits-database-server.md
-        - name: Connectivity architecture
-          href: sql-database-connectivity-architecture.md 
-
       - name: Single database resources
         items:    
         - name: vCore-based resource limits
@@ -564,6 +557,13 @@
           href: sql-database-elastic-pool-scale.md
         - name: Manage pool resources
           href: sql-database-elastic-pool-manage.md
+
+      - name: Database server resources
+        items:
+        - name: Database server resource limits 
+          href: sql-database-resource-limits-database-server.md
+        - name: Connectivity architecture
+          href: sql-database-connectivity-architecture.md 
 
       - name: Data sync
         items:
