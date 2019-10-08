@@ -510,22 +510,22 @@
 #           href: article-template.md
       - name: Query data in storage
         items:
-#         - name: Querying single CSV file
-#           href: article-template.md
-#         - name: Querying folders and multiple CSV files
-#           href: article-template.md
-#         - name: Querying specific files
-#           href: article-template.md
-#         - name: Querying Parquet files
-#           href: article-template.md
-#         - name: Querying Parquet nested types
-#           href: article-template.md
-#         - name: Querying JSON files
-#           href: article-template.md
-#         - name: Creating and using views
-#           href: article-template.md
+        - name: Querying single CSV file
+          href: querying-single-csv-file.md
+        - name: Querying folders and multiple CSV files
+          href: querying-folders-and-multiple-csv-files.md
+        - name: Querying specific files
+          href: querying-specific-files.md
+        - name: Querying Parquet files
+          href: querying-parquet-files.md
+        - name: Creating and using views
+          href: creating-and-using-views.md
+        - name: Querying JSON files
+          href: querying-json-files.md
+        - name: Querying Parquet nested types
+          href: querying-parquet-nested-types.md
 #         - name: Querying Spark tables
-#           href: article-template.md
+#           href: querying-spark-tables.md
 #       - name: Best practices
 #         href: article-template.md
     - name: Spark
