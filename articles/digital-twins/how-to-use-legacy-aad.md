@@ -1,13 +1,13 @@
 ---
 title: 'Use legacy AAD app registration for Azure Digital Twins | Microsoft Docs'
 description: This article shows how to use the legacy method of creating app registration with Azure Active Directory for your Azure Digital Twins setup.
+ms.author: alinast
 author: alinamstanciu
-manager: philmea
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: alinast
+ms.date: 10/03/2019
 ---
 
 # Register your Azure Digital Twins app with Azure Active Directory legacy

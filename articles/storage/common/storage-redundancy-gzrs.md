@@ -1,10 +1,10 @@
----
+﻿---
 title: Build highly available Azure Storage applications with geo-zone-redundant storage (GZRS) (preview) | Microsoft Docs
 description: Geo-zone-redundant storage (GZRS) marries the high availability of zone-redundant storage (ZRS) with protection from regional outages as provided by geo-redundant storage (GRS). Data in a GZRS storage account is replicated across Azure availability zones in the primary region and also replicated to a secondary geographic region for protection from regional disasters.
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
@@ -17,7 +17,7 @@ Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zo
 
 With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same [scalability targets](storage-scalability-targets.md) as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
 
-Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for diaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
+Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for disaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
 
 ## About the preview
 
@@ -49,9 +49,9 @@ When you create a storage account, you specify how data in that account is to be
 
 ### Use RA-GZRS for high availability
 
-When you enable RA-GZRS for your storage account, your data can be read from the secondary endpoint as well as from the primary endpoint for your storage account. The secondary endpoint appends the suffix *–secondary* to the account name. For example, if your primary endpoint for the Blob service is `myaccount.blob.core.windows.net`, then your secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The access keys for your storage account are the same for both the primary and secondary endpoints.
+When you enable RA-GZRS for your storage account, your data can be read from the secondary endpoint as well as from the primary endpoint for your storage account. The secondary endpoint appends the suffix *–secondary* to the account name. For example, if your primary endpoint for the Blob service is `myaccount.blob.core.windows.net`, then your secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The access keys for your storage account are the same for both the primary and secondary endpoints.
 
-To take advantage of RA-GZRS in the event of a regional outage, you must design your application in advance to handle this scenario. Your application should read from and write to the primary endpoint, but switch to using the secondary endpoint in the event that the primary region becomes unavailable. For guidance on designing for high availability with RA-GZRS, see [Designing Highly Available Applications using RA-GZRS or RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+To take advantage of RA-GZRS in the event of a regional outage, you must design your application in advance to handle this scenario. Your application should read from and write to the primary endpoint, but switch to using the secondary endpoint in the event that the primary region becomes unavailable. For guidance on designing for high availability with RA-GZRS, see [Designing Highly Available Applications using RA-GZRS or RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Because data is replicated to the secondary region asynchronously, the secondary region is often behind the primary region. To determine which write operations have been replicated to the secondary region, your application check the last sync time for your storage account. All write operations written to the primary region prior to the last sync time have been successfully replicated to the secondary region, meaning that they are available to be read from the secondary. Any write operations written to the primary region after the last sync time may or may not have been replicated to the secondary region, meaning that they may not be available for read operations.
 
@@ -129,18 +129,18 @@ Keep in mind the following restrictions on live migration:
 
 To request a live migration, use the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account to migrate to GZRS or RA-GZRS, and follow these instructions:
 
-1. Select **New Support Request**.
-2. Complete the **Basics** based on your account information. In the **Service** section, select **Storage Account Management** and specify the account to be migrated.
-3. Select **Next**.
-4. Specify the following values the **Problem** section:
+1. Select **New Support Request**.
+2. Complete the **Basics** based on your account information. In the **Service** section, select **Storage Account Management** and specify the account to be migrated.
+3. Select **Next**.
+4. Specify the following values the **Problem** section:
     - **Severity**: Leave the default value as-is.
-    - **Problem Type**: Select **Data Migration**.
-    - **Category**: Select **Migrate to (RA-)GZRS within a region**.
-    - **Title**: Type a descriptive title, for example, **(RA-)GZRS account migration**.
-    - **Details**: Type additional details in the **Details** box, for example, "I would like to migrate to GZRS from [LRS, GRS] in the \_\_ region." or "I would like to migrate to RA-GZRS from [LRS, RA-GRS] in the \_\_ region."
-5. Select **Next**.
-6. Verify that the contact information is correct on the **Contact information** blade.
-7. Select **Create**.
+    - **Problem Type**: Select **Data Migration**.
+    - **Category**: Select **Migrate to (RA-)GZRS within a region**.
+    - **Title**: Type a descriptive title, for example, **(RA-)GZRS account migration**.
+    - **Details**: Type additional details in the **Details** box, for example, "I would like to migrate to GZRS from [LRS, GRS] in the \_\_ region." or "I would like to migrate to RA-GZRS from [LRS, RA-GRS] in the \_\_ region."
+5. Select **Next**.
+6. Verify that the contact information is correct on the **Contact information** blade.
+7. Select **Create**.
 
 A support representative will contact you to provide assistance.
 

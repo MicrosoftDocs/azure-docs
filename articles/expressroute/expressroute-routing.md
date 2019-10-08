@@ -63,7 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Azure public peering
 
 > [!NOTE]
-> Azure public peering is not avialable for new circuits.
+> Azure public peering is not available for new circuits.
 > 
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
@@ -211,14 +211,16 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| Skype For Business Online | 12076:5030 |
+| Exchange Online** | 12076:5010 |
+| SharePoint Online** | 12076:5020 |
+| Skype For Business Online** | 12076:5030 |
+| CRM Online |12076:5040 |
 | Azure Global Services* | 12076:5050 |
-| Other Office 365 Online services | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| Other Office 365 Online services** | 12076:5100 |
 
 *Azure Global Services includes only Azure DevOps at this time.
-
+** Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.

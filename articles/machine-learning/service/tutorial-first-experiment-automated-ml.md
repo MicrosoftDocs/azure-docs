@@ -1,5 +1,5 @@
 ---
-title: Create your first automated machine learning experiment
+title: Create your first automated ML classification experiment
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
@@ -47,7 +47,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The workspace landing page is not supported on Internet Explorer browsers.
 
 1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
 
@@ -55,7 +55,7 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. Select **Get started**.
 
-1. In the left pane, select **Automated ML** under the **Authoring** section.
+1. In the left pane, select **Automated ML** under the **Author** section.
 
    Since this is your first automated ML experiment, you'll see the Getting started screen.
 
@@ -96,23 +96,21 @@ You complete the following experiment set-up and run steps in the workspace land
        
     1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
-        Field|Value for tutorial
-        ---|---
-        File format| Delimited
-        Delimiter| Comma
-        Encoding| UTF-8
-        Column headers| All files have same headers
-        Skip rows | None
+        Field|Description| Value for tutorial
+        ---|---|---
+        File format|Defines the layout and type of data stored in a file.| Delimited
+        Delimiter|One or more characters for specifying the boundary between&nbsp; separate, independent regions in plain text or other data streams. |Comma
+        Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
+        Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
     
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
-
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
-1. Expand **Advanced Settings** and populate the fields as follows.
+1. Expand **Advanced Settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
 
    >[!NOTE]
    > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
@@ -136,10 +134,10 @@ You complete the following experiment set-up and run steps in the workspace land
 
 ##  Explore iteration results
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete, and orders them by metric score. By default, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete. By default, the iterations are ordered by metric score. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
 While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
-   
+
 The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
 
 ![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -197,6 +195,7 @@ In this automated machine learning tutorial, you used the workspace landing page
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](concept-automated-ml.md).
++ For more information on classification metrics and charts see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
