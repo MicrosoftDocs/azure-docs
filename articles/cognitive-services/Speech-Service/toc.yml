@@ -1,6 +1,6 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: false
   items:
@@ -77,9 +77,9 @@
   - name: Quickstarts
     items:
     - name: Synthesize speech to a file
-      href: stt-l1-test.yml
+      href: https://example.com
     - name: Synthesize speech to an audio output device
-      href: stt-l1-test.yml
+      href: https://example.com
   - name: How-to guides
     items:
     - name: Configure speech output with SSML
@@ -99,7 +99,7 @@
     - name: Text-to-speech (REST)
       href: rest-text-to-speech.md
     - name: Audio content generation (REST)
-      href: index.md
+      href: https://example.com
 - name: Intent recognition
   exanded: false
   items:
