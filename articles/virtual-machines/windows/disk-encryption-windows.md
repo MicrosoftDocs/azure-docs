@@ -41,7 +41,7 @@ You can only apply disk encryption to virtual machines of [supported VM sizes an
 In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Windows extension](../extensions/azure-disk-enc-windows.md) article.
 
 ## Enable encryption on existing or running IaaS Windows VMs
-You can enable encryption by using a template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Windows extension](../virtual-machines/extensions/azure-disk-enc-windows.md) article.
+You can enable encryption by using a template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Windows extension](../extensions/azure-disk-enc-windows.md) article.
 
 ### Enable encryption on existing or running VMs with Azure PowerShell 
 Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. 
@@ -155,7 +155,7 @@ In this scenario, you can enable encrypting by using  PowerShell cmdlets or CLI 
 
 Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
 
-* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#bkmk_preWin)
+* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 ### Encrypt VMs with pre-encrypted VHDs with Azure PowerShell
 You can enable disk encryption on your encrypted VHD by using the PowerShell cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). The example below gives you some common parameters. 

@@ -99,17 +99,23 @@ After DM-Crypt encryption is enabled, the local encrypted VHD needs to be upload
 ```
 
 ## Upload the secret for the pre-encrypted VM to your key vault
-When encrypting using an Azure AD app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
+The disk encryption secret that you obtained previously must be uploaded as a secret in your key vault.  This requires granting the set secret permission and the wrapkey permission to the account that will upload the secrets.
 
 ```powershell 
- $AadClientId = "My-AAD-Client-Id"
- $AadClientSecret = "My-AAD-Client-Secret"
+# Typically, account Id is the user principal name (in user@domain.com format)
+$upn = (Get-AzureRmContext).Account.Id
+Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
- $key vault = New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
+# In cloud shell, the account ID is a managed service identity, so specify the username directly 
+# $upn = "user@domain.com" 
+# Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
- Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
- Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
-``` 
+# When running as a service principal, retrieve the service principal ID from the account ID, and set access policy to that 
+# $acctid = (Get-AzureRmContext).Account.Id
+# $spoid = (Get-AzureRmADServicePrincipal -ServicePrincipalName $acctid).Id
+# Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $spoid -BypassObjectIdValidation -PermissionsToKeys wrapKey -PermissionsToSecrets set
+
+```
 
 ### Disk encryption secret not encrypted with a KEK
 To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). The passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.

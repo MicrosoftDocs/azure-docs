@@ -116,7 +116,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed. 
 4. Click **Save**.
 
-    ![Azure key vault advanced access policies](../media/disk-encryption/keyvault-portal-fig4.png)
+    ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
 
 ## Set up a key encryption key (KEK)

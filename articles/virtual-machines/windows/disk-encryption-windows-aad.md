@@ -180,7 +180,7 @@ In this scenario, you can enable encrypting by using the Resource Manager templa
 
 Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
 
-* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#bkmk_preWin)
+* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 
 ### <a name="bkmk_VHDprePSH"> </a> Encrypt VMs with pre-encrypted VHDs with Azure PowerShell
@@ -258,7 +258,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Enable encryption using Azure AD client certificate-based authentication.
-You can use client certificate authentication with or without KEK. The scripts require that [Azure Disk Encryption prerequisites](disk-encryption-prerequisites-aad.md) are complete. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-overview-aad.md#bkmk_Cert) section of the prerequisites article.
+You can use client certificate authentication with or without KEK. Before using the PowerShell scripts, you should already have the certificate uploaded to the key vault and deployed to the VM. If you're using KEK too, the KEK should already exist. For more information, see the  [Certificate-based authentication for Azure AD](disk-encryption-overview-aad.md#bkmk_Cert) section of the prerequisites article.
 
 
 ### Enable encryption using certificate-based authentication with Azure PowerShell
