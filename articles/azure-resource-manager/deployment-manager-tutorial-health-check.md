@@ -241,12 +241,12 @@ To deploy the topology, select **Try it** to open the Cloud shell, and then past
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
+$artifactLocation = "https://github.com/Azure/azure-docs-json-samples/tree/master/tutorial-adm/ArtifactStore" | ConvertTo-SecureString -AsPlainText -Force
 
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMServiceTopology.json" `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/ADMTemplatesHC/CreateADMServiceTopology.json" `
     -namePrefix $projectName `
     -azureResourceLocation $location `
     -artifactSourceSASLocation $artifactLocation
@@ -262,8 +262,8 @@ Verify the service topology and the underlined resources have been created succe
 
 To simplify the tutorial, the revised rollout template is shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Artifacts store: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: https:\//raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/ADMTemplatesHC/CreateADMRollout.json
+* Artifacts store: https:\//github.com/Azure/azure-docs-json-samples/tree/master/tutorial-adm/ArtifactStore
 
 Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). For **managedIdentityID**, see [Create the user-assigned managed identity](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 
@@ -276,12 +276,12 @@ $healthCheckAuthAPIKey = $healthCheckUrl.Substring($healthCheckUrl.IndexOf("?cod
 $healthCheckUrl = $healthCheckUrl.Substring(0, $healthCheckUrl.IndexOf("?"))
 
 $resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
+$artifactLocation = "https://github.com/Azure/azure-docs-json-samples/tree/master/tutorial-adm/ArtifactStore" | ConvertTo-SecureString -AsPlainText -Force
 
 # Create the rollout
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json" `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/ADMTemplatesHC/CreateADMRollout.json" `
     -namePrefix $projectName `
     -azureResourceLocation $location `
     -artifactSourceSASLocation $artifactLocation `
