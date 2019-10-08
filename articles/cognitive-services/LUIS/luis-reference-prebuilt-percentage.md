@@ -36,7 +36,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     ]
 }
 ```
-
+#### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json

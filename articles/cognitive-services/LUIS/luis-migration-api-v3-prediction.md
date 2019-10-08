@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019/
+ms.date: 10/08/2019/
 ms.author: diberry
 ---
 
@@ -39,9 +39,9 @@ The query prediction endpoint [request](#request-changes) and [response](#respon
 V3 made the following changes as part of the move to GA: 
 
 * The following prebuilt entities have different JSON responses: 
-    * [OrdinalV1](luis-reference-prebuilt-ordinal#tabs=V3)
-    * [GeographyV2](luis-reference-prebuilt-geographyv2#tabs=V3)
-    * [DatetimeV2](luis-reference-prebuilt-geographyv2#tabs=V3)
+    * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
+    * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
+    * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
     * Measurable unit key name from `units` to `unit`
 
 * Request body JSON change:

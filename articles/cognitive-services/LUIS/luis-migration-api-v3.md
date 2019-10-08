@@ -29,7 +29,7 @@ This V3 API provides the following new features, which include significant JSON 
 * [External entities](luis-migration-api-v3-prediction.md#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](luis-migration-api-v3-prediction.md#dynamic-lists-passed-in-at-prediction-time)
 * [Prebuilt entity JSON changes](luis-migration-api-v3-prediction.md#prebuilt-entities-with-new-json)
-* [Multi-intent detection of utterance](luis-migration-api-v3-prediction.md#detect-multiple-intents-within-single-utterance)
+* [Multi-intent detection of utterance](luis-migration-api-v3-prediction.md#multi-intent-detection-of-utterance)
 * [Response object changes](#top-level-json-changes)
 * [Entity role name references instead of entity name](#entity-role-name-instead-of-entity-name)
 * [Properties to mark entities in utterances](#marking-placement-of-entities-in-utterances)

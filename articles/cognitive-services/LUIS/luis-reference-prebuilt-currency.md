@@ -83,7 +83,7 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
-#### [V2 prediction endpoint response](#tab/V2)
+#### [V2 response](#tab/V2)
 
 The following example shows the resolution of the **builtin.currency** entity.
 

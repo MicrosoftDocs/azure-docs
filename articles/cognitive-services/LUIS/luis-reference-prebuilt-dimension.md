@@ -26,7 +26,7 @@ The following entity objects are returned for the query:
 
 `10 1/2 miles of cable`
 
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 

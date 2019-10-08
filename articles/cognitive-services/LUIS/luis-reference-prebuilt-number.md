@@ -78,7 +78,7 @@ The following JSON is with the `verbose` parameter set to `true`:
     }
 }
 ```
-#### [V2 prediction endpoint response](#tab/V2)
+#### [V2 response](#tab/V2)
 
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
