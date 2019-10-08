@@ -47,8 +47,8 @@ landingContent:
             url: media-services-account-concept.md
           - text: Storage accounts
             url: storage-account-concept.md
-        - linkListType: how-to-guide
-          links:
+      - linkListType: how-to-guide
+        links:
           - text: Create an account
             url: create-account-cli-how-to.md          
           - text: Access API
