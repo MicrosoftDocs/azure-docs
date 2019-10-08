@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/04/2019
+ms.date: 10/07/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -19,6 +19,8 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
 
+Pricing and features available depend on whether [Basic or Enterprise SKU](overview-what-is-azure-ml.md#sku) is selected for the workspace. You select the SKU when you [create the workspace](#create-workspace).  You can also [upgrade](#upgrade) from Basic to Enterprise SKU.
+
 ## Taxonomy 
 
 A taxonomy of the workspace is illustrated in the following diagram:
@@ -27,7 +29,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 
-+ A workspace can contain [Azure Machine Learning Compute Instances](tutorial-1st-experiment-sdk-setup.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ A workspace can contain [Azure Machine Learning compute instances](tutorial-1st-experiment-sdk-setup.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
@@ -69,6 +71,7 @@ You can also perform the following workspace management tasks:
 | Create a workspace        | **&check;**     | **&check;** | **&check;** |
 | Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
 | Manage workspace access    | **&check;**   | |  **&check;**    |
+| Upgrade to Enterprise SKU    | **&check;**   | |     |
 | Create a notebook VM | **&check;**   | |     |
 
 ## <a name='create-workspace'></a> Create a workspace
@@ -84,16 +87,7 @@ There are multiple ways to create a workspace:
 
 ## <a name="upgrade"></a> Upgrade to Enterprise SKU
 
-You can upgrade your workspace from Basic SKU to Enterprise SKU.  
-
-1. Sign in to the [Azure portal](https://portal.azure.com)
-
-1. Select the workspace that you wish to upgrade.
-
-1. Select **Upgrade**.
-
-> [!IMPORTANT]
-> You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
+You can [upgrade your workspace from Basic SKU to Enterprise SKU](how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace. 
 
 ## <a name="resources"></a> Associated resources
 
