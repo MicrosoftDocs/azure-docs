@@ -23,7 +23,7 @@ Create an AAD tenant using the steps in [this article](../active-directory/funda
 
 Example:
 
-  ![New AAD tenant](./media/openvpn-create-azure-ad-tenant/newtenant.png)
+   ![New AAD tenant](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
 ## <a name="users"></a>2. Create AAD tenant users
 
