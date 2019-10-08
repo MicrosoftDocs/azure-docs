@@ -20,7 +20,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio 
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
-For this article, you can create the same logic app as in the [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. In Visual Studio Code, the logic app looks like this example:
+For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. In Visual Studio Code, the logic app looks like this example:
 
 ![Example logic app workflow definition](./media/create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -30,7 +30,7 @@ Before you start, make sure you have these items:
 
 * Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) and their structure, which uses JavaScript Object Notation (JSON)
 
-  If you're new to Logic Apps, try the quickstart that walks you through [how to create your first logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts.
+  If you're new to Logic Apps, try this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which creates your first logic apps in the Azure portal and focuses more on the basic concepts.
 
 * Access to the web for signing in to Azure and your Azure subscription
 
@@ -48,7 +48,7 @@ Before you start, make sure you have these items:
 
     ![Confirm extension correctly installed](./media/create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
-    For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). You can also view and submit contributions to this extension's open-source version by visiting the [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
+    For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). To contribute to this extension's open-source version, visit the [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
 <a name="sign-in-azure"></a>
 
@@ -125,7 +125,7 @@ Before you start, make sure you have these items:
 1. In the logic app workflow definition template file, start building your logic app's workflow definition.
 For technical reference, see the [Workflow Definition Language schema for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
-   Here is an example logic definition. Usually, JSON elements appear alphabetically within each section, but this sample shows these elements roughly in the order that the logic app's steps appear on the designer.
+   Here is an example logic definition. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
    ```json
    {
@@ -195,7 +195,7 @@ For technical reference, see the [Workflow Definition Language schema for Azure 
 
 ## Edit logic app
 
-To work on an existing logic app that's already deployed in Azure, you can open that app's workflow definition file in Visual Studio Code.
+To work on a logic app that's published in Azure, you can open that logic app's definition by using Visual Studio Code.
 
 1. If you haven't signed in to your Azure subscription from inside Visual Studio Code, follow the steps in this article to [sign in now](#sign-in-azure).
 
