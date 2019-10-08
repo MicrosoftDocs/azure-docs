@@ -63,48 +63,66 @@ You'll receive a `200 (Success)` response with a JSON body in the following form
 The `"modelId"` field contains the ID of the model you're training. You'll need this for the next step.
 
 ```json
-{
-  "modelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "status": "creating",
-  "createdDateTime": "2019-09-30T20:34:21.534Z",
-  "lastUpdatedDateTime": "2019-09-30T20:34:21.534Z",
-  "keys": {
-    "clusters": {
-      "additionalProp1": [
-        "string"
-      ],
-      "additionalProp2": [
-        "string"
-      ],
-      "additionalProp3": [
-        "string"
-      ]
-    }
+{ 
+  "modelInfo":{ 
+    "status":"ready",
+    "createdDateTime":"2019-10-08T10:20:31.957784",
+    "lastUpdatedDateTime":"2019-10-08T14:20:41+00:00",
+    "modelId":"1cfb372bab404ba3aa59481ab2c63da5"
   },
-  "trainResult": {
-    "trainingDocuments": [
-      {
-        "documentName": "string",
-        "pages": 0,
-        "errors": [
-          "string"
+  "trainResult":{ 
+    "trainingDocuments":[ 
+      { 
+        "documentName":"invoices\\Invoice_1.pdf",
+        "pages":1,
+        "errors":[ 
+
         ],
-        "status": "succeeded"
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_2.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_3.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_4.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
+      },
+      { 
+        "documentName":"invoices\\Invoice_5.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       }
     ],
-    "trainingFields": {
-      "fields": [
-        {
-          "fieldName": "string",
-          "accuracy": 0
-        }
-      ],
-      "averageModelAccuracy": 0
-    },
-    "errors": [
-      {
-        "errorMessage": "string"
-      }
+    "errors":[ 
+
+    ]
+  },
+  "keys":{ 
+    "0":[ 
+      "Address:",
+      "Invoice For:",
+      "Microsoft",
+      "Page"
     ]
   }
 }
@@ -126,7 +144,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 You'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID you use to track the results of the Analyze operation. Save this ID for the next step.
 
-### Get the Analyze results
+## Get the Analyze results
 
 Use the following API to query the results of the Analyze operation.
 
@@ -138,202 +156,254 @@ Use the following API to query the results of the Analyze operation.
 curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-You'll receive a `200 (Success)` response with a JSON body in the following format. 
+You'll receive a `200 (Success)` response with a JSON body in the following format. The output has been shortened for simplicity. Notice the `"status"` field near the bottom. This will have the value `"succeeded"` when the Analyze operation is complete. If the Analyze operation hasn't completed, you'll need to query the service again by rerunning the command. We recommend an interval of one second or more between calls.
 
-```bash
+```json
 {
-  "status": "notStarted",
-  "createdDateTime": "2019-09-30T20:57:43.820Z",
-  "lastUpdatedDateTime": "2019-09-30T20:57:43.820Z",
-  "analyzeResult": {
-    "version": "string",
-    "readResults": [
-      {
-        "page": 0,
-        "angle": 0,
-        "width": 0,
-        "height": 0,
-        "unit": "pixel",
-        "language": "en",
-        "lines": [
-          {
-            "text": "string",
-            "boundingBox": [
-              0
+  "analyzeResult":{ 
+    "readResults":[ 
+      { 
+        "page":1,
+        "width":8.5,
+        "height":11.0,
+        "angle":0,
+        "unit":"inch",
+        "lines":[ 
+          { 
+            "text":"Contoso",
+            "boundingBox":[ 
+              0.5278,
+              1.0597,
+              1.4569,
+              1.0597,
+              1.4569,
+              1.4347,
+              0.5278,
+              1.4347
             ],
-            "language": "en",
-            "words": [
-              {
-                "text": "string",
-                "boundingBox": [
-                  0
-                ],
-                "confidence": 0
+            "words":[ 
+              { 
+                "text":"Contoso",
+                "boundingBox":[ 
+                  0.5278,
+                  1.0597,
+                  1.4569,
+                  1.0597,
+                  1.4569,
+                  1.4347,
+                  0.5278,
+                  1.4347
+                ]
+              }
+            ]
+          },
+          ...
+          { 
+            "text":"PT",
+            "boundingBox":[ 
+              6.2181,
+              3.3528,
+              6.3944,
+              3.3528,
+              6.3944,
+              3.5417,
+              6.2181,
+              3.5417
+            ],
+            "words":[ 
+              { 
+                "text":"PT",
+                "boundingBox":[ 
+                  6.2181,
+                  3.3528,
+                  6.3944,
+                  3.3528,
+                  6.3944,
+                  3.5417,
+                  6.2181,
+                  3.5417
+                ]
               }
             ]
           }
         ]
       }
     ],
-    "pageResults": [
-      {
-        "page": 0,
-        "clusterId": 0,
-        "keyValuePairs": [
-          {
-            "key": {
-              "text": "string",
-              "boundingBox": [
-                0
+    "version":"2.0.0",
+    "errors":[ 
+
+    ],
+    "documentResults":[ 
+
+    ],
+    "pageResults":[ 
+      { 
+        "page":1,
+        "clusterId":1,
+        "keyValuePairs":[ 
+          { 
+            "key":{ 
+              "text":"Address:",
+              "boundingBox":[ 
+                0.7972,
+                1.5125,
+                1.3958,
+                1.5125,
+                1.3958,
+                1.6431,
+                0.7972,
+                1.6431
               ],
-              "elements": [
-                "string"
-              ],
-              "words": [
-                {
-                  "text": "string",
-                  "boundingBox": [
-                    0
-                  ],
-                  "confidence": 0
-                }
+              "elements":[ 
+                "#/readResults/0/lines/1/words/0"
               ]
             },
-            "value": {
-              "text": "string",
-              "boundingBox": [
-                0
+            "value":{ 
+              "text":"1 Redmond way Suite 6000 Redmond, WA 99243",
+              "boundingBox":[ 
+                0.7972,
+                1.6764,
+                2.15,
+                1.6764,
+                2.15,
+                2.2181,
+                0.7972,
+                2.2181
               ],
-              "elements": [
-                "string"
-              ],
-              "words": [
-                {
-                  "text": "string",
-                  "boundingBox": [
-                    0
-                  ],
-                  "confidence": 0
-                }
+              "elements":[ 
+                "#/readResults/0/lines/4/words/0",
+                "#/readResults/0/lines/4/words/1",
+                "#/readResults/0/lines/4/words/2",
+                "#/readResults/0/lines/4/words/3",
+                "#/readResults/0/lines/6/words/0",
+                "#/readResults/0/lines/6/words/1",
+                "#/readResults/0/lines/6/words/2",
+                "#/readResults/0/lines/8/words/0"
               ]
             },
-            "confidence": 0
-          }
+            "confidence":0.86
+          },
+          { 
+            "key":{ 
+              "text":"Invoice For:",
+              "boundingBox":[ 
+                4.3903,
+                1.5125,
+                5.1139,
+                1.5125,
+                5.1139,
+                1.6431,
+                4.3903,
+                1.6431
+              ],
+              "elements":[ 
+                "#/readResults/0/lines/2/words/0",
+                "#/readResults/0/lines/2/words/1"
+              ]
+            },
+            "value":{ 
+              "text":"Microsoft 1020 Enterprise Way Sunnayvale, CA 87659",
+              "boundingBox":[ 
+                5.1917,
+                1.4458,
+                6.6583,
+                1.4458,
+                6.6583,
+                2.0347,
+                5.1917,
+                2.0347
+              ],
+              "elements":[ 
+                "#/readResults/0/lines/3/words/0",
+                "#/readResults/0/lines/5/words/0",
+                "#/readResults/0/lines/5/words/1",
+                "#/readResults/0/lines/5/words/2",
+                "#/readResults/0/lines/7/words/0",
+                "#/readResults/0/lines/7/words/1",
+                "#/readResults/0/lines/7/words/2"
+              ]
+            },
+            "confidence":0.86
+          },
+          ...
         ],
-        "tables": [
-          {
-            "rows": 0,
-            "columns": 0,
-            "cells": [
-              {
-                "rowIndex": 0,
-                "columnIndex": 0,
-                "rowSpan": 0,
-                "columnSpan": 0,
-                "text": "string",
-                "boundingBox": [
-                  0
+        "tables":[ 
+          { 
+            "caption":null,
+            "rows":2,
+            "columns":5,
+            "cells":[ 
+              { 
+                "rowIndex":0,
+                "colIndex":0,
+                "header":true,
+                "text":"Invoice Number",
+                "boundingBox":[ 
+                  0.5347,
+                  2.8722,
+                  1.575,
+                  2.8722,
+                  1.575,
+                  3.0028,
+                  0.5347,
+                  3.0028
                 ],
-                "confidence": 0,
-                "elements": [
-                  "string"
+                "elements":[ 
+                  "#/readResults/0/lines/9/words/0",
+                  "#/readResults/0/lines/9/words/1"
+                ]
+              },
+              { 
+                "rowIndex":0,
+                "colIndex":1,
+                "header":true,
+                "text":"Invoice Date",
+                "boundingBox":[ 
+                  1.9403,
+                  2.8722,
+                  2.7569,
+                  2.8722,
+                  2.7569,
+                  3.0028,
+                  1.9403,
+                  3.0028
                 ],
-                "words": [
-                  {
-                    "text": "string",
-                    "boundingBox": [
-                      0
-                    ],
-                    "confidence": 0
-                  }
+                "elements":[ 
+                  "#/readResults/0/lines/10/words/0",
+                  "#/readResults/0/lines/10/words/1"
+                ]
+              },
+              { 
+                "rowIndex":0,
+                "colIndex":2,
+                "header":true,
+                "text":"Invoice Due Date",
+                "boundingBox":[ 
+                  3.3403,
+                  2.8722,
+                  4.4583,
+                  2.8722,
+                  4.4583,
+                  3.0028,
+                  3.3403,
+                  3.0028
                 ],
-                "isHeader": false,
-                "isFooter": false
-              }
+                "elements":[ 
+                  "#/readResults/0/lines/11/words/0",
+                  "#/readResults/0/lines/11/words/1",
+                  "#/readResults/0/lines/11/words/2"
+                ]
+              },
+              ...
             ]
           }
         ]
-      }
-    ],
-    "documentResults": [
-      {
-        "docType": "string",
-        "pageRange": [
-          0
-        ],
-        "fields": {
-          "additionalProp1": {
-            "type": "string",
-            "valueString": "string",
-            "valueDate": "2019-09-30",
-            "valueTime": "string",
-            "valuePhoneNumber": "string",
-            "valueNumber": 0,
-            "valueInteger": 0,
-            "valueArray": [
-              null
-            ],
-            "valueObject": {},
-            "text": "string",
-            "boundingBox": [
-              0
-            ],
-            "confidence": 0,
-            "elements": [
-              "string"
-            ]
-          },
-          "additionalProp2": {
-            "type": "string",
-            "valueString": "string",
-            "valueDate": "2019-09-30",
-            "valueTime": "string",
-            "valuePhoneNumber": "string",
-            "valueNumber": 0,
-            "valueInteger": 0,
-            "valueArray": [
-              null
-            ],
-            "valueObject": {},
-            "text": "string",
-            "boundingBox": [
-              0
-            ],
-            "confidence": 0,
-            "elements": [
-              "string"
-            ]
-          },
-          "additionalProp3": {
-            "type": "string",
-            "valueString": "string",
-            "valueDate": "2019-09-30",
-            "valueTime": "string",
-            "valuePhoneNumber": "string",
-            "valueNumber": 0,
-            "valueInteger": 0,
-            "valueArray": [
-              null
-            ],
-            "valueObject": {},
-            "text": "string",
-            "boundingBox": [
-              0
-            ],
-            "confidence": 0,
-            "elements": [
-              "string"
-            ]
-          }
-        }
-      }
-    ],
-    "errors": [
-      {
-        "errorMessage": "string"
       }
     ]
-  }
+  },
+  "lastUpdatedDateTime":"2019-10-07T19:32:18+00:00",
+  "status":"succeeded",
+  "createdDateTime":"2019-10-07T19:32:15+00:00"
 }
 ```
 
