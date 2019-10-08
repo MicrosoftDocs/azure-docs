@@ -14,7 +14,7 @@ ms.author: marsma
 1. Enter a **Name** for the application. For example, *ROPC_Auth_app*.
 1. Leave the other values as they are, and then select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
-1. Under **Manage**, select **Authentication**
+1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
 1. Under **Default client type**, select **Yes** to treat the application as a public client. This setting is required for the ROPC flow.
 1. Select **Save**.
