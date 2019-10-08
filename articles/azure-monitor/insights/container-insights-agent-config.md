@@ -94,7 +94,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
-    - The following examples demonstrates how to configure Prometheus endpoints to scrape metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and by specifying a pod annotation
+    - The following examples demonstrates how to configure ConfigMap file to scrape metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and define pod annotation per-pod
 
         - Scrape Prometheus metrics from a specific URL across the cluster.
 
@@ -123,12 +123,18 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 
         - Scrape Prometheus metrics by specifying a pod annotation in your pod so the agent knows where to scrape metrics from for your specific pod(s).
 
+        Specify in the ConfigMap file:
         ```
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] ​
          interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
-         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
+         monitor_kubernetes_pods = true 
+        ```
+
+        Specify in the pod's configuration file:
+         
+        ``` ​
           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
           - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
