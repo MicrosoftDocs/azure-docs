@@ -476,8 +476,8 @@
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
-        - name: Register a SaaS application
-          href: ./partner-center-portal/pc-saas-registration.md
+        - name: Authenticating API calls
+          href: ./partner-center-portal/pc-saas-authenticating-api-calls.md
         - name: SaaS Fulfillment APIs v2
           href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
         - name: SaaS Fulfillment APIs v1 (deprecated)
