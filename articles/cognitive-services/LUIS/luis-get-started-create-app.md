@@ -93,6 +93,8 @@ Select **Test** again to collapse the test pane.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
+<a name="query-the-v2-api-prediction-endpoint"></a>
+
 ## Query the V3 API prediction endpoint
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/how-to-get-v3-prediction-endpoint.md)] 
