@@ -14,6 +14,8 @@ ms.reviewer: prishet
 
 This article shows you how to use .NET, Java, or Python to manage directories in storage accounts that have a hierarchical namespace.
 
+To learn how to set POSIX access control lists (ACL) on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl.md).
+
 To learn how to work with containers and files, see the [.NET](storage-quickstart-blobs-dotnet.md), [Java](storage-quickstart-blobs-dotnet.md), or [Python](storage-quickstart-blobs-python.md) quickstart articles.
 
 > [!NOTE]
