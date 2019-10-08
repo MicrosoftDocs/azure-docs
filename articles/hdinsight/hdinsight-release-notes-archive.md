@@ -1,4 +1,4 @@
----
+﻿---
 title: Archived release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 author: hrasheed-msft
@@ -816,73 +816,73 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### **​CVE-2017-7676**
 
-| **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character |
+| **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity:** Critical                                                                           |
-| **Vendor:** Hortonworks                                                                          |
-| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0     |
-| **Users affected:** Environments that use Ranger policies with characters after ‘\*’ wildcard character – like my\*test, test\*.txt |
-| **Impact:** Policy resource matcher ignores characters after ‘\*’ wildcard character, which can result in unintended behavior.      |
-| **Fix detail:** Ranger policy resource matcher was updated to correctly handle wildcard matches.           |
-| **Recommended Action:** Upgrade to HDI 3.6 (with Apache Ranger 0.7.1+).                                |
+| **Severity:** Critical                                                                           |
+| **Vendor:** Hortonworks                                                                          |
+| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0     |
+| **Users affected:** Environments that use Ranger policies with characters after ‘\*’ wildcard character – like my\*test, test\*.txt |
+| **Impact:** Policy resource matcher ignores characters after ‘\*’ wildcard character, which can result in unintended behavior.      |
+| **Fix detail:** Ranger policy resource matcher was updated to correctly handle wildcard matches.           |
+| **Recommended Action:** Upgrade to HDI 3.6 (with Apache Ranger 0.7.1+).                                |
 
 ### **​CVE-2017-7677**
 
-| **Summary:** Apache Ranger Hive Authorizer should check for RWX permission when external location is specified |
+| **Summary:** Apache Ranger Hive Authorizer should check for RWX permission when external location is specified |
 |--------------------------------------------------------------------------------------------------|
-| **Severity:** Critical                                                                           |
-| **Vendor:** Hortonworks                                                                          |
-| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0 |
-| **Users affected:** Environments that use external location for hive tables |
-| **Impact:** In environments that use external location for hive tables, Apache Ranger Hive Authorizer should check for RWX permission for the external location specified for create table. |
-| **Fix detail:** Ranger Hive Authorizer was updated to correctly handle permission check with external location. |
-| **Recommended Action:** Users should upgrade to HDI 3.6 (with Apache Ranger 0.7.1+). |
+| **Severity:** Critical                                                                           |
+| **Vendor:** Hortonworks                                                                          |
+| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0 |
+| **Users affected:** Environments that use external location for hive tables |
+| **Impact:** In environments that use external location for hive tables, Apache Ranger Hive Authorizer should check for RWX permission for the external location specified for create table. |
+| **Fix detail:** Ranger Hive Authorizer was updated to correctly handle permission check with external location. |
+| **Recommended Action:** Users should upgrade to HDI 3.6 (with Apache Ranger 0.7.1+). |
 
 ### **​CVE-2017-9799**
 
-| **Summary:** Potential execution of code as the wrong user in Apache Storm |
+| **Summary:** Potential execution of code as the wrong user in Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Severity:** Important |
-| **Vendor:** Hortonworks |
-| **Versions Affected:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
-| **Users affected:** Users who use Storm in secure mode and are using blobstore to distribute topology based artifacts or using the blobstore to distribute any topology resources. |
-| **Impact:** Under some situations and configurations of storm it is theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
-| **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.  |
+|**Severity:** Important |
+| **Vendor:** Hortonworks |
+| **Versions Affected:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Users affected:** Users who use Storm in secure mode and are using blobstore to distribute topology based artifacts or using the blobstore to distribute any topology resources. |
+| **Impact:** Under some situations and configurations of storm it is theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
+| **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.  |
 
 ### **​CVE-2016-4970**
 
-| **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
+| **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
 |--------------------------------------------------------------------------------------------------|
 | **Severity:** Moderate  |
-| **Vendor:** Hortonworks  |
-| **Versions Affected:** HDP 2.x.x since 2.3.x  |
-| **Users Affected:** All users that use HDFS. |
-| **Impact:** Impact is low as Hortonworks does not use OpenSslEngine.java directly in Hadoop codebase.     |
-| **Recommended Action:** Upgrade to HDP 2.6.3.   |
+| **Vendor:** Hortonworks  |
+| **Versions Affected:** HDP 2.x.x since 2.3.x  |
+| **Users Affected:** All users that use HDFS. |
+| **Impact:** Impact is low as Hortonworks does not use OpenSslEngine.java directly in Hadoop codebase.     |
+| **Recommended Action:** Upgrade to HDP 2.6.3.   |
 
 ### **​CVE-2016-8746**
 
-| **Summary:** Apache Ranger path matching issue in policy evaluation                                                                    |
+| **Summary:** Apache Ranger path matching issue in policy evaluation                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity:** Normal                                                                                                                   |
+| **Severity:** Normal                                                                                                                   |
 | **Vendor:** Hortonworks                                                                                                                |
-| **Versions Affected:** All HDP 2.5 versions including Apache Ranger versions 0.6.0/0.6.1/0.6.2                                         |
-| **Users affected:** All users of the ranger policy admin tool.                                                                         |
-| **Impact:** Ranger policy engine incorrectly matches paths in certain conditions when a policy contains wildcards and recursive flags. |
+| **Versions Affected:** All HDP 2.5 versions including Apache Ranger versions 0.6.0/0.6.1/0.6.2                                         |
+| **Users affected:** All users of the ranger policy admin tool.                                                                         |
+| **Impact:** Ranger policy engine incorrectly matches paths in certain conditions when a policy contains wildcards and recursive flags. |
 | **Fix detail:** Fixed policy evaluation logic                                                                                          |
-| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)         |
+| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)         |
 
 ### **​CVE-2016-8751**
 
-| **Summary:** Apache Ranger stored cross site scripting issue  |
+| **Summary:** Apache Ranger stored cross site scripting issue  |
 |--------------------------------------------------------------------------------------------------|
-| **Severity:** Normal |
-| **Vendor:** Hortonworks |
-| **Versions Affected:** All HDP 2.3/2.4/2.5 versions including Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Users affected:** All users of the ranger policy admin tool. |
-| **Impact:** Apache Ranger is vulnerable to a Stored Cross-Site Scripting when entering custom policy conditions. Admin users can store some arbitrary javascript code execute when normal users sign in and access policies. |
-| **Fix detail:** Added logic to sanitize the user input.  |
-| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)  |
+| **Severity:** Normal |
+| **Vendor:** Hortonworks |
+| **Versions Affected:** All HDP 2.3/2.4/2.5 versions including Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Users affected:** All users of the ranger policy admin tool. |
+| **Impact:** Apache Ranger is vulnerable to a Stored Cross-Site Scripting when entering custom policy conditions. Admin users can store some arbitrary javascript code execute when normal users sign in and access policies. |
+| **Fix detail:** Added logic to sanitize the user input.  |
+| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)  |
 
 ## Fixed issues for support
 
