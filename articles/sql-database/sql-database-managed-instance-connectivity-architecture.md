@@ -250,9 +250,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |65.55.188.0/24   |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |167.220.0.0/16   |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |131.107.0.0/16   |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16|MI SUBNET  |Allow |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
