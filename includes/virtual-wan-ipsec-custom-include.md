@@ -12,7 +12,6 @@
 
 When working with custom IPsec policies, keep in mind the following requirements:
 
-* **Parameters** - Parameters must be specified in order. For example: AES256, SHA256, GCMAES256, GCMAES256.
 * **IKE** - For IKE, you can select any parameter from IKE Encryption, plus any parameter from IKE Integrity, plus any parameter from DH Group.
 * **IPsec** -  For IPsec, you can select any parameter from IPsec Encryption, plus any parameter from IPsec Integrity, plus PFS. If any of the parameters for IPsec Encryption or IPsec Integrity is GCM, then the parameters for both settings must be GCM.
 
