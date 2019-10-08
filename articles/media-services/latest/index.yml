@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About 
+  - title: About Media Services
     linkLists:
       - linkListType: overview
         links:
@@ -41,46 +41,14 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Cloud upload and storage
-            url: storage-account-concept.md
-          - text: Encoding
-            url: encoding-concept.md
-          - text: Media analytics
-            url: analyzing-video-audio-files-concept.md
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
-          - text: Packaging
-            url: dynamic-packaging-overview.md           
-          - text: Protection
-            url: content-protection-overview.md           
-          - text: Live Streaming
-            url: live-streaming-overview.md           
-          - text: Player clients
-            url: use-azure-media-player.md  
-            
-# Card
-  - title: Develop
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Develop with v3 API guidance
+          - text: Developing with v3 API guidance
             url: media-services-apis-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Encode remote file and stream
-            url: stream-files-tutorial-with-rest.md
-          - text: Encode uploaded file and stream
-            url: stream-files-tutorial-with-api.md
-          - text: Stream live
-            url: stream-live-tutorial-with-api.md
-          - text: Analyze videos
-            url: analyze-videos-tutorial-with-api.md
-          - text: Encrypt dynamically with AES-128
-            url: protect-with-aes128.md
-          - text: Encrypt dynamically with DRM
-            url: protect-with-drm.md
-      - linkListType: how-to-guide
-        links:
+          - text: Media Services accounts
+            url: media-services-account-concept.md
+          - text: Storage accounts
+            url: storage-account-concept.md
+        - linkListType: how-to-guide
+          links:
           - text: Create an account
             url: create-account-cli-how-to.md          
           - text: Access API
@@ -99,17 +67,73 @@ landingContent:
             url: https://github.com/Azure-Samples/media-services-v3-java
           - text: REST Postman collection samples
             url: https://github.com/Azure-Samples/media-services-v3-rest-postman
-       - linkListType: reference
-         links:
-          - text: Azure CLI
-            url: https://aka.ms/ams-v3-cli-ref
-          - text: REST
-            url: https://aka.ms/ams-v3-rest-ref
-          - text: .NET
-            url: https://aka.ms/ams-v3-dotnet-ref
-          - text: Java
-            url: https://aka.ms/ams-v3-java-ref
-          - text:Python
-            url: https://aka.ms/ams-v3-python-ref            
-          - text: Node.js
-            url: https://aka.ms/ams-v3-nodejs-ref    
+                        
+# Card
+  - title: Stream on demand
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Uploading
+            url: assets-concept.md
+          - text: Packaging
+            url: dynamic-packaging-overview.md                               
+          - text: Encoding
+            url: encoding-concept.md
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+          - text: Player clients
+            url: use-azure-media-player.md  
+      - linkListType: tutorial
+        links:
+          - text: Encode remote file and stream
+            url: stream-files-tutorial-with-rest.md
+          - text: Encode uploaded file and stream
+            url: stream-files-tutorial-with-api.md
+  
+# Card
+  - title: Stream live
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Packaging
+            url: dynamic-packaging-overview.md                               
+          - text: Live Streaming
+            url: live-streaming-overview.md           
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+          - text: Player clients
+            url: use-azure-media-player.md  
+      - linkListType: tutorial
+        links:
+          - text: Stream live
+            url: stream-live-tutorial-with-api.md
+  
+# Card
+  - title: Encrypt content
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Protection
+            url: content-protection-overview.md           
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+      - linkListType: tutorial
+        links:
+          - text: Encrypt dynamically with AES-128
+            url: protect-with-aes128.md
+          - text: Encrypt dynamically with DRM
+            url: protect-with-drm.md
+
+# Card
+  - title: Analyze content
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Media analytics
+            url: analyzing-video-audio-files-concept.md
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+      - linkListType: tutorial
+        links:
+          - text: Analyze videos
+            url: analyze-videos-tutorial-with-api.md
