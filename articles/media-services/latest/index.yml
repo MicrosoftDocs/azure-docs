@@ -61,7 +61,17 @@ landingContent:
             url: https://github.com/Azure-Samples/media-services-v3-java
           - text: REST Postman collection samples
             url: https://github.com/Azure-Samples/media-services-v3-rest-postman
-  
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: https://aka.ms/ams-v3-cli-ref
+          - text: REST
+            url: https://aka.ms/ams-v3-rest-ref
+          - text: .NET
+            url: https://aka.ms/ams-v3-dotnet-ref
+          - text: Java
+            url: https://aka.ms/ams-v3-java-ref
+
 # Card
   - title: Stream live
     linkLists:
