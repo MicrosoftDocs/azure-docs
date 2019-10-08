@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
 ---
 
@@ -44,7 +44,7 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stdout] exclude_namespaces =`|String | Comma-separated array |Array of Kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMap, the default value is `enabled = true`. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This setting controls environment variable collection across all pods/nodes in the cluster and defaults to `enabled = true` when not specified in ConfigMaps. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the **env:** section. If collection of environment variables is globally disabled, then you cannot enable collection for a specific container (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
 
 ### Prometheus scraping settings
 
@@ -79,7 +79,7 @@ When a URL is specified, Azure Monitor for containers only scrapes the endpoint.
 | Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as ns, us (or Âµs), ms, s, m, h. |
 | Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
 
-ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
+ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 
 ## Configure and deploy ConfigMaps
 
@@ -182,6 +182,22 @@ The output will show similar to the following with the annotation schema-version
 ```
 
 ## Review Prometheus data usage
+
+To view prometheus metrics scraped by Azure Monitor, specify "prometheus" as the Namespace. Here is a sample query to view prometheus metrics from the `default` kubernetes namespace.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+Prometheus data can also be directly queried by name.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
 
