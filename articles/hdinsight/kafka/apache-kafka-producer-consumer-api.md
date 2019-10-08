@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 10/08/2019
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
@@ -55,9 +55,9 @@ The important things to understand in the `pom.xml` file are:
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -136,44 +136,38 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Install [jq](https://stedolan.github.io/jq/), a command-line JSON processor. From the open SSH connection, enter following command to install `jq`:
+1. Install [jq](https://stedolan.github.io/jq/), a command-line JSON processor. From the open SSH connection, enter following command to install `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
+1. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
 
     ```bash
     export password='PASSWORD'
     ```
 
-4. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-
-5. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following command:
+1. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following command:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
     | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-6. Create Kafka topic, `myTest`, by entering the following command:
+1. Create Kafka topic, `myTest`, by entering the following command:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. To run the producer and write data to the topic, use the following command:
+1. To run the producer and write data to the topic, use the following command:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Once the producer has finished, use the following command to read from the topic:
+1. Once the producer has finished, use the following command to read from the topic:
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -181,7 +175,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
     The records read, along with a count of records, is displayed.
 
-9. Use __Ctrl + C__ to exit the consumer.
+1. Use __Ctrl + C__ to exit the consumer.
 
 ### Multiple consumers
 
