@@ -65,8 +65,8 @@ Property | Description | Allowed values | Required
 name | Name of the switch activity. | String | Yes
 type | Must be set to *Switch** | String | Yes
 expression | Expression that must evaluate to string value | Expression with result type string | Yes
-cases | Set of cases that contain a value and a set of activities to execute when the value is matched to the expression evaluation. Must provide at least one case. There is a max limit of 25 cases. | Array of Case Objects | Yes
-defaultActivities | Set of activities that are executed when the expression evaluation is not satisfied. | Array of Activities | Yes
+cases | Set of cases that contain a value and a set of activities to execute when the value matches the expression evaluation. Must provide at least one case. There's a max limit of 25 cases. | Array of Case Objects | Yes
+defaultActivities | Set of activities that are executed when the expression evaluation isn't satisfied. | Array of Activities | Yes
 
 ## Example
 
@@ -284,7 +284,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-These commands assume that you have saved the JSON files into the folder: C:\ADF. 
+These commands assume that you've saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
 Connect-AzAccount
