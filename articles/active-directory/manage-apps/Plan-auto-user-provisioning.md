@@ -35,7 +35,7 @@ The key benefits of enabling automatic user provisioning are:
 
 * **Manage risk**. You can increase security by automating changes based on employee status or group memberships that define roles and/or access.
 
-* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. Logs include user imports, exports, and synchronization.
+* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. This enables you to track who has access to applications from a single screen.
 
 * **Reduce cost**. Automatic user provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions, scripts, and audit logs.
 
@@ -149,7 +149,7 @@ Use the Azure AD portal to view and manage all the applications that support pro
 
 ### Determine the type of connector to use
 
-The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), then you can select the [app-specific integration tutorial](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) to configure its pre-integrated user provisioning connector.
+The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), then you should select the [app-specific integration tutorial](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) to configure its pre-integrated user provisioning connector.
 
 If not, follow the steps below:
 
@@ -161,15 +161,17 @@ If not, follow the steps below:
 
 For more information, see [What applications and systems can I use with Azure AD automatic user provisioning?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
 
-### Set up administrative account
+### Collect information to authorize application access
 
 Setting up automatic user provisioning is a per-application process. For each application, you need to provide [administrator credentials](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) to connect to the target system’s user management endpoint.
 
-The image below lists the required admin credentials:
+The image below shows one version of the required admin credentials:
 
 ![Provisioning screen to manage user account provisioning settings](media/auto-user-provision-dp/UserProvisioning_AdminCredentials.png)
 
-## Plan user and group synchronization
+While some applications require the admin username and password, others may require a bearer token.
+
+## Plan user and group provisioning
 
 If you enable user provisioning for enterprise apps, the [Azure portal](https://portal.azure.com/) controls its attribute values through attribute mapping.
 
