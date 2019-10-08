@@ -109,7 +109,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
-      ![Enter subject filter text](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Enter text for "Subject Filter" property](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. To hide the trigger's details for now, click the trigger's title bar.
 
