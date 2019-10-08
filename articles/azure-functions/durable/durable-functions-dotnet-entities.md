@@ -96,6 +96,7 @@ Operations also have access to functionality provided by the `Entity.Current` co
 * `EntityId`: the ID of the currently executing entity (includes name and key).
 * `SignalEntity`: sends a one-way message to an entity.
 * `CreateNewOrchestration`: starts a new orchestration.
+* `DeleteState`: deletes the state of this entity.
 
 For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
 
@@ -197,7 +198,7 @@ public class Counter : ICounter
 
 Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
 
-Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles, while exposing only a certain set of operations to each client. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
+Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 
 ### Example: client signals entity via interface
 
@@ -271,11 +272,40 @@ We also enforce some additional rules:
 If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
 
 > [!NOTE]
-Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
+> Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
 
 ## Entity Serialization
 
 Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
+
+For example, Json.NET can easily serialize and deserialize the following class:
+
+```csharp
+[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+public class User
+{
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonProperty("yearOfBirth")]
+    public int YearOfBirth { get; set; }
+
+    [JsonProperty("timestamp")]
+    public DateTime Timestamp { get; set; }
+
+    [JsonProperty("contacts")]
+    public Dictionary<Guid, Contact> Contacts { get; set; } = new Dictionary<Guid, Contact>();
+
+    [JsonObject(MemberSerialization = MemberSerialization.OptOut)]
+    public struct Entry
+    {
+        public string Name;
+        public string Number;
+    }
+
+    ...
+}
+```
 
 ### Serialization Attributes
 
