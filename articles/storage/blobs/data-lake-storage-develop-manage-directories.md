@@ -14,16 +14,10 @@ ms.reviewer: prishet
 
 This article shows you how to use .NET, Java, or Python to manage directories in storage accounts that have a hierarchical namespace.
 
-To learn how to work with containers and files, see any of these articles.
-
-- [Quickstart: Azure Blob storage client library for .NET](storage-quickstart-blobs-dotnet.md)
-
-- [Quickstart: Azure Blob storage client library for Java SDK](storage-quickstart-blobs-java.md)
-
-- [Quickstart: Upload, download, and list blobs with Python](storage-quickstart-blobs-python.md)
+To learn how to work with containers and files, see the [.NET](storage-quickstart-blobs-dotnet.md), [Java](storage-quickstart-blobs-dotnet.md), or [Python](storage-quickstart-blobs-python.md) quickstart articles.
 
 > [!NOTE]
-> The content in these articles use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is represented as a *blob*, and a *file system* is represented as a *container*.
+>  The .NET, Java, and Python quickstart articles use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is represented as a *blob*, and a *file system* is represented as a *container*.
 
 ## Connect to the storage account
 
