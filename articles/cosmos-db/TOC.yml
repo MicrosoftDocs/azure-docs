@@ -57,8 +57,10 @@
       href: tutorial-global-distribution-sql-api.md
   - name: Samples
     items:
-    - name: .NET samples
+    - name: .NET V2 SDK samples
       href: sql-api-dotnet-samples.md
+    - name: .NET V3 SDK samples
+      href: sql-api-dotnet-v3sdk-samples.md
     - name: Java samples
       href: sql-api-java-samples.md
     - name: Async Java samples
