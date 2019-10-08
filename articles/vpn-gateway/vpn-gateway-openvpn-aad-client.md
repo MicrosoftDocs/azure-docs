@@ -22,11 +22,11 @@ To connect, you need to configure a VPN client profile on every computer that wa
 
 When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. For more information about certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-  ![cert](./media/vpn-gateway-openvpn-aad-client/create/create_cert1.jpg)
+  ![cert](./media/vpn-gateway-openvpn-aad-client/create/create-cert1.jpg)
 
 ### <a name="radius"></a>To create a RADIUS client profile
 
-  ![radius](./media/vpn-gateway-openvpn-aad-client/create/create_radius1.jpg)
+  ![radius](./media/vpn-gateway-openvpn-aad-client/create/create-radius1.jpg)
 
 ### <a name="export"></a>To export and distribute a client profile
 
