@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2019
+ms.date: 10/7/2019
 ms.author: raiye
 ---
 # Azure Guest OS
@@ -18,26 +18,23 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## September 2019 Guest OS
 
->[!NOTE]
->The September Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the September Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2.90, 3.77, 4.70  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4516115]  |  Flash   |  2.90, 3.77, 4.70, 5.35, 6.11  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4512578]  |  Latest Cumulative update   |  6.11  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 and 4.7.2   |  6.11  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4516044]  |  Latest Cumulative update   |  5.35  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4516064]  |  Windows Security   |  4.7  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  4.7  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4.7  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4516062]  |  Windows Security   |  3.77  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  3.77  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3.77  |  Sept 10, 2019  |
-|  Rel 19-09   |  [4516033]  |  Windows Security   |  2.9  |  Sept 12, 2019  |
-|  Rel 19-09   |  [4512488]  |  Non-Security   |  4.7  |  Aug 13, 2019  |
-|  Rel 19-09   |  [4512518]  |  Non-Security   |  3.77  |  Aug 13, 2019  |
-|  Rel 19-09   |  [4512506]  |  Non-Security   |  2.9  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516115]  |  Flash   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4512578]  |  Latest Cumulative update   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 and 4.7.2   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516044]  |  Latest Cumulative update   |  [5.35]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows Security   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows Security   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows Security   |  [2.90]  |  Sept 12, 2019  |
+|  Rel 19-09   |  [4512488]  |  Non-Security   |  [4.70]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512518]  |  Non-Security   |  [3.77]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512506]  |  Non-Security   |  [2.90]  |  Aug 13, 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -54,6 +51,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
+[6.11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## August 2019 Guest OS

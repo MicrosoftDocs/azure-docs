@@ -10,7 +10,7 @@ ms.date: 08/30/2019
 
 # Mapping Data Flow JSON handling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Creating JSON structures in expression editor
 ### Derived column transformation
@@ -46,7 +46,7 @@ If this expression were entered for a column named "complexColumn" then it would
 }
 ```
 
-#### Sample manual DSL
+#### Sample manual script for complete hierarchical definition
 ```
 @(
 	title=Title,
@@ -140,7 +140,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# Higher order functions
+## Higher order functions
 ## filter
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.
 

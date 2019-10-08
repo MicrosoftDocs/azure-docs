@@ -2,12 +2,13 @@
 title: 'Tutorial: Monitor a space with Azure Digital Twins | Microsoft Docs'
 description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins by using the steps in this tutorial.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 09/20/2019
-ms.author: alinast
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to monitor a space using Azure Digital Twins. 
 ---
 
@@ -180,7 +181,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 
 1. From the output in the command window, copy the value of `ConnectionString`, under the `Devices` section, to your clipboard. You'll need this value to simulate the device connection in the next section.
 
-    ![Provision sample](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![Provision sample](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > If you get an error message similar to "The I/O operation has been aborted because of either a thread exit or an application request" in the middle of the provisioning, try running the command again. This might happen if the HTTP client timed out from a network issue.
@@ -241,7 +242,7 @@ The user-defined function runs every time your instance receives device and sens
 
 The output window shows how the user-defined function runs and intercepts events from the device simulation. 
 
-   ![Output for the UDF](./media/tutorial-facilities-udf/udf-running.png)
+   [![Output for the UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 If the monitored condition is met, the user-defined function sets the value of the space with the relevant message, as we saw [earlier](#create-a-user-defined-function). The `GetAvailableAndFreshSpaces` function prints out the message on the console.
 

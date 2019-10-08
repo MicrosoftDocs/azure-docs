@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
 
 ---
@@ -174,7 +174,7 @@ To obtain a key for use in encrypting or decrypting data at rest the service ide
 - Customer has full responsibility for key lifecycle management
 - Additional Setup & configuration overhead
 
-#### Server-side encryption using service-managed keys in customer-controlled hardware
+#### Server-side encryption using customer-managed keys in customer-controlled hardware
 
 Some Azure services enable the Host Your Own Key (HYOK) key management model. This management mode is useful in scenarios where there is a need to encrypt the data at rest and manage the keys in a proprietary repository outside of Microsoft’s control. In this model, the service must retrieve the key from an external site. Performance and availability guarantees are impacted, and configuration is more complex. Additionally, since the service does have access to the DEK during the encryption and decryption operations the overall security guarantees of this model are similar to when the keys are customer-managed in Azure Key Vault.  As a result, this model is not appropriate for most organizations unless they have specific key management requirements. Due to these limitations, most Azure Services do not support server-side encryption using server-managed keys in customer-controlled hardware.
 
@@ -269,7 +269,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
 | Azure Data Explorer              | Yes                | -                  | -                  |
-| Azure Data Factory               | Yes                | -                  | -                  |
+| Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Yes                | -                  | -                  |
