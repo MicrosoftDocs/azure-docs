@@ -29,7 +29,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Create a cloud workstation
+## <a name="azure"></a>Create a compute instance
 
 This example uses a cloud workstation in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
 
@@ -39,7 +39,7 @@ From your workspace, you create a cloud resource to get started using R Studio. 
 
 1. On your workspace page in the Azure Machine Learning studio, select **Compute** on the left.
 
-1. Select **+ Add Compute** to create an new Azure Machine Learning compute instance.
+1. Select **+ Add Compute** to create a new Azure Machine Learning compute instance.
 
      ![Select New VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
