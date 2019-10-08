@@ -779,7 +779,12 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": false
-    },    
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/create-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": false
+    },           
     {
       "source_path": "articles/cognitive-services/QnAMaker/quickstarts/csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-csharp-sdk",
@@ -20956,7 +20961,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/linux/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
@@ -22386,7 +22391,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/windows/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/linux/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
@@ -27255,6 +27270,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/time-series-insights/tutorial-explore-js-client-lib.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorial-create-tsi-sample-spa.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-powerbi.md",
       "redirect_url": "https://docs.microsoft.com/azure/security-center",
       "redirect_document_id": false
@@ -31696,7 +31721,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/CreateKB.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/create-knowledge-base",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
     },
     {
@@ -35881,6 +35906,11 @@
     {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-powerbi-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-connect-powerbi",
       "redirect_document_id": false
     },
     {
