@@ -83,39 +83,18 @@ The following JSON is with the `verbose` parameter set to `true`:
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
 ```json
-{
-  "query": "order two dozen eggs",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.105443209
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.105443209
-    },
-    {
-      "intent": "OrderFood",
-      "score": 0.9468431361
-    },
-    {
-      "intent": "Help",
-      "score": 0.000399122015
-    },
-  ],
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "subtype": "integer",
-        "value": "24"
-      }
+"entities": [
+  {
+    "entity": "two dozen",
+    "type": "builtin.number",
+    "startIndex": 6,
+    "endIndex": 14,
+    "resolution": {
+      "subtype": "integer",
+      "value": "24"
     }
-  ]
-}
+  }
+]
 ```
 * * * 
 

@@ -46,7 +46,7 @@ The following JSON is with the `verbose` parameter set to `false`:
         "egypt",
         "africa",
         "texas"
-    ],
+    ]
 }
 ```
 

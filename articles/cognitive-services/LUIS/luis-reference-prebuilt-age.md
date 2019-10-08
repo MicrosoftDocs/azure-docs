@@ -28,60 +28,37 @@ Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-{
-    "query": "A 90 day old utilities bill is quite late.",
-    "prediction": {
-        "normalizedQuery": "a 90 day old utilities bill is quite late.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.558252
-            }
-        },
-        "entities": {
-            "age": [
-                {
-                    "number": 90,
-                    "units": "Day"
-                }
-            ]
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
         }
-    }
+    ]
 }
 ```
 #### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-{
-    "query": "A 90 day old utilities bill is quite late.",
-    "prediction": {
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.558252
-            }
-        },
-        "entities": {
-            "age": [
-                {
-                    "number": 90,
-                    "units": "Day"
-                }
-            ],
-            "$instance": {
-                "age": [
-                    {
-                        "type": "builtin.age",
-                        "text": "90 day old",
-                        "startIndex": 2,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
         }
+    ],
+    "$instance": {
+        "age": [
+            {
+                "type": "builtin.age",
+                "text": "90 day old",
+                "startIndex": 2,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor"
+            }
+        ]
     }
 }
 ```
@@ -90,12 +67,6 @@ The following JSON is with the `verbose` parameter set to `true`:
 The following example shows the resolution of the **builtin.age** entity.
 
 ```json
-{
-  "query": "A 90 day old utilities bill is quite late.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.8236133
-  },
   "entities": [
     {
       "entity": "90 day old",
@@ -107,8 +78,6 @@ The following example shows the resolution of the **builtin.age** entity.
         "value": "90"
       }
     }
-  ]
-}
 ```
 * * * 
 

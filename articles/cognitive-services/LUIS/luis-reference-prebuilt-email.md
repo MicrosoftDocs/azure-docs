@@ -27,9 +27,11 @@ The following entity objects are returned for the query:
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-"email": [
-    "patti@contoso.com"
-]
+"entities": {
+    "email": [
+        "patti@contoso.com"
+    ]
+}
 ```
 #### [V3 verbose response](#tab/V3-verbose)
 
@@ -63,15 +65,15 @@ The following example shows the resolution of the **builtin.email** entity.
 
 ```json
 "entities": [
-{
-    "entity": "patti@contoso.com",
-    "type": "builtin.email",
-    "startIndex": 31,
-    "endIndex": 55,
-    "resolution": {
-    "value": "patti@contoso.com"
+    {
+        "entity": "patti@contoso.com",
+        "type": "builtin.email",
+        "startIndex": 31,
+        "endIndex": 55,
+        "resolution": {
+        "value": "patti@contoso.com"
+        }
     }
-}
 ]
 ```
 * * * 

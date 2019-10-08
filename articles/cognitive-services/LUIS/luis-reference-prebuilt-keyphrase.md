@@ -77,18 +77,18 @@ The following example shows the resolution of the **builtin.keyPhrase** entity.
 
 ```json
 "entities": [
-{
-    "entity": "development",
-    "type": "builtin.keyPhrase",
-    "startIndex": 51,
-    "endIndex": 61
-},
-{
-    "entity": "educational requirements",
-    "type": "builtin.keyPhrase",
-    "startIndex": 13,
-    "endIndex": 36
-}
+    {
+        "entity": "development",
+        "type": "builtin.keyPhrase",
+        "startIndex": 51,
+        "endIndex": 61
+    },
+    {
+        "entity": "educational requirements",
+        "type": "builtin.keyPhrase",
+        "startIndex": 13,
+        "endIndex": 36
+    }
 ]
 ```
 * * * 

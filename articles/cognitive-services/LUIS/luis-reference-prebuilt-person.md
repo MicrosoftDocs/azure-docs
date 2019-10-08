@@ -65,21 +65,14 @@ The following JSON is with the `verbose` parameter set to `true`:
 The following example shows the resolution of the **builtin.personName** entity.
 
 ```json
+"entities": [
 {
-  "query": "Is Jill Jones in Cairo?",
-  "topScoringIntent": {
-    "intent": "WhereIsEmployee",
-    "score": 0.762141049
-  },
-  "entities": [
-    {
-      "entity": "Jill Jones",
-      "type": "builtin.personName",
-      "startIndex": 3,
-      "endIndex": 12
-    }
-  ]
+    "entity": "Jill Jones",
+    "type": "builtin.personName",
+    "startIndex": 3,
+    "endIndex": 12
 }
+]
 ```
 * * * 
 

@@ -51,7 +51,7 @@ The following JSON is with the `verbose` parameter set to `true`:
                 "type": "builtin.url",
                 "text": "https://www.luis.ai",
                 "startIndex": 0,
-                "length": 19,
+                "length": 17,
                 "modelTypeId": 2,
                 "modelType": "Prebuilt Entity Extractor",
                 "recognitionSources": [
@@ -68,12 +68,12 @@ The following example shows the resolution of the https://www.luis.ai is a great
 
 ```json
 "entities": [
-{
-    "entity": "https://www.luis.ai",
-    "type": "builtin.url",
-    "startIndex": 0,
-    "endIndex": 17
-}
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
 ]
 ```
 

@@ -40,9 +40,6 @@ The following utterance and its partial JSON response is shown below.
                 }
             ]
         }
-    ],
-    "number": [
-        2019
     ]
 }
 ```
@@ -188,7 +185,6 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 #### [V3 verbose response](#tab/2-2)
 
 ```json
-
 "entities": {
     "datetimeV2": [
         {
@@ -454,11 +450,12 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 "entities": {
     "datetimeV2": [
         {
-            "type": "datetime",
+            "type": "timerange",
             "values": [
                 {
-                    "timex": "2017-05-02T08",
-                    "value": "2017-05-02 08:00:00"
+                    "timex": "(T18,T19,PT1H)",
+                    "start": "18:00:00",
+                    "end": "19:00:00"
                 }
             ]
         }
@@ -469,15 +466,15 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-
 "entities": {
     "datetimeV2": [
         {
-            "type": "datetime",
+            "type": "timerange",
             "values": [
                 {
-                    "timex": "2017-05-02T08",
-                    "value": "2017-05-02 08:00:00"
+                    "timex": "(T18,T19,PT1H)",
+                    "start": "18:00:00",
+                    "end": "19:00:00"
                 }
             ]
         }
@@ -485,10 +482,10 @@ The following JSON is with the `verbose` parameter set to `false`:
     "$instance": {
         "datetimeV2": [
             {
-                "type": "builtin.datetimeV2.datetime",
-                "text": "8am on may 2nd 2017",
+                "type": "builtin.datetimeV2.timerange",
+                "text": "6pm to 7pm",
                 "startIndex": 0,
-                "length": 19,
+                "length": 10,
                 "modelTypeId": 2,
                 "modelType": "Prebuilt Entity Extractor",
                 "recognitionSources": [
@@ -497,7 +494,6 @@ The following JSON is with the `verbose` parameter set to `false`:
             }
         ]
     }
-}
 ```
 #### [V2 response](#tab/5-3)
 
@@ -542,7 +538,6 @@ The following JSON is with the `verbose` parameter set to `false`:
         }
     ]
 }
-
 ```
 #### [V3 verbose response](#tab/6-2)
 
@@ -575,7 +570,6 @@ The following JSON is with the `verbose` parameter set to `false`:
         ]
     }
 }
-
 ```
 #### [V2 response](#tab/6-3)
 

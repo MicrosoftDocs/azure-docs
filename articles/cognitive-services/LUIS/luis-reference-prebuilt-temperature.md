@@ -73,31 +73,18 @@ The following JSON is with the `verbose` parameter set to `true`:
 The following example shows the resolution of the **builtin.temperature** entity.
 
 ```json
-{
-  "query": "set the temperature to 30 degrees",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.85310787
-  },
-  "intents": [
+"entities": [
     {
-      "intent": "None",
-      "score": 0.85310787
-    }
-  ],
-  "entities": [
-    {
-      "entity": "30 degrees",
-      "type": "builtin.temperature",
-      "startIndex": 23,
-      "endIndex": 32,
-      "resolution": {
+        "entity": "30 degrees",
+        "type": "builtin.temperature",
+        "startIndex": 23,
+        "endIndex": 32,
+        "resolution": {
         "unit": "Degree",
         "value": "30"
-      }
+        }
     }
-  ]
-}
+]
 ```
 * * * 
 
