@@ -16,7 +16,7 @@ ms.custom: Ignite2019
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 
-In this tutorial, you learn how to get inferences on large quantities of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
+In this tutorial, you learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
 With batch inference, it's straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
 
@@ -174,7 +174,7 @@ model = Model.register(model_path="models/",
 >The following code is only a sample that the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb) uses. You’ll need to create your own script for your scenario.
 
 The script *must contain* two functions:
-- `init()`: Use this function for any costly or common preparation for subsequent inference. For example, use it to load the model into a global object.
+- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
 - `run(input_data, arguments)`: This function will run for each `mini_batch` instance.
     - `input_data`: This is an array of locally accessible file paths or a Pandas dataframe. A subset of files or rows is specified in the inputs list.
     - `arguments`: Arguments passed during the pipeline run will be passed to this function. 
@@ -253,7 +253,7 @@ batch_env.spark.precache_packages = False
 `ParallelRunConfig` is the major configuration for the newly introduced batch inference `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directly` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (Optional; the default value is `1`.)
-    - For `FileDataset`, it's the number of files with a minimum value of 1. You can combine multiple files into one mini-batch.
+    - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The minimum value is `1MB`. Note that the mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be stopped. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
@@ -266,7 +266,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: The number of processes per node.
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. The default is `INFO` (optional).
-- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is 30.
+- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `30`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
