@@ -34,11 +34,9 @@ Use the Anomaly Detector client library for .NET to:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### Create a new C# application
+### Create a new .NET Core application
 
-Create a new .NET Core application in your preferred editor or IDE. 
-
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*. 
+In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*. 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
