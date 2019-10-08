@@ -41,8 +41,6 @@ From your workspace, you create a cloud resource to get started using R Studio. 
 
 1. Select **+ Add Compute** to create a new Azure Machine Learning compute instance.
 
-     ![Select New VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
-
 1. Provide a name for your compute instance. 
    + The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  
    + The name must also be unique across your Azure subscription.
@@ -67,7 +65,7 @@ In this tutorial, you completed these tasks:
 In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train your first model](tutorial-1st-experiment-r-train-model.md)
+> [Tutorial: Train your first model](tutorial-1st-experiment-r-set-up.md)
 
 > [!IMPORTANT]
 > If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
