@@ -38,9 +38,9 @@ gem 'azure_cognitiveservices_textanalytics', '~>0.17.3'
 
 In your Ruby file, import the following packages.
 
-[!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=imports)]
+[!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTICS_ENDPOINT` and `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. Import the following libraries:
+Create variables for your resource's Azure endpoint and key, named `TEXT_ANALYTICS_ENDPOINT` and `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. 
 
 [!code-ruby[endpoint and key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
 
@@ -75,11 +75,11 @@ end
 
 In this class, create a function called `initialize` to authenticate the client. Use your `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` environment variables. 
 
-[!code-ruby[endpoint and key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+[!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 
 Outside of the class, use the client's `new()` function to instantiate it.
 
-[!code-ruby[endpoint and key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=clientCreation)] 
+[!code-ruby[client creation](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=clientCreation)] 
 
 <a name="SentimentAnalysis"></a>
 
@@ -87,7 +87,7 @@ Outside of the class, use the client's `new()` function to instantiate it.
 
 In the client object, create a function called `AnalyzeSentiment()` that takes a list of input documents that will be created later. Call the client's `sentiment()` function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-[!code-ruby[sentiment analysis client method](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=sentimentAnalysis)] 
+[!code-ruby[client method for sentiment analysis](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=analyzeSentiment)] 
 
 Outside of the client function, create a new function called `SentimentAnalysisExample()` that takes the `TextAnalyticsClient` object created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `Language` and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value. Then call the client's `AnalyzeSentiment()` function.
 
@@ -115,7 +115,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 In the client object, create a function called `DetectLanguage()` that takes a list of input documents that will be created later. Call the client's `detect_language()` function and get the result. Then iterate through the results, and print each document's ID, and detected language.
 
-[!code-ruby[language detection client method](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=detectLanguage)] 
+[!code-ruby[client method for language detection](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=detectLanguage)] 
 
 Outside of the client function, create a new function called `DetectLanguageExample()` that takes the `TextAnalyticsClient` object created earlier. Create a list of `LanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. Then call the client's `DetectLanguage()` function.
 
@@ -142,7 +142,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 In the client object, create a function called `RecognizeEntities()` that takes a list of input documents that will be created later. Call the client's `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the recognized entities.
 
-[!code-ruby[entity recognition client method](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntities)] 
+[!code-ruby[client method for entity recognition](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntities)] 
 
 Outside of the client function, create a new function called `RecognizeEntitiesExample()` that takes the `TextAnalyticsClient` object created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, a `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the text, and the `id` can be any value. Then call the client's `RecognizeEntities()` function.
 
