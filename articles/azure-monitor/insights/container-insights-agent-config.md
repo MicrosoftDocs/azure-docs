@@ -121,20 +121,14 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          fielddrop = ["metric_to_drop"] ​
         ```
 
-        - Scrape Prometheus metrics by specifying a pod annotation in your pod so the agent knows where to scrape metrics from for your specific pod(s).
+        - Scrape Prometheus metrics by specifying a pod annotation on your pod so the agent knows where to scrape metrics from for your specific pod(s).
 
-        Specify in the ConfigMap file:
         ```
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] ​
          interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
          monitor_kubernetes_pods = true 
-        ```
-
-        Specify in the pod's configuration file:
-         
-        ``` ​
           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
           - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
