@@ -2,7 +2,7 @@
 title: Developer's Guide to Durable Entities in .NET - Azure Functions
 description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
 services: functions
-author: sburckha
+author: sebastianburckhardt
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -12,7 +12,6 @@ ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET.
 ---
 
-<a name="dotnet-entity-guide"></a>
 # Developer's Guide to Durable Entities in .NET (preview)
 
 In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
@@ -113,7 +112,7 @@ For example, we can modify the counter entity so it starts an orchestration when
 
 ## Accessing entities directly
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Accessing entities](durable-functions-entities.md#Accessing_entities]). 
+Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Accessing entities](durable-functions-entities.md#accessing-entities]). 
 
 > [!NOTE]
 > Where possible, we recommend [Accessing entities via interfaces](), because it provides more type checking.
@@ -196,7 +195,7 @@ public class Counter : ICounter
 }
 ```
 
-Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#Comparison-with-virtual-actors).
+Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
 
 Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles, while exposing only a certain set of operations to each client. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 

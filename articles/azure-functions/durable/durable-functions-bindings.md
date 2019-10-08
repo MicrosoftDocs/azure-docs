@@ -407,7 +407,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-For more information on the function-based syntax and how to use it, see [Function-Based Syntax](durable-functions-dotnet-entities.md#Function-based-syntax).
+For more information on the function-based syntax and how to use it, see [Function-Based Syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
 ### Trigger sample (class-based syntax)
 
@@ -434,12 +434,12 @@ public class Counter
 
 The state of this entity is an object of type `Counter`, which contains a field that stores the current value of the counter. To persist this object in storage, it is serialized and deserialized by the [Json.NET](https://www.newtonsoft.com/json) library. 
 
-For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#Defining-entity-classes).
+For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 > [!NOTE]
 > The function entry point method with the `[FunctionName]` attribute *must* be declared `static` when using entity classes. Non-static entry point methods may result in multiple object initialization and potentially other undefined behaviors.
 
-Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see the [Entity Construction](durable-functions-dotnet-entities.md#Entity-construction) article.
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see the [Entity Construction](durable-functions-dotnet-entities.md#entity-construction) article.
 
 ## Entity client
 
@@ -499,7 +499,7 @@ public static Task Run(
 
 ### Example: client signals entity via interface
 
-Where possible, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities.md#Accessing-entities-via-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
+Where possible, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities.md#accessing-entities-via-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
 
 ```csharp
 public interface ICounter

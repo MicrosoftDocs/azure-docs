@@ -76,7 +76,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-For more information on the function-based syntax and how to use it, see [Function-Based Syntax](durable-functions-dotnet-entities.md#Function-based-syntax).
+For more information on the function-based syntax and how to use it, see [Function-Based Syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
 ### Example: Class-based syntax
 
@@ -103,7 +103,7 @@ public class Counter
 
 The state of this entity is an object of type `Counter`, which contains a field that stores the current value of the counter. To persist this object in storage, it is serialized and deserialized by the [Json.NET](https://www.newtonsoft.com/json) library. 
 
-For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#Defining-entity-classes).
+For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 ## Accessing entities
 
@@ -121,7 +121,7 @@ Entities can be accessed from within client functions, from within orchestrator 
 Below we show some examples that illustrate these various ways of accessing entities.
 
 > [!NOTE]
-> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities#Accessing-entities-via-interfaces) as it provides more type checking.
+> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities#accessing-entities-via-interfaces) as it provides more type checking.
 
 ### Example: client signals an entity
 
@@ -306,7 +306,7 @@ There are some important differences, however, that are worth noting:
 
 ## Next steps
 
-For more information on the syntax and the properties of the features discussed in this article, and for some general advice on how to develop durable entities in .NET, read the [Developer's Guide to Durable Entities in .NET](durable-functions-dotnet-entities.md#dotnet-entity-guide).
+For more information on the syntax and the properties of the features discussed in this article, and for some general advice on how to develop durable entities in .NET, read the [Developer's Guide to Durable Entities in .NET](durable-functions-dotnet-entities.md#developers-guide-to-durable-entities-in-net-preview).
 
 > [!div class="nextstepaction"]
 > [Learn about task hubs](durable-functions-task-hubs.md)
