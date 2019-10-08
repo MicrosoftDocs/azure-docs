@@ -70,23 +70,23 @@ A device must be registered with your IoT hub before it can connect. In this sec
 1. To create the device identity, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > * Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
-   > * Use *MyDevice*, as shown. It's the name given for the registered device. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
+   > * Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
+   > * For the name of the device you're registering, it's recommended to use *MyDevice* as shown. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. To enable the back-end application to connect to your IoT hub and retrieve the messages, you also need a *service connection string*. The following command retrieves the string for your IoT hub:
 
    > [!NOTE]
-   > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
+   > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName}
     ```
 
-    Note the returned value for later use in this quickstart. It looks like the following example:
+   Note the returned service connection string for later use in this quickstart. It looks like the following example:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -163,7 +163,7 @@ Now use your RDP client application and connect to the service proxy on port 222
 
 ## Next steps
 
-In this quickstart, you've set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH traffic will be tunneled through a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
+In this quickstart, you set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH traffic will be tunneled through a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
 
 To learn more about device streams, see:
 
