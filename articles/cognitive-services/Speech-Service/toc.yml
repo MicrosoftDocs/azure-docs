@@ -221,6 +221,17 @@
         href: httsp://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
+- name: Customization
+  exanded: false
+  items:
+  - name: Install and run containers
+    href: httsp://example.com
+  - name: Configure containers
+    href: httsp://example.com
+  - name: Kubernetes and Helm
+    href: httsp://example.com
+  - name: Azure container instances
+    href: httsp://example.com
 - name: Migration
   exanded: false
   items:
