@@ -55,10 +55,10 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-    **MyPythonDevice**: This is the name given for the registered device. Use MyPythonDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+    **MyPythonDevice**: This is the name of the device you're registering. It's recommended to use **MyPythonDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
@@ -66,14 +66,14 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
 3. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
@@ -81,7 +81,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName \
+      --name {YourIoTHubName} \
       --policy-name service \
       --output table
     ```
@@ -90,7 +90,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart. The service connection string is different from the device connection string.
+    You'll use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
@@ -100,7 +100,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. Open the **SimulatedDevice.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.py** file.
+    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
@@ -126,7 +126,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 1. Open the **BackEndApplication.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.py** file.
+    Replace the value of the `CONNECTION_STRING` variable with the service connection string you made a note of earlier. Then save your changes to **BackEndApplication.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 

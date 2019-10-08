@@ -65,11 +65,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyDotnetDevice**: The name of the device you're registering. Use **MyDotnetDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDotnetDevice**: This is the name of the device you're registering. It's recommended to use **MyDotnetDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyDotnetDevice
+      --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
@@ -78,7 +78,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyDotnetDevice \
       --output table
     ```
@@ -87,21 +87,21 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
 ## Retrieve the service connection string
 
 You also need your IoT hub _service connection string_ to enable the back-end application to connect to the hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-You use this value later in the quickstart. The service connection string is different from the device connection string.  
+You'll use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
@@ -111,7 +111,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 2. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
+    Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.cs**.
 
 3. In the local terminal window, run the following commands to install the required packages for simulated device application:
 
@@ -137,7 +137,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 2. Open the **BackEndApplication.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.cs** file.
+    Replace the value of the `s_connectionString` variable with the service connection string you made a note of earlier. Then save your changes to **BackEndApplication.cs**.
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
