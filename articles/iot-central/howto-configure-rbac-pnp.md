@@ -20,7 +20,7 @@ By default, you can assign users in your IoT Central application to one of three
 - **Application Builder**: Users in this role can do everything in a Azure IoT Central application except administer the application.
 - **Application Operator**: Users in this role don't have access to **Design** mode or the **Application Builder** page. These users can't administer the application.
 
-If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. You can [add users to custom roles](./howto-manage-users-roles-pnp.md#add-users?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in the same way that you add users to the built-in roles.
+If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. You can [add users to custom roles](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to the built-in roles.
 
 ## Custom role options
 
@@ -206,7 +206,7 @@ User management permissions:
 
 To create a custom role, navigate to the **Roles** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
 
-You can [add users to your custom role](./howto-manage-users-roles-pnp.md#add-users?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in the same way that you add users to a built-in role.
+You can [add users to your custom role](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to a built-in role.
 
 ## Next steps
 
