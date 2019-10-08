@@ -1,6 +1,6 @@
 ---
-title: Create and encrypt a Linux VM with the Azure portal
-description: In this quickstart, you learn how to use the Azure portal to create and encrypt a Linux virtual machine
+title: Create and encrypt a Windows VM with the Azure portal
+description: In this quickstart, you learn how to use the Azure portal to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
@@ -10,7 +10,7 @@ ms.date: 10/02/2019
 
 # Quickstart: Create and encrypt a virtual machine with the Azure portal
 
-Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you will use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 18.04 LTS, create a key vault for the storage of encryption keys, and encrypt the VM.
+Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you will use the Azure portal to deploy a Windows virtual machine (VM) running Ubuntu 18.04 LTS, create a key vault for the storage of encryption keys, and encrypt the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -48,14 +48,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-1. In the New page, under Popular, select **Ubuntu Server 18.04 LTS**.
+1. In the New page, under Popular, select **Windows Server 2016 Datacenter**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected.
 1. For **Resource group**, select the resource group you created when making your key vault above (e.g., **myResourceGroup**)
 1. For **Virtual machine name** enter *MyVM*, and choose 
 1. For **Region**, select the same region you used when making your key vault above (e.g., **East US**).
 1. Make sure the **Size** is *Standard D2s v3*.
 1. Under **Administrator account**, select **Password**. Enter a user name and a password.
-    ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-vm-creation.png)
+    ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-windows-vm-creation.png)
 1. Select the "Management" tab and verify that you have a Diagnostics Storage Account. If you have no storage accounts, select "Create New", give your new account a name, and select "Ok"
     ![ResourceGroup creation screen](../media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Click "Review + Create".
