@@ -6,6 +6,7 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: search
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/10/2019
