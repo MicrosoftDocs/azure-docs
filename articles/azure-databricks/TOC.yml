@@ -256,9 +256,9 @@
       - name: Use glm
         href: /azure/databricks/spark/latest/sparkr/tutorials/using-glm
         maintainContext: true
-      - name: SparkR function reference
-        href: /azure/databricks/spark/latest/sparkr/sparkr
-        maintainContext: true
+    - name: SparkR function reference
+      href: /azure/databricks/spark/latest/sparkr/sparkr
+      maintainContext: true
     - name: SparkR 1.6
       items:
       - name: SparkR 1.6 overview
@@ -267,12 +267,12 @@
       - name: SparkR 1.6 function reference
         href: /azure/databricks/spark/1.6/sparkr/functions/index
         maintainContext: true
-      - name: sparklyr
-        href: /azure/databricks/spark/latest/sparkr/sparklyr
-        maintainContext: true
-      - name: RStudio on Azure Databricks
-        href: /azure/databricks/spark/latest/sparkr/rstudio
-        maintainContext: true
+    - name: sparklyr
+      href: /azure/databricks/spark/latest/sparkr/sparklyr
+      maintainContext: true
+    - name: RStudio on Azure Databricks
+      href: /azure/databricks/spark/latest/sparkr/rstudio
+      maintainContext: true
   - name: Databricks runtimes
     items:
     - name: Runtime overview
@@ -413,12 +413,12 @@
     - name: Package cells
       href: /azure/databricks/notebooks/package-cells
       maintainContext: true
-    - name: Use Azure Databricks jobs
-      href: /azure/databricks/jobs
-      maintainContext: true
-    - name: Use Azure Databricks libraries
-      href: /azure/databricks/libraries
-      maintainContext: true
+  - name: Use Azure Databricks jobs
+    href: /azure/databricks/jobs
+    maintainContext: true
+  - name: Use Azure Databricks libraries
+    href: /azure/databricks/libraries
+    maintainContext: true
   - name: Data
     items:
     - name: Databricks File System
@@ -615,9 +615,9 @@
       - name: Optimization examples
         href: /azure/databricks/delta/optimizations/optimization-examples
         maintainContext: true
-      - name: Frequently asked questions
-        href: /azure/databricks/delta/delta-faq
-        maintainContext: true
+    - name: Frequently asked questions
+      href: /azure/databricks/delta/delta-faq
+      maintainContext: true
   - name: DataFrames and Datasets
     items:
     - name: DataFrames and Datasets overview
@@ -721,12 +721,12 @@
         - name: Model Search using Distributed Hyperopt
           href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
           maintainContext: true
-        - name: MLib and automated MLflow tracking
-          href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
-          maintainContext: true
-      - name: Third-party machine learning integration
-        href: /azure/databricks/applications/machine-learning/third-party/index
+      - name: MLib and automated MLflow tracking
+        href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
         maintainContext: true
+    - name: Third-party machine learning integration
+      href: /azure/databricks/applications/machine-learning/third-party/index
+      maintainContext: true
   - name: Deep learning
     items:
     - name: Deep learning overview
@@ -965,24 +965,24 @@
       maintainContext: true
     - name: Secrets
       items:
-    - name: Keep data secure with secrets
-      href: /azure/databricks/security/secrets/index
-      maintainContext: true
-    - name: Secret scopes
-      href: /azure/databricks/security/secrets/secret-scopes 
-      maintainContext: true
-    - name: Secrets
-      href: /azure/databricks/security/secrets/secrets
-      maintainContext: true
-    - name: Secret access control
-      href: /azure/databricks/security/secrets/secret-acl  
-      maintainContext: true
-    - name: Secret redaction
-      href: /azure/databricks/security/secrets/redaction
-      maintainContext: true
-    - name: Secret workflow example
-      href: /azure/databricks/security/secrets/example-secret-workflow
-      maintainContext: true
+      - name: Keep data secure with secrets
+        href: /azure/databricks/security/secrets/index
+        maintainContext: true
+      - name: Secret scopes
+        href: /azure/databricks/security/secrets/secret-scopes 
+        maintainContext: true
+      - name: Secrets
+        href: /azure/databricks/security/secrets/secrets
+        maintainContext: true
+      - name: Secret access control
+        href: /azure/databricks/security/secrets/secret-acl  
+        maintainContext: true
+      - name: Secret redaction
+        href: /azure/databricks/security/secrets/redaction
+        maintainContext: true
+      - name: Secret workflow example
+        href: /azure/databricks/security/secrets/example-secret-workflow
+        maintainContext: true
   - name: Delegate authentication to third-party services
     href: /azure/databricks/delegated-auth 
     maintainContext: true
@@ -1005,8 +1005,8 @@
       - name: Diagnostic logging in Azure Databricks
         href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
         maintainContext: true
-      - name: Manage Users and Groups
-        items:
+    - name: Manage Users and Groups
+      items:
       - name: Users and groups overview
         href: /azure/databricks/administration-guide/users-groups/index 
         maintainContext: true
@@ -1025,20 +1025,20 @@
       - name: Configure SCIM provisioning for AAD
         href: /azure/databricks/administration-guide/users-groups/scim/aad
         maintainContext: true
-      - name: Manage access control
-        items:
-        - name: Access control overview
-          href: /azure/databricks/administration-guide/access-control/index
-          maintainContext: true
-        - name: Cluster access control
-          href: /azure/databricks/administration-guide/access-control/cluster-acl
-          maintainContext: true
-        - name: Pool access control
-          href: /azure/databricks/administration-guide/access-control/pool-acl
-          maintainContext: true
-        - name: Jobs access control
-          href: /azure/databricks/administration-guide/access-control/jobs-acl
-          maintainContext: true
+    - name: Manage access control
+      items:
+      - name: Access control overview
+        href: /azure/databricks/administration-guide/access-control/index
+        maintainContext: true
+      - name: Cluster access control
+        href: /azure/databricks/administration-guide/access-control/cluster-acl
+        maintainContext: true
+      - name: Pool access control
+        href: /azure/databricks/administration-guide/access-control/pool-acl
+        maintainContext: true
+      - name: Jobs access control
+        href: /azure/databricks/administration-guide/access-control/jobs-acl
+        maintainContext: true
       - name: Table access control
         items:
         - name: Table access control overview
@@ -1062,26 +1062,26 @@
       - name: Enable Azure Data Lake Storage credential passthrough
         href: /azure/databricks/administration-guide/access-control/credential-passthrough
         maintainContext: true
-      - name: Manage workspace storage
-        href: /azure/databricks/administration-guide/workspace-storage/storage
+    - name: Manage workspace storage
+      href: /azure/databricks/administration-guide/workspace-storage/storage
+      maintainContext: true
+    - name: Manage virtual networks
+      items:
+      - name: Virtual networks overview
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/index
         maintainContext: true
-      - name: Manage virtual networks
-        items:
-        - name: Virtual networks overview
-          href: /azure/databricks/administration-guide/cloud-configurations/azure/index
-          maintainContext: true
-        - name: Peer virtual networks
-          href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
-          maintainContext: true
-        - name: Deploy Azure Databricks in your VNet
-          href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
-          maintainContext: true
-        - name: Connect a workspace to an on-premises network
-          href: /azure/databricks/administration-guide/cloud-configurations/azure/on-prem-network
-          maintainContext: true
-        - name: User-defined route settings 
-          href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
-          maintainContext: true
+      - name: Peer virtual networks
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
+        maintainContext: true
+      - name: Deploy Azure Databricks in your VNet
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
+        maintainContext: true
+      - name: Connect a workspace to an on-premises network
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/on-prem-network
+        maintainContext: true
+      - name: User-defined route settings 
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
+        maintainContext: true
   - name: Troubleshooting
     items:
     - name: Common questions
