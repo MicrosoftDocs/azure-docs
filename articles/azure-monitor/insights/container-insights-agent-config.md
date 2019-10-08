@@ -59,7 +59,7 @@ Active scraping of metrics from Prometheus is performed from one of two perspect
 
 | Endpoint | Scope | Example |
 |----------|-------|---------|
-| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
 | url/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
 
