@@ -121,7 +121,7 @@ Entities can be accessed from within client functions, from within orchestrator 
 Below we show some examples that illustrate these various ways of accessing entities.
 
 > [!NOTE]
-> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities#accessing-entities-via-interfaces) as it provides more type checking.
+> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities.md#accessing-entities-via-interfaces) as it provides more type checking.
 
 ### Example: client signals an entity
 
