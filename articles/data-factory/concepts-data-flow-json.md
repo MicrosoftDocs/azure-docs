@@ -10,7 +10,7 @@ ms.date: 08/30/2019
 
 # Mapping Data Flow JSON handling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Creating JSON structures in expression editor
 ### Derived column transformation
