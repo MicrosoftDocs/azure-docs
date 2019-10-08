@@ -120,7 +120,7 @@ Follow these steps to assign a user to the catalog owner role:
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-**Prerequisite role:** Global administrator, User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -136,7 +136,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 You can delete a catalog, but only if it does not have any access packages.
 
-**Prerequisite role:** Global administrator, User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

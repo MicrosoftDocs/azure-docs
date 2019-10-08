@@ -42,7 +42,7 @@ The following diagram shows the high-level process to create a new access packag
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
