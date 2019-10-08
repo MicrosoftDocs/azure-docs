@@ -140,10 +140,10 @@
         href: vpn-gateway-howto-openvpn-clients.md
       - name: Open VPN - Azure Active Directory Authentication
         items:
-        - name: Configure an AAD tenant
-          href: vpn-gateway-openvpn-aad-tenant.md
-        - name: Configure a VPN client - AAD
-          href: vpn-gateway-openvpn-aad-client.md
+        - name: Configure an Azure AD tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure a VPN client - Azure AD
+          href: openvpn-azure-ad-client.md
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
