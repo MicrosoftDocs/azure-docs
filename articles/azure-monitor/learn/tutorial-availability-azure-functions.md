@@ -1,31 +1,43 @@
 ---
-title: Availability with Azure Functions 
-description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
+title: Create and run custom availability tests using Azure Functions
+description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data. Customized tests will allow you to write more complex availability test than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
 services: application-insights
 documentationcenter: ''
-author: lgayhardt
+author: morgangrobin
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
-ms.date: 09/17/2019
-ms.author: lagayhar
+ms.topic: tutorial
+ms.date: 10/08/2019
+ms.author: mogrobin
 ---
 
-# Availability with Azure Functions
+# Create and run custom availability tests using Azure Functions
 
-This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal.
+This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability test than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
+
+In this tutorial, you will learn how to:
+
+> [!div class="checklist"]
+> * Create a timer triggered function using Azure Functions.
+> * Create a customized availability test
+
+## Prerequisites
+
+To complete this tutorial:
+
+You will need an Azure subscription. If you don't have one, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create Timer triggered function
 
-- If you do not have an Application Insights Resource created yet for your timer triggered function:
-    - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
-
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) with the following choices.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean up) with the following choices.
         -  Click the Application Insights section before selecting **Create**.
 
             ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-functions/create-function-app.png)
@@ -35,6 +47,9 @@ This article will cover how to create an Azure Function with TrackAvailability()
             ![Selecting existing Application Insights resource](media/availability-azure-functions/app-insights-resource.png)
 
         - Select **Create**
+- If you do not have an Application Insights Resource created yet for your timer triggered function:
+    - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
 
 ## Sample Code
 
@@ -215,6 +230,13 @@ You can use Logs(analytics) to view you availability results, dependencies, and 
 ![Availability results](media/availability-azure-functions/availabilityresults.png)
 
 ![Dependencies](media/availability-azure-functions/dependencies.png)
+
+## Clean up resources
+
+If you plan to keep working with your resource you can skip this step, if you do not,  use the following steps to delete all resources created by this quickstart in the Azure portal.
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your Resource group.
+2. On your resource group page, click **Delete Resource group**, type the name of the resource group in the text box, and then click delete.
 
 ## Next Steps
 - [Performance testing](../../azure-monitor/app/performance-testing.md)
