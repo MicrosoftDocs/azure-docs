@@ -256,10 +256,8 @@
       items:
       - name: Overview
         href: luis-migration-api-v3.md 
-      - name: Authoring 
-        href: luis-migration-api-v3.md 
       - name: Prediction
-        href: luis-migration-api-v3-endpoint.md   
+        href: luis-migration-api-v3-prediction.md   
         displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
   - name: Use containers
     items:

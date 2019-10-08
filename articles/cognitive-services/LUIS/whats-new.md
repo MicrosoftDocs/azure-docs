@@ -34,10 +34,6 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
 
-**Public preview**:
-
-* [V3 authoring API](luis-migration-api-v3-authoring.md) is in public preview
-
 ### September 3, 2019
 
 * Azure authoring resource - [migrate now](luis-migration-authoring.md).
