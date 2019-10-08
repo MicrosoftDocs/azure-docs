@@ -35,7 +35,7 @@ If you choose to run these commands locally, you need to install CLI.  This tuto
 
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named **myResourceGroupNAT** in the **westus** location:
+The following example creates a resource group named **myResourceGroupNAT** in the **eastus2** location:
 
 ```azurecli-interactive
   az group create \
@@ -94,7 +94,7 @@ We will guide you through configuration of a full test environment and the execu
 
 Before you deploy a VM and can test your NAT gateway, we need to create the virtual network.
 
-Create a virtual network named *myVnetsource* with a subnet named *mySubnetsource* in the *myResourceGroupNAT* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -126,7 +126,7 @@ You could also create this VM without a public IP and create another VM to use a
 
 ### Create public IP for source VM
 
-We create a public IP to be used to access the source VM. 
+We create a public IP to be used to access the source VM. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a public IP address resource named **myPublicIPsourceVM** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -137,7 +137,17 @@ We create a public IP to be used to access the source VM.
 
 ### Create an NSG for source VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create a NSG resource named **myNSGsource** in **myResourceGroupNAT**.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupNAT \
+    --name myNSGsource 
+```
+
+### Expose SSH endpoint on source VM
+
+We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a NSG rule named **ssh** in the NSG named **myNSGsource** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -154,7 +164,7 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
 
 ### Create NIC for source VM
 
-Create a network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate with the Public IP address and the network security group. 
+Create a network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate with the public IP address and the network security group. 
 
 ```azurecli-interactive
   az network nic create \
@@ -170,17 +180,17 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
 
 Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We generate ssh keys for this VM and store the private key to use later.
 
- ```azurecli-interactive
-    az vm create \
-      --resource-group myResourceGroupNAT \
-      --name myVMsource \
-      --nics myNicsource \
-      --image UbuntuLTS \
-      --generate-ssh-keys \
-      --no-wait
+```azurecli-interactive
+  az vm create \
+    --resource-group myResourceGroupNAT \
+    --name myVMsource \
+    --nics myNicsource \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --no-wait
 ```
 
-While the command will return immediately, it may take a few minutes for the VMs to get deployed.
+While the command will return immediately, it may take a few minutes for the VM to get deployed.
 
 ## Prepare destination for outbound traffic
 
@@ -195,7 +205,7 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus \
+    --location westus \
     --name myVnetdestination \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetdestination \
@@ -204,26 +214,30 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 
 ### Create public IP for destination VM
 
-We create a public IP to be used to access the source VM. 
+We create a public IP to be used to access the source VM. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a public IP address resource named **myPublicIPdestinationVM** in **myResourceGroupNAT**. 
 
 ```azurecli-interactive
   az network public-ip create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPdestinationVM
   --sku standard
+  --location westus
 ```
 
 ### Create an NSG for destination VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access.  Because NAT service is flow direction aware, this NSG will not be used for outbound once NAT gateway is configured on the same subnet. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create a NSG resource named **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
     --name myNSGdestination
+    --location westus
 ```
 
-### Expose SSH endpoint
+### Expose SSH endpoint on destination VM
+
+We create a rule in the NSG for SSH access to the destination vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a NSG rule named **ssh** in the NSG named **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -238,14 +252,16 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
     --destination-port-ranges 22
 ```
 
-### Expose HTTP endpoint
+### Expose HTTP endpoint on destination VM
+
+We create a rule in the NSG for HTTP access to the destination vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a NSG rule named **http** in the NSG named **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
     --resource-group myResourceGroupNAT \
     --nsg-name myNSGdestination \
     --priority 101 \
-    --name ssh \
+    --name http \
     --description "HTTP access" \
     --access allow 
     --protocol tcp \
@@ -255,6 +271,8 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
 
 ### Create NIC for destination VM
 
+Create a network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate with the public IP address **myPublicIPdestinationVM** and the network security group **myNSGdestination**. 
+
 ```azurecli-interactive
     az network nic create \
     --resource-group myResourceGroupNAT \
@@ -263,9 +281,12 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
     --subnet mySubnetdestination \
     --public-ip-address myPublicIPdestinationVM
     --network-security-group myNSGdestination
+    --location westus
 ```
 
 ### Create a destination VM
+
+Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We generate ssh keys for this VM and store the private key to use later.
 
  ```azurecli-interactive
     az vm create \
@@ -275,7 +296,9 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
     --image UbuntuLTS \
     --generate-ssh-keys \
     --no-wait
+    --location westus
 ```
+While the command will return immediately, it may take a few minutes for the VM to get deployed.
 
 ## Prepare a web server and test payload on destination VM
 
@@ -284,18 +307,25 @@ First we need to discover the IP address of the destination VM.  To get the publ
 ```azurecli-interactive
   az network public-ip show \
     --resource-group myResourceGroupNAT \
-    --name myPublicIPdestination \
+    --name myPublicIPdestinationVM \
     --query [ipAddress] \
     --output tsv
 ``` 
 
 >[!IMPORTANT]
->Copy the public IP address, and then paste it into a notepad so you can use it in subsequent steps. Indicate this is the source virtual machine.
+>Copy the public IP address, and then paste it into a notepad so you can use it in subsequent steps. Indicate this is the destination virtual machine.
 
 ### Log into destination VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. Copy and paste the following commands once you have logged in.  
+The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+
+```bash
+ssh <ip-address-destination>
 ```
+
+Copy and paste the following commands once you have logged in.  
+
+```bash
 sudo apt-get -y update && \
 sudo apt-get -y upgrade && \
 sudo apt-get -y dist-upgrade && \
@@ -310,6 +340,8 @@ sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
 
 These commands will update your virtual machine, install nginx, and create a 100 KBytes file you can use to retrieve from the source VM using the NAT service.
 
+Close the SSH session with the destination VM.
+
 ## Prepare test on source VM
 
 First we need to discover the IP address of the source VM.  To get the public IP address of the source VM, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
@@ -317,7 +349,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
 ```azurecli-interactive
   az network public-ip show \
     --resource-group myResourceGroupNAT \
-    --name myPublicIPsource \
+    --name myPublicIPsourceVM \
     --query [ipAddress] \
     --output tsv
 ``` 
@@ -327,9 +359,15 @@ First we need to discover the IP address of the source VM.  To get the public IP
 
 ### Log into source VM
 
-Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. Copy and paste the following commands to prepare for testing the NAT service.
+Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
+```bash
+ssh <ip-address-source>
 ```
+
+Copy and paste the following commands to prepare for testing the NAT service.
+
+```bash
 sudo apt-get -y update && \
 sudo apt-get -y upgrade && \
 sudo apt-get -y dist-upgrade && \
@@ -338,7 +376,7 @@ sudo apt-get -y autoclean && \
 sudo apt-get install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
-./.bashrc && \
+. ~/.bashrc &&
 go get -u github.com/rakyll/hey
 
 ```
@@ -351,16 +389,16 @@ You are now ready to test NAT service.
 
 While logged into the source VM, you can use **curl** and **hey** to generate requests to the destination IP address.
 
-Use curl to retrieve the 100 KBytes file.  Replace 192.168.0.1 in the example below with the destination IP address you have previously copied.  The **--output** parameter indicates that the retrieved file will be discarded.
+Use curl to retrieve the 100 KBytes file.  Replace **\<ip-address-destination>** in the example below with the destination IP address you have previously copied.  The **--output** parameter indicates that the retrieved file will be discarded.
 
-```
-curl http://192.168.0.1/100k --output /dev/null
+```bash
+curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-You can also generate a series of requests using **hey**. Again, replace **192.168.0.1** with the destination IP address you have previously copied.
+You can also generate a series of requests using **hey**. Again, replace **\<ip-address-destination>** with the destination IP address you have previously copied.
 
-```
-hey -n 100 -c 10 -t 30 --disable-keepalive http://192.168.0.1/100k
+```bash
+hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 ```
 
 This will generate 100 requests, 10 concurrently, with a timeout of 30 seconds, and without reusing the TCP connection.  Each request will retrieve 100 Kbytes.  At the end of the run, **hey** will report some statistics about how well the NAT service performed.
