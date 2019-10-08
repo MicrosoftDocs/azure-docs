@@ -1,9 +1,9 @@
 ---
 title: 'Connect privately to a storage account using Azure Private Endpoint'
 description: Learn how to connect privately to a storage account in Azure using a Private Endpoint.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud

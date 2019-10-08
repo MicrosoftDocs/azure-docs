@@ -79,19 +79,21 @@ Here is the general guidance on using materialized views to improve query perfor
 
 **Design for your workload**
 
-- Before you begin to create materialized views, it's important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and the size of resulting data.  
+Before you begin to create materialized views, it's important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and the size of resulting data.  
 
-- Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by the query optimizer.  Since these recommendations are query-specific, a materialized view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the workload's performance.  
+Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by the query optimizer.  Since these recommendations are query-specific, a materialized view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the workload's performance.  
 
 **Be aware of the tradeoff between faster queries and the cost** 
 
-- For each materialized view, there's a storage cost and a cost for the view maintenance by the tuple mover. There is one tuple mover per Azure SQL Data Warehouse server instance.  When there are too many materialized views, the tuple mover's workload will increase and the performance of queries that leverage materialized views could degrade if tuple mover can't move data to index segments fast enough.  Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  Run this query for the list of materialized view in a database: 
+For each materialized view, there's a data storage cost and a cost for maintaining the view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the data warehouse engine, including moving rows from delta store to the columnstore index segments and consolidating data changes.  The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
+
+You can run this query for the list of materialized view in a database: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Options to reduce the number of materialized views: 
 

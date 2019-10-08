@@ -1,5 +1,5 @@
 ---
-title: Create an Azure HPC Cache 
+title: Create an Azure HPC Cache (preview)
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
@@ -8,10 +8,9 @@ ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
-# Configure aggregated namespace
-<!-- change link in GUI -->
+# Plan the aggregated namespace
 
-Azure HPC Cache allows clients to access a variety of storage systems through a virtual namespace that hides the details of the back-end storage system.
+Azure HPC Cache (preview) allows clients to access a variety of storage systems through a virtual namespace that hides the details of the back-end storage system.
 
 When you add a storage target, you set the client-facing filepath. Client machines mount this filepath. You can change the storage target associated with that path. For example, you could replace a hardware storage system with cloud storage without needing to rewrite client-facing procedures.
 
@@ -26,7 +25,7 @@ The template data is stored in a datacenter, and the information needed for this
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-The datacenter storage system exposes these exports: 
+The datacenter storage system exposes these exports:
 
     /
     /goldline

@@ -119,11 +119,9 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using __Azure Data Lake Storage Gen2__, use one of the following URI schemes:
+When using __Azure Data Lake Storage Gen2__, use the following URI scheme:
 
-* `abfs:///`: Access default storage using unencrypted communication.
-
-* `abfss:///`: Access default storage using encrypted communication.  The abfss scheme is supported only from HDInsight version 3.6 onwards.
+* `abfs://`: Access default storage using encrypted communication.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 

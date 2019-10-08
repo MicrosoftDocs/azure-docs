@@ -59,7 +59,9 @@
     - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
-      href: security-center-alerts-cloud-smart.md 
+      href: security-center-alerts-cloud-smart.md
+    - name: Security alerts map and threat intelligence
+      href: security-center-threat-intel.md       
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
 
@@ -69,7 +71,7 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Windows Defender ATP
+  - name: Server protection with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Advanced data security for SQL on Azure VMs (Public Preview)
     href: security-center-iaas-advanced-data.md

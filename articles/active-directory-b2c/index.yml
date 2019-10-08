@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: What is Azure AD B2C?
             url: active-directory-b2c-overview.md
+          - text: Technical & feature overview
+            url: technical-overview.md
       - linkListType: get-started
         links:
           - text: Create an Azure AD B2C tenant

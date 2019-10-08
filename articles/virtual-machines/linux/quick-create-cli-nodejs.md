@@ -3,7 +3,7 @@ title: Create a Linux VM using the Azure classic CLI | Microsoft Docs
 description: Create a Linux VM on Azure by using the Azure classic CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: cynthn
 manager: gwallace
 editor: ''
 

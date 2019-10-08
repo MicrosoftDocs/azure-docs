@@ -6,8 +6,9 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
+#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to capture events from a Azure Digital Twins space. 
 ---
 
 # Tutorial: Receive notifications from your Azure Digital Twins spaces by using Logic Apps
@@ -33,6 +34,9 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
 - An Office 365 account to send notification e-mails.
+
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
 
 ## Integrate events with Event Grid
 

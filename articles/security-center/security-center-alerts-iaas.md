@@ -3,17 +3,13 @@ title: Threat detection for VMs and servers in Azure Security Center | Microsoft
 description: This topic presents the VM and server alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.date: 07/02/2019
+ms.author: memildin
 ---
 # Threat detection for VMs and servers in Azure Security Center
 
@@ -34,7 +30,7 @@ Security Center extends its cloud workload protection platforms by integrating w
 > [!NOTE]
 > Windows Server Defender ATP sensor is automatically enabled on Windows servers that use Security Center.
 
-When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console, and perform a detailed investigation to uncover the scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Microsoft Defender ATP console, and perform a detailed investigation to uncover the scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Crash dump analysis <a nanme="windows-dump"></a>
 

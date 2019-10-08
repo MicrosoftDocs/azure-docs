@@ -1,9 +1,9 @@
 ---
 title: 'Create an Azure private endpoint using Azure CLI| Microsoft Docs'
 description: Learn about Azure private endpoint
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
@@ -103,7 +103,7 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --registration-enabled false 
 
 #Query for the network interface ID  
-az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id'
+networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
  
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
@@ -140,7 +140,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access DQL Database Server privately from the VM
+## Access SQL Database Server privately from the VM
 
 In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
 

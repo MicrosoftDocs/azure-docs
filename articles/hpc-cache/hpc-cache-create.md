@@ -1,5 +1,5 @@
 ---
-title: Create an Azure HPC Cache 
+title: Create an Azure HPC Cache (preview)
 description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
@@ -8,9 +8,9 @@ ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
-# Create an Azure HPC Cache
+# Create an Azure HPC Cache (preview)
 
-Use the Azure portal to create your cache.
+Use the Azure portal to create your cache. 
 
 ![screenshot of cache overview in Azure portal, with create button at the bottom](media/hpc-cache-home-page.png)
 
@@ -27,7 +27,7 @@ In **Service Details**, set the cache name and these other attributes:
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24) that will be used only for the Azure HPC Cache.
 
 ## Set cache capacity
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
 On the **Cache** page, you must set the capacity of your Azure HPC Cache. This value determines how much data your cache can hold and how quickly it can service client requests. After the public preview period, capacity will also affect the cache's cost.
 
@@ -56,7 +56,7 @@ Click the **Add storage target link** to define your back-end storage systems. T
 
 You can define up to ten different storage targets.
 
-Step-by-step instructions to add a storage target are included in [Add storage](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
+Step-by-step instructions to add a storage target are included in [Add storage targets](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
 
 Here are some tips: 
 
