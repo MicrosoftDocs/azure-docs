@@ -117,7 +117,7 @@
     items:
     - name: Azure Time Series Insights 
       href: /rest/api/time-series-insights/index
-    - name: Azure Time Series Insights GA
+    - name: Data Access Concepts GA
       href: /rest/api/time-series-insights/ga
       items:
       - name: Query
@@ -129,7 +129,7 @@
           href: /rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
         href: /rest/api/time-series-insights/ga-reference-data-api
-    - name: Azure Time Series Insights Preview
+    - name: Data Access Concepts Preview
       href: /rest/api/time-series-insights/preview
   - name: Client SDK
     items:
