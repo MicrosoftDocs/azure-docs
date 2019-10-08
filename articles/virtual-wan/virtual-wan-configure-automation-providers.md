@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
@@ -212,11 +212,13 @@ Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain 
 * IPsec integrity algorithm
 * PFS Group
 
-### <a name="default"></a>Default policies for IPsec connectivity 
+### <a name="default"></a>Default policies for IPsec connectivity
 
-When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup. There is no support for Azure as a responder only.
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>Custom policies for IPsec connectivity
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## Next steps
 
