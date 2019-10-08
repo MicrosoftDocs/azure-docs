@@ -32,7 +32,6 @@ For proven practices specific to each Azure Storage service, see:
 | &nbsp; | Azure Storage |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; | Azure Storage |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; | Azure Storage |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; | Azure Storage |Content Distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; | Azure Storage |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; | Azure Storage |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
 | &nbsp; | Azure Storage |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
@@ -51,7 +50,7 @@ Each of the Azure Storage services has scalability targets for capacity, transac
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes for some storage transactions. This section discusses how to design for scalability targets, and for bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
-- [Blob bandwidth and requests per second](#bandwidth-and-operations-per-blob)
+- Blob bandwidth and requests per second
 - Table entities per second
 - Queue messages per second  
 
@@ -70,7 +69,7 @@ If your application is approaching the scalability targets for a single storage 
 - If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
+- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#retries)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
 
 ## Partitioning
 
@@ -91,7 +90,7 @@ While the API calls matter, often the physical network constraints of the applic
 
 #### Throughput
 
-For bandwidth, the problem is often the capabilities of the client. For example, while a single storage account can handle 10 Gbps or more of ingress (see [bandwidth scalability targets](#sub1bandwidth)), the network speed in a "Small" Azure Worker Role instance is only capable of approximately 100 Mbps. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you are accessing a Storage service from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.  
+For bandwidth, the problem is often the capabilities of the client. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you are accessing a Storage service from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.  
 
 #### Link quality
 
@@ -99,15 +98,11 @@ As with any network usage, be aware that network conditions resulting in errors 
 
 ### Location
 
-In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
+In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure web app that uses Azure Storage, then locate them both within a single region, such as US West or Asia Southeast. This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
 
-If your client applications are not hosted within Azure (such as mobile device apps or on premises enterprise services), then again placing the storage account in a region near to the devices that will access it, will generally reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then you should consider using multiple storage accounts: one located in a North American region and one in a European region. This will help to reduce latency for users in both regions. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.  For broad content distribution, a CDN is recommended – see the next section for more details.  
+If your client applications are not hosted within Azure (such as mobile device apps or on premises enterprise services), then again placing the storage account in a region near to the devices that will access it, will generally reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then you should consider using multiple storage accounts: one located in a North American region and one in a European region. This will help to reduce latency for users in both regions. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.
 
-## Content distribution
-
-Sometimes, an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, you should use a Content Delivery Network (CDN) such as Azure CDN, and the CDN would use Azure storage as the origin of the data. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
-
-For more information about Azure CDN, see [Azure CDN](https://azure.microsoft.com/services/cdn/).  
+For broad distribution of blob content, use a content deliver network such as Azure CDN. For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).  
 
 ## SAS and CORS
 

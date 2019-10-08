@@ -24,6 +24,7 @@ This article organizes the proven practices into a checklist you can follow whil
 | &nbsp; | Azure Storage |Scalability targets |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
 | &nbsp; | Blobs |Scalability targets |[Are a large number of clients accessing a single object concurrently?](#multiple-clients-accessing-a-single-object-concurrently) |
 | &nbsp; | Blobs |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
+| &nbsp; | Blobs |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; | Blobs |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
 | &nbsp; | Blobs |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
 | &nbsp; | Blobs |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
@@ -52,7 +53,7 @@ If your application is approaching the scalability targets for a single storage 
 - If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries.  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse. For more information, see the section titled **Retries** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#content-distribution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries.  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse. For more information, see the section titled **Retries** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#retries?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Multiple clients accessing a single object concurrently
 
@@ -82,6 +83,12 @@ You can follow some best practices to reduce the frequency of such operations.
 ## Transfer data
 
 For information about efficiently transferring data to and from Blob storage or between storage accounts, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
+## Content distribution
+
+Sometimes, an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, you should use a Content Delivery Network (CDN) such as Azure CDN, and the CDN would use Azure storage as the origin of the data. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
+
+For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).  
 
 ## Use metadata
 
