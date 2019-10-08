@@ -51,8 +51,10 @@
   items:
   - name: Common features documentation
     href: sql-database-paas-index.yml
+
   - name: Feature comparison
     href: sql-database-features.md
+
   - name: How-to guide
     href: sql-database-howto.md
 
@@ -68,11 +70,7 @@
         href: sql-database-control-access.md
       - name: Logins and users
         href: sql-database-manage-logins.md
-      - name: Server-level IP firewall rules
-        items:
-        - name: Create and manage
-          href: sql-database-firewall-configure.md      
-  
+
     - name: Authentication
       href: sql-database-aad-authentication.md
       items:
@@ -90,7 +88,7 @@
         href: transparent-data-encryption-byok-azure-sql-key-rotation.md
       - name: Remove TDE protector
         href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
-  
+
     - name: Data protection
       items:
       - name: Transparent Data Encryption (TDE)
@@ -114,11 +112,7 @@
         items:
         - name: Get started with SQL Database auditing
           href: sql-database-auditing.md
-        - name: Auditing - Managed instance
-          href: sql-database-managed-instance-auditing.md
-        - name: Audit Log Format
-          href: sql-database-audit-log-format.md
-  
+
     - name: Network security
       items:
       - name: Virtual network endpoints
@@ -142,6 +136,27 @@
           href: sql-database-security-attributes.md
         - name: Feature restrictions
           href: sql-database-feature-restrictions.md
+
+    - name: Security (databases specific)
+      items:
+      - name: Audit Log Format
+        href: sql-database-audit-log-format.md
+      - name: Conditional Access
+        href: sql-database-conditional-access.md
+      - name: Server-level IP firewall rules
+        items:
+        - name: Create and manage
+          href: sql-database-firewall-configure.md      
+
+    - name: Security (managed instances specific)
+      items:
+      - name: Secure public endpoints
+        href: sql-database-managed-instance-public-endpoint-securely.md
+      - name: Managed instance auditing
+        href: sql-database-managed-instance-auditing.md
+
+
+
 
   - name: Connect and query
     href: sql-database-connect-query.md
@@ -473,8 +488,16 @@
   items:
   - name: SQL databases documentation
     href: sql-database-single-index.yml
-  - name: SQL databases overview
-    href: sql-database-single-database.md  
+
+  - name: Overview
+    items:
+    - name: Single databases
+      href: sql-database-single-database.md
+    - name: Elastic pools
+      href: sql-database-elastic-pool.md
+    - name: Database servers
+      href: sql-database-servers.md
+
   - name: Quickstarts
     items:
     - name: Quickstart guide
@@ -491,10 +514,6 @@
       - name: Server-level IP firewall rules
         href: sql-database-server-level-firewall-rule.md
 
-  - name: Security
-    items:
-    - name: Conditional Access
-      href: sql-database-conditional-access.md
 
   - name: Tutorials
     items:
@@ -515,18 +534,14 @@
 
   - name: Concepts
     items:
-      - name: Management API reference
-        href: sql-database-single-databases-manage.md
-      - name: T-SQL differences
-        href: sql-database-transact-sql-information.md 
-      - name: Database servers and resources
+
+      - name: Database server resources
         items:
-        - name: Database server overview
-          href: sql-database-servers.md
         - name: Database server resource limits 
           href: sql-database-resource-limits-database-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
+
       - name: Single database resources
         items:    
         - name: vCore-based resource limits
@@ -535,20 +550,18 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Scale resources
           href: sql-database-single-database-scale.md
-      - name: Elastic pools
+
+      - name: Elastic pool resources
         items:
-          - name: Elastic pools
-            href: sql-database-elastic-pool.md
-          - name: Elastic pool resources
-            items:
-            - name: vCore-based resource limits
-              href: sql-database-vcore-resource-limits-elastic-pools.md  
-            - name: DTU-based resource limits
-              href: sql-database-dtu-resource-limits-elastic-pools.md  
-            - name: Scale resources
-              href: sql-database-elastic-pool-scale.md
-          - name: Manage pool resources
-            href: sql-database-elastic-pool-manage.md
+        - name: vCore-based resource limits
+          href: sql-database-vcore-resource-limits-elastic-pools.md  
+        - name: DTU-based resource limits
+          href: sql-database-dtu-resource-limits-elastic-pools.md  
+        - name: Scale resources
+          href: sql-database-elastic-pool-scale.md
+        - name: Manage pool resources
+          href: sql-database-elastic-pool-manage.md
+
       - name: Data sync
         items:
         - name: Data Sync Agent
@@ -561,6 +574,18 @@
           href: sql-database-best-practices-data-sync.md
         - name: Troubleshoot Data Sync
           href: sql-database-troubleshoot-data-sync.md
+
+      - name: Performance monitoring
+        items:
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
+
+      - name: T-SQL differences
+        href: sql-database-transact-sql-information.md 
+
+      - name: Management API reference
+        href: sql-database-single-databases-manage.md
+
       - name: Machine Learning Services
         items:
         - name: Overview
@@ -726,7 +751,8 @@
       items:
       - name: Restore database backup
         href: sql-database-managed-instance-get-started-restore.md
-  - name: Security
+
+
 
   - name: Tutorials
     items:
@@ -736,6 +762,7 @@
         href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
+
   - name: Concepts
     items:
     - name: Management API reference
@@ -748,8 +775,8 @@
       href: sql-database-managed-instance-transact-sql-information.md 
     - name: Customize Time zone
       href: sql-database-managed-instance-timezone.md
-    - name: Secure public endpoints
-      href: sql-database-managed-instance-public-endpoint-securely.md
+
+
   - name: How to
     items:
     - name: Overview
