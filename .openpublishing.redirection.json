@@ -42213,7 +42213,7 @@
     },
     {
       "source_path": "articles/security/fundamentals/get-started-overview.md",
-      "redirect_url": "azure/security/fundamentals/overview",
+      "redirect_url": "/azure/security/fundamentals/overview",
       "redirect_document_id": false
     },
     {
@@ -42228,7 +42228,7 @@
     },
     {
       "source_path": "articles/security/fundamentals/iot-best-practices.md",
-      "redirect_url": "azure/iot-fundamentals/iot-security-best-practices",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
       "redirect_document_id": false
     },
     {
