@@ -106,7 +106,7 @@ The previous Pattern feature is replaced with [Patterns](luis-concept-patterns.m
 
 ## <a name="phrase-list"></a>Phrase list
 
-A [phrase list](luis-concept-feature.md#what-is-a-phrase-list-feature) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). An interchangeable list is treated as synonyms.
+A [phrase list](luis-concept-feature.md) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). An interchangeable list is treated as synonyms.
 
 ## <a name="prebuilt-domains"></a>Prebuilt domain
 
