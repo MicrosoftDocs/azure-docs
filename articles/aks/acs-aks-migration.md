@@ -1,14 +1,13 @@
 ---
-title: Migrate from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
-description: Migrate from Azure Container Service (ACS) to Azure Kubernetes Service (AKS).
+title: Migrate to Azure Kubernetes Service (AKS)
+description: Migrate to Azure Kubernetes Service (AKS).
 services: container-service
-author: noelbundick
-manager: jeconnoc
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: nobun
+ms.author: mlearned
 ms.custom: mvc
 ---
 
