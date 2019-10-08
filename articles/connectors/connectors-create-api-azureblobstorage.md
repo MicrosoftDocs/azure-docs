@@ -22,7 +22,7 @@ Suppose that you have a tool that gets updated on an Azure website. which acts a
 > [!NOTE]
 >
 > Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) 
-> and exist in the same region. However, logic apps can access Azure storage accounts, except for Azure Table Storage, that exist 
+> and exist in the same region. However, logic apps can access Azure storage accounts, except Azure Table Storage and Azure Queue Storage, that exist 
 > in a different region because a public IP address is used for communicating across regions. Just make sure that you permit the 
 > [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Otherwise, you can use either more advanced options here:
 >
