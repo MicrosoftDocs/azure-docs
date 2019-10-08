@@ -118,7 +118,7 @@ For more information, see [User registration and management of FIDO2 security ke
 
 There's no additional cost for passwordless authentication, although some prerequisites may require a premium subscription. See detailed feature and licensing information in the [Azure Active Directory licensing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Plan the passwordless authentication project
+## Develop a plan
 
 Consider your business needs and the use cases for each authentication method. Then select the method that best fits your needs.
 
@@ -219,7 +219,7 @@ Users can register and manage their credentials by navigating to [https://aka.ms
 
 When users enable or disable the account on a security key, or reset the second factor for the security key on their Windows 10 machines, an entry is added to security log and are under the following event IDs: 4670, 5382.
 
-## Plan for rollback
+### Plan for rollback
 
 Though passwordless authentication is a lightweight feature with minimal impact on end users, it may be necessary to roll back.
 
@@ -229,7 +229,7 @@ Users that have already registered FIDO2 security devices will be prompted to us
 
 ![choose a different way to sign in](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
-## Plan to pilot
+### Plan to pilot
 
 When you deploy passwordless authentication, you should first enable one or more pilot groups. You can [create groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, [enable new passwordless authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable?branch=master) for the selected groups.
 
