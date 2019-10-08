@@ -169,7 +169,7 @@ The following entities are supported:
 
 ## Italian entity support
 
-Italian prebuilt age, currency, dimension, number, percentage _resolution_ changed from V2.
+Italian prebuilt age, currency, dimension, number, percentage _resolution_ changed from V2 and V3 preview.
 
 The following entities are supported:
 
@@ -204,7 +204,7 @@ The following entities are supported:
 [Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
-[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Number](luis-reference-prebuilt-number.md)   |    V2, -   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    V2, -   | 
