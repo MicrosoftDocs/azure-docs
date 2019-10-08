@@ -31,7 +31,7 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called *lexical analysis*. Components that perform lexical analysis are called *analyzers*.
 
- In Azure Cognitive Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Cognitive Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
+ In Azure Cognitive Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Cognitive Search service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
 
  A custom analyzer allows you to take control over the process of converting text into indexable and searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer, one or more token filters, and one or more char filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Char filters are applied for to prepare input text before it is processed by the tokenizer. For instance, char filter can replace certain characters or symbols.
 
@@ -378,6 +378,6 @@ In the table below, the token filters that are implemented using Apache Lucene a
 
 
 ## See also  
- [Azure Cognitive Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
+ [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/)   
  [Analyzers in Azure Cognitive Search > Examples](search-analyzers.md#examples)    
- [Create Index &#40;Azure Cognitive Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

@@ -57,19 +57,19 @@ In the resulting Edit dialog, navigate to the **Variables** tab.
 
 The **Variables** tab allows you to add values that Postman will swap in every time it encounters them within double braces. For example, Postman will replace the symbol `{{admin-key}}` with the "Current Value" of the `admin-key`. Postman will make this substitution in URLs, headers, the request body, and so forth. 
 
-You'll find the value for `admin-key` in the Search Service's **Keys** tab. You'll need to change `search-service-name` and `storage-account-name` to the values you chose in [Step 1](#1---create-services). Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab. The other values you can leave unchanged.
+You'll find the value for `admin-key` in the search service's **Keys** tab. You'll need to change `search-service-name` and `storage-account-name` to the values you chose in [Step 1](#1---create-services). Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab. The other values you can leave unchanged.
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
 
 | Variable    | Where to get it |
 |-------------|-----------------|
-| `admin-key` | Search Service, **Keys** tab              |
+| `admin-key` | Search service, **Keys** tab              |
 | `api-version` | Leave as "2019-05-06-Preview" |
 | `datasource-name` | Leave as "hotel-reviews-ds" | 
 | `indexer-name` | Leave as "hotel-reviews-ixr" | 
 | `index-name` | Leave as "hotel-reviews-ix" | 
-| `search-service-name` | Search Service, main name. URL is `https://{{search-service-name}}.search.windows.net` | 
+| `search-service-name` | Search service, main name. URL is `https://{{search-service-name}}.search.windows.net` | 
 | `skillset-name` | Leave as "hotel-reviews-ss" | 
 | `storage-account-name` | Storage Account, main name | 
 | `storage-connection-string` | Storage Account, **Access Keys** tab, **key1** **Connection string** | 
@@ -331,7 +331,7 @@ After you've set the `api-key` and `Content-type` headers and confirmed that the
 
 ## 8 - Run the indexer 
 
-In the Azure portal, navigate to the Search Service's **Overview** and select the **Indexers** tab. Click on the **hotels-reviews-ixr** you created in the previous step. If the indexer has not already run, press the **Run** button. The indexing task may raise some warnings relating to language recognition as the data include some reviews written in languages that are not yet supported by the cognitive skills. 
+In the Azure portal, navigate to the search service's **Overview** and select the **Indexers** tab. Click on the **hotels-reviews-ixr** you created in the previous step. If the indexer has not already run, press the **Run** button. The indexing task may raise some warnings relating to language recognition as the data include some reviews written in languages that are not yet supported by the cognitive skills. 
 
 ## Next steps
 

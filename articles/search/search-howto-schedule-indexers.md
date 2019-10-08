@@ -17,11 +17,11 @@ An indexer normally runs once, immediately after it is created. You can run it a
 
 Some situations where indexer scheduling is useful:
 
-* Source data will change over time, and you want the Azure Search indexers to automatically process the changed data.
+* Source data will change over time, and you want the Azure Cognitive Search indexers to automatically process the changed data.
 * The index will be populated from multiple data sources and you want to make sure the indexers run at different times to reduce conflicts.
-* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Search](search-howto-large-index.md).
+* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
-The scheduler is a built-in feature of Azure Search. You can't use an external scheduler to control search indexers.
+The scheduler is a built-in feature of Azure Cognitive Search. You can't use an external scheduler to control search indexers.
 
 ## Define schedule properties
 
@@ -84,7 +84,7 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 ## Define a schedule using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
 The following C# example creates an indexer, using a predefined data source and index, and sets its schedule to run once every day starting 30 minutes from now:
 

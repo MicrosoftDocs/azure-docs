@@ -82,10 +82,10 @@ The precedence operator encloses the string in parentheses `( )`. For example, `
 - The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `wi*fi` is treated as a single token.
 
 > [!NOTE]  
->  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Cognitive Search Service REST API&#41;](index-add-language-analyzers.md) for details.  
+>  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Cognitive Search REST API&#41;](index-add-language-analyzers.md) for details.  
 
 ## See also  
 
-+ [Search Documents &#40;Azure Cognitive Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene query syntax](query-lucene-syntax.md)
 + [OData expression syntax](query-odata-filter-orderby-syntax.md) 

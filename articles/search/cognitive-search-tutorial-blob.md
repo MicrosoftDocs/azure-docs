@@ -34,7 +34,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## 1 - Create services
 
-This walkthrough uses Azure Search for indexing and queries, Cognitive Services for AI enrichment, and Azure Blob storage to provide the data. If possible, create all three services in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
+This walkthrough uses Azure Cognitive Search for indexing and queries, Cognitive Services for AI enrichment, and Azure Blob storage to provide the data. If possible, create all three services in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
 ### Start with Azure Storage
 

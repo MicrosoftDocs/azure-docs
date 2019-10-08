@@ -53,7 +53,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-For additional examples, see [Lucene query syntax examples for building queries in Azure Cognitive Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Cognitive Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+For additional examples, see [Lucene query syntax examples for building queries in Azure Cognitive Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  Azure Cognitive Search also supports [Simple Query Syntax](query-simple-syntax.md), a simple and robust query language that can be used for straightforward keyword search.  

@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # Troubleshooting common indexer issues in Azure Cognitive Search
 
-Indexers can run into a number of issues when indexing data into Azure Search. The main categories of failure include:
+Indexers can run into a number of issues when indexing data into Azure Cognitive Search. The main categories of failure include:
 
 * [Connecting to a data source](#data-source-connection-errors)
 * [Document processing](#document-processing-errors)
@@ -25,7 +25,7 @@ Indexers can run into a number of issues when indexing data into Azure Search. T
 
 #### Storage account firewall
 
-Azure Storage provides a configurable firewall. By default, the firewall is disabled so Azure Search can connect to your storage account.
+Azure Storage provides a configurable firewall. By default, the firewall is disabled so Azure Cognitive Search can connect to your storage account.
 
 There's no specific error message when the firewall is enabled. Typically, firewall errors look like `The remote server returned an error: (403) Forbidden`.
 
@@ -39,13 +39,13 @@ You can find out the IP address of your search service by pinging its FQDN (`<yo
 
 #### Indexing isn't enabled
 
-Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## Document Processing Errors
 
 ### Unprocessable or unsupported documents
 
-The blob indexer [documents which document formats are explicitly supported.](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Sometimes, a blob storage container contains unsupported documents. Other times there may be problematic documents. You can avoid stopping your indexer on these documents by [changing configuration options](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
+The blob indexer [documents which document formats are explicitly supported.](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Sometimes, a blob storage container contains unsupported documents. Other times there may be problematic documents. You can avoid stopping your indexer on these documents by [changing configuration options](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06

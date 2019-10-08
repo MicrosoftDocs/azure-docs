@@ -461,7 +461,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
 
-![Screenshot of Azure portal, Search Service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
+![Screenshot of Azure portal, search service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
 
 In the next step, you'll add data to index. 
 

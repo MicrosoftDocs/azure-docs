@@ -14,7 +14,7 @@ ms.date: 10/04/2019
 
 # How to monitor Azure Cognitive Search indexer status and results
 
-Azure Search provides status and monitoring information about current and historical runs of every indexer.
+Azure Cognitive Search provides status and monitoring information about current and historical runs of every indexer.
 
 Indexer monitoring is useful when you want to:
 
@@ -70,7 +70,7 @@ If there were document-specific problems during the run, they will be listed in 
 
 Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process.
 
-For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Search](search-indexer-troubleshooting.md).
+For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Cognitive Search](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
@@ -123,7 +123,7 @@ For more details about status codes and indexer monitoring data, see [GetIndexer
 
 ## Monitor indexers using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
 The following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 

@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # Conditional cognitive skill
 
-The **Conditional** skill enables Azure Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
+The **Conditional** skill enables Azure Cognitive Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
 
 The following pseudocode demonstrates what the conditional skill accomplishes:
 
