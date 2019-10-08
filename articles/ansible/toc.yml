@@ -15,6 +15,7 @@
     - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
     - name: Work with Linux Virtual Machines
+      expanded: true
       items:
       - name: Configure Linux virtual machines
         href: /azure/virtual-machines/linux/ansible-create-vm
