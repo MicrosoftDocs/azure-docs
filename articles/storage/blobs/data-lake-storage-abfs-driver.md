@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2. 
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
