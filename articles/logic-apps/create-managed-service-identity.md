@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 10/11/2019
 ---
 
 # Authenticate access to resources with managed identities in Azure Logic Apps
@@ -48,12 +48,12 @@ Follow the link for the managed identity that you want:
 
 To set up the system-assigned identity, here are the options that you can use:
 
-* [Azure portal](#azure-portal-system)
-* [Azure Resource Manager templates](#template-system)
+* [Azure portal](#azure-portal-system-logic-app)
+* [Azure Resource Manager template](#template-system-logic-app)
 
-<a name="azure-portal-system"></a>
+<a name="azure-portal-system-logic-app"></a>
 
-#### Enable system-assigned identity in the Azure portal
+#### Enable system-assigned identity on logic app in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -75,9 +75,9 @@ To set up the system-assigned identity, here are the options that you can use:
    | **Object ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in an Azure AD tenant |
    ||||
 
-1. To enable the system-assigned identity for an Azure function or Azure API Management service in your logic app, follow the corresponding step for that resource:
+1. To use the logic app's system-assigned identity with the built-in Azure Functions or Azure API Management actions in your logic app, follow the step for the corresponding action:
 
-   * **Function app**: In the Azure portal, find and select your function app. On the function app pane, select **Platform features**. Under **Networking**, select **Identity**. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
+   * **Azure Functions**: [Set up authentication for Azure Functions](#set-authentication-function-app)
 
    * **API Management service**: In the Azure portal, find and select your API Management service. On that service's menu, under **Settings**, select **Managed identities**. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
 
@@ -85,9 +85,77 @@ To set up the system-assigned identity, here are the options that you can use:
 
 1. To set up the system-assigned managed identity for authenticating access to other resources, see [Set up access to other resources](#access-other-resources) later in this topic.
 
-<a name="template-system"></a>
+<a name="set-authentication-function-app"></a>
 
-#### Enable system-assigned identity in an Azure Resource Manager template
+#### Set up authentication for Azure Functions
+
+To use the logic app's system-assigned identity for authenticating an Azure Functions action, you have set the function app's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
+
+1. In the Azure portal, find and select your function app.
+
+1. On the function app pane, select **Platform features**. Under **Development tools**, select **Advanced tools (Kudu)**.
+
+   ![Open advanced tools for Kudu](./media/create-managed-service-identity/open-advanced-tools-kudu.png)
+
+1. On the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
+
+   ![Open debug console for Kudu, select "CMD"](./media/create-managed-service-identity/open-debug-console-kudu.png)
+
+1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*, for example:
+
+   ![Select "site" > "wwwroot" > your function](./media/create-managed-service-identity/select-site-wwwroot-function-folder.png)
+
+1. Open the `function.json` file for editing.
+
+   ![Click edit for "function.json" file](./media/create-managed-service-identity/edit-function-json-file.png)
+
+1. In the `bindings` object, add the `authLevel` property, and set the property value to `anonymous`:
+
+   ![Add "authLevel" property and set to "anonymous"](./media/create-managed-service-identity/set-authentication-level-function-app.png)
+
+1. When you're done, save your settings, and then continue to the next section.
+
+#### Set up Azure AD authentication for Azure Functions
+
+To complete this task, have these values ready:
+
+* The object ID that's generated for the system-assigned identity that represents your logic app.
+
+  * To generate this ID, follow these steps to enable the system-assigned identity for your logic app.
+
+  * Otherwise, to find this object ID, open your logic app in the Logic App Designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
+
+* The directory ID for your tenant in Azure Active Directory (Azure AD). To get this value, you can run the `Get-AzureAccount` Powershell command, or in the Azure portal, find and select your tenant.
+
+* The resource ID for the target resource that you want to access. This ID is the same value that you specify for the **Audience** property after you select the authentication type to use when calling your Azure function from your logic app.
+
+  !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
+
+  This resource ID value must exactly match the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+  For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
+
+1. On the function app pane, select **Platform features**. Under **Networking**, select **Authentication / Authorization**.
+
+1. Change the **App Service Authentication** setting to **On**.
+
+1. From the **Action to take when request is not authenticated** list, select **Log in with Azure Active Directory**.
+
+1. Under **Authentication Providers**, select **Azure Active Directory**.
+
+1. On the **Azure Active Directory Settings** pane, set the **Management Mode** property to **Advanced**.
+
+1. In the **Client ID** property, enter the object ID for your logic app's system-assigned identity.
+
+1. In the **Issuer Url** property, enter the URL for your tenant in Azure Active Directory.
+
+1. In the **Allowed Token Audiences** property, enter the URL from the **Audience** property from the Azure function action in your logic app.
+    Enter “Client 
+ID”(object id of logic app -> settings -> Identity) , “Issuer Url” and the “ALLOWED TOKEN AUDIENCES” (audience from step 1)
+
+<a name="template-system-logic-app"></a>
+
+#### Enable system-assigned identity in Azure Resource Manager template
 
 To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To set up the system-assigned managed identity for your logic app in the template, add the `"identity"` object and the `"type"` child property to the corresponding resource definition in the template. Here is an example for a logic app resource definition:
 
