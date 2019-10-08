@@ -93,6 +93,8 @@
       href: durable-functions-unit-testing.md
     - name: Create as WebJobs
       href: durable-functions-webjobs-sdk.md 
+    - name: Durable entities in .NET
+      href: durable-functions-dotnet-entities.md
   - name: Deploy
     items:
     - name: Continuous deployment
