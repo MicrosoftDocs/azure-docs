@@ -42232,6 +42232,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/response-center.md",
+      "redirect_url": "https://www.microsoft.com/msrc",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/fundamentals/health-care-solution.md",
       "redirect_url": "https://aka.ms/azureindustrysecurity",
       "redirect_document_id": false
