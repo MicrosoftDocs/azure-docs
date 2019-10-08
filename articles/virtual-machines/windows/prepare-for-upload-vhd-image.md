@@ -133,17 +133,17 @@ On the VM that you plan to upload to Azure, run the following commands from an [
 Make sure that each of the following Windows services is set to the Windows default values. These services are the minimum that must be set up to ensure VM connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Automatic
-Set-Service -Name dhcp -StartupType Automatic
-Set-Service -Name dnscache -StartupType Automatic
-Set-Service -Name IKEEXT -StartupType Automatic
-Set-Service -Name iphlpsvc -StartupType Automatic
-Set-Service -Name netlogon -StartupType Manual
-Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Automatic
-Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Automatic
-Set-Service -Name RemoteRegistry -StartupType Automatic
+Get-Service -Name bfe | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dhcp | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dnscache | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name IKEEXT | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name iphlpsvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name netlogon | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name netman | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name nsi | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
 
 ## Update remote-desktop registry settings
