@@ -120,23 +120,17 @@
     - name: Azure Time Series Insights GA
       href: /rest/api/time-series-insights/ga
       items:
-      - name: Query syntax
-        href: /rest/api/time-series-insights/ga-query-syntax
-      - name: API
-        href: /rest/api/time-series-insights/ga-query-api
+      - name: Query
+        href: /rest/api/time-series-insights/ga-query
+        items:
+        - name: API
+          href: /rest/api/time-series-insights/ga-query-api
+        - name: Syntax
+          href: /rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
         href: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure Time Series Insights Preview
       href: /rest/api/time-series-insights/preview
-      items:
-      - name: Time Series Expression and syntax
-        href: /rest/api/time-series-insights/preview-tsx
-      - name: Time Series Query
-        href: /rest/api/time-series-insights/preview-query
-      - name: Time Series Model
-        href: /rest/api/time-series-insights/preview-model
-      - name: Time Series Environment API
-        href: /rest/api/time-series-insights/preview-env
   - name: Client SDK
     items:
     - name: JavaScript Client SDK
