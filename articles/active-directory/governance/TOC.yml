@@ -56,8 +56,16 @@
       items:
       - name: Create a new access package
         href: entitlement-management-access-package-create.md
-      - name: Edit an access package
+      - name: Change resources and resource roles
+        href: entitlement-management-access-package-resources.md
+      - name: Update expiration dates
         href: entitlement-management-access-package-edit.md
+      - name: Change who can request access
+        href: entitlement-management-access-package-users.md
+      - name: Manage requests for access
+        href: entitlement-management-access-package-requests.md
+      - name: Manage who has an assignment
+        href: entitlement-management-access-package-assignments.md
     - name: Approvers
       items:
       - name: Approve requests
