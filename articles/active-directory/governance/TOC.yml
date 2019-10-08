@@ -62,7 +62,7 @@
         href: entitlement-management-access-package-edit.md
       - name: Change who can request access
         href: entitlement-management-access-package-users.md
-      - name: Manage requests for access
+      - name: Manage request settings
         href: entitlement-management-access-package-requests.md
       - name: Manage who has an assignment
         href: entitlement-management-access-package-assignments.md
