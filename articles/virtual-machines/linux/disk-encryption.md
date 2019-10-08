@@ -46,8 +46,14 @@ This diagram shows how Azure Storage uses Azure Active Directory and Azure Key V
 
 The following list explains the numbered steps in the diagram:
 
-1. An administrator creates a disk encryption set and keyvault resources.
-1. That administrator can then have every managed disk associated with that specific disk encryption set.
+1. An administrator creates keyvault resources using an encryption key of their choice.
+1. That administrator creates a disk encryption set, 
+1. That administrator can then associate each disk encryption set with the azure keyvault encryption key.
+1. The administrator can assign a rule, that every managed disk in the subscription must use a disk encryption set.
+1. Now, when regular users in that subscription create a managed disk, the disk encryption set is automatically assigned.
+1. When a disk encryption set is assigned to a managed disk, a managed identity is created in Azure active directory (AD).
+1. These managed identities handle authentication and access to the managed disk, using the key that you provided to Azure keyvault.
+1. For read/write operations, requests are sent to Azure Key Vault to wrap and unwrap the encryption key in order to perform encryption and decryption operations.
 1. When a managed disk is associated with a disk encryption set, Azure AD creates the associated managed identities for authentication with the managed disk.
 
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
@@ -57,6 +63,50 @@ The following list explains the numbered steps in the diagram:
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to wrap and unwrap the account encryption key to perform encryption and decryption operations.
 
 To revoke access to customer-managed keys on the storage account, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+
+### Setting up your Azure Key Vault
+
+2.	Create an instance of Azure Key Vault and encryption key
+
+```bash
+$keyVault = New-AzKeyVault -Name myKeyVaultName ` 
+-ResourceGroupName myRGName ` 
+-Location centraluseuap ` 
+-EnableSoftDelete ` 
+-EnablePurgeProtection 
+ 
+$key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName ` 
+-Name myKeyName ` 
+-Destination Software `  
+```
+
+3.	Create an instance of a new resource type called as DiskEncryptionSet which represents a CMK. 
+
+```bash
+New-AzResourceGroupDeployment -ResourceGroupName myRGName ` 
+  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" ` 
+  -diskEncryptionSetName "myDiskEncryptionSet1" ` 
+  -keyVaultId "/subscriptions/mySubscriptionId/resourceGroups/myRGName/providers/Microsoft.KeyVault/vaults/myKeyVaultName" ` 
+  -keyVaultKeyUrl "https://myKeyVaultName.vault.azure.net/keys/myKeyName/403445136dee4a57af7068cab08f7d42" ` 
+  -region "WestCentralUS"
+```
+
+4.	Grant DataEncryptionSet resource access to the key vault
+```bash
+$identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
+ 
+Set-AzKeyVaultAccessPolicy ` 
+    -VaultName $keyVault.VaultName ` 
+    -ObjectId $identity.Id ` 
+    -PermissionsToKeys wrapkey,unwrapkey,get 
+ 
+New-AzRoleAssignment ` 
+    -ObjectId $identity.Id ` 
+    -RoleDefinitionName "Reader" ` 
+    -ResourceName $keyVault.VaultName ` 
+    -ResourceType "Microsoft.KeyVault/vaults" ` 
+    -ResourceGroupName myRGName `  
+```
 
 To learn how to use customer-managed keys with Azure Storage, see one of these articles:
 
