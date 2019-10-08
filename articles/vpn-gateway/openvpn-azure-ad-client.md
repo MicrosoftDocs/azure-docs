@@ -134,4 +134,4 @@ These steps help you configure your connection to connect automatically with Alw
 
 ## Next steps
 
-For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use AAD authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
