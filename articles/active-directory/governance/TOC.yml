@@ -58,13 +58,13 @@
         href: entitlement-management-access-package-create.md
       - name: Change resources and resource roles
         href: entitlement-management-access-package-resources.md
-      - name: Update expiration dates
+      - name: Change expiration dates
         href: entitlement-management-access-package-edit.md
       - name: Change who can request access
         href: entitlement-management-access-package-users.md
-      - name: Manage request settings
+      - name: View requests and change settings
         href: entitlement-management-access-package-requests.md
-      - name: Manage who has an assignment
+      - name: View and change assignments
         href: entitlement-management-access-package-assignments.md
     - name: Approvers
       items:

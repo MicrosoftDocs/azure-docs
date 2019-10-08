@@ -1,6 +1,6 @@
 ---
-title: Manage request settings for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to manage request settings for an access package in Azure Active Directory entitlement management (Preview).
+title: View requests and change settings for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to view requests and change settings for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Manage request settings for an access package in Azure AD entitlement management (Preview)
+# View requests and change settings for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to manage requests for access to an access package.
 
-## Update request and approval settings
+## Change request and approval settings
 
 
 ## Share My Access portal link
