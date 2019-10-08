@@ -61,6 +61,8 @@
     href: public-ip-address-prefix.md
   - name: IPv6 for Azure VNet
     href: ipv6-overview.md
+  - name: Public IPv6 address prefix
+    href: virtual-network-ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Backend Connectivity Interoperability
@@ -350,6 +352,8 @@
             href: virtual-networks-static-private-ip-classic-cli.md
         - name: Instance level public IP address
           href: virtual-networks-instance-level-public-ip.md
+        - name: Public IPv6 address prefix
+          href: virtual-network-ipv6-reserve-public-ip-address-prefix.md
         - name: Access control lists
           items:
           - name: Azure portal
