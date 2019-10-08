@@ -745,10 +745,12 @@
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-      - name: Blobs, Queues, Tables, and Files (v7)
-        href: /java/api/overview/azure/storage/client?view=azure-java-stable
-      - name: Blob SDK (v10)
-        href: /java/api/overview/azure/storage/client?view=azure-java-preview
+      - name: Blobs, Queues, and Files (version 12.x - preview)
+        href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
+      - name: Blobs, Queues, and Files (version 8)
+        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+      - name: Storage Resource Provider
+        href: /java/api/overview/azure/storage/management
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files
