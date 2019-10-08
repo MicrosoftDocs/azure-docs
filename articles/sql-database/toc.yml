@@ -1,5 +1,6 @@
 - name: SQL Database Documentation
   href: index.yml
+
 - name: Overview
   items:
   - name: What is SQL Database?
@@ -43,6 +44,7 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -50,6 +52,7 @@
     href: sql-database-single-database-quickstart-guide.md
   - name: SQL managed instances
     href: sql-database-managed-instance-quickstart-guide.md
+
 - name: Concepts
   items:
   - name: Common features documentation
@@ -486,7 +489,6 @@
           - name: ETL for analytics
             href: saas-multitenantdb-tenant-analytics.md
 
-
 - name: SQL databases
   items:
   - name: SQL databases documentation
@@ -721,7 +723,6 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-
 - name: SQL managed instance
   items:
   - name: Managed instance documentation
@@ -849,7 +850,6 @@
     href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
-
 
 - name: Resources
   items:
