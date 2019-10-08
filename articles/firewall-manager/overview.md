@@ -25,19 +25,19 @@ You can use Firewall Manager to centrally manage firewall and route policy acros
 
 ### Centralized route management for traffic attraction​
 
-You can use Azure Firewall for VNet to VNet traffic policies and micro-segmentation. To secure VNet to Internet traffic, you can use either Azure Firewall or third-party SECaaS (Security as a Service) providers. Firewall Manager automatically routes traffic to Azure Firewall or third-party SECaaS providers without the need to manually set up user defined routes.
+You can use Azure Firewall for VNet to VNet traffic policies and micro-segmentation. To secure VNet to Internet traffic, you can use either Azure Firewall or third-party NSaaS (Network Security as a Service) providers. Firewall Manager automatically routes traffic to Azure Firewall or third-party NSaaS providers without the need to manually set up user defined routes.
 
-### Integrated with third party SECaaS for advanced security
+### Integrated with third party NSaaS for advanced security
 
-In addition to Azure Firewall, you can integrate third-party SECaaS (Security as a Service) providers to provide additional network protection for your VNet to Internet connections.
+In addition to Azure Firewall, you can integrate third-party NSaaS (Security as a Service) providers to provide additional network protection for your VNet to Internet connections.
 
 ### Optimal Office 365 access from VNets (VDI) and branches
 
 ![policy based routing](media/overview/policy-based-routing.png)
 
-Using secured virtual hubs, you can route traffic from your VNets and branches to your secured virtual hub. On the secured virtual hub, you can configure Azure Firewall or third-party SECaaS providers to protect the branch-to-Internet and VNet-to-Intent traffic.
+Using secured virtual hubs, you can route traffic from your VNets and branches to your secured virtual hub. On the secured virtual hub, you can configure Azure Firewall or third-party NSaaS providers to protect the branch-to-Internet and VNet-to-Intent traffic.
 
-For Office 365 and other Azure PaaS traffic, you can create policies that bypass your third-party SECaaS from the hub. Using Azure Firewall, a single click is all that's required to configure this policy.
+For Office 365 and other Azure PaaS traffic, you can create policies that bypass your third-party NSaaS from the hub. Using Azure Firewall, a single click is all that's required to configure this policy.
 
 
 ### Security policy configuration and logging across multiple Azure Firewall instances
