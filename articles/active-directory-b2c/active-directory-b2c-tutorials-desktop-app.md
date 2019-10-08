@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Record the **APPLICATION ID** for use in a later step.
+Record the **Application (client) ID** for use in a later step.
 
 ## Configure the sample
 
