@@ -50,7 +50,7 @@
     href: promote-your-office-store-solution.md
   - name: View the acquisitions report
     href: view-acquisitions-report.md
-- name: Submit your solutions to AppSource via Partner Center (preview)
+- name: Submit your solutions to AppSource via Partner Center
   items:
   - name: Overview
     href: submit-to-appsource-via-partner-center.md
@@ -120,6 +120,4 @@
     href: promote-your-office-store-solution.md
   - name: Analyze add-in performance
     href: view-acquisitions-report.md
-  - name: Getting paid
-    href: getting-paid.md
 
