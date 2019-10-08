@@ -69,7 +69,7 @@ landingContent:
           - text: Human interaction
             url: durable-functions-phone-verification.md
           - text: Aggregator
-            url: supported-languages.md
+            url: ../supported-languages.md
 
   # Card
   - title: Performance and monitoring
@@ -101,4 +101,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Azure CLI samples
-            url: functions-cli-samples.md
+            url: ../functions-cli-samples.md
