@@ -1,5 +1,5 @@
 ---
-title: Azure Table storage performance and scalability checklist - Azure Storage
+title: Performance and scalability checklist for Table storage - Azure Storage
 description: 
 services: storage
 author: tamram
@@ -11,36 +11,16 @@ ms.author: tamram
 ms.subservice: tables
 ---
 
-# Azure Table storage performance and scalability checklist
+# Performance and scalability checklist for Table storage
 
-In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the Table service.  
+Microsoft has developed a number of proven practices for developing high-performance applications with Table storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
 ## Checklist
 
-This article organizes the proven practices into a checklist you can follow while developing your application. Proven practices applicable to:  
-
-- All Azure Storage services (blobs, tables, queues, and files)
-- Tables
+This article organizes the proven practices into a checklist you can follow while developing your Table storage application. For proven practices that are generally applicable to all of the Azure Storage services, see [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md).
 
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
-| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#scalability-targets) |
-| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partition-naming-convention) |
-| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
-| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#link-quality) |
-| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#location) |
-| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#content-distribution) |
-| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#sas-and-cors) |
-| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#reading-data) |
-| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#uploading-data-in-batches) |
-| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; | All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
-| &nbsp; | All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload either your client capabilities or the scalability targets?](#unbounded-parallelism) |
-| &nbsp; | All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#client-libraries-and-tools) |
-| &nbsp; | All Services |Retries |[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#throttling-and-server-busy-errors) |
-| &nbsp; | All Services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; | Blobs |Scalability Targets |[Do you have a large number of clients accessing a single object concurrently?](#multiple-clients-accessing-a-single-object-concurrently) |
 | &nbsp; | Tables |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#table-specific-scalability-targets) |
 | &nbsp; | Tables |Configuration |[Are you using JSON for your table requests?](#use-json) |
 | &nbsp; | Tables |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
@@ -56,6 +36,34 @@ This article organizes the proven practices into a checklist you can follow whil
 | &nbsp; | Tables |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#upsert) |
 | &nbsp; | Tables |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#storing-data-series-in-a-single-entity) |
 | &nbsp; | Tables |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (for example, time series data), have you considered using blobs instead of tables?](#storing-structured-data-in-blobs) |
+
+## Scalability targets
+
+Each of the Azure Storage services has scalability targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](storage-scalability-targets.md).
+
+If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes for some storage transactions. This section discusses how to design for scalability targets, and for bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
+
+- [Blob bandwidth and requests per second](#bandwidth-and-operations-per-blob)
+- [Table entities per second](#subheading24)
+- [Queue messages per second](#subheading39)  
+
+### Approaching a scalability target
+
+If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, evaluate your scenario and determine whether any of the following conditions apply:
+
+- Are you using storage accounts to store unmanaged disks and adding those disks to your virtual machines (VMs)? For this scenario, Microsoft recommends using managed disks, as they handle VM disk scalability for you without the need to create and manage individual storage accounts. For more information, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md)
+- Are you using one storage account per customer, for the purpose of data isolation? For this scenario, Microsoft recommends using a blob container for each customer, instead of an entire storage account. Azure Storage now allows you to assign role-based access control (RBAC) roles on a per-container basis. For more information, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+- Are you using multiple storage accounts to shard to increase ingress, egress, IOPS, or capacity? In this scenario, Microsoft recommends that you take advantage of the increased limits for standard storage accounts to reduce the number of storage accounts required for your workload if possible. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
+
+If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
+
+- If your application hits the transaction target, consider using block blob storage accounts, which are optimized for high transaction rates and low and consistent latency. For more information, see [Azure storage account overview](storage-account-overview.md).
+- Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
+- If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
+- If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
+    While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
+- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. Howver, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
+
 
 ## Table-specific scalability targets
 
@@ -170,4 +178,6 @@ Sometimes structured data feels like it should go in tables, but ranges of entit
 
 ## Next steps
 
-[Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md)
+- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md)
+- [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
+
