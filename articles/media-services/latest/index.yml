@@ -77,7 +77,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Live Streaming
+          - text: Live streaming
             url: live-streaming-overview.md           
       - linkListType: tutorial
         links:
