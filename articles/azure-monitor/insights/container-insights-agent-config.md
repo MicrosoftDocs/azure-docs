@@ -95,40 +95,41 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
-    - The following examples demonstrates how to configure scraping of metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and define pod annotation per-pod.
+3. To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
 
-        - Scrape Prometheus metrics from a specific URL across the cluster. Configure the ConfigMap file with the following:
+    ```
+    prometheus-data-collection-settings: |- ​
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] ​
+    interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+    ```
 
+4. To configure scraping of Prometheus metrics from an agent's DaemonSet node-wide, configure the following:
+
+    1. In the ConfigMap, specify the following:
+    
         ```
-         prometheus-data-collection-settings: |- ​
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] ​
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings ​
+        [prometheus_data_collection_settings.node] ​
+        interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
         ```
 
-        - Scrape Prometheus metrics from an agent's DaemonSet running on every node in the cluster. Configure the ConfigMap file with the following:
+    2. In the service metadata, specify the following:
 
-        ```
-         prometheus-data-collection-settings: |- ​
-         # Custom Prometheus metrics data collection settings ​
-         [prometheus_data_collection_settings.node] ​
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-        ```
-
-         Configure the service metadata to scrape metrics from the agent's DaemonSet running on node(s) in the cluster.
-         
         ```​
          urls = ["http://$NODE_IP:9103/metrics"] ​
          fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
          fielddrop = ["metric_to_drop"] ​
         ```
 
-        - Scrape Prometheus metrics by specifying a pod annotation on your pod as part of the pod metadata, so the agent knows where to scrape metrics from for your specific pod(s).
+5. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
-        Specify in the ConfigMap file:
+    1. In the ConfigMap, specify the following:
+
         ```
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings
@@ -137,7 +138,8 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          monitor_kubernetes_pods = true 
         ```
 
-        Specify in the pod metadata:
+    2. In the pod metadata, specify the following:
+
         ```
          - prometheus.io/scrape:"true" #Enable scraping for this pod ​
          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
@@ -145,7 +147,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
         ```
 
-1. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+6. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
