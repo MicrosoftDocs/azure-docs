@@ -234,11 +234,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
-Note: You should whitelist ranges as follows:
-- The firewall public IP Address
-- The Service CIDR
-- The address range for the subnets with the nodes and pods
-- Any range representing networks you will be administering the cluster from
+
+> [!NOTE]
+> You should add these ranges to an allow list:
+> - The firewall public IP address
+> - The service CIDR
+> - The address range for the subnets, with the nodes and pods
+> - Any range that represents networks that you'll administer the cluster from
 
 ## Update or disable authorized IP ranges
 
