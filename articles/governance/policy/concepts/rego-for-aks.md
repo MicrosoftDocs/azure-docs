@@ -1,5 +1,5 @@
 ---
-title: Understand how to audit the contents of a virtual machine
+title: Understand Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
 author: DCtheGeek
 ms.author: dacoulte
