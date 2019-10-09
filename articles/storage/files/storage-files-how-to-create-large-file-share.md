@@ -45,6 +45,3 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Advanced** and select **Enabled** for **Large file shares**.
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
-
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
