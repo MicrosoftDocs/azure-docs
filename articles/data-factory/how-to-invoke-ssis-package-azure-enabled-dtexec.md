@@ -107,4 +107,4 @@ Invoking **AzureDTExec** with new values for its options will generate a new pip
 Once unique pipelines with Execute SSIS Package activity in them are generated and run after invoking **AzureDTExec**, they can be monitored on ADF portal. See [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.
 
 > [!WARNING]
-The generated pipeline is expected to be used only by **AzureDTExec**. Its properties/parameters may change in the future, so you should not modify/reuse them for any other purposes, which may break **AzureDTExec**. In case this happens, you can always delete the pipeline and AzureDTExec will generate a new pipeline the next time it is invoked.
+The generated pipeline is expected to be used only by **AzureDTExec**. Its properties/parameters may change in the future, so you should not modify/reuse them for any other purposes, which may break **AzureDTExec**. In case this happens, you can always delete the pipeline and **AzureDTExec** will generate a new pipeline the next time it is invoked.
