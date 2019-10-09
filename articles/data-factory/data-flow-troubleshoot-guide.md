@@ -67,7 +67,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
 2. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
-3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipleine activity. Debug the pipeline for an end-to-end test.
+3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
 
 ## Next steps
 
