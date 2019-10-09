@@ -9,8 +9,10 @@ ms.author: marsma
 1. Select **Applications (Preview)**.
 1. Select the *webapi1* application to open its **Overview** page.
 1. Under **Manage**, select **Expose an API**.
+1. Next to **Application ID URI**, select the **Set** link.
+1. Replace the default value with a unique URI that identifies your API. For example, `https://contosob2c.onmicrosoft.com/api`. Replace "contosob2c" with the name of your B2C tenant. When your web application requests an access token for the API, it should add this URI as the prefix for each scope that you define for the API.
+1. Select **Save**.
 1. Under **Scopes defined by this API**, select **Add a scope**.
-1. On the **Add a scope** page, accept the default **Application ID URI**, and then select **Save and continue**.
 1. Enter the following values to create a scope that defines read access to the API, then select **Add scope**:
     1. **Scope name**: `demo.read`
     1. **Admin consent display name**: `Read access to demo API`
