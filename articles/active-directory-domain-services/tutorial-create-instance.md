@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/09/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -57,6 +57,8 @@ To launch the **Enable Azure AD Domain Services** wizard, complete the following
 1. In the upper left-hand corner of the Azure portal, select **+ Create a resource**.
 1. Enter *Domain Services* into the search bar, then choose *Azure AD Domain Services* from the search suggestions.
 1. On the Azure AD Domain Services page, select **Create**. The **Enable Azure AD Domain Services** wizard is launched.
+1. Select the Azure **Subscription** in which you would like to create the managed domain.
+1. Select the **Resource group** to which the managed domain should belong. Choose to **Create new** or select an existing resource group.
 
 When you create an Azure AD DS instance, you specify a DNS name. There are some considerations when you choose this DNS name:
 
@@ -84,12 +86,17 @@ The following DNS name restrictions also apply:
 Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS instance:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
-1. Select the Azure **Subscription** in which you would like to create the managed domain.
-1. Select the **Resource group** to which the managed domain should belong. Choose to **Create new** or select an existing resource group.
 1. Choose the Azure **Location** in which the managed domain should be created.
-1. Click **OK** to move on to the **Network** section.
 
-![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
+    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
+
+To quickly create an Azure AD DS managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
+
+* Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
+* Creates subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
+* Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
+
+1. Select **Review + create** to accept the other default configuration options, then skip to the section to [Deploy your managed domain](#deploy-your-managed-domain). If you want to manually configure additional options, choose **Next - Networking**.
 
 ## Create and configure the virtual network
 
@@ -106,23 +113,16 @@ For more information on how to plan and configure the virtual network, see [netw
 
 Complete the fields in the *Network* window as follows:
 
-1. On the **Network** window, choose **Select virtual network**.
-1. For this tutorial, choose to **Create new** virtual network to deploy Azure AD DS into.
-1. Enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.1.0.0/16*.
-1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.1.0.0/24*.
+1. On the **Network** page, choose a virtual network to deploy Azure AD DS into from the drop-down menu, or select **Create new**.
+    1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
+    1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
 
     ![Create a virtual network and subnet for use with Azure AD Domain Services](./media/tutorial-create-instance/create-vnet.png)
 
     Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Azure AD DS.
 
-    > [!TIP]
-    > On the **Choose virtual network** page, the existing virtual networks are displayed that belong to the resource group and Azure location you previously selected. You need to [create a dedicated subnet][create-dedicated-subnet] before you deploy Azure AD DS.
-
-1. With the virtual network and subnet created, the subnet should be automatically selected, such as *DomainServices*. You can instead choose an alternate existing subnet that's part of the selected virtual network:
-
-    ![Choose the dedicated subnet within the virtual network](./media/tutorial-create-instance/choose-subnet.png)
-
-1. Select **OK** to confirm the virtual network configuration.
+1. Select a virtual network subnet, such as *DomainServices*.
+1. Select **Review + create** to accept the other default configuration options, then skip to the section to [Deploy your managed domain](#deploy-your-managed-domain). If you want to manually configure additional options, choose **Next - Administration**.
 
 ## Configure an administrative group
 
@@ -133,11 +133,12 @@ You don't have *Domain Administrator* or *Enterprise Administrator* permissions 
 The wizard automatically creates the *AAD DC Administrators* group in your Azure AD directory. If you have an existing group with this name in your Azure AD directory, the wizard selects this group. You can optionally choose to add additional users to this *AAD DC Administrators* group during the deployment process. These steps can be completed later.
 
 1. To add additional users to this *AAD DC Administrators* group, select **Manage group membership**.
-1. Select the **Add members** button, then search for and select users from your Azure AD directory. For example, search for your own account, and add it to the *AAD DC Administrators* group.
 
     ![Configure group membership of the AAD DC Administrators group](./media/tutorial-create-instance/admin-group.png)
 
-1. When you're done, select **OK**.
+1. Select the **Add members** button, then search for and select users from your Azure AD directory. For example, search for your own account, and add it to the *AAD DC Administrators* group.
+1. If desired, change or add additional recipients for notifications when there are alerts in the Azure AD DS managed domain that require attention.
+1. Select **Review + create** to accept the other default configuration options, then skip to the section to [Deploy your managed domain](#deploy-your-managed-domain). If you want to manually configure additional options, choose **Next - Synchronization**.
 
 ## Configure synchronization
 
@@ -147,13 +148,13 @@ Azure AD DS lets you synchronize *all* users and groups available in Azure AD, o
 
     ![Perform a full synchronization of users and groups from Azure AD](./media/tutorial-create-instance/sync-all.png)
 
-1. Select **OK**.
+1. Select **Review + create**.
 
 ## Deploy your managed domain
 
 On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes.
 
-1. To create the managed domain, select **OK**.
+1. To create the managed domain, select **Create**. A note is displayed that certain configuration options such as DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
 1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
 
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
