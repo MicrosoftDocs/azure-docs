@@ -670,11 +670,13 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
 Depending on whether RBAC is enabled or disabled, run one of the following commands to install AAD Pod Identity to your cluster:
 
     **Option 1:** RBAC enabled AKS cluster
+
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
     ```
 
     **Option 2:** RBAC disabled AKS cluster
+
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
     ```
@@ -685,16 +687,18 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 
 1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
-  **Option 1:** RBAC enabled AKS cluster
-  ```bash
-  kubectl create serviceaccount --namespace kube-system tiller-sa
-  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-  helm init --tiller-namespace kube-system --service-account tiller-sa
-  ```
-  **Option 2:** RBAC disabled AKS cluster
-  ```bash
-  helm init
-  ```
+    **Option 1:** RBAC enabled AKS cluster
+
+    ```bash
+    kubectl create serviceaccount --namespace kube-system tiller-sa
+    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
+    helm init --tiller-namespace kube-system --service-account tiller-sa
+    ```
+    **Option 2:** RBAC disabled AKS cluster
+
+    ```bash
+    helm init
+    ```
 
 1. Add the AGIC Helm repository:
 
