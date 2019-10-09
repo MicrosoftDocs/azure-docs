@@ -13,9 +13,9 @@ ms.date: 10/08/2019
 
 # Create a Kubernetes cluster with Application Gateway ingress controller using Azure Kubernetes Service and Terraform
 
-[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of performing key operational and maintenance tasks on-demand. These tasks - including provisioning, upgrading and scaling resources - are accomplished without taking your applications offline.
+[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, these tasks - including provisioning, upgrading and scaling resources - can be accomplished on-demand.
 
-An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster. All the above functionalities are provided by Azure [Application Gateway](/azure/Application-Gateway/), which makes it an ideal Ingress controller for Kubernetes on Azure. 
+An ingress controller provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster. All the above functionalities are provided by Azure [Application Gateway](/azure/Application-Gateway/), which makes it an ideal Ingress controller for Kubernetes on Azure. 
 
 In this tutorial, you learn how to do the following tasks:
 
@@ -474,7 +474,7 @@ Create Terraform configuration file that creates all the resources.
 
 1. Save the file and exit the editor.
 
-The code presented in this section sets the name of the cluster, location, and the resource_group_name. In addition, the `dns_prefix value` - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
+The code presented in this section sets the name of the cluster, location, and the resource_group_name. The `dns_prefix` value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
 
 The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
 
@@ -534,7 +534,7 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
 ## Set up Azure storage to store Terraform state
 
-Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information is stored.
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
 1. In the Azure portal, select **All services** in the left menu.
 
@@ -687,7 +687,7 @@ Depending on whether RBAC is enabled or disabled, run one of the following comma
 
 ## Install Helm
 
-The code in this section utilizes [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
+The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
 1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
@@ -726,7 +726,7 @@ The code in this section utilizes [Helm](/azure/aks/kubernetes-helm) - Kubernete
   The values are described as follows:
 
   - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
-  - `appgw.subscriptionId`: The Azure Subscription ID in which App Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+  - `appgw.subscriptionId`: The Azure Subscription ID for the App Gateway. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
   - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
   - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
   - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
