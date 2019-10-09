@@ -382,7 +382,7 @@ In this step, you create datasets to represent the data source, the data destina
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+ 1. After clicking **Finish**, you see **\@dataset().SinkTableName** as the table name.
    
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 

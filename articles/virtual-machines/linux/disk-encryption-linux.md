@@ -33,7 +33,7 @@ In all cases, you should [take a snapshot](snapshot-copy-managed-disk.md) and/or
 
 ## Install tools and connect to Azure
 
-Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/azure/new-azureps-module-az). To do so you must install the tools locally and connect to your Azure subscription.
+Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/powershell/azure/new-azureps-module-az). To do so you must install the tools locally and connect to your Azure subscription.
 
 ### Azure CLI
 
@@ -63,7 +63,7 @@ az account set --subscription "<subscription name or ID>"
 For more information, see [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### Azure PowerShell
-The [Azure PowerShell az module](/azure/new-azureps-module-az) provides a set of cmdlets that uses the [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine using the instructions in [Install the Azure PowerShell module](/powershell/azure/install-az-ps). 
+The [Azure PowerShell az module](/powershell/azure/new-azureps-module-az) provides a set of cmdlets that uses the [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine using the instructions in [Install the Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
