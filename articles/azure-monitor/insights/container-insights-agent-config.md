@@ -132,7 +132,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          monitor_kubernetes_pods = true 
         ```
 
-          Specify in the pod metadata:
+         Specify in the pod metadata:
 
         ```
           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
