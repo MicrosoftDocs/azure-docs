@@ -28,7 +28,7 @@ ms.author: cherylmc
 
 This article helps you add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection by using the Azure portal. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
 
-This article applies to Resource Manager VNets that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
+This article applies to Resource Manager VNets that have a RouteBased VPN gateway. 
 
 ### Deployment models and methods
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -40,7 +40,6 @@ We update this table as new articles and additional tools become available for t
 ## <a name="before"></a>Before you begin
 Verify the following items:
 
-* You are not creating an ExpressRoute/S2S coexisting connection.
 * You have a virtual network that was created using the Resource Manager deployment model with an existing connection.
 * The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RouteBased.
 * None of the address ranges overlap for any of the VNets that this VNet is connecting to.
