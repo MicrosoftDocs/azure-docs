@@ -28,8 +28,9 @@ Use the Form Recognizer client library for .NET to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+* Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. 
 
 ## Setting up
 
