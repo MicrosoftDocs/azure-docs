@@ -1,7 +1,7 @@
 ---
-title: Project Acoustics Quickstart with Unreal
+title: Project Acoustics quickstart with Unreal
 titlesuffix: Azure Cognitive Services
-description: Use sample content to experiment with Project Acoustics design controls in Unreal and Wwise, and deploy to Windows Desktop.
+description: Use sample content to experiment with Project Acoustics design controls in Unreal and Wwise, and deploy to Windows desktop.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: noelc
 ROBOTS: NOINDEX
 ---
 
-# Project Acoustics Unreal-Wwise Quickstart
+# Project Acoustics Unreal/Wwise quickstart
 In this quickstart, you'll experiment with Project Acoustics design controls by using sample content for the Unreal Engine and Wwise.
 
 Software requirements for using the sample content:
@@ -86,7 +86,7 @@ To change how rapidly wetness changes with distance, use **Perceptual Distance W
 To increase the decay time throughout the space,  adjust **Decay Time Scale**. Consider a case where the simulation result is a decay time of 1.5 seconds. Setting **Decay Time Scale** to 2 results in a decay time of 3 seconds applied to the source.
 
 ### Modify distance-based attenuation
-The Project Acoustics Wwise mixer plug-in respects the per-source distance-based attenuation that's built into Wwise. Changing this curve changes the dry-path level. The Project Acoustics plug-in will adjust the wet level to maintain the wet-dry mix specified by the simulation and design controls.
+The Project Acoustics Wwise mixer plug-in respects the per-source distance-based attenuation that's built into Wwise. Changing this curve changes the dry-path level. The Project Acoustics plug-in will adjust the wet level to maintain the wet/dry mix specified by the simulation and design controls.
 
 ![The Wwise attenuation curve panel showing attenuation going to 0 before the simulation boundary](media/demo-sounds-attenuation.png)
 
