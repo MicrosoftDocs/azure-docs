@@ -19,6 +19,8 @@
   items:
   - name: Entitlement management
     items:
+    - name: Delegation and roles
+      href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
   - name: Access reviews
@@ -36,17 +38,21 @@
     items:
     - name: Common scenarios
       href: entitlement-management-scenarios.md
-    - name: Administrators and department managers
+    - name: Administrators
       items:
-      - name: Delegate tasks
-        href: entitlement-management-delegate.md
-      - name: Create a catalog of resources
-        href: entitlement-management-catalog-create.md
+      - name: Delegate to catalog creators
+        href: entitlement-management-delegate-catalog.md
       - name: View reports and logs
         href: entitlement-management-reports.md
       - name: Troubleshoot
         href: entitlement-management-troubleshoot.md
-    - name: Project managers
+    - name: Catalog owners
+      items:
+      - name: Create a catalog of resources
+        href: entitlement-management-catalog-create.md
+      - name: Delegate to access package managers
+        href: entitlement-management-delegate-managers.md
+    - name: Access package managers
       items:
       - name: Create a new access package
         href: entitlement-management-access-package-create.md
