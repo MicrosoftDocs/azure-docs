@@ -18,7 +18,7 @@ ms.author: v-six
 
 ---
 
-# Azure Linux VM cannot start because of fstab errors
+# Troubleshoot Linux VM starting issues due to fstab errors
 
 You can't connect to an Azure Linux Virtual Machine (VM) by using a Secure Shell (SSH) connection. When you run the [Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) feature on the [Azure portal](https://portal.azure.com/), you see log entries that resemble the following examples:
 
@@ -104,7 +104,8 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 1. Connect to [the serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 2. Sign-in to the system by using a local user and password.
 
-  **Note** You can't use an SSH key to sign in to the system in the serial console.
+   > [!Note]
+   > You can't use an SSH key to sign in to the system in the serial console.
 
 3. Look for the error that indicates that the disk wasn't mounted. In the following example, the system was trying to attach a disk that was no longer present:
 
@@ -129,12 +130,12 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 6. Review the listed file systems. Each line in the fstab file indicates a file system that is mounted when the VM starts. For more information about the syntax of the fstab file, run the man fstab command. To troubleshoot a start failure, review each line to make sure that it's correct in both structure and content.
 
-   **Notes**
-   * Fields on each line are separated by tabs or spaces. Blank lines are ignored. Lines that have a number sign (#) as the first character are comments. Commented lines can remain in the fstab file, but they won't be processed. We recommend that you comment fstab lines that you're unsure about instead of removing the lines.
-   * For the VM to recover and start, the file system partitions should be the only required partitions. The VM may experience application errors about additional commented partitions. However, the VM should start without the additional partitions. You can later uncomment any commented lines.
-   * We recommend that you mount data disks on Azure VMs by using the UUID of the file system partition. For example, run the following command: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   * To determine the UUID of the file system, run the blkid command. For more information about the syntax, run the man blkid command.
-   * The nofail option helps make sure that the VM starts even if the file system is corrupted or the file system doesn't exist at startup. We recommend that you use the nofail option in the fstab file to enable startup to continue after errors occur in partitions that are not required for the VM to start.
+   > [!Note]
+   > * Fields on each line are separated by tabs or spaces. Blank lines are ignored. Lines that have a number sign (#) as the first character are comments. Commented lines can remain in the fstab file, but they won't be processed. We recommend that you comment fstab lines that you're unsure about instead of removing the lines.
+   > * For the VM to recover and start, the file system partitions should be the only required partitions. The VM may experience application errors about additional commented partitions. However, the VM should start without the additional partitions. You can later uncomment any commented lines.
+   > * We recommend that you mount data disks on Azure VMs by using the UUID of the file system partition. For example, run the following command: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * To determine the UUID of the file system, run the blkid command. For more information about the syntax, run the man blkid command.
+   > * The nofail option helps make sure that the VM starts even if the file system is corrupted or the file system doesn't exist at startup. We recommend that you use the nofail option in the fstab file to enable startup to continue after errors occur in partitions that are not required for the VM to start.
 
 7. Change or comment out any incorrect or unnecessary lines in the fstab file to enable the VM to start correctly.
 
@@ -173,13 +174,12 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 6. Review the listed file systems. Each line in the fstab file indicates a file system that is mounted when the VM starts. For more information about the syntax of the fstab file, run the man fstab command. To troubleshoot a start failure, review each line to make sure that it's correct in both structure and content.
 
-   **Notes**
-   * Fields on each line are separated by tabs or spaces. Blank lines are ignored. Lines that have a number sign (#) as the first character are comments. Commented lines can remain in the fstab file, but they won't be processed. We recommend that you comment fstab lines that you're unsure about instead of removing the lines.
-   * For the VM to recover and start, the file system partitions should be the only required partitions. The VM may experience application errors about additional commented partitions. However, the VM should start without the additional partitions. You can later uncomment any commented lines.
-   * We recommend that you mount data disks on Azure VMs by using the UUID of the file system partition. For example, run the following command: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   * To determine the UUID of the file system, run the blkid command. For more information about the syntax, run the man blkid command.
-   Notice that the disk that you want to recover is now mounted on a new VM. Although the UUIDs should be consistent, the device partition IDs (for example, "/dev/sda1") are different on this VM. The file system partitions of the original failing VM that are located on a non-system VHD are not available to the recovery VM [using CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
-   * The nofail option helps make sure that the VM starts even if the file system is corrupted or the file system doesn't exist at startup. We recommend that you use the nofail option in the fstab file to enable startup to continue after errors occur in partitions that are not required for the VM to start.
+   > [!Note]
+   > * Fields on each line are separated by tabs or spaces. Blank lines are ignored. Lines that have a number sign (#) as the first character are comments. Commented lines can remain in the fstab file, but they won't be processed. We recommend that you comment fstab lines that you're unsure about instead of removing the lines.
+   > * For the VM to recover and start, the file system partitions should be the only required partitions. The VM may experience application errors about additional commented partitions. However, the VM should start without the additional partitions. You can later uncomment any commented lines.
+   > * We recommend that you mount data disks on Azure VMs by using the UUID of the file system partition. For example, run the following command: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * To determine the UUID of the file system, run the blkid command. For more information about the syntax, run the man blkid command. Notice that the disk that you want to recover is now mounted on a new VM. Although the UUIDs should be consistent, the device partition IDs (for example, "/dev/sda1") are different on this VM. The file system partitions of the original failing VM that are located on a non-system VHD are not available to the recovery VM [using CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
+   > * The nofail option helps make sure that the VM starts even if the file system is corrupted or the file system doesn't exist at startup. We recommend that you use the nofail option in the fstab file to enable startup to continue after errors occur in partitions that are not required for the VM to start.
 
 7. Change or comment out any incorrect or unnecessary lines in the fstab file to enable the VM to start correctly.
 

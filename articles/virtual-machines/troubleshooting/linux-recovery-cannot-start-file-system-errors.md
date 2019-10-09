@@ -18,7 +18,7 @@ ms.author: v-six
 
 ---
 
-# Azure Linux VM cannot start because of file system errors
+# Troubleshoot Linux VM starting issues due to file system errors
 
 You cannot connect to an Azure Linux virtual machine (VM) by using Secure Shell (SSH). When you run the Boot Diagnostics feature on [Azure portal](https://portal.azure.com/), you see log entries that resemble the following examples.
 
@@ -76,16 +76,16 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
 ## Use the serial console
 
-1. Connect to the serial console. 
+1. Connect to the serial console.
+
+   > [!Note]
+   > For more information about using serial console for Linux, see:
+   > * [Use serial console to access GRUB and single user mode](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+   > * [Use serial console for SysRq and NMI calls](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
 
 2. Select the Power icon button, and then select Restart VM. (If the serial console is not enabled or not connected successfully, you won't see the button.)
 
    ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
- 
-  For more information about using serial console for Linux, see:
-
-  * [Use serial console to access GRUB and single user mode](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-  * [Use serial console for SysRq and NMI calls](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
 
 3. Boot the VM in to emergency mode.
 
