@@ -20,6 +20,9 @@ In this monetization model, your add-in is authenticated by your SaaS offering, 
 
 <!--Write out steps for accessibility-->
 
+> [!NOTE] 
+> Transactable SaaS are only purchasable using a work or school account. If you wish to sell your add-in to MSA-based users, you should consider implementing your own billing model.
+
 ## Preparing your SaaS offer
 To prepare to submit your service as a SaaS offer, you will need to provide a website that a customer can sign in to and use to manage their purchased licenses. They can do this as either an admin user or an end user. Your service should be connected to your own licensing database that you can then use for your add-in to query.
 To get started, see [Create new SaaS offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).
@@ -49,6 +52,8 @@ Your metadata might include:
 - Number of licenses
 - Admin name
 - Admin email
+- Assigned user IDs
+- Assigned user emails
 
 ### Implement licensing management
 Your service must allow the admin who has made the purchase to sign in and manage the account. In the case where they have bought multiple seat-based licenses, they should be able to assign these to users within their organisation. 
