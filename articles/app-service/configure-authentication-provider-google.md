@@ -39,16 +39,16 @@ To complete the procedure in this topic, you must have a Google account that has
 ## <a name="secrets"> </a>Add Google information to your application
 
 1. In the [Azure portal], go to your App Service app.
-1. Select **Settings > Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
+1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 1. Select **Google**, then paste in the App ID and App Secret values that you obtained previously. Enable any scopes needed by your application.
 1. Select **OK**.
 
    App Service provides authentication but doesn't restrict authorized access to your site content and APIs. For more information, see [Authorize or deny users](app-service-authentication-how-to.md#authorize-or-deny-users).
 
-1. (Optional) To restrict site access only to users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. By setting this functionality, your app requires that all requests be authenticated. It also redirects all unauthenticated requests to Google for authentication.
+1. (Optional) To restrict site access only to users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. When you set this functionality, your app requires that all requests be authenticated. It also redirects all unauthenticated requests to Google for authentication.
 
     > [!CAUTION]
-    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred so that the app manually starts authentication itself. For more information, see [authentication flow](overview-authentication-authorization.md#authentication-flow).
+    > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 1. Select **Save**.
 
