@@ -64,23 +64,26 @@ In order to monetize through Microsoft, your service must use the [SaaS fulfilme
 
 #### Provisioning (customer purchase on AppSource)
 When a customer initiates a purchase, your service receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API. When a SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.
+
 The following diagram shows the sequence of API calls for a provisioning scenario.
 
 <!--Diagram goes here-->
 
 #### Marketplace initiated update
 When a customer initiates an update on AppSource, AppSource notifies the webhook implemented by your service, which then queries AppSource for an update.
+
 The following diagram shows the sequence of actions when an update is initiated from the marketplace.
 
 <!--Diagram goes here-->
 
 #### Service initiated update
 When a customer initiates an update on your service (if you allow this action) you service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At tis point the actual changes to your licensing database should be made.
+
 The following diagram shows the actions when an update is initiated from your SaaS service.
 
 <!--Diagram goes here-->
 
-See [SaaS fufillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) for the in depth API reference.
+**See [SaaS fufillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) for the in depth API reference.**
 
 ### Build an AAD connected add-in
 Your add-in will rely on your service to verify whether or not the user accessing the add-in has a license associated with their account. It is up to you to whether you give them a free (but limited) experience or whether you simply direct them to where to purchase licenses.
