@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2019
+ms.date: 10/08/2019
 ms.author: sagonzal
 ms.custom: aaddev 
 ---
@@ -57,8 +57,7 @@ To run this sample you will need:
 > 1. Extract the zip file to a local folder.
 > 1. (Optional) If you use an integrated development environment, open the sample in your favorite IDE.
 > 1. Open the *application.properties* file. You will insert values for `aad.clientId`, `aad.authority`, and `aad.secretKey` when you register your application in the next step.
-
-
+>
 > #### Step 3: Register your application
 > To register your application and manually add the app's registration information to your solution, follow these steps:
 >
