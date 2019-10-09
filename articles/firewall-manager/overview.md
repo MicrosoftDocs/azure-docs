@@ -1,17 +1,17 @@
 ---
 title: What is Azure Firewall Manager?
-description: Learn about Azure Firewall Manager features.
+description: Learn about Azure Firewall Manager features
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/1/2019
+ms.date: 10/10/2019
 ms.author: victorh
 ---
 
 # What is Azure Firewall Manager?
 
-Azure Firewall Manager is a globally distributed management service to centrally configure, deploy, log, and manage security and route policies. It protects and governs traffic flows to protect Azure workloads, devices, and users. Both Azure Firewall and third-party security services can be managed. It allows you to more easily create network segments and run their Internet edge on Azure.
+Azure Firewall Manager is a security management service that provides central security policy and route management for cloud-based security perimeters. It works with with [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), a  Microsoft-managed virtual network that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it is referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
 
 ![firewall-manager](media/overview/firewall-manger-conceptual.png)
 
@@ -21,7 +21,7 @@ Azure Firewall Manager offers the following features:
 
 ### Hierarchical policies (global and local)​
 
-You can use Firewall Manager to centrally manage firewall and route policy across multiple secured virtual hubs. You can create global policies that span multiple secured virtual hubs and add local policies for specific hubs.​
+You can use Firewall Manager to centrally manage firewall and route policy across multiple secured virtual hubs. Your central IT teams can author global firewall policies to enforce organization wide firewall policy across teams. Locally authored firewall policies allow a Devops self-service model for better agility. 
 
 ### Centralized route management for traffic attraction​
 
@@ -29,23 +29,11 @@ You can use Azure Firewall for VNet to VNet traffic policies and micro-segmentat
 
 ### Integrated with third party NSaaS for advanced security
 
-In addition to Azure Firewall, you can integrate third-party NSaaS (Security as a Service) providers to provide additional network protection for your VNet to Internet connections.
-
-### Optimal Office 365 access from VNets (VDI) and branches
-
-![policy based routing](media/overview/policy-based-routing.png)
-
-Using secured virtual hubs, you can route traffic from your VNets and branches to your secured virtual hub. On the secured virtual hub, you can configure Azure Firewall or third-party NSaaS providers to protect the branch-to-Internet and VNet-to-Intent traffic.
-
-For Office 365 and other Azure PaaS traffic, you can create policies that bypass your third-party NSaaS from the hub. Using Azure Firewall, a single click is all that's required to configure this policy.
-
-
-### Security policy configuration and logging across multiple Azure Firewall instances
-
+In addition to Azure Firewall, you can integrate third-party NSaaS (Security as a Service) providers to provide additional network protection for your VNet and branch Internet connections.
 
 ### Automated multiple Azure Firewall deployment​
 
-
+You can centrally deploy and configure multiple Azure Firewall instances that span different Azure regions and subscriptions. 
 
 
 ## Known issues

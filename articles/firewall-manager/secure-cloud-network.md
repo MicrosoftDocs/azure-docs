@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/08/2019
+ms.date: 10/10/2019
 ms.author: victorh
 ---
 
@@ -15,17 +15,15 @@ Using Azure Firewall Manager, you can create secured hubs to secure your cloud n
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
+## Create a hub and spoke architecture
+
 ## Create a firewall policy
 
-## Create a secured hub
+## Secure your hub
 
-## Add rules to the firewall policy
+## Route traffic to your hub
 
-## Attach spoke VNets to the secured hub
-
-## Set Azure Firewall as the security provider
-
-## Test the firewall
+## Test your firewall
 
 ## Next steps
 
