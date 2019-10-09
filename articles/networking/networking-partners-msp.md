@@ -42,6 +42,8 @@ Use the links in this section for more information about managed cloud networkin
 
 [ixreach](https://www.ixreach.com/)
 
+[KINX](https://www.kinx.net/service/cloud/?lang=en)
+
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
@@ -50,7 +52,9 @@ Use the links in this section for more information about managed cloud networkin
 
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
-[Vandis](https://www.vandis.com/services/azure-migration/)
+[Vandis](https://www.vandis.com/microsoft-azure-practice/)
+
+[Vigilant IT](https://vigilant.it/manage-cloud-service/)
 
 ## <a name="expressroute"></a>ExpressRoute partners
 

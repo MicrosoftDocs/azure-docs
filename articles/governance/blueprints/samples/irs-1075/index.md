@@ -1,12 +1,11 @@
 ---
-title: Samples - IRS 1075 blueprint - Overview
+title: Sample - IRS 1075 blueprint - Overview
 description: Overview of the IRS 1075 blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the IRS 1075 blueprint sample
 

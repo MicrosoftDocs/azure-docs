@@ -7,7 +7,6 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Deploy the PCI-DSS v3.2.1 blueprint sample
 

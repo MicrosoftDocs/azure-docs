@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy's Guest Configuration
 
@@ -239,4 +238,4 @@ Samples for Policy Guest Configuration are available in the following locations:
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/index.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

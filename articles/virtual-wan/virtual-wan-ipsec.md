@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---
@@ -17,6 +17,10 @@ This article shows the supported IPsec policy combinations.
 ## Default IPsec policies
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+
+## Custom IPsec policies
+
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## Next steps
 

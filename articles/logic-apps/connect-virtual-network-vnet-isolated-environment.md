@@ -58,24 +58,29 @@ This article shows how to complete these tasks:
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
 
-* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE, which is a capability that's available with ISE public preview.
+* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE.
+
+  > [!IMPORTANT]
+  > If you change your DNS server settings after you create an ISE, make sure that you restart your ISE. 
+  > For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 
 ## Check network ports
 
-When you use an ISE with an existing virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
-
-If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md) in your virtual network so that you can control traffic across subnets. For an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, make sure that your ISE opens specific ports, as described in the following table, on the virtual network that has the NSGs. So, for existing NSGs or firewalls in your virtual network, make sure that they open these ports. That way, your ISE stays accessible and can work correctly so that you don't lose access to your ISE. Otherwise, if any required ports are unavailable, your ISE stops working.
+When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port that you use on your FTP system is available, for example, port 21 for sending commands. To make sure that your ISE stays accessible and can work correctly, open the ports specified by the table below. Otherwise, if any required ports are unavailable, your ISE stops working.
 
 > [!IMPORTANT]
-> For internal communication inside your subnets, 
-> ISE requires that you open all ports within those subnets.
+> Source ports are ephemeral, so make sure that you set them to `*` for all rules.
+> For internal communication inside your subnets, your ISE requires that you open all ports within those subnets.
 
-This table describes the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
+* If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-> [!NOTE]
-> Source ports are ephemeral, so set them to `*` for all rules.
+* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+* If you have previously existing NSGs or firewalls in your virtual network, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+Here is the table that describes the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 | Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|

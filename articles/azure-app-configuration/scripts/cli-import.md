@@ -37,7 +37,7 @@ You need to install the Azure App Configuration CLI extension first by executing
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --file ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
@@ -48,7 +48,7 @@ This script uses the following commands to import an app configuration store. Ea
 
 | Command | Notes |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig) | Imports to an app configuration store resource. |
+| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Imports to an app configuration store resource. |
 
 ## Next steps
 

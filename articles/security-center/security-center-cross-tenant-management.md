@@ -47,10 +47,11 @@ The views and actions are basically the same. Here are some examples:
 - **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time. You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
 - **Manage Alerts**: Detect [alerts](security-center-alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](security-center-managing-and-responding-alerts.md).
 
-- **Manage advanced cloud defense features and more**: Manage the various threat detection and protection services, such as [just-in-time (JIT) VM access](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [adaptive application controls](security-center-adaptive-application.md), and more.
+- **Manage advanced cloud defense features and more**: Manage the various threat detection and protection services, such as [Just-in-time (JIT) VM access](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [adaptive application controls](security-center-adaptive-application.md), and more.
  
 ## Next steps
 This article explains how cross-tenant management works in Security Center. To learn more about Security Center, see the following:
 
-* [Strengthen your security posture with Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+* [Strengthen your security posture with Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
+* [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+* [Learn about Azure Lighthouse in enterprise scenarios](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.

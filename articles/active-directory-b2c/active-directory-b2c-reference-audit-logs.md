@@ -90,30 +90,25 @@ To allow script- or application-based access to the Azure AD reporting API, you 
 
 You can enable these permissions on an existing Azure Active Directory application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
-To create a new application, assign the required API permissions, and create a client secret, perform the following steps:
+Follow these steps register an application, grant it the required Microsoft Graph API permissions, and then create a client secret.
 
-1. Register application in Azure Active Directory
-    1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-    1. Select **Azure Active Directory** (*not* Azure AD B2C) from the left menu. Or, select **All services**, then search for and select **Azure Active Directory**.
-    1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
-    1. Select **New application registration**
-    1. Enter a name for the application. For example, *Audit Log App*.
-    1. Enter any valid URL in **Sign-on URL**. For example, *https://localhost*. This endpoint does not need to be reachable, but needs to be a valid URL.
-    1. Select **Create**.
-    1. Record the **Application ID** that appears on the **Registered app** page. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
-1. Assign API access permissions
-    1. On the **Registered app** overview page, select **Settings**.
-    1. Under **API ACCESS**, select **Required permissions**.
-    1. Select **Add**, and then **Select an API**.
-    1. Select **Microsoft Graph**, and then **Select**.
-    1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
-    1. Select the **Select** button, and then select **Done**.
-    1. Select **Grant permissions**, and then select **Yes**.
-1. Create client secret
-    1. Under **API ACCESS**, select **Keys**.
-    1. Enter a description for the key in the **Key description** box. For example, *Audit Log Key*.
-    1. Select a validity **Duration**, then select **Save**.
-    1. Record the key's **VALUE**. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
+### Register application in Azure Active Directory
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### Assign API access permissions
+
+1. On the **Registered app** overview page, select **Settings**.
+1. Under **API ACCESS**, select **Required permissions**.
+1. Select **Add**, and then **Select an API**.
+1. Select **Microsoft Graph**, and then **Select**.
+1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
+1. Select the **Select** button, and then select **Done**.
+1. Select **Grant permissions**, and then select **Yes**.
+
+### Create client secret
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 You now have an application with the required API access, an application ID, and a key that you can use in your automation scripts. See the PowerShell script section later in this article for an example of how you can get activity events with a script.
 

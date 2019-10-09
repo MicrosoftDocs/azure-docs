@@ -187,6 +187,7 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
+To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
 Save and close the file.
 
@@ -225,6 +226,8 @@ Find the provisioning configurations of the file and uncomment the section appro
        method: "tpm"
        registration_id: "{registration_id}"
    ```
+
+To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
 
 Save and close the file.
 
