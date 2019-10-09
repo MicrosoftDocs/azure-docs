@@ -18,9 +18,18 @@ ms.author: diberry
 
 The V3 APIs are significantly different from V2. Use this guide to understand how to migrate to version 3 APIs. 
 
-## Generally available APIs 
+Both [authoring](#authoring-apis) and [prediction](#prediction-apis) APIs change in V3.
 
-### Prediction endpoint changes
+## Authoring APIs
+
+These authoring changes are available in both V2 and V3 authoring APIs, to support model decomposition:
+
+* [Machine-learned entities](luis-migration-api-authoring.md#machine-learned-entities)
+* [Descriptors](luis-migration-api-authoring.md#descriptors)
+* [Constraints](luis-migration-api-authoring.md#constraints) 
+
+## Prediction APIs
+
 
 This V3 API provides the following new features, which include significant JSON request and/or response changes: 
 

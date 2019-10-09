@@ -1,7 +1,7 @@
 ---
-title: Prediction endpoint 
+title: Prediction endpoint changes in the V3 API
 titleSuffix: Azure Cognitive Services
-description: 
+description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: diberry
 ---
 
 
-# Prediction endpoint
+# Prediction endpoint changes for V3
 
-The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
+The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
-This V3 API include significant JSON request and/or response changes from V2.
+**Generally available status** - this V3 API include significant JSON request and/or response changes from V2.
 
 The V3 API provides the following new features:
 
