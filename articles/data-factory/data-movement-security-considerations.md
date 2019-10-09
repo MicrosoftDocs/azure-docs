@@ -108,7 +108,7 @@ The command channel allows communication between data movement services in Data 
 ### On-premises data store credentials
 The credentials can be stored within data factory or be [referenced by data factory](store-credentials-in-key-vault.md) during the runtime from Azure Key Vault. If storing credentials within data factory, it is always stored encrypted on the self-hosted integration runtime. 
  
-- **Store credentials locally**. If you directly use the **Set-AzDataFactoryV2LinkedService** cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored on self-hosted integration runtime.  In this case the credentials flow through azure backend service, which is extremly secure, to the self-hosted integration machine where it is finally encrpted and stored. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data and credential information.
+- **Store credentials locally**. If you directly use the **Set-AzDataFactoryV2LinkedService** cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored on self-hosted integration runtime.  In this case the credentials flow through azure backend service, which is extremely secure, to the self-hosted integration machine where it is finally encrypted and stored. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data and credential information.
 
 - **Store credentials in Azure Key Vault**. You can also store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory retrieves the credential during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
@@ -157,14 +157,7 @@ In an enterprise, a corporate firewall runs on the central router of the organiz
 
 The following table provides outbound port and domain requirements for corporate firewalls:
 
-| Domain names                  | Outbound ports | Description                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Required by the self-hosted integration runtime to connect to data movement services in Data Factory. |
-| `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Data Factory service. |
-| `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled auto-update then you may skip this. |
-| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
-| `*.database.windows.net`      | 1433           | (Optional) Required when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database or Azure SQL Data Warehouse without opening port 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optional) Required when you copy from or to  Azure Data Lake Store. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
 > You might have to manage ports or whitelisting domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.   

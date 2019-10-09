@@ -262,12 +262,8 @@ There are two firewalls to consider: the *corporate firewall* running on the cen
 
 At the *corporate firewall* level, you need to configure the following domains and outbound ports:
 
-Domain names | Ports | Description
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | Used for communication with the back-end data movement service
-*.core.windows.net | 443 | Used for staged copy through Azure Blob storage (if configured)
-*.frontend.clouddatahub.net | 443 | Used for communication with the back-end data movement service
-download.microsoft.com | 443 | Used for downloading the updates
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 At the *Windows firewall* level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on a self-hosted integration runtime machine.
 
