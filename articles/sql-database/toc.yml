@@ -241,23 +241,6 @@
         - name: Configure security for replicas
           href: sql-database-geo-replication-security-config.md
 
-  - name: Load data
-    items:
-    - name: Load and move data
-      items:
-      - name: Import a database from a BACPAC file
-        href: sql-database-import.md
-      - name: Export a database to a BACPAC file
-        href: sql-database-export.md
-      - name: Copy a database within Azure
-        href: sql-database-copy.md
-      - name: Move resources to a new region
-        href: sql-database-move-resources-across-regions.md
-      - name: Load data with BCP
-        href: sql-database-load-from-csv-with-bcp.md
-      - name: Load data with ADF
-        href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-
   - name: Monitor and tune
     items:
     - name: Monitor and tune documentation
@@ -336,14 +319,7 @@
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
 
-  - name: Design a database
-    items:
-    - name: Design database using SSMS
-      href: sql-database-design-first-database.md
-    - name: Design database using .NET
-      href: sql-database-design-first-database-csharp.md
-
-  - name: Additional features
+  - name: Database features
     items:
     - name: Database feature documentation
       href: sql-database-features-index.yml
@@ -371,8 +347,29 @@
     - name: Database mail
       href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
 
-  - name: Develop and design apps
+  - name: How to
     items:
+
+    - name: Design a database
+      items:
+      - name: Design database using SSMS
+        href: sql-database-design-first-database.md
+      - name: Design database using .NET
+        href: sql-database-design-first-database-csharp.md
+    - name: Load and move data
+      items:
+      - name: Import a database from a BACPAC file
+        href: sql-database-import.md
+      - name: Export a database to a BACPAC file
+        href: sql-database-export.md
+      - name: Copy a database within Azure
+        href: sql-database-copy.md
+      - name: Move resources to a new region
+        href: sql-database-move-resources-across-regions.md
+      - name: Load data with BCP
+        href: sql-database-load-from-csv-with-bcp.md
+      - name: Load data with ADF
+        href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Develop data applications
       items:
       - name: Overview
