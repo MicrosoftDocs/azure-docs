@@ -129,7 +129,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 3. Select **Certificate permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the certificates.
 
-4. Select **OK**. 
+4. Select **Secret permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the Secrets.
+
+5. Select **OK**. 
 
     Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
