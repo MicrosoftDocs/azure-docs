@@ -8,10 +8,10 @@ author: tomarcher
 manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/08/2019
+ms.date: 10/09/2019
 ---
 
-# Create an Application Gateway ingress controller in Azure Kubernetes Service (AKS)
+# Create an Application Gateway ingress controller in Azure Kubernetes Service
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, these tasks - including provisioning, upgrading and scaling resources - can be accomplished on-demand.
 
@@ -657,23 +657,23 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-k8s-cluster-appgw-with-tf-aks/kubectl-get-nodes.png)
 
-## Install AAD Pod Identity
+## Install Azure AD Pod Identity
 
-Azure Active Directory Pod Identity provides token-based access to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/resource-group-overview).
+Azure Active Directory Pod Identity provides token-based access to [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
-[AAD Pod Identity](https://github.com/Azure/aad-pod-identity) adds the following components to your Kubernetes cluster:
+[Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) adds the following components to your Kubernetes cluster:
 
   - Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
   - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
   - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-If RBAC is **enabled**, run the following command to install AAD Pod Identity to your cluster:
+If RBAC is **enabled**, run the following command to install Azure AD Pod Identity to your cluster:
 
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
     ```
 
-If RBAC is **disabled**, run the following command to install AAD Pod Identity to your cluster:
+If RBAC is **disabled**, run the following command to install Azure AD Pod Identity to your cluster:
 
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -744,7 +744,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
     ```
 
-### Install a Sample App
+### Install a sample app
 
 Once you have the App Gateway, AKS, and AGIC installed, you can install a sample app via [Azure Cloud Shell](https://shell.azure.com/):
 
