@@ -89,13 +89,13 @@ Once registered, the application will be given a GUID that the app shares with A
 
 ### Application model
 
-Microsoft identity platform represents applications following a specific model that fulfills two main functions:
+The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
-* **Identify the app according to the authentication protocols it supports** This involves enumerating all the identifiers, URLs, secrets, and related information that are needed to authenticate. The Microsoft identity platform:
+* **Identify the app by the authentication protocols it supports** This involves enumerating all the identifiers, URLs, secrets, and related information that are needed to authenticate. The Microsoft identity platform:
 
     * Holds all the data required to support authentication at runtime.
-    * Holds all the data for deciding what resources an app might need to access and whether a given request should be fulfilled and under what circumstances.
-    * Provides the infrastructure for implementing app provisioning within the app developer's tenant and to any other Azure AD tenant.
+    * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
+    * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
 
 * **Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants** The Microsoft identity platform:
 
