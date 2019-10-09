@@ -14,7 +14,7 @@ This article contains security recommendations for Azure Virtual Machines. Follo
 
 Some of this article's recommendations can be automatically addressed by Azure Security Center. Azure Security Center is the first line of defense for your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then recommends how to address the vulnerabilities. For more information, see [Security recommendations in Azure Security Center](../articles/security-center/security-center-recommendations.md).
 
-For general information about Azure Security Center, see [What is Azure Security Center?](../articles/security-center/security-center-intro.md)
+For general information about Azure Security Center, see [What is Azure Security Center?](../articles/security-center/security-center-intro.md).
 
 ## Recommendations
 
