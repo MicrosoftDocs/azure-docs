@@ -47,9 +47,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Introduce API to unregister datasets. `dataset.unregister_all_versions()`
     + Introduce Dataset API to check data changed time. `dataset.data_changed_time`.
     + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in Azure Machine Learning Pipeline
+    + Performance of `FileDataset.mount` has been improved for folders with a large number of files
     + Added URL to known error recommendations in run details.
     + Fixed a bug in run.get_metrics where requests would fail if a run had too many children
-    +  Added support for authentication on Arcadia cluster.
+    + Added support for authentication on Arcadia cluster.
     + Creating an Experiment object gets or creates the experiment in the Azure Machine Learning workspace for run history tracking. The experiment id and archived time are populated in the Experiment object on creation. Example: experiment = Experiment(workspace, "New Experiment") experiment_id = experiment.id archive() and reactivate() are functions that can be called on an experiment to hide and restore the experiment from being shown in the UX or returned by default in a call to list experiments. If a new experiment is created with the same name as an archived experiment, you can rename the archived experiment when reactivating by passing a new name. There can only be one active experiment with a given name. Example: experiment1 = Experiment(workspace, "Active Experiment") experiment1.archive() # Create new active experiment with the same name as the archived. experiment2. = Experiment(workspace, "Active Experiment") experiment1.reactivate(new_name="Previous Active Experiment") The static method list() on Experiment can take a name filter and ViewType filter. ViewType values are "ACTIVE_ONLY", "ARCHIVED_ONLY" and "ALL" Example: archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY") all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
     + Support using environment for model deploy, and service update
   + **azureml-datadrift**
@@ -60,8 +61,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
       + By input specific start_time and/or end_time, only results of scheduled runs will be returned; 
       + Parameter 'daily_latest_only' is deprecated.
     + Support retrieving Dataset-based Data Drift outputs.
-  + **azureml-dataprep**
-    + Performance of `FileDataset.mount` has been improved for folders with a large number of files
   + **azureml-explain-model**
     + Renames AzureML-explain-model package to AzureML-interpret, keeping the old package for backwards compatibility for now
     + fixed automl bug with raw explanations set to classification task instead of regression by default on download from ExplanationClient
