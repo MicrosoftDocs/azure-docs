@@ -1,7 +1,7 @@
 ---
 title: How to file a support request
 titleSuffix: Microsoft Genomics
-description: This article describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the troubleshooting guide or the FAQ. 
+description: This article describes how to file a support request to contact Microsoft Genomics if you're not able to resolve your issue with the troubleshooting guide or FAQ. 
 keywords: troubleshooting, error, debugging, support
 services: genomics
 author: grhuynh
