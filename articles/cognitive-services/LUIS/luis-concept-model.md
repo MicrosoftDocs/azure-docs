@@ -13,7 +13,7 @@ ms.date: 10/03/2019
 ms.author: diberry
 ---
 
-# Types of models in Language Understanding
+# App Models are your schema in Language Understanding
 
 Language understanding provides several types of models. Some models can be used in more than one way. 
 

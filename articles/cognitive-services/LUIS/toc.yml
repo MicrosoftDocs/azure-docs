@@ -108,20 +108,17 @@
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
-  - name: Plan your app
-    displayName: simple, composite, prebuilt, list, regex, regular expression
-    href: luis-how-plan-your-app.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md    
   - name: Authoring models
     items:
-    - name: Authoring cycle
+    - name: Plan your app
+      displayName: simple, composite, prebuilt, list, regex, regular expression
+      href: luis-how-plan-your-app.md
+    - name: Authoring
       href: luis-concept-app-iteration.md
     - name: Versioning
       href: luis-concept-version.md
       displayName: import
-    - name: Types of models
+    - name: Models
       href: luis-concept-model.md
     - name: Features
       href: luis-concept-feature.md
@@ -141,6 +138,9 @@
     - name: Patterns
       href: luis-concept-patterns.md
       displayName: roles
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
   - name: Improve app performance
     items:
     - name: Review endpoint utterances
