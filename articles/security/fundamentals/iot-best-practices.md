@@ -3,7 +3,7 @@ title: Internet of Things Security Best Practices | Microsoft Docs
 description: The article provides a curated list of Microsoft Internet of Things Security Best Practices and general recommendations.
 services: security
 documentationcenter: na
-author: barclayn
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 
@@ -37,8 +37,8 @@ This article summarizes [Internet of Things Security Best Practices](/azure/iot-
 
 Follow the best practices below if you are an IoT hardware manufacture or a hardware integrator:
 
-* **Scope hardware to minimum requirements**: the hardware design should include minimum features required for operation of the hardware, and nothing more. 
-* **Make hardware tamper proof**: build in mechanisms to detect physical tampering of hardware, such as opening the device cover, removing a part of the device, etc. 
+* **Scope hardware to minimum requirements**: the hardware design should include minimum features required for operation of the hardware, and nothing more.
+* **Make hardware tamper proof**: build in mechanisms to detect physical tampering of hardware, such as opening the device cover, removing a part of the device, etc.
 * **Build around secure hardware**: if [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) permit, build security features such as secure and encrypted storage and Trusted Platform Module (TPM)-based boot functionality.
 * **Make upgrades secure**: upgrading firmware during lifetime of the device is inevitable.
 
@@ -48,7 +48,7 @@ Follow the best practices below if you are an IoT solution developer:
 
 * **Follow secure software development methodology**: developing secure software requires ground-up thinking about security from the inception of the project all the way to its implementation, testing, and deployment.
 * **Choose open source software with care**: open source software provides an opportunity to quickly develop solutions.
-* **Integrate with care**: many of the software security flaws exist at the boundary of libraries and APIs. 
+* **Integrate with care**: many of the software security flaws exist at the boundary of libraries and APIs.
 
 ## IoT solution deployer
 
@@ -61,9 +61,8 @@ Follow the best practices below if you are an IoT solution deployer:
 
 Follow the best practices below if you are an IoT solution operator:
 
-* **Keep systems up to date**: ensure device operating systems and all device drivers are updated to the latest versions. 
-* **Protect against malicious activity**: if the operating system permits, place the latest anti-virus and anti-malware capabilities on each device operating system. 
+* **Keep systems up to date**: ensure device operating systems and all device drivers are updated to the latest versions.
+* **Protect against malicious activity**: if the operating system permits, place the latest anti-virus and anti-malware capabilities on each device operating system.
 * **Audit frequently**: auditing IoT infrastructure for security related issues is key when responding to security incidents.
 * **Physically protect the IoT infrastructure**: the worst security attacks against IoT infrastructure are launched using physical access to devices.
-* **Protect cloud credentials**: cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system. 
-
+* **Protect cloud credentials**: cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system.

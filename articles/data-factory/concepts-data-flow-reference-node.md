@@ -11,7 +11,7 @@ ms.date: 01/31/2019
 
 # Mapping Data Flow Reference Node
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Reference Node](media/data-flow/referencenode.png "reference node")
 

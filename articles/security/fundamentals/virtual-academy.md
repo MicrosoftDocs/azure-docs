@@ -3,7 +3,7 @@ title: Azure security courses from Microsoft Virtual Academy | Microsoft Docs
 description: This article provides a curated collection of Azure security related courses from Microsoft Virtual Academy.  Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers.
 services: security
 documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/07/2019
 ms.author: terrylan
 
 ---

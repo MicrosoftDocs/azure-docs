@@ -3,7 +3,7 @@ title: Microsoft Security Response Center | Microsoft Docs
 description: The article provides a curated list of Microsoft Security Response Center (MSRC) resources that can be used to obtain more information about MSRC practices and recommendations.
 services: security
 documentationcenter: na
-author: barclayn
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 10/07/2019
 ms.author: barclayn
 
 ---

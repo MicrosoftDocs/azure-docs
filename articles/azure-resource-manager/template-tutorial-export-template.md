@@ -42,13 +42,13 @@ This template works well for deploying storage accounts, but you might want to a
     - **Name**: enter a name for the App service plan.
     - **Operating System**: select **Linux**.
     - **Region**: select an Azure location. For example, **Central US**.
-    - **Pricing tier**: to save costs, change the SKU to **Basic**.
+    - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
 
     ![Resource Manager template export template portal](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Select **Review and create**.
 1. Select **Create**. It takes a few moments to create the resource.
 
-## Export template
+## Export the template
 
 1. Select **Go to resource**.
 
@@ -58,7 +58,7 @@ This template works well for deploying storage accounts, but you might want to a
 
     ![Resource Manager template export template](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful of quickly getting the JSON you need to deploy a resource.
+   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
 1. Copy the **Microsoft.Web/serverfarms** definition and the parameter definition to your template.
 
@@ -67,7 +67,7 @@ This template works well for deploying storage accounts, but you might want to a
 > [!IMPORTANT]
 > Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the **name** property. You can start with the exported template, and then modify it as you like to fit your requirements.
 
-## Revise existing template
+## Revise the existing template
 
 The exported template gives you most of the JSON you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
 
@@ -77,7 +77,7 @@ Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## Deploy template
+## Deploy the template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 
