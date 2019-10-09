@@ -1,7 +1,7 @@
 ---
-title: Submit a workflow using shared access signatures - Microsoft Genomics
-titleSuffix: Azure
-description: The article assumes you have the msgen client installed and have successfully run the sample data through the service.  
+title: Workflow using shared access signatures
+titleSuffix: Microsoft Genomics
+description: This article demonstrates how to submit a workflow to the Microsoft Genomics service using a config.txt file that contains shared access signatures (SAS) instead of storage account keys.
 services: genomics
 author: grhuynh
 manager: cgronlun
