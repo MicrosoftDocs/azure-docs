@@ -95,7 +95,19 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
-3. To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
+3. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
+
+    ```
+    prometheus-data-collection-settings: |- ​
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] ​
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+4. To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
 
     ```
     prometheus-data-collection-settings: |- ​
@@ -107,7 +119,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
     ```
 
-4. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following:
+5. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following:
 
     1. In the ConfigMap, specify the following:
     
@@ -121,10 +133,10 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          fielddrop = ["metric_to_drop"] ​
         ```
 
-    >[!NOTE]
-    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
+        >[!NOTE]
+        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
 
-5. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
+6. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
     1. In the ConfigMap, specify the following:
 
@@ -144,18 +156,6 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
          - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
         ```
-
-6. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
-
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings
-    [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are s, m, h.
-    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
-    ```
 
 7. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
