@@ -41,5 +41,6 @@ The service is created and added to the list of services.
 
 ## Next steps
 
-* Learn how to [create a Private Cloud](create-private-cloud.md)
-* Learn how to [configure a Private Cloud environment](quickstart-create-private-cloud.md)
+* Learn how to [provision nodes](create-nodes.md)
+* Learn how to [create a private cloud](create-private-cloud.md)
+* Learn how to [configure a private cloud environment](quickstart-create-private-cloud.md)
