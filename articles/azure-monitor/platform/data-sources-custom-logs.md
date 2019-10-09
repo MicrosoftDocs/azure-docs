@@ -167,7 +167,7 @@ While custom logs are useful if your data fits the criteria listed about, but th
 In the cases where your data can't be collected with custom logs, consider the following alternate strategies:
 
 - Use a custom script or other method to write data to [Windows Events](data-sources-windows-events.md) or [Syslog](data-sources-syslog.md) which are collected by Azure Monitor. 
-- Send the data directly to Azure Monitor using [HTTP Data Collector API](data-collector-api.md). An example using runbooks in Azure Automation is provided in [Collect log data in Azure Monitor with an Azure Automation runbook](runbook-datacollect.md).
+- Send the data directly to Azure Monitor using [HTTP Data Collector API](data-collector-api.md). 
 
 ## Next steps
 * See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
