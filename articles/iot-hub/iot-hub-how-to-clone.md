@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/07/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -14,7 +14,7 @@ ms.author: robinsh
 
 This article explores ways to clone an IoT Hub and provides some questions you need to answer before you start. There are several reasons you might want to clone an IoT hub from one region to another. 
 
-* You want to migrate your hub from the Free or Basic tier to a Standard tier. You can't change the tier of a hub using the Azure portal, Azure PowerShell, or Azure CLI.
+* You want to migrate your hub from the Free tier to a Basic or Standard tier. You can't do this using the Azure portal, Azure PowerShell, or Azure CLI.
 
 * You are moving your company from one region to another, such as from Europe to North America (or vice versa), and you want your resources and data to be geographically close to your new location.
 
@@ -30,6 +30,8 @@ To move a hub to a different region, you need a subscription with administrative
 ## Things to consider
 
 There are several things to consider when cloning an IoT hub.
+
+* Make sure that all of the features available in the original location as also available in the new location. Some services are in preview, and not all features are available everywhere.
 
 * Do not remove the original resources before creating and verifying the cloned version. Once you remove a hub, it's gone forever, and there is no way to recover it to check the settings or data to make sure you had replicated them correctly.
 
@@ -61,7 +63,7 @@ This is the general method we recommend for moving an IoT Hub from one region to
    
    1. Add anything that wasn't exported to the template. 
    
-       For example, consumer group is not exported to the template. You need to add the consumer group to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created. There is an example of adding consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
+       For example, consumer groups are not exported to the template. You need to add the consumer groups to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created. There is an example of adding one consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
 
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
