@@ -214,22 +214,21 @@
 
   - name: Backup, restore, high availability (BCDR)
     items:
-      - name: Recovery using backups
-        href: sql-database-recovery-using-backups.md
-      - name: Accelerated database recovery
-        href: sql-database-accelerated-database-recovery.md
-      - name: Outage recovery guidance
-        href: sql-database-disaster-recovery.md
-      - name: Recovery drills
-        href: sql-database-disaster-recovery-drills.md
       - name: Business continuity
         href: sql-database-business-continuity.md
       - name: High availability
         href: sql-database-high-availability.md
-      - name: Automated backups
-        href: sql-database-automated-backups.md
-      - name: Long-term backup retention
-        href: sql-database-long-term-retention.md
+      - name: Backups
+        items:
+        - name: Automated backups
+          href: sql-database-automated-backups.md
+        - name: Recovery using backups
+          href: sql-database-recovery-using-backups.md
+        - name: Accelerated database recovery
+          href: sql-database-accelerated-database-recovery.md
+        - name: Long-term backup retention
+          href: sql-database-long-term-retention.md
+
       - name: Failover groups and geo-replication
         items: 
         - name: Active geo-replication
@@ -237,7 +236,11 @@
         - name: Auto-failover groups
           href: sql-database-auto-failover-group.md
         - name: Configure security for replicas
-          href: sql-database-geo-replication-security-config.md
+          href: sql-database-geo-replication-security-config.md  
+        - name: Outage recovery guidance
+          href: sql-database-disaster-recovery.md
+        - name: Recovery drills
+          href: sql-database-disaster-recovery-drills.md
 
   - name: Monitor and tune
     items:
