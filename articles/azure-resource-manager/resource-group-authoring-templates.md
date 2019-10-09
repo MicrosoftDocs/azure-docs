@@ -350,7 +350,7 @@ For **outputs**, add a metadata object to the output value.
 
 You can't add a metadata object to user-defined functions.
 
-For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
 > [!NOTE]
 > To deploy templates with comments by using Azure CLI, you must use the `--handle-extended-json-format` switch.
