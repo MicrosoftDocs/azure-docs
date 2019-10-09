@@ -27,10 +27,8 @@ landingContent:
         links:
           - text: "What is Media Services v3?"
             url: media-services-overview.md
-      - linkListType: whats-new
-        links:
-         - text: "What's new in Media Services?"
-           url: release-notes.md
+          - text: "What's new in Media Services?"
+            url: release-notes.md
       - linkListType: concept
         links:
           - text: Media Services accounts
@@ -43,14 +41,18 @@ landingContent:
             url: reacting-to-media-services-events.md
           - text: Player clients
             url: use-azure-media-player.md  
+          - text: Developing with v3 API guidance
+            url: media-services-apis-overview.md            
 
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
-          - text: Developing with v3 API guidance
-            url: media-services-apis-overview.md
+          - text: Create an account
+            url: create-account-cli-how-to.md          
+          - text: Access API
+            url: access-api-cli-how-to.md    
       - linkListType: download
         links:
           - text: Media Services v3 OpenAPI Specification
@@ -61,12 +63,6 @@ landingContent:
             url: https://github.com/Azure-Samples/media-services-v3-java
           - text: REST Postman collection samples
             url: https://github.com/Azure-Samples/media-services-v3-rest-postman            
-      - linkListType: how-to-guide
-        links:
-          - text: Create an account
-            url: create-account-cli-how-to.md          
-          - text: Access API
-            url: access-api-cli-how-to.md    
       - linkListType: reference
         links:
           - text: Azure CLI
