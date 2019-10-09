@@ -52,13 +52,13 @@ To learn more, see [enable SSL termination while creating a new application gate
 
    For Standard and WAF (v1) application gateways, you should upload the public key of your back-end server certificate in .cer format.
 
-   ![add_certificate](./media/end-to-end-ssl-portal/addcert.png)
+   ![Add certificate](./media/end-to-end-ssl-portal/addcert.png)
 
    For Standard_v2 and WAF_v2 application gateways, you should upload the root certificate of the back-end server certificate in .cer format. If the back-end certificate is issued by a well-known certificate authority (CA), you can select the **Use Well Known CA Certificate** check box, and then you don't have to upload a certificate.
 
-   ![Add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Add trusted root certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-   ![Root_certificate](./media/end-to-end-ssl-portal/trustedrootcert.png)
+   ![Root certificate](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
 8. Select **Save**.
 
@@ -106,11 +106,11 @@ If you choose the latter option, apply the steps in the following procedure.
 
    For Standard and WAF (v1) application gateways, you should upload the public key of your back-end server certificate in .cer format.
 
-   ![Add_certificate](./media/end-to-end-ssl-portal/addcert.png)
+   ![Add certificate](./media/end-to-end-ssl-portal/addcert.png)
 
    For Standard_v2 and WAF_v2 application gateways, you should upload the root certificate of the back-end server certificate in .cer format. If the back-end certificate is issued by a well-known CA, you can select the **Use Well Known CA Certificate** check box, and then you don't have to upload a certificate.
 
-   ![Add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Add trusted root certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
 8. Select **Save**.
 
