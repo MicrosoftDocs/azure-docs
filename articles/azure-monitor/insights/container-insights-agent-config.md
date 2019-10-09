@@ -74,9 +74,9 @@ When a URL is specified, Azure Monitor for containers only scrapes the endpoint.
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
-| | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
+| | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port is not set, it will default to 9102. |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
-| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as ns, us (or Âµs), ms, s, m, h. |
+| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, h. |
 | Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
@@ -101,13 +101,13 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     prometheus-data-collection-settings: |- ​
     # Custom Prometheus metrics data collection settings
     [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
+    interval = "1m"  ## Valid time units are s, m, h.
     fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
     fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
     urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
     ```
 
-4. To configure scraping of Prometheus metrics from an agent's DaemonSet node-wide, configure the following:
+4. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following:
 
     1. In the ConfigMap, specify the following:
     
@@ -115,16 +115,14 @@ Perform the following steps to configure and deploy your ConfigMap configuration
         prometheus-data-collection-settings: |- ​
         # Custom Prometheus metrics data collection settings ​
         [prometheus_data_collection_settings.node] ​
-        interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-        ```
-
-    2. In the service metadata, specify the following:
-
-        ```​
+        interval = "1m"  ## Valid time units are s, m, h. 
          urls = ["http://$NODE_IP:9103/metrics"] ​
          fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
          fielddrop = ["metric_to_drop"] ​
         ```
+
+    >[!NOTE]
+    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
 
 5. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
@@ -134,11 +132,11 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] ​
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
+         interval = "1m"  ## Valid time units are s, m, h
          monitor_kubernetes_pods = true 
         ```
 
-    2. In the pod metadata, specify the following:
+    2. Specify the following configuration for pod annotations:
 
         ```
          - prometheus.io/scrape:"true" #Enable scraping for this pod ​
@@ -147,7 +145,19 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
         ```
 
-6. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+6. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
+
+    ```
+    prometheus-data-collection-settings: |- ​
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] ​
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+7. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -193,29 +203,32 @@ The output will show similar to the following with the annotation schema-version
 	                schema-versions=v1 
 ```
 
-## Review Prometheus data usage
+## Query Prometheus metrics data
 
 To view prometheus metrics scraped by Azure Monitor, specify "prometheus" as the Namespace. Here is a sample query to view prometheus metrics from the `default` kubernetes namespace.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | extend tags=parse_json(Tags)
-| where tostring(tags.namespace) == "default" 
+| summarize count() by Name
 ```
 
 Prometheus data can also be directly queried by name.
 
 ```
 InsightsMetrics 
+| where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
+
+## Review Prometheus data usage
 
 To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
