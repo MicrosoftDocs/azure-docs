@@ -51,4 +51,4 @@ To see the specifications of each Fsv2-series SKU, see [Compute optimized virtua
 ## Next steps
 
 - [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md)
-* [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
