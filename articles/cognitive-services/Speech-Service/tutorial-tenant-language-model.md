@@ -57,7 +57,7 @@ After your admin has enabled Tenant Language Model for your organization, you ca
 When your Tenant Language Model is ready, there are two ways to publish it.
 
 * **Option 1:** Click the **Publish** button in the email that you received.
-* **Option 2:**
+* **Option 2:** Publish via Speech Studio
   1. Sign into the [Speech Studio](https://speech.microsoft.com/).
   2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model setting**.
   3. Click **Publish**.
