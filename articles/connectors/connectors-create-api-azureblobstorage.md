@@ -19,13 +19,16 @@ This article shows how you can access and manage files stored as blobs in your A
 
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) 
-> and exist in the same region. However, logic apps can access Azure storage accounts, except Azure Table Storage and Azure Queue Storage, that exist 
-> in a different region because a public IP address is used for communicating across regions. Just make sure that you permit the 
-> [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Otherwise, you can use either more advanced options here:
->
+> Logic apps can't directly access Azure storage accounts that have 
+> [firewall rules](../storage/common/storage-network-security.md) 
+> and exist in the same region. However, if you permit the 
+> [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), 
+> logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or 
+> Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions. 
+> Otherwise, you can use the more advanced options here:
+> 
 > * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
 > which can connect to resources in an Azure virtual network.
 >
