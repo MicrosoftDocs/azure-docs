@@ -53,19 +53,21 @@ If your application is approaching the scalability targets for a single storage 
 - If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries.  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse. For more information, see the section titled **Retries** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#retries?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries.  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse. For more information, see the section titled **Retries** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#retries).
 
 ### Multiple clients accessing a single object concurrently
 
 If you have a large number of clients accessing a single object concurrently, you will need to consider per-object and storage account scalability targets. The exact number of clients that can access a single object will vary depending on factors such as the number of clients requesting the object simultaneously, the size of the object, network conditions etc.
 
-If the object can be distributed through a CDN such as images or videos served from a website, then you should use a CDN. For more information, see the section titled **Content distribution** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#content-distribution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+If the object can be distributed through a CDN such as images or videos served from a website, then you should use a CDN. For more information, see the section titled **Content distribution** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#content-distribution).
 
 In other scenarios, such as scientific simulations where the data is confidential, you have two options. The first is to stagger your workload's access such that the object is accessed over a period of time vs being accessed simultaneously. Alternatively, you can temporarily copy the object to multiple storage accounts thus increasing the total IOPS per object and across storage accounts. In limited testing, we found that around 25 VMs could simultaneously download a 100-GB blob in parallel (each VM was parallelizing the download using 32 threads). If you had 100 clients needing to access the object, first copy it to a second storage account and then have the first 50 VMs access the first blob and the second 50 VMs access the second blob. Results will vary depending on your applications behavior so you should test this during design.
 
 ### Bandwidth and operations per blob
 
-You can read or write to a single blob at up to a maximum of 60 MB/second (this is approximately 480 Mbps, which exceeds the capabilities of many client-side networks (including the physical NIC on the client device). In addition, a single blob supports up to 500 requests per second. If you have multiple clients that need to read the same blob and you might exceed these limits, you should consider using a CDN for distributing the blob.  
+A single blob supports up to 500 requests per second. If you have multiple clients that need to read the same blob and you might exceed this limit, then consider using a block blob storage account. A block blob storage account provides a higher request rate, or I/O operations per second (IOPS).
+
+You can also use a content delivery network (CDN) such as Azure CDN to distribute operations on the blob. For more information about Azure CDN, see [Azure CDN over    view](../../cdn/cdn-overview).  
 
 For more information about target throughput for blobs, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).  
 
@@ -109,7 +111,7 @@ To upload a single large blob quickly, your client application should upload its
 
 ### Upload many blobs quickly
 
-To upload many blobs quickly, upload blobs in parallel. This is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. A single blob only supports a throughput of 60 MB/second (approximately 480 Mbps). At the time of writing, a US-based LRS account supports up to 20-Gbps ingress, which is far more than the throughput supported by an individual blob. AzCopy performs uploads in parallel by default, and is recommended for this scenario. For more information, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md).  
+To upload many blobs quickly, upload blobs in parallel. Uploading in parallel is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. AzCopy performs uploads in parallel by default, and is recommended for this scenario. For more information, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md).  
 
 ## Choose the correct type of blob
 
