@@ -713,41 +713,41 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 
 1. Download `helm-config.yaml` to configure AGIC:
 
-  ```bash
-  wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
-  ```
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
+    ```
 
 1. Edit the `helm-config.yaml` and enter the appropriate values for `appgw` and `armAuth` sections.
 
-  ```bash
-  nano helm-config.yaml
-  ```
+    ```bash
+    nano helm-config.yaml
+    ```
 
-  The values are described as follows:
+    The values are described as follows:
 
-  - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
-  - `appgw.subscriptionId`: The Azure Subscription ID for the App Gateway. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
-  - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
-  - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
-  - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-  - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces.
-  - `armAuth.type`: A value of either `aadPodIdentity` or `servicePrincipal`.
-  - `armAuth.identityResourceID`: Resource ID of the managed identity.
-  - `armAuth.identityClientId`: The Client ID of the Identity.
-  - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
+    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+    - `appgw.subscriptionId`: The Azure Subscription ID for the App Gateway. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
+    - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
+    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces.
+    - `armAuth.type`: A value of either `aadPodIdentity` or `servicePrincipal`.
+    - `armAuth.identityResourceID`: Resource ID of the managed identity.
+    - `armAuth.identityClientId`: The Client ID of the Identity.
+    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
 
-  Key notes:
-  - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
-  - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
-  - The `<resource-group>` value is the resource group of your App Gateway.
-  - The `<identity-name>` value is the name of the created identity.
-  - All identities for a given subscription can be listed using: `az identity list`.
+    Key notes:
+    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
+    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
+    - The `<resource-group>` value is the resource group of your App Gateway.
+    - The `<identity-name>` value is the name of the created identity.
+    - All identities for a given subscription can be listed using: `az identity list`.
 
 1. Install the Application Gateway ingress controller package:
 
-  ```bash
-  helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
-  ```
+    ```bash
+    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    ```
 
 ### Install a Sample App
 
