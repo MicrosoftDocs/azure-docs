@@ -202,6 +202,8 @@
           items:
           - name: Node.js
             href: app/nodejs.md
+        - name: Python
+          href: app/opencensus-python.md
         - name: Web pages
           items:
           - name: Client-side JavaScript
