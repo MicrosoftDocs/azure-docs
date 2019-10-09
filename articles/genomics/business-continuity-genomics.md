@@ -26,7 +26,7 @@ Although rare, an Azure data center can have an outage, which could cause a busi
 
 
 ### Manually failover Microsoft Genomics workflows to another region
-In the case of a regional data center outage, you may elect to submit Microsoft Genomics workflows in a secondary region, based on your individual data sovereignty and business continuity requirements. To manually failover Microsoft Genomics workflows, you would use a different region-specific. Genomics account and submit the job with appropriate region-specific Genomics and storage account credentials.
+If a regional data center outage occurs, you may elect to submit Microsoft Genomics workflows in a secondary region, based on your individual data sovereignty and business continuity requirements. To manually failover Microsoft Genomics workflows, you would use a different region-specific. Genomics account and submit the job with appropriate region-specific Genomics and storage account credentials.
 
 Specifically, you will need to:
 * Create a Genomics account in the secondary region, using the Azure portal. 
