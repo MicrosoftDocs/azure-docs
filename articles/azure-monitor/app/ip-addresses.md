@@ -38,7 +38,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Live Metrics Stream (West Europe) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
 | Live Metrics Stream (East Asia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
 | Live Metrics Stream (Southeast Asia) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>23.101.9.4 |443 |
-| Live Metrics Stream (west Central US) | Enter trafficmanger DNS address here |52.161.30.205<br/>52.161.13.86<br/>52.161.109.125<br/>13.78.149.202<br/>13.78.147.250<br/>13.78.149.196</br>13.78.142.34</br>13.78.142.34<br/>13.78.132.111 |443 |
+| Live Metrics Stream (West Central US) | Enter trafficmanger DNS address here |52.161.30.205<br/>52.161.13.86<br/>52.161.109.125<br/>13.78.149.202<br/>13.78.147.250<br/>13.78.149.196</br>13.78.142.34</br>13.78.142.34<br/>13.78.132.111 |443 |
 
 
 ## Status Monitor
