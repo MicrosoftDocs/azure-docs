@@ -1,5 +1,5 @@
 ---
-title: Samples - NIST SP 800-53 R4 blueprint - Overview
+title: Sample - NIST SP 800-53 R4 blueprint - Overview
 description: Overview of the NIST SP 800-53 R4 blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
