@@ -49,7 +49,7 @@ Once you're confident that version `2.0` works as expected on your subset of use
 
 Let's start by deploying the application into your Azure Kubernetes Service (AKS) cluster. The following diagram shows what runs by the end of this section - version `1.0` of all components with inbound requests serviced via the Istio ingress gateway:
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-01.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/components-and-routing-01.png)
 
 The artifacts you need to follow along with this article are available in the [Azure-Samples/aks-voting-app][github-azure-sample] GitHub repo. You can either download the artifacts or clone the repo as follows:
 
@@ -165,7 +165,7 @@ The following example output shows the IP address of the Ingress Gateway:
 
 Open up a browser and paste in the IP address. The sample AKS voting app is displayed.
 
-![The AKS Voting app running in our Istio enabled AKS cluster.](media/istio/deploy-app-01.png)
+![The AKS Voting app running in our Istio enabled AKS cluster.](media/servicemesh/istio/deploy-app-01.png)
 
 The information at the bottom of the screen shows that the app uses version `1.0` of `voting-app` and version `1.0` of `voting-storage` (Redis).
 
@@ -175,7 +175,7 @@ Let's deploy a new version of the analytics component. This new version `1.1` di
 
 The following diagram shows what will be running at the end of this section - only version `1.1` of our `voting-analytics` component has traffic routed from the `voting-app` component. Even though version `1.0` of our `voting-analytics` component continues to run and is referenced by the `voting-analytics` service, the Istio proxies disallow traffic to and from it.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-02.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/components-and-routing-02.png)
 
 Let's deploy version `1.1` of the `voting-analytics` component. Create this component in the `voting` namespace:
 
@@ -193,9 +193,9 @@ Open the sample AKS voting app in a browser again, using the IP address of the I
 
 Your browser alternates between the two views shown below. Since you are using a Kubernetes [Service][kubernetes-service] for the `voting-analytics` component with only a single label selector (`app: voting-analytics`), Kubernetes uses the default behavior of round-robin between the pods that match that selector. In this case, it is both version `1.0` and `1.1` of your `voting-analytics` pods.
 
-![Version 1.0 of the analytics component running in our AKS Voting app.](media/istio/deploy-app-01.png)
+![Version 1.0 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/deploy-app-01.png)
 
-![Version 1.1 of the analytics component running in our AKS Voting app.](media/istio/update-app-01.png)
+![Version 1.1 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/update-app-01.png)
 
 You can visualize the switching between the two versions of the `voting-analytics` component as follows. Remember to use the IP address of your own Istio Ingress Gateway.
 
@@ -254,7 +254,7 @@ virtualservice.networking.istio.io/voting-storage created
 
 If you open the AKS Voting app in a browser again, only the new version `1.1` of the `voting-analytics` component is used by the `voting-app` component.
 
-![Version 1.1 of the analytics component running in our AKS Voting app.](media/istio/update-app-01.png)
+![Version 1.1 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/update-app-01.png)
 
 You can visualize that you are now only routed to version `1.1` of your `voting-analytics` component as follows. Remember to use the IP address of your own Istio Ingress Gateway:
 
@@ -362,7 +362,7 @@ The following diagram shows what you will have running at the end of this sectio
 * Version `2.0` of the `voting-app` component, version `2.0` of the `voting-analytics` component and version `2.0` of the `voting-storage` component are able to communicate with each other.
 * Version `2.0` of the `voting-app` component are only accessible to users that have a specific feature flag set. This change is managed using a feature flag via a cookie.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-03.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/components-and-routing-03.png)
 
 First, update the Istio Destination Rules and Virtual Services to cater for these new components. These updates ensure that you don't route traffic incorrectly to the new components and users don't get unexpected access:
 
@@ -406,9 +406,9 @@ kubectl get pods --namespace voting
 
 You should now be able to switch between the version `1.0` and version `2.0` (canary) of the voting application. The feature flag toggle at the bottom of the screen sets a cookie. This cookie is used by the `voting-app` Virtual Service to route users to the new version `2.0`.
 
-![Version 1.0 of the AKS Voting app - feature flag IS NOT set.](media/istio/canary-release-01.png)
+![Version 1.0 of the AKS Voting app - feature flag IS NOT set.](media/servicemesh/istio/canary-release-01.png)
 
-![Version 2.0 of the AKS Voting app - feature flag IS set.](media/istio/canary-release-02.png)
+![Version 2.0 of the AKS Voting app - feature flag IS set.](media/servicemesh/istio/canary-release-02.png)
 
 The vote counts are different between the versions of the app. This difference highlights that you are using two different storage backends.
 
@@ -416,13 +416,13 @@ The vote counts are different between the versions of the app. This difference h
 
 Once you've successfully tested the canary release, update the `voting-app` Virtual Service to route all traffic to version `2.0` of the `voting-app` component. All users then see version `2.0` of the application, regardless of whether the feature flag is set or not:
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-04.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/components-and-routing-04.png)
 
 Update all the Destination Rules to remove the versions of the components you no longer want active. Then, update all the Virtual Services to stop referencing those versions.
 
 Since there's no longer any traffic to any of the older versions of the components, you can now safely delete all the deployments for those components.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-05.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/components-and-routing-05.png)
 
 You have now successfully rolled out a new version of the AKS Voting App.
 

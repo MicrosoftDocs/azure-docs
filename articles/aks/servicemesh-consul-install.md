@@ -150,7 +150,7 @@ kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 You can now open a browser and point it to `http://localhost:8080/ui` to open the Consul UI. You should see the following when you open the UI:
 
-![Consul UI](./media/consul/consul-ui.png)
+![Consul UI](./media/servicemesh/consul/consul-ui.png)
 
 ## Uninstall Consul from AKS
 

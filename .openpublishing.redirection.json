@@ -42497,6 +42497,21 @@
       "source_path": "articles/security/fundamentals/global-admin.md",
       "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-scenario-routing.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-scenario-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "redirect_document_id": false
     }
   ]
 }
