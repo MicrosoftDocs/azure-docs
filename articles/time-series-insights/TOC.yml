@@ -117,7 +117,7 @@
     items:
     - name: Azure Time Series Insights 
       href: /rest/api/time-series-insights/index
-    - name: Data Access Concepts GA
+    - name: Data Access GA
       href: /rest/api/time-series-insights/ga
       items:
       - name: Query
