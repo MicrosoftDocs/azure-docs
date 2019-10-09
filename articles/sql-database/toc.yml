@@ -336,14 +336,7 @@
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
 
-  - name: Design a database
-    items:
-    - name: Design database using SSMS
-      href: sql-database-design-first-database.md
-    - name: Design database using .NET
-      href: sql-database-design-first-database-csharp.md
-
-  - name: Additional features
+  - name: Database features
     items:
     - name: Database feature documentation
       href: sql-database-features-index.yml
@@ -373,6 +366,13 @@
 
   - name: Develop and design apps
     items:
+
+    - name: Design a database
+      items:
+      - name: Design database using SSMS
+        href: sql-database-design-first-database.md
+      - name: Design database using .NET
+        href: sql-database-design-first-database-csharp.md
     - name: Develop data applications
       items:
       - name: Overview
