@@ -196,6 +196,7 @@ INNER JOIN sys.pdw_nodes_tables nt
     ON tm.[physical_name] = nt.[name]
 INNER JOIN sys.dm_pdw_nodes pn
     ON  nt.[pdw_node_id] = pn.[pdw_node_id]
+    AND pn.type = 'COMPUTE'
 INNER JOIN sys.pdw_distributions di
     ON  nt.[distribution_id] = di.[distribution_id]
 INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
