@@ -47,14 +47,22 @@ This section will show you how to use PowerShell to create the Azure Active Dire
 >The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
 
 1. Open PowerShell as an Administrator.
-2. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create AD App Registration for Diagnostics.ps1** script in PowerShell.
-3.  When the script asks you to name your app, enter a unique app name.
-4.  The script will then ask you to sign in with an administrative account. Enter the credentials of a user with [delegated admin access](delegated-access-virtual-desktop.md). The admin should have either RDS Owner or Contributor rights.
+2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
+   ```powershell
+   Login-AzAccount
+   ```
+3. Sign in to Azure AD with the same account:
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **CreateADAppRegistrationforDiagnostics.ps1** script in PowerShell.
+5.  When the script asks you to name your app, enter a unique app name.
+
 
 After the script successfully runs, it should show the following things in its output:
 
 -  A message that confirms your app now has a service principal role assignment.
--  Your Print Client ID and Client Secret Key that you'll need for when you deploy the diagnostics tool.
+-  Your Client ID and Client Secret Key that you'll need for when you deploy the diagnostics tool.
 
 Now that you've registered your app, it's time to configure your Log Analytics workspace.
 
@@ -72,7 +80,7 @@ You can run a PowerShell script to create a Log Analytics workspace and configur
 To run the PowerShell script:
 
 1.  Open PowerShell as an admin.
-2.  Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create LogAnalyticsWorkspace for Diagnostics.ps1** script in PowerShell.
+2.  Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** script in PowerShell.
 3. Enter the following values for the parameters:
 
     - For **ResourceGroupName**, enter the name for the resource group.

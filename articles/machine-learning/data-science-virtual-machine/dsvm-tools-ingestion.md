@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 10/3/2019
 
 ---
 
@@ -88,15 +88,3 @@ Here are some data movement tools that are available in the DSVM.
 |  How to use and run it?    |   Run _blobfuse_ at a terminal.    |
 | Links to samples      | [blobfuse on GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Related tools on the DSVM      | Azure CLI      |
-
-
-## Microsoft Data Management Gateway
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A tool to connect on-premises data sources to cloud services for consumption.      |
-| Supported DSVM versions      | Windows      |
-| Typical uses      | Connecting a VM to an on-premises data source.      |
-|  How to use / run it?    |   Open Microsoft Data Management Gateway from the Start menu.    |
-| Links to samples      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Related tools on the DSVM      | AzCopy, AdlCopy, bcp    |

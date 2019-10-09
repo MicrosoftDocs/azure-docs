@@ -18,6 +18,15 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-10-08
+
+### New web experience (preview) for Azure Machine Learning workspaces
+
+The Experiment tab in the [new workspace portal](http://ml.azure.com) has been been updated so data scientists can monitor experiments in a more performant way. You can explore the following features:
++ Experiment metadata to easily filter and sort your list of experiments
++ Simplified and performant experiment details pages which allow you to visualize and compare your runs
++ New design to run details pages to understand and monitor your training runs
+
 ## 2019-09-30
 
 ### Azure Machine Learning SDK for Python v1.0.65
@@ -827,7 +836,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
  + **Changes**
    + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
-   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
 
 ### Azure Machine Learning Data Prep SDK v1.0.17
 

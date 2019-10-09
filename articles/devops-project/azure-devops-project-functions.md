@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy ASP.NET apps to Azure Functions with Azure DevOps Projects'
 description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET app to Azure Functions in a few quick steps.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
