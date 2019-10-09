@@ -12,7 +12,7 @@ ms.date: 11/4/2019
 ms.author: erhopf
 ---
 
-# Create a Tenant Language Model
+# Create a Tenant Language Model (Preview)
 
 Tenant Language Model is an opt-in service for Office365 enterprise customers that automatically generates a custom speech recognition model from your Office365 data. The model that's created is optimized for organization-specific terms, like technical terms and people's names, all in a secure and compliant way.
 
@@ -50,7 +50,7 @@ After your admin has enabled Tenant Language Model for your organization, you ca
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Customer Key](https://docs.microsoft.com/en-us/microsoft-365/compliance/customer-lockbox-requests)
 
-4. Next, select **Train** and wait. You'll receive an email with instructions when your Tenant Language Model is ready.
+4. Next, select **Train**. You'll receive an email with instructions when your Tenant Language Model is ready.
 
 ## Publish your model
 
@@ -58,7 +58,7 @@ When your Tenant Language Model is ready, there are two ways to publish it.
 
 * **Option 1:** Click the **Publish** button in the email that you received.
 * **Option 2:**
-  1. Sign into the [Speech Studio]().
+  1. Sign into the [Speech Studio](https://speech.microsoft.com/).
   2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model setting**.
   3. Click **Publish**.
   4. When your model is ready, the status will change to **Succeeded**.
@@ -89,4 +89,15 @@ Next, let's get you setup to use the Speech SDK for C# to call the Speech Servic
 
 ## Update your model
 
+While Tenant Language Model is in preview, you'll be able to update the language model manually once per year. When you update the language model, the original is replaced.
+
+1. Sign into the [Speech Studio](https://speech.microsoft.com/).
+2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model setting**.
+3. Locate and select **Update**.
+4. You'll receive an email with instructions when your Tenant Language Model is ready.
+5. When the model is ready, [publish your model](#publish-your-model).
+
 ## See also
+
+* [Speech Studio](https://speech.microsoft.com/)
+* [Speech SDK](speech-sdk.md)
