@@ -4,7 +4,7 @@ description: Describes the structure and properties of Azure Resource Manager te
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
 ---
 
@@ -61,7 +61,7 @@ The available properties for a parameter are:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
@@ -102,8 +102,8 @@ The following example shows the available options for defining a variable:
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -247,7 +247,7 @@ You define resources with the following structure:
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
-| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
+| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
 ## Outputs
@@ -350,15 +350,24 @@ For **outputs**, add a metadata object to the output value.
 
 You can't add a metadata object to user-defined functions.
 
-For inline comments, you can use `//` but this syntax doesn't work with all tools. You can't use Azure CLI to deploy the template with inline comments. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+
+> [!NOTE]
+> To deploy templates with comments by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[parameters('location')]", //defaults to resource group location
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -371,6 +380,12 @@ In VS Code, you can set the language mode to JSON with comments. The inline comm
 1. Select **JSON with Comments**.
 
    ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
+
+## Multi-line strings
+
+You can break a string into multiple lines. For example the location property and one of the comments in the previous JSON example.
+
+To deploy templates with multi-line strings by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
 ## Next steps
 
