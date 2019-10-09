@@ -10,7 +10,7 @@ ms.author: rolyon
 ms.custom: include file
 ---
 
-### Policy: For users in your directory
+## Policy: For users in your directory
 
 Follow these steps if you want your policy to be for users in your directory that can request this access package.  The **users in your directory** refers to both internal users as well as external users that have been previously invited to the directory, either through them requesting entitlement management with another access package or being invited with Azure AD B2B. When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
@@ -28,7 +28,7 @@ Follow these steps if you want your policy to be for users in your directory tha
 
 1. Skip down to the [Policy: Request](#policy-request) section.
 
-### Policy: For users not in your directory
+## Policy: For users not in your directory
 
 Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
@@ -56,7 +56,7 @@ Follow these steps if you want your policy to be for users not in your directory
 
 1. Skip down to the [Policy: Request](#policy-request) section.
 
-### Policy: None (administrator direct assignments only)
+## Policy: None (administrator direct assignments only)
 
 Follow these steps if you want your policy to bypass access requests and allow administrators to directly assign specific users to the access package. Users won't have to request the access package. You can still set expiration settings, but there are no request settings.
 
@@ -66,7 +66,7 @@ Follow these steps if you want your policy to bypass access requests and allow a
 
 1. Skip down to the [Policy: Expiration](#policy-expiration) section.
 
-### Policy: Request
+## Policy: Request
 
 In the Request section, you specify approval settings when users request the access package.
 
@@ -92,7 +92,7 @@ In the Request section, you specify approval settings when users request the acc
 
 1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this number of days, the request expires and the user will have to submit another request for the access package.
 
-### Policy: Expiration
+## Policy: Expiration
 
 In the Expiration section, you specify when a user's assignment to the access package expires.
 
@@ -112,7 +112,7 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
     ![Access package - Policy- Expiration settings](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### Policy: Enable policy
+## Policy: Enable policy
 
 1. If you want the access package to be made immediately available to the users in the policy, click **Yes** to enable the policy.
 
