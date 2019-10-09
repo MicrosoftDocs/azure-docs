@@ -95,7 +95,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ## Next steps
 
-To learn about how to set a map style in Azure Maps, see:
+Learn about how to set a map style in Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Choose a map style](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
