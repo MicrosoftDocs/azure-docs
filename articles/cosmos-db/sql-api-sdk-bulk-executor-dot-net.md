@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 11/19/2018
+ms.date: 10/08/2019
 ms.author: ramkris
 
 ---
@@ -37,6 +37,10 @@ ms.author: ramkris
 | **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 
 ## Release notes
+
+### <a name="2.4.0-preview"/>2.4.0-preview
+
+* Changed SDK dependency to >= 2.5.1
 
 ### <a name="2.3.0-preview2"/>2.3.0-preview2
 
