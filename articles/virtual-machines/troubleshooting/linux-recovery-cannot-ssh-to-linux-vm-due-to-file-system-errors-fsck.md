@@ -131,7 +131,7 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
 ## Repair the VM offline
 
-1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or [VM recovery script](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or you can automate setting up the recovery VM using the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Locate the drive label of the system disk that you attached. In this case, we assume that the label of the system disk that you attached is /dev/sdc1. Replace it with the appropriate value for your VM.
 

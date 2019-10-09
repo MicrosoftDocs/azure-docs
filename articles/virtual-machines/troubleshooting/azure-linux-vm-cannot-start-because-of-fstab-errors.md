@@ -148,7 +148,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 ## Repair the VM offline
 
-1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or the [VM recovery script](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+1. Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or you can automate setting up the recovery VM using the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. After you mount the system disk as a data disk on the recovery VM, back up the fstab file before you make changes, and then follow the next steps to correct the fstab file.
 
