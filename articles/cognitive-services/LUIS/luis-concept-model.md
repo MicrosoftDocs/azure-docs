@@ -1,5 +1,5 @@
 ---
-title: Types of models - LUIS
+title: Design with models - LUIS
 titleSuffix: Azure Cognitive Services
 description: 
 services: cognitive-services
@@ -13,32 +13,35 @@ ms.date: 10/03/2019
 ms.author: diberry
 ---
 
-# App Models are your schema in Language Understanding
+# Design with intent and entity models 
 
 Language understanding provides several types of models. Some models can be used in more than one way. 
 
-## Types of models
+## Model decomposition
 
-Language Understanding has several types of models:
+LUIS supports _model decomposition_, breaking down the model into smaller models, with the following model types:
 
-|Name|Purpose|Definition|
-|--|--|--|
-|Intent|Classify primary purpose of user's utterance.|Model that categorizes groups of example utterances that have a common action.|
-|Entities|Extracts data from inside a user utterance.|Model that identifies a span of tokens.|
-|Constraints|Extracts data from inside a user utterance. Bounds the extraction of a child entity (subcomponent) by a non-machine-learned-entity (matching entity).|Rule that constrains the firing of a child entity extraction model by a non-machine learned entity (regular expression entity, list entity, prebuilt entity).A model that doesn't require machine-learning to extract information. These models include a regular expression entity, a list entity, or a prebuilt entity.|
-|Descriptors|Boost relevance so classification or extraction is successful by signaling to the machine-learned model.|Models such as entities or phrase lists. Features such as intents, entities, or phrase list.|
-|Feature|Boost relevance.| In machine learning, a feature is a distinguishing trait or attribute of data that your system observes and learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.|
-|Token|Identify entity for extraction.|Set of words|
+* intents
+* machine-learned entities
+* machine-learned entity subcomponents
+* machine-learned entity subcomponent's descriptors 
+* machine-learned entity subcomponent's constraints
 
-## Single intent utterances
+[add conceptual image]
 
-Intents are applied to the utterance's intention:
+## Intents classify utterances
 
-`Buy a airline ticket from Seattle to Cairo`
+Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents. 
 
-This utterance has a single intention:
+The result of well-designed intents, with their example utterances, is a high intent prediction. 
 
-* Buying a plane ticket
+## Machine-learned entities extract data
+
+A machine-learned entity represents a unit of data you want extracted from the utterance. This top-level entity can have subcomponents and each subcomponent can have constraints and descriptors. 
+
+Use a machine-learned entity to define a single unit of information within an utterance. 
+
+An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data.
 
 ## Intents versus entities
 
@@ -56,6 +59,42 @@ This utterance _may_ have several entities:
 
 * Locations of Seattle (origin) and Cairo (destination)
 * The quantity of a single ticket
+
+## Entity subcomponents help extract data
+
+A subcomponent is an child entity within a machine-learned entity. The subcomponent can be any entity type: machine-learned, non-machine-learned, prebuilt entity. 
+
+Use the subcomponent to decompose the parts of the machine-learned entity (parent entity).
+
+Continuing the example of a plane ticket, there can be many pieces of data to extract, such as:
+* quantity of tickets
+* date of travel
+* preferred time of day to travel
+* preferred airports
+* origin location
+* destination location
+* preferred seating 
+* preferred meal 
+
+Some of this data, such as the origin location and destination location, should be learned from the context of the utterance, perhaps with such wording as `from` and `to`. Other parts of data can be extracted with exact string matches (`Vegan`) or prebuilt entities (geographyV2 of `Seattle` and `Cairo`). 
+
+You design how the data is matched and extracted by which models you choose and how you configure them.
+
+## Constraints are text rules
+
+A constraint is a text-matching rule applied at prediction time to a subcomponent of a machine-learned entity. You define these rules while authoring the subcomponent. The rule is applied to a user utterance at prediction time. 
+
+Constraints are regular expression entities or list entities. 
+
+Use a constraint when you know the exact text to extract.
+
+Continuing with the example of the plane ticket, the airport codes can be in a List entity for exact text matches. 
+
+## Descriptors are features
+
+A descriptor is a feature applied to a model at training time. A descriptor includes both phrase lists and entities. 
+
+Use a descriptor when you want to add boost the prediction score, using the words and phrases identified by the descriptor, to an intent or entity. 
 
 
 ## Next steps

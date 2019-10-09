@@ -113,12 +113,12 @@
     - name: Plan your app
       displayName: simple, composite, prebuilt, list, regex, regular expression
       href: luis-how-plan-your-app.md
-    - name: Authoring
+    - name: Understand revision cycle
       href: luis-concept-app-iteration.md
-    - name: Versioning
+    - name: Use versioning
       href: luis-concept-version.md
       displayName: import
-    - name: Models
+    - name: Design with models
       href: luis-concept-model.md
     - name: Features
       href: luis-concept-feature.md
