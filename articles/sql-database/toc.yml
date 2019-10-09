@@ -773,7 +773,7 @@
       href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
       href: sql-database-managed-instance-migrate.md  
-    - name: Customize Time zone
+    - name: Customize time zone
       href: sql-database-managed-instance-timezone.md
     - name: Configure connection types
       href: sql-database-managed-instance-connection-type.md
