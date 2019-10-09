@@ -1,20 +1,20 @@
 ---
 title: Configure Speech containers
 titleSuffix: Azure Cognitive Services
-description: The speech container  
+description: Speech Services provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/09/2019
 ms.author: dapine
 ---
 
 # Configure Speech Service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, and **custom-text-to-speech**.
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
@@ -47,7 +47,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). |
 
 ## Eula setting
 
@@ -57,7 +57,7 @@ This setting can be found in the following place:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials settings
+## HTTP proxy credentials settings
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -102,47 +102,99 @@ Replace {_argument_name_} with your own values:
 
 The following Docker examples are for the Speech container. 
 
-### Basic example for speech to text
+# [Speech-to-text](#tab/stt)
+
+### Basic example for Speech-to-text
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### Basic example for text to speech
+### Logging example for Speech-to-text
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Custom Speech-to-text](#tab/cstt)
+
+### Basic example for Custom Speech-to-text
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Custom Speech-to-text
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Text-to-speech](#tab/tss)
+
+### Basic example for Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### Logging example for speech to text
+### Logging example for Text-to-speech
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
-Logging:Console:LogLevel:Default=Information
-```
-
-### Logging example for text to speech
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
+
+# [Custom Text-to-speech](#tab/ctts)
+
+### Basic example for Custom Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Custom Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+***
 
 ## Next steps
 

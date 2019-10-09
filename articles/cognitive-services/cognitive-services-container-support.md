@@ -7,8 +7,8 @@ author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: article 
-ms.date: 8/21/2019
+ms.topic: article
+ms.date: 10/09/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -50,8 +50,10 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |[Face][fa-containers] |F0, S0|**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy.|
-|[Speech Service API][sp-containers] |F0, S0|**Speech-to-text** |Transcribes continuous real-time speech into text.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
-|[Speech Service API][sp-containers] |F0, S0|**Text-to-speech** |Converts text to natural-sounding speech.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
+|[Speech Service API][sp-containers-stt] |F0, S0|**Speech-to-text** |Transcribes continuous real-time speech into text.|
+|[Speech Service API][sp-containers-cstt] |F0, S0|**Custom Speech-to-text** |Transcribes continuous real-time speech into text using a custom model.|
+|[Speech Service API][sp-containers-tts] |F0, S0|**Text-to-speech** |Converts text to natural-sounding speech.|
+|[Speech Service API][sp-containers-ctts] |F0, S0|**Custom Text-to-speech** |Converts text to natural-sounding speech using a custom model.|
 |[Text Analytics][ta-containers] |F0, S|**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |[Text Analytics][ta-containers]|F0, S|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics][ta-containers]|F0, S|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](./text-analytics/language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
@@ -122,4 +124,8 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[sp-containers-stt]: speech-service/speech-container-howto.md?tab=stt
+[sp-containers-cstt]: speech-service/speech-container-howto.md?tab=cstt
+[sp-containers-tts]: speech-service/speech-container-howto.md?tab=tts
+[sp-containers-ctts]: speech-service/speech-container-howto.md?tab=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
