@@ -57,13 +57,14 @@ There are two ways to get your content into the Audio Content Generation tool.
 
 1. After you sign into [Audio Content Generation](https://speech.microsoft.com/portal?projecttype=voicetuning), click **Upload** to import one or more text files. Both plain text and SSML are supported.
 2. When you upload your text files, make sure that the content meets these requirements.
-   | Property | Value / Notes |
-   |----------|-------|
-   | File format | Plain text (.txt)<br/> SSML text (.txt)<br/> Zip files aren't supported |
-   | Encoding format | UTF-8 |
-   | File name | Each file must have a unique name. Duplicates aren't supported. |
-   | Text length | Text files must not exceed 10,000 characters. |
-   | SSML restrictions | Each SSML file can only contain a single piece of SSML. |
+
+| Property | Value / Notes |
+|----------|---------------|
+| File format | Plain text (.txt)<br/> SSML text (.txt)<br/> Zip files aren't supported |
+| Encoding format | UTF-8 |
+| File name | Each file must have a unique name. Duplicates aren't supported. |
+| Text length | Text files must not exceed 10,000 characters. |
+| SSML restrictions | Each SSML file can only contain a single piece of SSML. |
 
 ### Plain text example
 
@@ -87,10 +88,12 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 1. From the [Audio Content Generation](https://speech.microsoft.com/portal?projecttype=voicetuning) tool, click **Export** to create an audio generation task.
 2. Choose the output fromat for your tuned audio. These formats are supported:
-   | Format | 16 kHz sample rate | 24 kHz sample rate |
-   |--------|--------------------|--------------------|
-   | wav | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
-   | mp3 | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
+
+| Format | 16 kHz sample rate | 24 kHz sample rate |
+|--------|--------------------|--------------------|
+| wav | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
+| mp3 | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
+
 3. You can view the status of the task on the **Export task** tab. If the task fails, see the detailed information page for a full report.
 4. When the task is complete, your audio is available for download on the **Audio Library** tab.
 5. Click **Download**. Now you're ready to use your custom tuned audio in your apps or products.
