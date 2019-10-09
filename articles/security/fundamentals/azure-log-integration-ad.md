@@ -70,7 +70,7 @@ You can also open a [support request](../../azure-supportability/how-to-create-a
 ## Next steps
 To learn more about Azure Log Integration, see:
 
-* [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324): This Download Center page gives details, system requirements, and installation instructions for Azure Log Integration.
+* [Microsoft Azure Log Integration for Azure logs](https://azure.microsoft.com/services/monitor/): This Download Center page gives details, system requirements, and installation instructions for Azure Log Integration.
 * [Introduction to Azure Log Integration](azure-log-integration-overview.md): This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Azure Log Integration FAQ](azure-log-integration-faq.md): This article answers questions about Azure Log Integration.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): This blog post introduces you to Azure audit logs and other features that help you gain insights into the operations of your Azure resources.
