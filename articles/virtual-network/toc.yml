@@ -257,6 +257,8 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+    - name: Public IPv6 address prefix
+      href: virtual-network-ipv6-reserve-public-ip-address-prefix.md    
   - name: Move across regions
     items:
     - name: Network security groups - Portal
@@ -352,8 +354,6 @@
             href: virtual-networks-static-private-ip-classic-cli.md
         - name: Instance level public IP address
           href: virtual-networks-instance-level-public-ip.md
-        - name: Public IPv6 address prefix
-          href: virtual-network-ipv6-reserve-public-ip-address-prefix.md
         - name: Access control lists
           items:
           - name: Azure portal
