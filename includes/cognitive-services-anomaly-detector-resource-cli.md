@@ -6,22 +6,31 @@ ms.topic: include
 ms.date: 10/08/2019
 ---
 
->[!NOTE]
-> Endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+Azure Cognitive Services are represented by Azure resources you create within your Azure subscription. There are three resource types you can create:
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create an Anomaly Detector resource [using the Azure portal](../articles/cognitive-services/cognitive-services-apis-create-account.md), and continue below. 
+* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
+    * Valid for seven days, for free. After signing up, the trial key and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * This is a great option if you want to try Anomaly Detector, but don’t have an Azure subscription.
 
-* You can also get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After signing up, it and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
-
-After creating a resource, get your endpoint and key by finding [your resource](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) on the Azure portal, and clicking **Quick start**. 
+* An [Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+    * Available through the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) until you delete the resource.
+    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+    
+* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Available through the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) until you delete the resource.  
+    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
 
 ### Create an environment variable
 
-Create two environment variables for authentication, using the instructions for your operating system:
+>[!NOTE]
+> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
-* `ANOMALY_DETECTOR_ENDPOINT` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+Using your key and endpoint from the resource you created, create two environment variables for authentication:
 
-* `ANOMALY_DETECTOR_KEY` - The subscription key for authenticating your requests.   
+* `ANOMALY_DETECTOR_KEY` - The resource key for authenticating your requests.
+* `ANOMALY_DETECTOR_ENDPOINT` - The resource endpoint for connecting your applications. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+
+Use the instructions for your operating system.
 
 #### [Windows](#tab/windows)
 
