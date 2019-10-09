@@ -153,7 +153,7 @@ To remove a VM from Update Management:
 Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to create an **Update Deployment** for your machines.
 
 > [!div class="nextstepaction"]
-> [Update Management - Create an Update Deployment](./automation-create-an-update-deployment.md)
+> [Update Management - Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
 
 Addition tutorials on the solutions and how to use them:
 
