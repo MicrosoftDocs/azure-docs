@@ -93,8 +93,6 @@ landingContent:
         links:
           - text: Uploading
             url: assets-concept.md
-          - text: Packaging
-            url: dynamic-packaging-overview.md                               
           - text: Encoding
             url: encoding-concept.md
       - linkListType: tutorial
