@@ -86,6 +86,65 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 
+<a name="authenticate-access"></a>
+
+## Authenticate access to other resources
+
+HTTP and HTTPS endpoints support different kinds of authentication. Here are the kinds of authentication that you can set up for your HTTP trigger or action:
+
+* Basic
+* Client certificate
+* Azure Active Directory (Azure AD) OAuth
+* Raw
+* Managed identity
+
+> [!IMPORTANT]
+> Make sure that you protect any sensitive information that your logic app workflow definition handles. 
+> Use secured parameters and encode data as necessary. For more information about using and securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
+### Basic authentication
+
+For [basic authentication with Azure Active Directory](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md), your trigger or action can include an authentication object, which has the properties specified by the following table.
+
+To access parameter values at runtime, you can use the @parameters('parameterName') expression, which is provided by the Workflow Definition Language. If you want to use an Azure Resource Manager template that uses secured parameters for your logic app and a parameter file , "@parameters('userNameParam')" 
+
+"@parameters('passwordParam')"
+
+logic-apps/logic-apps-azure-resource-manager-templates-overview
+
+
+| Property | Required | Value | Description |
+|----------|----------|-------|-------------|
+| **Authentication** | Yes | **Basic** | The authentication type to use, which is "Basic" here |
+| **Username** | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
+| **Password** | Yes | <*password*> | The password for authenticating access to the target service endpoint |
+|||||
+
+### Managed identity
+
+### Managed identity
+
+For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
+
+1. In your logic app, add the **HTTP** action.
+
+1. Provide the necessary details for that action, such as the request **Method** and **URI** location for the resource that you want to call. In the **URI** box, enter the endpoint URL for that Azure service. So, if you're using Azure Resource Manager, enter this value in the **URI** property:
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
+
+1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
+
+   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+
+   > [!IMPORTANT]
+   >
+   > In the **Audience** property, the resource ID value must exactly match the value that Azure AD expects, 
+   > including any required trailing slashes. You can find these resource ID values in this 
+   > [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   > For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
+
+1. Continue building the logic app the way you want.
+
 ## Content with multipart/form-data type
 
 To handle content that has `multipart/form-data` type in HTTP requests, you can add a JSON object that includes the `$content-type` and `$multipart` attributes to the HTTP request's body by using this format.

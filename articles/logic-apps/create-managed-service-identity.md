@@ -15,13 +15,13 @@ ms.date: 10/11/2019
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-Your logic app can use managed identities only with connectors that support managed identities. Currently, you can use the system-assigned identity with these triggers and actions:
+Your logic app can use managed identities only with triggers and actions that support managed identities. Currently, you can use the system-assigned identity with these triggers and actions:
 
 * HTTP
 * Azure Functions
 * Azure API Management
 
-This article shows how to set up and use the system-assigned managed identity for your logic app. For limits on managed identities for logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity).
+This article shows how to set up and use the system-assigned managed identity for your logic app. To use the identity in triggers and actions, see the connector's usage page. For limits on managed identities for logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity).
 
 ## Prerequisites
 
@@ -146,34 +146,15 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 For more information, see [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
-## Authenticate with managed identity
+<a name="authenticate-access-with-identity"></a>
 
-Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication. Each built-in action type has slightly different steps:
+## Authenticate access with managed identity
+
+Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication with these triggers and actions that support managed identities.
 
 * HTTP
 * Azure Functions
 * Azure API Management
-
-For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
-
-1. In your logic app, add the **HTTP** action.
-
-1. Provide the necessary details for that action, such as the request **Method** and **URI** location for the resource that you want to call. In the **URI** box, enter the endpoint URL for that Azure service. So, if you're using Azure Resource Manager, enter this value in the **URI** property:
-
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
-
-1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
-
-   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
-
-   > [!IMPORTANT]
-   >
-   > In the **Audience** property, the resource ID value must exactly match the value that Azure AD expects, 
-   > including any required trailing slashes. You can find these resource ID values in this 
-   > [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
-
-1. Continue building the logic app the way you want.
 
 <a name="remove-identity"></a>
 
