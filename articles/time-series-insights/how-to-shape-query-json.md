@@ -2,12 +2,12 @@
 title: 'Best practices for shaping JSON in Azure Time Series Insights queries | Microsoft Docs'
 description: Learn how to improve your Azure Time Series Insights query efficiency.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: dpalled
 ms.custom: seodec18
 
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Time Series Insights queries when I use APIs.

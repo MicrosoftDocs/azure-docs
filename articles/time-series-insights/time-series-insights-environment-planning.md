@@ -3,10 +3,9 @@ title: 'Plan the scale of your Azure Time Series Insights environment | Microsof
 description: This article describes how to follow best practices when you plan an Azure Time Series Insights environment. Areas that are covered include storage capacity, data retention, ingress capacity, monitoring, and business continuity and disaster recovery (BCDR). 
 services: time-series-insights
 ms.service: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual

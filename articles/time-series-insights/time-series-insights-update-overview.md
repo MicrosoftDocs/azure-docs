@@ -3,10 +3,9 @@ title: 'Overview: Azure Time Series Insights Preview | Microsoft Docs'
 description: Azure Time Series Insights Preview overview.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
-ms.author: dpalled
+author: shresha
+ms.author: cshankar
 manager: cshankar
-ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019

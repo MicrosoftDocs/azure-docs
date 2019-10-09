@@ -3,10 +3,9 @@ title: 'Quickstart: Azure Time Series Insights explorer | Microsoft Docs'
 description: This quickstart shows you how to get started with the Azure Time Series Insights explorer in your web browser to visualize large volumes of IoT data. Tour the key features in a demo environment. 
 ms.service: time-series-insights 
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18

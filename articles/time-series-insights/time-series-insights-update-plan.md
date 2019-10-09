@@ -1,10 +1,10 @@
 ﻿---
 title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Plan your Azure Time Series Insights Preview environment.
-author: ashannon7
-ms.author: dpalled
-ms.workload: big-data
+author: deepakpalled
+ms.author: diego.viso
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
