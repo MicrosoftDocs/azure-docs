@@ -15,6 +15,8 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After creating a resource, get your endpoint and key by finding [your resource](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) on the Azure portal, and clicking **Quick start**. 
 
+### Create an environment variable
+
 Create two environment variables for authentication, using the instructions for your operating system:
 
 * `ANOMALY_DETECTOR_ENDPOINT` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
