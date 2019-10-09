@@ -12,7 +12,7 @@ ms.author: laobri
 ---
 # Create an Azure Search knowledge store by using REST
 
-The knowledge store feature in Azure Search persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
+The knowledge store feature in Azure Search persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Search, applies AI enrichments from Azure Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
 
 In this article, you use the REST API interface to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blob storage. The results are saved as a knowledge store in Azure Table storage.
 
@@ -64,19 +64,19 @@ Install and set up Postman.
 
 On the **Variables** tab, you can add values that Postman swaps in every time it encounters a specific variable inside double braces. For example, Postman replaces the symbol `{{admin-key}}` with the current value that you set for `admin-key`. Postman makes the substitution in URLs, headers, the request body, and so on. 
 
-To get the value for `admin-key`, go to the Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
+To get the value for `admin-key`, go to the Azure Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
 
 | Variable    | Where to get it |
 |-------------|-----------------|
-| `admin-key` | On the **Keys** tab of the Search service.  |
+| `admin-key` | On the **Keys** tab of the Azure Search service.  |
 | `api-version` | Leave as **2019-05-06-Preview**. |
 | `datasource-name` | Leave as **hotel-reviews-ds**. | 
 | `indexer-name` | Leave as **hotel-reviews-ixr**. | 
 | `index-name` | Leave as **hotel-reviews-ix**. | 
-| `search-service-name` | The main name of the Search service. The URL is `https://{{search-service-name}}.search.windows.net`. | 
+| `search-service-name` | The main name of the Azure Search service. The URL is `https://{{search-service-name}}.search.windows.net`. | 
 | `skillset-name` | Leave as **hotel-reviews-ss**. | 
 | `storage-account-name` | The storage account main name. | 
 | `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **key1** > **Connection string**. | 
@@ -336,11 +336,11 @@ After you set the `api-key` and `Content-type` headers and confirm that the body
 
 ## Run the indexer 
 
-In the Azure portal, go to the Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. If the indexer hasn't already run, select **Run**. The indexing task might raise some warnings related to language recognition. The data includes some reviews that are written in languages that aren't yet supported by the cognitive skills. 
+In the Azure portal, go to the Azure Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. If the indexer hasn't already run, select **Run**. The indexing task might raise some warnings related to language recognition. The data includes some reviews that are written in languages that aren't yet supported by the cognitive skills. 
 
 ## Next steps
 
-Now that you've enriched your data by using cognitive services and projected the results to a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
+Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
 
 To learn how to explore this knowledge store by using Storage Explorer, see this walkthrough:
 
