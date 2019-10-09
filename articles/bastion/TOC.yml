@@ -22,6 +22,8 @@
       href: bastion-vm-full-screen.md
   - name: Work with NSGs
     href: bastion-nsg.md
+  - name: Enable diagnostic logs
+    href: diagnostic-logs.md
 - name: Resources
   items:
   - name: Bastion FAQ
