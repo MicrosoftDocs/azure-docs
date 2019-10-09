@@ -1,5 +1,5 @@
 ---
-title: Intents - LUIS
+title: Intents and entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: An single intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ---
-# Concepts about intents in your LUIS app
+# Intents in your LUIS app
 
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md).
 
@@ -28,10 +28,12 @@ Travel app intents   |   Example utterances   |
 All applications come with the predefined intent, "[None](#none-intent-is-fallback-for-app)", which is the fallback intent. 
 
 ## Prebuilt domains provide intents
-In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. For more information, see [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
+In addition to intents that you define, you can use prebuilt intents from one of the [prebuilt domains](luis-how-to-use-prebuilt-domains.md). 
 
 ## Return all intents' scores
-You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want scores for all intents for the utterance, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
+You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, by default, it returns the top intent for that utterance. 
+
+If you want the scores for all intents for the utterance, you can provide a flag on the query string of the prediction API. 
 
 ## Intent compared to entity
 The intent represents action the chatbot should take for the user and is based on the entire utterance. The entity represents words or phrases contained inside the utterance. An utterance can have only one top scoring intent but it can have many entities. 
