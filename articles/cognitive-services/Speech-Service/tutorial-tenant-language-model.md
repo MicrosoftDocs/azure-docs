@@ -21,11 +21,14 @@ Tenant Language Model is an opt-in service for Office365 enterprise customers th
 
 In this tutorial, you'll learn how to:
 
-* Enroll to use a Tenant Language Model in the Microsoft 365 Admin Center
-* Create a Tenant Language Model
-* Publish a Tenant Language Model
-* Use a Tenant Language Model with the Speech SDK
-* Update a Tenant Language Model
+> [!div class="checklist"]
+> * Enroll to use a Tenant Language Model in the Microsoft 365 Admin Center
+> * Create a Tenant Language Model
+> * Publish a Tenant Language Model
+> * Use a Tenant Language Model with the Speech SDK
+> * Update a Tenant Language Model
+
+![Tenant Language Model diagram](tenant-language-model/tenant-laguage-model-diagram.png)
 
 ## Enroll using the Microsoft 365 Admin Center
 
@@ -33,14 +36,16 @@ Before you can create or publish a Tenant Language Model, you first need to enro
 
 1. Sign into the [Microsoft 365 Admin Center](https://admin.microsoft.com ).
 2. From the left panel, select **Settings** then **Apps**.
+   ![Tenant Language Model diagram](tenant-language-model/tenant-laguage-model-enrollment.png)
 3. Locate and select **Azure Speech Services**.
+   ![Tenant Language Model diagram](tenant-language-model/tenant-laguage-model-enrollment-2.png)
 4. Click the checkbox and save.
 
 If you need to turn off the Tenant Language Model, navigate back to this screen, deselect the checkbox and save.
 
 ## Create a model
 
-After your admin has enabled Tenant Language Model for your organization, you can create a language model based on your O365 data.
+After your admin has enabled Tenant Language Model for your organization, you can create a language model based on your Office365 data.
 
 1. Sign into the [Speech Studio](https://speech.microsoft.com/).
 2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model setting**.
@@ -77,15 +82,197 @@ Let's start by registering your app with AAD:
 > [!NOTE]
 > For detailed AAD instructions, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
-Next, let's get you setup to use the Speech SDK for C# to call the Speech Service using your Tenant Language Model:
+Next, let's look at the code you'll use to call the Speech SDK in C# with a Tenant Language Model. This guide presumes that your platform is already setup. If you need help setting up, see [Platform setup: C#](#placeholder).
 
-1. Open Visual Studio 2019 and create a new project.
-2. Install the Speech SDK NuGet package.
-3. Add this sample code to your project.
-4. Update these values:
-   * To be provided by Brenda Meng.
-   * ...
-   * ...
+Copy this code into your project:
+
+```csharp
+namespace PrincetonSROnly.FrontEnd.Samples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Net.Http;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using Microsoft.CognitiveServices.Speech;
+    using Microsoft.CognitiveServices.Speech.Audio;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Newtonsoft.Json.Linq;
+
+    // Note: ServiceApplicationId is a fixed value.  No need to change.
+
+    public class TenantLMSample
+    {
+        private const string EndpointUri = "EndpointUri";
+        private const string SubscriptionKey = "SubscriptionKey";
+        private const string Username = "Username";
+        private const string Password = "Password";
+        private const string ClientApplicationId = "Your-Client-App-ID";
+        private const string ServiceApplicationId = "18301695-f99d-4cae-9618-6901d4bdc7be";
+
+        public static async Task ContinuousRecognitionWithTenantLMAsync(Uri endpointUri, string subscriptionKey, string audioDirPath, string username, string password)
+        {
+            var config = SpeechConfig.FromEndpoint(endpointUri, subscriptionKey);
+
+            // Passing client specific information for obtaining LM
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                config.AuthorizationToken = await AcquireAuthTokenWithInteractiveLoginAsync().ConfigureAwait(false);
+            }
+            else
+            {
+                config.AuthorizationToken = await AcquireAuthTokenWithUsernamePasswordAsync(username, password).ConfigureAwait(false);
+            }
+
+            var stopRecognition = new TaskCompletionSource<int>();
+
+            // Creates a speech recognizer using file as audio input.
+            // Replace with your own audio file name.
+            using (var audioInput = AudioConfig.FromWavFileInput(audioDirPath))
+            {
+                using (var recognizer = new SpeechRecognizer(config, audioInput))
+                {
+                    // Subscribes to events
+                    recognizer.Recognizing += (s, e) =>
+                    {
+                        Console.WriteLine($"RECOGNIZING: Text={e.Result.Text}");
+                    };
+
+                    recognizer.Recognized += (s, e) =>
+                    {
+                        if (e.Result.Reason == ResultReason.RecognizedSpeech)
+                        {
+                            Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}");
+                        }
+                        else if (e.Result.Reason == ResultReason.NoMatch)
+                        {
+                            Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                        }
+                    };
+
+                    recognizer.Canceled += (s, e) =>
+                    {
+                        Console.WriteLine($"CANCELED: Reason={e.Reason}");
+                        if (e.Reason == CancellationReason.Error)
+                        {
+                            Exception exp = new Exception(string.Format("Error Code: {0}\nError Details{1}\nIs your subscription information updated?", e.ErrorCode, e.ErrorDetails));
+                            throw exp;
+                        }
+
+                        stopRecognition.TrySetResult(0);
+                    };
+
+                    recognizer.SessionStarted += (s, e) =>
+                    {
+                        Console.WriteLine("\n    Session started event.");
+                    };
+
+                    recognizer.SessionStopped += (s, e) =>
+                    {
+                        Console.WriteLine("\n    Session stopped event.");
+                        Console.WriteLine("\nStop recognition.");
+                        stopRecognition.TrySetResult(0);
+                    };
+
+                    // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
+                    await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+
+                    // Waits for completion.
+                    // Use Task.WaitAny to keep the task rooted.
+                    Task.WaitAny(new[] { stopRecognition.Task });
+
+                    // Stops recognition.
+                    await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+                }
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            var arguments = new Dictionary<string, string>();
+            string inputArgNamePattern = "--";
+            Regex regex = new Regex(inputArgNamePattern);
+            if (args.Length > 0)
+            {
+                foreach (var arg in args)
+                {
+                    var userArgs = arg.Split("=");
+                    arguments[regex.Replace(userArgs[0], string.Empty)] = userArgs[1];
+                }
+            }
+
+            var endpointString = arguments.GetValueOrDefault(EndpointUri, $"wss://westus.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1");
+            var endpointUri = new Uri(endpointString);
+
+            if (!arguments.ContainsKey(SubscriptionKey))
+            {
+                Exception exp = new Exception("Subscription Key missing! Please pass in a Cognitive services subscription Key using --SubscriptionKey=\"your_subscription_key\"" +
+                    "Find more information on creating a Cognitive services resource and accessing your Subscription key here: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows");
+                throw exp;
+            }
+
+            var subscriptionKey = arguments[SubscriptionKey];
+            var username = arguments.GetValueOrDefault(Username, null);
+            var password = arguments.GetValueOrDefault(Password, null);
+
+            var audioDirPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "../../../AudioSamples/DictationBatman.wav");
+            if (!File.Exists(audioDirPath))
+            {
+                Exception exp = new Exception(string.Format("Audio File does not exist at path: {0}", audioDirPath));
+                throw exp;
+            }
+
+            ContinuousRecognitionWithTenantLMAsync(endpointUri, subscriptionKey, audioDirPath, username, password).GetAwaiter().GetResult();
+        }
+
+        private static async Task<string> AcquireAuthTokenWithUsernamePasswordAsync(string username, string password)
+        {
+            var tokenEndpoint = "https://login.microsoftonline.com/common/oauth2/token";
+            var postBody = $"resource={ServiceApplicationId}&client_id={ClientApplicationId}&grant_type=password&username={username}&password={password}";
+            var stringContent = new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded");
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var response = await httpClient.PostAsync(tokenEndpoint, stringContent).ConfigureAwait(false);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                    JObject jobject = JObject.Parse(result);
+                    return jobject["access_token"].Value<string>();
+                }
+                else
+                {
+                    throw new Exception($"Requesting token from {tokenEndpoint} failed with status code {response.StatusCode}: {await response.Content.ReadAsStringAsync().ConfigureAwait(false)}");
+                }
+            }
+        }
+
+        private static async Task<string> AcquireAuthTokenWithInteractiveLoginAsync()
+        {
+            var authContext = new AuthenticationContext("https://login.windows.net/microsoft.onmicrosoft.com");
+            var deviceCodeResult = await authContext.AcquireDeviceCodeAsync(ServiceApplicationId, ClientApplicationId).ConfigureAwait(false);
+
+            Console.WriteLine(deviceCodeResult.Message);
+
+            var authResult = await authContext.AcquireTokenByDeviceCodeAsync(deviceCodeResult).ConfigureAwait(false);
+
+            return authResult.AccessToken;
+        }
+    }
+}
+```
+
+There are a few parameters you'll need to update in the sample before you can run it:
+
+1. Add either (1) `Username` and `Password`, or (2) `ClientApplicationId`. You don't need to provide both. The `ClientApplicationId` is the value returned in step 4 of your AAD app registration.
+2. Replace the value of `SubscriptionKey` with the subscription key for your Speech resource in the Azure portal.
+3. Update the `EndpointUri`. Make sure that you replace `{your-region}` with the region where your Speech resource was created. If you don't remember, you can find this information in the overview blade for your resource in the Azure portal. Keep in mind, only `westus` and `eastus` are currently supported.
+   ```csharp
+   $"wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
+   ```
 
 ## Update your model
 
