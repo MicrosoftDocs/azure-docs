@@ -717,7 +717,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
   wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
   ```
 
-1. Edit the newly downloaded `helm-config.yaml` and fill out the sections `appgw` and `armAuth`.
+1. Edit the `helm-config.yaml` and enter the appropriate values for `appgw` and `armAuth` sections.
 
   ```bash
   nano helm-config.yaml
@@ -753,7 +753,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 
 Once you have the App Gateway, AKS, and AGIC installed, you can install a sample app via [Azure Cloud Shell](https://shell.azure.com/):
 
-1. Download the YAML file above:
+1. Use the curl command to download the YAML file:
 
   ```bash
   curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
