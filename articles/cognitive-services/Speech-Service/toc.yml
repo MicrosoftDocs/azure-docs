@@ -196,7 +196,7 @@
     - name: 'Tenant Language Models'
       items:
       - name: Create, publish, and use a model
-        href: https://example.com
+        href: tutorial-tenant-language-model.md
   - name: Text-to-speech
     items:
     - name: Custom Voice portal
@@ -213,7 +213,7 @@
         href: how-to-voice-tuning.md
     - name: Audio Content Generation
       items:
-      - name: How-to: Audio Content Generation
+      - name: 'How-to: Audio Content Generation'
         href: how-to-audio-content-generation.md
     - name: Custom Neural Voices
       items:
@@ -221,7 +221,7 @@
         href: httsp://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
-- name: Containers
+- name: Customization
   exanded: false
   items:
   - name: Install and run containers
