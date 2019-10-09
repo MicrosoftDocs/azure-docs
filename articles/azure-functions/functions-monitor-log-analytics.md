@@ -5,7 +5,7 @@ author: ahmedelnably
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/09/2019
 ms.author: aelnably
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
