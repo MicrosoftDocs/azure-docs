@@ -37,7 +37,7 @@ Below we have included an up-to-date list of tools included on the Data Science 
 |     &nbsp;&nbsp;&nbsp;&nbsp; [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (Ubuntu only) | |
 |     &nbsp;&nbsp;&nbsp;&nbsp; SparkR     |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | |
 | JupyterHub (multiuser notebook server)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | |
-| JupyterLab (multiuser notebook server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (Ubuntu only) | |
+| JupyterLab (multiuser notebook server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> | |
 | Development tools, IDEs, and code editors:| | |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) with Git plug-in, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs), and [R Tools for Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) |<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span>   | [Visual Studio on the DSVM](./dsvm-tools-development.md#visual-studio-2017) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Visual Studio Code](https://code.visualstudio.com/) |<span class='green-check'>&#9989;</span></br> (1.31.1) |<span class='green-check'>&#9989;</span></br> (1.31) | [Visual Studio Code on the DSVM](./dsvm-tools-development.md#visual-studio-code) |
