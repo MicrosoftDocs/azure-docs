@@ -16,7 +16,9 @@ ms.date: 08/22/2019
 
 # Create and access datasets (preview) in Azure Machine Learning
 
-In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
+[!INCLUDE [aml-applies-to-basic-sku](../../../includes/aml-applies-to-basic-sku.md)]
+
+In this article, you learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
 With Azure Machine Learning datasets, you can:
 
@@ -137,7 +139,9 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### Using the Azure Machine Learning studio
 
-Sign in to [Azure Machine Learning studio](https://ml.azure.com) to create a dataset via the web experience. Currently, the studio only supports the creation of TabularDatasets.
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
+
+Sign in to [Azure Machine Learning studio](https://ml.azure.com) to create a dataset via the web experience.
 
 The following animation shows how to create a dataset in the studio.
 
