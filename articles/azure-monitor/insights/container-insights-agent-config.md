@@ -123,7 +123,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 
         - Scrape Prometheus metrics by specifying a pod annotation on your pod as part of the pod metadata, so the agent knows where to scrape metrics from for your specific pod(s). 
 
-        Specify in the ConfigMap file:
+          Specify in the ConfigMap file:
         ```
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings
@@ -132,7 +132,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          monitor_kubernetes_pods = true 
         ```
 
-        Specify in the pod metadata:
+          Specify in the pod metadata:
 
         ```
           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
