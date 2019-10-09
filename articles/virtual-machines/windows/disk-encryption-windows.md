@@ -151,11 +151,10 @@ The following table lists the Resource Manager template parameters for existing 
 
 ## New IaaS VMs created from customer-encrypted VHD and encryption keys
 
-In this scenario, you can enable encrypting by using  PowerShell cmdlets or CLI commands. 
+In this scenario, you can create a new VM from a pre-encrypted VHD and the associated encryption keys using PowerShell cmdlets or CLI commands. 
 
-Use the instructions in the appendix for preparing pre-encrypted images that can be used in Azure. After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
+Use the instructions in [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd). After the image is created, you can use the steps in the next section to create an encrypted Azure VM.
 
-* [Prepare a pre-encrypted Windows VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd)
 
 ### Encrypt VMs with pre-encrypted VHDs with Azure PowerShell
 You can enable disk encryption on your encrypted VHD by using the PowerShell cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). The example below gives you some common parameters. 
@@ -258,7 +257,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Dynamic volumes.
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
-- Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, CephFS, etc
+- Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
 
 ## Next steps
 

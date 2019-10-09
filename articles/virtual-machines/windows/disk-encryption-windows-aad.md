@@ -46,6 +46,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
 
      -  Select the VM, then click on **Disks** under the **Settings** heading to verify encryption status in the portal. In the chart under **Encryption**, you'll see if it's enabled. 
            ![Azure portal - Disk Encryption Enabled](../media/disk-encryption/disk-encryption-fig2.png)
+
 The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Azure AD client ID:
 
 | Parameter | Description | 
