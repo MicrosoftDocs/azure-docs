@@ -16,3 +16,10 @@ Web API resources need to be registered in your tenant before they can accept an
 1. Under **Redirect URI**, select **Web**, and then enter an endpoint where Azure AD B2C should return any tokens that your application requests. In this tutorial, the sample runs locally and listens at `http://localhost:5000`.
 1. Select **Register**
 1. Record the **Application (client) ID** for use in a later step.
+
+Next, enable the implicit grant flow:
+
+1. Under **Manage**, select **Authentication**.
+1. Select **Try out the new experience** (if shown).
+1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Select **Save**.
