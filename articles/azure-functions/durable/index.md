@@ -1,3 +1,3 @@
 ---
-redirect_url: durable-functions-overview.md
+redirect_url: durable-functions-overview
 ---
