@@ -106,7 +106,19 @@ Scaling up/down can be achieved by creating [runbooks](../automation/automation-
 
 ### How does throttling affect my application ?
 
+When a request is throttled, it implies that the service is busy because it is facing more requests than the resources allow. If the same operation is tried again after a few moments, once the service has worked through it's current workload, then the request can be honored.
+
+Since this is the expected behavior of any cloud native service, we have built the retry logic into the Azure Service Bus SDK itself. The default is set to auto-retry with an exponential back-off to ensure that we don't have the same request being throttled each time.
+
+The default retry logic will apply to every operation.
+
 ### Does throttling result in data loss ?
+
+Azure Service Bus is optimized for persistence, we ensure that all the data sent to us is committed to our storage before we acknowledge the success of the request.
+
+Once the request is successfully 'ACK' by Service Bus, it implies that Service Bus has successfully processed the request. If Service Bus returns a 'NACK' (failure), then it implies that Service Bus has not been able to process the request and the client application must retry the request.
+
+However, when a request is throttled, the service is implying that it cannot accept and process the request right now because of resource limitations. This **does not** imply any sort of data loss because Service Bus simply hasn't looked at the request. In this case relying on the default retry policy of the Service Bus SDK ensures that the request is eventually processed.
 
 ## Next steps
 
