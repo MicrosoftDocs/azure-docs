@@ -19,25 +19,18 @@ The purpose of the change feed is to record all changes that occur to the blobs 
 
 The change feed files are stored as [blobs](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [limitations](#known-issues)). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
 
-You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time, or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace. Analytics applications can consume logs directly as Avro files which lets you process them in batch-mode, at low-cost, with high-throughput, and without having to write a custom application.
+You can process these logs asynchronously, incrementally or in-full. Any number of client applications can read the change feed in parallel, and at any pace. Analytics applications can consume logs directly as Avro files which lets you process them in batch-mode, at low-cost, with high-throughput, and without having to write a custom application.
 
 Change feed support is well-suited for scenarios that process data based on objects that have changed. For example, applications can:
 
   - Update a secondary index, synchronize with a cache, search-engine or any other content-management scenarios.
   
-  - Streaming or batch processing of changes to gain analytics insights and metrics.
+  - Stream or batch process changes to gain analytics insights and metrics.
   
   - Store, audit and analyze changes over any period of time for security, compliance or intelligence for enterprise data management.
-  
-  - Perform zero down-time migrations to another storage account.
-  
-  - Implement lambda pipelines to react to the stream of changes on Azure or custom solutions.
 
-## Change feed versus events
-
-Unlike [Blob Storage events](storage-blob-event-overview.md), which enable your functions or applications to react individual events in real-time, The change feed gives you a fully-managed, durable, ordered log of change event records that you can store for any lifetime that you choose. Any number of applications can process the log of changes in streaming or batched access.
-
-Changes are appended to the change feed at 60 - 120 seconds of delay. If your application has to react to events much quicker than this, consider using blob storage events instead. To learn more about how to handle Blob Storage events, see [Reacting to Blob storage events](storage-blob-event-overview.md).
+> [!NOTE]
+> Changes are appended to the change feed at 60 to 120 seconds of delay. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
 
 ## Enabling and disabling the change feed
 
@@ -47,9 +40,9 @@ Show screenshot here.
 
 Here's a few things to keep in mind when you enable the change feed.
 
-- A storage account has only one change feed.
+- There's only one change feed per blob service in each storage account. 
 
-- Changes are captured only at the storage account level.
+- Changes are captured only at the blob service level.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [limitations](#limitations)). 
 
