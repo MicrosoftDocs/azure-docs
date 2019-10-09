@@ -132,13 +132,13 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          monitor_kubernetes_pods = true 
         ```
 
-         Specify in the pod metadata:
+          Specify in the pod metadata:
 
         ```
-          - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
-          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
-          - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
+         - prometheus.io/scrape:"true" #Enable scraping for this pod ​
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
         ```
 
 1. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
