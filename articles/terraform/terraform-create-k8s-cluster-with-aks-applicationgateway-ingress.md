@@ -34,11 +34,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
 
-- **Obtain the Service Principal Object ID**: Run the following command:
-
-  ```azurecli
-  az ad sp list --display-name <displayName>
-  ```
+- **Obtain the Service Principal Object ID**: Run the following at the command line: `az ad sp list --display-name <displayName>`
 
 ## Create the directory structure
 
@@ -673,15 +669,15 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
 
 Depending on whether RBAC is enabled or disabled, run one of the following commands to install AAD Pod Identity to your cluster:
 
-  **RBAC enabled** AKS cluster
-  ```bash
-  kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-  ```
+    **Option 1:** RBAC enabled AKS cluster
+    ```bash
+    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+    ```
 
-  **RBAC disabled** AKS cluster
-  ```bash
-  kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-  ```
+    **Option 2:** RBAC disabled AKS cluster
+    ```bash
+    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+    ```
 
 ## Install Helm
 
@@ -689,13 +685,13 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 
 1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
-  **RBAC enabled** AKS cluster
+  **Option 1:** RBAC enabled AKS cluster
   ```bash
   kubectl create serviceaccount --namespace kube-system tiller-sa
   kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
   helm init --tiller-namespace kube-system --service-account tiller-sa
   ```
-  **RBAC disabled** AKS cluster
+  **Option 2:** RBAC disabled AKS cluster
   ```bash
   helm init
   ```
@@ -753,15 +749,15 @@ Once you have the App Gateway, AKS, and AGIC installed, you can install a sample
 
 1. Use the curl command to download the YAML file:
 
-  ```bash
-  curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
-  ```
+    ```bash
+    curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
+    ```
 
 2. Apply the YAML file:
 
-  ```bash
-  kubectl apply -f apsnetapp.yaml
-  ```
+    ```bash
+    kubectl apply -f apsnetapp.yaml
+    ```
 
 ## Next steps
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure.
