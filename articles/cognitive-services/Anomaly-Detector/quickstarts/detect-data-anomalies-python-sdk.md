@@ -21,7 +21,7 @@ Use the Anomaly Detector client library for Python to:
 * Detect anomalies throughout your time series dataset, as a batch request
 * Detect the anomaly status of the latest data point in your time series
 
-[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Code samples](https://github.com/Azure-Samples/anomalydetector)
 
 ## Prerequisites
 

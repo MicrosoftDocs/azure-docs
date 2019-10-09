@@ -44,7 +44,7 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-key
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
 export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
 ```
 
