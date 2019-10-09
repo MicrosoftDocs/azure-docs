@@ -175,8 +175,10 @@ Keep the default routes, and select **Next** to continue to the review section
 
 ## Verify Event Delivery
 
-Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#step-4-verify-event-delivery)
-1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. Check out the subscriber logs for create event
+### Verify BlobCreated event delivery
+
+1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. 
+2. Check out the subscriber logs for create event. Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#verify-event-delivery)
 
 Sample Output:
 
@@ -185,7 +187,7 @@ Sample Output:
         {
           "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
           "topic": "MicrosoftStorage",
-          "subject": "/blobServices/default/containers/cont1/blobs/BurrowTeam.jpg",
+          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
           "eventType": "Microsoft.Storage.BlobCreated",
           "eventTime": "2019-10-01T21:35:17.7219554Z",
           "dataVersion": "1.0",
@@ -195,7 +197,7 @@ Sample Output:
             "clientRequestId": "00000000-0000-0000-0000-000000000000",
             "requestId": "ef1c387b-4c3c-4ac0-8e04-ff73c859bfdc",
             "eTag": "0x8D746B740DA21FB",
-            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/BurrowTeam.jpg",
+            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
             "contentType": "image/jpeg",
             "contentLength": 858129,
             "blobType": "BlockBlob"
@@ -203,8 +205,10 @@ Sample Output:
         }
       ]
 ```
+### Verify BlobDeleted event delivery
 
-2. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. Check out the subscriber logs for delete event
+1. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. 
+2. Check out the subscriber logs for delete event. Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#verify-event-delivery)
 
 Sample Output:
 
@@ -213,7 +217,7 @@ Sample Output:
         {
           "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
           "topic": "MicrosoftStorage",
-          "subject": "/blobServices/default/containers/cont1/blobs/BurrowTeam.jpg",
+          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
           "eventType": "Microsoft.Storage.BlobDeleted",
           "eventTime": "2019-10-01T21:36:09.2562941Z",
           "dataVersion": "1.0",
@@ -223,7 +227,7 @@ Sample Output:
             "clientRequestId": "00000000-0000-0000-0000-000000000000",
             "requestId": "2996bbfb-c819-4d02-92b1-c468cc67d8c6",
             "eTag": "0x8D746B740DA21FB",
-            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/BurrowTeam.jpg",
+            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
             "contentType": "image/jpeg",
             "contentLength": 858129,
             "blobType": "BlockBlob"
