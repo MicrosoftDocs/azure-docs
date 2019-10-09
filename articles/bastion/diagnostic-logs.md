@@ -23,16 +23,16 @@ As users connect to workloads using Azure Bastion, Bastion can log diagnostics o
 
 1. In the  [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
-    ![diagnostics settings](./media/diagnostic-logs/diagnostics-settings.png)
+    ![diagnostics settings](./media/diagnostic-logs/1diagnostics-settings.png)
 1. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
 
-    ![add diagnostic setting](./media/diagnostic-logs/add-diagnostic-setting.png)
+    ![add diagnostic setting](./media/diagnostic-logs/2add-diagnostic-setting.png)
 1. On the **Diagnostics settings** page, select the type of storage account to be used for storing diagnostics logs.
 
-    ![select storage location](./media/diagnostic-logs/add-storage-account.png)
+    ![select storage location](./media/diagnostic-logs/3add-storage-account.png)
 1. When you complete the settings, it will look similar to this example:
 
-    ![example settings](./media/diagnostic-logs/example-settings.png)
+    ![example settings](./media/diagnostic-logs/4example-settings.png)
 
 ## <a name="view"></a>View diagnostics log
 
@@ -40,13 +40,13 @@ To access your diagnostics logs, you can directly use the storage account that y
 
 1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
 
-    ![diagnostics settings](./media/diagnostic-logs/navigate-to-logs.png)
+    ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
 1. As you navigate to inside the container, you will see various folders in your blog.  These folders indicate the resource hierarchy for your Azure Bastion resource.
 
-    ![add diagnostic setting](./media/diagnostic-logs/resource-h.png)
+    ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
 1. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The ‘y=’, ‘m=’, ‘d=’, ‘h=’ and ‘m=’ indicate the year, month, day, hour, and minute respectively for the diagnostic logs.
 
-    ![select storage location](./media/diagnostic-logs/resource-location.png)
+    ![select storage location](./media/diagnostic-logs/3-resource-location.png)
 1. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
 
    ```json
