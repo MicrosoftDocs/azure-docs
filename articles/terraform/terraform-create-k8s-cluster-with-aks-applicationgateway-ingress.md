@@ -528,9 +528,9 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-## Set up Azure storage to store Terraform state
+## Configure Azure storage to store Terraform state
 
-Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
 1. In the Azure portal, select **All services** in the left menu.
 
