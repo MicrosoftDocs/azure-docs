@@ -538,7 +538,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. 
 
-  Take note of the storage account you select, as you need it later.
+    Take note of the storage account you select, as you need it later.
 
 1. On the storage account tab, select **Access keys**.
 
@@ -667,15 +667,13 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
   - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
   - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-Depending on whether RBAC is enabled or disabled, run one of the following commands to install AAD Pod Identity to your cluster:
-
-    **Option 1:** RBAC enabled AKS cluster
+If RBAC is **enabled**, run the following command to install AAD Pod Identity to your cluster:
 
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
     ```
 
-    **Option 2:** RBAC disabled AKS cluster
+If RBAC is **disabled**, run the following command to install AAD Pod Identity to your cluster:
 
     ```bash
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -685,16 +683,15 @@ Depending on whether RBAC is enabled or disabled, run one of the following comma
 
 The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
-1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
-
-    **Option 1:** RBAC enabled AKS cluster
+1. If RBAC is **enabled**, run the following set of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
-    **Option 2:** RBAC disabled AKS cluster
+
+1. If RBAC is **disabled**, run the following command to install and configure [Helm](/azure/aks/kubernetes-helm):
 
     ```bash
     helm init
