@@ -58,4 +58,4 @@ In this tutorial, you have setup the environment, deployed Azure API for FHIR in
 At this point, we are ready to write our sample application that connects to Azure API endpoint and browses the list of patients.
 
 >[!div class="nextstepaction"]
->[Write a sample application that connects to Azure PAI for FHIR endpoint](tutorial-2-connect-to-endpoint.md)
+>[Write a sample application that connects to Azure PAI for FHIR endpoint](tutorial-3-connect-to-endpoint.md)

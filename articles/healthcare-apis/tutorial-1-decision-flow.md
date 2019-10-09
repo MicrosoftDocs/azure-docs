@@ -33,4 +33,4 @@ In this tutorial, you have gone through decision flow on how to setup Azure AD e
 At this point, we are ready to setup development environment and provision FHIR Service to crate first Application.
 
 >[!div class="nextstepaction"]
->[Setup development environment and provision service](tutorial-1-setup-environment.md)
+>[Setup development environment and provision service](tutorial-2-setup-environment.md)
