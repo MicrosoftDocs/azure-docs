@@ -1,4 +1,18 @@
-## How To: Add Validations to Command parameters
+---
+title: 'How To: Add Validations to Custom Speech Command parameters (Preview)'
+titleSuffix: Azure Cognitive Services
+description: In this article, add validations to Custom Speech Command parameters
+services: cognitive-services
+author: donkim
+manager: yetian
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 10/09/2019
+ms.author: donkim
+---
+
+# How To: Add Validations to Custom Speech Command parameters (Preview)
 
 Add a new command SetTemperature
 

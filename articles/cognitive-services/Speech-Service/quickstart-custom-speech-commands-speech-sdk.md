@@ -13,3 +13,12 @@ ms.author: donkim
 ---
 
 # Quickstart: Connect to a Custom Speech Command application with the Speech SDK (Preview)
+
+
+## Next steps
+> [!div class="nextstepaction"]
+> [How To: Fulfill Commands with a REST backend (Preview)](./how-to-custom-speech-commands-fulfill-rest.md)
+> [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How To: Prompt for confirmation in a Command (Preview)](./how-to-custom-speech-commands-confirmation.md)
+> [How To: Add Validations to Custom Speech Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
+
