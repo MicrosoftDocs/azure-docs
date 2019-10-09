@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-manager: carmonm
 ---
 # Overview of the Azure Policy service
 

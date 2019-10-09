@@ -1,6 +1,6 @@
 ---
 title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop preview master image to Azure.
+description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -199,7 +199,7 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](https://code.visualstudio.com/tutorials/static-website/create-storage) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven’t already. If you don’t convert the image to Fixed, you can't successfully create the image.
 

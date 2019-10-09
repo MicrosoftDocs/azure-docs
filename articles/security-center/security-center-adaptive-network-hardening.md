@@ -126,9 +126,9 @@ You can add an “allow” rule that was not recommended by Security Center.
 
 ### Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
 
-*To delete an Adaptive Network Hardening rule:*
+*To delete an Adaptive Network Hardening rule for your current session:*
 
 1. In the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Delete**.  
 

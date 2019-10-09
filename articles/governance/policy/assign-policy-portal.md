@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources
 

@@ -1,12 +1,11 @@
 ---
-title: Understand how to audit the contents of a virtual machine
+title: Understand Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy for Azure Kubernetes Service
 
@@ -260,4 +259,4 @@ To remove the Azure Policy add-on from your AKS cluster, use either the Azure po
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/index.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

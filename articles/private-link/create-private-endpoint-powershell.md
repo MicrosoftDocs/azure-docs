@@ -201,6 +201,7 @@ mstsc /v:<publicIpAddress>
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
+    ```
 3. Install SQL Server Management Studio
 4. In Connect to server, enter or select this information:
   	Setting	Value

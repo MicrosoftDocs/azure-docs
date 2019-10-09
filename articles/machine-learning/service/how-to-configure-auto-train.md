@@ -326,7 +326,7 @@ You can view your training results in a widget or inline if you are in a noteboo
 
 Any model produced using automated ML includes the following steps:
 + Automated feature engineering (if preprocess=True)
-+ Scaling/Normalization and algorithm with hypermeter values
++ Scaling/Normalization and algorithm with hyperparameter values
 
 We make it transparent to get this information from the fitted_model output from automated ML.
 
@@ -408,7 +408,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
    |Transformations|List of transformations applied to input features to generate engineered features.|
 
-### Scaling/Normalization and algorithm with hypermeter values:
+### Scaling/Normalization and algorithm with hyperparameter values:
 
 To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md#preprocess). Here is a sample output:
 

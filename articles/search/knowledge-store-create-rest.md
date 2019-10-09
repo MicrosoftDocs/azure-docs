@@ -5,9 +5,8 @@ description: Create an Azure Search knowledge store for persisting enrichments f
 author: lobrien
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/01/2019
 ms.author: laobri
  
 ---
@@ -25,7 +24,7 @@ After you create the knowledge store, you can learn about accessing this knowled
 
 + [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Search service. The *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
 
-+ Recommended: [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs and will be used in this article. Further, the [source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
++ Recommended: [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs and will be used in this article. Further, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
 
 ## 2 - Store the Data
 
@@ -49,7 +48,7 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
 ## 3 - Configure Postman
 
-Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. 
+Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. 
 
 ![Postman app showing navigation](media/knowledge-store-create-rest/postman-edit-menu.png "Navigate to the Edit menu in Postman")
 
@@ -84,7 +83,7 @@ Creating a Knowledge Store requires you to issue four HTTP requests:
 1. A PUT request to create the skillset. The skillset specifies the enrichments applied to your data and the structure of the knowledge store.
 1. A PUT request to create the indexer. Running the indexer reads the data, applies the skillset, and stores the results. You must run this request last.
 
-The [source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) contains a Postman collection with these four requests. To issue the requests, switch to the request's tab in Postman, and add `api-key` and `Content-Type` request headers. Set the value of `api-key` to `{{admin-key}}`. Set the value `Content-type` to `application/json`. 
+The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contains a Postman collection with these four requests. To issue the requests, switch to the request's tab in Postman, and add `api-key` and `Content-Type` request headers. Set the value of `api-key` to `{{admin-key}}`. Set the value `Content-type` to `application/json`. 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing Postman's interface for headers](media/knowledge-store-create-rest/postman-headers-ui.png)

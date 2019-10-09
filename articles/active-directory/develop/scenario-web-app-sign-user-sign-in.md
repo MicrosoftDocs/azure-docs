@@ -103,7 +103,7 @@ def index():
 
 ---
 
-### `login()` action of the controller
+### `Login` action of the controller
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -320,7 +320,7 @@ In the Python quickstart, the sign-out button is located in the [templates/index
 
 ---
 
-### `Signout()` action of the controller
+### `Signout` action of the controller
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -376,13 +376,12 @@ In Java, the sign-out is handled by calling the Microsoft identity platform logo
 
 # [Python](#tab/python)
 
-The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L46-L52) 
+The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48)
 
 ```Python
 @app.route("/logout")
 def logout():
-    session["user"] = None  # Log out from this app from its session
-    # session.clear()  # If you prefer, this would nuke the user's token cache too
+    session.clear()  # Wipe out user and its token cache from session
     return redirect(  # Also need to logout from Microsoft Identity platform
         "https://login.microsoftonline.com/common/oauth2/v2.0/logout"
         "?post_logout_redirect_uri=" + url_for("index", _external=True))
