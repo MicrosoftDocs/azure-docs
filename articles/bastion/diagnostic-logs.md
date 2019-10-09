@@ -15,10 +15,6 @@ ms.author: cherylmc
 
 As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
 
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
-
 ## <a name="enable"></a>Enable the diagnostics log
 
 1. In the  [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
@@ -58,7 +54,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    "level":"Informational",
    "location":"eastus",
    "properties":{ 
-      "userName":"ashishj",
+      "userName":"<username>",
       "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
