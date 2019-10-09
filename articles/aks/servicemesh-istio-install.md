@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
+zone_pivot_groups: client-operating-system
 ---
 
 # Install and use Istio in Azure Kubernetes Service (AKS)
@@ -41,6 +42,14 @@ You'll need [Helm][helm] to follow these instructions and install Istio. It's re
 Ensure that you have read the [Istio Performance and Scalability](https://istio.io/docs/concepts/performance-and-scalability/) documentation to understand the additional resource requirements for running Istio in your AKS cluster. The core and memory requirements will vary based on your specific workload. Choose an appropriate number of nodes and VM size to cater for your setup.
 
 This article separates the Istio installation guidance into several discrete steps. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
+
+::: zone pivot="client-operating-system-linux"
+
+[!INCLUDE [Linux download and install client binary](includes/servicemesh-istio-download-and-install-client-binary-linux.md)]
+
+::: zone-end
+
+---
 
 ## Download Istio
 
