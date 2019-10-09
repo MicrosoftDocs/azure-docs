@@ -173,7 +173,7 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
 8. Check if the problem is resolved.
 
-## Next Steps
+## Next steps
 
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
