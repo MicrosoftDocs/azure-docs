@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
-This article discusses how to select the right VM size for the various nodes in your HDInsight cluster. For a list of all supported and recommended VM sizes for each cluster type, see [Azure HDInsight supported node configurations](hdinsight-supported-node-configurations.md).
+This article discusses how to select the right VM size for the various nodes in your HDInsight cluster. For a list of all supported and recommended VM sizes for each cluster type, see [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md).
 
 ## Understanding VM optimization
 
@@ -27,12 +27,8 @@ Virtual machine families in Azure are optimized to suit different use cases. In 
 | [GPU](../virtual-machines/linux/sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3  | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.       |
 | [High performance compute](../virtual-machines/linux/sizes-hpc.md) | HB, HC,  H | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
 
-<br>
-
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
-- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 ## Cost saving SKUs for light workloads
 
@@ -54,5 +50,5 @@ To see the specifications of each Fsv2-series SKU, see [Compute optimized virtua
 
 ## Next steps
 
-- [Azure HDInsight supported node configurations](hdinsight-supported-node-configurations.md)
+- [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md)
 * [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
