@@ -42,6 +42,7 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 * [Azure portal](#azure-portal) 
 * [Azure Resource Manager templates](#template)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+* [Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal"></a>
 
@@ -183,6 +184,7 @@ To stop using the system-assigned identity for your logic app, you have these op
 * [Azure portal](#azure-portal-disable)
 * [Azure Resource Manager templates](#template-disable)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
 
 If you delete your logic app, Azure automatically removes the managed identity from Azure AD.
 
@@ -204,9 +206,9 @@ In the Azure portal, remove the system-assigned identity [from your logic app](#
 
 <a name="disable-identity-target-resource"></a>
 
-#### Remove managed identity from target resource
+#### Remove identity access from resources
 
-1. In the [Azure portal](https://portal.azure.com), go to the target Azure resource where you want to remove access from a managed identity.
+1. In the [Azure portal](https://portal.azure.com), go to the target Azure resource where you want to remove access for a managed identity.
 
 1. From the target resource's menu, select **Access control (IAM)**. Under the toolbar, select **Role assignments**.
 
