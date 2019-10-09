@@ -94,4 +94,4 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)
+> [Azure Disk Encryption overview](disk-encryption-overview.md)
