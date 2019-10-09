@@ -741,6 +741,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-version.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-app-iteration",
+      "redirect_document_id": false      
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
       "redirect_document_id": false

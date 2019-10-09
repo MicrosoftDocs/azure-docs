@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: diberry 
 ---
-# Authoring cycle for your LUIS app
+# Authoring cycles and versions
 
-Your LUIS app learns best in an iterative cycle of app schema changes, utterance examples, publishing, and gathering data from endpoint queries. 
+Your LUIS app learns best in an iterative cycle of app schema changes, utterance examples, publishing, and gathering data from endpoint queries. Use a new version for each cycle. 
 
 ![Authoring cycle](./media/luis-concept-app-iteration/iteration.png)
 
@@ -45,17 +45,56 @@ Once you have 15 to 30 different example utterances in each intent, with the req
 
 You can test your published LUIS app from the HTTPS prediction endpoint. Testing from the prediction endpoint allows LUIS to choose any utterances with low-confidence for [review](luis-how-to-review-endpoint-utterances.md).  
 
-## Clone the app for the next authoring cycle
+## Create a new version for each cycle
 
-Consider [cloning](luis-concept-version.md#clone-a-version) the current version into a new version, then begin your authoring changes in the new version. 
+Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to an older version, then to try to remove intents and utterances to a previous state.
+
+The version ID consists of characters, digits or '.' and cannot be longer than 10 characters.
+
+The initial version (0.1) is the default active version. 
+
+### Begin by cloning an existing version
+
+Clone an existing version to use as a starting point for the new version. Once you clone a version, the new version becomes the **active** version. 
+
+### Publishing slots
+You publish to either the stage and production slots. Each slot can have a different version or the same version. This is useful for verifying changes before publishing to production, which is available to bots or other LUIS calling applications. 
+
+Trained versions are not automatically available at your app's [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
+
+### Import and export a version
+You can import a version at the app level. That version becomes the active version and uses the version ID in the `versionId` property of the app file. You can also import into an existing app, at the version level. The new version becomes the active version. 
+
+You can export a version at the app or version level. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
+
+The exported file does not contain:
+
+* machine-learned information because the app is retrained after it is imported
+* contributor information
+
+In order to back up your LUIS app schema, export a version from the LUIS portal.
+
+## Manage contributor changes with versions and apps
+
+### Manage multiple versions inside the same app
+Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
+
+Each author makes changes to their own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
+
+Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app. 
+
+This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
+
+### Manage multiple versions as apps
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
+Learn more about authoring contributions from [collaborators](luis-how-to-collaborate.md).
 
 ## Review endpoint utterances to begin the new authoring cycle
 
 When you are done with a cycle of authoring, you can begin again. Start with [reviewing prediction endpoint utterances](luis-how-to-review-endpoint-utterances.md) LUIS marked with low-confidence. Check these utterances for both correct predicted intent and correct and complete entity extracted. Once you review and accept changes, the review list should be empty.  
-
-## Batch testing
-
-[Batch testing](luis-concept-batch-test.md) is a way to see how example utterances are predicted by your LUIS app. The examples should be new to LUIS and should be correctly labeled with intent and entities you want your LUIS app to find. The test results indicate how well LUIS would perform on that set of utterances. 
 
 ## Next steps
 

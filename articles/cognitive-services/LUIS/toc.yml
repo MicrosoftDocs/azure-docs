@@ -113,17 +113,11 @@
     - name: Plan your app
       displayName: simple, composite, prebuilt, list, regex, regular expression
       href: luis-how-plan-your-app.md
-    - name: Understand revision cycle
+    - name: Authoring cycle
       href: luis-concept-app-iteration.md
-    - name: Use versioning
-      href: luis-concept-version.md
       displayName: import
     - name: Design with models
       href: luis-concept-model.md
-    - name: Features
-      href: luis-concept-feature.md
-    - name: Prediction score
-      href: luis-concept-prediction-score.md
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
@@ -138,6 +132,10 @@
     - name: Patterns
       href: luis-concept-patterns.md
       displayName: roles
+    - name: Features
+      href: luis-concept-feature.md
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
   - name: Authoring and runtime keys
     displayName: shared, transfer, ownership, author, access, import
     href: luis-concept-keys.md    
