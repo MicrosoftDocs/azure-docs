@@ -1,7 +1,7 @@
 ---
 title: 'Advanced Threat Protection for Azure Cosmos DB'
 description: Learn how Azure Cosmos DB provides encryption of data at rest and how it's implemented.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
