@@ -10,7 +10,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 09/27/2019
 
-# Customer intent: As a coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
+# Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
 
 # Tutorial: Schedule machine learning pipelines with Azure Machine Learning SDK for Python
@@ -38,7 +38,9 @@ In this tutorial, you will:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
+* A Python environment in which the Azure Machine Learning SDK for Python and Jupyter are installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
+
+* Download the [Tutorial: Schedule Azure Machine Learning Pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/tutorial-pipeline-scheduling.ipynb) notebook. This notebook contains all the source code necessary to complete this tutorial. 
 
 ## Create a workspace
 
@@ -48,146 +50,182 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
+### Allocate compute
+
+* In your workspace, choose the **Compute** section
+* Select **+ Add Compute** 
+* Name your selection `cpu-compute`
+* Select **Machine Learning Compute** 
+* Select an inexpensive VM size, such as `Standard_D1_v2`
+* Leave the other values at their defaults
+* Select **Create** to allocate the resource
+
 >[!IMPORTANT] 
-> Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
+> Take note of your **workspace**, **resource_group**, and **subscription**. You'll need these to ensure you create your pipeline in the right place. 
 
-## Create and run the experiment
+## Write a data preprocessing script
 
-You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, this will encapsulate a complex process such as data preparation or training. For the purposes of this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
 
-1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
+* Activate the Python environment in which you've installed the Azure Machine Learning SDK for Python. 
 
-1. Select your subscription and the workspace you created.
+* In the directory in which you downloaded **tutorial-pipeline-scheduling.ipynb**, start Jupyter: 
 
-1. Select **Get started**.
+```shell
+jupyter notebook
+```
 
-1. In the left pane, select **Automated ML** under the **Authoring** section.
+* In Jupyter, open **tutorial-pipeline-scheduling.ipynb** and execute the cells in the **Domain** and **Generating and Preprocessing** sections.
 
-   Since this is your first automated ML experiment, you'll see the Getting started screen.
+These cells, when run:
 
-   ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+* Create a subdirectory called **pipeline-scheduling-src**
+* Write two files (**color.py** and **preprocessing.py**) to that subdirectory
+* Creates some fake data and stores it in **unprocessed_data.csv**
+* Reads that fake data, normalizes it, and writes it to **processed_data.csv**
 
-1. Select **Create experiment**. 
+In a real ML scenario, **unprocessed_data.csv** would be coming in continuously from some upstream process: a Web service, the field, or sensors. Unlike this trivial sample, real-world data preparation is often very time-consuming and periodically updating it is a good scenario for a pipeline.
 
-1. Enter this experiment name: `my-1st-automl-experiment`
+ ## Publish a pipeline encapsulating the script
 
-1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
+The next step is to create a pipeline. For a more in-depth explanation of the steps in this section, see [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md). 
 
-   Field | Description | Value for tutorial
-   ----|---|---
-   Compute name |A unique name that identifies your compute context.|automl-compute
-   Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-   Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+* In your browser, navigate to the Machine Learning workspace
+* Download the workspace's **config.json** to the directory in which you are running the Jupyter notebook
 
-   >[!NOTE]
-   >For this tutorial, you'll use the default storage account and container created with your new compute. They automatically populate in the form.
-    
-1. Select **Create** to get the compute target. 
+![Showing Workspace **Download config.json** option](media/tutorial-pipeline-schedule/export-config-json.png)
 
-   **This takes a couple minutes to complete.** 
+In the Jupyter notebook, continue to the **Authenticate** section and execute the cell:
 
-1. After creation, select your new compute target from the drop-down list and select **Next**.
+```python
+from azureml.core import Workspace 
+ws = Workspace.from_config()
+```
 
-1. Select **Upload from local file** to begin creating a new dataset. 
+* Import the various classes you need by executing the cells in the **Importing modules** section. 
 
-    1. Select **Browse**.
-    
-    1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Create a pipeline by executing the cells in the **Create a pipeline** section
 
-    1. Give your dataset a unique name and provide an optional description. 
+The first of these cells configures the compute resource that will be associated with your pipeline. In this case, we use the `cpu-compute` resource you allocated when creating the workspace. Our **preprocessing.py** script relies on scikit-learn for it's data-normalization routines, so we create a custom `CondaDependencies` to make that package available to us. 
 
-    1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
-    
-       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
-       
-    1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
-        
-        Field|Value for tutorial
-        ---|---
-        File format| Delimited
-        Delimiter| Comma
-        Encoding| UTF-8
-        Column headers| All files have same headers
-        Skip rows | None
-    
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
+```python
+def config_compute() :
+    # Note that this is the same as compute allocated during Workspace initialization
+    compute_target = ws.compute_targets["cpu-compute"]
 
-        ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
+    compute_config = RunConfiguration()
+    compute_config.target = "amlcompute"
+    compute_config.amlcompute.vm_size = "STANDARD_D1_V2"
+    dependencies = CondaDependencies()
+    dependencies.add_pip_package("scikit-learn")
+    compute_config.environment.python.conda_dependencies = dependencies
+    return (compute_target, compute_config)
 
-1. Select **Classification** as the prediction task.
+(compute_target, compute_config) = config_compute()
+```
 
-1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
+Now, to build the `PythonScriptStep` that encapsulates our preprocessing data, run the next cell to: 
 
-1. Expand **Advanced Settings** and populate the fields as follows.
+* Upload the contents of **pipeline-scheduling-src/** (**color.py** and **processing.py**)
+* Set **preprocessing.py* as the main script the step will execute
+* Use the `compute_target` and `compute_config` set in the previous cell
 
-   >[!NOTE]
-   > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
-   
-   Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
-   ------|---------|---
-   Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
-   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
-   Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-   Validation type | Choose a cross-validation type.|K-fold cross-validation
-   Number of validations | Number of tests. | 2 cross-validations 
-   Concurrency| The number of max concurrent iterations.|5
-   
-1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
+```python
+preprocessing_step = PythonScriptStep(
+    script_name="preprocessing.py",
+    arguments=[],
+    inputs=[],
+    outputs=[],
+    compute_target=compute_target,
+    runconfig = compute_config,
+    source_directory="./pipeline-scheduling-src/"
+)
+```
 
->[!IMPORTANT]
-> Preparation takes **10-15 minutes** to prepare the experiment run. 
-> Once running, it takes **2-3 minutes more for each iteration**.  
->
-> In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the iteration results as they complete while the others are still running. 
+Most pipelines will have multiple steps, but ours is simple. The next cell creates a `Pipeline` in the workspace with the single `PythonScriptStep` defined in the previous cell.
 
-##  Explore iteration results
+```python
+steps = [ preprocessing_step ]
+pipeline = Pipeline(workspace=ws, steps=steps)
+```
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete, and orders them by metric score. By default, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+Pipelines run inside an `Experiment`. So the next cell creates an experiment within the workspace called "PipelineScheduling":
 
-While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
-   
-The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
+```python
+experiment_name = "PipelineScheduling"
+experiment = Experiment(ws, experiment_name) 
+```
 
-![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
+Finally, publish and run the `Pipeline`:
 
-## Deploy the model
+```python
+pipeline_run = experiment.submit(pipeline)
+pipeline_run.wait_for_completion()
+```
 
-Automated machine learning in the workspace landing page allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+## Schedule the pipeline to run periodically
 
-Once the run is complete, navigate back to the **Iteration chart** and **Iterations list** detail page. 
+In order to schedule a pipeline, you must:
 
-In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
+* Publish the pipeline
+* Specify how you would like it to recur 
+* Schedule it
 
-1. Select the **Deploy Best Model** button in the top-right corner.
+In the notebook, you can do this by executing the cells in the **Publish and schedule a pipeline** section. For demonstration purposes, the pipeline is set to run every 3 minutes. More realistically, a data preparation script might run once or twice a day. 
 
-1. Populate the **Deploy Best Model** pane as follows:
+```python
+published_pipeline = pipeline_run.publish_pipeline("My published pipeline",f"Published on: {str(datetime.now())}", "0.0.1")
+recurrence = ScheduleRecurrence(frequency="Minute", interval=3)
+schedule = Schedule.create(ws, name="MySchedule", pipeline_id=published_pipeline.id,
+                          experiment_name=experiment_name, recurrence=recurrence)
+print(schedule)
+```
 
-    Field| Value
-    ----|----
-    Deployment name| my-automl-deploy
-    Deployment description| My first automated machine learning experiment deployment
-    Scoring script| Autogenerate
-    Environment script| Autogenerate
-    
-1. Select **Deploy**.  
+## View the results of the pipeline experiment
 
-    A deployment complete message appears when deployment successfully finishes.
-    
-Now you have an operational web service to generate predictions.
+In your Web browser, navigate to your Machine Learning service workspace. From the **Assets** section of the navigation panel, choose **Pipelines**
 
-## Clean up resources
+![Pipelines page of Workspace](media/tutorial-pipeline-schedule/pipelines-list.png)
 
-Deployment files are larger than data and experiment files, so they cost more to store. Delete only the deployment files to minimize costs to your account, or if you want to keep your workspace and experiment files. Otherwise, delete the entire resource group, if you don't plan to use any of the files.  
+In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth.
 
-### Delete the deployment instance
+You can drill in for more information by clicking on your pipeline:
 
-Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
+![Pipeline detail page in Workspace](media/tutorial-pipeline-schedule/pipeline-details.png)
 
-1. Go to the [Azure portal](https://portal.azure.com//). Navigate to your workspace and  on the left under the **Assets** pane, select **Deployments**. 
+Here you can get more details about your pipeline and can drill down into individual runs. 
 
-1. Select the deployment you want to delete and select **Delete**. 
+You can also use the **Experiments** tab to get information via the `Experiment` you created ("PipelineScheduling").
 
-1. Select **Proceed**.
+## Deactivate the pipeline
+
+If you have a `Pipeline` that is published, but not scheduled, you can disable it with:
+
+```python
+pipeline = PublishedPipeline.get(ws, id=pipeline_id)
+pipeline.disable()
+```
+
+But if the pipeline is scheduled, you must cancel the schedule first. Retrieve the schedule's id from the portal or by running: 
+
+```python
+ss = Schedule.list(ws)
+for s in ss : 
+    print(s)
+```
+
+Once you have the `schedule_id` you wish to disable, run: 
+
+```python
+def stop_by_schedule_id(ws, schedule_id) : 
+    s = next(s for s in Schedule.list(ws) if s.id == schedule_id)
+    s.disable()
+    return s
+
+stop_by_schedule(ws, schedule_id)
+```
+
+If you then run `Schedule.list(ws)` again, you should get an empty list. 
 
 ### Delete the resource group
 
@@ -195,15 +233,12 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 ## Next steps
 
-In this automated machine learning tutorial, you used the workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
+In this tutorial, you used the Azure Machine Learning SDK for Python to create and configure an Azure Machine Learning pipeline. You then learned how to schedule that pipeline by publishing it, specifying how often it should be rerun, and creating a schedule. You saw how to use the portal to examine the experiment, pipeline, and individual runs of the pipeline. Finally, you learned how to disable a schedule so that the pipeline stops running. 
+
+See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring.md)
 
-+ Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
-+ Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
-+ Learn more about [automated machine learning](concept-automated-ml.md).
-
->[!NOTE]
-> This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.
++ Learn more about [pipelines]([What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines)).
++ Learn more about [exploring Azure Machine Learning with Jupyter](sample-notebooks.md).
