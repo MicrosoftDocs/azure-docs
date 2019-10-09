@@ -2997,50 +2997,41 @@ This setting puts your logic app into "high throughput" mode.
 
 <a name="connector-authentication"></a>
 
-## Authenticate HTTP triggers and actions
+## Authenticate triggers and actions
 
-HTTP endpoints support different kinds of authentication. 
-You can set up authentication for these HTTP triggers and actions:
+HTTP and HTTPS endpoints can support various kinds of authentication for receiving calls or requests from a logic app. For example, these triggers and actions can support various kinds of authentication for making outbound calls or requests:
 
 * [HTTP](../connectors/connectors-native-http.md)
 * [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
-Here are the kinds of authentication you can set up:
+Here are the kinds of authentication that are available, based on the trigger or action that you use:
 
 * [Basic authentication](#basic-authentication)
 * [Client certificate authentication](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
+* [Raw authentication]
+* [Managed identity authentication](#managed-identity-authentication)
 
 > [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about using and securing parameters, 
+> Make sure that you protect any sensitive information that your logic app definition handles. 
+> Use secured parameters and encode data as necessary. For more information about using and securing parameters, 
 > see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="basic-authentication"></a>
 
 ### Basic authentication
 
-For [basic authentication](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 
-by using Azure Active Directory, your trigger or action definition can 
-include an `authentication` JSON object, which has the properties 
-specified by the following table. To access parameter values at runtime, 
-you can use the `@parameters('parameterName')` expression, which is 
-provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+For an HTTP trigger or action, you can use [basic authentication with Azure Active Directory](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) by specifying these property values:
 
-| Property | Required | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | The user name for authenticating access to the target service endpoint |
-| **password** | Yes | "@parameters('passwordParam')" | The password for authenticating access to the target service endpoint |
-||||| 
+| Property (designer) | Property (JSON) | Required | Value | Description |
+|---------------------|-----------------|----------|-------|-------------|
+| **Authentication** | `type` | Yes | `Basic` | The authentication type to use |
+| **Username** | `username` | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
+| **Password** | `password` | Yes | <*password*> | The password for authenticating access to the target service endpoint |
+||||||
 
-In this example HTTP action definition, the `authentication` 
-section specifies `Basic` authentication. For more 
-information about using and securing parameters, see 
-[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+When you use secured parameters to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `Basic` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the user name and password parameter values:
 
 ```json
 "HTTP": {
@@ -3057,13 +3048,6 @@ information about using and securing parameters, see
   "runAfter": {}
 }
 ```
-
-> [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
@@ -3166,6 +3150,27 @@ For more information about using and securing parameters, see
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
 > see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
+### Managed identity
+
+For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
+
+1. In your logic app, add the **HTTP** action.
+
+1. Provide the necessary details for that action, such as the request **Method** and **URI** location for the resource that you want to call. In the **URI** box, enter the endpoint URL for that Azure service. So, if you're using Azure Resource Manager, enter this value in the **URI** property:
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
+
+1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
+
+   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+
+   > [!IMPORTANT]
+   >
+   > In the **Audience** property, the resource ID value must exactly match the value that Azure AD expects, 
+   > including any required trailing slashes. You can find these resource ID values in this 
+   > [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   > For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
 
 ## Next steps
 

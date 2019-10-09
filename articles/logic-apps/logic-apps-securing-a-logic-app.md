@@ -1,6 +1,6 @@
 ---
 title: Secure access and data - Azure Logic Apps
-description: Protect parameter inputs, HTTP request triggers, run history, logic app operations, and connections to other services in Azure Logic Apps
+description: Protect parameter inputs, HTTP request triggers, run history, logic app operations, and connections to other resources in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -25,7 +25,7 @@ To control access and protect data in Azure Logic Apps, you can set up security 
 
 ## Access to HTTP request triggers
 
-When your logic app uses an HTTP request-based trigger, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can start your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol. 
+When your logic app uses an HTTP-based trigger that receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol.
 
 Here are the ways that you can secure access to this trigger type:
 
@@ -570,7 +570,7 @@ Here are some ways that you can secure endpoints where your logic app needs acce
 
 * Add authentication on outbound requests.
 
-  When you work with an HTTP, HTTP + Swagger (Open API), or Webhook action, you can add authentication to the request sent by your logic app. For example, you can use basic authentication, certificate authentication, or Azure Active Directory authentication. For more information, see [Authenticate triggers or actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger (Open API), or Webhook, you can add authentication to the request sent by your logic app. For example, you can use basic authentication, client certificate authentication, Azure Active Directory OAuth authentication, or managed identities. For more information, see [Authenticate triggers or actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
 * Restrict access from logic app IP addresses.
 

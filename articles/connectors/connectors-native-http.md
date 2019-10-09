@@ -30,7 +30,7 @@ Based the target endpoint's capability, the HTTP connector supports Transport La
 
 * The URL for the target endpoint that you want to call
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
@@ -40,7 +40,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
 
-1. On the designer, in the search box, enter "http" as your filter. From the **Triggers** list, select the **HTTP** trigger.
+1. Under **Choose an action**, in the search box, enter "http" as your filter. From the **Triggers** list, select the **HTTP** trigger.
 
    ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
 
@@ -48,15 +48,15 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
 
-   ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
+   If you select an authentication type, your options differ based on your selection. For more information about authentication types available for HTTP, see [Authenticate triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
-1. When you're finished, done, remember to save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
 
 ## Add an HTTP action
 
@@ -70,7 +70,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. On the designer, in the search box, enter "http" as your filter. From the **Actions** list, select the **HTTP** action.
+1. Under **Choose an action**, in the search box, enter "http" as your filter. From the **Actions** list, select the **HTTP** action.
 
    ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
 
@@ -78,72 +78,13 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) that you want to include in the call to the target endpoint.
 
-   ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
+   If you select an authentication type, your options differ based on your selection. For more information about authentication types available for HTTP, see [Authenticate triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
-
-<a name="authenticate-access"></a>
-
-## Authenticate access to other resources
-
-HTTP and HTTPS endpoints support different kinds of authentication. Here are the kinds of authentication that you can set up for your HTTP trigger or action:
-
-* Basic
-* Client certificate
-* Azure Active Directory (Azure AD) OAuth
-* Raw
-* Managed identity
-
-> [!IMPORTANT]
-> Make sure that you protect any sensitive information that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. For more information about using and securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-### Basic authentication
-
-For [basic authentication with Azure Active Directory](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md), your trigger or action can include an authentication object, which has the properties specified by the following table.
-
-To access parameter values at runtime, you can use the @parameters('parameterName') expression, which is provided by the Workflow Definition Language. If you want to use an Azure Resource Manager template that uses secured parameters for your logic app and a parameter file , "@parameters('userNameParam')" 
-
-"@parameters('passwordParam')"
-
-logic-apps/logic-apps-azure-resource-manager-templates-overview
-
-
-| Property | Required | Value | Description |
-|----------|----------|-------|-------------|
-| **Authentication** | Yes | **Basic** | The authentication type to use, which is "Basic" here |
-| **Username** | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
-| **Password** | Yes | <*password*> | The password for authenticating access to the target service endpoint |
-|||||
-
-### Managed identity
-
-### Managed identity
-
-For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
-
-1. In your logic app, add the **HTTP** action.
-
-1. Provide the necessary details for that action, such as the request **Method** and **URI** location for the resource that you want to call. In the **URI** box, enter the endpoint URL for that Azure service. So, if you're using Azure Resource Manager, enter this value in the **URI** property:
-
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
-
-1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
-
-   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
-
-   > [!IMPORTANT]
-   >
-   > In the **Audience** property, the resource ID value must exactly match the value that Azure AD expects, 
-   > including any required trailing slashes. You can find these resource ID values in this 
-   > [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
-
-1. Continue building the logic app the way you want.
+1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
 
 ## Content with multipart/form-data type
 
