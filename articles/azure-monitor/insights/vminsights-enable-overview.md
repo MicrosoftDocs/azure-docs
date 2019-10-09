@@ -40,13 +40,13 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - West Central US
 - West US 2<sup>1</sup>
 - East US
-- East US2<sup>1</sup>
+- East US2
 - Canada Central
 - UK South
-- North Europe<sup>1</sup>
+- North Europe
 - West Europe
 - Southeast Asia
-- Japan East<sup>1</sup>
+- Japan East
 - Australia East<sup>1</sup>
 - Australia Southeast<sup>1</sup>
 
