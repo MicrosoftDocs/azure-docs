@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Foodee manually, open a new web browser window and sign into your Foodee company site as an administrator and perform the following steps:
+3. If you want to setup Kanbanize manually, open a new web browser window and sign into your Kanbanize company site as an administrator and perform the following steps:
 
 4. Go to top  right of the page, click on **Settings** logo.
 
