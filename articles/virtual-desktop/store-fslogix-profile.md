@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 10/10/2019
 ms.author: helohr
 ---
 # Storage options for FSLogix profile containers
