@@ -25,3 +25,17 @@ landingContent:
         links:
           - text: What is Azure Firewall Manager?
             url: overview.md
+  # Card
+  - title: Learn about secured virtual hubs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is a secured virtual hub?
+            url: secured-virtual-hub.md
+  # Card
+  - title: Secure you Azure cloud network
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure your cloud network using the Azure portal
+            url: secure-cloud-network.md
