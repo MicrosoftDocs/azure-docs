@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 10/01/2019
+ms.date: 10/21/2019
 ---
 
 # Add data to audit logs via custom HTTP headers
@@ -30,9 +30,9 @@ There are several ways to use custom headers when calling APIs. For example:
 
 **Note:** Be aware, that the information sent in custom headers will be stored in Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information (PHI/PII information) before adding them to custom headers.  
 
-## How to use Custom Headers
+## How to use custom headers
 
-Any http header named with the following convention: X-MS-AZUREFHIR-AUDIT-AUDIT-<name> will be included in a property bag that is added to the log. Examples:
+Any HTTP header named with the following convention: X-MS-AZUREFHIR-AUDIT-AUDIT-<name> will be included in a property bag that is added to the log. Examples:
 
 * X-MS-AZUREFHIR-AUDIT-USERID: 1234 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: XXXX

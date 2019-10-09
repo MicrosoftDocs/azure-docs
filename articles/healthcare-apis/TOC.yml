@@ -25,17 +25,17 @@
     href: configure-cross-origin-resource-sharing.md
   - name: Configure Cosmos DB
     href: configure-cosmos-db.md
-  - name: Using Custom HTTP headers to add data to Audit Logs
-    href: using-custom-headers.md
+  - name: Use Custom HTTP headers to add data to Audit Logs
+    href: use-custom-headers.md
 - name: Tutorials
   expanded: false
   items:
-  - name: 0. Setup Azure AD configuration
-    href: tutorial-0-decision-flow.md
-  - name: 1. Setup Development Environment
-    href: tutorial-1-setup-environment.md
-  - name: 2. Connect to endpoint
-    href: tutorial-2-connect-to-endpoint.md
+  - name: 1. Set up Azure AD configuration
+    href: tutorial-1-decision-flow.md
+  - name: 2. Setup Development Environment
+    href: tutorial-2-setup-environment.md
+  - name: 3. Connect to endpoint
+    href: tutorial-3-connect-to-endpoint.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy

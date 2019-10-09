@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 08/01/2019
+ms.date: 10/21/2019
 ---
 
-# Tutorial: Sample application that Use Azure AD OAuth2 token to access Azure API for FHIR endpoint
+# Tutorial: Write a sample application that uses Azure AD OAuth2 token to access Azure API for FHIR endpoint
 
 After we have setup the environment, created a service endpoint and Azure AD application registration, we are ready to write our first sample application.
 
@@ -20,7 +20,7 @@ Building a sample application utilizing Azure API for FHIR requires two separate
 * Obtaining access token for the service from Azure AD, 
 * Using the token to call Azure API for FHIR and obtaining the list of patients.
 
-## Creating a skeleton of our Web App
+## Create a skeleton of our Web App
 
 We will use a Node.js express app to serve a index.html page that contains JS code that authenticates to Azure AD and obtains the token for the Azure API for FHIR endpoint and then list the patients in a nice table format.
 
@@ -69,7 +69,7 @@ Skeleton of index.html should look like this
 </html>
 ```
 
-## Obtaining access token for the service
+## Obtain access token for the service
 
 This step of the process is part of normal Azure AD authentication flow. There are many samples in Azure AD documentation library. 
 Here we will use a sample JS code to authenticate to Azure AD and obtain the token for our App.

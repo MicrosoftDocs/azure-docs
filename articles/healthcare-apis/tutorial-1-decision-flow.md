@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 08/01/2019
+ms.date: 10/21/2019
 ---
 
 # Tutorial: Decision flow on setting up the environment
