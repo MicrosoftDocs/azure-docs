@@ -67,21 +67,21 @@ When a customer initiates a purchase, your service receives this information in 
 
 The following diagram shows the sequence of API calls for a provisioning scenario.
 
-<!--Diagram goes here-->
+![API calls for provisioning a SaaS service](images/saas-post-provisioning-api-v2-calls.png)
 
 #### Marketplace initiated update
 When a customer initiates an update on AppSource, AppSource notifies the webhook implemented by your service, which then queries AppSource for an update.
 
 The following diagram shows the sequence of actions when an update is initiated from the marketplace.
 
-<!--Diagram goes here-->
+![API calls when the update is initiated from the marketplace](images/saas-update-api-v2-calls-from-marketplace-a.png)
 
 #### Service initiated update
 When a customer initiates an update on your service (if you allow this action) you service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At tis point the actual changes to your licensing database should be made.
 
 The following diagram shows the actions when an update is initiated from your SaaS service.
 
-<!--Diagram goes here-->
+![API calls when the update is initiated from the SaaS service](images/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 **See [SaaS fufillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) for the in depth API reference.**
 
