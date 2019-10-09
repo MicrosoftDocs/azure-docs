@@ -19,7 +19,7 @@ The Azure Maps REST APIs can be called from languages such as Python and R to en
 
 In this tutorial, you walk through a scenario to help a driver whose electric vehicle battery charge is low to find the closest possible charging station, based on the drive time from the vehicle's location.
 
-In this tutorial you will:
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > *	Create and run a Jupyter notebook on [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) in the cloud.
@@ -34,13 +34,13 @@ In this tutorial you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-To get the primary subscription key for your account, follow the instructions in [get primary key](./tutorial-search-location.md#getkey) .
+To get the primary subscription key for your account, follow the instructions in [Search nearby points of interest by using Azure Maps](./tutorial-search-location.md#getkey) .
 
 ## Create an Azure notebook
 
-To follow along with this tutorial, you need to create an Azure notebook project and download and run the Jupyter notebook file. The notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure notebook project and upload the Jupyter notebook document into it, do the following:
+To follow along with this tutorial, you need to create an Azure notebook project and download and run the Jupyter notebook file. The notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure notebook project and upload the Jupyter notebook document to it, do the following:
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. At the top of your public profile page, select **My Projects**.
@@ -81,7 +81,7 @@ To run the code in the notebook, install packages at the project level by doing 
 1. Under **Environment Setup Steps**, do the following:   
     a. In the first drop-down list, select **Requirements.txt**.  
     b. In the second drop-down list, select your *requirements.txt* file.  
-    c. In the third drop-down list, select **Python Version 3.6** as the python version.
+    c. In the third drop-down list, select **Python Version 3.6** as your version.
 1. Select **Save**.
 
     ![Install packages](./media/tutorial-ev-routing/install-packages.png)
