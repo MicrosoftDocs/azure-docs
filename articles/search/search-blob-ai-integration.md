@@ -34,13 +34,71 @@ The pipeline architecture itself is based on the *indexer* feature, to which you
 
 Output is always an Azure Search index, used for fast text search, retrieval, and exploration in client applications. Alternatively, for indexers that include a skillset, output can also be a *knowledge store* that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
 
-## How to get started
+## Step 1: Get started
 
-You can start directly in your storage account portal page. Click **Add Azure Search** and create a new Azure Search service or select an existing one. If you have an existing search service in the same subscription, clicking **Add Azure Search** opens the Import data wizard so that you can 
+You can start directly in your storage account portal page. Click **Add Azure Search** and create a new Azure Search service or select an existing one. If you already have an existing search service in the same subscription, clicking **Add Azure Search** opens the Import data wizard so that you can immediately step through indexing, enrichment, and index definition.
 
-Once you started the process to add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source, described step-by-step in Create an AI enrichment pipeline using cognitive skills in Azure Search. 
+Once you add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source, described step-by-step in [Create an AI enrichment pipeline using REST APIs](cognitive-search-tutorial-blob.md). 
 
-There’s a lot more you can do with AI enrichment to get the most out of your data in Azure Storage, including combining Cognitive Services in different ways, and authoring custom skills for cases where there’s no existing Cognitive Service for the scenario. You can learn more in What is “Cognitive Search” in Azure Search. 
+In the following sections, we'll explore components and concepts, enrichment design, and key decisions you will make along the way.
 
-## Next Steps
-Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).
+## Step 2: Use the blob indexer
+
+Azure Search indexers are source-specific, with internal logic for sampling data, reading metadata data, retrieving data, serializing data from native formats into JSON documents that can be imported into an Azure Search index.
+
+The indexer for Azure Blob storage is specified by setting the type, and by always using a data source that specifies an Azure Storage account and a blob container providing the content. The blob indexer pulls the entire container or just those blobs for which you have previously organized into a virtual directory.
+
+An indexer does document cracking, and after connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. As a developer, you should have a solid grasp of the content you can plan to enrich. Understanding your data is necessary for choosing skills, but also for estimating the costs of enrichment.
+
++ Document cracking with text extraction is no charge
++ Document cracking with image extraction is charged
++ Blobs with large amounts of text will need to be split and merged
+
+Although all documents will be cracked, enrichment only occurs if you explicitly provide the skills to do so. For example, if your pipeline consists exclusively of text analytics, any images in your container or documents will be ignored.
+
+The Blob indexer comes with configuration parameters. You can learn more about them in [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md).
+
+## Step 3: Choose skills
+
+AI enrichment is synonymous with skills and skillsets. An indexer can consume exactly one skillset, but that skillset can exist independently of an indexer so that you can reuse it in other scenarios.
+
+A skillset is a invoked after document cracking, and it consists of built-in skills based on Cognitive Services resources, or custom skills that you create and wrap in an interface definition that allows for inclusion in a skillset. It's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
+
+Built-in skills consist of those that add AI based on Cognitive Services, as well as those that are "helper" skills that are not associated with Cognitive Services. 
+
++ AI based skills from Cognitive Services require an attached Cognitive Services all-in-one subscription key that gives you access to any resource that backs a built-in skill. These include all image-related skills, language detection, text translation, and text analytics.
++ Helper or utilty skills are features of Azure Search. Text shaper, splitter, and merger are examples of those skills. 
+
+If you use only custom skills and utility skills, there is no dependency on Cognitive Services.
+
+## Step 4: Design order of operations
+
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset produces a dependency graph, where output from one skill becomes input to another. 
+
+A common order of operations for text analytics might be as follows:
+
+1. Text split
+1. Detect language
+1. Translate text, extract entitites or key phrases, score sentiment
+1. Text merge
+
+## Step 5: Map skills and nodes
+
+TBD
+
+## Step 6: Output definition
+
+TBD
+
+## Step 7: Use enriched documents
+
+TBD
+
+## Next steps
+
+There’s a lot more you can do with AI enrichment to get the most out of your data in Azure Storage, including combining Cognitive Services in different ways, and authoring custom skills for cases where there’s no existing Cognitive Service for the scenario. You can learn more by following the links below.
+
+> [!div class="nextstepaction"]
+> [AI enrichment overview](cognitive-search-concept-intro.md) 
+> [Create a skillset](cognitive-search-defining-skillset.md)
+> [Map nodes in an annotation tree](cognitive-search-output-field-mapping.md)

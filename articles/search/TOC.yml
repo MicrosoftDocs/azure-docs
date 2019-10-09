@@ -183,10 +183,10 @@
       href: search-howto-concurrency.md
   - name: Indexing Azure Blob data
     items:      
-    - name: Add full text search
-      href: search-blob-storage-integration.md
     - name: Use AI with blob data
       href: search-blob-ai-integration.md
+    - name: Add full text search
+      href: search-blob-storage-integration.md
     - name: Set up a blob indexer
       href: search-howto-indexing-azure-blob-storage.md
     - name: Index one-to-many blobs
