@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: dapine
 ---
 
-#gi Languages supported
+# Languages supported
 
 LUIS containers support a subset of the [languages supported](luis-language-support.md#languages-supported) by LUIS proper. The LUIS containers are capable of understanding utterances in the following languages:
 
@@ -25,11 +25,11 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 | German |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italian |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Korean |`ko-KR` | ✔️ | ❌ | ❌ | Key phrase only |
+| Korean |`ko-KR` | ✔️ | ❌ | ❌ | *Key phrase* only |
 | Portuguese (Brazil) |`pt-BR` | ✔️ | ✔️ | ✔️ | not all sub-cultures |
 | Spanish (Spain) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanish (Mexico)|`es-MX` | ❌ | ❌ |✔️|✔️|
-| Turkish | `tr-TR` |✔️| ❌ | ❌ | Sentiment only |
+| Turkish | `tr-TR` |✔️| ❌ | ❌ | *Sentiment* only |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
