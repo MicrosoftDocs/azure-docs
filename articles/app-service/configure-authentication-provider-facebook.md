@@ -40,7 +40,7 @@ To complete the procedure in this article, you need a Facebook account that has 
 
    The developer dashboard for your new Facebook app opens.
 1. Select **Dashboard** > **Facebook Login** > **Set up** > **Web**.
-1. In the left-hand navigation under **Facebook Login**, select **Settings**.
+1. In the left navigation under **Facebook Login**, select **Settings**.
 1. In the **Valid OAuth redirect URIs** field, enter `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`. Remember to replace `<app-name>` with the name of your Azure App Service app.
 1. Select **Save Changes**.
 1. In the left pane, select **Settings** > **Basic**. 
@@ -50,7 +50,7 @@ To complete the procedure in this article, you need a Facebook account that has 
    > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
    >
 
-1. The Facebook account that you used to register the application is an administrator of the app. At this point, only administrators can sign into this application.
+1. The Facebook account that you used to register the application is an administrator of the app. At this point, only administrators can sign in to this application.
 
    To authenticate other Facebook accounts, select **App Review** and enable **Make \<your-app-name> public** to enable the general public to access the app by using Facebook authentication.
 
@@ -64,10 +64,10 @@ To complete the procedure in this article, you need a Facebook account that has 
    ![Screenshot of Mobile App Facebook Settings][0]
 
     By default, App Service provides authentication, but it doesn't restrict authorized access to your site content and APIs. You need to authorize users in your app code.
-1. (Optional) To restrict access only to users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Facebook for authentication.
+1. (Optional) To restrict access only to users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Facebook for authentication.
 
    > [!CAUTION]
-   > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred so that the app manually starts authentication itself. For more information, see [authentication flow](overview-authentication-authorization.md#authentication-flow).
+   > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 1. Select **Save**.
 
