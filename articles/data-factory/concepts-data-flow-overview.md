@@ -17,7 +17,7 @@ Mapping data flows provide a fully visual experience with no coding required. Yo
 
 ## Getting started
 
-To create a data flow, select the plus sign under **Factory resources**. 
+To create a data flow, select the plus sign under select the plus sign under **Factory Resources**, and then select **Data Flow**. 
 
 ![New data flow](media/data-flow/newdataflow2.png "new data flow")
 
@@ -59,7 +59,7 @@ There are instances where you might want to adjust the partitioning. For instanc
 
 Another case where you might want to control the partitioning schemes is optimizing performance. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance. For more information, see the [Data flow performance guide](concepts-data-flow-performance.md).
 
-To change the partitioning on any transformation, select the **Optimize** tab and select the **Set partitioning** radio button. You'll then be presented with a series of options for partitioning. The best method of partitioning will differ based on your data volumes, candidate keys, null values, and cardinality. 
+To change the partitioning on any transformation, select the **Optimize** tab and select the **Set Partitioning** radio button. You'll then be presented with a series of options for partitioning. The best method of partitioning will differ based on your data volumes, candidate keys, null values, and cardinality. 
 
 A best practice is to start with default partitioning and then try different partitioning options. You can test by using pipeline debug runs, and view execution time and partition usage in each transformation grouping from the monitoring view. For more information, see [Monitoring data flows](concepts-data-flow-monitoring.md).
 
@@ -95,11 +95,11 @@ As you change the shape of your data through transformations, you'll see the met
 
 #### Data preview
 
-If debug mode is on, the **Data preview** tab gives you an interactive snapshot of the data at each transform. For more information, see [Data preview in debug mode](concepts-data-flow-debug-mode.md#data-preview).
+If debug mode is on, the **Data Preview** tab gives you an interactive snapshot of the data at each transform. For more information, see [Data preview in debug mode](concepts-data-flow-debug-mode.md#data-preview).
 
 ### Top bar
 
-The top bar contains actions that affect the whole data flow, such as saving and validation. You can also toggle between graph and configuration modes by using the **Show graph** and **Hide graph** buttons.
+The top bar contains actions that affect the whole data flow, such as saving and validation. You can also toggle between graph and configuration modes by using the **Show Graph** and **Hide Graph** buttons.
 
 ![Hide graph](media/data-flow/hideg.png "Hide graph")
 
