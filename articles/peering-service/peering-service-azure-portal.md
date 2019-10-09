@@ -84,4 +84,4 @@ Clicking on the **Create new**  under Prefixes, text boxes appear. Now, provide 
 
 - To learn more about Peering Service concepts see [Peering Service Connection](peering-service-connection.md).
 
-- To learn how to measure telemetry please refer [Measure connection telemetry](peering-service-measure-connection-telemetry).
+- To learn how to measure telemetry please refer [Measure connection telemetry](peering-service-measure-connection-telemetry.md).

@@ -38,4 +38,4 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## Next steps
 
-In this article, you learnt what is a connection and how to define a connection. To learn step by step process on how to register the Peering Service see [Register the Peering Service](peering-service-azure=portal.md).
+In this article, you learnt what is a connection and how to define a connection. To learn step by step process on how to register the Peering Service see [Register the Peering Service](peering-service-azure-portal.md).
