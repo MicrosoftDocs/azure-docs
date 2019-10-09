@@ -121,6 +121,52 @@ When editing the list of supported attributes, the following properties are prov
 - **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are pre-configured and currently can't be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
+## Provisioning a role to a SCIM app
+Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, we have pre-defined the attribute mapping for roles in the format the application expects it in. The bullets below describe how to transform the role attribute to the format your application expects. You can learn more about building expressions [here](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+
+- Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute. The appRoleAssignment attribute **should not be mapped directly** in the attribute mappings without being transformed. Do not do the below:
+<image>
+
+- If your application expects a single app role name, you can use the [SingleAppRoleAssignment function](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#singleapproleassignment) function. 
+<image - how to use the function>
+
+- roles[primary eq "True"].display  ||
+roles[primary eq "True"].type ||
+roles[primary eq "True"].value
+
+Pro: allows customization of type, value, and display. You can do a transformation and put in whatever you want. 
+Con: This option would send two roles 
+
+<get JSON for what it will look like when roles are sent out>
+
+- multipleEntitlementGrantsComplex
+
+
+- Create a new custom attribute with name Roles and type String and Mult-valu (need confirmation)
+Pro: Can send more than 2 roles
+Con: Cannot cusotmize the type / display and all roles will be sent as primary = false
+
+## Provisioning a multi-variable attribute
+The section below describes how to provision a multi-variable attribute using the advanced. Do you need to set it as multi-attribute?
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+  "phoneNumbers": [
+    {
+      "value": "555-555-5555",
+      "type": "work"
+    },
+    {
+      "value": "555-555-4444",
+      "type": "mobile"
+    },
+    {
+      "value": "555-555-4444",
+      "type": "fax"
+    }
+  ]
 
 ## Restoring the default attributes and attribute-mappings
 
