@@ -26,6 +26,71 @@ To get started, see [Create new SaaS offer](https://docs.microsoft.com/azure/mar
 
 Your offer must also use the SaaS fulfillment APIs to integrate with Commercial Marketplace. For extensive documentation, see [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
+### Sign up for Partner Center
+To begin submitting you SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
+- If you are new to Partner Center, and have never enrolled in the Microsoft Partner Network, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
+- If you are already enrolled in the Microsoft Partner Network or in a Partner Center develop program, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) on how to create your account.
+
+### Register a SaaS Application
+You must register a SaaS application using the Microsoft Azure Portal. After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS Fulfillment APIs.
+Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
+
+[Follow the steps to register an Azure AD-secured app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#register-an-azure-ad-secured-app)
+
+### Create your licensing database
+Whilst monetizing through SaaS hands off billing and transactions to Microsoft AppSource, you’ll still be handling licensing for your own service. Your SaaS should have a licensing database to keep track of all tenant purchases, and the users who have access.
+
+Your metadata might include:
+- Tenant ID
+- Tenant Name
+- Tenant Country
+- Plan
+- Licence type (i.e. seat-based or site-based)
+- Number of licenses
+- Admin name
+- Admin email
+
+### Implement licensing management
+Your service must allow the admin who has made the purchase to sign in and manage the account. In the case where they have bought multiple seat-based licenses, they should be able to assign these to users within their organisation. 
+Types of licensing you may wish to consider:
+- Open licensing/first-come first-served: any end-user who discovers your service can sign into your service, be recognised as belonging to a tenant, and ‘reserve’ one of the licenses purchased.
+- Assigned licensing: the admin for the purchase must assign licenses to users.
+Other considerations:
+- Upsell: if a user tries to access your service, but their tenant has no more free licenses, you service could provide them with a temporary license, and use the opportunity to encourage the admin to purchase additional licenses.
+- Multiple tenant purchases: you should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales Team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team and wish to keep the account separate.
+
+#### Connecting to AppSource
+In order to monetize through Microsoft, your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
+
+#### Provisioning (customer purchase on AppSource)
+When a customer initiates a purchase, your service receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API. When a SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.
+The following diagram shows the sequence of API calls for a provisioning scenario.
+
+<!--Diagram goes here-->
+
+#### Marketplace initiated update
+When a customer initiates an update on AppSource, AppSource notifies the webhook implemented by your service, which then queries AppSource for an update.
+The following diagram shows the sequence of actions when an update is initiated from the marketplace.
+
+<!--Diagram goes here-->
+
+#### Service initiated update
+When a customer initiates an update on your service (if you allow this action) you service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At tis point the actual changes to your licensing database should be made.
+The following diagram shows the actions when an update is initiated from your SaaS service.
+
+<!--Diagram goes here-->
+
+See [SaaS fufillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) for the in depth API reference.
+
+### Build an AAD connected add-in
+Your add-in will rely on your service to verify whether or not the user accessing the add-in has a license associated with their account. It is up to you to whether you give them a free (but limited) experience or whether you simply direct them to where to purchase licenses.
+Your add-in should have three states:
+1.	User not signed in
+2.	User signed in, no license associated
+3.	User signed in, license associated
+For documentation on how to programming authentication with AAD, see [Authorise to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
+
+
 ## Testing your SaaS offer
 
 You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
