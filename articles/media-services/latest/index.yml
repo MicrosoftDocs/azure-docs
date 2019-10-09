@@ -31,6 +31,26 @@ landingContent:
         links:
          - text: "What's new in Media Services?"
            url: release-notes.md
+      - linkListType: concept
+        links:
+          - text: Media Services accounts
+            url: media-services-account-concept.md
+          - text: Storage accounts
+            url: storage-account-concept.md
+          - text: Packaging
+            url: dynamic-packaging-overview.md   
+          - text: Monitoring
+            url: reacting-to-media-services-events.md
+          - text: Player clients
+            url: use-azure-media-player.md  
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Developing with v3 API guidance
+            url: media-services-apis-overview.md
       - linkListType: download
         links:
           - text: Media Services v3 OpenAPI Specification
@@ -40,19 +60,7 @@ landingContent:
           - text: Java SDK samples
             url: https://github.com/Azure-Samples/media-services-v3-java
           - text: REST Postman collection samples
-            url: https://github.com/Azure-Samples/media-services-v3-rest-postman
-
-  # Card (optional)
-  - title: Get started
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Developing with v3 API guidance
-            url: media-services-apis-overview.md
-          - text: Media Services accounts
-            url: media-services-account-concept.md
-          - text: Storage accounts
-            url: storage-account-concept.md
+            url: https://github.com/Azure-Samples/media-services-v3-rest-postman            
       - linkListType: how-to-guide
         links:
           - text: Create an account
@@ -75,14 +83,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Packaging
-            url: dynamic-packaging-overview.md                               
           - text: Live Streaming
             url: live-streaming-overview.md           
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
-          - text: Player clients
-            url: use-azure-media-player.md  
       - linkListType: tutorial
         links:
           - text: Stream live
@@ -99,10 +101,6 @@ landingContent:
             url: dynamic-packaging-overview.md                               
           - text: Encoding
             url: encoding-concept.md
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
-          - text: Player clients
-            url: use-azure-media-player.md  
       - linkListType: tutorial
         links:
           - text: Encode remote file and stream
@@ -117,8 +115,6 @@ landingContent:
         links:
           - text: Protection
             url: content-protection-overview.md           
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
       - linkListType: tutorial
         links:
           - text: Encrypt dynamically with AES-128
@@ -133,8 +129,6 @@ landingContent:
         links:
           - text: Media analytics
             url: analyzing-video-audio-files-concept.md
-          - text: Monitoring
-            url: reacting-to-media-services-events.md
       - linkListType: tutorial
         links:
           - text: Analyze videos
