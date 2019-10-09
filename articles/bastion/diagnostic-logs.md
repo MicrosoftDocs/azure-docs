@@ -52,7 +52,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    ```json
    { 
    "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/2ff277e1-6b41-48de-80fa-0551b8b3611a/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
    "operationName":"Microsoft.Network/BastionHost/connect",
    "category":"BastionAuditLogs",
    "level":"Informational",
@@ -63,16 +63,16 @@ To access your diagnostics logs, you can directly use the storage account that y
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
       "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/2ff277e1-6b41-48de-80fa-0551b8b3611a/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"2ff277e1-6b41-48de-80fa-0551b8b3611a",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscripionID>",
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
-      "tunnelId":"712faceb-b556-449e-b7ab-101b326bfd4c"
+      "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
    "Region":"eastus",
-   "CustomerSubscriptionId":"2ff277e1-6b41-48de-80fa-0551b8b3611a"
+   "CustomerSubscriptionId":"<subscripionID>"
    }
    ```
 
