@@ -150,9 +150,9 @@ For more information, see [Assign a managed identity access to a resource](../ac
 
 ## Authenticate access with managed identity
 
-Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication with these triggers and actions that support managed identities.
+Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication with these triggers and actions that support managed identities:
 
-* HTTP
+* [HTTP]
 * Azure Functions
 * Azure API Management
 
