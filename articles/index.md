@@ -1663,7 +1663,7 @@ featureFlags:
                                         </li>
 <li> 
                                             <a href="/azure/firewall-manager/">
-                                                <img src="media/index/icon-networking-361.svg" alt="" />
+                                                <img src="media/index/azure-firewall-mgr.svg" alt="" />
                                                 <p>Azure Firewall Manager</p>
                                             </a>
                                         </li>
@@ -5597,7 +5597,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/icon-networking-361.svg" alt="" />
+                                                        <img src="media/index/azure-firewall-mgr.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
