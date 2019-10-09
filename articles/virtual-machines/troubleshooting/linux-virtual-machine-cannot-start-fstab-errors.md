@@ -199,7 +199,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
     * Test any fstab changes before you restart the VM. To do this, use the following command: ``$ sudo mount -a``
     * Create an additional copy of the corrected fstab file for use in future recovery scenarios.
 
-## Next Steps
+## Next steps
 
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
