@@ -38,15 +38,58 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  
+> In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  In Azure SQL Data Warehouse, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
+
+## Query performance
+
+A query's performance gain from an ordered CCI depends on the query patterns, the size of data, how well the data is sorted, the physical structure of segments, and the DWU and resource class chosen for the query execution.  Users should review all these factors before choosing the ordering columns when designing an ordered CCI table.
+
+Queries with all these patterns typically run faster with ordered CCI.  
+1. The queries have equality, inequality, or range predicates
+1. The predicate columns and the ordered CCI columns are the same.  
+1. The predicate columns are used in the same order as the column ordinal of ordered CCI columns.  
+ 
+In this example, table T1 has a clustered columnstore index ordered in the sequence of Col_C, Col_B, and Col_A.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+The performance of query 1 can benefit more from ordered CCI than the other 3 queries. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## Data loading performance
 
-The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  
-Loading data into an ordered CCI table can take more time than data loading into a non-ordered CCI table because of the data sorting.  
+The performance of data loading into an ordered CCI table is similar to a partitioned table.  Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI.  
 
 Here is an example performance comparison of loading data into tables with different schemas.
+
 ![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+Here is an example query performance comparison between CCI and ordered CCI.
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## Reduce segment overlapping
 
@@ -74,7 +117,7 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 1.	Create partitions on the target large table (called Table A).
 2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
 3.	Switch one partition from Table A to Table B.
-4.	Run ALTER INDEX <Ordered_CCI_Index> REBUILD on Table B to rebuild the switched-in partition.  
+4.	Run ALTER INDEX <Ordered_CCI_Index> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
 5.	Repeat step 3 and 4 for each partition in Table A.
 6.	Once all partitions are switched from Table A to Table B and have been rebuilt, drop Table A, and rename Table B to Table A. 
 
