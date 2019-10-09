@@ -1,5 +1,5 @@
 ---
-title: Samples - CAF Migration landing zone blueprint - Overview
+title: Sample - CAF Migration landing zone blueprint - Overview
 description: Overview and architecture of the CAF Migration landing zone blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
