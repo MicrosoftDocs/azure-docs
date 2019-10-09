@@ -15,7 +15,7 @@ ms.date: 09/27/2019
 
 # Tutorial: Schedule machine learning pipelines with Azure Machine Learning SDK for Python
 
-In this tutorial, you learn how to programmatically schedule a pipeline to run on Azure. The sample is a data manipulation task that simulates preprocessing and runs every fifteen minutes. Other areas where scheduling might be beneficial include: 
+In this tutorial, you learn how to programmatically schedule a pipeline to run on Azure. The sample is a data manipulation task that simulates preprocessing and runs every few minutes. Other areas where scheduling might be beneficial include: 
 
 * Data validation and preprocessing
 * Training set augmentation
@@ -65,7 +65,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Write a data preprocessing script
 
-You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, this will encapsulate a complex process such as data preparation or training. For the purposes of this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
+You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, a pipeline will encapsulate a complex process such as data preparation or training. For the purposes of this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
 
 * Activate the Python environment in which you've installed the Azure Machine Learning SDK for Python. 
 
@@ -84,7 +84,7 @@ These cells, when run:
 * Creates some fake data and stores it in **unprocessed_data.csv**
 * Reads that fake data, normalizes it, and writes it to **processed_data.csv**
 
-In a real ML scenario, **unprocessed_data.csv** would be coming in continuously from some upstream process: a Web service, the field, or sensors. Unlike this trivial sample, real-world data preparation is often very time-consuming and periodically updating it is a good scenario for a pipeline.
+In a real ML scenario, **unprocessed_data.csv** would be coming in continuously from some upstream process: a Web service, the field, or sensors. Unlike this trivial sample, real-world data preparation is often time-consuming and periodically updating it is a good scenario for a pipeline.
 
  ## Publish a pipeline encapsulating the script
 
@@ -106,7 +106,7 @@ ws = Workspace.from_config()
 
 * Create a pipeline by executing the cells in the **Create a pipeline** section
 
-The first of these cells configures the compute resource that will be associated with your pipeline. In this case, we use the `cpu-compute` resource you allocated when creating the workspace. Our **preprocessing.py** script relies on scikit-learn for it's data-normalization routines, so we create a custom `CondaDependencies` to make that package available to us. 
+The first of these cells configures the compute resource that will be associated with your pipeline. In this case, we use the `cpu-compute` resource you allocated when creating the workspace. Our **preprocessing.py** script relies on scikit-learn for its data-normalization routines, so we create a custom `CondaDependencies` to make that package available to us. 
 
 ```python
 def config_compute() :
@@ -171,7 +171,7 @@ In order to schedule a pipeline, you must:
 * Specify how you would like it to recur 
 * Schedule it
 
-In the notebook, you can do this by executing the cells in the **Publish and schedule a pipeline** section. For demonstration purposes, the pipeline is set to run every 3 minutes. More realistically, a data preparation script might run once or twice a day. 
+In the notebook, you can do these steps by executing the cells in the **Publish and schedule a pipeline** section. For demonstration purposes, the pipeline is set to run every 3 minutes. More realistically, a data preparation script might run once or twice a day. 
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline("My published pipeline",f"Published on: {str(datetime.now())}", "0.0.1")
@@ -189,7 +189,7 @@ In your Web browser, navigate to your Machine Learning service workspace. From t
 
 In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth.
 
-You can drill in for more information by clicking on your pipeline:
+You can drill in by clicking on your pipeline:
 
 ![Pipeline detail page in Workspace](media/tutorial-pipeline-schedule/pipeline-details.png)
 
