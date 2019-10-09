@@ -1,5 +1,5 @@
 ---
-title: Create an Azure data factory using Python | Microsoft Docs
+title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
@@ -12,6 +12,7 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
+ms.custom: seo-python-october2019
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
