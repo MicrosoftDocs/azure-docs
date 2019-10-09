@@ -40,7 +40,7 @@ intro. In a nutshell, Chocolatey allows you to install packages from a central r
 packages into a Windows system using the command line. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-Desired State Configuration (DSC) ([overview](/powershell/dsc/overview)) is a PowerShell tool that
+Desired State Configuration (DSC) ([overview](/powershell/scripting/dsc/overview/overview)) is a PowerShell tool that
 allows you to declare the configuration that you want for a machine. For example, you can say, "I
 want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my
 website installed." The DSC Local Configuration Manager (LCM) implements that configuration. A DSC
