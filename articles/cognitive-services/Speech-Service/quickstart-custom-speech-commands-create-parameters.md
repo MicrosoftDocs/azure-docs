@@ -24,30 +24,41 @@ types of devices.
 
 Open the application we created previously.
 
-Under Parameters, create a new parameter to represent whether to turn on or off the target device
-- Create a new parameter "OnOff"
-- Select "String List" as the parameter type
-- Add "on" and "off" as possible values for the String List
-- Mark the parameter Required
-- Add an elicitation prompt with the message "On or Off?"
+Select the Parameters section and create a new parameter to represent whether the user wants to turn the device on or off.
 
-Next add a second parameter to represent the name of the device to turn on or off
-- Create a new parameter "SubjectDevice"
-- Select "String List" as the parameter type
-- Add "tv" and "fan" as possible values for the String List
-- Mark the parameter Required
-- Add an elicitation prompt with the message "Which Device"
+> SCREENSHOT: Add OnOff string list parameter
+
+Setting|Suggested value|Description
+---|---|---
+Name | OnOff |Choose a descriptive name for your parameter
+Parameter Type|String List|The type of parameter, such as Number, String List, or Date Time
+Possible Values|on, off|For a String List parameter, the normalized set values for this parameter
+Synonyms|on, off|For a String List parameter, the normalized set values for this parameter
+Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
+Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it is not known
+
+Next add a second parameter to represent the name of the device to turn on or off.  For this example, imagine that there is a fan that you want to turn on and off in addition to the tv
+
+Setting|Suggested value|Description
+---|---|---
+Name | SubjectDevice |Choose a descriptive name for your parameter
+Parameter Type|String List|The type of parameter, such as Number, String List, or Date Time
+Possible Values|tv, fan|For a String List parameter, the normalized set values for this parameter
+Synonyms (tv)|television, telly|Optional synoyms for each normalized value of a String List Parameter
+Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
+Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it is not known
 
 ## Add Sample Sentences
 
-When using parameters, it is helpful to add sample sentences with:
-- full parameter information
-- partial parameter information
-- no parameter information
+When using parameters it is helpful to add sample sentences with:
+- Full parameter information
+- Partial parameter information
+- No parameter information
 
 This will allow the Speech Commands application to resolve both one shot resolutions, as well as multi-turn resolutions with partial information.
 
 Select Sample Sentences to access the sample sentences editor.
+
 In the sample sentences editor use brackets in the sample sentences editor to refer to indicate parameters.
 
 > [!TIP]
