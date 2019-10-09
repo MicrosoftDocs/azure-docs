@@ -683,7 +683,7 @@ If RBAC is **disabled**, run the following command to install AAD Pod Identity t
 
 The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
-1. If RBAC is **enabled**, run the following set of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
+1. If RBAC is **enabled**, run the following set of commands to install and configure Helm:
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -691,7 +691,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-1. If RBAC is **disabled**, run the following command to install and configure [Helm](/azure/aks/kubernetes-helm):
+1. If RBAC is **disabled**, run the following command to install and configure Helm:
 
     ```bash
     helm init
