@@ -183,7 +183,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 | Name | Limit |
 | ---- | ----- |
-| Number of logic apps with system-assigned managed identities per Azure subscription | 100 |
+| Number of logic apps that have the system-assigned identity in an Azure subscription per region | 100 |
 |||
 
 <a name="integration-account-limits"></a>
