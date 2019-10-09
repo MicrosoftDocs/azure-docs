@@ -19,7 +19,7 @@ When you sign up for Azure, there are several things you can do to get a better 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
 - Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts, and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with [detailed usage files](billing-download-azure-invoice-daily-usage-date.md).
-- Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/en-us/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs.
+- Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
 - Make use of [some of the most popular Azure services for free for 12 months](billing-create-free-services-included-free-account.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](billing-avoid-charges-free-account.md).
 
@@ -115,7 +115,7 @@ If you are using Azure through a Microsoft Customer Agreement (MCA), you can als
 
 ## Integrate with billing and consumption APIs
 
-Use the Azure [billing](https://docs.microsoft.com/en-us/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
+Use the Azure [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/en-us/rest/api/consumption/) APIs to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
