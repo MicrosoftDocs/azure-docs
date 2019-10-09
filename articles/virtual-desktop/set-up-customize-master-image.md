@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/09/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
