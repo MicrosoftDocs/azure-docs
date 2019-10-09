@@ -297,7 +297,7 @@ If you sign in to Windows 10 Enterprise multi-session using an administrative ac
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means the image isn't does not have the latest Windows updates installed.
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed.
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
@@ -317,11 +317,11 @@ Now that you know your version number, skip ahead to the relevant section.
 
 ### Version 1809
 
-If your version number says "1809," ensure that this Windows update has been installed: [KB4516077](https://support.microsoft.com/help/4516077).
+If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
 
 ### Version 1903
 
-If your version number says "1903," ensure that this Windows update has been installed: [KB4517211](https://support.microsoft.com/help/4517211).
+If your version number says "1903," install [the KB4517211 update](https://support.microsoft.com/help/4517211).
 
 ## Next steps
 
