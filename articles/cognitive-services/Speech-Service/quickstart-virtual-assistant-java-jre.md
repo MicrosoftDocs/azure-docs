@@ -138,16 +138,14 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
     * Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [here](get-started.md).
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
-    * Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
     > [!NOTE]
     > Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
-    final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
-    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region
+    final BotFrameworkConfig botConfig = BotFrameworkConfig.fromSubscription(subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();

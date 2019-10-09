@@ -15,7 +15,7 @@
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
-  - name: Voice-first virtual assistants Preview
+  - name: Voice-first virtual assistants
     href: voice-first-virtual-assistants.md
     displayName: virtual assistants, speech-enabled bots, conversational agents
 - name: Quickstarts
@@ -132,7 +132,7 @@
       - name: 'Python'
         href: quickstart-text-to-speech-python.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
-    - name: Voice-first virtual assistants (Preview)
+    - name: Voice-first virtual assistants
       items:
       - name: 'C# (UWP)'
         href: quickstart-virtual-assistant-csharp-uwp.md
@@ -362,7 +362,7 @@
     - name: Speech translation
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
-    - name: Voice-first virtual assistants (Preview)
+    - name: Voice-first virtual assistants
       href: faq-voice-first-virtual-assistants.md
   - name: Speech SDK licenses
     items:

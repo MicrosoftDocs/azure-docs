@@ -127,11 +127,9 @@ The text and graphical representation of your UI should now look like this:
     import static android.Manifest.permission.*;
 
     public class MainActivity extends AppCompatActivity {
-        // Replace below with your bot's own Direct Line Speech channel secret
-        private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (note: only a subset of regions are currently supported)
+        // Replace below with your own speech service region
         private static String serviceRegion = "YourSpeechServiceRegion";
 
         private DialogServiceConnector connector;
@@ -158,8 +156,8 @@ The text and graphical representation of your UI should now look like this:
                 connector = null;
             }
 
-            // Create the DialogServiceConnector from the channel and speech subscription information
-            DialogServiceConfig config = DialogServiceConfig.fromBotSecret(channelSecret, speechSubscriptionKey, serviceRegion);
+            // Create the DialogServiceConnector from speech subscription information
+            BotFrameworkConfig config = BotFrameworkConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
             connector = new DialogServiceConnector(config, AudioConfig.fromDefaultMicrophoneInput());
 
             // Optional step: preemptively connect to reduce first interaction latency

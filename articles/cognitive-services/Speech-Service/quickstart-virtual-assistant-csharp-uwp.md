@@ -16,7 +16,7 @@ ms.author: travisw
 
 Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), and [speech translation](quickstart-translate-speech-uwp.md).
 
-In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
+In this article, you'll develop a C# Universal Windows Platform (UWP) application using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -287,18 +287,12 @@ To add the code-behind source, follow these steps:
 1. Add the following code snippet to the method body of `InitializeDialogServiceConnector`. This code creates the `DialogServiceConnector` with your subscription information.
 
     ```csharp
-    // create a DialogServiceConfig by providing a bot secret key 
-    // and Cognitive Services subscription key
-    // the RecoLanguage property is optional (default en-US); 
-    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region.
 
-    // Your subscription service region. 
-    // Note: only a subset of regions are currently supported
-    const string region = "YourServiceRegion"; 
-
-    var botConfig = DialogServiceConfig.FromBotSecret(
-        channelSecret, speechSubscriptionKey, region);
+    var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
     botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
     connector = new DialogServiceConnector(botConfig);
     ```
@@ -316,7 +310,7 @@ To add the code-behind source, follow these steps:
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
     // and uses bot framework activities
-    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
     {
         NotifyUser(
             $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

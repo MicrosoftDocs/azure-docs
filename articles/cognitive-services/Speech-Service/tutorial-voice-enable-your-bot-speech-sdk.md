@@ -74,7 +74,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
-* The Direct Line Speech channel is a preview service. As such, it may be limited to specific Azure regions. For more information about available regions, see [Voice-first virtual assistants](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
+* Ensure that you use a [supported Azure region](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
 * The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * Free trial keys may be restricted to a specific region.
 
@@ -252,7 +252,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 1. Locate and open your **SpeechEchoBotTutorial-BotRegistration** resource in the [Azure portal](https://portal.azure.com).
 2. From the left navigation, select **Channels**.
    * Look for **More channels**, locate and click **Direct Line Speech**.
-   * Review the text on the page titled **Configure Direct line Speech (Preview)**, then click **Save**.
+   * Review the text on the page titled **Configure Direct line Speech**, then click **Save**.
    * As part of creation, two **Secret keys** were generated. These keys are unique to your bot. When you write a client app using the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/), you'll provide one of these keys to establish a connection between the client app, the Direct Line Speech channel, and your bot service. In this tutorial, you'll use the Direct Line Speech Client (WPF, C#).
    * Click **Show** and copy one of the keys somewhere you'll be able to easily access it. Don't worry, you can always access the keys from the Azure portal.
 3. From the left navigation, click **Settings**.
@@ -260,7 +260,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
    * Click **Save**.
 
 > [!TIP]
-> If you'd like to learn more, see [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
+> If you'd like to learn more, see [Connect a bot to Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
 
 ## Build the Direct Line Speech Client
 
@@ -288,7 +288,7 @@ If you get an error message in your main app window, use this table to identify 
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support neural voices. See [Standard and neural voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1000. Error details: Exceeded maximum web socket connection idle duration(> 300000 ms)| This is an expected error when a connection to the channel is left open and inactive for more than five minutes. |
 
-If your issue isn't addressed in the table, see [Voice-first virtual assistants Preview: Frequently asked questions](https://docs.microsoft.com/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants).
+If your issue isn't addressed in the table, see [Voice-first virtual assistants: Frequently asked questions](https://docs.microsoft.com/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants).
 
 ### View bot activities
 
@@ -342,9 +342,9 @@ The Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveService
 The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an app that will continuously listen for a wake word of your choice. Keep in mind that a wake word can be single word or a multi-word phrase.
 
 > [!NOTE]
-> The term *wake work* is often used interchangeably with the *key word*, and you may see both used in Microsoft documentation.
+> The term *wake word* is often used interchangeably with the term *keyword*, and you may see both used in Microsoft documentation.
 
-Wake word detection is done on the client app. If using a wake word, audio is only streamed to the Direct Line Speech channel if the wake word is detected. The Direct Line Speech channel includes a component called *key word verification (KWV)*, which does more complex processing in the cloud to verify that the wake word you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
+Wake word detection is done on the client app. If using a wake word, audio is only streamed to the Direct Line Speech channel if the wake word is detected. The Direct Line Speech channel includes a component called *keyword verification (KWV)*, which does more complex processing in the cloud to verify that the wake word you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
 
 Follow these steps to create a wake word model, configure the Direct Line Speech Client to use this model, and finally, test it with your bot.
 
