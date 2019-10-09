@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: dapine
 ---
 
@@ -104,7 +104,7 @@ The input mount directory can contain the **Production**, **Staging**, and **Tra
 
 |Package Type|Query Endpoint API|Query availability|Package filename format|
 |--|--|--|--|
-|Trained|GET, POST|Container only|`{APP_ID}_v{APP_VERSION}.gz`|
+|Versioned|GET, POST|Container only|`{APP_ID}_v{APP_VERSION}.gz`|
 |Staging|GET, POST|Azure and container|`{APP_ID}_STAGING.gz`|
 |Production|GET, POST|Azure and container|`{APP_ID}_PRODUCTION.gz`|
 
@@ -123,7 +123,7 @@ Before packaging a LUIS application, you must have the following:
   
 ### Export app package from LUIS portal
 
-The LUIS [portal](https://www.luis.ai) provides the ability to export the trained or published app's package. 
+The LUIS [portal](https://www.luis.ai) provides the ability to export the trained or published app's package.
 
 ### Export published app's package from LUIS portal
 
@@ -138,7 +138,7 @@ The published app's package is available from the **My Apps** list page.
 
 ![Export the published package for the container from the App page's Export menu](./media/luis-container-how-to/export-published-package-for-container.png)
 
-### Export trained app's package from LUIS portal
+### Export versioned app's package from LUIS portal
 
 The trained app's package is available from the **Versions** list page. 
 
@@ -172,7 +172,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 To download the published package, refer to the [API documentation here][download-published-package]. If successfully downloaded, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
-### Export trained app's package from API
+### Export versioned app's package from API
 
 Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
