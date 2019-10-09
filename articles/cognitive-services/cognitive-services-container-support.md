@@ -124,8 +124,8 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[sp-containers-stt]: speech-service/speech-container-howto.md?tab=stt
-[sp-containers-cstt]: speech-service/speech-container-howto.md?tab=cstt
-[sp-containers-tts]: speech-service/speech-container-howto.md?tab=tts
-[sp-containers-ctts]: speech-service/speech-container-howto.md?tab=ctts
+[sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
+[sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
+[sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
+[sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md

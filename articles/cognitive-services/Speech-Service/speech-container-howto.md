@@ -498,5 +498,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-* Review [Configure containers](speech-container-configuration.md) for configuration settings
+* Review [configure containers](speech-container-configuration.md) for configuration settings
+* Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
