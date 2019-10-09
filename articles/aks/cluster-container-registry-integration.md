@@ -35,7 +35,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **An ACR resource ID has the following format:** 
 
-/subscriptions/\<subscription-d\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/{name} 
+/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
   
 This step may take several minutes to complete.
 
