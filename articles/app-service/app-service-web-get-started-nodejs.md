@@ -11,7 +11,6 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
@@ -51,7 +50,7 @@ Open _index.js_ and find the following line:
 const port = process.env.PORT || 1337;
 ```
 
-App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 
+App Service populates the environment variable, **process.env.PORT**. Use this in your application so the code knows which port to listen.
 
 In a terminal window, navigate to the **root directory** of the sample Node.js project (the directory that contains _index.js_).
 

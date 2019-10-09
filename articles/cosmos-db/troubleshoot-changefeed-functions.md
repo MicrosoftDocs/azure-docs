@@ -84,6 +84,15 @@ Additionally, the scenario can be validated, if you know how many Azure Function
 
 One easy way to workaround this situation, is to apply a `LeaseCollectionPrefix/leaseCollectionPrefix` to your Function with a new/different value or, alternatively, test with a new leases container.
 
+### Need to restart and re-process all the items in my container from the beginning 
+To re-process all the items in a container from the beginning:
+1. Stop your Azure function if it is currently running. 
+1. Delete the documents in the lease collection (or delete and re-create the lease collection so it is empty)
+1. Set the [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger attribute in your function to true. 
+1. Restart the Azure function. It will now read and process all changes from the beginning. 
+
+Setting [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) to true will tell the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. This only works when there are no already created leases (i.e. documents in the leases collection). Setting this property to true when there are leases already created has no effect; in this scenario, when a function is stopped and restarted, it will begin reading from the last checkpoint, as defined in the leases collection. To re-process from the beginning, follow the above steps 1-4.  
+
 ### Binding can only be done with IReadOnlyList\<Document> or JArray
 
 This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).

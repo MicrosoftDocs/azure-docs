@@ -66,7 +66,7 @@ When you turn on diagnostic logs and alerts for connected devices, you get alert
 
 3. To isolate connectivity error logs for IoT Hub, enter the following query and then select **Run**:
 
-    ```
+    ```kusto
     search *
     | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
     | where ( Category == "Connections" and Level == "Error")

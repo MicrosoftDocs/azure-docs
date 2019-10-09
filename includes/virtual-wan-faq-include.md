@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 07/22/2019
+ ms.date: 08/06/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -86,7 +86,7 @@ You would pay for the service in the hub. For example, 10 branches or on-premise
 
 Send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
 
-### What if a device i am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
+### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
 
 Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity. 
 
@@ -98,7 +98,7 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute. While VPN site-to-site is GA, ExpressRoute is currently in Preview.
 
-### Does Branch to Branch traffic traverse through the Azure Virtual WAN?
+### Does Branch-to-Branch traffic traverse through the Azure Virtual WAN?
 
 Yes.
 
@@ -117,6 +117,10 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
 Number of branches is limited to 1000 connections per hub/region and a total of 20 Gbps in the hub.
+
+### I don't see the 20 Gbps setting for the virtual hub in the portal. How do I configure that?
+
+Currently, you can configure the gateway scale units for 20 Gbps by using the [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) cmdlet. This setting is on the roadmap to be available in the portal.
 
 ### How many VPN connections does a Virtual WAN hub support?
 

@@ -96,7 +96,7 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 * [Can I use Traffic Manager with more than one Web App in the same region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## Next steps
 

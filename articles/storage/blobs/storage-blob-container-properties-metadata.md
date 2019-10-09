@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
 ---
@@ -121,7 +121,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 

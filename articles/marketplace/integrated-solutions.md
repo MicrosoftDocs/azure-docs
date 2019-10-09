@@ -39,4 +39,6 @@ You can discover Integrated Solutions, and connect with these valued partners by
 
 and by also visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
+See [publishing Integrated Solutions](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers) for more information.
+
 ---

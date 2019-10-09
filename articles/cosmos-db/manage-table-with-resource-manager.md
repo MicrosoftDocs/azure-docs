@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ---
 
@@ -13,6 +13,9 @@ ms.author: mjbrown
 ## Create Azure Cosmos account and table <a id="create-resource"></a>
 
 Create Azure Cosmos DB resources using an Azure Resource Manager template. This template will create an Azure Cosmos account for Table API with one table at 400 RU/s throughput. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+
+> [!NOTE]
+> Account names must be lower case and < 31 characters.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 

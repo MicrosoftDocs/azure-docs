@@ -62,7 +62,7 @@ Before you can associate or add your subscription, you must perform the followin
     The directory is changed for the subscription and you get a success message.
 
     ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Use the **Directory switcher** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, make sure you check the **Global subscription filter** for the moved subscription, to make sure it's not simply hidden.
+4. Use the **Directory switcher** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter** for the moved subscription to make sure it's not hidden. You may need to sign out of the Azure portal and sign back in to be able to see the new directory. 
 
     ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

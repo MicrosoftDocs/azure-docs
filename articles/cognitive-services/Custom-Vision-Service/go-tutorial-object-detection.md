@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: daauld
 ---
 
@@ -20,6 +20,7 @@ This article provides information and sample code to help you get started using 
 ## Prerequisites
 
 - [Go 1.8+](https://golang.org/doc/install)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 
@@ -44,7 +45,9 @@ Create a new file called *sample.go* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+
+See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).
 
 ```go
 import(
@@ -63,7 +66,7 @@ var (
     training_key string = "<your training key>"
     prediction_key string = "<your prediction key>"
     prediction_resource_id = "<your prediction resource id>"
-    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    endpoint string = "<your endpoint URL>"
     project_name string = "Go Sample OD Project"
     iteration_publish_name = "detectModel"
     sampleDataDirectory = "<path to sample images>"
@@ -153,7 +156,7 @@ scissorsImageRegions := map[string][4]float64{
     "scissors_20.jpg": [4]float64{ 0.158088237, 0.04047389, 0.6691176, 0.843137264 },
 }
 ```
-Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
+Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
 > [!NOTE]
 > You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.

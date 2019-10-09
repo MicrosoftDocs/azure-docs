@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/08/2019
 ms.author: areddish
 ---
 
@@ -21,6 +21,7 @@ This article provides information and sample code to help you get started using 
 
 - [Node.js 8](https://www.nodejs.org/en/download/) or later installed.
 - [npm](https://www.npmjs.com/) installed.
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 
@@ -41,7 +42,7 @@ Create a new file called *sample.js* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/).
 
 ```javascript
 const util = require('util');
@@ -56,7 +57,7 @@ const predictionKey = "<your prediction key>";
 const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
-const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "classifyModel";
 
@@ -78,7 +79,7 @@ const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 
 ### Upload and tag images
 
-To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You will need to enter the base image file path, based on where you downloaded the Cognitive Services Node.js SDK Samples project.
+To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
 > [!NOTE]
 > You'll need to change *sampleDataRoot* to the path to the images based on where you downloaded the Cognitive Services Node.js SDK Samples project earlier.

@@ -10,8 +10,6 @@ manager: craigg
 ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang

@@ -10,7 +10,6 @@ ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy

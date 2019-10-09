@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
@@ -74,11 +73,23 @@ The goal of general availability is to provide a scenario-based feature parity w
 
 The exceptions are the *Applications* and *Issues* from the old portal, which won't be available in the new portal. If you use *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+### I've found bugs and/or I'd like to request a feature.
+
+Great! You can provide us feedback, submit a feature request, or file a bug report through [the GitHub repository's Issues section](https://github.com/Azure/api-management-developer-portal/issues). While you're there, we'd also appreciate your feedback on the issues marked with the `community` label.
+
 ### I want to move the content of the new portal between environments. How can I do that and do I need to go with the self-hosted version?
 
 You can do so in both portal versions - managed and self-hosted. The new developer portal supports extracting content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.
 
 We're still working on aligning this process with the API Management DevOps resource kit.
+
+### What do I need to configure for the new portal to work in my API Management service in VNET?
+
+While the new developer portal is in preview, you need to allow connectivity to Azure storage services in the West US region in order to make the managed portal work in an API Management service in VNET. More information is provided in the [storage documentation](../storage/common/storage-network-security.md#available-virtual-network-regions).
+
+The above setup will no longer be necessary after the new portal becomes generally available.
+
+The self-hosted version of the portal may require additional connectivity configuration, depending on your setup.
 
 ### How can I select a *layout* when creating a new *page*?
 
@@ -87,10 +98,6 @@ A *layout* gets applied to a page by matching its URL template to the *page's* U
 ### Why doesn't the interactive developer console work?
 
 It is likely related to CORS. The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) on your API(s). You can either specify all the parameters manually (for example, origin as https://contoso.com) or use a wildcard `*` value.
-
-### Where can I file bugs?
-
-[In the GitHub repository](http://aka.ms/apimdevportal).
 
 ## Next steps
 

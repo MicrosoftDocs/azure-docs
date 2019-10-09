@@ -100,7 +100,7 @@ A collection can be created by using the [createCollection](/java/api/com.micros
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
 
-    // Azure Cosmos DB collections can be reserved with throughput specified in request units/second. 
+    // Azure Cosmos containers can be reserved with throughput specified in request units/second. 
     // Here we create a collection with 400 RU/s.
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.setOfferThroughput(400);

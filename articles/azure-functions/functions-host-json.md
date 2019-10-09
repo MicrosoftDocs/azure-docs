@@ -6,7 +6,6 @@ author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
@@ -113,6 +112,9 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 |---------|---------|---------| 
 |isEnabled|true|Enables or disables sampling.| 
 |maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
+|EnableLiveMetrics |true|Enables live metrics collection.|
+|EnableDependencyTracking|true|Enables dependency tracking.|
+|EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
 
 ## cosmosDb
 

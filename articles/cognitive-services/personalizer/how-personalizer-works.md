@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ---
 
@@ -85,31 +85,6 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 * Notification & alert content: decide what text to use for alerts in order to engage users more.
 * Notification & alert timing: have personalized learning of when to send notifications to users to engage them more.
 
-## Checklist for Applying Personalizer
-
-You can apply Personalizer in situations where:
-
-* You have a business or usability goal for your application.
-* You have a place in your application where making a contextual decision of what to show to users will improve that goal.
-* The best choice can and should be learned from collective user behavior and total reward score.
-* The use of machine learning for personalization follows [responsible use guidelines](ethics-responsible-use.md) and choices for your team.
-* The decision can be expressed as ranking the best option ([action](concepts-features.md#actions-represent-a-list-of-options) from a limited set of choices.
-* How well that choice worked can be computed by your business logic, by measuring some aspect of user behavior, and expressing it in a number between -1 and 1.
-* The reward score doesn't bring in too many confounding or external factors, specifically the experiment duration is low enough that the reward score can be computed while it's still relevant.
-* You can express the context for the rank as a dictionary of at least 5 features that you think would help make the right choice, and that doesn't include personally identifiable information.
-* You have information about each action as a dictionary of at least 5 attributes or features that you think will help Personalizer make the right choice.
-* You can retain data for long enough to accumulate a history of at least 100,000 interactions.
-
-## Machine learning considerations for applying Personalizer
-
-Personalizer is based on reinforcement learning, an approach to machine learning that gets taught by feedback you give it. 
-
-Personalizer will learn best in situations where:
-* There's enough events to stay on top of optimal personalization if the problem drifts over time (such as preferences in news or fashion). Personalizer will adapt to continuous change in the real world, but results won't be optimal if there's not enough events and data to learn from to discover and settle on new patterns. You should choose a use case that happens often enough. Consider looking for use cases that happen at least 500 times per day.
-* Context and actions have enough  features to facilitate learning.
-* There are less than 50 actions for rank per call.
-* Your data retention settings allow Personalizer to collect enough data to perform offline evaluations and policy optimization. This is typically at least 50,000 data points.
-
 ## How to use Personalizer in a web application
 
 Adding a loop to a web application includes:
@@ -159,7 +134,6 @@ You can use recommendation engines with Personalizer:
 ## Adding content safeguards to your application
 
 If your application allows for large variances in content shown to users, and some of that content may be unsafe or inappropriate for some users, you should plan ahead to make sure that the right safeguards are in place to prevent your users from seeing unacceptable content. The best pattern to implement safeguards is:
-The best pattern to implement safeguards is:
     * Obtain the list of actions to rank.
     * Filter out the ones that are not viable for the audience.
     * Only rank these viable actions.

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -45,51 +45,29 @@ You create the Azure AD B2C user account via Graph API (with the password or wit
 
 ### Step 1.1: Register your application in your tenant
 
-To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are **Application ID** and **Application Secret**. The application acts as itself, not as a user, to call the Graph API.
+To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and enable write access to the directory. The application credentials are the **Application ID** and **Application Secret**. The application acts as itself, not as a user, to call the Graph API.
 
-First, register your migration application in Azure AD. Then, create an application key (application secret) and set the application with write privileges.
+First, register an application that you can use for management tasks like user migration.
 
-1. Sign in to the [Azure portal][Portal].
-1. Select the **Directory + subscription** filter in the upper-right section of the portal.
-1. Select the directory containing your Azure AD B2C tenant.
-1. In the left-hand menu, select **Azure Active Directory** (*not* Azure AD B2C). To find it, you might need to select **All services**.
-1. Select **App registrations (Legacy)**.
-1. Select **New application registration**.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-   ![Azure Active Directory and App registrations menu items highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+### Step 1.2: Grant administrative permission to your application
 
-1. Create a new application by doing the following:
+Next, grant the application the Azure AD Graph API permissions required for writing to the directory.
 
-   - For **Name**, use *B2CUserMigration* or any other name you want.
-   - For **Application type**, select **Web app/API**.
-   - For **Sign-on URL**, use `https://localhost` (it's not relevant for this application).
-   - Select **Create**.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-    After the application is created, the **Registered app** page is displayed showing its properties.
-1. Copy the application's **Application ID**, and save it for later.
+### Step 1.3: Create the application secret
 
-### Step 1.2: Create the application secret
+Create a client secret (key) for use by the user migration application that you configure in a later step.
 
-1. In the **Registered app** page, select **Settings**.
-1. Select **Keys**.
-1. Under **Passwords**, add a new key (also known as a client secret) named *MyClientSecret* or another name of your choosing, select an expiration window, select **Save**, and then copy the key value for later use.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-    ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-
-### Step 1.3: Grant administrative permission to your application
-
-1. In the **Settings** menu, select **Required permissions**.
-1. Select **Windows Azure Active Directory**.
-1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
-1. In the **Required permissions** pane, select **Grant Permissions**, then select **Yes**.
-
-   ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-
-Now you have an application with permissions to create, read, and update users from your Azure AD B2C tenant.
+Now you have an application with permissions to create, read, and update users in your Azure AD B2C tenant.
 
 ### Step 1.4: (Optional) Environment cleanup
 
-Read and write directory data permissions do *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
+The *Read and write directory data* permission does *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
 
 > [!IMPORTANT]
 > You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin\@contosob2c.onmicrosoft.com*.
@@ -135,7 +113,9 @@ Change the `$AppId` value with your Azure AD **Application ID**.
 
 ## Step 2: Pre-migration application sample
 
-[Download and run the sample code][UserMigrationSample]. You can download it as a .zip file.
+You can find the pre-migration code sample in the community-maintained `azure-ad-b2c/user-migration` GitHub repository:
+
+[azure-ad-b2c/user-migration/pre-migration][UserMigrationSample-code] (GitHub)
 
 ### Step 2.1: Edit the migration data file
 
@@ -360,7 +340,7 @@ You can view and monitor logging information in near-real time.
 
 ## (Optional) Download the complete policy files
 
-After you complete the [Get started with custom policies][B2C-GetStartedCustom] walk-through, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [sample policy files][UserMigrationSample].
+After you complete the [Get started with custom policies][B2C-GetStartedCustom] walk-through, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [sample policy files][UserMigrationSample-policy].
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -371,4 +351,5 @@ After you complete the [Get started with custom policies][B2C-GetStartedCustom] 
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/yoelhor/Azure-AD-B2C-UserMigration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

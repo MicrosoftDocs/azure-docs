@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -85,7 +85,7 @@ For context, see the complete topic on [provisioning a SQL Server virtual machin
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) and select **Patching** under **Settings**. 
+For existing SQL Server virtual machines, open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) and select **Patching** under **Settings**. 
 
 ![SQL Automatic Patching for existing VMs](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 

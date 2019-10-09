@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 07/25/2019
+ms.topic: conceptual
+ms.date: 09/25/2019
 ms.author: diberry
 ---
 
@@ -16,22 +16,40 @@ ms.author: diberry
 
 QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files    . Content can also be added to the knowledge base from structured QnA content files. 
 
+<a name="data-types"></a>
+
+## File and URL data types
+
 The table below summarizes the types of content and file formats that are supported by QnA Maker.
 
 |Source Type|Content Type| Examples|
 |--|--|--|
 |URL|FAQs<br> (Flat, with sections or with a topics homepage)<br>Support pages <br> (Single page how-to articles, troubleshooting articles etc.)|[Plain FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[FAQ with links](https://www.microsoft.com/software-download/faq),<br> [FAQ with topics homepage](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Support article](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC|FAQs,<br> Product Manual,<br> Brochures,<br> Paper,<br> Flyer Policy,<br> Support guide,<br> Structured QnA,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Structured QnA file<br> (including RTF, HTML support)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+|PDF / DOC|FAQs,<br> Product Manual,<br> Brochures,<br> Paper,<br> Flyer Policy,<br> Support guide,<br> Structured QnA,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Sample multi-turn.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|*Excel|Structured QnA file<br> (including RTF, HTML support)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|*TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+### Import and export knowledge base
+
+**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the QnA Maker portal. They can't be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page. 
 
 ## Data source locations
 
-Most data source locations need to provide public URLs or files, which do not require authentication. 
+Data source locations are **public URLs or files**, which do not require authentication. 
 
-[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. 
+If you need authentication for your data source, consider the following methods to get that data into QnA Maker:
 
-If you have an authenticated file or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base. 
+* [Download file manually](#download-file-from-authenticated-data-source-location) and import into QnA Maker
+* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-sharepoint) 
+
+### Download file from authenticated data source location
+
+If you have an authenticated file (not on an authenticated Sharepoint location) or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base.
+
+### Import file from authenticated Sharepoint 
+
+[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated **files**. Sharepoint resources must be files, not web pages. If the URL ends with a web extension, such as **.ASPX**, it will not import into QnA Maker from Sharepoint.
+
 
 ## FAQ URLs
 
@@ -128,9 +146,21 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 Any additional columns in the source file are ignored.
 
+### Example of structured Excel file
+
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
  ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### Example of alternate questions for single answer in Excel file
+
+Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
+
+ ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
+
+ ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## Structured data format through import
 
@@ -174,6 +204,15 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
 
+If you want to add content using update/replace knowledgebase APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
+
+| Preserve HTML  | Representation in the API request  | Representation in KB |
+|-----------|---------|-------------------------|
+| Yes | \&lt;br\&gt; | &lt;br&gt; |
+| Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+Additionally, CR LF(\r\n) are converted to \n in the KB. LF(\n) is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
+
 ## Editing your knowledge base locally
 
 Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally. 
@@ -185,6 +224,10 @@ Once you are done with your edits, reimport the TSV file from the **Settings** p
 ## Testing your Markdown
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation. 
+
+## Version control for data in your knowledge base
+
+Version control for data is provided through the [import/export feature](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) on the **Settings** page. 
 
 ## Next steps
 

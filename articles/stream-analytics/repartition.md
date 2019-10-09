@@ -4,7 +4,7 @@ description: This article describes how to use repartitioning to optimize Azure 
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -49,7 +49,17 @@ Experiment and observe the resource usage of your job to determine the exact num
 
 ## Repartitions for SQL output
 
-When your job uses SQL database for output, use explicit repartitioning to match the optimal partition count to maximize throughput. Since SQL works best with eight writers, repartitioning the flow to eight before flushing, or somewhere further upstream, may benefit job performance. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).
+When your job uses SQL database for output, use explicit repartitioning to match the optimal partition count to maximize throughput. Since SQL works best with eight writers, repartitioning the flow to eight before flushing, or somewhere further upstream, may benefit job performance. 
+
+When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. Consider using [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) in your query to explicitly specify the number of output writers. 
+
+The following example reads from the input, regardless of it being naturally partitioned, and repartitions the stream tenfold according to the DeviceID dimension and flushes the data to output. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 
 ## Next steps

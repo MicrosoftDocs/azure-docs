@@ -2,7 +2,9 @@
   items:
   - name: What is a SQL Server VM?
     href: virtual-machines-windows-sql-server-iaas-overview.md
-  - name: Release notes
+  - name: Which SQL option should I choose?
+    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json&bc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2fbreadcrumb%2ftoc.json
+  - name: Doc changes
     href: virtual-machines-windows-sql-server-iaas-release-notes.md
 - name: Quickstarts
   items:
@@ -34,6 +36,8 @@
       href: virtual-machines-windows-sql-automated-backup-v2.md
   - name: Management
     items:
+    - name: Dedicated host
+      href: virtual-machines-windows-sql-dedicated-host.md
     - name: With the Azure portal
       href: virtual-machines-windows-sql-manage-portal.md
     - name: Extend support for SQL 2008 & R2
@@ -68,6 +72,8 @@
     items:
     - name: Migrate a SQL Server database
       href: virtual-machines-windows-migrate-sql.md
+    - name: VM to a new region
+      href: virtual-machines-windows-sql-move-different-region.md
   - name: Configure High Availability
     items:
     - name: Use Azure Storage for backup and restore
@@ -114,8 +120,6 @@
     href: virtual-machines-windows-sql-server-iaas-faq.md
   - name: Pricing
     href: virtual-machines-windows-sql-server-pricing-guidance.md
-  - name: PaaS or IaaS?
-    href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
   - name: SQL Server Data Tools (SSDT)
     href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
   - name: SQL Server Management Studio (SSMS)

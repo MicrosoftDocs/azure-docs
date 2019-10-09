@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
 ---
 # Connect Operations Manager to Azure Monitor
@@ -41,8 +41,8 @@ Before starting, review the following requirements.
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](design-logs-deployment.md). 
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](manage-access.md#manage-access-using-azure-permissions).
 
 * Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US
@@ -59,12 +59,12 @@ Before starting, review the following requirements.
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
 >A new management pack has been released for the following versions of Operations Manager:
->  
->* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
->* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
->* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
+> - For System Center Operations Manager 2019, management pack is provided with the Operations Manager build.
+>- Operations Manager 1801 management pack is also applicable for Operations Manager 1807.
+>- For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173).
+>- For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### Network
 

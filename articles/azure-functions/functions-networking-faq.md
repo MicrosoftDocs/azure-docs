@@ -43,7 +43,7 @@ You can access resources in a virtual network from a running function by using v
 
 ## How do I access resources protected by service endpoints?
 
-By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
+By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
 
 ## How can I trigger a function from a resource in a virtual network?
 

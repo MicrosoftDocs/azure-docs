@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/16/2019
+ms.date: 08/08/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -30,7 +30,7 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 
 ## Upload data
 
-When you're ready to upload your data, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+When you're ready to upload your data, navigate to the [Custom Speech portal](https://speech.microsoft.com/customspeech), then click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -91,7 +91,7 @@ To address issues like word deletion or substitution, a significant amount of da
 
 The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
-After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the Custom Speech portal. This is an example dataset with three audio files and a human-labeled transcription file:
+After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the [Custom Speech portal](https://speech.microsoft.com/customspeech). This is an example dataset with three audio files and a human-labeled transcription file:
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -104,7 +104,7 @@ If you have product names or features that are unique, and you want to make sure
 | Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
 | Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
-Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the Custom Speech portal.
+Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
 
 ### Guidelines to create an utterances file
 

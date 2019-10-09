@@ -21,7 +21,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ![Azure Cosmos DB from the Apache Gremlin console](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -49,12 +49,12 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/). U
 
     Setting|Suggested value|Description
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmos.azure.com]|See the following screenshot. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.
+    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|See the following screenshot. This is the **Gremlin URI** value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed. Note: Be sure to use the Gremlin value, and **not** the URI that ends with [*account-name*.documents.azure.com] which would likely result in a "Host did not respond in a timely fashion" exception when attempting to execute Gremlin queries later. 
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
     connectionPool|{enableSsl: true}|Your connection pool setting for SSL.
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
     For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-gremlin-console/gremlin-uri.png)
@@ -72,7 +72,7 @@ password: your_primary_key
 connectionPool: {
   enableSsl: true
 }
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
 make sure to wrap the value of hosts parameter within brackets []. 
@@ -81,7 +81,7 @@ make sure to wrap the value of hosts parameter within brackets [].
 1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
 
     > [!TIP]
-    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
+    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
 
 1. Next run `:remote console` to redirect all console commands to the remote server.
 

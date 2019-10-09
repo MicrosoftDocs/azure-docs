@@ -9,6 +9,7 @@ editor: jegeib
 
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -561,7 +562,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
+| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) |
 | **Steps** | LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azure IoT device management allows to interact with physical devices using device jobs. Ensure that the Cloud Gateway implements a process to routinely keep the device and other configuration data up to date using Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Ensure that devices have end-point security controls configured as per organizational policies

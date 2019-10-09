@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ---
+
 # Set up Apache HBase cluster replication in Azure virtual networks
 
 Learn how to set up [Apache HBase](https://hbase.apache.org/) replication within a virtual network, or between two virtual networks in Azure.
@@ -54,7 +55,7 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 Some of the hard-coded values in the template:
 

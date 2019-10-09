@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # NVIDIA GPU Driver Extension for Linux

@@ -10,7 +10,6 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin

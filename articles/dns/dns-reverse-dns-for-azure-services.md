@@ -57,7 +57,7 @@ Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources. It
 
 #### PowerShell
 
-To add reverse DNS to an existing PublicIpAddress:
+To update reverse DNS to an existing PublicIpAddress:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"

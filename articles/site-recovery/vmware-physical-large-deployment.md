@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 08/05/2019
 ms.author: raynew
 
 
@@ -125,7 +125,7 @@ Configuration server capacity is affected by the number of machines replicating,
 
 **CPU** | **Memory** | **Cache disk** | **Replicated machine limit**
  --- | --- | --- | ---
-8 vCPUs<br> 2 sockets * 4 cores @ 2.5 Ghz | 16 GB | 600 TB | Up to 550 machines<br> Assumes that each machine has three disks of 100 GB each.
+8 vCPUs<br> 2 sockets * 4 cores @ 2.5 Ghz | 16 GB | 600 GB | Up to 550 machines<br> Assumes that each machine has three disks of 100 GB each.
 
 - These limits are based on a configuration server set up using an OVF template.
 - The limits assume that you're not using the process server that's running by default on the configuration server.

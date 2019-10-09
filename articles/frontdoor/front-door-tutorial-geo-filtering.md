@@ -30,8 +30,8 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
 
 #### Connect to Azure with an interactive dialog for sign-in
 ```
-Connect-AzAccount
 Install-Module -Name Az
+Connect-AzAccount
 ```
 Make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
 

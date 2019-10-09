@@ -4,12 +4,11 @@ description: Learn what Azure Cache for Redis is and how it is commonly used.
 services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
+manager: martinekuan
 editor: ''
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu

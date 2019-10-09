@@ -6,9 +6,10 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh
+ms.subservice: bing-local-business
+ms.topic: overview
+ms.date: 09/13/2019
+ms.author: aahi
 ---
 
 # What is Bing Local Business Search?

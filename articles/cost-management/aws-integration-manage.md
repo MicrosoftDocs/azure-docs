@@ -133,7 +133,7 @@ There are two ways to get permissions to access AWS linked accounts costs:
 
 By default, the AWS connector creator is the owner of all the objects that the connector created. Including, the AWS consolidated account and the AWS linked account.
 
-In order to be able to Verify the connector settings you will need at least a contributer role, reader can not Verify connector settings
+In order to be able to Verify the connector settings you will need at least a contributor role, reader can not Verify connector settings
 
 ### Collection failed with AssumeRole
 
@@ -178,4 +178,4 @@ This error relates to the definition of AWS Cost and Usage Report, we require sp
 
 ## Next steps
 
-- If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups).
+- If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups).

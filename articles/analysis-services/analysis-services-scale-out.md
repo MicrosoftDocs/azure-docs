@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -138,9 +138,9 @@ For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and A
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## Scale up \ down vs. Scale out
+## Scale-up, Scale-down vs. Scale-out
 
-You can change server's pricing tier on server with multiple replicas. The same pricing tier applies to all replicas. Scale up and scale down operation will first bring down all replicas all at once then bring up all replicas on the new pricing tier.
+You can change the pricing tier on a server with multiple replicas. The same pricing tier applies to all replicas. A scale operation will first bring down all replicas all at once then bring up all replicas on the new pricing tier.
 
 ## Troubleshoot
 

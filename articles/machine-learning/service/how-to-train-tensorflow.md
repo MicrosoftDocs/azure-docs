@@ -1,24 +1,26 @@
 ---
-title: Train and register TensorFlow models
-titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a TensorFlow model using Azure Machine Learning service.
+title: Train a deep learning neural network with TensorFlow
+titleSuffix: Azure Machine Learning
+description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
+
+# Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
-# Train and register TensorFlow models at scale with Azure Machine Learning service
+# Build a TensorFlow deep learning model at scale with Azure Machine Learning
 
-This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built using the [TensorFlow Python library](https://www.tensorflow.org/overview).
+This article shows you how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning's [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) class. This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
 
-TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, Azure Machine Learning service can help you build production-ready models.
+Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -26,20 +28,20 @@ Run this code on either of these environments:
 
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > deployment > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
  
  - Your own Jupyter Notebook server
 
-     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
      
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
-This section sets up the training experiment by loading the required python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
+This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
 
 ### Import packages
 
@@ -60,7 +62,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -68,7 +70,7 @@ Create a workspace object from the `config.json` file created in the [prerequisi
 ws = Workspace.from_config()
 ```
 
-### Create an experiment
+### Create a deep learning experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "tf-mnist".
 
@@ -79,34 +81,33 @@ os.makedirs(script_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='tf-mnist')
 ```
 
-### Upload dataset and scripts
+### Create a file dataset
 
-The [datastore](how-to-access-data.md) is a place where data can be stored and accessed by mounting or copying the data to the compute target. Each workspace provides a default datastore. Upload the data and training scripts to the datastore so that they can be easily accessed during training.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets) guide on the `Dataset` package for more information.
 
-1. Download the MNIST dataset locally.
+```python
+from azureml.core.dataset import Dataset
 
-    ```Python
-    os.makedirs('./data/mnist', exist_ok=True)
+web_paths = [
+            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+            ]
+dataset = Dataset.File.from_files(path=web_paths)
+```
 
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/mnist/train-images.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/mnist/train-labels.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/mnist/test-images.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
-    ```
+Use the `register()` method to register the data set to your workspace so they can be shared with others, reused across various experiments, and referred to by name in your training script.
 
-1. Upload the MNIST dataset to the default datastore.
+```python
+dataset = dataset.register(workspace=ws,
+                           name='mnist dataset',
+                           description='training and test dataset',
+                           create_new_version=True)
 
-    ```Python
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
-    ```
-
-1. Upload the TensorFlow training script, `tf_mnist.py`, and the helper file, `utils.py`.
-
-    ```Python
-    shutil.copy('./tf_mnist.py', script_folder)
-    shutil.copy('./utils.py', script_folder)
-    ```
+# list the files referenced by dataset
+dataset.to_path()
+```
 
 ## Create a compute target
 
@@ -136,7 +137,7 @@ The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-c
 
 The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
-If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
+If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
 ```Python
 script_params = {
@@ -165,7 +166,7 @@ run.wait_for_completion(show_output=True)
 
 As the Run is executed, it goes through the following stages:
 
-- **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
+- **Preparing**: A Docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
 - **Scaling**: The cluster attempts to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
 
@@ -196,9 +197,9 @@ for f in run.get_file_names():
 
 ## Distributed training
 
-The [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed TensorFlow jobs and Azure Machine Learning service will manage the orchestration for you.
+The [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed TensorFlow jobs and Azure Machine Learning will manage the orchestration for you.
 
-Azure Machine Learning service supports two methods of distributed training in TensorFlow:
+Azure Machine Learning supports two methods of distributed training in TensorFlow:
 
 - [MPI-based](https://www.open-mpi.org/) distributed training using the [Horovod](https://github.com/uber/horovod) framework
 - Native [distributed TensorFlow](https://www.tensorflow.org/deploy/distributed) using the parameter server method
@@ -210,6 +211,7 @@ Azure Machine Learning service supports two methods of distributed training in T
 To use Horovod, specify an [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) object for the `distributed_training` parameter in the TensorFlow constructor. This  parameter ensures that Horovod library is installed for you to use in your training script.
 
 ```Python
+from azureml.core.runconfig import MpiConfiguration
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor
@@ -287,5 +289,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
 
-[How to deploy for inferencing with GPUs](how-to-deploy-inferencing-gpus.md)
-[How to monitor with Tensorboard](how-to-monitor-tensorboard.md)
+> [!div class="nextstepaction"]
+> [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

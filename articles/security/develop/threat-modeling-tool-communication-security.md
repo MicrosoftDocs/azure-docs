@@ -9,6 +9,7 @@ editor: jegeib
 
 ms.assetid: na
 ms.service: security
+ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -285,7 +286,7 @@ namespace CertificatePinningExample
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Steps** | The application configuration should ensure that HTTPS is used for all access to sensitive information.<ul><li>**EXPLANATION:** If an application handles sensitive information and does not use message-level encryption, then it should only be allowed to communicate over an encrypted transport channel.</li><li>**RECOMMENDATIONS:** Ensure that HTTP transport is disabled and enable HTTPS transport instead. For example, replace the `<httpTransport/>` with `<httpsTransport/>` tag. Do not rely on a network configuration (firewall) to guarantee that the application can only be accessed over a secure channel. From a philosophical point of view, the application should not depend on the network for its security.</li></ul><p>From a practical point of view, the people responsible for securing the network do not always track the security requirements of the application as they evolve.</p>|
 
 ## <a id="message-protection"></a>WCF: Set Message security Protection level to EncryptAndSign
@@ -297,7 +298,7 @@ namespace CertificatePinningExample
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
 | **References**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Steps** | <ul><li>**EXPLANATION:** When Protection level is set to "none" it will disable message protection. Confidentiality and integrity is achieved with appropriate level of setting.</li><li>**RECOMMENDATIONS:**<ul><li>when `Mode=None` - Disables message protection</li><li>when `Mode=Sign` - Signs but does not encrypt the message; should be used when data integrity is important</li><li>when `Mode=EncryptAndSign` - Signs and encrypts the message</li></ul></li></ul><p>Consider turning off encryption and only signing your message when you just need to validate the integrity of the information without concerns of confidentiality. This may be useful for operations or service contracts in which you need to validate the original sender but no sensitive data is transmitted. When reducing the protection level, be careful that the message does not contain any personally identifiable information (PII).</p>|
+| **Steps** | <ul><li>**EXPLANATION:** When Protection level is set to "none" it will disable message protection. Confidentiality and integrity is achieved with appropriate level of setting.</li><li>**RECOMMENDATIONS:**<ul><li>when `Mode=None` - Disables message protection</li><li>when `Mode=Sign` - Signs but does not encrypt the message; should be used when data integrity is important</li><li>when `Mode=EncryptAndSign` - Signs and encrypts the message</li></ul></li></ul><p>Consider turning off encryption and only signing your message when you just need to validate the integrity of the information without concerns of confidentiality. This may be useful for operations or service contracts in which you need to validate the original sender but no sensitive data is transmitted. When reducing the protection level, be careful that the message does not contain any personal data.</p>|
 
 ### Example
 Configuring the service and the operation to only sign the message is shown in the following examples. Service Contract Example of `ProtectionLevel.Sign`: The following is an example of using ProtectionLevel.Sign at the Service Contract level: 

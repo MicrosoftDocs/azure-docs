@@ -10,7 +10,7 @@ ms.date: 02/17/2019
 ms.author: dacurwin
 ---
 
-# Azure Backup support matrix
+# Support matrix for Azure Backup
 
 You can use [Azure Backup](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for Azure Backup scenarios and deployments.
 
@@ -55,7 +55,7 @@ Here's what's supported if you want to back up on-premises machines:
 **Limit** | **Details**
 --- | ---
 **Azure VM data disks** | Limit of 16
-**Azure VM data disk size** | Individual disks can be up to 4,095 GB
+**Azure VM data disk size** | Supports backup of virtual machines with each disk size up to 30 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
 

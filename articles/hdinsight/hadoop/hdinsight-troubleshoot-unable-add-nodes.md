@@ -1,10 +1,11 @@
 ---
 title: Unable to add nodes to Azure HDInsight cluster
-description: Unable to add nodes to Azure HDInsight cluster
+description: Troubleshoot why unable to add nodes to Apache Hadoop cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/31/2019
 ---
 
@@ -22,7 +23,7 @@ Reasons may vary.
 
 ## Resolution
 
-Using the [Cluster size](/hdinsight-scaling-best-practices.md) feature, calculate the number of additional cores needed for the cluster. This is based on the total number of cores in the new worker nodes. Then try one or more of the following steps:
+Using the [Cluster size](../hdinsight-scaling-best-practices.md) feature, calculate the number of additional cores needed for the cluster. This is based on the total number of cores in the new worker nodes. Then try one or more of the following steps:
 
 * Check to see if there are any cores available in the cluster's location.
 

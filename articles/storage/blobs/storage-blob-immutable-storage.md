@@ -5,14 +5,14 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ---
 
-# Store business-critical data in Azure Blob storage
+# Store business-critical data in Azure Blob storage immutably 
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blob Objects can be created and read, but not modified or deleted, for the duration of the retention interval. Immutable storage is enabled for General Purpose v2 and Blob Storage accounts in all Azure regions.
 
@@ -38,7 +38,7 @@ Immutable storage supports the following:
 
 - **Container-level configuration**: Users can configure time-based retention policies and legal hold tags at the container level. By using simple container-level settings, users can create and lock time-based retention policies, extend retention intervals, set and clear legal holds, and more. These policies apply to all the blobs in the container, both existing and new.
 
-- **Audit logging support**: Each container includes a policy audit log. It shows up to seven time-based retention commands for locked time-based retention policies and contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+- **Audit logging support**: Each container includes a policy audit log. It shows up to seven time-based retention commands for locked time-based retention policies and contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
 ## How it works
 
@@ -51,7 +51,7 @@ Container and Account deletion are also not allowed if there are any blobs prote
 > [!IMPORTANT]
 > A time-based retention policy must be *locked* for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. We recommend that you lock the policy in a reasonable amount of time, typically less than 24 hours. The initial state of an applied time-based retention policy is *unlocked*, allowing you to test the feature and make changes to the policy before you lock it. While the *unlocked* state provides immutability protection, we don't recommend using the *unlocked* state for any purpose other than short-term feature trials. 
 
-When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob modification time and the user-specified retention interval.
+When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval.
 
 For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
@@ -172,7 +172,7 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
-Immutable storage can be used with any blob type, but we recommend that you use it mostly for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Therefore, setting a WORM policy on a container that stores VHDs (page blobs) for any active Virtual Machines is strongly discouraged as it will lock the VM disk.
 
 **Do I need to create a new storage account to use this feature?**
 
@@ -186,7 +186,7 @@ Yes, a container can have both a legal hold and a time-based retention policy at
 
 No, Legal Hold is just the general term used for a non time-based retention policy. It does not need to only be used for litigation related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
 
-**Can I remove a *locked* time-based retention policy or legal hold?**
+**Can I remove a _locked_ time-based retention policy or legal hold?**
 
 Only unlocked time-based retention policies can be removed from a container. Once a time-based retention policy is locked, it cannot be removed; only effective retention period extensions are allowed. Legal hold tags can be deleted. When all legal tags are deleted, the legal hold is removed.
 

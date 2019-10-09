@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -79,8 +80,8 @@ For more information, see [Implement password hash synchronization with Azure AD
 **Detail**: Use the correct capabilities to support authentication:
 
   - Azure AD for employees
-  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) for guest users and external partners
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) to control how customers sign up, sign in, and manage their profiles when they use your applications
+  - [Azure AD B2B](../../active-directory/b2b/index.yml) for guest users and external partners
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) to control how customers sign up, sign in, and manage their profiles when they use your applications
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
@@ -88,7 +89,7 @@ Organizations that don’t integrate their on-premises identity with their cloud
 > You need to choose which directories critical accounts will reside in and whether the admin workstation used is managed by new cloud services or existing processes. Using existing management and identity provisioning processes can decrease some risks but can also create the risk of an attacker compromising an on-premises account and pivoting to the cloud. You might want to use a different strategy for different roles (for example, IT admins vs. business unit admins). You have two options. First option is to create Azure AD Accounts that aren’t synchronized with your on-premises Active Directory instance. Join your admin workstation to Azure AD, which you can manage and patch by using Microsoft Intune. Second option is to use existing admin accounts by synchronizing to your on-premises Active Directory instance. Use existing workstations in your Active Directory domain for management and security.
 
 ## Manage connected tenants
-Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). A [Global Administrator/Company Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure AD can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
+Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) or [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). A [Global Administrator/Company Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) in Azure AD can elevate their access to the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
 
 See [elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md) to ensure that you and your security group can view all subscriptions or management groups connected to your environment. You should remove this elevated access after you’ve assessed risks.
 

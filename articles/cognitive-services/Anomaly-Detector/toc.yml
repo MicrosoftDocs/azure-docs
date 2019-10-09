@@ -16,12 +16,14 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
-    - name: Client
+    - name: Client library
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python-sdk.md
+        - name: Using Node.js
+          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
@@ -60,6 +62,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2090370
         - name: Node.js
           href: https://go.microsoft.com/fwlink/?linkid=2090788
+    - name: Paper on SR-CNN in KDD 2019
+      href: https://arxiv.org/abs/1906.03821
 - name: Resources
   items:
     - name: Pricing

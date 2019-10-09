@@ -10,9 +10,8 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
@@ -24,13 +23,11 @@ ms.custom: seodec18
 
 For more information on the source control services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], or [Create a new Git repo (Azure Repos)].
 
-To manually configure continuous deployment from a cloud repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/), see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## Authorize Azure App Service 
 
-To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
 For Bitbucket or GitHub, authorize Azure App Service to connect to your repository. You only need to authorize with a source control service once. 
 
@@ -59,7 +56,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
 1. Select your authorized source control provider on the **Deployment Center** page, and select **Continue**. For GitHub or Bitbucket, you can also select **Change account** to change the authorized account. 
    
    > [!NOTE]
-   > To use Azure Repos, make sure your Azure DevOps Services organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+   > To use Azure Repos, make sure your Azure DevOps Services organization is linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
    
 1. For GitHub or Azure Repos, on the **Build provider** page, select **App Service build service**, and then select **Continue**. Bitbucket always uses the App Service build service.
    
@@ -77,7 +74,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
    - For Azure Repos, select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
      
      > [!NOTE]
-     > If your Azure DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)..
+     > If your Azure DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Set up an Azure DevOps Services account so it can deploy to a web app](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
      
 1. Select **Continue**.
    
@@ -145,6 +142,10 @@ To disable continuous deployment, select **Disconnect** at the top of your app's
 ![Disable continuous deployment](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## Use unsupported repos
+
+For Windows apps, you can manually configure continuous deployment from a cloud Git or Mecurial repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/). You do it by choosing the External box in the **Deployment Center** page. For more information, see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## Additional resources
 

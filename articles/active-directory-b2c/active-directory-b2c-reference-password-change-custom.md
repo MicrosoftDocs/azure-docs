@@ -17,15 +17,15 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C, you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. If the session expires by the time the user gets to the password change flow, they're prompted to sign in again. This article shows you how to configure password change in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure [self-service password reset](active-directory-b2c-reference-sspr.md) for user flows.
+In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. If the session expires by the time the user gets to the password change flow, they're prompted to sign in again. This article shows you how to configure password change in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure [self-service password reset](active-directory-b2c-reference-sspr.md) for user flows.
 
 ## Prerequisites
 
 Complete the steps in [Get started with custom policies in Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## Add the elements 
+## Add the elements
 
-1. Open your *TrustframeworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `oldPassword` to the [ClaimsSchema](claimsschema.md) element: 
+1. Open your *TrustframeworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `oldPassword` to the [ClaimsSchema](claimsschema.md) element:
 
     ```XML
     <BuildingBlocks>
@@ -152,7 +152,7 @@ Complete the steps in [Get started with custom policies in Active Directory B2C]
 7. Modify the **ReferenceId** attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created. For example, *PasswordChange*.
 8. Save your changes.
 
-You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
+You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
 ## Test your policy
 
@@ -161,7 +161,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Identity Experience Framework**.
 5. On the Custom Policies page, click **Upload Policy**.
@@ -173,8 +173,8 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 1. Open the policy that you changed. For example, *B2C_1A_profile_edit_password_change*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run now**. Sign in with the acouunt that you previously created. You should now have the opportunity to change the password. 
+3. Click **Run now**. Sign in with the acouunt that you previously created. You should now have the opportunity to change the password.
 
 ## Next steps
 
-- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md). 
+- Learn about how you can [Configure password complexity using custom policies in Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

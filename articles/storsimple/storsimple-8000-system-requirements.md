@@ -21,6 +21,8 @@ ms.author: alkohli
 
 ## Overview
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
 The system requirements include:

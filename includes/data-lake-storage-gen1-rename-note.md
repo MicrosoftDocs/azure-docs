@@ -11,7 +11,7 @@
 ---
 
 > [!NOTE]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://aka.ms/adlsgen2-product).
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://aka.ms/adlsgen2-product).
 > 
 
 

@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/13/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -47,8 +47,8 @@ In this step, you use ADF UI/app to create a pipeline. You add an Execute SSIS P
 
 4. On the **Settings** tab for Execute SSIS Package activity, select an Azure-SSIS IR where you want to run your package. If your package uses Windows authentication to access data stores, e.g. SQL Servers/file shares on premises, Azure Files, etc., check the **Windows authentication** checkbox and enter the values for your package execution credentials (**Domain**/**Username**/**Password**). Alternatively, you can use secrets stored in your Azure Key Vault (AKV) as their values. To do so, click on the **AZURE KEY VAULT** checkbox next to the relevant credential, select/edit your existing AKV linked service or create a new one, and then select the secret name/version for your credential value.  When you create/edit your AKV linked service, you can select/edit your existing AKV or create a new one, but please grant ADF managed identity access to your AKV if you have not done so already. You can also enter your secrets directly in the following format: `<AKV linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, check the **32-Bit runtime** checkbox. 
 
-   For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance, you need to specify your package to run that has been deployed into SSISDB. If your Azure-SSIS IR is running and the **Manual entries** checkbox is unchecked, you can browse and select your existing folders/projects/packages/environments from SSISDB. Click the **Refresh** button to fetch your newly added folders/projects/packages/environments from SSISDB, so they are available for browsing and selection. 
-   
+   For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance, you need to specify your package to run that has been deployed into SSISDB. If your Azure-SSIS IR is running and the **Manual entries** checkbox is unchecked, you can browse and select your existing folders/projects/packages/environments from SSISDB. Click the **Refresh** button to fetch your newly added folders/projects/packages/environments from SSISDB, so they are available for browsing and selection. To browse/select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more info, see [Creating/mapping SSIS environments](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+
    For **Logging level**, select a predefined scope of logging for your package execution. Check the **Customized** checkbox, if you want to enter your customized logging name instead. 
 
    ![Set properties on the Settings tab - Automatic](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
@@ -156,42 +156,43 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
 1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example:
 
    > [!IMPORTANT]
-   > Replace object names, descriptions, and paths, property and parameter values, passwords, and other variable values before saving the file. 
+   > Replace object names/descriptions/paths, property/parameter values, passwords, and other variable values before saving the file. 
 
    ```json
    {
        "name": "RunSSISPackagePipeline",
        "properties": {
            "activities": [{
-               "name": "mySSISActivity",
+               "name": "MySSISActivity",
                "description": "My SSIS package/activity description",
                "type": "ExecuteSSISPackage",
                "typeProperties": {
                    "connectVia": {
-                       "referenceName": "myAzureSSISIR",
+                       "referenceName": "MyAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
                    "executionCredential": {
-                       "domain": "MyDomain",
-                       "userName": "MyUsername",
+                       "domain": "MyExecutionDomain",
+                       "username": "MyExecutionUsername",
                        "password": {
                            "type": "SecureString",
-                           "value": "**********"
+                           "value": "MyExecutionPassword"
                        }
                    },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
-                       "packagePath": "FolderName/ProjectName/PackageName.dtsx"
+                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx",
+                       "type": "SSISDB"
                    },
-                   "environmentPath": "FolderName/EnvironmentName",
+                   "environmentPath": "MyFolder/MyEnvironment",
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
                        },
                        "project_param_2": {
                            "value": {
-                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "value": "@pipeline().parameters.MyProjectParameter",
                                "type": "Expression"
                            }
                        }
@@ -207,40 +208,40 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                                    "referenceName": "myAKV",
                                    "type": "LinkedServiceReference"
                                },
-                               "secretName": "MySecret"
+                               "secretName": "MyPackageParameter"
                            }
                        }
                    },
                    "projectConnectionManagers": {
                        "MyAdonetCM": {
-                           "userName": {
-                               "value": "sa"
+                           "username": {
+                               "value": "MyConnectionUsername"
                            },
-                           "passWord": {
+                           "password": {
                                "value": {
                                    "type": "SecureString",
-                                   "value": "abc"
+                                   "value": "MyConnectionPassword"
                                }
                            }
                        }
                    },
                    "packageConnectionManagers": {
                        "MyOledbCM": {
-                           "userName": {
+                           "username": {
                                "value": {
-                                   "value": "@pipeline().parameters.MyUsername",
+                                   "value": "@pipeline().parameters.MyConnectionUsername",
                                    "type": "Expression"
                                }
                            },
-                           "passWord": {
+                           "password": {
                                "value": {
                                    "type": "AzureKeyVaultSecret",
                                    "store": {
                                        "referenceName": "myAKV",
                                        "type": "LinkedServiceReference"
                                    },
-                                   "secretName": "MyPassword",
-                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
+                                   "secretName": "MyConnectionPassword",
+                                   "secretVersion": "MyConnectionPasswordVersion"
                                }
                            }
                        }
@@ -258,6 +259,86 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                    "retryIntervalInSeconds": 30
                }
            }]
+       }
+   }
+   ```
+
+   To execute packages stored in file systems/file shares/Azure Files, you can enter the values for your package/log location properties as follows.
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
+                               }
+                           }
+                       }
+                   },
+                   "logLocation": {
+                       "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
+                       "type": "File",
+                       "typeProperties": {
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyAccountKey"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   To execute packages within projects stored in file systems/file shares/Azure Files, you can enter the values for your package location property as follows.
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "userName": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
        }
    }
    ```
@@ -385,4 +466,4 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
 
 ## Next steps
 See the following blog post:
--   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

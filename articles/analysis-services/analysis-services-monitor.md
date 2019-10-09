@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -50,6 +50,10 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |MemoryLimitLow|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|
 |MemoryLimitVertiPaq|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|
 |MemoryUsage|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory, which was mapped or allocated by the in-memory analytics engine (VertiPaq) in excess of the engine Memory Limit.|
+|private_bytes_metric|Private Bytes |Bytes|Average|The total amount of memory the Analysis Services engine process and Mashup container processes have allocated, not including memory shared with other processes.|
+|virtual_bytes_metric|Virtual Bytes |Bytes|Average|The current size of the virtual address space that Analysis Services engine process and Mashup container processes are using.|
+|mashup_engine_private_bytes_metric|M Engine Private Bytes |Bytes|Average|The total amount of memory Mashup container processes have allocated, not including memory shared with other processes.|
+|mashup_engine_virtual_bytes_metric|M Engine Virtual Bytes |Bytes|Average|The current size of the virtual address space Mashup container processes are using.|
 |Quota|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|
 |QuotaBlocked|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|
 |VertiPaqNonpaged|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|

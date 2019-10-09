@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ms.collection: M365-identity-device-management
 ---
@@ -36,9 +36,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> You have two options to start your quickstart application:
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> You have two options to start your quickstart application: Express (Option 1 below), and Manual (Option 2)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
@@ -73,16 +71,16 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > > [Make these changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download your Visual Studio project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-1. Open the solution in Visual Studio - **daemon-console.sln** (optional).
+1. Open the solution in Visual Studio - **1-Call-MSGraph\daemon-console.sln** (optional).
 1. Edit **appsettings.json** and replace the values of the fields `ClientId`, `Tenant` and `ClientSecret` with the following:
 
     ```json
@@ -142,7 +140,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -163,7 +161,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
@@ -218,8 +216,15 @@ For more information, please see the [reference documentation for `AcquireTokenF
 
 ## Next steps
 
+To learn more about daemon applications, see the scenario landing page
+
 > [!div class="nextstepaction"]
-> [.NET Core daemon sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Daemon application that calls web APIs](scenario-daemon-overview.md)
+
+For the daemon application tutorial, see:
+
+> [!div class="nextstepaction"]
+> [Daemon .NET Core console tutorial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Learn more about permissions and consent:
 
@@ -230,9 +235,6 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [Client credential flows with MSAL.NET](https://aka.ms/msal-net-client-credentials)
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 

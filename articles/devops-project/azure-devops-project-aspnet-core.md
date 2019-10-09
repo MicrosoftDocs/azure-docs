@@ -6,12 +6,11 @@ ms.technology: devops-cicd
 services: azure-devops-project
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned

@@ -44,6 +44,10 @@ sections:
       text: Java
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
     - image: 
+        src: https://docs.microsoft.com/azure/media/index/logo_python.svg
+      text: Python
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-python
+    - image: 
         src: https://docs.microsoft.com/media/logos/logo_REST.svg
       text: REST API
       href: /azure/azure-signalr/signalr-quickstart-rest-api

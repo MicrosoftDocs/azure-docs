@@ -2,7 +2,7 @@
 title: How to work with search results - Azure Search
 description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: 

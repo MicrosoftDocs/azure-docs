@@ -91,8 +91,8 @@ This is the name of the rule. This name appears in the logs.
 
 ### Priority [required]
 
-- Determines the order that rules are evaluated in. The lower the value, the earlier the evaluation of the rule.
--Must be unique amongst all custom rules. A rule with priority 100 will be evaluated before a rule with priority 200.
+- Determines the order that rules are evaluated in. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1-100. 
+- Must be unique amongst all custom rules. A rule with priority 40 will be evaluated before a rule with priority 80.
 
 ### Rule type [required]
 
@@ -105,10 +105,10 @@ Must be one of the variables:
 - RemoteAddr – IP Address/hostname of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
-- PostArgs – Arguments sent in the POST body
+- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'.
 - RequestUri – URI of the request
 - RequestHeaders – Headers of the request
-- RequestBody – Body of the request
+- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded'. 
 - RequestCookies – Cookies of the request
 
 ### Selector [optional]

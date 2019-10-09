@@ -52,25 +52,25 @@ You can deploy applications and services onto your Service Fabric cluster via Az
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"

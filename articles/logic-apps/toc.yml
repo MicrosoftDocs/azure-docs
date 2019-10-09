@@ -1,4 +1,4 @@
-- name: Azure Logic Apps Documentation
+- name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -15,11 +15,11 @@
     href: quickstart-create-logic-apps-visual-studio-code.md  
 - name: Tutorials
   items:
-  - name: Check traffic regularly
+  - name: Create schedule-based workflows
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Manage mailing list requests
+  - name: Create approval-based workflows
     href: tutorial-process-mailing-list-subscriptions-workflow.md
-  - name: Process email attachments
+  - name: Create Azure Storage and Azure Functions workflow
     href: tutorial-process-email-attachments-workflow.md
 - name: Samples
   items:
@@ -31,7 +31,7 @@
   items:
   - name: Connectors for Logic Apps
     href: ../connectors/apis-list.md
-  - name: Schedule automated recurring workflows
+  - name: Schedule recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
@@ -105,12 +105,18 @@
       href: logic-apps-diagnosing-failures.md
   - name: Develop for B2B scenarios
     items: 
-      - name: Create an integration account
+      - name: Create integration account
         href: logic-apps-enterprise-integration-create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
         href: logic-apps-enterprise-integration-agreements.md
+      - name: Schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Certificates
+        href: logic-apps-enterprise-integration-certificates.md
       - name: Artifact metadata
         href: logic-apps-enterprise-integration-metadata.md
       - name: Receive B2B messages
@@ -141,20 +147,14 @@
         href: logic-apps-scenario-edi-send-batch-messages.md
       - name: Process flat files
         href: logic-apps-enterprise-integration-flatfile.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Add schemas for XML validation
-        href: logic-apps-enterprise-integration-schemas.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
-      - name: Add maps for XML transform
-        href: logic-apps-enterprise-integration-maps.md
       - name: Transform JSON
         href: logic-apps-enterprise-integration-liquid-transform.md
-      - name: Add security certificates
-        href: logic-apps-enterprise-integration-certificates.md
       - name: Troubleshoot B2B errors
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
@@ -263,8 +263,6 @@
         href: ../connectors/connectors-create-api-salesforce.md
       - name: SAP (New)
         href: logic-apps-using-sap-connector.md
-      - name: SAP
-        href: logic-apps-using-sap-connector-old.md
       - name: SendGrid
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
@@ -305,6 +303,8 @@
       href: logic-apps-enterprise-integration-accounts.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
+    - name: Move logic app resources
+      href: move-logic-app-resources.md      
     - name: Migrate to latest schema
       href: ../connectors/connectors-schema-migration.md
   - name: Test

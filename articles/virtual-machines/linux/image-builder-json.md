@@ -59,7 +59,11 @@ The location is the region where the custom image will be created. For the Image
 ```json
     "location": "<region>",
 ```
-	
+
+## Tags
+
+These are key/value pairs you can specify for the image that's generated.
+
 ## Depends on (optional)
 
 This optional section can be used to ensure that dependencies are completed before proceeding. 
@@ -183,6 +187,7 @@ Sets the source image an existing image version in a Shared Image Gallery. The i
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 ## Properties: buildTimeoutInMinutes
+
 By default, the Image Builder will run for 240 minutes. After that, it will timeout and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
 
 ```text
@@ -196,7 +201,6 @@ If you find you need more time for customizations to complete, set this to what 
 
 
 ## Properties: customize
-
 
 Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
@@ -341,7 +345,8 @@ This is supported by Windows directories and Linux paths, but there are some dif
  
 If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
 
->> Note! The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> [!NOTE]
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

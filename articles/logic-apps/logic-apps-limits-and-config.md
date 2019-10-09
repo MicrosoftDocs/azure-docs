@@ -1,5 +1,5 @@
 ---
-title: Limits and configuration - Azure Logic Apps | Microsoft Docs
+title: Limits and configuration - Azure Logic Apps
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -108,6 +108,8 @@ Here are the limits for a single logic app definition:
 
 ### Integration service environment (ISE)
 
+Here are the throughput limits for the Premium SKU:
+
 | Name | Limit | Notes |
 |------|-------|-------|
 | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
@@ -115,10 +117,18 @@ Here are the limits for a single logic app definition:
 | Maximum scale units that you can add | 10 | |
 ||||
 
-To go above these limits in normal processing, 
-or run load testing that might go above these limits, 
-[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
-for help with your requirements.
+To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+> [!NOTE]
+> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU 
+> doesn't have any service-level agreement (SLA) or capabilities for scaling up. 
+> Use this SKU only for experimenting, development, and testing, not production or performance testing.
+
+<a name="gateway-limits"></a>
+
+## Gateway limits
+
+Azure Logic Apps supports write operations, including inserts and updates, through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="request-limits"></a>
 
@@ -188,10 +198,10 @@ Each Azure subscription has these integration account limits:
 
 * Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
 
-  | ISE SKU | Limit |
-  |---------|-------|
-  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) only, no Free or Basic |
-  | **Developer** | 5 total - Free (limited to 1), Standard, or both, but no Basic |
+  | ISE SKU | Integration account limits |
+  |---------|----------------------------|
+  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) accounts only, including one Standard account for free. No Free or Basic accounts are permitted. |
+  | **Developer** | 5 total - [Free](../logic-apps/logic-apps-pricing.md#integration-accounts) (limited to 1 account) and [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combined, or all Standard accounts. No Basic accounts are permitted. Use the [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) for experimenting, development, and testing, but not for production or performance testing. |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -215,7 +225,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
 | Assemblies | 10 | 25 | 1,000 |
-| Certificates | 25 | 2 | 500 |
+| Certificates | 25 | 2 | 1,000 |
 | Batch configurations | 5 | 1 | 50 |
 ||||
 
@@ -268,43 +278,31 @@ take significant time to complete.
 
 ## Firewall configuration: IP addresses
 
-All logic apps in the same region use the same IP address ranges. 
-To support the calls that your logic apps directly make with 
-[HTTP](../connectors/connectors-native-http.md), 
-[HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
-and other HTTP requests, set up your firewalls with *all* the 
-[inbound](#inbound) *and* [outbound](#outbound) IP addresses 
-used by the Logic Apps service, based on the regions where your 
-logic apps exist. These addresses appear under the **Inbound** 
-and **Outbound** headings in this section, and are sorted by region.
+The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps that are in the same region use the same IP address ranges.
 
-To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
-set up your firewall with *all* the [outbound](#outbound) IP addresses 
-used by these connectors, based on the regions where your logic apps exist. 
-These addresses appear under the **Outbound** heading in this section, 
-and are sorted by region.
+> [!NOTE]
+> Some Microsoft Flow calls, such as **HTTP** and **HTTP + OpenAPI** requests, 
+> go directly through the Azure Logic Apps service and come from the IP addresses 
+> that are listed here. For more information about IP addresses used by Microsoft Flow, see 
+> [Limits and configuration in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
-For [Azure Government](../azure-government/documentation-government-overview.md) 
-and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
-reserved IP addresses for connectors aren't currently available.
+* To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
+
+* To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region. 
+
+* For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+
+* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions. Otherwise, you can use the more advanced options here:
+
+  * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
+
+  * If you use a dedicated tier for API Management, you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's  firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
+
+* For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
 > [!IMPORTANT]
->
-> If you have existing configurations, please update them 
-> **as soon as possible before September 1, 2018** so they 
-> include and match the IP addresses in these lists for the 
-> regions where your logic apps exist.
-
-Logic Apps doesn't support directly connecting to Azure storage 
-accounts through firewalls. To access these storage accounts, 
-use either option here:
-
-* Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-which can connect to resources in an Azure virtual network.
-
-* If you already use API Management, you can use 
-this service for this scenario. For more info, see 
-[Simple enterprise integration architecture](https://aka.ms/aisarch).
+> If you have firewall configurations that you set up before September 1, 2018, 
+> make sure that they match the current IP addresses in these lists for the regions where your logic apps exist.
 
 <a name="inbound"></a>
 
@@ -322,15 +320,19 @@ this service for this scenario. For more info, see
 | East Asia | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
 | East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | East US 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
+| France Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
+| France South | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Japan East | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Japan West | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
+| Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
+| Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | North Central US | 65.52.9.64, 65.52.211.164, 168.62.249.81, 157.56.12.202 |
 | North Europe | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
 | South Central US | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | South India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | West Central US | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| West Europe | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
+| West Europe | 13.95.155.53, 52.174.54.218, 52.174.49.6, 51.144.176.185 |
 | West India | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | West US | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | West US 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
@@ -354,15 +356,19 @@ this service for this scenario. For more info, see
 | East Asia | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
 | East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | East US 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
+| France Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2 |
+| France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184 |
 | Japan East | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Japan West | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
+| Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.36.214 |
+| Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.163.10 |
 | North Central US | 52.162.208.216, 52.162.213.231, 65.52.8.225, 65.52.9.96, 65.52.10.183, 157.55.210.61, 157.55.212.238, 168.62.248.37 | 52.162.107.160 - 52.162.107.175, 52.162.242.161 |
 | North Europe | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68 |
 | South Central US | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 104.214.19.48 - 104.214.19.63, 13.65.86.57 |
 | South India | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
 | Southeast Asia | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
 | West Central US | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
-| West Europe | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 52.174.88.118 |
+| West Europe | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | West India | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.189.218 |
 | West US | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
 | West US 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 52.183.78.157 |

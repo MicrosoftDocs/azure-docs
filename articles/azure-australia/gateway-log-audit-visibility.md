@@ -108,7 +108,7 @@ When implementing the components listed in this article, the following general g
 |---|---|
 |Australian Regulatory and Policy Compliance Documents|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure products - Australian regions and non-regional|[https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
-|Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
+|Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
 |Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)|
 |
 
@@ -144,7 +144,7 @@ The VPN Gateway is a potential entry point for a wide range of communications in
 |Resources|Link|
 |---|---|
 |VPN Gateway Documentation|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Australian Government specific VPN Gateway guidance|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|Australian Government specific VPN Gateway guidance|[Azure VPN Gateway configuration](vpn-gateway.md)|
 |
 
 ### Azure Firewall

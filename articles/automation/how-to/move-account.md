@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Move your Azure Automation account to another subscription
 
-Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
+Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md).
 
 Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription.
 
@@ -28,8 +28,8 @@ The high-level steps to moving your Automation account are:
 
 To unlink your workspace from your Automation account, these solutions must be removed from your workspace:
 - **Change Tracking and Inventory**
-- **Update Management** 
-- **Start/Stop VMs during off hours** 
+- **Update Management**
+- **Start/Stop VMs during off hours**
 
 In your resource group, find each solution and select **Delete**. On the **Delete Resources** page, confirm the resources to be removed, and select **Delete**.
 
@@ -121,7 +121,7 @@ Machines that are onboarded with your solutions will be visible when you've conn
 
 To turn on the **Start/Stop VMs** during off-hours solution, you'll need to redeploy the solution. Under **Related Resources**, select **Start/Stop VMs** > **Learn more about and enable the solution** > **Create** to start the deployment.
 
-On the **Add Solution** page, choose your Log Analytics Workspace and Automation account.  
+On the **Add Solution** page, choose your Log Analytics Workspace and Automation account.
 
 ![Add Solution menu](../media/move-account/add-solution-vm.png)
 
@@ -134,9 +134,10 @@ When the move is complete, check the following list of tasks that should be veri
 |Capability|Tests|Troubleshooting link|
 |---|---|---|
 |Runbooks|A runbook can successfully run and connect to Azure resources.|[Troubleshoot runbooks](../troubleshoot/runbooks.md)
-| Source control|You can run a manual sync on your source control repo.|[Source control integration](../source-control-integration.md)|
+|Source control|You can run a manual sync on your source control repo.|[Source control integration](../source-control-integration.md)|
 |Change tracking and inventory|Verify you see current inventory data from your machines.|[Troubleshoot change tracking](../troubleshoot/change-tracking.md)|
 |Update management|Verify you see your machines and they're healthy.</br>Run a test software update deployment.|[Troubleshoot update management](../troubleshoot/update-management.md)|
+|Shared resources|Verify that you see all of your shared resources, such as [Credentials](../shared-resources/credentials.md), [Variables](../shared-resources/variables.md), etc.|
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -110,12 +110,12 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  For appliance version 1.19.06.27, the generated hash should match these settings.
+3.  For appliance version 2.19.07.30, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 3681F745FA2B0A0A6910707D85161EC5
-  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 
@@ -123,13 +123,17 @@ Check that the zipped file is secure, before you deploy it.
 
 Import the downloaded file, and create the VM.
 
-1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance VM. Three folders are extracted.
+1. After downloading the zipped VHD file to the Hyper-V host on which the appliance VM will be placed, extract the zipped file.
+    - In the extracted location, the file unzips into a folder called **AzureMigrateAppliance_VersionNumber**.
+    - This folder contains a subfolder, also called **AzureMigrateAppliance_VersionNumber**.
+    - This subfolder contains three further subfolders - **Snapshots**, **Virtual Hard Disks**, and **Virtual Machines**.
+
 2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
 
     ![Deploy VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
-3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
+3. In **Locate Folder**, select the **Virtual Machines** folder. Then click **Next**.
 1. In **Select Virtual Machine**, click **Next**.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.

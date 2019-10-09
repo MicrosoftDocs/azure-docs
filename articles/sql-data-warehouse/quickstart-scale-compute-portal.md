@@ -12,7 +12,7 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ---
 
-## Quickstart: Scale compute in Azure SQL Data Warehouse in the Azure portal
+# Quickstart: Scale compute in Azure SQL Data Warehouse in the Azure portal
 
 Scale compute in Azure SQL Data Warehouse in the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
@@ -55,4 +55,4 @@ To change data warehouse units:
 You've now learned to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

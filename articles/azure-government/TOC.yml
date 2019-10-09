@@ -43,8 +43,6 @@
   items: 
   - name: Deploy with Azure Pipelines
     href: connect-with-azure-pipelines.md
-  - name: Use Visual Studio
-    href: documentation-government-get-started-connect-with-vs.md
   - name: Use SQL Server Management Studio
     href: documentation-government-connect-ssms.md
   - name: Use Azure Storage
@@ -111,6 +109,14 @@
       href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+- name: Compliance
+  items:
+  - name: Trusted Internet Connection with Azure
+    href: compliance/compliance-tic.md
+  - name: Azure Services by Audit Scope
+    href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Secure Azure Computing Architecture 
+    href: compliance/secure-azure-computing-architecture.md
 - name: Resources
   items:
   - name: Azure Government Website

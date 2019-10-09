@@ -3,7 +3,7 @@ title: Multi-factor authentication (MFA) and PIM - Azure Active Directory | Micr
 description: Learn how Azure AD Privileged Identity Management (PIM) validates multi-factor authentication (MFA).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 08/31/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

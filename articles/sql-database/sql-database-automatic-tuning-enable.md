@@ -35,7 +35,7 @@ To enable automatic tuning on Azure SQL Database logical **server**, navigate to
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
 >
 
 Select the automatic tuning options you want to enable and select **Apply**.

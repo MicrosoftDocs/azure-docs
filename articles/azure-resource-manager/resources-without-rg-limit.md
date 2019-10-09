@@ -3,8 +3,8 @@ title: Azure resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 7/30/2019
+ms.topic: conceptual
+ms.date: 10/4/2019
 ms.author: tomfitz
 ---
 
@@ -35,6 +35,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * images
 * snapshots
 * virtualMachines
+
+## Microsoft.ContainerInstance
+
+* containerGroups
 
 ## Microsoft.ContainerRegistry
 
@@ -76,6 +80,14 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * integrationAccounts
 * workflows
+
+## Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
 
 ## Microsoft.Network
 
@@ -127,6 +139,15 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.Scheduler
 
 * jobcollections
+
+## Microsoft.ServiceFabricMesh
+
+* applications
+* containerGroups
+* gateways
+* networks
+* secrets
+* volumes
 
 ## Microsoft.Storage
 

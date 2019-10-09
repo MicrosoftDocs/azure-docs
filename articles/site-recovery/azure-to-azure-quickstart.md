@@ -1,12 +1,11 @@
 ---
 title: Set up disaster recovery for an Azure IaaS VM to a secondary Azure region
 description: This quickstart provides the steps required for disaster recovery of an Azure IaaS VM between Azure regions, using the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/30/2019
+ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
 ---

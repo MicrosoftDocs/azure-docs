@@ -1,15 +1,13 @@
 ---
 title: "Quickstart: Azure Blob storage client library for .NET"
 description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-services: storage
 author: mhopkins-msft
 
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 07/20/2019
 ms.author: mhopkins
+ms.date: 07/20/2019
+ms.service: storage
 ms.subservice: blobs
+ms.topic: quickstart
 ---
 
 # Quickstart: Azure Blob storage client library for .NET
@@ -29,11 +27,11 @@ Use the Azure Blob Storage client library for .NET to:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## Required before you begin
+## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system. Be sure to get the SDK and not the runtime.
+* Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -127,7 +125,7 @@ namespace blob_quickstart
 
 ### Copy your credentials from the Azure portal
 
-The sample application needs to authenticate access to your storage account. To authenticate, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
+When the sample application makes a request to Azure Storage, it must be authorized. To authorize a request, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.

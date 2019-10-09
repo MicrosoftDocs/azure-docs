@@ -10,6 +10,7 @@ editor: tomsh
 
 ms.assetid: 
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +22,7 @@ ms.author: tomsh
 
 # Azure operational security overview
 
-[Azure operational security](/azure/security/azure-operational-security) refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. It's a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft. These capabilities include the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
+[Azure operational security](/azure/security/fundamentals/operational-security) refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. It's a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft. These capabilities include the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 ## Azure management services
 
@@ -84,7 +85,7 @@ With Azure Active Directory, all applications that you publish for your partners
 - Disk encryption validation.
 - Network-based attacks.
 
-Security Center uses [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure.
+Security Center uses [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 

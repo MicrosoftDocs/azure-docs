@@ -117,7 +117,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
   
-  * Slack's **userName** attribute has to be under 21 characters and have a unique value.
+* Slack's **userName** attribute has to be under 21 characters and have a unique value.
+
+* Slack only allows matching with the attributes **userName** and **email**.  
 
 ## Additional Resources
 

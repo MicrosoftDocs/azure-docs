@@ -51,7 +51,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well.
+Site Recovery is application-agnostic and should work with any version of SharePoint running on a supported machine. For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used.
 
 ### Source and target
 
@@ -62,13 +62,6 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Physical server** | Yes | Yes
 **Azure** | NA | Yes
 
-### SharePoint Versions
-The following SharePoint server versions are supported.
-
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
 
 ### Things to keep in mind
 

@@ -1,13 +1,11 @@
 ---
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
 ---
@@ -41,7 +39,7 @@ You can use any of these tools to upload content to the **$web** container:
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Visual Studio Code extension](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## Viewing content
 

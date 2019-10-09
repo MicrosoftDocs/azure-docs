@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ---

@@ -1,11 +1,11 @@
 ---
-title: Create an Azure Blockchain Service using the Azure portal
-description: Use Azure Blockchain service to create a consortium member.
+title: Create an Azure Blockchain Service blockchain member using the Azure portal
+description: Use Azure Blockchain service to create a blockchain member.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -13,15 +13,15 @@ manager: femila
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a managed ledger on Azure.
 ---
 
-# Quickstart: Create an Azure Blockchain Service using the Azure portal
+# Quickstart: Create an Azure Blockchain Service blockchain member using the Azure portal
 
-Azure Blockchain Service is a blockchain platform that you can execute your business logic within a smart contract. This quickstart shows you how to get started by creating a managed ledger using the Azure portal.
+Azure Blockchain Service is a blockchain platform that you can execute your business logic within a smart contract. This quickstart shows you how to get started by creating a blockchain member using the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Create a managed ledger
+## Create a blockchain member
 
-Azure Blockchain Service is created with a defined set of compute and storage resources.
+Create a blockchain member that runs the Quorum ledger protocol in a new or existing consortium.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
@@ -32,7 +32,7 @@ Azure Blockchain Service is created with a defined set of compute and storage re
 
     Setting | Description
     --------|------------
-    Blockchain Member | Choose a unique name that identifies your Azure Blockchain Service member. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
+    Blockchain Member | Choose a unique name that identifies your Azure Blockchain Service blockchain member. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
     Subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
     Resource group | A new resource group name or an existing one from your subscription.
     Region | Location must be the same for all members of the consortium.

@@ -143,7 +143,17 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
-### Why does my link show unhealthy but the topology does not 
+### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy ?
+NPM raises an alert if end to end latency between source and destination crosses the threshhold for any path between them. Some networks have more than one paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath ( for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 
+
+Sample Query to find is path is unhealthy:
+
+	NetworkMonitoring 
+	| where ( SubType == "ExpressRoutePath")
+	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and 			CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+	| project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### Why does my test show unhealthy but the topology does not 
 NPM monitors end-to-end loss, latency, and topology at different intervals. Loss and latency are measured once every 5 seconds and aggregated every three minutes (for Performance Monitor and Express Route Monitor) while topology is calculated using traceroute once every 10 minutes. For example, between 3:44 and 4:04, topology may be updated three times (3:44, 3:54, 4:04) , but loss and latency are updated about seven times (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). The topology generated at 3:54 will be rendered for the loss and latency that gets calculated at 3:56, 3:59 and 4:02. Suppose you get an alert that your ER circuit was unhealthy at 3:59. You log on to NPM and try to set the topology time to 3:59. NPM will render the topology generated at 3:54. To understand the last known topology of your network, compare the fields TimeProcessed (time at which loss and latency was calculated) and TracerouteCompletedTime(time at which topology was calculated). 
 
 ### What is the difference between the fields E2EMedianLatency and AvgHopLatencyList in the NetworkMonitoring table

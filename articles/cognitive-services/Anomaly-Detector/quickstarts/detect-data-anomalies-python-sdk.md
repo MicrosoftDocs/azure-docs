@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ms.author: aahi
 ---
 
 # Quickstart: Anomaly Detector client library for Python
 
-Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
 Use the Anomaly Detector client library for Python to:
 
@@ -65,20 +65,20 @@ The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.c
 
 ## Code examples 
 
-These code snippets show you how to do the following with the Anomaly Detector client library for .NET:
+These code snippets show you how to do the following with the Anomaly Detector client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Load a time series data set from a file](#load-time-series-data-from-a-file)
 * [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set) 
 * [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### Authenticate the client
+## Authenticate the client
 
 Add your azure location variable to the endpoint, and authenticate the client with your key.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-### Load time series data from a file
+## Load time series data from a file
 
 Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
 1. In your browser, right-click **Raw**.
@@ -95,13 +95,13 @@ Create a [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-### Detect anomalies in the entire data set 
+## Detect anomalies in the entire data set 
 
 Call the API to detect anomalies through the entire time series data using the client's [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) method. Store the returned [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) object. Iterate through the response's `is_anomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-### Detect the anomaly status of the latest data point
+## Detect the anomaly status of the latest data point
 
 Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) method, and store the returned [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) object. The response's `is_anomaly` value is a boolean that specifies that point's anomaly status.  
 

@@ -1,15 +1,13 @@
 ---
 title: Azure Storage Analytics logging
 description: Learn how to log details about requests made against Azure Storage.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.subservice: common
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
 ---
 
 # Azure Storage analytics logging

@@ -1,6 +1,6 @@
 ---
 title: Create automated ML experiments
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -29,13 +29,13 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in the Azure portal](how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure portal](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting.
 
-Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
+Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -64,9 +64,16 @@ automl_config = AutoMLConfig(task="classification")
 ```
 
 ## Data source and format
+
 Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
-* Numpy arrays X (features) and y (target variable or also known as label)
+
+* Numpy arrays X (features) and y (target variable, also known as label)
 * Pandas dataframe
+
+>[!Important]
+> Requirements for training data:
+>* Data must be in tabular form.
+>* The value you want to predict (target column) must be present in the data.
 
 Examples:
 
@@ -83,55 +90,25 @@ Examples:
     ```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
+
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    y = df["Label"]
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
+    y_df = df["Label"]
+    x_df = df.drop(["Label"], axis=1)
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
     ```
 
 ## Fetch data for running experiment on remote compute
 
-For remote executions, you need to make the data accessible from the remote compute. This can be done by uploading the data to DataStore.
+For remote executions, training data must be accessible from the remote compute. The class [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) in the SDK exposes functionality to:
 
-Here is an example of using `datastore`:
+* easily transfer data from static files or URL sources into your workspace
+* make your data available to training scripts when running on cloud compute resources
 
-```python
-    import pandas as pd
-    from sklearn import datasets
-    
-    data_train = datasets.load_digits()
-
-    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
-
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
-```
-
-### Define deprep references
-
-Define X and y as dprep reference, which will be passed to automated machine learning `AutoMLConfig` object similar to below:
-
-```python
-
-    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
-    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 path = project_folder,
-                                 run_configuration=conda_run_config,
-                                 X = X,
-                                 y = y,
-                                 **automl_settings
-                                )
-```
+See the [how-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) for an example of using the `Dataset` class to mount data to your compute target.
 
 ## Train and validation data
 
-You can specify separate train and validation set directly in the `AutoMLConfig`  method.
+You can specify separate train and validation sets directly in the `AutoMLConfig` constructor.
 
 ### K-Folds Cross Validation
 
@@ -165,7 +142,7 @@ There are several options that you can use to configure your automated machine l
 
 Some examples include:
 
-1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross validation folds.
+1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross-validation folds.
 
     ```python
     automl_classifier = AutoMLConfig(
@@ -192,10 +169,10 @@ Some examples include:
         n_cross_validations=5)
     ```
 
-The three different `task` parameter values determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available algorithms to include or exclude. The list of supported models can be found on [SupportedAlgorithms Class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+The three different `task` parameter values (the third task-type is `forecasting`, and uses the same algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### Primary Metric
-The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
+The primary metric determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose, and the following table shows valid primary metrics for each task type.
 
 |Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -205,19 +182,28 @@ The primary metric; as shown in the examples above determines the metric to be u
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
+
 ### Data preprocessing & featurization
 
-In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
+In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-### Time Series Forecasting
-For time series forecasting task type you have additional parameters to define.
-1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series.
-1. max_horizon - This defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
-1. grain_column_names - This defines the name of columns which contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns.
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
 
-See example of these settings being used below, notebook example is available [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+### Time Series Forecasting
+The time series `forecasting` task requires additional parameters in the configuration object:
+
+1. `time_column_name`: Required parameter that defines the name of the column in your training data containing a valid time-series.
+1. `max_horizon`: Defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
+1. `grain_column_names`: Defines the name of columns which contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns. Separate time-series and forecasts will be created for each grain/grouping. 
+
+For examples of the settings used below, see the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -248,9 +234,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a> Ensemble configuration
+
+Ensemble models are enabled by default, and appear as the final run iterations in an automated machine learning run. Currently supported ensemble methods are voting and stacking. Voting is implemented as soft-voting using weighted averages, and the stacking implementation is using a 2 layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. If you are using ONNX models, **or** have model-explainability enabled, stacking will be disabled and only voting will be utilized.
+
+There are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object to alter the default stack ensemble behavior.
+
+* `stack_meta_learner_type`: the meta-learner is a model trained on the output of the individual heterogenous models. Default meta-learners are `LogisticRegression` for classification tasks (or `LogisticRegressionCV` if cross-validation is enabled) and `ElasticNet` for regression/forecasting tasks (or `ElasticNetCV` if cross-validation is enabled). This parameter can be one of the following strings: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`, or `LinearRegression`.
+* `stack_meta_learner_train_percentage`: specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is `0.2`.
+* `stack_meta_learner_kwargs`: optional parameters to pass to the initializer of the meta-learner. These parameters and parameter types mirror those from the corresponding model constructor, and are forwarded to the model constructor.
+
+The following code shows an example of specifying custom ensemble behavior in an `AutoMLConfig` object.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+Ensemble training is enabled by default, but it can be disabled by using the `enable_voting_ensemble` and `enable_stack_ensemble` boolean parameters.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## Run experiment
 
-For automated ML you will need to create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
+For automated ML you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -275,11 +312,11 @@ run = experiment.submit(automl_config, show_output=True)
 >Setting `show_output` to `True` results in output being shown on the console.
 
 ### Exit Criteria
-There a few options you can define to complete your experiment.
-1. No Criteria - If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric.
-1. Number of iterations - You define the number of iterations for the experiment to run. You can optional add iteration_timeout_minutes to define a time limit in minutes per each iteration.
-1. Exit after a length of time - Using experiment_timeout_minutes in your settings you can define how long in minutes should an experiment continue in run.
-1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiment after a score based on your primary metric has been reached.
+There are a few options you can define to end your experiment.
+1. No Criteria: If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric.
+1. Number of iterations: You define the number of iterations for the experiment to run. You can optionally add `iteration_timeout_minutes` to define a time limit in minutes per each iteration.
+1. Exit after a length of time: Using `experiment_timeout_minutes` in your settings allows you to define how long in minutes should an experiment continue in run.
+1. Exit after a score has been reached: Using `experiment_exit_score` will complete the experiment after a primary metric score has been reached.
 
 ### Explore model metrics
 
@@ -289,7 +326,7 @@ You can view your training results in a widget or inline if you are in a noteboo
 
 Any model produced using automated ML includes the following steps:
 + Automated feature engineering (if preprocess=True)
-+ Scaling/Normalization and algorithm with hypermeter values
++ Scaling/Normalization and algorithm with hyperparameter values
 
 We make it transparent to get this information from the fitted_model output from automated ML.
 
@@ -371,7 +408,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
    |Transformations|List of transformations applied to input features to generate engineered features.|
 
-### Scaling/Normalization and algorithm with hypermeter values:
+### Scaling/Normalization and algorithm with hyperparameter values:
 
 To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md#preprocess). Here is a sample output:
 
@@ -487,13 +524,13 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+Display the URL to view feature importance using the run object:
 
 ```
 automl_run.get_portal_url()
 ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
+You can visualize the feature importance chart in your workspace in the Azure portal or from your [workspace landing page (preview)](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

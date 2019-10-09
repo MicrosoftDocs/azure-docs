@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -26,15 +27,15 @@ Azure provides a wide array of options to configure and customize security to me
 
 ## Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is an [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports), and introduces new risk event types that can detect real time anomalies.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) is an [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) edition feature that provides an overview of the risk detections and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](../../active-directory/active-directory-reporting-azure-portal.md), and introduces new risk detection types that can detect real time anomalies.
 
 ![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk events and take appropriate remediation or mitigation action.
+Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk detections that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk detections and take appropriate remediation or mitigation action.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk detections, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
 
-These risk-based policies, in addition to other [Conditional Access controls](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) that are provided by Azure Active Directory and [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
+These risk-based policies, in addition to other [Conditional Access controls](../../active-directory/active-directory-conditional-access-azure-portal.md) that are provided by Azure Active Directory and [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
 
 ### Identity Protection capabilities
 
@@ -42,25 +43,25 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
-[Detecting risk events and risky accounts](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
--	Detect six risk event types using machine learning and heuristic rules.
+[Detecting risk detections and risky accounts](../../active-directory/identity-protection/overview.md)
+-	Detect six risk detection types using machine learning and heuristic rules.
 -	Calculate user risk levels.
 -	Provide custom recommendations to improve overall security posture by highlighting vulnerabilities.
 
-[Investigating risk events](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
--	Send notifications for risk events.
--	Investigate risk events using relevant and contextual information.
+[Investigating risk detections](../../active-directory/identity-protection/overview.md)
+-	Send notifications for risk detections.
+-	Investigate risk detections using relevant and contextual information.
 -	Provide basic workflows to track investigations.
 -	Provide easy access to remediation actions such as password reset.
 
-[Risk-based, conditional-access policies](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Risk-based, conditional-access policies](../../active-directory/identity-protection/overview.md)
 -	Mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
 -	Block or secure risky user accounts.
 -	Require users to register for multi-factor authentication.
 
 ### Azure AD Privileged Identity Management
 
-With [Azure Active Directory Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), you can manage, control, and monitor access within your organization. This feature includes access to resources in Azure AD and other Microsoft online services, such as Office 365 or Microsoft Intune.
+With [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), you can manage, control, and monitor access within your organization. This feature includes access to resources in Azure AD and other Microsoft online services, such as Office 365 or Microsoft Intune.
 
 ![Azure AD Privileged Identity Management diagram](./media/threat-detection/azure-threat-detection-fig2.png)
 
@@ -74,13 +75,13 @@ PIM helps you:
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
+[Azure Monitor logs](../../azure-monitor/index.yml) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
 
 In addition to providing valuable services on its own, Azure Monitor logs can integrate with System Center components, such as [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), to extend your existing security management investments into the cloud. System Center and Azure Monitor logs can work together to provide a full hybrid management experience.
 
 ### Holistic security and compliance posture
 
-The [Log Analytics Security and Audit dashboard](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Azure Monitor logs. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
+The [Log Analytics Security and Audit dashboard](../../security-center/security-center-intro.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Azure Monitor logs. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
@@ -99,7 +100,7 @@ The Log Analytics Security and Audit dashboard is organized into four major cate
 -	**Common security queries**: Lists the most common security queries that you can use to monitor your environment. When you select any query, the Search pane opens and displays the results for that query.
 
 ### Insight and analytics
-At the center of [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is the repository, which is hosted by Azure.
+At the center of [Azure Monitor logs](../../log-analytics/log-analytics-queries.md) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -111,9 +112,9 @@ Data sources and solutions each create separate record types with their own set 
 
 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
-* [Log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data.
-* [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
-* [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), which provide additional functionality and analysis tools.
+* [Log searches](../../log-analytics/log-analytics-queries.md) where you construct queries to analyze collected data.
+* [Dashboards](../../azure-monitor/learn/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
+* [Solutions](../../monitoring/monitoring-solutions.md), which provide additional functionality and analysis tools.
 
 ![Analysis tools](./media/threat-detection/azure-threat-detection-fig6.png)
 
@@ -131,7 +132,7 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) for greater granularity.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](../../azure-resource-manager/manage-resources-portal.md) for greater granularity.
 
 ![Azure Security Center diagram](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -212,7 +213,7 @@ These combined efforts culminate in new and improved detections, which you can b
 
 ### Virtual machines: Microsoft antimalware
 
-[Microsoft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure virtual machines that's automatically installed on all Azure PaaS virtual machines.
+[Microsoft antimalware](antimalware.md) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure virtual machines that's automatically installed on all Azure PaaS virtual machines.
 
 #### Microsoft antimalware core features
 
@@ -264,7 +265,7 @@ SQL Database threat detectors use one of the following detection methodologies:
 
 ### Application Gateway Web Application Firewall
 
-[Web Application Firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Web Application Firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main).
 
 ![Application Gateway Web Application Firewall diagram](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -298,7 +299,7 @@ Configuring WAF at your application gateway provides the following benefits:
 
 The Anomaly Detection API is an API that's useful for detecting a variety of anomalous patterns in your time series data. The API assigns an anomaly score to each data point in the time series, which can be used for generating alerts, monitoring through dashboards, or connecting with your ticketing systems.
 
-The [Anomaly Detection API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
+The [Anomaly Detection API](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) can detect the following types of anomalies on time series data:
 
 -	**Spikes and dips**: When you're monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
 
@@ -380,6 +381,6 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next steps
 
-- [Azure Security Center detection capabilities](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today’s threats](../../security-center/security-center-alerts-overview.md#respond-threats): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
 
 - [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps address your concerns about potential threats to your databases.

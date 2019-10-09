@@ -9,12 +9,11 @@ editor:
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Set up and configure reverse proxy in Azure Service Fabric

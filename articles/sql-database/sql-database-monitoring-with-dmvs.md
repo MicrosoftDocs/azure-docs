@@ -22,7 +22,7 @@ SQL Database partially supports three categories of dynamic management views:
 - Execution-related dynamic management views.
 - Transaction-related dynamic management views.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online.
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online. 
 
 ## Permissions
 
@@ -231,13 +231,13 @@ GO
 
 ## Identify `tempdb` performance issues
 
-When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database id, `x` is the file id, and `y` is the page id.  
+When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database ID, `x` is the file ID, and `y` is the page ID.  
 
 For tempdb contention, a common method is to reduce or re-write application code that relies on `tempdb`.  Common `tempdb` usage areas include:
 
 - Temp tables
 - Table variables
-- Table valued parameters
+- Table-valued parameters
 - Version store usage (specifically associated with long running transactions)
 - Queries that have query plans that use sorts, hash joins, and spools
 

@@ -50,7 +50,7 @@ For Windows, use the following schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -80,7 +80,7 @@ For **Linux**, use the following schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,

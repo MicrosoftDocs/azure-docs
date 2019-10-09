@@ -6,8 +6,6 @@ ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
@@ -269,7 +267,7 @@ is saved to a subscription, it can only be assigned to that subscription.
 
    1. Select the available **Offer** from the drop-down list.
 
-   1. Use the ellipsis to select the [management group](../management-groups/index.md) that the
+   1. Use the ellipsis to select the [management group](../management-groups/overview.md) that the
       subscription will be a child of.
 
    1. Select **Create** at the bottom of the page.

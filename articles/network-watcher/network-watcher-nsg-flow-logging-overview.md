@@ -54,7 +54,7 @@ Flow logs include the following properties:
 			* **flows** - a collection of flows
 				* **mac** - The MAC address of the NIC for the VM where the flow was collected
 				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma-separated format
-					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX EPOCH format
+					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX epoch format
 					* **Source IP** - The source IP
 					* **Destination IP** - The destination IP
 					* **Source Port** - The source port
@@ -89,6 +89,9 @@ The text that follows is an example of a flow log. As you can see, there are mul
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. See [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) for more information on Network Security Groups. 
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0. See [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
+
+> [!IMPORTANT]
+> Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
 **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
 

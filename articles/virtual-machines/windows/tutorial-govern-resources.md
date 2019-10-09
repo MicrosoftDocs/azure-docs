@@ -10,7 +10,6 @@ editor: tysonn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
@@ -234,8 +233,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Protect critical resources with locks
 > * Tag resources for billing and management
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to identify changes and manage package updates on a Linux virtual machine.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
+> [Manage virtual machines](tutorial-config-management.md)
 

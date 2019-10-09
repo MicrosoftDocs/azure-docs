@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

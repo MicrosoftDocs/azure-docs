@@ -1,12 +1,11 @@
 ---
 title: Azure Data Share Preview terminology 
-description: Azure Data Share Preview terminology
+description: Learn about common terms used to describe resources used in Azure Data Share Preview (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 author: joannapea
-
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
 # Azure Data Share Preview Concepts 
 
@@ -42,13 +41,15 @@ A data provider can enable a snapshot setting for a data share. This setting ena
 
 If a data provider enables this setting, a recurrence interval can be selected. The recurrence interval can be hourly or daily. 
 
-A data consumer has the option to opt-in to this snapshot schedule to receive incremental updates, which includes any data that has changed since they first generated a new snapshot. 
+A data consumer has the option to opt in to this snapshot schedule to receive incremental updates, which include any data that has changed since they first generated a new snapshot. 
 
 ## Invitation
 
 A data provider can invite multiple recipients to their data share. They can do so by adding recipients to the data share. Invitations can also be added after a data share has been created. 
 
-A data provider can delete an invitation after it has been sent. Note that if a data provider deletes an invitation after it has been accepted, the data consumer can still have an active share subscription. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+
+Invitations can be resent up to five times a day. 
 
 ## Recipient
 

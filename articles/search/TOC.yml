@@ -11,12 +11,16 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Load and query an index
+    - name: Create and use an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with cognitive search (AI)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name: Java
+    href: search-get-started-java.md
+  - name : Node.js
+    href: search-get-started-nodejs.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -53,15 +57,23 @@
       href: cognitive-search-tutorial-blob-python.md
 - name: Samples
   items:
-  - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?service=search
+  - name: C# samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp
+  - name: Java samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java
+  - name: JavaScript samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript
+  - name: Python samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python
+  - name: REST samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest
 - name: Training
   items:
-  - name: Knowledge mining bootcamp
-    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: Introduction (Microsoft Learn)
+    href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
   - name: Add search to apps (Pluralsight)
     href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Microsoft Azure Developer course (Pluralsight)
+  - name: Developer course (Pluralsight)
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
@@ -69,6 +81,8 @@
     href: search-lucene-query-architecture.md
   - name: Cognitive search
     href: cognitive-search-concept-intro.md
+  - name: Skillsets
+    href: cognitive-search-working-with-skillsets.md
   - name: Knowledge store 
     href: knowledge-store-concept-intro.md
   - name: Projections
@@ -107,12 +121,10 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
-    - name: Develop in Java
-      href: search-get-started-java.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 10.0
+        href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
         href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0
@@ -156,9 +168,7 @@
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
-      href: search-example-adventureworks-modeling.md
-    - name: Model multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+      href: index-sql-relational-data.md
   - name: Load data
     items:
     - name: Data import overview
@@ -229,29 +239,35 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Knowledge store (preview)
+    - name: Knowledge store (preview)
+      items:
+      - name: Create a knowledge store in Azure portal
+        href: knowledge-store-create-portal.md
+      - name: Create using REST and Postman
+        href: knowledge-store-create-rest.md
+      - name: View with Storage Explorer
+        href: knowledge-store-view-storage-explorer.md
+      - name: Connect with Power BI
+        href: knowledge-store-connect-power-bi.md
+    - name: Troubleshoot enrichment issues
+      href: cognitive-search-common-errors-warnings.md    
+  - name: Query documents
     items:
-    - name: Connect using Power BI
-      href: knowledge-store-connect-powerbi.md
-    - name: Create using REST and Postman
-      href: knowledge-store-howto.md
-  - name: Query data
-    items:
-    - name: Create a basic query
+    - name: Query types and composition
       href: search-query-overview.md
-    - name: Search Explorer (portal)
+    - name: Create a simple query
+      href: search-query-simple-examples.md
+    - name: Use full Lucene syntax
+      href: search-query-lucene-examples.md
+    - name: Use Search Explorer (portal)
       href: search-explorer.md
     - name: Simple query syntax
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: Examples (simple syntax)
-      href: search-query-simple-examples.md
-    - name: Examples (full Lucene)
-      href: search-query-lucene-examples.md
     - name: moreLikeThis (preview)
       href: search-more-like-this.md
-  - name: Use filters
+  - name: Apply filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -263,22 +279,20 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
+    - name: Example of multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Handle results
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
-  - name: Relevance tuning
-    items:
-    - name: Add scoring profiles
+    - name: Relevance tuning (scoring profiles)
       href: index-add-scoring-profiles.md
-  - name: Administration
+  - name: Manage and monitor
     items:
     - name: Portal administration
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-  - name: Monitoring
-    items:
     - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics

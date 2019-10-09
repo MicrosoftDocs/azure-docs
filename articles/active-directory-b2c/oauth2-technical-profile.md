@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. OAuth2 is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). With an OAuth2 technical profile, you can federate with an OAuth2 based identity provider, such as Facebook. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the OAuth2 protocol identity provider. OAuth2 is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). With an OAuth2 technical profile, you can federate with an OAuth2 based identity provider, such as Facebook. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. 
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
-  ...    
+  ...
 ```
 
 ## Input claims
@@ -53,7 +53,7 @@ The following example shows the claims returned by the Facebook identity provide
 - The **displayName** claim without name-mapping.
 - The **email** claim without name mapping.
 
-The technical profile also returns claims that aren't returned by the identity provider: 
+The technical profile also returns claims that aren't returned by the identity provider:
 
 - The **identityProvider** claim that contains the name of the identity provider.
 - The **authenticationSource** claim with a default value of **socialIdpAuthentication**.
@@ -77,13 +77,13 @@ The technical profile also returns claims that aren't returned by the identity p
 | client_id | Yes | The application identifier of the identity provider. |
 | IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 6749. |
-| AccessTokenEndpoint | Yes | The URL of the token endpoint as per RFC 6749. |  
-| ClaimsEndpoint | Yes | The URL of the user information endpoint as per RFC 6749. | 
+| AccessTokenEndpoint | Yes | The URL of the token endpoint as per RFC 6749. |
+| ClaimsEndpoint | Yes | The URL of the user information endpoint as per RFC 6749. |
 | AccessTokenResponseFormat | No | The format of the access token endpoint call. For example, Facebook requires an HTTP GET method, but the access token response is in JSON format. |
-| AdditionalRequestQueryParameters | No | Additional request query parameters. For example, you may want to send additional parameters to your identity provider. You can include multiple parameters using comma delimiter. | 
+| AdditionalRequestQueryParameters | No | Additional request query parameters. For example, you may want to send additional parameters to your identity provider. You can include multiple parameters using comma delimiter. |
 | ClaimsEndpointAccessTokenName | No | The name of the access token query string parameter. Some identity providers' claims endpoints support GET HTTP request. In this case, the bearer token is sent by using a query string parameter instead of the authorization header. |
-| ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
+| ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
+| ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
 | ProviderName | No | The name of the identity provider. |
 | response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the request that is defined according to the OAuth2 identity provider specification. Such as `openid`, `profile`, and `email`. |
@@ -98,7 +98,7 @@ The **CryptographicKeys** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The client secret of the identity provider application. The cryptographic key is required only if the **response_types** metadata is set to `code`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token`, you can omit the cryptographic key. |  
+| client_secret | Yes | The client secret of the identity provider application. The cryptographic key is required only if the **response_types** metadata is set to `code`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token`, you can omit the cryptographic key. |
 
 ## Redirect URI
 

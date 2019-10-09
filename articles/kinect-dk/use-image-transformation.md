@@ -20,6 +20,7 @@ Follow the specific functions to use and transform images between coordinated ca
 The following functions are covered:
 
 * [`k4a_transformation_depth_image_to_color_camera()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514)
+* [`k4a_transformation_depth_image_to_color_camera_custom()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gac00dd00e7612a86382e3d0a130f276bb.html#gac00dd00e7612a86382e3d0a130f276bb)
 * [`k4a_transformation_color_image_to_depth_camera()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf3a941f07bb0185cd7a72699a648fc29.html#gaf3a941f07bb0185cd7a72699a648fc29)
 * [`k4a_transformation_depth_image_to_point_cloud()`](
 https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7385eb4beb9d8892e8a88cf4feb3be70.html#ga7385eb4beb9d8892e8a88cf4feb3be70)
@@ -39,6 +40,20 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 #### Parameters
 
  Input parameters are the transformation handle and a depth image. The depth image resolution must match the ```depth_mode``` specified at creation of the transformation handle. For example, if the transformation handle was created using the 1024x1024 ```K4A_DEPTH_MODE_WFOV_UNBINNED``` mode, the resolution of the depth image must be 1024x1024 pixels. The output is a transformed depth image that needs to be allocated by the user via calling [k4a_image_create()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). The resolution of the transformed depth image must match the ```color_resolution``` specified at creation of the transformation handle. For example, if the color resolution was set to `K4A_COLOR_RESOLUTION_1080P`, the output image resolution must be 1920x1080 pixels. The output image stride is set to `width * sizeof(uint16_t)`, as the image stores 16-bit depth values.
+
+### k4a_transformation_depth_image_to_color_camera_custom
+
+#### Overview
+
+ The function [k4a_transformation_depth_image_to_color_camera_custom()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gac00dd00e7612a86382e3d0a130f276bb.html#gac00dd00e7612a86382e3d0a130f276bb) transforms the depth map and a custom image from the viewpoint of the depth camera into the viewpoint of the color camera. As an extension of [k4a_transformation_depth_image_to_color_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514), this function is designed to produce a corresponding custom image for which each pixel matches the corresponding pixel coordinates of the color camera additional to the transformed depth image.
+
+#### Implementation
+
+ This transformation function produces the transformed depth image the same way as [k4a_transformation_depth_image_to_color_camera()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gafacffb5f781a9c2df30d4a16241cd514.html#gafacffb5f781a9c2df30d4a16241cd514). To transform the custom image, this function provides options of using linear interpolation or nearest neighbor interpolation. Using linear interpolation could create new values in the transformed custom image. Using nearest neighbor interpolation will prevent values not present in the original image from appearing in the output image but will result in less smooth image. The custom image should be single channel 8-bit or 16-bit. GPU acceleration is enabled for this function by default.
+
+#### Parameters
+
+ Input parameters are the transformation handle, a depth image, a custom image and the interpolation type. The depth image and custom image resolution must match the `depth_mode` specified at creation of the transformation handle. For example, if the transformation handle was created using the 1024x1024 `K4A_DEPTH_MODE_WFOV_UNBINNED` mode, the resolution of the depth image and custom image must be 1024x1024 pixels. The `interpolation_type` should be either `K4A_TRANSFORMATION_INTERPOLATION_TYPE_LINEAR` or `K4A_TRANSFORMATION_INTERPOLATION_TYPE_NEAREST`. The output is a transformed depth image and a transformed custom image that need to be allocated by the user via calling [k4a_image_create()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). The resolution of the transformed depth image and transformed custom image must match the `color_resolution` specified at creation of the transformation handle. For example, if the color resolution was set to `K4A_COLOR_RESOLUTION_1080P`, the output image resolution must be 1920x1080 pixels. The output depth image stride is set to `width * sizeof(uint16_t)`, as the image stores 16-bit depth values. The input custom image and transformed custom image must be of format `K4A_IMAGE_FORMAT_CUSTOM8` or `K4A_IMAGE_FORMAT_CUSTOM16`, corresponding image stride should be set accordingly. 
 
 ### k4a_transformation_color_image_to_depth_camera
 

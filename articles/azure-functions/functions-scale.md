@@ -1,16 +1,12 @@
 ---
 title: Azure Functions scale and hosting | Microsoft Docs
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions,  consumption plan, premium plan, event processing, webhooks, dynamic compute, serverless architecture
-
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 
@@ -48,7 +44,7 @@ The following table indicates the current level of support for the three hosting
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
-| Linux | preview | preview | GA |
+| Linux | GA | preview | GA |
 
 ## Consumption plan
 
@@ -62,6 +58,8 @@ The Consumption plan is the default hosting plan and offers the following benefi
 * Scale out automatically, even during periods of high load
 
 Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
+
+To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
 ## <a name="premium-plan"></a>Premium plan (preview)
 
@@ -98,7 +96,7 @@ Consider an App Service plan in the following situations:
 
 You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
-With an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
+With an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/manage-scale-up.md). 
 
 When running JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -129,7 +127,9 @@ When the output from this command is `dynamic`, your function app is in the Cons
 
 ## Storage account requirements
 
-On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions rely on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+
+The same storage account used by your function app can also be used by your triggers and bindings to store your application data. However, for storage-intensive operations, you should use a separate storage account.   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -140,9 +140,6 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 In the consumption and premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and one CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
-
-> [!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium plan, or use the [Event Grid trigger](functions-bindings-event-grid.md). For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
 
 ### Runtime scaling
 

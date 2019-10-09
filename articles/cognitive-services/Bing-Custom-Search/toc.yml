@@ -31,6 +31,8 @@
             href: sdk-csharp-quick-start.md
           - name: Using Python
             href: sdk-python-quickstart.md
+          - name: Using Java
+            href: sdk-java-quickstart.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -56,9 +58,11 @@
     - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Handle hit highlighting
-      href: hit-highlighting.md
-    - name: Page through webpages
-      href: page-webpages.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
+    - name: Page through search results
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference

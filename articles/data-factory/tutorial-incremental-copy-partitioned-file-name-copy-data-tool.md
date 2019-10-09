@@ -51,15 +51,13 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
-      
-    ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
 	
 	The name for your data factory must be _globally unique_. You might receive the following error message:
    
-   ![New data factory error message](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
    
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which to create the new data factory. 
@@ -80,14 +78,14 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	![Deploying data factory tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. After creation is finished, the **Data Factory** home page is displayed.
    
-    ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 11. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile. 
 
 ## Use the Copy Data tool to create a pipeline
 
 1. On the **Let's get started** page, select the **Copy Data** title to launch the Copy Data tool. 
 
-   ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
    
 2. On the **Properties** page, take the following steps:
 

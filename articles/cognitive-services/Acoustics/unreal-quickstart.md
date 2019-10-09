@@ -3,22 +3,23 @@ title: Project Acoustics Quickstart With Unreal
 titlesuffix: Azure Cognitive Services
 description: Using sample content, experiment with Project Acoustics design controls in Unreal and Wwise and deploy to Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unreal/Wwise Quickstart
 In this quickstart, you'll experiment with Project Acoustics design controls using provided sample content for the Unreal Engine and Wwise.
 
-Software requirements:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Software requirements for using sample content:
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## Download the sample package
 Download the [Project Acoustics Unreal + Wwise sample package](https://www.microsoft.com/download/details.aspx?id=58090). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plugin.
@@ -50,12 +51,16 @@ The Project Acoustics Unreal plugin requires additional behavior be exposed from
 
     ![Screenshot of code editor showing DXSDK commented out](media/directx-sdk-comment.png)
 
+* If you compile with Visual Studio 2019, to work around a linking error with Wwise, manually edit the default `VSVersion` value in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` to `vc150`:
+
+    ![Screenshot of code editor showing VSVersion changed to vc150](media/vsversion-comment.png)
+
 ### Open the Unreal Project. 
 It will ask you to rebuild modules; click Yes.
 
 >If opening the project fails on build failures, check that you've installed the Project Acoustics Wwise plugin to the same version of Wwise used in the Project Acoustics sample project.
 
->If not using [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, you will need to regenerate sound banks before audio will play in the sample project.
+>If using a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than 2019.1, you will not be able to generate sound banks with the Project Acoustics sample project.  It is required to integrate Wwise version 2019.1 into the sample project for proper use.
 
 ## Experiment with Project Acoustics design controls
 Listen to how the scene sounds by clicking the play button in the Unreal editor. On desktop, use W, A, S, D, and the mouse to move around. To see keyboard shortcuts for more controls, press **F1**. Here are some design activities to try:

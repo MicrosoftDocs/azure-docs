@@ -277,10 +277,6 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to retrieve languages supported for text translation.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

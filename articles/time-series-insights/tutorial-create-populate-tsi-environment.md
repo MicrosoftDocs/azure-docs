@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -30,7 +30,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 * Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-## Video
+## Review video
 
 ### Learn how to use an Azure IoT solution accelerator to generate data and get started with Time Series Insights. </br>
 
@@ -112,7 +112,7 @@ Second, create a Time Series Insights environment in your Azure subscription.
 
    [![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## Run device simulation to stream data
+## Run device simulation
 
 Now that the deployment and initial configuration's complete, populate the Time Series Insights environment with sample data from [simulated devices created by the accelerator](#create-a-device-simulation).
 
@@ -192,4 +192,4 @@ In this tutorial, you learned how to:
 Now that you know how to create your own Time Series Insights environment, learn how to build a web application that consumes data from a Time Series Insights environment:
 
 > [!div class="nextstepaction"]
-> [Create an Azure Time Series Insights single-page web app](tutorial-create-tsi-sample-spa.md)
+> [See hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)

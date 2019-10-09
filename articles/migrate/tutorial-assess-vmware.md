@@ -99,12 +99,12 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For version 1.19.06.27, the generated hash should match these values. 
+3. For version 2.19.07.30, the generated hash should match these values. 
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### Create the appliance VM
@@ -176,8 +176,39 @@ This starts discovery. It takes around 15 minutes for metadata of discovered VMs
 
 ### Scoping discovery
 
-Discovery can be scoped by limiting access of the vCenter account used for discovery. You can set the scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs. 
+Discovery can be scoped by limiting access of the vCenter account used for discovery. You can set the scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs.
 
+To set the scope, you need to perform the following steps:
+1.	Create a vCenter user account.
+2.	Define a new role with required privileges. (<em> required for agentless Server Migration </em>)
+3.	Assign permissions to the user account on vCenter objects.
+
+**Create a vCenter user account**
+1.	Login to vSphere Web Client as the vCenter Server administrator.
+2.	Click **Administration** > **SSO users and Groups** > **Users** tab.
+3.	Click the **New User** icon.
+4.	Fill in the required information to create a new user and click **OK**.
+
+**Define a new role with required privileges** (<em> required for agentless Server Migration </em>)
+1.	Login to the vSphere Web Client as the vCenter Server administrator.
+2.	Browse to **Administration** > **Role Manager**.
+3.	Select your vCenter Server from the drop-down menu.
+4.	Click on **Create role** action.
+5.	Type a name for the new role. (such as <em>Azure_Migrate</em>).
+6.	Assign these [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the newly defined role.
+7.	Click **OK**.
+
+**Assign permissions on vCenter objects**
+
+There are 2 approaches to assign permissions on inventory objects in vCenter to the vCenter user account with a role assigned to it.
+- For Server Assessment, **Read-only** role must be applied to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters in the hierarchy up to the data center are to be included. These permissions are to be propagated to child objects in the hierarchy. 
+
+    Similarly for Server Migration, a user-defined role (can be named <em> Azure _Migrate</em>) with these [privileges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assigned must be applied to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
+
+![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
+
+- The alternative approach is to assign the user account and role at the datacenter level and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs) that you don’t want to discover/migrate. This configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
+ 
 > [!NOTE]
 > Today, Server Assessment is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level.  Following are instructions on how you can do this:
 >

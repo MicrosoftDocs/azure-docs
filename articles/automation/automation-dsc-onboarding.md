@@ -80,7 +80,9 @@ If you are managing a Virtual Machine Scale Set, see the example template
 ### PowerShell
 
 The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode)
-cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
+cmdlet can be used to onboard virtual machines in Azure by using PowerShell.
+However, this is currently only implemented for machines running Windows (the cmdlet
+only triggers the Windows extension).
 
 ### Registering virtual machines across Azure subscriptions
 
@@ -366,7 +368,7 @@ click **View detailed status**.
 After registering a machine as a DSC node in Azure Automation State Configuration, there are a
 number of reasons why you may need to reregister that node in the future:
 
-- After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
+- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
 - To change any [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
 Reregistration can be performed in the same way you registered the node initially, using any of the

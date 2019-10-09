@@ -5,8 +5,8 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 07/10/2019
+ms.topic: conceptual
+ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -91,7 +91,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 

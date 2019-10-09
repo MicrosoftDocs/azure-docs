@@ -84,6 +84,8 @@ We're ready to load data. In psql still, shell out to download the files:
 Next, load the data from the files into the distributed tables:
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy github_events from 'events.csv' WITH CSV
 \copy github_users from 'users.csv' WITH CSV
 ```
@@ -112,14 +114,14 @@ So far the queries have involved the github\_events exclusively, but we can comb
 If we join on `user_id`, Hyperscale can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
 
 ```sql
-SELECT login, count(*)
-FROM github_events ge
-JOIN github_users gu
-ON ge.user_id = gu.user_id
-WHERE event_type = 'CreateEvent' AND
-      payload @> '{"ref_type": "repository"}'
-GROUP BY login
-ORDER BY count(*) DESC;
+SELECT gu.login, count(*)
+  FROM github_events ge
+  JOIN github_users gu
+    ON ge.user_id = gu.user_id
+ WHERE ge.event_type = 'CreateEvent'
+   AND ge.payload @> '{"ref_type": "repository"}'
+ GROUP BY gu.login
+ ORDER BY count(*) DESC;
 ```
 
 ## Clean up resources

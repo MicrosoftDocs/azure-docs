@@ -12,7 +12,7 @@ ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
+
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso

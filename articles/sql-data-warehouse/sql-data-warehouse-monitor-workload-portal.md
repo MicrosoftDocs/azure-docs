@@ -19,7 +19,7 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 ## Prerequisites
 
 - Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Azure SQL Data Warehouse: We will be collecting logs for a SQL data warehouse. If you don't have a SQL data warehouse provisioned, see the instructions in [Create a SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Azure SQL Data Warehouse: We will be collecting logs for a SQL Data Warehouse. If you don't have a SQL Data Warehouse provisioned, see the instructions in [Create a SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## Create a Log Analytics workspace
 
@@ -31,11 +31,11 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Add Analytics workspace](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace).
+For more details on workspaces, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
 
 ## Turn on Diagnostic logs 
 
-Configure diagnostic settings to emit logs from your SQL data warehouse. Logs consist of telemetry views of your data warehouse equivalent to the most commonly used performance troubleshooting DMVs for SQL Data Warehouse. Currently the following views are supported:
+Configure diagnostic settings to emit logs from your SQL Data Warehouse. Logs consist of telemetry views of your data warehouse equivalent to the most commonly used performance troubleshooting DMVs for SQL Data Warehouse. Currently the following views are supported:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)

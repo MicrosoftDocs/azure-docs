@@ -28,11 +28,11 @@ Azure Automation supports several types of runbooks that are  briefly described 
 
 ### Advantages
 
-* Visual insert-link-configure authoring model  
-* Focus on how data flows through the process  
-* Visually represent management processes  
-* Include other runbooks as child runbooks to create high-level workflows  
-* Encourages modular programming  
+* Visual insert-link-configure authoring model
+* Focus on how data flows through the process
+* Visually represent management processes
+* Include other runbooks as child runbooks to create high-level workflows
+* Encourages modular programming
 
 ### Limitations
 
@@ -113,4 +113,4 @@ Take into account the following additional considerations when determining which
 * To learn more about Graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
 * For more information on how to create or import a Runbook, see [Creating or Importing a Runbook](manage-runbooks.md)
-
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).

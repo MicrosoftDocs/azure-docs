@@ -31,7 +31,7 @@ The SQL Database service creates a firewall at the database server level for sin
 > [!NOTE]
 > SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you can't connect to your Azure SQL Database server unless your IT department opens port 1433.
 > [!IMPORTANT]
-> A firewall rule of 0.0.0.0 enables all Azure services to pass through the server-level firewall rule and attempt to connect to a single or pooled database through the server. To learn about using virtual network rules, see [Virtual network rules as alternatives to IP rules](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> A firewall rule of 0.0.0.0 enables all Azure services to pass through the server-level firewall rule and attempt to connect to a single or pooled database through the server. 
 
 Follow these steps to create a server-level IP firewall rule for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only.
 
@@ -48,7 +48,7 @@ Follow these steps to create a server-level IP firewall rule for your client's I
 4. Choose **Add client IP** on the toolbar to add your current IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
    > [!IMPORTANT]
-   > By default, access through the SQL Database firewall is enabled for all Azure services. Choose **OFF** on this page to disable for all Azure services.
+   > By default, access through the SQL Database firewall is disabled for all Azure services. Choose **ON** on this page if you want to enable access for all Azure services.
    >
 
 5. Select **Save**. A server-level IP firewall rule is created for your current IP address opening port 1433 on the SQL Database server.

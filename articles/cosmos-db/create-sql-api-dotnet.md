@@ -34,7 +34,6 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/) or you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. 
 * The [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/2.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Setting up
 
@@ -42,16 +41,22 @@ This section walks you through creating an Azure Cosmos account and setting up a
 
 ### <a id="create-account"></a>Create an Azure Cosmos account
 
-The following code will create an Azure Cosmos account with session consistency. The account is replicated in `South Central US` and `North Central US`. Select the **Try It** button and paste the code to run it in the Azure cloud shell. 
+If you use the [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) option to create an Azure Cosmos account, you must create an Azure Cosmos DB account of type **SQL API**. An Azure Cosmos DB test account is already created for you. You don't have to create the account explicitly, so you can skip this section and move to the next section.
+
+If you have your own Azure subscription or created a subscription for free, you should create an Azure Cosmos account explicitly. The following code will create an Azure Cosmos account with session consistency. The account is replicated in `South Central US` and `North Central US`.  
+
+You can use Azure Cloud Shell to create the Azure Cosmos account. Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. For this quickstart, choose **Bash** mode. Azure Cloud Shell also requires a storage account, you can create one when prompted.
+
+Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure cloud shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
 
 ```azurecli-interactive
 
 # Set variables for the new SQL API account, database, and container
 resourceGroupName='myResourceGroup'
 location='southcentralus'
-accountName='mysqlapicosmosdb' 
-databaseName='FamilyDatabase'
-containerName='FamilyContainer'
+
+# The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command
+accountName='mysqlapicosmosdb'
 
 # Create a resource group
 az group create \
@@ -69,9 +74,11 @@ az cosmosdb create \
 
 ```
 
+The creation of the Azure Cosmos account takes a while, once the operation is successful, you can see the confirmation output. After the command completes successfully, sign into the [Azure portal](https://portal.azure.com/) and verify that the Azure Cosmos account with the specified name exists. You can close the Azure Cloud Shell window after the resource is created. 
+
 ### <a id="create-dotnet-core-app"></a>Create a new .NET app
 
-Create a new .NET application in your preferred editor or IDE. In a console window, run the following dotnet new command to create a new app with the name `todo`.
+Create a new .NET application in your preferred editor or IDE. Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal.  Run the following dotnet new command to create a new app with the name `todo`. The --langVersion parameter sets the LangVersion property in the created project file.
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -112,7 +119,7 @@ The sample application needs to authenticate to your Azure Cosmos account. To au
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos account. 
+1. Navigate to your Azure Cosmos account.
 
 1. Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account. You will add the URI and keys values to an environment variable in the next step.
 
@@ -130,15 +137,15 @@ setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 **Linux**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
 **MacOS**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>Object model
@@ -158,6 +165,8 @@ To learn in more about the hierarchy of different entities, see the [working wit
 
 * [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - This method creates an item within the container. 
+
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - This method creates an item within the container if it doesn't already exist or replaces the item if it already exists. 
 
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
 ) - This method creates a query for items under a container in an Azure Cosmos database using a SQL statement with parameterized values. 
@@ -182,6 +191,7 @@ namespace todo
         public Child[] Children { get; set; }
         public Address Address { get; set; }
         public bool IsRegistered { get; set; }
+        // The ToString() method is used to format the output, it's used for demo purpose only. It's not required by Azure Cosmos DB
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
@@ -231,7 +241,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-To the `program.cs file`, add code to read the environment variables that you have set in the previous step. Define the `CosmosClient`, `Database`, and the `Container` objects. Next add code to the main method that calls the `GetStartedDemoAsync` method where you manage Azure Cosmos account resources. 
+To the **Program.cs** file, add code to read the environment variables that you have set in the previous step. Define the `CosmosClient`, `Database`, and the `Container` objects. Next add code to the main method that calls the `GetStartedDemoAsync` method where you manage Azure Cosmos account resources. 
 
 ```csharp
 namespace todo
@@ -288,7 +298,7 @@ public class Program
 
 ### Create a database 
 
-Define the `CreateDatabaseAsync` method within the `program.cs` class. This method creates the `FamilyDatabase` if it doesn't already exist. 
+Define the `CreateDatabaseAsync` method within the `program.cs` class. This method creates the `FamilyDatabase` if it doesn't already exist.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -316,7 +326,7 @@ private async Task CreateContainerAsync()
 
 ### Create an item
 
-Create a family item by adding the `AddItemsToContainerAsync` method with the following code:
+Create a family item by adding the `AddItemsToContainerAsync` method with the following code. You can use the `CreateItemAsync` or `UpsertItemAsync` methods to create an item:
 
 ```csharp
 private async Task AddItemsToContainerAsync()
@@ -346,7 +356,7 @@ private async Task AddItemsToContainerAsync()
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = false
- };
+    };
 
 try
 {
@@ -361,6 +371,7 @@ catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
 
     // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
     Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+}
 }
 
 ```
@@ -420,14 +431,11 @@ After you have defined all the required methods, execute them with in the `GetSt
 public async Task GetStartedDemoAsync()
 {
     // Create a new instance of the Cosmos Client
-    this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+    this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
     await this.CreateDatabaseAsync();
     await this.CreateContainerAsync();
     await this.AddItemsToContainerAsync();
     await this.QueryItemsAsync();
-    await this.ReplaceFamilyItemAsync();
-    await this.DeleteFamilyItemAsync();
-    //await this.DeleteDatabaseAndCleanupAsync();
 }
 ```
 
@@ -468,7 +476,7 @@ You can validate that the data is created by signing into the Azure portal and s
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove the Azure Cosmos account and the corresponding resource group. The following command shows how to delete the resource group by using the Azure CLI:
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "southcentralus"
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps

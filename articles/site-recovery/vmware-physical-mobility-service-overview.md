@@ -114,7 +114,7 @@ Usage | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Pl
 Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 /InstallLocation| Optional parameter. Specifies the Mobility service installation location (any folder).
-/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.
+/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings

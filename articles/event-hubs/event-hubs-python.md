@@ -159,7 +159,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 For a complete tutorial on how to read captured Event Hubs data in an Azure blob storage from an application written in Python, see [this article](event-hubs-capture-python.md)
 
 ## GitHub samples
-You can find more Python samples in the [azure-event-hubs-python Git repository](https://github.com/Azure/azure-event-hubs-python/).
+You can find more Python samples in the [azure-event-hubs-python Git repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs).
 
 ## Next steps
 Read through articles in the Concepts section starting from [Event Hubs features overview](event-hubs-features.md).

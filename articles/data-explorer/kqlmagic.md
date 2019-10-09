@@ -34,9 +34,11 @@ Jupyter Notebook is an open-source web application that allows you to create and
 1. Load KQL magic:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Change the Kernel version to Python 3.6 by clicking on Kernel > Change Kernel > Python 3.6
+    
 ## Connect to the Azure Data Explorer Help cluster
 
 Use the following command to connect to the *Samples* database hosted on the *Help* cluster. For non-Microsoft AAD users, replace the tenant name `Microsoft.com` with your AAD Tenant.

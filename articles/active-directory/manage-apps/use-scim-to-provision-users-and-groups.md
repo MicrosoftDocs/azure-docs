@@ -1,6 +1,6 @@
 ---
-title: Automate provisioning of apps using SCIM in Azure Active Directory | Microsoft Docs
-description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
+title: SCIM user provisioning with Azure Active Directory | Microsoft Docs
+description: Learn to build a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisoning users and groups into your applications.  
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
@@ -20,9 +20,9 @@ ms.custom: aaddev;it-pro;seohack1
 
 ms.collection: M365-identity-device-management
 ---
-# Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications
+# SCIM user provisioning with Azure Active Directory
 
-SCIM is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
+System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
 
 Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](../saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal.
 
@@ -56,7 +56,7 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). 
+1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **All** > **Non-gallery application**.
 1. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
@@ -70,7 +70,7 @@ Applications that support the SCIM profile described in this article can be conn
    ![Example: An app's Provisioning page in the Azure portal][2]<br/>
    *Figure 3: Configuring provisioning in the Azure portal*
 
-1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/v2/
+1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/
 1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token.
 1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
 
@@ -88,11 +88,14 @@ Applications that support the SCIM profile described in this article can be conn
 1. Select **Save** to start the Azure AD provisioning service.
 1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial synchronization has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 > [!NOTE]
-> The initial sync takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
+> The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
 
+**To publish your application to the Azure AD application gallery:**
+
+If you're building an application that will be used my more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). 
 ## Understanding the Azure AD SCIM implementation
 
 If you're building an application that supports a SCIM 2.0 user management API, this section describes in detail how the Azure AD SCIM client is implemented, and how you should model your SCIM protocol request handling and responses. Once you've implemented your SCIM endpoint, you can test it by following the procedure described in the previous section.
@@ -675,7 +678,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. Enter a name for your application, and select **Add** to create an app object. The application object created is intended to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.    
-1. In the **Tenant URL** field, enter the internet-exposed URL and port of your SCIM endpoint. The entry is something like http://testmachine.contoso.com:9000 or http://\<ip-address>:9000/, where \<ip-address> is the internet exposed IP address.
+1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/
 
 1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token.
 1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
@@ -690,7 +693,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. Select **Save** to start the Azure AD provisioning service.
 1. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users or groups you want to sync.
 
-Once the initial synchronization has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
+Once the initial cycle has started, you can select **Audit logs** in the left panel to monitor progress, which shows all actions done by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
@@ -831,7 +834,7 @@ To host the service within Internet Information Services, a developer would buil
 
 ### Handling endpoint authentication
 
-Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant for which the token was issued. The audience for the token will be the application template id for the app in the gallery. The application template id for all custom apps is 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. The application template id for each app in the gallery varies. Please contact ProvisioningFeedback@microsoft.com for questions on the application template id for a gallery application. Each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests.
+Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant for which the token was issued. The audience for the token will be the application template ID for the app in the gallery. The application template ID for all custom apps is 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. The application template ID for each app in the gallery varies. Please contact ProvisioningFeedback@microsoft.com for questions on the application template ID for a gallery application. Each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests.
 
 Developers using the CLI libraries provided by Microsoft for building a SCIM service can authenticate requests from Azure Active Directory using the Microsoft.Owin.Security.ActiveDirectory package by following these steps: 
 

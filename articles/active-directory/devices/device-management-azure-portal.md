@@ -67,12 +67,12 @@ This option is a premium edition capability available through products such as A
 - **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
-> **Require Multi-Factor Auth to join devices** setting does not apply to hybrid Azure AD joined devices.
+> **Require Multi-Factor Auth to join devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The device quota is counted for all devices that are either Azure AD joined or Azure AD registered today. The default value is **20**.
+- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **20**.
 
 > [!NOTE]
-> **Maximum number of devices** setting does not apply to hybrid Azure AD joined devices.
+> **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
 
 - **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
 This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
@@ -116,7 +116,7 @@ This section provides you with information about common device identity manageme
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**.
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune the "Manage" option will be greyed out.
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 

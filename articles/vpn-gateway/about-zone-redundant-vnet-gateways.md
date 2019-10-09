@@ -82,7 +82,7 @@ Yes, you can use the Azure portal to deploy the new SKUs. However, you will see 
 
 ### What regions are available for me to use the new SKUs?
 
-The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, North Europe, West Europe, and West US 2 regions. Going forward, we will make zone-redundant gateways available to you in other Azure Public Regions.
+The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, North Europe, West Europe, and West US 2 regions, East US, East US 2, Southeast Asia, Japan East, UK South. Going forward, we will make zone-redundant gateways available to you in other Azure Public Regions.
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 

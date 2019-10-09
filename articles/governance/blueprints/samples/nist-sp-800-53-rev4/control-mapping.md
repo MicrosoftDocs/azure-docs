@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the NIST SP 800-53 R4 blueprint sample
 
@@ -20,9 +19,21 @@ open **Policy** in the Azure portal and select the **Definitions** page. Then, f
 Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md).
+
 ## AC-2 Account Management
 
-This blueprint helps you review accounts that may not comply with your organization’s account 
+This blueprint helps you review accounts that may not comply with your organization's account 
 management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
 definitions that audit external accounts with read, write and owner permissions on a subscription 
 and deprecated accounts. By reviewing the accounts audited by these policies, you can take 
@@ -41,10 +52,10 @@ Azure implements [role-based access control](../../../../role-based-access-contr
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
-centralized identity management of database users and other Microsoft services. Additionally, this 
-blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
-RBAC rules are error prone.
+centralized identity management of database users and other Microsoft services. Additionally, this
+blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding
+where custom RBAC rules are implemented can help you verify need and proper implementation, as
+custom RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
@@ -122,11 +133,11 @@ definitions to monitor and enforce use of advanced data security on SQL server.
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
 
 This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
-definitions to monitors that remote debugging for Azure App Service application is turned off and
-policy definitions that audit Linux virtual machines that allow remote connections from accounts
-without passwords. This blueprint also assigns an Azure Policy definition that helps you monitor
-unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
-access methods comply with your security policy.
+definitions to monitor that remote debugging for Azure App Service application is turned off. The
+blueprint also assigns policy definitions that audit Linux virtual machines that allow remote
+connections from accounts without passwords. Additionally, the blueprint assigns an Azure Policy
+definition that helps you monitor unrestricted access to storage accounts. Monitoring these
+indicators can help you ensure remote access methods comply with your security policy.
 
 - \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
@@ -267,7 +278,7 @@ This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions t
 virtual machines that allow remote connections from accounts without passwords and/or have incorrect
 permissions set on the passwd file. This blueprint also assigns policy definitions that audit the
 configuration of the password encryption type for Windows virtual machines. Monitoring these
-indicators helps you ensure that system authenticators comply with your organization’s
+indicators helps you ensure that system authenticators comply with your organization's
 identification and authentication policy.
 
 - \[Preview\]: Audit Linux VMs that do not have the passwd file permissions set to 0644
@@ -283,7 +294,7 @@ This blueprint helps you enforce strong passwords by assigning [Azure Policy](..
 definitions that audit Windows virtual machines that don't enforce minimum strength and other
 password requirements. Awareness of virtual machines in violation of the password strength policy
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
-with your organization’s password policy.
+with your organization's password policy.
 
 - \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
 - \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
@@ -318,7 +329,7 @@ capabilities to help you understand vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure’s distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
 definition that audits if the DDoS standard tier is enabled. Understanding the capability difference
@@ -369,7 +380,7 @@ yet been configured.
 This blueprint helps you protect the confidential and integrity of transmitted information by 
 assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor 
 cryptographic mechanism implemented for communications protocols. Ensuring communications are 
-properly encrypted can help you meet your organization’s requirements or protecting information 
+properly encrypted can help you meet your organization's requirements or protecting information 
 from unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
@@ -471,7 +482,7 @@ exfiltration of information.
 - Deploy Advanced Threat Protection on Storage Accounts
 
 > [!NOTE]
-> Availability of specific Azure Policy defintions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
 > clouds.
 
 ## Next steps
@@ -485,7 +496,7 @@ articles to learn about the blueprint and how to deploy this sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

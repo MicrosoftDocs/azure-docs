@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with HeyBuddy, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier (Entity ID). The `Entity ID` in the Sign on url is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
 
-5. Your HeyBuddy application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. Your HeyBuddy application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -207,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in HeyBuddy. HeyBuddy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in HeyBuddy, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [HeyBuddy support team](mailto:support@heybuddy.com).
+> If you need to create a user manually, contact [HeyBuddy support team](mailto:support@heybuddy.com).
 
 ### Test single sign-on
 
