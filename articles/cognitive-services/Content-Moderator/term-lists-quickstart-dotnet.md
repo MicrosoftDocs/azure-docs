@@ -57,8 +57,7 @@ Add the following `using` statements.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
