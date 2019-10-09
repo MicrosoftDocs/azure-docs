@@ -21,7 +21,9 @@ This feature allows you to test cloud authentication and migrate from federated 
 
 Moving away from federated authentication has implications especially if you have on-premises MFA server or if you are using smart cards for authentication and other federation only features. Before trying this feature, we suggest you review our guide on choosing the right authentication method. See [this table](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods) for more details.
 
-**\<INSERT VIDEO\>**
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3inQJ]
+
+
 
 ## Pre-requisites
 
