@@ -134,7 +134,7 @@ landingContent:
           - text: Managed Identity for data factory
             url: /azure/data-factory/data-factory-service-identity
           - text: Store credentials in Azure Key Vault
-            url: /store-credentials-in-key-vault
+            url: /azure/data-factory/store-credentials-in-key-vault
   - title: Author, Monitor and Manage
     linkLists:
       - linkListType: how-to-guide
