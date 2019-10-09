@@ -130,6 +130,9 @@ Here is the estimated price based on the above assumptions:
 
 ![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
+### Template
+
+Here is the [template](solution-template-migration-s3-azure.md) to start with to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
 ### Additional references 
 - [Amazon Simple Storage Service connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
