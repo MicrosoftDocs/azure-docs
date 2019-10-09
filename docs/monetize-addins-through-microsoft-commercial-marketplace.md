@@ -55,6 +55,7 @@ Your service must allow the admin who has made the purchase to sign in and manag
 Types of licensing you may wish to consider:
 - Open licensing/first-come first-served: any end-user who discovers your service can sign into your service, be recognised as belonging to a tenant, and ‘reserve’ one of the licenses purchased.
 - Assigned licensing: the admin for the purchase must assign licenses to users.
+
 Other considerations:
 - Upsell: if a user tries to access your service, but their tenant has no more free licenses, you service could provide them with a temporary license, and use the opportunity to encourage the admin to purchase additional licenses.
 - Multiple tenant purchases: you should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales Team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team and wish to keep the account separate.
