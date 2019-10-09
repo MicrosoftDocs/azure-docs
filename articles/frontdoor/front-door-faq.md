@@ -180,7 +180,7 @@ Yes, Azure Front Door Service supports SSL offload, and end to end SSL, which re
 
 ### Can I configure SSL policy to control SSL Protocol versions?
 
-You can configure a minimum TLS version in Azure Front Door via the [Azure REST API](https://docs.microsoft.com/en-us/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 (default) and 1.2.
+You can configure a minimum TLS version in Azure Front Door via the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 (default) and 1.2.
 
 ### Can I configure Front Door to only support specific cipher suites?
 
