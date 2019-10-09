@@ -28,7 +28,8 @@ Begin using the Anomaly Detector service by creating an Azure resource. There ar
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 
 * `ANOMALY_DETECTOR_KEY` - The resource key for authenticating your requests.
-* `ANOMALY_DETECTOR_ENDPOINT` - The resource endpoint for connecting your applications. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `ANOMALY_DETECTOR_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
+  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Use the instructions for your operating system.
 
