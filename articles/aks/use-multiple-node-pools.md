@@ -40,7 +40,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
-It is highly recommended to use the Standard SKU load balancer when utilizing multiple node pools. Read [this document](load-balancer-standard.md) to learn more about using Standard Load Balancers with AKS.
+> [!NOTE]
+> The *Basic* load balanacer SKU is not supported when using multiple node pools. By default, AKS clusters are created with the *Standard* loadbalacer SKU.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -193,20 +194,20 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 
 An AKS cluster has two cluster resource objects with Kubernetes versions associated. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
-1. Upgrading the control plane requires using `az aks upgrade`
+* Upgrading the control plane requires using `az aks upgrade`
    * This upgrades the control plane version and all node pools in the cluster
    * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane gets upgraded and none of the associated node pools are changed.
-1. Upgrading individual node pools requires using `az aks nodepool upgrade`
+* Upgrading individual node pools requires using `az aks nodepool upgrade`
    * This upgrades only the target node pool with the specified Kubernetes version
 
 The relationship between Kubernetes versions held by node pools must also follow a set of rules.
 
-1. You cannot downgrade the control plane nor a node pool Kubernetes version.
-1. If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in Resource Manager template the existing version defined for the node pool is used, if none is set the control plane version is used.
-1. You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
-1. A node pool Kubernetes version must be the same major version as the control plane.
-1. A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
-1. A node pool can be any Kubernetes patch version less than or equal to the control  plane, never greater.
+* You cannot downgrade the control plane nor a node pool Kubernetes version.
+* If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in Resource Manager template the existing version defined for the node pool is used, if none is set the control plane version is used.
+* You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
+* A node pool Kubernetes version must be the same major version as the control plane.
+* A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
+* A node pool can be any Kubernetes patch version less than or equal to the control plane, never greater.
 
 ## Scale a node pool manually
 
