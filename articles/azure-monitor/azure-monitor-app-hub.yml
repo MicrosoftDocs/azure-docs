@@ -1,12 +1,12 @@
 ### YamlMime:Hub 
 
-title: Azure Application Insights Documentation
+title: Azure Monitor Application Insights Documentation
 summary: Azure Application Insights is part of the Azure Monitor service
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: Azure Application Insights Documentation
-  description: Azure Application Insights is part of the Azure Monitor service
+  title: Azure Monitor Application Insights Documentation
+  description: Application Insights is part of the Azure Monitor service
   ms.service: application-insights
   ms.topic: hub-page
   author: mrbullwinkle
