@@ -32,7 +32,7 @@ As an access package manager, you can change the resources in an access package 
 
 This video provides an overview of how to change resources and resource roles for an access package.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3LD4Z]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3LD4Z]
 
 ## Check catalog for resources
 
