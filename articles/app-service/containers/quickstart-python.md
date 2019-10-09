@@ -54,12 +54,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
 
-# In PowerShell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
 ```
 
 Open a web browser, and go to the sample app at `http://localhost:5000/`.
