@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 10/21/2019
+ms.date: 10/13/2019
 ---
 
 # Add data to audit logs via custom HTTP headers

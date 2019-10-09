@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 10/21/2019
+ms.date: 10/13/2019
 ---
 
 # Tutorial: Write a sample application that uses Azure AD OAuth2 token to access Azure API for FHIR endpoint
