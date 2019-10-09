@@ -87,7 +87,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.  
 
-2. Edit the ConfigMap yaml file with your customizations.
+2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
