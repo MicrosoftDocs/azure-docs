@@ -221,7 +221,7 @@
         href: httsp://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
-- name: Customization
+- name: Containers
   exanded: false
   items:
   - name: Install and run containers
