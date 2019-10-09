@@ -248,17 +248,15 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Migrate API
+  - name: Use APIs
     items: 
-    - name: Migrate to V2 REST API
+    - name: Authoring APIs
+      href: luis-migration-api-authoring.md
+    - name: Migrate to V3 API
+      href: luis-migration-api-v3.md 
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
+    - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
-    - name: Migrate to V3 REST API
-      items:
-      - name: Overview
-        href: luis-migration-api-v3.md 
-      - name: Prediction
-        href: luis-migration-api-v3-prediction.md   
-        displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
   - name: Use containers
     items:
     - name: Install and run containers

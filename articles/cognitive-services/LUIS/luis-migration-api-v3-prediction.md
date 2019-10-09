@@ -51,6 +51,14 @@ V3 made the following changes as part of the move to GA:
 * Response body JSON changes:
     * `normalizedQuery` removed
 
+## Not supported
+
+* Bing Spell Check API is not supported
+
+## V2 API Deprecation 
+
+The V2 prediction API will not be deprecated for at least 9 months after the V3 preview. 
+
 ## Endpoint URL changes 
 
 ### Changes by slot name
