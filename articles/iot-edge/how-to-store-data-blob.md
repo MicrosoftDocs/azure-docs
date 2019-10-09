@@ -260,7 +260,7 @@ Unsupported:
 > [!CAUTION]
 > The integration with Event Grid on IoT Edge is in preview
 
-This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. The blob storage module now publishes **BlobCreated** event on `PutBlob` and `PutBlockList` operations, and **BlobDeleted** event on `DeleteBlob`, `deleteAfterUpload` which is one of the property in deviceToCloudUploadProperties and `deleteAfterMinutes` which is one of the property in deviceAutoDeleteProperties.
+This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. You can follow the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/deploy-blob-storage-module-portal.md). The blob storage module now publishes **BlobCreated** event on `PutBlob` and `PutBlockList` operations, and **BlobDeleted** event on `DeleteBlob`, `deleteAfterUpload` which is one of the property in deviceToCloudUploadProperties and `deleteAfterMinutes` which is one of the property in deviceAutoDeleteProperties.
 
 ### Sample Microsoft.Storage.BlobCreated event:
 
