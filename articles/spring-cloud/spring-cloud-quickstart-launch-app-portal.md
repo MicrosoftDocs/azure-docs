@@ -110,17 +110,17 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Create the `gateway` application and deploy the JAR file.
 
     ```azurecli
-    az asc app create -n gateway
-    az asc app deploy -n gateway --jar-path ./gateway/target/gateway.jar
+    az spring-cloud app create -n gateway
+    az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
 1. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
 
     ```cli
-    az asc app create -n account-service
-    az asc app deploy -n account-service --jar-path ./account-service/target/account-service.jar
-    az asc app create -n auth-service
-    az asc app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
+    az spring-cloud app create -n account-service
+    az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
+    az spring-cloud app create -n auth-service
+    az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
 1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Application Dashboard** in the Azure portal. You should see a line each of the three applications.
