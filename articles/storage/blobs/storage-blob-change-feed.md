@@ -17,7 +17,7 @@ The purpose of the change feed is to record all changes that occur to the blobs 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues](#known-issues) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
 
-The change feed files are stored as [blobs](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [limitations](#known-issues)). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
+The change feed files are stored as [blobs](https://docs.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#known-issues) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
 
 You can process these logs asynchronously, incrementally or in-full. Any number of client applications can read the change feed in parallel, and at any pace. Analytics applications can consume logs directly as Avro files which lets you process them in batch-mode, at low-cost, with high-throughput, and without having to write a custom application.
 
@@ -44,7 +44,7 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - Changes are captured only at the blob service level.
 
-- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [limitations](#limitations)). 
+- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the  [conditions](#known-issues) of the current release). 
 
 ## Consuming Change feed
 
