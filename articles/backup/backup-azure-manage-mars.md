@@ -18,7 +18,7 @@ This article describes how to manage Files and Folder that is backed up by using
 The backup policy specifies when to take snapshots of the data to create recovery points and how long to retain recovery points.
 
 - You configure a backup policy using the MARS agent.
-- Azure Backup does not support automatic adjustment of clock for daylight savings time (DST). You have to modify the policy to ensure day light saving is taken into account to prevent discrepancy between the actual time and scheduled backup time.
+- Azure Backup doesn't support automatic adjustment of clock for daylight savings time (DST). You have to modify the policy to ensure day light saving is taken into account to prevent discrepancy between the actual time and scheduled backup time.
 
 Create a policy as follows:
 1. After downloading and registering MARS agent launch it where it is installed. You can find it by searching your machine for **Microsoft Azure Backup**. This has to be done on each machine where the agent is installed. 
@@ -60,7 +60,7 @@ Create a policy as follows:
 
    ![Retention example](./media/backup-configure-vault/retention-example.png)
 
-11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer this [article](#backup-azure-backup-import-export.md)). To take the initial backup over the network select **Automatically over the network** and click **Next**.
+11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer to this [article](backup-azure-backup-import-export.md)). To take the initial backup over the network select **Automatically over the network** and click **Next**.
 
     ![initial Backup Type](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -104,7 +104,6 @@ When you modify backup policy you can add new items, remove existing items from 
 
 6. Complete the subsequent steps and click **Finish** to complete the operation. 
 
-
 ## Next steps
-- Learn more about [Ad hoc backup policy retention behavior](backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
+- Learn more about [Ad hoc backup policy retention behavior](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
 
