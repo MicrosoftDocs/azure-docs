@@ -66,7 +66,7 @@ To learn more, see [enable SSL termination while creating a new application gate
 
 To configure an existing application gateway with end-to-end SSL encryption, you must first enable SSL termination in the listener. This action enables SSL encryption for communication between the client and the application gateway. Then, put those certificates for back-end servers in the HTTP settings on the Safe Recipients list. This configuration enables SSL encryption for communication between the application gateway and the back-end servers. That accomplishes end-to-end SSL encryption.
 
-You'll need to use a listener with the HTTPS protocol and a certificate for enabling SSL termination. You can either use an existing listener that meets those conditions or create a new listener. If you choose the former option, you can ignore the following "Enable SSL termination in existing application gateway" section and move directly to the "Add authentication/trusted root certificates for backend servers" section.
+You'll need to use a listener with the HTTPS protocol and a certificate for enabling SSL termination. You can either use an existing listener that meets those conditions or create a new listener. If you choose the former option, you can ignore the following "Enable SSL termination in an existing application gateway" section and move directly to the "Add authentication/trusted root certificates for backend servers" section.
 
 If you choose the latter option, apply the steps in the following procedure.
 ### Enable SSL termination in an existing application gateway
