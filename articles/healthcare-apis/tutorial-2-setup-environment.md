@@ -30,14 +30,14 @@ Before beginning this tutorial, you should have the following prerequisites in p
 
 * Azure subscription
 * Azure Active Directory tenant setup with a user
-* [Visual Studio Code](https://code.visualstudio.com/) installed
+* [Visual Studio Code](https://code.visualstudio.com/) installed or any other editor.
 * [Node.js and npm](https://nodejs.org/) installed on computer
 
 ## Scenario Architecture
 
 In this scenario we assume that the FHIR service, Azure AD application, and Azure AD users are all in the same Azure     subscription.
 
-In the case FHIR Service is in separate subscription than Azure AD user and application then we need to make few additional steps. Refer to FAQ at the end of the tutorial on different configuration options.
+If you are not using the same Azure AD tenant to secure access to Azure subscript and FHIR server, then we need to make few additional steps. Refer to FAQ at the end of the tutorial on different configuration options.
 
 ## Deploy Azure API for FHIR
 
