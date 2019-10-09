@@ -340,12 +340,6 @@
       href: sql-database-job-automation-overview.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Linked servers
-      href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
-    - name: Service Broker
-      href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
-    - name: Database mail
-      href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
 
   - name: How to
     items:
@@ -737,8 +731,6 @@
       items:
       - name: Public endpoint
         href: sql-database-managed-instance-public-endpoint-configure.md
-      - name: Configure connection types
-        href: sql-database-managed-instance-connection-type.md
       - name: Client VM connection
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
@@ -748,11 +740,9 @@
       - name: Restore database backup
         href: sql-database-managed-instance-get-started-restore.md
 
-
-
   - name: Tutorials
     items:
-      - name: Migrate online using DMS
+      - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
       - name: Configure transactional replication
         href: replication-with-sql-database-managed-instance.md
@@ -769,16 +759,25 @@
       href: sql-database-managed-instance-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md 
-    - name: Customize Time zone
-      href: sql-database-managed-instance-timezone.md
-
+    - name: Features
+      items:
+      - name: Linked servers
+        href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
+      - name: Service Broker
+        href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
+      - name: Database mail
+        href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
 
   - name: How to
     items:
     - name: Overview
       href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
-      href: sql-database-managed-instance-migrate.md
+      href: sql-database-managed-instance-migrate.md  
+    - name: Customize Time zone
+      href: sql-database-managed-instance-timezone.md
+    - name: Configure connection types
+      href: sql-database-managed-instance-connection-type.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
     - name: Determine size of managed instance subnet 
