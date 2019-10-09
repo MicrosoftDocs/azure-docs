@@ -226,9 +226,9 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 
 ## Service-aided subnet configuration (public preview in East US and West US)
 
-To address customer security and managability requirements Managed Instance is transitioning from manual to service-aided subnet configuration.
+To address customer security and manageability requirements Managed Instance is transitioning from manual to service-aided subnet configuration.
 
-With service-aided subnet configuration user is in full control of data (TDS) traffic while Managed Instance takes responsibility to enesure uninterupted flow of management traffic in order to fulfill SLA.
+With service-aided subnet configuration user is in full control of data (TDS) traffic while Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill SLA.
 
 ### Network requirements with service-aided subnet configuration 
 
