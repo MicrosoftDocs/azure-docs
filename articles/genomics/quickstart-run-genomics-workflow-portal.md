@@ -102,14 +102,14 @@ Test that the Microsoft Genomics Python client is working with the following com
 msgen list -f “<full path where you saved the config file>”
 ```
 
-## Create a Microsoft Azure Storage Account 
+## Create a Microsoft Azure Storage account 
 The Microsoft Genomics service expects inputs to be stored as block blobs in an Azure storage account. It also writes output files as block blobs to a user-specified container in an Azure storage account. The inputs and outputs can reside in different storage accounts.
 If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account. Otherwise, egress charges are incurred when running the Genomics service. 
 If you don’t yet have a Microsoft Azure Storage account, you need to create one and upload your data. You can find more information about Azure Storage accounts [here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create a Microsoft Azure Storage account, navigate to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
 ![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
 
-Configure your Storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads.  The default deployment model, resource manager, is recommended.  
+Configure your Storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads.  The default deployment model, Azure Resource Manager, is recommended.  
 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
@@ -136,7 +136,7 @@ The Microsoft Genomics service expects paired end reads as input files. You can 
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 
 
