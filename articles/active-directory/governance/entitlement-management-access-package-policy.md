@@ -1,6 +1,6 @@
 ---
-title: Change who can request access to an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to change who can request access to an access package in Azure Active Directory entitlement management (Preview).
+title: Change user, request, and expiration settings for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to change user, request, and expiration settings for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change who can request access to an access package in Azure AD entitlement management (Preview)
+# Change user, request, and expiration settings for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.

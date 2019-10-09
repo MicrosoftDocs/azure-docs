@@ -1,6 +1,6 @@
 ---
-title: View and change assignments to an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to view and change assignments to an access package in Azure Active Directory entitlement management (Preview).
+title: View and change assignments for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to view and change assignments for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# View and change assignments to an access package in Azure AD entitlement management (Preview)
+# View and change assignments for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -79,22 +79,6 @@ In some cases, you might want to directly assign specific users to an access pac
 1. Click **Add** to directly assign the selected users to the access package.
 
     After a few moments, click **Refresh** to see the users in the Assignments list.
-
-## Delete an access package
-
-An access package can only be deleted if it has no active user assignments.
-
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
-
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
-
-1. In the left menu, click **Access packages** and then open the access package.
-
-1. In the left menu, click **Assignments** and remove access for all users.
-
-1. In the left menu, click **Overview** and then click **Delete**.
-
-1. In the delete message that appears, click **Yes**.
 
 ## Next steps
 

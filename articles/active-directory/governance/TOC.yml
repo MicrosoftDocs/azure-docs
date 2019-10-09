@@ -56,16 +56,18 @@
       items:
       - name: Create a new access package
         href: entitlement-management-access-package-create.md
+      - name: Share My Access portal link
+        href: entitlement-management-access-package-myaccess.md
       - name: Change resources and resource roles
         href: entitlement-management-access-package-resources.md
-      - name: Change expiration dates
-        href: entitlement-management-access-package-edit.md
-      - name: Change who can request access
-        href: entitlement-management-access-package-users.md
-      - name: View requests and change settings
+      - name: Change user, request, and expiration settings
+        href: entitlement-management-access-package-policy.md
+      - name: View requests
         href: entitlement-management-access-package-requests.md
       - name: View and change assignments
         href: entitlement-management-access-package-assignments.md
+      - name: Hide or delete
+        href: entitlement-management-access-package-edit.md
     - name: Approvers
       items:
       - name: Approve requests
