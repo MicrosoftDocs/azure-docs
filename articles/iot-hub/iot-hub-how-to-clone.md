@@ -366,10 +366,10 @@ Now that your environment variables are ready, let's set them and run the applic
 
 1.  Make sure the methods you don't want to run (such as DeleteAllDevicesFromHub) are commented out in ImportExportDevicesSample.cs. 
 
-1. To run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables.
+1. To run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables. Also, change to the folder where the IoTHubServiceSamples.sln file resides before running this command.
 
     ```command       
-    ImportExportDevicesSample.sln
+    IoTHubServiceSamples.sln
     ```
 
     Right-click on the project ImportExportDevicesSample and select **Set as startup project**.    
