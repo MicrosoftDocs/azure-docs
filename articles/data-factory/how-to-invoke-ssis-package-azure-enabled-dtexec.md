@@ -75,7 +75,7 @@ To avoid showing sensitive values written into **AzureDTExec.settings** file in 
 ## Invoke AzureDTExec utility
 You can invoke **AzureDTExec** at the command line prompt and provide the relevant values for specific options in your use case scenario.
 
-The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`. You can add the path to 'PATH' environment variable so that it can be triggered anywhere if needed.
+The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`. You can add its path to the 'PATH' environment variable for it to be invoked from anywhere.
 
 ```dos
 > cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
@@ -107,4 +107,4 @@ Invoking **AzureDTExec** with new values for its options will generate a new pip
 Once unique pipelines with Execute SSIS Package activity in them are generated and run after invoking **AzureDTExec**, they can be monitored on ADF portal. See [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.
 
 > [!WARNING]
-The generated pipeline is expected to be used by **AzureDTExec** and its properties and parameters may change in the future so it's not recommended to modify or reuse them for any other purpose which may break **AzureDTExec**. In case the pipeline is broken unexpected, you can always delete the pipeline so that **AzureDTExec** would regenerate the pipeline next time when triggered.
+The generated pipeline is expected to be used only by **AzureDTExec**. Its properties/parameters may change in the future, so you should not modify/reuse them for any other purposes, which may break **AzureDTExec**. In case this happens, you can always delete the pipeline and AzureDTExec will generate a new pipeline the next time it is invoked.
