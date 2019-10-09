@@ -13,17 +13,18 @@ ms.date: 10/08/2019
 
 # Create a Kubernetes cluster with Application Gateway ingress controller using Azure Kubernetes Service and Terraform
 
-[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
+[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of performing key operational and maintenance tasks on-demand. These tasks - including provisioning, upgrading and scaling resources - are accomplished without taking your applications offline.
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster. All the above functionalities are provided by Azure [Application Gateway](/azure/Application-Gateway/), which makes it an ideal Ingress controller for Kubernetes on Azure. 
 
-In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller:
+In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Use HCL (HashiCorp Language) to define a Kubernetes cluster
-> * Use Terraform to create Application Gateway resource
-> * Use Terraform and AKS to create a Kubernetes cluster
-> * Use the kubectl tool to test the availability of a Kubernetes cluster
+> * Create a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller.
+> * Use HCL (HashiCorp Language) to define a Kubernetes cluster.
+> * Use Terraform to create Application Gateway resource.
+> * Use Terraform and AKS to create a Kubernetes cluster.
+> * Use the kubectl tool to test the availability of a Kubernetes cluster.
 
 ## Prerequisites
 
@@ -686,7 +687,7 @@ Depending on whether RBAC is enabled or disabled, run one of the following comma
 
 ## Install Helm
 
-The code in this section leverages [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
+The code in this section utilizes [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
 1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
