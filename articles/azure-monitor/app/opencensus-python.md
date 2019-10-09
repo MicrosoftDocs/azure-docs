@@ -19,7 +19,7 @@ Application Insights now supports distributed tracing, metric collection and log
 ## Prerequisites
 
 - You need an Azure Subscription.
-- Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment. Opencensus currently supports Python2.7, Python3.4, Python3.5, Python3.6 and Python3.7.
+- Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustments.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
