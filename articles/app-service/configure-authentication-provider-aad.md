@@ -23,10 +23,10 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows you how to configure Azure App Service to use Azure Active Directory as an authentication provider.
+This article shows you how to configure Azure App Service to use Azure Active Directory (Azure AD) as an authentication provider.
 
 > [!NOTE]
-> At this time, Azure App Service and Azure Functions are only supported by Azure Active Directory (Azure AD) v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
+> At this time, Azure App Service and Azure Functions are only supported by Azure AD v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
 
 Follow these best practices when setting up your app and authentication:
 
@@ -37,7 +37,7 @@ Follow these best practices when setting up your app and authentication:
 ## <a name="express"> </a>Configure with express settings
 
 1. In the [Azure portal], go to your App Service app.
-1. Select **Settings > Authentication / Authorization** in the left pane, and make sure that **App Service Authentication** is **On**.
+1. Select **Settings** > **Authentication / Authorization** in the left pane, and make sure that **App Service Authentication** is **On**.
 1. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
 1. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
 
@@ -45,13 +45,13 @@ Follow these best practices when setting up your app and authentication:
 
    1. Choose **Select an existing app** and then search for the name of a previously created app registration within your tenant.
    1. Select the app registration and then select **OK**.
-   1. Then click **OK** on the Azure Active Directory settings page.
+   1. Then select **OK** on the Azure Active Directory settings page.
 
    By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.
-1. (Optional) To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
+1. (Optional) To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
 
     > [!CAUTION]
-    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+    > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred, with the app manually starting login itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 1. Select **Save**.
 
 ## <a name="advanced"> </a>Configure with advanced settings
@@ -86,7 +86,7 @@ Perform the following steps:
 
 1. Select **Add a scope**.
    1. In **Scope name**, enter *user_impersonation*.
-   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, *Access my app*. 
+   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access my app*. 
    1. Select **Add scope**.
 1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
