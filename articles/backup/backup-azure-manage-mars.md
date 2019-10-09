@@ -11,7 +11,7 @@ ms.author: srinathv
 ---
 # Manage Microsoft Azure Recovery Services Agent backups by using the Azure Backup service
 
-This article describes how to manage Files and Folder that are backed up by using Microsoft Azure Recovery Services Agent.
+This article describes how to manage Files and Folder that is backed up by using Microsoft Azure Recovery Services Agent.
 
 ## Create a backup policy
 
@@ -74,7 +74,7 @@ Create a policy as follows:
 ## Modify a backup policy
 When you modify backup policy you can add new items, remove existing items from backup or exclude files from being backed up using  Exclusion Settings.
     
-   - **Add Items** use this option only for adding new items to backup. To remove existing items use **Remove Items** or **Exclusion Settings** option.  
+   - **Add Items** use this option only for adding new items to back up. To remove existing items use **Remove Items** or **Exclusion Settings** option.  
    - **Remove Items** use this option to remove items from being backed up. 
            - Avoid using this option to unselect all protected items in a volume. Use Exclusion Settings to exclude items.
            - Unselecting entire volume retains past backup without any scope for modifying retention policy
