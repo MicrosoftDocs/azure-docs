@@ -53,6 +53,13 @@
     <tr>
         <td>V7</td>
         <td>Oct 2019</td>
-        <td>TBD</td>
+        <td>
+            <ul>
+                <li>Included Version information for Audio Scorer</li>
+                <li>Integrated Audio Scorer with new Richland model to provide more accuracy</li>
+                <li>Updated KWS Metrics Capture to Support MVA changes</li>
+                <li>Updated KWS Metrics to prevent tool from quitting if first failure of first FA</li> 
+            </ul>
+        </td>
     </tr>
 </table>
