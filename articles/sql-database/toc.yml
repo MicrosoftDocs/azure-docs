@@ -723,6 +723,8 @@
     href: sql-database-managed-instance-index.yml
   - name: Overview
     href: sql-database-managed-instance.md
+  - name: Instance pools
+    href: sql-database-instance-pools.md
   - name: FAQ
     href: sql-database-managed-instance-faq.md
   - name: Quickstarts
@@ -733,6 +735,8 @@
         href: sql-database-managed-instance-get-started.md
       - name: Using PowerShell
         href: scripts/sql-database-create-configure-managed-instance-powershell.md
+      - name: Create instance pools
+        href: sql-database-instance-pools-how-to.md
     - name: Configure
       items:
       - name: Public endpoint
@@ -781,6 +785,8 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Restore to a point in time
+      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
     - name: Create new VNet and subnet for managed instance
