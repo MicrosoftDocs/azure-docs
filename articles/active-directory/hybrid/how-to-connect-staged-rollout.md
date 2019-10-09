@@ -148,7 +148,8 @@ Use the following steps to rollout a specific feature (Pass-through Authenticati
 
 ![](./media/how-to-connect-staged-rollout/sr6.png)
 
-Note: The members in a group are automatically enabled for staged rollout. Nested and Dynamic groups are not supported for staged rollout.
+>[!NOTE]
+>The members in a group are automatically enabled for staged rollout. Nested and Dynamic groups are not supported for staged rollout.
 
 # Auditing
 
@@ -156,7 +157,8 @@ We have enabled audit events for the different actions we perform for staged rol
 
 1.  Audit event when you enable Staged Rollout for Password Hash Sync / Pass-through Authentication / Seamless SSO.
 
-NOTE: Audit event that is logged when SeamlessSSO is turned **ON** using StagedRollout.
+>[!NOTE]
+>Audit event that is logged when SeamlessSSO is turned **ON** using StagedRollout.
 
 ![](./media/how-to-connect-staged-rollout/sr7.png)
 
@@ -164,7 +166,8 @@ NOTE: Audit event that is logged when SeamlessSSO is turned **ON** using StagedR
 
 2.  Audit event when a group is added to Password Hash Sync / Pass-through Authentication / Seamless SSO.
 
-NOTE: Audit event logged when a group is added to Password Hash Sync for staged rollout
+>[!NOTE]
+>Audit event logged when a group is added to Password Hash Sync for staged rollout
 
 ![](./media/how-to-connect-staged-rollout/sr9.png)
 
