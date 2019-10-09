@@ -345,7 +345,7 @@ Possible causes could be:
 
 ### Resolution
 
-If failures occur during an update run after it starts successfully, [check the job output](../manage-update-multi#view-results-of-an-update-deployment) from the affected machine in the run. You may find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully, [check the job output](../manage-update-multi.md#view-results-of-an-update-deployment) from the affected machine in the run. You may find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
 If specific patches, packages or updates are seen immediately before the job fails, you can try [excluding](../automation-tutorial-update-management.md#schedule-an-update-deployment) those from the next update deployment. To gather log info from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
 
