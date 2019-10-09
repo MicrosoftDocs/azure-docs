@@ -12,12 +12,12 @@ ms.reviewer: sadodd
 
 # Change feed support in Azure Blob Storage (Preview)
 
-The purpose of the change feed is to record all changes that occur to the blobs and the blob metadata in your storage account. The change feed provides an ordered, guaranteed, durable, immutable, read-only log of the changes. Client applications can read these logs at any time, either in real-time, or in batch-mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account.
+The purpose of the change feed is to record all changes that occur to the blobs and the blob metadata in your storage account. The change feed provides an **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of the changes. Client applications can read these logs at any time, either in real-time, or in batch-mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account.
 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues](#known-issues) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
 
-Log files are stored as blobs in a special container in your storage account at standard blob pricing cost. You can control the retention period of these log files based on your requirements (See the [limitations](#known-issues)). Change events are appended to the log files as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
+The change feed files are stored as blobs in a special container in your storage account at standard blob pricing cost. You can control the retention period of these files based on your requirements (See the [conditions](#known-issues) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
 
 You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time, or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace. Analytics applications can consume logs directly as Avro files which lets you process them in batch-mode, at low-cost, with high-throughput, and without having to write a custom application.
 
