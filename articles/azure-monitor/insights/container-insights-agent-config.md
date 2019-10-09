@@ -133,7 +133,6 @@ Perform the following steps to configure and deploy your ConfigMap configuration
         ```
 
           Specify in the pod metadata:
-
         ```
          - prometheus.io/scrape:"true" #Enable scraping for this pod ​
          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
