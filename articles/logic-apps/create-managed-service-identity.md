@@ -49,9 +49,8 @@ Unlike user-assigned identities, you don't have to manually create the system-as
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
-1. On the logic app menu, under **Settings**, select **Identity**.
-
-1. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
+1. On the logic app menu, under **Settings**, select **Identity** > **System assigned**. 
+Under **Status**, select **On** > **Save** > **Yes**.
 
    ![Enable the system-assigned identity](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
 
@@ -142,6 +141,8 @@ After you set up a managed identity for your logic app, you can [give that ident
 
    The target resource's role assignments list now shows the selected managed identity and role.
 
+   ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
+
 For more information, see [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 ## Authenticate with managed identity
@@ -181,6 +182,7 @@ To stop using the system-assigned identity for your logic app, you have these op
 
 * [Azure portal](#azure-portal-disable)
 * [Azure Resource Manager templates](#template-disable)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment)
 
 If you delete your logic app, Azure automatically removes the managed identity from Azure AD.
 
@@ -188,11 +190,7 @@ If you delete your logic app, Azure automatically removes the managed identity f
 
 ### Remove system-assigned identity in the Azure portal
 
-In the Azure portal, follow these steps:
-
-* Remove the system-assigned identity from [your logic app](#disable-identity-logic-app).
-
-* Remove the system-assigned identity's access from [your target resource](#disable-identity-target-resource).
+In the Azure portal, remove the system-assigned identity [from your logic app](#disable-identity-logic-app) and that identity's access [from your target resource](#disable-identity-target-resource).
 
 <a name="disable-identity-logic-app"></a>
 
@@ -207,6 +205,8 @@ In the Azure portal, follow these steps:
 <a name="disable-identity-target-resource"></a>
 
 #### Remove managed identity from target resource
+
+1. In the [Azure portal](https://portal.azure.com), go to the target Azure resource where you want to remove access from a managed identity.
 
 1. From the target resource's menu, select **Access control (IAM)**. Under the toolbar, select **Role assignments**.
 
