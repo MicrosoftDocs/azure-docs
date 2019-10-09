@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Configure end-to-end SSL encryption with Azure Application Gateway - Azure portal | Microsoft Docs
-description: Learn how to use the Azure portal to create an Azure Application Gateway with end-to-end SSL encryption.
+description: Learn how to use the Azure portal to create an application gateway with end-to-end SSL encryption.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -20,7 +20,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Before you begin
 
-To configure end-to-end SSL with an application gateway, a certificate is required for the gateway. Certificates are also required for the back-end servers. The gateway certificate is used to derive a symmetric key in compliance with the SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. For end-to-end SSL encryption, the right back-end servers must be allowed in the application gateway. To allow this access, upload the public certificate of the back-end servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known back-end instances. This configuration further secures end-to-end communication.
+To configure end-to-end SSL with an application gateway, you need a certificate for the gateway. Certificates are also required for the back-end servers. The gateway certificate is used to derive a symmetric key in compliance with the SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. 
+
+For end-to-end SSL encryption, the right back-end servers must be allowed in the application gateway. To allow this access, upload the public certificate of the back-end servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known back-end instances. This configuration further secures end-to-end communication.
 
 To learn more, see [SSL termination and end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
@@ -32,7 +34,7 @@ To create a new application gateway with end-to-end SSL encryption, you'll need 
 
 To learn more, see [enable SSL termination while creating a new application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
-### Add authentication/root certificate of back-end servers
+### Add authentication/root certificates of back-end servers
 
 1. Select **All resources**, and then select **myAppGateway**.
 
@@ -54,20 +56,20 @@ To learn more, see [enable SSL termination while creating a new application gate
 
    For Standard_v2 and WAF_v2 application gateways, you should upload the root certificate of the back-end server certificate in .cer format. If the back-end certificate is issued by a well-known certificate authority (CA), you can select the **Use Well Known CA Certificate** check box, and then you don't have to upload a certificate.
 
-   ![add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-   ![root_certificate](./media/end-to-end-ssl-portal/trustedrootcert.png)
+   ![Root_certificate](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
 8. Select **Save**.
 
-## Enable end-to-end SSL for existing application gateway
+## Enable end-to-end SSL for an existing application gateway
 
 To configure an existing application gateway with end-to-end SSL encryption, you must first enable SSL termination in the listener. This action enables SSL encryption for communication between the client and the application gateway. Then, put those certificates for back-end servers in the HTTP settings on the Safe Recipients list. This configuration enables SSL encryption for communication between the application gateway and the back-end servers. That accomplishes end-to-end SSL encryption.
 
 You'll need to use a listener with the HTTPS protocol and a certificate for enabling SSL termination. You can either use an existing listener that meets those conditions or create a new listener. If you choose the former option, you can ignore the following "Enable SSL termination in existing application gateway" section and move directly to the "Add authentication/trusted root certificates for backend servers" section.
 
 If you choose the latter option, apply the steps in the following procedure.
-### Enable SSL termination in existing application gateway
+### Enable SSL termination in an existing application gateway
 
 1. Select **All resources**, and then select **myAppGateway**.
 
@@ -104,11 +106,11 @@ If you choose the latter option, apply the steps in the following procedure.
 
    For Standard and WAF (v1) application gateways, you should upload the public key of your back-end server certificate in .cer format.
 
-   ![add_certificate](./media/end-to-end-ssl-portal/addcert.png)
+   ![Add_certificate](./media/end-to-end-ssl-portal/addcert.png)
 
    For Standard_v2 and WAF_v2 application gateways, you should upload the root certificate of the back-end server certificate in .cer format. If the back-end certificate is issued by a well-known CA, you can select the **Use Well Known CA Certificate** check box, and then you don't have to upload a certificate.
 
-   ![add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Add_trusted_root_certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
 8. Select **Save**.
 
