@@ -191,7 +191,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 11. Check your mount points when you test any fstab change by running the mount –a command. If there are no errors, your mount points should be good.
 
-12. Unmount and detach the original virtual hard disk, and then create a VM from the original system disk. To do this, you can use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or the [VM recovery script](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+12. 1.	Attach the system disk of the VM as a data disk to a recovery VM (any working Linux VM). To do this, you can use [CLI commands](troubleshoot-recovery-disks-linux.md) or you can automate setting up the recovery VM using the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 13. After you create the VM again and you can connect to it through SSH, take the following actions:
     * Review any of the fstab lines that were changed or commented out during the recovery.

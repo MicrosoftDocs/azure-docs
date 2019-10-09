@@ -169,7 +169,7 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
    XFS (sdc1): Ending clean mount
    ```
 
-7. Unmount and detach the original virtual hard disk, and then create a VM from the original system disk. To do this, you can use use [CLI commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) or [VM recovery script](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+7. Unmount and detach the original virtual hard disk, and then create a VM from the original system disk. To do this, you can use [CLI commands](troubleshoot-recovery-disks-linux.md) or the [VM repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) if you used them to create the recovery VM.
 
 8. Check if the problem is resolved.
 
