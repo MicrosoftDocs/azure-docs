@@ -55,8 +55,6 @@ landingContent:
             url: access-api-cli-how-to.md    
       - linkListType: download
         links:
-          - text: Media Services v3 OpenAPI Specification
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01
           - text: .NET SDK samples
             url: https://github.com/Azure-Samples/media-services-v3-dotnet
           - text: Java SDK samples
