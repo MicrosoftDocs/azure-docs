@@ -5251,11 +5251,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-functions/durable/index.md",
-      "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-functions/durable-functions-bindings.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-bindings",
       "redirect_document_id": false
