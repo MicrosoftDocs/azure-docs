@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/08/2019
 ---
 
-Azure Cognitive Services are represented by Azure resources you create within your Azure subscription. There are three resource types you can create:
+Begin using the Anomaly Detector service by creating an Azure resource. There are three resource types you can create for this service:
 
 * A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
-    * Valid for seven days, for free. After signing up, the trial key and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * This is a great option if you want to try Anomaly Detector, but don’t have an Azure subscription.
 
 * An [Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
