@@ -22,7 +22,7 @@ For all steps in this quickstart, sign in to the [Azure portal](https://portal.a
 
 ## Create a single database
 
-A single database can either be created in the provisioned or serverless (preview) compute tier.
+A single database can either be created in the provisioned or serverless compute tier.
 
 - A single database in the provisioned compute tier is pre-allocated a fixed amount of compute resources including CPU and memory using one of two [purchasing models](sql-database-purchase-models.md).
 - A single database in the serverless compute tier has a range of compute resources including CPU and memory that are auto-scaled and is only available in the [vCore-based purchasing models](sql-database-service-tiers-vcore.md).
