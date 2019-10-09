@@ -672,36 +672,31 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
   - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
   - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install AAD Pod Identity to your cluster:
+Depending on whether RBAC is enabled or disabled, run one of the following commands to install AAD Pod Identity to your cluster:
 
-  - *RBAC enabled* AKS cluster
+  **RBAC enabled** AKS cluster
+  ```bash
+  kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+  ```
 
-```bash
-kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-```
-
-  - *RBAC disabled* AKS cluster
-
-```bash
-kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-```
+  **RBAC disabled** AKS cluster
+  ```bash
+  kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+  ```
 
 ## Install Helm
 
 The code in this section leverages [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
-1. Install [Helm](/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Depending on whether RBAC is enabled or disabled, use one of the following sets of commands to install and configure [Helm](/azure/aks/kubernetes-helm):
 
-  - *RBAC enabled* AKS cluster
-
+  **RBAC enabled** AKS cluster
   ```bash
   kubectl create serviceaccount --namespace kube-system tiller-sa
   kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
   helm init --tiller-namespace kube-system --service-account tiller-sa
   ```
-
-  - *RBAC disabled* AKS cluster
-
+  **RBAC disabled** AKS cluster
   ```bash
   helm init
   ```
@@ -727,7 +722,8 @@ The code in this section leverages [Helm](/azure/aks/kubernetes-helm) - Kubernet
   nano helm-config.yaml
   ```
 
-  The values are descrived as follows:
+  The values are described as follows:
+
   - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
   - `appgw.subscriptionId`: The Azure Subscription ID in which App Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
   - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
@@ -735,7 +731,7 @@ The code in this section leverages [Helm](/azure/aks/kubernetes-helm) - Kubernet
   - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
   - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. This could be a single string value, or a comma-separated list of namespaces.
   - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
-  - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
+  - `armAuth.identityResourceID`: Resource ID of the managed identity
   - `armAuth.identityClientId`: The Client ID of the Identity. See below for more information on Identity
   - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`)
 
