@@ -24,7 +24,7 @@ Create two environment variables for authentication, using the instructions for 
 #### [Windows](#tab/windows)
 
 ```console
-setx ANOMALY_DETECTOR_KEY your-key
+setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
 setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
 ```
 
@@ -33,7 +33,7 @@ After you add the environment variable, restart the console window.
 #### [Linux](#tab/linux)
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-key
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
 export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
 ```
 
