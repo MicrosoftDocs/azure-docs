@@ -104,7 +104,7 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
     > [!WARNING]
     > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
-1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](metrics-troubleshoot#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
