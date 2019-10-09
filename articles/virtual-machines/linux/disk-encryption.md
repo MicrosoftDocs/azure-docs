@@ -66,9 +66,9 @@ To revoke access to customer-managed keys on the storage account, see [Azure Key
 
 ### Setting up your Azure Key Vault
 
-2.	Create an instance of Azure Key Vault and encryption key
+1.	Create an instance of Azure Key Vault and encryption key
 
-```bash
+```powershell
 $keyVault = New-AzKeyVault -Name myKeyVaultName ` 
 -ResourceGroupName myRGName ` 
 -Location centraluseuap ` 
@@ -80,9 +80,9 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName `
 -Destination Software `  
 ```
 
-3.	Create an instance of a new resource type called as DiskEncryptionSet which represents a CMK. 
+1.	Create an instance of a new resource type called as DiskEncryptionSet which represents a CMK. 
 
-```bash
+```powershell
 New-AzResourceGroupDeployment -ResourceGroupName myRGName ` 
   -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" ` 
   -diskEncryptionSetName "myDiskEncryptionSet1" ` 
@@ -91,8 +91,9 @@ New-AzResourceGroupDeployment -ResourceGroupName myRGName `
   -region "WestCentralUS"
 ```
 
-4.	Grant DataEncryptionSet resource access to the key vault
-```bash
+1.	Grant DataEncryptionSet resource access to the key vault
+
+```powershell
 $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
  
 Set-AzKeyVaultAccessPolicy ` 
