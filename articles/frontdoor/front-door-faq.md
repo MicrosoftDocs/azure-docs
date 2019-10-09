@@ -139,6 +139,8 @@ Azure Front Door Service is a globally distributed multi-tenant platform with hu
 
 ### What TLS versions are supported by Azure Front Door Service?
 
+All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
+
 Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported.
 
 ### What certificates are supported on Azure Front Door Service?
@@ -180,7 +182,7 @@ Yes, Azure Front Door Service supports SSL offload, and end to end SSL, which re
 
 ### Can I configure SSL policy to control SSL Protocol versions?
 
-You can configure a minimum TLS version in Azure Front Door via the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 (default) and 1.2.
+You can configure a minimum TLS version in Azure Front Door via the [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
 
 ### Can I configure Front Door to only support specific cipher suites?
 
