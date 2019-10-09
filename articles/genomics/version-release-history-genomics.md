@@ -1,7 +1,7 @@
 ---
 title: Version release history
 titleSuffix: Microsoft Genomics
-description: The release history for updates to the Microsoft Genomics Python client for fixes and new functionality. 
+description: The release history of updates to the Microsoft Genomics Python client for fixes and new functionality. 
 services: genomics
 author: grhuynh
 manager: cgronlun
