@@ -6,7 +6,7 @@ author: tfitzmac
 keywords: deployment error, azure deployment, deploy to azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
 
 ---
@@ -14,7 +14,7 @@ ms.author: tomfitz
 
 This article describes some common Azure deployment errors, and provides information to resolve the errors. If you can't find the error code for your deployment error, see [Find error code](#find-error-code).
 
-If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues. 
+If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +29,9 @@ If you're looking for information about an error code and that information isn't
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](resource-manager-register-provider-errors.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
-| DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
+| DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
+| DeploymentNameInvalidCharacters | The deployment name can only contain letter, digit, '-', '.' or '_'. | |
+| DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
 | DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. | [Resolve error when deployment count exceeds 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
@@ -37,6 +39,7 @@ If you're looking for information about an error code and that information isn't
 | InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
 | InvalidContentLink | You've most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You might need to pass a SAS token. Currently, you can't link to a template that is in a storage account behind an [Azure Storage firewall](../storage/common/storage-network-security.md). Consider moving your template to another repository, like GitHub. | [Linked templates](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | When deploying at the subscription level, you've provided a different location for a previously used deployment name. | [Subscription level deployments](deploy-to-subscription.md) |
 | InvalidParameter | One of the values you provided for a resource doesn't match the expected value. This error can result from many different conditions. For example, a password may be insufficient, or a blob name may be incorrect. The error message should indicate which value needs to be corrected. | |
 | InvalidRequestContent | The deployment values either include values that aren't recognized, or required values are missing. Confirm the values for your resource type. | [Template reference](/azure/templates/) |
 | InvalidRequestFormat | Enable debug logging when running the deployment, and verify the contents of the request. | [Debug logging](#enable-debug-logging) |
@@ -119,13 +122,13 @@ You see more details about the deployment. Select the option to find more inform
 
 ![deployment failed](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-You see the error message and error codes. Notice there are two error codes. The first error code (**DeploymentFailed**) is a general error that doesn't provide the details you need to solve the error. The second error code (**StorageAccountNotFound**) provides the details you need. 
+You see the error message and error codes. Notice there are two error codes. The first error code (**DeploymentFailed**) is a general error that doesn't provide the details you need to solve the error. The second error code (**StorageAccountNotFound**) provides the details you need.
 
 ![error details](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## Enable debug logging
 
-Sometimes you need more information about the request and response to learn what went wrong. During deployment, you can request that additional information is logged during a deployment. 
+Sometimes you need more information about the request and response to learn what went wrong. During deployment, you can request that additional information is logged during a deployment.
 
 ### PowerShell
 
