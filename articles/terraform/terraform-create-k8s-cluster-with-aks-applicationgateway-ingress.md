@@ -764,6 +764,7 @@ Once you have the App Gateway, AKS, and AGIC installed, you can install a sample
     ```
 
 ## Next steps
+
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure.
  
  > [!div class="nextstepaction"] 
