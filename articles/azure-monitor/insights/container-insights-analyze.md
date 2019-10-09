@@ -44,7 +44,7 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 
 On the **Monitored clusters** tab, you learn the following:
 
-- How many clusters are in a Critical or unhealthy state, versus how many are Healthy or not reporting (referred to as an Unknown state).
+- How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an Unknown state).
 - Whether all of the [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments are healthy.
 - How many nodes and user and system pods are deployed per cluster.
 - How much disk space is available and if there's a capacity issue.
