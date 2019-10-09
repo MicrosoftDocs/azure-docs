@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Azure Service Fabric node types and virtual machine scale sets
