@@ -13,7 +13,9 @@ ms.author: makromer
 
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
-## Error message: DF-SYS-01: shaded.databricks.org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: The specified container does not exist.
+## Common errors and messages
+
+### Error message: DF-SYS-01: shaded.databricks.org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: The specified container does not exist.
 
 - **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
 
@@ -21,7 +23,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Make sure that the container you are referencing in your dataset exists
 
-## Error message: DF-SYS-01: java.lang.AssertionError: assertion failed: Conflicting directory structures detected. Suspicious paths
+### Error message: DF-SYS-01: java.lang.AssertionError: assertion failed: Conflicting directory structures detected. Suspicious paths
 
 - **Symptoms**: When using wildcards in source transformation with Parquet files
 
@@ -29,7 +31,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Check the wildcard syntax you are using in your source transformation options
 
-## Error message: DF-SRC-002: 'container' (Container name) is required
+### Error message: DF-SRC-002: 'container' (Container name) is required
 
 - **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
 
@@ -37,7 +39,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Make sure that the container you are referencing in your dataset exists
 
-## Error message: DF-UNI-001: PrimaryKeyValue has incompatible types IntegerType and StringType
+### Error message: DF-UNI-001: PrimaryKeyValue has incompatible types IntegerType and StringType
 
 - **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
 
@@ -45,7 +47,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Use a Derived Column to cast the column that you are using for the primary key in your data flow to match the data type of your target database
 
-## Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host xxxxx.database.windows.net port 1433 has failed. Error: "xxxx.database.windows.net. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall."
+### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host xxxxx.database.windows.net port 1433 has failed. Error: "xxxx.database.windows.net. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall."
 
 - **Symptoms**: Unable to preview data or execute pipeline with database source or sink
 
@@ -53,7 +55,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Open the firewall access to the database
 
-## Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'xxxxxx' in the database.
+### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'xxxxxx' in the database.
 
 - **Symptoms**: Sink fails to create table
 
@@ -61,7 +63,11 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Change the name of the table that you are trying to create
 
+## General troubleshooting guidance
 
+1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
+2. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
+3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
 
 ## Next steps
 
@@ -73,3 +79,4 @@ For more troubleshooting help, try these resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [ADF Mapping Data Flows Performance Guide](concepts-data-flow-performance.md)
