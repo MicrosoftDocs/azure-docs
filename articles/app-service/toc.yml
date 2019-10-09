@@ -123,6 +123,8 @@
         href: deploy-continuous-deployment.md
       - name: Deploy from local Git
         href: deploy-local-git.md
+      - name: Deploy with GitHub Actions
+        href: deploy-github-actions.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
