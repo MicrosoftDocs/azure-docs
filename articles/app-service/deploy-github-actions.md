@@ -1,6 +1,6 @@
 ---
 title: Set up a CI/CD pipeline with GitHub Actions 
-description: Learn how to use GitHub Actions to deploy your code or container to App Service
+description: Learn how to use GitHub Actions to deploy your code to App Service
 services: app-service
 documentationcenter: ''
 author: jasonfreeberg
