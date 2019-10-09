@@ -143,6 +143,7 @@ Pass-through Authentication handles a user sign-in request as follows:
 
    > [!NOTE]
    > If the Authentication Agent fails during the sign-in process, the whole sign-in request is dropped. There is no hand-off of sign-in requests from one Authentication Agent to another Authentication Agent on-premises. These agents only communicate with the cloud, and not with each other.
+   
 13. The Authentication Agent forwards the result back to Azure AD STS over an outbound mutually authenticated HTTPS channel over port 443. Mutual authentication uses the certificate previously issued to the Authentication Agent during registration.
 14. Azure AD STS verifies that this result correlates with the specific sign-in request on your tenant.
 15. Azure AD STS continues with the sign-in procedure as configured. For example, if the password validation was successful, the user might be challenged for Multi-Factor Authentication or redirected back to the application.
