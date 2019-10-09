@@ -21,7 +21,7 @@ This article organizes the proven practices into a checklist you can follow whil
 
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
-| &nbsp; | Azure Storage |Scalability targets |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
+| &nbsp; | Blobs |Scalability targets |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
 | &nbsp; | Blobs |Scalability targets |[Are a large number of clients accessing a single object concurrently?](#multiple-clients-accessing-a-single-object-concurrently) |
 | &nbsp; | Blobs |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
 | &nbsp; | Blobs |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
@@ -59,7 +59,7 @@ If your application is approaching the scalability targets for a single storage 
 
 If you have a large number of clients accessing a single object concurrently, you will need to consider per-object and storage account scalability targets. The exact number of clients that can access a single object will vary depending on factors such as the number of clients requesting the object simultaneously, the size of the object, network conditions etc.
 
-If the object can be distributed through a CDN such as images or videos served from a website, then you should use a CDN. For more information, see the section titled **Content distribution** in [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md#content-distribution).
+If the object can be distributed through a CDN such as images or videos served from a website, then you can use a CDN. For more information, see the section titled [Content distribution](#content-distribution).
 
 In other scenarios, such as scientific simulations where the data is confidential, you have two options. The first is to stagger your workload's access such that the object is accessed over a period of time vs being accessed simultaneously. Alternatively, you can temporarily copy the object to multiple storage accounts thus increasing the total IOPS per object and across storage accounts. In limited testing, we found that around 25 VMs could simultaneously download a 100-GB blob in parallel (each VM was parallelizing the download using 32 threads). If you had 100 clients needing to access the object, first copy it to a second storage account and then have the first 50 VMs access the first blob and the second 50 VMs access the second blob. Results will vary depending on your applications behavior so you should test this during design.
 
@@ -67,7 +67,7 @@ In other scenarios, such as scientific simulations where the data is confidentia
 
 A single blob supports up to 500 requests per second. If you have multiple clients that need to read the same blob and you might exceed this limit, then consider using a block blob storage account. A block blob storage account provides a higher request rate, or I/O operations per second (IOPS).
 
-You can also use a content delivery network (CDN) such as Azure CDN to distribute operations on the blob. For more information about Azure CDN, see [Azure CDN over    view](../../cdn/cdn-overview).  
+You can also use a content delivery network (CDN) such as Azure CDN to distribute operations on the blob. For more information about Azure CDN, see [Azure CDN over    view](../../cdn/cdn-overview.md).  
 
 For more information about target throughput for blobs, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).  
 

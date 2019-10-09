@@ -38,7 +38,6 @@ For proven practices specific to each Azure Storage service, see:
 | &nbsp; | Azure Storage |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
 | &nbsp; | Azure Storage |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
 | &nbsp; | Azure Storage |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; | Azure Storage |.NET Configuration |[For .NET framework applications, are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
 | &nbsp; | Azure Storage |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
 | &nbsp; | Azure Storage |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; | Azure Storage |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#throttling-and-server-busy-errors) |
@@ -167,19 +166,13 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.  
 
-### Take advantage of improved garbage collection
-
-For .NET client applications, use .NET 4.5 or later to take advantage of performance improvements in garbage collection.
-
-For more information, see the article [An Overview of Performance Improvements in .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
-
 ## Unbounded parallelism
 
 While parallelism can be great for performance, be careful about using unbounded parallelism (no limit on the number of threads and/or parallel requests) to upload or download data, using multiple workers to access multiple partitions (containers, queues, or table partitions) in the same storage account or to access multiple items in the same partition. If the parallelism is unbounded, your application can exceed the client device's capabilities or the storage account's scalability targets resulting in longer latencies and throttling.  
 
 ## Client libraries and tools
 
-Always use the latest Microsoft provided client libraries and tools. At the time of writing, there are client libraries available for .NET, Windows Phone, Windows Runtime, Java, and C++, as well as preview libraries for other languages. In addition, Microsoft has released PowerShell cmdlets and Azure CLI commands for working with Azure Storage. Microsoft actively develops these tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures they handle many of the proven performance practices internally.  
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up to date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
 
 ## Retries
 
