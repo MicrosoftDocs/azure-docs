@@ -86,7 +86,8 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.  
-1. Edit the ConfigMap yaml file with your customizations.
+
+2. Edit the ConfigMap yaml file with your customizations.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -94,9 +95,9 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
-    - The following examples demonstrates how to configure ConfigMap file to scrape metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and define pod annotation per-pod.
+    - The following examples demonstrates how to configure scraping of metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and define pod annotation per-pod.
 
-        - Scrape Prometheus metrics from a specific URL across the cluster.
+        - Scrape Prometheus metrics from a specific URL across the cluster. Configure the ConfigMap file with the following:
 
         ```
          prometheus-data-collection-settings: |- ​
@@ -108,14 +109,18 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
         ```
 
-        - Scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
+        - Scrape Prometheus metrics from an agent's DaemonSet running on every node in the cluster. Configure the ConfigMap file with the following:
 
         ```
          prometheus-data-collection-settings: |- ​
          # Custom Prometheus metrics data collection settings ​
          [prometheus_data_collection_settings.node] ​
          interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster ​
+        ```
+
+         Configure the service metadata to scrape metrics from the agent's DaemonSet running on node(s) in the cluster.
+         
+        ```​
          urls = ["http://$NODE_IP:9103/metrics"] ​
          fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
          fielddrop = ["metric_to_drop"] ​
