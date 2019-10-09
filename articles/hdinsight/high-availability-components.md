@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/09/2019
 ---
 
 # High availability components in Azure HDInsight
@@ -24,25 +24,19 @@ Different cluster types contain different HA components. HDInsight provides the 
 * Job History Server for Apache MapReduce
 * Apache Livy for Spark2 Server
 
-> [!Important]
-> Some of the HA components mention in the diagram are not present in this list. Should this list provide more explanation of what each HA component does?
-
-HDInsight uses Apache Zookeeper to determine the status of HA services and to perform failovers. HDInsight Zookeeper is another quorum of Zookeeper servers running on Zookeeper nodes in parallel with Apache Zookeeper. HDInsight Zookeeper is used to decide the active headnode. The HDInsight HA services run on headnodes only. The service should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
-
-> [!Important]
-> This section requires more elaboration - Zookeeper is an Apache project and they have a copyright on the name. Are we just saying that for every cluster, we run two Zookeeper quorums: 1) to operate the cluster as normal and 2) to perform failovers in case a particular service goes down?
+HDInsight uses Apache Zookeeper to determine the status of HA services and to perform failovers. Another quorum (2nd quorum) of Zookeeper servers run on Zookeeper nodes in parallel with the first quorum. The 2nd quorum is used to decide the active headnode. The HDInsight HA services run on headnodes only. The service should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
 
 ## Startup
 
-During cluster deployment, the HDInsight agent starts HA service-related components in the order of: HDInsight Zookeeper, master failover controller, and slave failover controller.
+During cluster deployment, the HDInsight agent starts HA service-related components in the order of: 2nd quorum, master failover controller, and slave failover controller.
 
 ## Slave failover controller
 
-The slave failover controller runs on every node in the cluster. The controller is responsible for starting the Ambari agent and slave-ha-service, an HA service handler, on each node. It periodically queries HDInsight Zookeeper about the active headnode.  The controller updates the host configuration file, restarts Ambari agent, and the slave-ha-service when  the active/standby headnodes changes. The slave-ha-service is responsible for stopping HDInsight HA services on the standby headnode.
+The slave failover controller runs on every node in the cluster. The controller is responsible for starting the Ambari agent and slave-ha-service, an HA service handler, on each node. It periodically queries the 2nd quorum about the active headnode.  The controller updates the host configuration file, restarts Ambari agent, and the slave-ha-service when  the active/standby headnodes changes. The slave-ha-service is responsible for stopping HDInsight HA services on the standby headnode.
 
 ## Master failover controller
 
-The master failover controller runs on both head nodes. Both master failover controllers communicate with HDInsight Zookeeper to elect the headnode they're running on as the active headnode.
+The master failover controller runs on both head nodes. Both master failover controllers communicate with the 2nd quorum to elect the headnode they're running on as the active headnode.
 
 For example, if a master failover controller one on headnode 0 wins the election, then headnode 0 becomes active. The master failover controller starts Ambari server and master-ha-service on headnode 0. The other master failover controller stops Ambari server and master-ha-service on headnode 1.
 
@@ -60,10 +54,7 @@ For HDInsight HA service failures, such as service down, unhealthy, and so on, m
 
 HDInsight clusters based on Hadoop 2.0 or higher provide NameNode high availability. There are two NameNodes running on two headnodes, respectively, which are configured for automatic failover. The NameNodes use ZKFailoverController to communicate with Apache Zookeeper to elect for active/standby status. ZKFailoverController runs on both headnodes, and works in the same way as the master failover controller above.
 
-> [!Important]
-> Similar clarification needed of what we mean "HDInsight Zookeeper"
-
-Apache Zookeeper is independent of HDInsight Zookeeper, so the active NameNode may not run on the active headnode. When the active NameNode is dead or unhealthy, the standby NameNode wins the election and becomes active.
+Apache Zookeeper is independent of the 2nd quorum, so the active NameNode may not run on the active headnode. When the active NameNode is dead or unhealthy, the standby NameNode wins the election and becomes active.
 
 ## YARN Resource Manager high availability
 
@@ -79,14 +70,11 @@ It's expected that HDInsight HA services should only be running on the active he
 
 ## Some known issues
 
-> [!Important]
-> Could we provide some info about the impact of these issues and any potential workarounds?
+* When manually starting an HA service on the standby headnode, it won't stop until next failover happens. When HA services are running on both headnodes, some potential problems include: Ambari UI is inaccessible, Ambari throws errors, YARN, Spark, and Oozie jobs may stuck.
 
-* When manually starting an HA service on the standby headnode, it won't stop until next failover happens.
-
-* When an HA service on the active headnode stops, it won't restart until next failover happens or the master-ha-service restarts.
+* When an HA service on the active headnode stops, it won't restart until next failover happens or the master-ha-service restarts. When one or more HA services stop on the active headnode, especially when Ambari server stops, Ambari UI is inaccessible, other potential problems include YARN, Spark and Oozie jobs failures.
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
-- [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
+* [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+* [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
