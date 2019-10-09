@@ -4992,7 +4992,8 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 }
 ```
 
-## SQL Server
+## Stored Proceudure Activity
+
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
 
 ### Linked service
