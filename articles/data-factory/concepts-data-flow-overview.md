@@ -17,7 +17,7 @@ Mapping data flows provide a fully visual experience with no coding required. Yo
 
 ## Getting started
 
-To create a data flow, select the plus sign under select the plus sign under **Factory Resources**, and then select **Data Flow**. 
+To create a data flow, select the plus sign under **Factory Resources**, and then select **Data Flow**. 
 
 ![New data flow](media/data-flow/newdataflow2.png "new data flow")
 
@@ -99,7 +99,7 @@ If debug mode is on, the **Data Preview** tab gives you an interactive snapshot 
 
 ### Top bar
 
-The top bar contains actions that affect the whole data flow, such as saving and validation. You can also toggle between graph and configuration modes by using the **Show Graph** and **Hide Graph** buttons.
+The top bar contains actions that affect the whole data flow, like saving and validation. You can also toggle between graph and configuration modes by using the **Show Graph** and **Hide Graph** buttons.
 
 ![Hide graph](media/data-flow/hideg.png "Hide graph")
 
