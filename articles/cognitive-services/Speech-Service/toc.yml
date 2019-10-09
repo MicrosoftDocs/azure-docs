@@ -213,15 +213,15 @@
         href: how-to-voice-tuning.md
     - name: Audio Content Generation
       items:
-      - name: Placeholder
-        href: httsp://example.com
+      - name: How-to: Audio Content Generation
+        href: how-to-audio-content-generation.md
     - name: Custom Neural Voices
       items:
       - name: Placeholder
         href: httsp://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
-- name: Customization
+- name: Containers
   exanded: false
   items:
   - name: Install and run containers
