@@ -240,6 +240,22 @@ The container provides REST-based query prediction endpoint APIs. Endpoints for 
 
 Use the host, `http://localhost:5000`, for container APIs.
 
+# [V3 prediction endpoint](#tab/v3)
+
+|Package type|Method|Route|Query parameters|
+|--|--|--|--|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Trained|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|query={query}<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+
+The query parameters configure how and what is returned in the query response:
+
+|Query parameter|Type|Purpose|
+|--|--|--|
+|`query`|string|The user's utterance.|
+|`verbose`|boolean|A boolean value indicating whether to return all the metadata for the predicted models. Default is false.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is false.|
+|`show-all-intents`|boolean|A boolean value indicating whether to return all the intents or the top scoring intent only. Default is false.|
+
 # [V2 prediction endpoint](#tab/v2)
 
 |Package type|Method|Route|Query parameters|
@@ -257,40 +273,15 @@ The query parameters configure how and what is returned in the query response:
 |`staging`|boolean|Returns query from staging environment results if set to true. |
 |`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
 
-# [V3 prediction endpoint](#tab/v3)
-
-|Package type|Method|Route|Query parameters|
-|--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Trained|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|query={query}<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-
-The query parameters configure how and what is returned in the query response:
-
-|Query parameter|Type|Purpose|
-|--|--|--|
-|`query`|string|The user's utterance.|
-|`verbose`|boolean|A boolean value indicating whether to return all the metadata for the predicted models. Default is false.|
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is false.|
-|`show-all-intents`|boolean|A boolean value indicating whether to return all the intents or the top scoring intent only. Default is false.|
-
 ***
 
-### Query published app
+### Query the LUIS app
 
 An example CURL command for querying the container for a published app is:
 
-# [V2 prediction endpoint](#tab/v2)
-
-```bash
-curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APP_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
--H "accept: application/json"
-```
-To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
-
-`staging=true`
-
 # [V3 prediction endpoint](#tab/v3)
+
+To query a model in a slot, use the following API:
 
 ```bash
 curl -G \
@@ -304,22 +295,7 @@ To make queries to the **Staging** environment, replace **production** route wit
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
-***
-
-### Query trained app
-
-An example CURL command for querying the container for a trained app is:
-
-# [V2 prediction endpoint](#tab/v2)
-
-```bash
-curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APP_ID}/versions/{APP_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
--H "accept: application/json"
-```
-The version name has a maximum of 10 characters and contains only characters allowed in a URL.
-
-# [V3 prediction endpoint](#tab/v3)
+To query a versioned model, use the following API:
 
 ```bash
 curl -G \
@@ -328,6 +304,28 @@ curl -G \
 --data-urlencode "query=turn the lights on" \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
+
+# [V2 prediction endpoint](#tab/v2)
+
+To query a model in a slot, use the following API:
+
+```bash
+curl -X GET \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
+-H "accept: application/json"
+```
+To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
+
+`staging=true`
+
+To query a versioned model, use the following API:
+
+```bash
+curl -X GET \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}/versions/{APP_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
+-H "accept: application/json"
+```
+The version name has a maximum of 10 characters and contains only characters allowed in a URL.
 
 ***
 
