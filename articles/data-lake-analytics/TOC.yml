@@ -118,6 +118,9 @@
       href: data-lake-analytics-cicd-test.md
     - name: U-SQL SDK
       href: data-lake-analytics-u-sql-sdk.md
+  - name: Troubleshoot U-SQL runtime changes
+    items:
+    - name: Overview     
 - name: Reference
   items:
   - name: Azure PowerShell
