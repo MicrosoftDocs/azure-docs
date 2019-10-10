@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
+ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
@@ -58,7 +58,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 1. Select **Access control (IAM)**.
 1. Select **Add role assignment**.
-1. Select the role you wish to assign to the application. To allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
+1. Select the role you wish to assign to the application. For example, to allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role.  Read more about the [available roles](../../role-based-access-control/built-in-roles.md) By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
 
    ![Select the role to assign to the application](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -85,7 +85,13 @@ Daemon applications can use two forms of credentials to authenticate with Azure 
 
 ### Upload a certificate
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Export this certificate using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+Export this certificate to a file using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
 To upload the certificate:
 
@@ -121,7 +127,7 @@ You must have sufficient permissions to register an application with your Azure 
 
    ![Find your role. If you're a User, ensure non-admins can register apps](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. Select **User settings**.
+1. In the left pane, select **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
 
 If the app registrations setting is set to **No**, only users with an administrator role may register these types of applications. See [available roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) and [role permissions](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) to learn about available administrator roles and the specific permissions in Azure AD that are given to each role. If your account is assigned to the User role, but the app registration setting is limited to admin users, ask your administrator to either assign you to one of the administrator roles that can create and manage all aspects of app registrations, or to enable users to register apps.
