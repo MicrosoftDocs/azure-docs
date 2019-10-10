@@ -83,13 +83,13 @@ Activities can provide notifications through the SDK or the web UI so that you c
 
 ### Compute instance
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a virtual machine that includes multiple tools and environments installed for machine learning. Compute instances can be used for training on a compute target or deploying models to a local web service endpoint.
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 Learn more about compute instances.
 
 ### Compute targets
 
-A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
+A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
 
 Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
 
@@ -109,7 +109,7 @@ An endpoint is an instantiation of your model into either a web service that can
 
 #### Web service endpoint
 
-When deploying a model as a web service the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are encapsulated in an image, which provides the run time environment for the web service. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+When deploying a model as a web service the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
 Azure helps you monitor your web service by collecting Application Insights telemetry or model telemetry, if you've chosen to enable this feature. The telemetry data is accessible only to you, and it's stored in your Application Insights and storage account instances.
 
