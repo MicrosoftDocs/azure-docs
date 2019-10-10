@@ -3,7 +3,7 @@ title: Keep track of data while hunting in Azure Sentinel using hunting bookmark
 description: This article describes how to use the Azure Sentinel hunting bookmarks to keep track of data.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 
@@ -15,8 +15,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
+ms.date: 10/10/2019
+ms.author: cabailey
 ---
 
 # Keep track of data during hunting with Azure Sentinel
@@ -25,7 +25,7 @@ Threat hunting typically requires reviewing mountains of log data looking for ev
 
 Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Azure Monitor. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **Bookmark** table in Azure Monitor. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
 Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
@@ -138,7 +138,7 @@ This view shows all your bookmarks with associated metadata. You can use [Keywor
 
 2. Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
 	
-Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The Log Analytics **HuntingBookmark** table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
+Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The Log Analytics **Bookmark** table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 
 
 ## Next steps
