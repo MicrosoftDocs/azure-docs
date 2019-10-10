@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Restrictions
 
-Large file share enabled accounts cannot use RA-GRS. Enabling large file shares on an account is currently an irreversible process, so only enable it on an account that you do not want to use RA-GRS with.
+Large file share enabled accounts cannot use ZRS, GRS, or RA-GRS. Enabling large file shares on an account is currently an irreversible process, so only enable it on an account that you do not want to use ZRS, GRS, or RA-GRS with.
 
 ## Create a new storage account
 
@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable on existing account
 
-You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use RA-GRS. This choice is irreversible on this account.
+You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use ZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
 1. Open the [Azure portal](https://portal.azure.com) and navigate to the storage account you want to enable large file shares on.
 1. Open the storage account and select **Configuration**.
