@@ -296,7 +296,7 @@ By default the time span on your dashboard tile is set to 24 hours, to change th
 
 ![Select Metric Parameters"](./media/storage-insights-overview/fqa-data-settings.png)
 
-![Select Metric Parameters"](./media/storage-insights-overview/fqa-timespan-2.png)
+![Select Metric Parameters"](./media/storage-insights-overview/fqa-timespan.png)
 
 ### How do I change the title of the workbook or a workbook step I pinned to a dashboard?
 
