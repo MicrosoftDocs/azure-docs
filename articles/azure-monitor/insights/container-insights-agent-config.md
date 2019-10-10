@@ -119,22 +119,20 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
     ```
 
-5. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following:
-
-    1. In the ConfigMap, specify the following:
+5. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following in the ConfigMap:
     
-        ```
-        prometheus-data-collection-settings: |- ​
-        # Custom Prometheus metrics data collection settings ​
-        [prometheus_data_collection_settings.node] ​
-        interval = "1m"  ## Valid time units are s, m, h. 
-         urls = ["http://$NODE_IP:9103/metrics"] ​
-         fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
-         fielddrop = ["metric_to_drop"] ​
-        ```
+    ```
+    prometheus-data-collection-settings: |- ​
+    # Custom Prometheus metrics data collection settings ​
+    [prometheus_data_collection_settings.node] ​
+    interval = "1m"  ## Valid time units are s, m, h. 
+    urls = ["http://$NODE_IP:9103/metrics"] ​
+    fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
+    fielddrop = ["metric_to_drop"] ​
+    ```
 
-        >[!NOTE]
-        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
+    >[!NOTE]
+    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
 
 6. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
