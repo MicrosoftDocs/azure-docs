@@ -359,15 +359,9 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[
-    parameters('location')
-    ]", //defaults to resource group location
+  "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  /*
-    storage account and network interface
-    must be deployed first
-  */
-  "dependsOn": [
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -383,7 +377,25 @@ In VS Code, you can set the language mode to JSON with comments. The inline comm
 
 ## Multi-line strings
 
-You can break a string into multiple lines. For example the location property and one of the comments in the previous JSON example.
+You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
 
 To deploy templates with multi-line strings by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
