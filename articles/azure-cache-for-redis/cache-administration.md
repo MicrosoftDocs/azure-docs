@@ -70,23 +70,18 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
-### What pricing tiers can use the reboot functionality?
-Reboot is available for all pricing tiers.
-
 ## Schedule updates
 The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. When the maintenance window is specified, any Redis server updates are made during this window. 
 
 > [!NOTE] 
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
-> 
-> 
+>
 
 ![Schedule updates](./media/cache-administration/redis-schedule-updates.png)
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
 The default, and minimum, maintenance window for updates is five hours. This value is not configurable from the Azure portal, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. For more information, see Can I manage scheduled updates using PowerShell, CLI, or other management tools?
-
 
 ## Schedule updates FAQ
 * [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
