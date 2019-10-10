@@ -44,11 +44,6 @@ The impact on client applications varies depending on which nodes that you reboo
 * **Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online, but any cache writes that occurred after the most recent backup are lost.
 * **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
 
-> [!IMPORTANT]
-> Reboot is now available for all pricing tiers.
-> 
-> 
-
 ## Reboot FAQ
 * [Which node should I reboot to test my application?](#which-node-should-i-reboot-to-test-my-application)
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
