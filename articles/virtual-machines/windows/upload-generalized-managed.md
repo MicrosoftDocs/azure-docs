@@ -4,7 +4,7 @@ description: Upload a generalized VHD to Azure and use it to create new VMs, in 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
@@ -29,7 +29,7 @@ For a sample script, see [Sample script to upload a VHD to Azure and create a ne
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## Generalize the source VM by using Sysprep
@@ -105,7 +105,7 @@ You can also upload a VHD to your storage account using one of the following:
 	Import/Export can be used to copy to a standard storage account. You'll need to copy from standard storage to premium storage account by using a tool like AzCopy.
 
 > [!IMPORTANT]
-> If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running your upload script. 
+> If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) before running your upload script. 
 > If the destination is a blob and this option is not specified, by default AzCopy creates a block blob.
 > 
 > 

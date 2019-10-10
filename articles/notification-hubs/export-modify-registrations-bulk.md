@@ -2,9 +2,9 @@
 title: Export and import Azure Notification Hubs registrations in bulk | Microsoft Docs
 description: Learn how to use Notification Hubs bulk support to perform a large number of operations on a notification hub, or to export all registrations.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.service: notification-hubs
 ms.workload: mobile
@@ -12,7 +12,9 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/18/2019
 ---
 
 # Export and import Azure Notification Hubs registrations in bulk
@@ -30,7 +32,7 @@ This section assumes you have the following entities:
 
 - A provisioned notification hub.
 - An Azure Storage blob container.
-- References to the Azure Storage and Azure Service Bus NuGet packages.
+- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/windowsazure.storage/) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### Create input file and store it in a blob
 An input file contains a list of registrations serialized in XML, one per row. Using the Azure SDK, the following code example shows how to serialize the registrations and upload them to blob container.
@@ -128,7 +130,7 @@ These files contain the list of successful and failed operations from your batch
 The following sample code imports registrations into a notification hub.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

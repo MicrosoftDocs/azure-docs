@@ -4,7 +4,7 @@ description: Learn the best practices about data ingestion, date security, and p
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
@@ -183,5 +183,4 @@ In the common case of batch data being processed directly into databases such as
 * [Tuning Azure Data Lake Storage Gen1 for performance](data-lake-store-performance-tuning-guidance.md)
 * [Performance tuning guidance for using HDInsight Spark with Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
 * [Performance tuning guidance for using HDInsight Hive with Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
-* [Data Orchestration using Azure Data Factory for Azure Data Lake Storage Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Create HDInsight clusters with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

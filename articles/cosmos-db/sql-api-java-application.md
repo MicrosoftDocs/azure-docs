@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/22/2017
+ms.date: 12/22/2018
 ms.author: ramkris
 
 ---
@@ -45,7 +45,7 @@ Before you begin this application development tutorial, you must have the follow
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/app-service-web-get-started-java.md)
 
-If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
+If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
 
 ## <a id="CreateDB"></a>Step 1: Create an Azure Cosmos DB account
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
@@ -66,7 +66,7 @@ To create the JSP application:
    
     ![Make a New JSP File - Java Web Application Tutorial](./media/sql-api-java-application/image11.png)
 5. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
-6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing <body> element. The updated <body> content should look like the following code:
+6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing `<body>` element. The updated `<body>` content should look like the following code:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -94,12 +94,13 @@ To do this, you will need to convert your project to a maven project by completi
    ![Install SQL Java Application SDK](./media/sql-api-java-application/image13.png)
      
    * Or add the dependency XML for Group Id and Artifact Id directly to the pom.xml via a text editor:
-     
+        ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-documentdb</artifactId>
             <version>1.9.1</version>
         </dependency>
+        ```
 6. Click **OK** and Maven will install the SQL Java SDK.
 7. Save the pom.xml file.
 
@@ -244,7 +245,7 @@ To do this, you will need to convert your project to a maven project by completi
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Like Azure Cosmos DB databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
+5. Like Azure Cosmos databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -736,7 +737,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 8. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 9. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
 10. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
-11. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos DB database account](#CreateDB).
+11. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
 12. In **Project Explorer**, right-click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
 13. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
 14. Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.

@@ -4,7 +4,7 @@ description: Learn how to use Chef to do automated virtual machine deployment an
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: jeconnoc
+manager: gwallace
 tags: azure-service-management,azure-resource-manager
 editor: ''
 
@@ -12,14 +12,13 @@ ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
+
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 07/09/2019
 ms.author: diviso
 
 ---
 # Automating Azure virtual machine deployment with Chef
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is a great tool for delivering automation and desired state configurations.
 
@@ -51,9 +50,24 @@ Chef also uses the concepts of “Cookbooks” and “Recipes”, which are effe
 
 First, prep your workstation by creating a directory to store Chef configuration files and cookbooks.
 
-Create a directory called C:\chef.
+Create a directory called C:\Chef.
 
-Download your Azure PowerShell [publish settings](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Download and install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
+
+## Configure Azure Service Principal
+
+In simplest of terms and Azure Service Principal is a service account.   We will be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions we need to run the following commands within PowerShell:
+ 
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+Please take a note of your SubscriptionID, TenantID, ClientID and Client Secret (the password you set above), you will need this later on. 
 
 ## Setup Chef Server
 
@@ -82,7 +96,7 @@ Once your organization is created, download the starter kit.
 
 This starter kit zip file contains your organization configuration files and user key in the `.chef` directory.
 
-The `organization-validator.pem` must be downloaded separately, because it is a private key and private keys should not be stored on the Chef Server. From [Chef Manage](https://manage.chef.io/) and select "Reset Validation Key", which provides a file for you to download separately. Save the file to c:\chef.
+The `organization-validator.pem` must be downloaded separately, because it is a private key and private keys should not be stored on the Chef Server. From [Chef Manage](https://manage.chef.io/), go into the Administration section and select "Reset Validation Key", which provides a file for you to download separately. Save the file to c:\chef.
 
 ### Configuring your Chef workstation
 
@@ -131,21 +145,23 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 Add the following information to your knife.rb:
 
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
 
-Also add the following line reflecting the name of your Azure publish settings file.
+validation_key           "#{current_dir}/myorg.pem"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-Modify the “cookbook_path” by removing the /../ from the path so it appears as:
+knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.
+knife[:azure_client_secret] =     "#1234p$wdchef19"
+
+
+These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses the Azure Service Principal that you created during Azure operations.
 
 Your knife.rb file should now look similar to the following example:
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -154,17 +170,19 @@ Your knife.rb file should now look similar to the following example:
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## Install Chef Workstation
@@ -177,13 +195,13 @@ On the desktop, you'll see a "CW PowerShell", which is an environment loaded wit
 `chef --version` should return something like:
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -213,7 +231,7 @@ It’s likely that a number of dependencies will also be installed at the same t
 
 To ensure everything is configured correctly, run the following command.
 
-    knife azure image list
+    knife azurerm server list
 
 If everything is configured correctly, you will see a list of available Azure images scroll through.
 
@@ -268,32 +286,50 @@ In this step, you make a copy of the Cookbook that you have created on the local
 ## Deploy a virtual machine with Knife Azure
 Deploy an Azure virtual machine and apply the “Webserver” Cookbook which installs the IIS web service and default web page.
 
-In order to do this, use the **knife azure server create** command.
+In order to do this, use the **knife azurerm server create** command.
 
 An example of the command appears next.
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'westus' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
-The parameters are self-explanatory. Substitute your particular variables and run.
+
+The example above will create a Standard_DS2_v2 virtual machine with Windows Server 2016 installed within the West US region. Substitute your particular variables and run.
 
 > [!NOTE]
-> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
+> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to the web page and RDP session.
 >
 >
 
 Once you run the command, go to the Azure portal to see your machine begin to provision.
 
-![][13]
+![][15]
 
 The command prompt appears next.
 
-![][10]
+![][16]
 
-Once the deployment is complete, you should be able to connect to the web service over port 80, because you opened the port when you provisioned the virtual machine with the Knife Azure command. As this virtual machine is the only virtual machine in this cloud service, connect to it with the cloud service url.
+Once the deployment is complete, the public IP address of the new virtual machine will be displayed on the completion of the deployment, you can copy this and paste it into a web browser and view the website that you deployed. When we deployed the virtual machine we opened port 80 so it should be available externally.   
 
 ![][11]
 
 This example uses creative HTML code.
+
+You can also view the node's status [Chef Manage](https://manage.chef.io/). 
+
+![][17]
 
 Don’t forget you can also connect through an RDP session from the Azure portal via port 3389.
 
@@ -311,6 +347,10 @@ Thank you! Go and start your infrastructure as code journey with Azure today!
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 
 <!--Link references-->

@@ -1,6 +1,6 @@
 ---
-title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for Bash in Cloud Shell
+title: Azure Cloud Shell Quickstart | Microsoft Docs
+description: Quickstart for Azure Cloud Shell
 services: 
 documentationcenter: ''
 author: maertendMSFT
@@ -45,9 +45,9 @@ Check that the environment drop-down from the left-hand side of shell window say
    ```
 
 2. Set your preferred subscription: <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.

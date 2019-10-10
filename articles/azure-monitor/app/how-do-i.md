@@ -131,16 +131,25 @@ Learn more about [pricing and quotas](../../azure-monitor/app/pricing.md).
 ## Disable telemetry
 To **dynamically stop and start** the collection and transmission of telemetry from the server:
 
-```
+### ASP.NET Classic applications
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### Other applications
+It is not recommended to use `TelemetryConfiguration.Active` singleton on console or ASP.NET Core applications.
+if you created `TelemetryConfiguration` instance yourself - set `DisableTelemetry` to `true`.
 
+For ASP.NET Core applications you may access `TelemetryConfiguration` instance using [ASP.NET Core dependency injection](/aspnet/core/fundamentals/dependency-injection/). Please find more details in [ApplicationInsights for ASP.NET Core applications](../../azure-monitor/app/asp-net-core.md) article.
 
-To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
+## Disable selected standard collectors
+You can disable standard collectors (for example, performance counters, HTTP requests, or dependencies)
+
+* **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core applicaitons** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## View system performance counters
 Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.

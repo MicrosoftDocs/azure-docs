@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Managing Azure SQL databases using Azure Automation

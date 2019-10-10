@@ -4,7 +4,7 @@ description: Learn about configuring Azure Service Fabric actor communication se
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 
 ms.date: 04/20/2017
-ms.author: suchiagicha
+ms.author: pepogors
 
 ---
 # Configure FabricTransport settings for Reliable Actors

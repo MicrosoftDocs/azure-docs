@@ -1,14 +1,15 @@
 ---
 title: Copy data into Azure Data Lake Storage Gen2 using DistCp| Microsoft Docs
 description: Use DistCp tool to copy data to and from Data Lake Storage Gen2
-services: storage
-author: seguler
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: stewu
 ---
+
 # Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2
 
 You can use [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data between a general purpose V2 storage account and a general purpose V2 storage account with hierarchical namespace enabled. This article provides instructions on how use the DistCp tool.
@@ -21,7 +22,7 @@ DistCp provides a variety of command-line parameters and we strongly encourage y
 * **An existing Azure Storage account without Data Lake Storage Gen2 capabilities (hierarchical namespace) enabled**.
 * **An Azure Storage account with Data Lake Storage Gen2 feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2  storage account](data-lake-storage-quickstart-create-account.md)
 * **A filesystem** that has been created in the storage account with hierarchical namespace enabled.
-* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](data-lake-storage-use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
+* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Make sure you enable Remote Desktop for the cluster.
 
 ## Use DistCp from an HDInsight Linux cluster
 
@@ -59,7 +60,7 @@ Because DistCp’s lowest granularity is a single file, setting the maximum numb
 
 **Example**
 
-	hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
+	hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
 ### How do I determine the number of mappers to use?
 

@@ -3,9 +3,9 @@ title: Token-based (HTTP/2) Authentication for APNS in Azure Notification Hubs |
 description: This topic explains how to leverage the new token authentication for APNS
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,7 +13,9 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/13/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/13/2019
 ---
 
 # Token-based (HTTP/2) Authentication for APNS

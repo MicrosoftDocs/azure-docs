@@ -1,13 +1,12 @@
 ---
 title: "Azure Storage analytics metrics (Classic)"
 description: Learn how to use metrics in Azure Storage.
-services: storage
-author: fhryo-msft
-
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
 ---
 # Azure Storage analytics metrics (Classic)
@@ -70,7 +69,7 @@ Follow these steps to enable metrics in the [Azure portal](https://portal.azure.
 The [Azure portal](https://portal.azure.com) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 > [!NOTE]
->  Note that the Azure portal does not currently enable you to configure minute metrics in your storage account. You must enable minute metrics using PowerShell or programmatically.  
+>  Note that the Azure portal does not currently enable you to configure minute metrics in your storage account. You must enable minute metrics using PowerShell or programmatically.
 
 ## Enable Storage metrics using PowerShell  
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet **Get-AzureStorageServiceMetricsProperty** to retrieve the current settings, and the cmdlet **Set-AzureStorageServiceMetricsProperty** to change the current settings.  
@@ -84,18 +83,27 @@ The cmdlets that control Storage Metrics use the following parameters:
 * **Service**: Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
 * **ServiceAndApi**: In addition to the Service metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
 
-For example, the following command switches on minute metrics for the blob service in your default storage account with the retention period set to five days:  
+For example, the following command switches on minute metrics for the blob service in your storage account with the retention period set to five days: 
+
+> [!NOTE]
+> This command assumes that you've signed into your Azure subscription by using the `Connect-AzAccount` command.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+
 
 The following command retrieves the current hourly metrics level and retention days for the blob service in your default storage account:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

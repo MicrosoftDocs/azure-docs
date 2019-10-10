@@ -2,16 +2,9 @@
 title: Go-To-Market Services - Offer listing best practices | Azure
 description: Go-To-Market Services - this section describes the listing best practices for an offer
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler
-editor:
 
-ms.assetid: 
+author: qianw211
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
@@ -58,7 +51,7 @@ By adding the parameters to your AppSource URL, you can review the effectiveness
 
 ## Next steps
 
-To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
 

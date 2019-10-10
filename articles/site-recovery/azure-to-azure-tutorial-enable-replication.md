@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -19,7 +19,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs by replica
 > [!div class="checklist"]
 > * Create a Recovery Services vault
 > * Verify target resource settings
-> * Set up outbound access for VMs
+> * Set up outbound network connectivity for VMs
 > * Enable replication for a VM
 
 > [!NOTE]
@@ -29,10 +29,10 @@ This tutorial shows you how to set up disaster recovery for Azure VMs by replica
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
+- Review the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) before you start.
 
-## Create a vault
+## Create a Recovery Services vault
 
 Create the vault in any region, except the source region.
 
@@ -50,13 +50,13 @@ Create the vault in any region, except the source region.
 
    The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
-## Verify target resources
+## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
 2. Make sure your subscription has enough resources to support VM sizes that match your source
    VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
-## Configure outbound network connectivity
+## Set up outbound network connectivity for VMs
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity from the VMs that you want to replicate.
 
@@ -85,7 +85,7 @@ If you want to control outbound connectivity using IP addresses instead of URLs,
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create the required NSG rules.
+If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
@@ -117,7 +117,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
 
 Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
 
-## Enable replication
+## Enable replication for a VM
 
 ### Select the source
 
@@ -156,7 +156,7 @@ Site Recovery creates default settings and replication policy for the target reg
     **Target virtual network** | The network in the target region that VMs are located after failover.<br/><br/> By default, Site Recovery creates a new virtual network (and subnets) in the target region with an "asr" suffix.
     **Cache storage accounts** | Site Recovery uses a storage account in the source region. Changes to source VMs are sent to this account before replication to the target location.<br/><br/> If you are using a firewall-enabled cache storage account, make sure that you enable **Allow trusted Microsoft services**. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Target storage accounts (source VM uses non-managed disks)** | By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.<br/><br/> Enable **Allow trusted Microsoft services** if you're using a firewall-enabled cache storage account.
-    **Replica managed disks (If source VM uses managed disks)** | By default, Site Recovery creates replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
+    **Replica managed disks (If source VM uses managed disks)** | By default, Site Recovery creates replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk. You can only customize Disk type 
     **Target availability sets** | By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
     **Target availability zones** | By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones.<br/><br/> If the target region doesn't support availability zones, the target VMs are configured as single instances by default.<br/><br/> Click **Customize** to configure VMs as part of an availability set in the target region.<br/><br/> You can't change the availability type (single instance, availability set or availability zone) after you enable replication. You need to disable and enable replication to change the availability type.
 

@@ -1,9 +1,7 @@
 ---
 title: Sample - Audit SQL Server audit settings
 description: This sample policy definition audits the SQL server audit settings with auditIfNotExists.
-services: azure-policy
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019

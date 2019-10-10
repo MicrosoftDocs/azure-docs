@@ -1,6 +1,6 @@
 ---
-title: Change, train app, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: Change, train app, C# - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 09/04/2019
 ms.author: diberry 
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using C#. 
 ---
@@ -33,19 +33,19 @@ ms.author: diberry
 
 ## Create quickstart code 
 
-In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. 
+In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. Name the project `ConsoleApp1`.
 
 ![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### Add the System.Web dependency
 
-The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference**.
+The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference** from the Assemblies section.
 
 ![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### Add other dependencies
 
-The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Search for and add each of the two packages. 
+The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Browse for and add each of the two packages. 
 
 ![Add 3rd party dependencies](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -53,14 +53,14 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -71,7 +71,7 @@ namespace ConsoleApp3
 }
 ```
 
-Add the dependencies.
+Update the dependencies so that are:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -111,7 +111,7 @@ To manage command-line arguments, add the main code. Add method to the **Program
 
 ### Copy utterances.json to output directory
 
-In the Solution Explorer, right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
+In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output directory. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
 
 ![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -124,7 +124,7 @@ Build the code in Visual Studio.
 In the project's /bin/Debug directory, run the application from a command line. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 This command-line displays the results of calling the add utterances API. 

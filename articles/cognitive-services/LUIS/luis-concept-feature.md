@@ -1,6 +1,6 @@
 ---
-title: Features 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Features - LUIS
+titleSuffix: Azure Cognitive Services
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
@@ -29,7 +29,7 @@ Phrase lists are not linked to a specific intent or entity but are added as a si
 
 ## How to use phrase lists
 
-Create a phrase list when your app has words or phrases that are important to the app such as:
+[Create a phrase](luis-how-to-add-features.md) list when your app has words or phrases that are important to the app such as:
 
 * industry terms
 * slang
@@ -40,14 +40,7 @@ Create a phrase list when your app has words or phrases that are important to th
 
 Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
 
-|List type|Purpose|
-|--|--|
-|Interchangeable|Synonyms or words that, when changed to another word in the list, have the same intent, and entity extraction.|
-|Non-interchangeable|App vocabulary, specific to your app, more so than generally other words in that language.|
-
-### Interchangeable lists
-
-An *interchangeable* phrase list is for values that are synonyms. For example, if you want all bodies of water found and you have example utterances such as: 
+An phrase list is for values that are synonyms. For example, if you want all bodies of water found and you have example utterances such as: 
 
 * What cities are close to the Great Lakes? 
 * What road runs along Lake Havasu?
@@ -59,21 +52,11 @@ Each utterance should be determined for both intent and entities regardless of b
 * What road runs along [bodyOfWater]?
 * Where does the [bodyOfWater] start and end? 
 
-Because the words or phrases for the body of water are synonymous and can be used interchangeably in the utterances, use the **Interchangeable** setting on the phrase list. 
-
-### Non-interchangeable lists
-
-A non-interchangeable phrase list is a signal that boosts detection to LUIS. The phrase list indicates words or phrases that are more significant that other words. This helps with both determining intent and entity detection. For example, say you have a subject domain like travel that is global (meaning across cultures but still in a single language). There are words and phrases that are important to the app but are not synonymous. 
-
-For another example, use a non-interchangeable phrase list for rare, proprietary, and foreign words. LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app). The non-interchangeable setting indicates that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
-
-Do not add every possible word or phrase to a phrase list, add a few words or phrases at a time, then retrain and publish. 
-
-As the phrase list grows over time, you may find some terms have many forms (synonyms). Break these out into another phrase list that is interchangeable. 
+Because the words or phrases for the body of water are synonymous and can be used interchangeably in the utterances. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## Phrase lists help identify simple Interchangeable entities
+## Phrase lists help identify simple interchangeable entities
 Interchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
 
 ## Phrase lists help identify intents by better understanding context
@@ -82,12 +65,12 @@ A phrase list is not an instruction to LUIS to perform strict matching or always
 Adding a phrase list is an alternative to adding more example utterances to an intent. 
 
 ## When to use phrase lists versus list entities
-While both a phrase list and list entities can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
+While both a phrase list and [list entities](reference-entity-list.md) can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
 
 ### Use a phrase list
 With a phrase list, LUIS can still take context into account and generalize to identify items that are similar to, but not an exact match, as items in a list. If you need your LUIS app to be able to generalize and identify new items in a category, use a phrase list. 
 
-When you want to be able to recognize new instances of an entity, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use another type of machine-learned entity such as a simple or hierarchical entity. Then create a phrase list of words and phrases that helps LUIS find other words similar to the entity. This list guides LUIS to recognize examples of the entity by adding additional significance to the value of those words. 
+When you want to be able to recognize new instances of an entity, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use another type of machine-learned entity such as a simple entity. Then create a phrase list of words and phrases that helps LUIS find other words similar to the entity. This list guides LUIS to recognize examples of the entity by adding additional significance to the value of those words. 
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. A common usage of a phrase list is proper nouns such as city names. A city name can be several words including hyphens, or apostrophes.
  

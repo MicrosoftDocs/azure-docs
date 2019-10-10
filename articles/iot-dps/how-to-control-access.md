@@ -2,11 +2,11 @@
 title: Security endpoints in IoT Device Provisioning Service | Microsoft Docs
 description: Concepts - how to control access to IoT Device Provisioning Service for backend apps. Includes information about security tokens.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
 ---
 

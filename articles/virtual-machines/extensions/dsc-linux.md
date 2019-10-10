@@ -8,7 +8,6 @@ manager: carmonm
 editor: ''
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -19,6 +18,11 @@ ms.author: robreed
 
 Desired State Configuration (DSC) is a management platform that enables you to manage your IT and development infrastructure with configuration as code.
 
+> !Note
+> The DSC Extension for Linux and the [Azure Monitor virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux) currently present a conflict
+> and are not supported in a side by side configuration.  This means you should not use the two solutions together
+> on the same VM.
+
 DSCForLinux Extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. DSC extension can also do the following actions
 
 
@@ -28,13 +32,13 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
 ### Operating system
 
-The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](/azure/virtual-machines/linux/endorsed-distros) except:
 
 | Distribution | Version |
 |---|---|
@@ -62,7 +66,7 @@ Here are all the supported public configuration parameters:
 * `ConfigurationModeFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC ensures that the configuration is in the desired state.
 
 > [!NOTE]
-> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be a overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be an overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
 >
 
 ### 1.2 Protected configuration

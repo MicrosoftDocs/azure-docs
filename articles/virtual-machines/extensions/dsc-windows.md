@@ -8,7 +8,6 @@ manager: carmonm
 editor: ''
 ms.assetid: 
 ms.service: virtual-machines-windows 
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: 
@@ -67,7 +66,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
             "dataCollection": "enable"
         },
     	"advancedOptions": {
-			"forcePullAndApply": false
+			"forcePullAndApply": false,
         	"downloadMappings": {
             	"specificDependencyKey": "https://myCustomDependencyLocation"
         	}

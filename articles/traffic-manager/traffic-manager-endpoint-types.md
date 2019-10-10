@@ -3,7 +3,7 @@ title: Traffic Manager Endpoint Types | Microsoft Docs
 description: This article explains different types of endpoints that can be used with Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,15 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Traffic Manager endpoints
+
 Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-it-works.md).
 
 There are three types of endpoint supported by Traffic Manager:
+
 * **Azure endpoints** are used for services hosted in Azure.
-* **External endpoints** are used for IPv4/IPv6 addresses, or, for services hosted outside Azure that can either be on-premises or with a different hosting provider.
+* **External endpoints** are used for IPv4/IPv6 addresses, FQDNs, or for services hosted outside Azure that can either be on-premises or with a different hosting provider.
 * **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
 There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile. Each profile can contain any mix of endpoint types.
@@ -37,14 +39,14 @@ Azure endpoints are used for Azure-based services in Traffic Manager. The follow
 
 PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
 
-When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cloud service, or a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
+When using Azure endpoints, Traffic Manager detects when a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
 
 ## External endpoints
 
-External endpoints are used for either IPv4/IPv6 addresses, or, for services outside of Azure. Use of IPv4/IPv6 address endpoints allows traffic manager to check the health of endpoints without requiring a DNS name for them. As a result, Traffic Manager can respond to queries with A/AAAA records when returning that endpoint in a response. Services outside of Azure can include a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile except for endpoints specified as IPv4 or IPv6 addresses which can only be external endpoints. Combining Azure endpoints with External endpoints enables various scenarios:
+External endpoints are used for either IPv4/IPv6 addresses, FQDNs, or for services outside of Azure. Use of IPv4/IPv6 address endpoints allows traffic manager to check the health of endpoints without requiring a DNS name for them. As a result, Traffic Manager can respond to queries with A/AAAA records when returning that endpoint in a response. Services outside of Azure can include a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile except for endpoints specified as IPv4 or IPv6 addresses which can only be external endpoints. Combining Azure endpoints with External endpoints enables various scenarios:
 
 * Provide increased redundancy for an existing on-premises application in either an active-active or active-passive failover model using Azure. 
-* Route traffic to endpoints that do not have a DNS name associated with them. In addition, decrease the overall DNS lookup latency by removing the need to run a second DNS query to get an IP address of a DNS name returned. 
+* Route traffic to endpoints that do not have a DNS name associated with them. In addition, decrease the overall DNS lookup latency by removing the need to run a second DNS query to get an IP address of a DNS name returned.
 * Reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance).
 * Provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand using Azure.
 
@@ -58,7 +60,7 @@ Nested endpoints combine multiple Traffic Manager profiles to create flexible tr
 
 Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
 
-1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App. For more information on supported plans see the [App Service Plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App. For more information on supported plans see the [App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. When an endpoint receives an HTTP request, it uses the 'host' header in the request to determine which Web App should service the request. The host header contains the DNS name used to initiate the request, for example 'contosoapp.azurewebsites.net'. To use a different DNS name with your Web App, the DNS name must be registered as a custom domain name for the App. When adding a Web App endpoint as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered for the App. This registration is automatically removed when the endpoint is deleted.
 3. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region. To work around for this constraint, you can configure a Web App as an External endpoint. For more information, see the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 
@@ -84,6 +86,17 @@ For details, see [Traffic Manager endpoint monitoring](traffic-manager-monitorin
 
 If all endpoints in a profile are disabled, or if the profile itself is disabled, then Traffic Manager sends an 'NXDOMAIN' response to a new DNS query.
 
+## FAQs
+
+* [Can I use Traffic Manager with endpoints from multiple subscriptions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [Can I use Traffic Manager with Cloud Service 'Staging' slots?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [Does Traffic Manager support IPv6 endpoints?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [Can I use Traffic Manager with more than one Web App in the same region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## Next steps
 

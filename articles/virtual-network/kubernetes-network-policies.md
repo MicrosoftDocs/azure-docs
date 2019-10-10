@@ -29,7 +29,7 @@ Network Policies provide micro-segmentation for pods just like Network Security 
 Azure network policies work in conjunction with the Azure CNI that provides VNet integration for containers. It is supported only on Linux nodes today. The implementations configure Linux IP Table rules based on the defined policies to enforce traffic filtering.
 
 ## Planning security for your Kubernetes cluster
-When implementing security for your cluster, use network security groups (NSGs) to filter North-South traffic, that is, traffic entering and leaving your cluster subnet, and use Kubernetes network policies for East-West traffic, that is. traffic between pods in your cluster.
+When implementing security for your cluster, use network security groups (NSGs) to filter North-South traffic, that is, traffic entering and leaving your cluster subnet, and use Kubernetes network policies for East-West traffic, that is, traffic between pods in your cluster.
 
 ## Using Azure Kubernetes network policies
 Azure Network Policies can be used in the following ways to provide micro-segmentation for pods.

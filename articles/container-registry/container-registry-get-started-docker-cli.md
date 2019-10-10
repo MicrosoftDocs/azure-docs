@@ -3,7 +3,7 @@ title: Push Docker image to private Azure container registry
 description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -125,3 +125,11 @@ Now that you know the basics, you're ready to start using your registry! For exa
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

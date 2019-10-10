@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/2/2017
-ms.author: yujhongmicrosoft
+ms.author: yujhong
 
 ---
 # Integrate Azure AD Authentication with Web Apps on Azure Government
@@ -54,7 +54,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 - "https:\//login.microsoftonline.us"
 
 #### Configure the InventoryApp project
-1. Open your application in Visual Studio 2017.
+1. Open your application in Visual Studio 2019.
 2. Open the `appsettings.json` file.
 3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
 	
@@ -76,7 +76,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
     ```
 4. Fill out the `ClientId` property with the Client ID for your app from the Azure Government portal. You can find the Client ID by navigating to Azure AD -> App Registrations -> Your Application -> Application ID. 
 5. Fill out the `TenantId` property with the Tenant ID for your app from the Azure Government portal. You can find the Tenant ID by navigating to Azure AD -> Properties -> Directory ID. 
-6. Fill out the `Domain` property with "<tenantname>.onmicrosoft.com."
+6. Fill out the `Domain` property with `<tenantname>.onmicrosoft.com`.
 7. Open the `startup.cs` file.
 8. In your `ConfigureServices` method, add the following code:
 

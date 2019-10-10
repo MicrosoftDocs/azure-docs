@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -50,7 +50,7 @@ On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) 
 
 With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -78,7 +78,7 @@ Additionally, you should have a general understanding of the following technolog
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 ### What to have
 
@@ -218,7 +218,7 @@ The next step is to configure the failover cluster with S2D. In this step, you w
 
    To install the Failover Clustering feature with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -249,7 +249,7 @@ The **Validate a Configuration Wizard** runs the validation tests.
 
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -264,11 +264,22 @@ To create the failover cluster, you need:
 - A name for the failover cluster
 - An IP address for the failover cluster. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes.
 
-The following PowerShell creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+#### Windows Server 2008-2016
 
-```PowerShell
+The following PowerShell creates a failover cluster for **Windows Server 2008-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### Windows Server 2019
+
+The following PowerShell creates a failover cluster for Windows Server 2019.  For more information, review the blog [Failover Cluster: Cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### Create a cloud witness
 
@@ -290,7 +301,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    The following PowerShell enables storage spaces direct.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -300,7 +311,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -395,7 +406,7 @@ To create the load balancer:
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
-   - **Port**: Set to an available TCP port. This port requires an open firewall port. Use the [same port](#ports) you set for the health probe at the firewall.
+   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
    - **Interval**: 5 Seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 
@@ -427,7 +438,7 @@ Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -453,7 +464,7 @@ In the preceding script, set the values for your environment. The following list
 
 After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

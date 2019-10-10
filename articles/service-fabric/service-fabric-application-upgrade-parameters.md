@@ -4,7 +4,7 @@ description: Describes parameters related to upgrading a Service Fabric applicat
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Application upgrade parameters

@@ -1,16 +1,10 @@
 ---
 title: Azure Resource Manager deployment modes | Microsoft Docs
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
@@ -21,13 +15,17 @@ For both modes, Resource Manager tries to create all resources specified in the 
 
 ## Complete mode
 
-In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](resource-group-authoring-templates.md#condition) evaluates to false, aren't deleted.
+In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](conditional-resource-deployment.md) evaluates to false, aren't deleted.
 
-There are some difference in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resource are deleted if the parent resource is deleted. 
+Be careful using complete mode with [copy loops](resource-group-create-multiple.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
-For example, if your resource group contains a DNS zone (Microsoft.Network/dnsZones resource type) and a CNAME record (Microsoft.Network/dnsZones/CNAME resource type), the DNS zone is the parent resource for the CNAME record. If you deploy with complete mode and don't include the DNS zone in your template, the DNS zone and the CNAME record are both deleted. If include the DNS zone in your template but don’t include the CNAME record, the CNAME isn't deleted. 
+There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted. 
+
+For example, if your resource group contains a DNS zone (Microsoft.Network/dnsZones resource type) and a CNAME record (Microsoft.Network/dnsZones/CNAME resource type), the DNS zone is the parent resource for the CNAME record. If you deploy with complete mode and don't include the DNS zone in your template, the DNS zone and the CNAME record are both deleted. If you include the DNS zone in your template but don't include the CNAME record, the CNAME isn't deleted. 
 
 For a list of how resource types handle deletion, see [Deletion of Azure resources for complete mode deployments](complete-mode-deletion.md).
+
+If the resource group is [locked](resource-group-lock-resources.md), complete mode doesn't delete the resources.
 
 > [!NOTE]
 > Only root-level templates support the complete deployment mode. For [linked or nested templates](resource-group-linked-templates.md), you must use incremental mode. 
@@ -39,7 +37,9 @@ For a list of how resource types handle deletion, see [Deletion of Azure resourc
 
 ## Incremental mode
 
-In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template. When redeploying a resource in incremental mode, specify all property values for the resource, not just the ones you're updating. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
+
+However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that are not specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
 
 ## Example result
 

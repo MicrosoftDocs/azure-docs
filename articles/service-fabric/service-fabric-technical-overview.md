@@ -3,8 +3,8 @@ title: Learn Azure Service Fabric terminology | Microsoft Docs
 description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: masnider
+manager: chackdan
 editor: chackdan;subramar
 
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
+ms.author: masnider
 
 ---
 # Service Fabric terminology overview
@@ -138,7 +138,7 @@ You can also run your existing applications on Service Fabric:
 
 **Containers**:  Service Fabric supports the deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016, along with support for Hyper-V isolation mode. In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. Service Fabric can run any containers, and the scenario is similar to the guest executable scenario, where you package an existing application inside a container. In addition, you can [run Service Fabric services inside containers](service-fabric-services-inside-containers.md) as well.
 
-**Guest executables**: You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables, which are treated as stateless services. The advantages to running a guest executable in a Service Fabric cluster include high availability, health monitoring, application lifecycle management, high density, and discoverability.
+**Guest executables**: You can run any type of code, such as Node.js, Python, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables, which are treated as stateless services. The advantages to running a guest executable in a Service Fabric cluster include high availability, health monitoring, application lifecycle management, high density, and discoverability.
 
 Read the [Choose a programming model for your service](service-fabric-choose-framework.md) article for more information.
 

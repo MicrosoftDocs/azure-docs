@@ -1,6 +1,6 @@
 ---
-title: Add entities
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/11/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
 # Create entities without utterances
 
-The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
+The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events, or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
 
 You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
 
@@ -51,7 +51,7 @@ A simple entity describes a single concept. Use the following procedure to creat
 
 <a name="add-regular-expression-entities"></a>
 
-## Add regular expression entities for highly-structured concepts
+## Add regular expression entities for highly structured concepts
 
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
@@ -60,29 +60,6 @@ A regular expression entity is used to pull out data from the utterance based on
 1. In the pop-up dialog box, enter `Human resources form name` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `hrf-[0-9]{6}`, and then select **Done**. 
 
     This regular expression matches literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
-
-## Add hierarchical entities
-
-A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
-
-In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
-
-To add hierarchical entities, complete the following steps: 
-
-1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
-
-1. In the pop-up dialog box, type `Location` in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
-
-    ![Add hierarchical entity](./media/add-entities/hier-location-entity-creation.png)
-
-1. Select **Add Child**, and then enter `Origin` in **Child #1** box. 
-
-1. Select **Add Child**, and then enter `Destination` in **Child #2** box. Select **Done**.
-
-    >[!CAUTION]
-    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
-
-    Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
 
 <a name="add-composite-entities"></a>
 
@@ -130,17 +107,15 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 ## Add a role to distinguish different contexts
 
-A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
+A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
-Using the same example as the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
-
-The syntax for a role is **{Entityname:Rolename}** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. From the **Build** section, select **Entities** in the left panel.
 
-1. Select **Create new entity**. Enter the name of `LocationUsingRoles`. Select the type **Simple** and select **Done**. 
+1. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**. 
 
-1. Select **Entities** from the left panel, then select the new entity **LocationUsingRoles** created in the previous step.
+1. Select **Entities** from the left panel, then select the new entity **Location** created in the previous step.
 
 1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
 

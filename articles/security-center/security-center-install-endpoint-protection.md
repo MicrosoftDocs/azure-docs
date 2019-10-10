@@ -3,18 +3,16 @@ title: Manage endpoint protection issues with Azure Security Center | Microsoft 
 description: Learn how to manage endpoint protection issues in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
+ms.date: 03/28/2019
+ms.author: memildin
 
 ---
 # Manage endpoint protection issues with Azure Security Center
@@ -27,12 +25,12 @@ Security Center reports the following endpoint protection issues:
 - Endpoint protection health:
 
   - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
-  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-partner-integration.md) for a list of supported solutions.
+  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-services.md#endpoint-supported) for a list of supported solutions.
   - Not reporting – An antimalware solution is installed but not reporting data.
   - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
 
     > [!NOTE]
-    > See [Integrate security solutions](security-center-partner-integration.md#integrated-azure-security-solutions) for a list of endpoint protection security solutions integrated with Security Center.
+    > See [Integrate security solutions](security-center-services.md#endpoint-supported) for a list of endpoint protection security solutions integrated with Security Center.
     >
     >
 
@@ -43,7 +41,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
 ## Install antimalware on Azure VMs
 
-1. Select **Compute** under the Security Center main menu or **Overview**.
+1. Select **Compute & apps** under the Security Center main menu or **Overview**.
 
    ![Select Compute][1]
 
@@ -96,7 +94,7 @@ Another search result opens with information filtered only for that computer.
 ## Next steps
 This article showed you how to implement the Security Center recommendation "Install Endpoint Protection." To learn more about enabling Microsoft Antimalware in Azure, see the following document:
 
-* [Microsoft Antimalware for Cloud Services and Virtual Machines](../security/azure-security-antimalware.md) -- Learn how to deploy Microsoft Antimalware.
+* [Microsoft Antimalware for Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) -- Learn how to deploy Microsoft Antimalware.
 
 To learn more about Security Center, see the following documents:
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
 This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](https://portal.azure.com) and to initiate failover.
 
-For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances, see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## Prerequisites
 
@@ -67,7 +66,7 @@ The secondary database can be switched to become the primary.
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.
 
-The command immediately switches the secondary database into the primary role.
+The command immediately switches the secondary database into the primary role. This process normally should complete within 30 sec or less.
 
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances.
 

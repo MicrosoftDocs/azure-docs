@@ -2,18 +2,18 @@
 title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Microsoft Docs'
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
-ms.date: 11/16/2018
-ms.author: kevin
+ms.subservice: development
+ms.date: 4/11/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
-# Quickstart: Create and query an Azure SQL data warehouse with Azure PowerShell
+# Quickstart: Create and query an Azure SQL Data Warehouse with Azure PowerShell
 
-Quickly create an Azure SQL data warehouse using Azure PowerShell.
+Quickly create an Azure SQL Data Warehouse using Azure PowerShell.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -84,7 +84,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL data warehouse through the SQL Data Warehouse service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create an [Azure SQL server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL Data Warehouse through the SQL Data Warehouse service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -97,8 +97,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## Create a data warehouse with sample data
-This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW400, which is a lower-cost starting point for your data warehouse. 
+## Create a data warehouse
+This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your data warehouse. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -106,7 +106,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -122,7 +122,7 @@ Required Parameters are:
 Optional Parameters are:
 
 - **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
-- **MaxSizeBytes**: The default max size of a database is 10 GB.
+- **MaxSizeBytes**: The default max size of a database is 240TB. The max size limits rowstore data. There is unlimited storage for columnar data.
 
 For more information on the parameter options, see [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
@@ -143,4 +143,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

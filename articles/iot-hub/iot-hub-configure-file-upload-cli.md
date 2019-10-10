@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Configure IoT Hub file uploads using Azure CLI

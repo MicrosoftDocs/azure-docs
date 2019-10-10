@@ -60,7 +60,7 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 >
 >
 
-For more information on APIs, see [Cloud Storage Account Constructor](https://msdn.microsoft.com/library/azure/mt616540.aspx).
+For more information on APIs, see [Cloud Storage Account Constructor](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.-ctor).
 
 The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 

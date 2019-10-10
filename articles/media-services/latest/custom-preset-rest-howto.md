@@ -11,12 +11,12 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
 
 ---
 
-# How to encode with a custom transform by using REST
+# How to encode with a custom transform - REST
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-tutorial-with-rest.md#create-a-transform) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -112,7 +112,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
                     "formats": [
                         {
                             "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
+                            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
                             "outputFiles": []
                         },
                         {

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use App Service environment - Azure
 description: How to create, publish, and scale apps in an Azure App Service environment
 services: app-service
@@ -10,15 +10,12 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ---
 # Use an App Service environment #
-
-## Overview ##
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
@@ -57,17 +54,14 @@ To create an app in an ASE:
 
 1. Select your OS. 
 
-    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
-    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
-
 1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
 	a. Select **Create New**.
 
 	b. Enter the name for your App Service plan.
 
-	c. Select your ASE in the **Location** drop-down list. Hosting a Linux app in an ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
-
+	c. Select your ASE in the **Location** drop-down list. 
+	
 	d. Select an **Isolated** pricing tier. Select **Select**.
 
 	e. Select **OK**.
@@ -132,7 +126,7 @@ With an External ASE, these publishing options all behave the same. For more inf
 
 The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
-Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. For Azure DevOps, you can work around this by installing a self-hosted release agent in your internal network where it can reach the ILB. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 

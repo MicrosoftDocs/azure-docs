@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 
@@ -195,6 +195,14 @@ For latency-sensitive environments, you should use a fiber solution with a minim
 ### Can I run Avere vFXT with public IP addresses?
 
 No, Avere vFXT is meant to be operated in a network environment secured through best practices.  
+
+### Can I restrict internet access from my cluster's virtual network? 
+
+In general, you can configure additional security on your vnet as needed, but some restrictions can interfere with the operation of the cluster.
+
+For example, restricting outbound internet access from your vnet causes problems for the cluster unless you also add a rule that explicitly allows access to AzureCloud. This situation is described in [supplemental documentation on GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+For help with customized security, contact support as described in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 
 ## Technical: Back-end storage (core filers)
 

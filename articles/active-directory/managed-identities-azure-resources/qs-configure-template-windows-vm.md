@@ -3,7 +3,7 @@ title: How to configure managed identities for Azure resources on an Azure VM by
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
-ms.author: priyamo
+ms.date: 09/26/2019
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -60,8 +60,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
    },
    ```
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources VM extension by specifying it as a `resources` element in the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
+
 
 3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
 

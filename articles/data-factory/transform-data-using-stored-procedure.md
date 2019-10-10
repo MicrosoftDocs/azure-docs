@@ -70,6 +70,17 @@ The following table describes these JSON properties:
 | storedProcedureName       | Specify the name of the stored procedure to invoke. | Yes      |
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
 
+## Parameter data type mapping
+The data type you specify for the parameter is the Azure Data Factory type that maps to the data type in the data source you are using. You can find the data type mappings for your data source in the connectors area. Some examples are
+
+| Data Source          | Data Type Mapping |
+| ---------------------|-------------------|
+| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
+
 ## Error info
 
 When a stored procedure fails and returns error details, you can't capture the error info directly in the activity output. However, Data Factory pumps all of its activity run events to Azure Monitor. Among the events that Data Factory pumps to Azure Monitor, it pushes error details there. You can, for example, set up email alerts from those events. For more info, see [Alert and Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md).

@@ -43,7 +43,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
   - name: PowerShell
-    href: /powershell/module/azurerm.powerbiembedded
+    href: /powershell/module/az.powerbiembedded
   - name: .NET Azure Resource Manager
     href: /dotnet/api/microsoft.azure.management.powerbiembedded
   - name: .NET SDK download

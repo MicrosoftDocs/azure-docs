@@ -10,17 +10,17 @@ ms.date: 04/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
-
 # Azure Active Directory B2B collaboration API and customization
 
 We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## Capabilities of the invitation API
+
 The API offers the following capabilities:
 
 1. Invite an external user with *any* email address.
@@ -66,21 +66,25 @@ The API offers the following capabilities:
 
 
 ## Authorization model
+
 The API can be run in the following authorization modes:
 
 ### App + User mode
+
 In this mode, whoever is using the API needs to have the permissions to be create B2B invitations.
 
 ### App only mode
+
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
 For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## PowerShell
+
 You can use PowerShell to add and invite external users to an organization easily. Create an invitation using the cmdlet:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -100,7 +104,8 @@ After you send an external user an invitation, you can use the **Get-AzureADUser
 
 You can use the **Filter** option to filter the results by **UserState**. The example below shows how to filter results to show only users who have a pending invitation. The example also shows the **Format-List** option, which lets you specify the properties to display. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -117,4 +122,3 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)
 - [Add B2B collaboration users without an invitation](add-user-without-invite.md)
-

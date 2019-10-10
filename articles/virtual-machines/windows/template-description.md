@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
@@ -25,7 +25,7 @@ This article describes aspects of an Azure Resource Manager template that apply 
 
 There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 

@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -25,6 +25,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 ## Set up Azure Monitor as a data sink 
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
@@ -236,12 +237,12 @@ To deploy the Resource Manager template, use Azure PowerShell:
 1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription you'll create, or update the virtual machine: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Create a new resource group for the VM being deployed. Run the following command: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -253,7 +254,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    > [!NOTE]  
    > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

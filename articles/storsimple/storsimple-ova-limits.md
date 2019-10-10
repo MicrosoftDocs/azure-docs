@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 
@@ -21,6 +21,9 @@ ms.custom: H1Hack27Feb2017
 # What are StorSimple Virtual Array limits?
 
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Consider these limits as you plan, deploy, and operate your Microsoft Azure StorSimple Virtual Array. The following table describes these limits for the virtual device.
 
 ## StorSimple Virtual Array limits

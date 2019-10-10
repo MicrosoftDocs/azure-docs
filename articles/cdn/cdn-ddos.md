@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +19,7 @@ ms.author: magattus
 ---
 # Azure CDN DDoS Protection
 
-A content delivery network provides DDoS protection by design. In addition to the global capactiy to absorb volumentric attacks, Azure CDN has additional DDoS protection as outlined below, for no extra cost.
+A content delivery network provides DDoS protection by design. In addition to the global capacity to absorb volumetric attacks, Azure CDN has additional DDoS protection as outlined below, for no extra cost.
 
 ## Azure CDN from Microsoft
 

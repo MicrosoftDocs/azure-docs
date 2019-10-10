@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 
 ---
 # What is geo-filtering on a domain for Azure Front Door?
 
-By default, Azure Front Door Service responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country. Web application firewall (WAF) service at Front Door enables you to define a policy using custom access rules for specific path on your endpoint to allow or block access from specified countries. 
+By default, Azure Front Door Service responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country/region. Web application firewall (WAF) service at Front Door enables you to define a policy using custom access rules for specific path on your endpoint to allow or block access from specified countries/regions. 
 
 A WAF policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
@@ -57,7 +58,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BY | Belarus|
 | BZ | Belize|
 | CA | Canada|
-| CD | Congo, The Democratic Republic of the|
+| CD | Democratic Republic of the Congo|
 | CF | Central African Republic|
 | CH | Switzerland|
 | CI | Cote d'Ivoire|
@@ -67,7 +68,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Cuba|
-| CV | Cape Verde|
+| CV | Cabo Verde|
 | CY | Cyprus|
 | CZ | Czech Republic|
 | DE | Germany|
@@ -92,7 +93,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | GR | Greece|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hong Kong|
+| HK | Hong Kong SAR|
 | HN | Honduras|
 | HR | Croatia|
 | HT | Haiti|
@@ -127,15 +128,15 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | LT | Lithuania|
 | LU | Luxembourg|
 | LV | Latvia|
-| LY | Libyan Arab Jamahiriya|
+| LY | Libya |
 | MA | Morocco|
 | MD | Moldova, Republic of|
 | MG | Madagascar|
-| MK | Macedonia|
+| MK | North Macedonia|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolia|
-| MO | Macao|
+| MO | Macao SAR|
 | MQ | Martinique|
 | MR | Mauritania|
 | MT | Malta|

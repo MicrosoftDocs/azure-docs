@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure PowerShell to create a
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

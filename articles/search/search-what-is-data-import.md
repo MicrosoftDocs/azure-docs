@@ -2,11 +2,11 @@
 title: Data import for data ingestion to a search index - Azure Search
 description: Populate and upload data to an index in Azure Search from external data sources.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -30,7 +30,7 @@ You can use the following APIs to load single or multiple documents into an inde
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell and the REST API](search-create-index-rest-api.md) or [Quickstart: Create an Azure Search index in C#](search-import-data-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell](search-create-index-rest-api.md) or [C# Quickstart: Create an Azure Search index using .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -38,9 +38,9 @@ For an introduction to each methodology, see [Quickstart: Create an Azure Search
 
 You can control the type of indexing action on a per-document basis, specifying whether the document should be uploaded in full, merged with existing document content, or deleted.
 
-In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-create-index-rest-api.md#load-documents).
+In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies whether an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-get-started-dotnet.md#load-documents).
 
-In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see the [C# Quickstart](search-get-started-dotnet.md).
 
 
 | @search.action | Description | Necessary fields for each document | Notes |
@@ -57,9 +57,9 @@ To import data using the .NET SDK, (upload, merge, delete, and mergeOrUpload). D
 ### Formulate your query
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2017-11-11` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2019-05-06` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
 
 The format for POST is the same, but with only api-version in the query string parameters.
 

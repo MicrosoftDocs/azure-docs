@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018	
-ms.author: danlep
+ms.author: lahugh
 ---
 ### Retrieve output files
 

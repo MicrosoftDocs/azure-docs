@@ -10,8 +10,6 @@ manager: craigg
 ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -22,7 +20,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -58,17 +55,17 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-	```PowerShell
+	```powershell
 	Connect-AzAccount
     ```
 3. Run the following command to view all the subscriptions for this account.
 
-	```PowerShell
+	```powershell
 	Get-AzSubscription
     ```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-	```PowerShell
+	```powershell
 	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -77,7 +74,7 @@ Create an Azure Active Directory application, create a service principal for the
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-	```PowerShell
+	```powershell
 	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -86,28 +83,28 @@ Create an Azure Active Directory application, create a service principal for the
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-	```PowerShell
+	```powershell
 	$azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     If you get the following error, specify a different URL and run the command again.
 	
-	```PowerShell
+	```powershell
 	Another object with the same value for property identifierUris already exists.
     ```
 7. Create the AD service principal.
 
-	```PowerShell
+	```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Add service principal to the **Data Factory Contributor** role.
 
-	```PowerShell
+	```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Get the application ID.
 
-	```PowerShell
+	```powershell
 	$azureAdApplication	
     ```
     Note down the application ID (applicationID) from the output.

@@ -15,9 +15,11 @@ ms.custom: bfmigrate
 
 This article has information that can help you migrate Azure identity resources from Azure Germany to global Azure.
 
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+
 ## Azure Active Directory
 
-Azure Active Directory (Azure AD) in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
+Azure AD in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
 
 Default tenant names in Azure Germany and global Azure are always different because Azure automatically appends a suffix based on the environment. For example, a user name for a member of the **contoso** tenant in global Azure is **user1\@contoso.microsoftazure.com**. In Azure Germany, it's **user1\@contoso.microsoftazure.de**.
 
@@ -129,8 +131,6 @@ Azure AD Connect is a tool that syncs your identity data between an on-premises 
 - Use an additional server for a second instance of Azure AD Connect. You can't have multiple instances of Azure AD Connect on the same server.
 - Define a new sign-in name for your users. The domain part (after **\@**) of the sign-in name must be different in each environment.
 - Define a clear "source of truth" when you also sync backward (from Azure AD to on-premises Active Directory).
-
-For more information about how to sync in different cloud environments by using Azure AD Connect, see the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/).
 
 If you already use Azure AD Connect to sync to and from Azure Germany, make sure that you migrate any manually created users. The following PowerShell cmdlet lists all users that aren't synced by using Azure AD Connect:
 

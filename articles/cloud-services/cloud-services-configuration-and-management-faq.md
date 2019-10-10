@@ -4,19 +4,16 @@ description: This article lists the frequently asked questions about configurati
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-
 ---
 # Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)
 
@@ -204,7 +201,7 @@ These steps could be automated via a startup task, so that whenever a new PaaS i
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
 
 - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-- Enable F12 Developer Tool in Internet Explorer/Microsoft Edge and switch to the Network tab to verify the protocol. 
+- Enable F12 Developer Tool in Internet Explorer or Microsoft Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
@@ -278,7 +275,7 @@ See [Service-specific limits](../azure-subscription-service-limits.md#subscripti
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
-The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
+The %approot% drive size is calculated as \<size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
 It is unsupported to write to the %approot% drive. If you are writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you are not sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
 
@@ -293,7 +290,7 @@ You can enable Antimalware extension using PowerShell script in the Startup Task
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
 ### How to enable Server Name Indication (SNI) for Cloud Services?
 

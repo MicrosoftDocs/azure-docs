@@ -4,7 +4,7 @@ description: Learn how to add a custom image to an existing Azure Virtual Machin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 
@@ -14,17 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 04/26/2018
 ms.author: manayar
 ---
 
 # Add a custom image to an Azure scale set template
 
-This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.
+This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.
 
 ## Change the template definition
-
-The minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and the template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:
+In a [previous article](virtual-machine-scale-sets-mvss-start.md) we had created a basic scale set template. We will now use that earlier template and modify it to create a template that deploys a scale set from a custom image.  
 
 ### Creating a managed disk image
 
@@ -54,7 +53,7 @@ Next, add a resource of type `Microsoft.Compute/images`, which is the managed di
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -79,7 +78,7 @@ In the scale set resource, add a `dependsOn` clause referring to the custom imag
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -94,15 +93,11 @@ In the scale set resource, add a `dependsOn` clause referring to the custom imag
 
 In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, specify the `id` of the `Microsoft.Compute/images` resource:
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {

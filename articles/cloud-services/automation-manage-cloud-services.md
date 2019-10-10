@@ -6,16 +6,13 @@ documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
-
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-
 ---
 # Managing Azure Cloud Services using Azure Automation
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services.
@@ -28,7 +25,7 @@ Azure Automation provides a highly-reliable and highly-available workflow execut
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 ## How can Azure Automation help manage Azure cloud services?
-Azure cloud services can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these cloud service PowerShell cmdlets available out of the box, so that you can perform all of your cloud service management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Azure cloud services can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](/powershell/). Azure Automation has these cloud service PowerShell cmdlets available out of the box, so that you can perform all of your cloud service management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 Some example uses of Azure Automation to manage Azure Cloud Services include:
 

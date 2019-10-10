@@ -3,7 +3,7 @@ title: Whitepapers and case studies - Avere vFTX for Azure
 description: Links to downloadable whitepapers, case studies, and other articles that illustrate Avere vFXT for Azure and how it can be used. 
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
 ---
@@ -20,7 +20,7 @@ This guide provides step-by-step guidance for installing Agisoft PhotoScan photo
 
 ## Datasheet: Avere vFXT for Azure
 
-**Link:** [Avere vFXT for Azure datasheet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
+**Link:** [Avere vFXT for Azure datasheet](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 This two-page brief has basic information and diagrams that explain how to use Avere vFXT for Azure in several use case scenarios.
 

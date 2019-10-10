@@ -1,6 +1,6 @@
 ---
 title: Understand time handling in Azure Stream Analytics
-description: Learn about time handling in Azure Stream Analytics
+description: Learn about how time handling works and how to solve time handling problems in Azure Stream Analytics.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
@@ -21,7 +21,7 @@ To better frame the discussion, let's define some background concepts:
 
 - **Processing time**: The time when the event reaches the processing system and is observed. For example, when a toll booth sensor sees the car and the computer system takes a few moments to process the data.
 
-- **Watermark**: An event time marker that indicates all events up to what point has been ingress to the streaming processor. Watermarks let the system indicate clear progress on ingesting the events. By the nature of streams, the incoming event data never stops, so watermarks indicate the progress to a certain point in the stream.
+- **Watermark**: An event time marker that indicates up to what point events have been ingressed to the streaming processor. Watermarks let the system indicate clear progress on ingesting the events. By the nature of streams, the incoming event data never stops, so watermarks indicate the progress to a certain point in the stream.
 
    The watermark concept is important. Watermarks allow Stream Analytics to determine when the system can produce complete, correct, and repeatable results that don’t need to be retracted. The processing can be done in a guaranteed way that's predictable and repeatable. For example, if a recount needs to be done for some error handling condition, watermarks are safe starting and ending points.
 

@@ -1,11 +1,11 @@
 ---
 title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 2/13/2019
-ms.author: mjbrown
+ms.date: 07/23/2019
+ms.author: rimman
 ms.reviewer: sngun
 ---
 
@@ -50,9 +50,9 @@ The table below defines the relationship between consistency model and data dura
 |1|Single or Multi-Master|Any Consistency Level|< 240 Minutes|<1 Week|
 |>1|Single Master|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
 |>1|Single Master|Bounded Staleness|*K* & *T*|< 15 minutes|
+|>1|Single Master|Strong|0|< 15 minutes|
 |>1|Multi-Master|Session, Consistent Prefix, Eventual|< 15 minutes|0|
 |>1|Multi-Master|Bounded Staleness|*K* & *T*|0|
-|>1|Single or Multi-Master|Strong|0|< 15 minutes|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 

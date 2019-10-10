@@ -3,16 +3,17 @@ title: Deploy container instances into an Azure virtual network
 description: Learn how to deploy container groups to a new or existing Azure virtual network.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 07/11/2019
 ms.author: danlep
 ---
 
 # Deploy container instances into an Azure virtual network
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network.
 
 Container groups deployed into an Azure virtual network enable scenarios like:
 
@@ -25,12 +26,12 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
+
 ## Virtual network deployment limitations
 
 Certain limitations apply when you deploy container groups to a virtual network.
 
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
-* Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
 * You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
 
@@ -42,10 +43,14 @@ While this feature is in preview, the following limitations apply when deploying
 
 Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
-### Unsupported network resources and features
+### Unsupported networking scenarios 
 
-* Azure Load Balancer
-* Virtual network peering
+* **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
+* **Virtual network peering** - You can't peer a virtual network containing a subnet delegated to Azure Container Instances to another virtual network
+* **Route tables** - User-defined routes can't be set up in a subnet delegated to Azure Container Instances
+* **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
+* **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
+* **Internal name resolution** - Name resolution for Azure resources in the virtual network via the internal Azure DNS is not supported
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
@@ -256,9 +261,13 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### Delete network resources
 
+
+> [!NOTE]
+> If you recieve an error while attempting to remove the Network Profile allow 2-3 days for the platform to automatically mitigate the issue and attempt the deletion again. If you still have issues removing the Network Profile [open a support reqest.](https://azure.microsoft.com/support/create-ticket/)
+
 The initial preview of this feature requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
 
-Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
+Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. Update the name of the virtual network if you did not use the `aci-vnet` name suggested earlier. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
 
 > [!WARNING]
 > This script deletes resources! It deletes the virtual network and all subnets it contains. Be sure that you no longer need *any* of the resources in the virtual network, including any subnets it contains, prior to running this script. Once deleted, **these resources are unrecoverable**.
@@ -272,18 +281,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
-
-# Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --remove delegations 0
-
-# Delete the subnet
-az network vnet subnet delete --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet
 
 # Delete virtual network
 az network vnet delete --resource-group $RES_GROUP --name aci-vnet

@@ -3,10 +3,9 @@ title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
 ---
@@ -19,31 +18,11 @@ Key Vault allows you to securely access sensitive information from within your a
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
 - As of the September 2016 release of Key Vault, your applications can now manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
-For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
+For more general information on Azure Key Vault, see [What is Key Vault](key-vault-overview.md).
 
 ## Public Previews
 
 Periodically, we release a public preview of a new Key Vault feature. Try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
-
-### Storage Account Keys - July 10, 2017
-
->[!NOTE]
->For this update of Azure Key Vault only the **Storage Account Keys** feature is in preview.
-
-This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) and [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
-
-## Videos
-
-This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.
-
-- [Key Vault developer - quick start guide](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Resources mentioned in above video:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault Sample Code](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## Creating and Managing Key Vaults
 

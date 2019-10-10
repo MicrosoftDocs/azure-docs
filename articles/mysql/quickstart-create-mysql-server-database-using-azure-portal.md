@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/15/2019
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -23,9 +23,9 @@ You create an Azure Database for MySQL server with a defined set of [compute and
 
 Follow these steps to create an Azure Database for MySQL server:
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
+1. Select **Create a resource** (+) in the upper-left corner of the  portal.
 
-2. Select **Databases** > **Azure Database for MySQL**. You can also type **MySQL** in the search box to find the service.
+2. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
 
    ![Azure Database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
@@ -35,7 +35,7 @@ Follow these steps to create an Azure Database for MySQL server:
 
     **Setting** | **Suggested value** | **Field description** 
     ---|---|---
-    Server name | Unique server name | Choose a unique name that identifies your Azure Database for MySQL server. For example, mydemoserver. The domain name *.mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+    Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, mydemoserver. The domain name *.mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
     Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
     Resource group | *myresourcegroup* | Provide a new or existing resource group name.
     Select source | *Blank* | Select *Blank* to create a new server from scratch. (You select *Backup* if you are creating a server from a geo-backup of an existing Azure Database for MySQL server).
@@ -44,7 +44,7 @@ Follow these steps to create an Azure Database for MySQL server:
     Confirm password | *Your choice*| Confirm the admin account password.
     Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
     Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
-    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *4 vCores*, *100 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information.
@@ -62,7 +62,7 @@ Follow these steps to create an Azure Database for MySQL server:
 
 The Azure Database for MySQL service creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1. After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name, such as the example **mydemoserver**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1. After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then enter the server name, such as the example **mydemoserver**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
 2. On the server page, select **Connection security**.
 
@@ -168,7 +168,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
 1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
+2. Create a new connection. Select the plus (+) icon beside the **MySQL Connections** heading.
 
 3. In the **Setup New Connection** dialog box, enter your server connection information on the **Parameters** tab. Placeholder values are shown as an example. Replace the Hostname, Username, and Password with your own values.
 
@@ -181,7 +181,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
     Hostname | *Server name* | The server name value that you used when you created the Azure Database for MySQL server earlier. Our example server is **mydemoserver.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
      Port | 3306 | The port to use when connecting to your Azure Database for MySQL server. |
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin\@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
-    Password | *Your password* | Select the **Store in Vault...** button to save the password. |
+    Password | *Your password* | Select **Store in Vault** to save the password. |
 
 4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
@@ -199,7 +199,7 @@ To delete the entire resource group including the newly created server, take the
 
 1.	Locate your resource group in the Azure portal. On the menu on the left, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
 
-2.	On your resource group page, select **Delete**. Then type the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and select **Delete**.
+2.	On your resource group page, select **Delete**. Then enter the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and select **Delete**.
 
 To delete only the newly created server, take the following steps:
 
@@ -209,7 +209,7 @@ To delete only the newly created server, take the following steps:
 
    ![Azure Database for MySQL--Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3. Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
+3. Confirm the name of the server that you want to delete, and show the databases under it that are affected. Enter your server name in the box (such as our example **mydemoserver**). Select **Delete**.
 
 ## Next steps
 

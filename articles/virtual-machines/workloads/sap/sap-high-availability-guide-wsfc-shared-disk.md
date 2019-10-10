@@ -4,14 +4,14 @@ description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -217,7 +217,7 @@ In Windows, an SAP ASCS/SCS instance contains SAP central services, the SAP mess
 An SAP ASCS/SCS instance has the following components:
 
 * SAP central services:
-    * Two processes, a message and enqueue server, and an <ASCS/SCS virtual host name>, which is used to access these two processes.
+    * Two processes, a message and enqueue server, and an \<ASCS/SCS virtual host name>, which is used to access these two processes.
     * File structure: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
@@ -225,7 +225,7 @@ An SAP ASCS/SCS instance has the following components:
   * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
   * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
-    \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
+    \\\\<ASCS/SCS virtual host name\>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]
@@ -240,7 +240,7 @@ _**Figure 3:** SAP ASCS/SCS HA architecture with shared disk_
 
 > [!IMPORTANT]
 > These two components run under the same SAP ASCS/SCS instance:
->* The same <ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
+>* The same \<ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
 >* The same cluster shared disk drive S is shared between them.
 >
 
@@ -261,7 +261,7 @@ To create a shared disk resource for a cluster:
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional disk attached volume from the source virtual machine to the additional disk attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server failover clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figure 5: Windows Server failover clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 

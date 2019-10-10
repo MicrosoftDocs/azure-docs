@@ -4,7 +4,7 @@ description: This article talks about the testability actions found in Microsoft
 services: service-fabric
 documentationcenter: .net
 author: motanv
-manager: timlt
+manager: chackdan
 editor: heeldin
 
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a

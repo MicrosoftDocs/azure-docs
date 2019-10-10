@@ -108,11 +108,11 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **Metadata URL**: The URL to get federation metadata from Azure AD.
 
-* **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/.
+* **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/.
 
-* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
 * **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
 

@@ -21,18 +21,12 @@ ms.custom: mvc
 ---
 # Quickstart: Use Azure Cache for Redis with Python
 
-
-## Introduction
-
-This quickstart shows how to connect to an Azure Cache for Redis with Python to read and write to a cache. 
-
-![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
 
-* [Python 2 or Python 3 environment](https://www.python.org/downloads/) installed with [pip](https://pypi.org/project/pip/). 
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [Python 2 or 3](https://www.python.org/downloads/)
 
 ## Create an Azure Cache for Redis on Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -43,9 +37,11 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 [Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, *pip*, to install the redis-py package. 
 
-The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt running with elevated Administrator privileges.
+The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
 
+```python
     pip3 install redis
+```
 
 ![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -64,6 +60,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> For Redis version is 3.0 or higher, SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Redis. In case of RH Linux, ssl_ca_certs can be found in the "/etc/pki/tls/certs/ca-bundle.crt" certificate module.
+
 ## Create a Python script
 
 Create a new script text file named *PythonApplication1.py*.
@@ -76,7 +75,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -88,9 +88,9 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
-	print("id : " + c['id'] + ", addr : " + c['addr'])
+    print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
 Run the script with Python.
@@ -108,23 +108,20 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 >
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
-
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

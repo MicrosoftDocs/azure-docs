@@ -1,13 +1,13 @@
 ---
 title: 'Azure Backup: Restore System State to a Windows Server'
 description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/18/2017
-ms.author: saurse
+ms.date: 08/18/2017
+ms.author: dacurwin
 ---
 # Restore System State to Windows Server
 
@@ -21,7 +21,7 @@ This article explains how to restore Windows Server System State backups from an
 
 
 ## Recover System State files to the same server
-The following steps explain how to roll back your Windows Server configuration to a previous state. Rolling your server configuration back to a known, stable state, can be extremely valuable. The following steps restore the server's System State from a Recovery Services vault. 
+The following steps explain how to roll back your Windows Server configuration to a previous state. Rolling your server configuration back to a known, stable state, can be extremely valuable. The following steps restore the server's System State from a Recovery Services vault.
 
 1. Open the **Microsoft Azure Backup** snap-in. If you don't know where the snap-in was installed, search the computer or server for **Microsoft Azure Backup**.
 
@@ -39,7 +39,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
     ![Browse files](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. On the calendar in **Select Volume and Date** pane, select a recovery point. 
+5. On the calendar in **Select Volume and Date** pane, select a recovery point.
 
     You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu.
 
@@ -85,11 +85,11 @@ The terminology used in these steps includes:
 5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault associated with the vault credential file appears.
 
 6. On the Select Backup Server pane, select the *Source machine* from the list of displayed machines.
-7. On the Select Recovery Mode pane, choose **System State** and click **Next**. 
+7. On the Select Recovery Mode pane, choose **System State** and click **Next**.
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. On the Calendar in the **Select Volume and Date** pane, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once  you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu. 
+8. On the Calendar in the **Select Volume and Date** pane, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once  you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu.
 
     ![Search items](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -101,13 +101,13 @@ The terminology used in these steps includes:
 
     The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
 
-11. Verify the details of recovery on the Confirmation pane, and click **Recover**. 
+11. Verify the details of recovery on the Confirmation pane, and click **Recover**.
 
     ![click the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
 
-13. To complete the recovery process, use the following section to [apply the restored System State files on a Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server).
+13. To complete the recovery process, use the following section to [apply the restored System State files on a Windows Server](#apply-restored-system-state-on-a-windows-server).
 
 
 
@@ -118,9 +118,9 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 1. Use the following commands to reboot your server in *Directory Services Repair Mode*. In an elevated command prompt:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. After the reboot, open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
@@ -137,7 +137,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
    ![choose to recover to a different server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. When specifying the location type, select **Remote shared folder** if your System State backup was recovered to another server. If your System State was recovered locally, then select **Local drives**. 
+6. When specifying the location type, select **Remote shared folder** if your System State backup was recovered to another server. If your System State was recovered locally, then select **Local drives**.
 
     ![select whether to recovery from local server or another](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
@@ -165,7 +165,7 @@ System State backup includes Active Directory data. Use the following steps to r
 
 ## Troubleshoot failed System State restore
 
-If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use This option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution. 
+If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
 
 1. Boot your Windows Server into the Windows Recovery Environment (Win RE).
 
@@ -183,14 +183,14 @@ If the previous process of applying System State does not complete successfully,
 
 5. When you open the command prompt in administrator mode, run following command to get the System State backup versions.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![get System State backup versions](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Run the following command to get all volumes available in the backup.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -198,7 +198,7 @@ If the previous process of applying System State does not complete successfully,
 
 7. The following command recovers all volumes that are part of the System State Backup. Note that this step recovers only the critical volumes that are part of the System State. All non-System data is erased.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![get System State backup versions](./media/backup-azure-restore-system-state/winre-6.png)

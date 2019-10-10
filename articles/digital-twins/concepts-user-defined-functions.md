@@ -1,13 +1,13 @@
 ---
-title: 'Data processing and user-defined functions with Azure Digital Twins| Microsoft Docs'
+title: 'Data processing and user-defined functions - Azure Digital Twins| Microsoft Docs'
 description: Overview of data processing, matchers, and user-defined functions with Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
-ms.author: alinast
+ms.date: 09/17/2019
 ---
 
 # Data processing and user-defined functions
@@ -18,7 +18,7 @@ Azure Digital Twins offers advanced compute capabilities. Developers can define 
 
 After devices send telemetry data to Azure Digital Twins, developers can process data in four phases: *validate*, *match*, *compute*, and *dispatch*.
 
-![Azure Digital Twins data processing flow][1]
+[![Azure Digital Twins data processing flow](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. The validate phase transforms the incoming telemetry message to a commonly understood [data transfer object](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) format. This phase also executes device and sensor validation.
 1. The match phase finds the appropriate user-defined functions to run. Predefined matchers find the user-defined functions based on the device, sensor, and space information from the incoming telemetry message.
@@ -29,9 +29,7 @@ After devices send telemetry data to Azure Digital Twins, developers can process
 
 Data processing in Azure Digital Twins consists of defining three objects: *matchers*, *user-defined functions*, and *role assignments*.
 
-![Azure Digital Twins data processing objects][2]
-
-<div id="matcher"></div>
+[![Azure Digital Twins data processing objects](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### Matchers
 
@@ -87,7 +85,7 @@ Matchers define a set of conditions that evaluate what actions take place based 
 
 ### User-defined functions
 
-A user-defined function is a custom function executed within an isolated Azure Digital Twins environment. User-defined functions have access to raw sensor telemetry message as it gets received. User-defined functions also have access to the spatial graph and dispatcher service. After the user-defined function is registered within a graph, a matcher (detailed [above](#matcher)) must be created to specify when the function is executed. For example, when Azure Digital Twins receives new telemetry from a given sensor, the matched user-defined function can calculate a moving average of the last few sensor readings.
+A user-defined function is a custom function executed within an isolated Azure Digital Twins environment. User-defined functions have access to raw sensor telemetry message as it gets received. User-defined functions also have access to the spatial graph and dispatcher service. After the user-defined function is registered within a graph, a matcher (detailed [above](#matchers)) must be created to specify when the function is executed. For example, when Azure Digital Twins receives new telemetry from a given sensor, the matched user-defined function can calculate a moving average of the last few sensor readings.
 
 User-defined functions can be written in JavaScript. Helper methods interact with the graph in the user-defined execution environment. Developers can execute custom snippets of code against sensor telemetry messages. Examples include:
 
@@ -98,14 +96,11 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 
 For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
 
-
 #### Examples
 
 The [GitHub repo for the Digital Twins C# sample](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contains a few examples of the user-defined functions:
 - [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) looks for carbon dioxide, motion, and temperature values to determine whether a room is available with these values in range. The [tutorials for Digital Twins](tutorial-facilities-udf.md) explore this function in more details. 
 - [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) looks for data from multiple motion sensors, and determines that the space is available if none of them detect any motion. You can easily replace the user-defined function used in either the [quickstart](quickstart-view-occupancy-dotnet.md), or the [tutorials](tutorial-facilities-setup.md), by making the changes mentioned in the comments section of the file. 
-
-
 
 ### Role assignment
 
@@ -120,7 +115,3 @@ It's possible for a matcher to trigger a user-defined function that has no role 
 - To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](./how-to-user-defined-functions.md).
 
 - Review the [user-defined function client library reference documentation](./reference-user-defined-functions-client-library.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

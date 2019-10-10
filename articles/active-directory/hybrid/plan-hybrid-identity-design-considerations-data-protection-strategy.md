@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -84,7 +84,7 @@ A vital part of content management is to understand who is accessing which resou
 ## Define access control options
 By leveraging the authentication, authorization and access control capabilities available in Azure AD you can enable your company to use a central identity repository while allowing users and partners to use single sign-on (SSO) as shown in the following figure:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![centralized management](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Centralized management and fully integration with other directories
 
@@ -101,7 +101,7 @@ Azure Active Directory provides single sign-on to thousands of SaaS applications
 >
 >
 
-Using the Azure AD support, mobile business applications can use the same easy Mobile Services authentication experience to allow employees to sign into their mobile applications with their corporate Active Directory credentials. With this feature, Azure AD is supported as an identity provider in Mobile Services alongside the other identity providers already supported (which include Microsoft Accounts, Facebook ID, Google ID, and Twitter ID). If the on-premises apps use the user’s credential located at the company’s AD DS, the access from partners and users coming from the cloud should be transparent. You can manage user’s conditional access control to (cloud-based) web applications, web API, Microsoft cloud services, third-party SaaS applications, and native (mobile) client applications, and have the benefits of security, auditing, reporting all in one place. However, it is recommended to validate the implementation in a non-production environment or with a limited number of users.
+Using the Azure AD support, mobile business applications can use the same easy Mobile Services authentication experience to allow employees to sign into their mobile applications with their corporate Active Directory credentials. With this feature, Azure AD is supported as an identity provider in Mobile Services alongside the other identity providers already supported (which include Microsoft Accounts, Facebook ID, Google ID, and Twitter ID). If the on-premises apps use the user’s credential located at the company’s AD DS, the access from partners and users coming from the cloud should be transparent. You can manage user’s Conditional Access control to (cloud-based) web applications, web API, Microsoft cloud services, third-party SaaS applications, and native (mobile) client applications, and have the benefits of security, auditing, reporting all in one place. However, it is recommended to validate the implementation in a non-production environment or with a limited number of users.
 
 > [!TIP]
 > it is important to mention that Azure AD does not have Group Policy as AD DS has. In order to enforce policy for devices, you need a mobile device management solution such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
@@ -110,7 +110,7 @@ Using the Azure AD support, mobile business applications can use the same easy M
 
 Once the user is authenticated using Azure AD, it is important to evaluate the level of access that the user has. The level of access that the user has over a resource can vary. While Azure AD can add an additional security layer by controlling access to some resources, keep in mind that the resource itself can also have its own access control list separately, such as the access control for files located in a File Server. The following figure summarizes the levels of access control that you can have in a hybrid scenario:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![access control](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Each interaction in the diagram showed in Figure X represents one access control scenario that can be covered by Azure AD. Below you have a description of each scenario:
 
@@ -126,7 +126,7 @@ Each interaction in the diagram showed in Figure X represents one access control
    > If you are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
 
 
-3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. 
+3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision Conditional Access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. 
   
 4. Conditional Access for Saas apps: [This feature](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 

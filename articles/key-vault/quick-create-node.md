@@ -2,15 +2,13 @@
 title: Quickstart - Set and retrieve a secret from Azure Key Vault by using a Node web app | Microsoft Docs
 description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a Node web app 
 services: key-vault
-documentationcenter: 
-author: prashanthyv
-manager: sumedhb
+author: msmbaldwin
+manager: rkarlin
 
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
@@ -23,10 +21,10 @@ This quickstart shows you how to store a secret in Azure Key Vault and how to re
 * Store a secret in the key vault.
 * Retrieve a secret from the key vault.
 * Create an Azure web application.
-* Enable a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the web app.
+* Enable a [managed identity](../active-directory/managed-service-identity/overview.md) for the web app.
 * Grant the required permissions for the web application to read data from the key vault.
 
-Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](key-vault-whatis.md#basic-concepts).
+Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. In keeping with security best practices, this first secret needs to be rotated periodically. 
@@ -147,7 +145,7 @@ Browse to your newly created web app, and you should see that it's functioning. 
     ```
     http://<app name>.azurewebsites.net
     ```
-The preceding command also creates a Git-enabled app that enables you to deploy to Azure from your local Git repository. The local Git repo is configured with this URL: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git.
+The preceding command also creates a Git-enabled app that enables you to deploy to Azure from your local Git repository. The local Git repo is configured with this URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 After you finish the preceding command, you can add an Azure remote to your local Git repository. Replace `<url>` with the URL of the Git repo.
 
@@ -180,7 +178,7 @@ Make note of the output of the previous command. It should be in the format:
 Then, run the following command by using the name of your key vault and the value of **principalId**:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
 ## Deploy the Node app to Azure and retrieve the secret value
@@ -191,9 +189,13 @@ Run the following command to deploy the app to Azure:
 git push azure master
 ```
 
-After this, when you browse to https://<app_name>.azurewebsites.net, you can see the secret value. Make sure that you replaced the name <YourKeyVaultName> with your vault name.
+After this, when you browse to `https://<app_name>.azurewebsites.net`, you can see the secret value. Make sure that you replaced the name `<YourKeyVaultName>` with your vault name.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

@@ -49,7 +49,7 @@ Migrating Azure Functions resources from Azure Germany to global Azure isn't sup
 
 For more information:
 
-- Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions).
 - Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -59,9 +59,9 @@ For more information:
 
 To migrate settings from one instance of Azure Notification Hubs to another instance, export and then import all registration tokens and tags:
 
-1. [Export the existing notification hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) to an Azure Blob storage container.
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
 1. Create a new notification hub in the target environment.
-1. [Import your registration tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Blob storage to your new notification hub.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
 For more information:
 

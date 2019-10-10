@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom search web page - Bing Custom Search"
-titlesuffix: Azure Cognitive Services
-description: Describes how to configure a custom search instance and integrate it into a web page.
+titleSuffix: Azure Cognitive Services
+description: Learn how to configure a custom Bing search instance and integrate it into a web page.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ The tasks covered are:
 ## Prerequisites
 
 - To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- If you don’t already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
 

@@ -11,7 +11,7 @@ ms.custom: "include file"
 
 ---
 
-## Create a storage account for Event Processor Host
+### Create a storage account for Event Processor Host
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
 
 1. In the Azure portal, and select **Create a resource** at the top left of the screen.

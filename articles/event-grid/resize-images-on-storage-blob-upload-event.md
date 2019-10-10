@@ -140,7 +140,7 @@ THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
 -n $blobStorageAccount --query [0].value --output tsv)
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
@@ -270,6 +270,8 @@ Click **Choose File** to select a file, then click **Upload Image**. When the up
 Click **Choose File** to select a file, then click **Upload Image**. When the upload is successful, the browser navigates to a success page. Click the link to return to the home page. A copy of the uploaded image is displayed in the **Generated thumbnails** area. (If the image doesn't appear at first, try reloading the page.) This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
 ![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## Next steps
 

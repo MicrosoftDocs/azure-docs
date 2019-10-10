@@ -3,18 +3,16 @@ title: Onboarding to Azure Security Center Standard for enhanced security | Micr
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 19/02/2019
-ms.author: monhaber
+ms.date: 02/19/2019
+ms.author: memildin
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security
@@ -29,7 +27,7 @@ Security Center Standard includes:
 ## Detecting unprotected resources     
 Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
 
-You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription, or you can define a unique policy to upgrade a specific resource group only. If the resource group’s policy settings are unique, Security Center will not override the pricing policies when you upgrade the subscription to the Standard tier. Applying the Standard tier to a subscription applies to all supported  resources in the subscription. Applying the Standard tier to a workspace applies to all resources reporting to the workspace.
+You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all supported resources within the subscription. Applying the Standard tier to a workspace applies to all resources reporting to the workspace.
 
 > [!NOTE]
 > You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace.  If you are using solution targeting, Security Center lists the workspace as not having a solution.
@@ -108,7 +106,7 @@ In this article you learned how to onboard Azure and non-Azure resources in orde
 
 - [Enable data collection](security-center-enable-data-collection.md)
 - [Threat intelligence report](security-center-threat-report.md)
-- [Just in time VM access](security-center-just-in-time.md)
+- [Just-in-time VM access](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

@@ -5,8 +5,8 @@ services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
+ms.topic: conceptual
+ms.date: 04/08/2019
 ms.author: mayg
 
 ---

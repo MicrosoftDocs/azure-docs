@@ -1,20 +1,20 @@
 ---
-title: Seller Insights Definitions | Microsoft Docs
+title: Seller Insights Definitions 
 description: Provides definitions for many of the terms you will find in Seller Insights
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 Seller Insights Definitions
@@ -40,7 +40,7 @@ The following table provides definitions for many of the terms used in Seller In
 | **Customer City**  | The city name provided by the customer. This could be different than the city in a customer’s Azure Subscription.  |
 | **Customer Communication Language**        | The language preferred by the customer for communication.                                  |
 | **Customer Company Name**                  | The company name provided by the customer. This could be different than the city in a customer’s Azure Subscription.                                  |
-| **Customer Country**                       | The country name provided by the customer.  This could be different than the country in a customer’s Azure Subscription.                               |
+| **Customer Country**                       | The country/region name provided by the customer.  This could be different than the country/region in a customer’s Azure Subscription.                               |
 | **Customer Currency (CC)**                 | The currency preferred by the customer for pricing and billing.                            |
 | **Customer Email**                         | The e-mail address provided by the end customer.  This could be different than the e-mail address in a customer’s Azure Subscription.                   |
 | **Customer First Name**                              | The first name provided by the customer.  This could be different than the name provided in a customer’s Azure Subscription.                    |

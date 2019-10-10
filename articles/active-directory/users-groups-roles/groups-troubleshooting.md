@@ -19,18 +19,22 @@ ms.collection: M365-identity-device-management
 # Troubleshoot and resolve groups issues
 
 ## Troubleshooting group creation issues
+
 **I disabled security group creation in the Azure portal but groups can still be created via Powershell**
 The **User can create security groups in Azure portals** setting in the Azure portal controls whether or not non-admin users can create security groups in the Access panel or the Azure portal. It does not control security group creation via Powershell.
 
 To disable group creation for non-admin users in Powershell:
 1. Verify that non-admin users are allowed to create groups:
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

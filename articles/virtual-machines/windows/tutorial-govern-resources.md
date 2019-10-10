@@ -4,13 +4,12 @@ description: In this tutorial, you learn how to use Azure PowerShell to manage A
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
@@ -24,6 +23,8 @@ ms.custom: mvc
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## Launch Azure Cloud Shell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
@@ -67,7 +68,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-If you receive an error stating **Principal <guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
+If you receive an error stating **Principal \<guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
@@ -232,8 +233,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Protect critical resources with locks
 > * Tag resources for billing and management
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to identify changes and manage package updates on a Linux virtual machine.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
+> [Manage virtual machines](tutorial-config-management.md)
 

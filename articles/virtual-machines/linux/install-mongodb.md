@@ -4,7 +4,7 @@ description: Learn how to install and configure MongoDB on a Linux virtual machi
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e

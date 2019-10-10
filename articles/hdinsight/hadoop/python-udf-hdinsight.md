@@ -1,7 +1,6 @@
 ---
 title: Python UDF with Apache Hive and Apache Pig - Azure HDInsight 
 description: Learn how to use Python User Defined Functions (UDF) from Apache Hive and Apache Pig in HDInsight, the Apache Hadoop technology stack on Azure.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -24,12 +23,12 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 
 * **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be wasbs://.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
 * Optional.  If Planning to use PowerShell, you will need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
 
 > [!NOTE]  
-> The storage account used in this article was Azure Storage with [secure transfer](/../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
+> The storage account used in this article was Azure Storage with [secure transfer](../../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
 
 ## Storage configuration
 No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which are not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
@@ -156,9 +155,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
     ```
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `hiveudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `hiveudf.py` script:
 
@@ -321,6 +317,7 @@ On your development environment, create a text file named `pigudf.py`. Use the f
 # Uncomment the following if using C Python
 #from pig_util import outputSchema
 
+
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 def create_structure(input):
     if (input.startswith('java.lang.Exception')):
@@ -428,9 +425,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `pigudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `pigudf.py` script:
 

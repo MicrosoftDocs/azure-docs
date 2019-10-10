@@ -10,6 +10,8 @@
     href: quickstart-create-traffic-manager-profile.md
   - name: Create a Traffic Manager profile - PowerShell
     href: quickstart-create-traffic-manager-profile-powershell.md
+  - name: Create a Traffic Manager profile - Azure CLI
+    href: quickstart-create-traffic-manager-profile-cli.md
 - name: Tutorials
   items:
   - name: Route traffic for low latency
@@ -87,6 +89,12 @@
     href: traffic-manager-powershell-arm.md
   - name: Point your Internet domain to Traffic Manager
     href: traffic-manager-point-internet-domain.md
+  - name: Subnet override
+    items:
+    - name: Configure subnet override - Azure CLI
+      href: traffic-manager-subnet-override-cli.md
+    - name: Configure subnet override - PowerShell
+      href: traffic-manager-subnet-override-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot degraded state on Azure Traffic Manager
@@ -96,7 +104,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=traffic-manager
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.trafficmanager
+    href: /powershell/module/az.trafficmanager
   - name: Azure CLI
     href: /cli/azure/network/traffic-manager
   - name: Java
@@ -104,7 +112,7 @@
   - name: Node.js
     href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
+    href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
   - name: REST

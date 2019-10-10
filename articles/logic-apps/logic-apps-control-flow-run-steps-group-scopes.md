@@ -153,7 +153,7 @@ so save your work often.
 
    1. In the **Body** field, enter this text with a trailing space: 
 
-      ```Travel time: ```
+      ```Travel time:```
 
       While your cursor appears in the **Body** field, 
       the dynamic content list stays open so that you can 
@@ -187,12 +187,14 @@ so save your work often.
 
    1. When you're done, choose **OK**.
 
+   <!-- markdownlint-disable MD038 -->
    1. After the expression resolves, 
        add this text with a leading space: ``` minutes```
   
        Your **Body** field now looks like this example:
 
        ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+   <!-- markdownlint-enable MD038 -->
 
 1. Save your logic app.
 

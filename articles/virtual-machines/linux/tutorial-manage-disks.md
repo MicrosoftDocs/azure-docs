@@ -4,13 +4,12 @@ description: In this tutorial, you learn how to use the Azure CLI to create and 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -44,11 +43,9 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
-
 ## Azure data disks
 
-To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
-
+To install applications and store data, additional data disks can be added. Data disks should be used in any situation where durable and responsive data storage is desired. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
 
 ## VM disk types
 
@@ -105,7 +102,7 @@ To create and attach a new disk to an existing virtual machine, use the [az vm d
 az vm disk attach \
     --resource-group myResourceGroupDisk \
     --vm-name myVM \
-    --disk myDataDisk \
+    --name myDataDisk \
     --size-gb 128 \
     --sku Premium_LRS \
     --new
@@ -254,7 +251,7 @@ Use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command to att
 az vm disk attach \
    –g myResourceGroupDisk \
    --vm-name myVM \
-   --disk $datadisk
+   --name $datadisk
 ```
 
 ## Next steps

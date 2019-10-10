@@ -56,6 +56,11 @@ Ensure that you have the following before you progress further
 * Information from your networking team / connectivity provider on the MAC addresses of interfaces used with these IP addresses.
 * You must have the latest PowerShell module for Azure (version 1.50 or newer).
 
+> [!NOTE]
+> If layer 3 is provided by the service provider and the ARP tables are blank in the portal/output below, refresh the Circuit configuration using the refresh button on the portal. This operation will apply the right routing configuration on your circuit. 
+>
+>
+
 ## Getting the ARP tables for your ExpressRoute circuit
 This section provides instructions on how you can view the ARP tables per peering using PowerShell. You or your connectivity provider must have configured the peering before progressing further. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.
 

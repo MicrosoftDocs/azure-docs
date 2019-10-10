@@ -4,6 +4,7 @@ description: This article describes FHIR Server for Azure.
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: overview
 ms.date: 02/07/2019
 ms.author: matjazl

@@ -4,7 +4,7 @@ description: Learn how to secure secret values in a Service Fabric application (
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
@@ -50,6 +50,17 @@ Specify an encrypted [environment variable][environment-variables-link] in your 
     <EnvironmentVariable Name="MyEnvVariable" Type="Encrypted" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </EnvironmentVariables>
 </CodePackage>
+```
+
+The secrets should also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretsCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
 ```
 
 ### Inject application secrets into application instances

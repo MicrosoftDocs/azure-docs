@@ -1,5 +1,5 @@
 ---
-title: Configure the service parameters in Azure Database for MySQL
+title: Configure the service parameters - Azure Database for MySQL
 description: This article describes how to configure the service parameters in Azure Database for MySQL using the Azure CLI command line utility.
 author: ajlam
 ms.author: andrela

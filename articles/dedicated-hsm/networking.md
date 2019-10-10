@@ -2,8 +2,8 @@
 title: Networking considerations - Azure Dedicated HSM | Microsoft Docs
 description: Overview of networking considerations applicable to Azure Dedicated HSM deployments
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 
@@ -58,7 +58,7 @@ A point-to-site Virtual Private Network is the simplest form of secure connectio
 
 ### Site-to-Site VPN
 
-A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premise and needing a connection between the two for running the backup.
+A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premises and needing a connection between the two for running the backup.
 
 ## Connecting virtual networks
 

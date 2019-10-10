@@ -3,7 +3,7 @@ title: Supportability - Azure Dedicated HSM | Microsoft Docs
 description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
 author: johndaw
-manager: barbkess
+manager: rkarlin
 
 ms.service: key-vault
 ms.workload: identity
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 03/18/2019
-ms.author: barclayn
+ms.date: 03/27/2019
+ms.author: mbaldwin
 
 ---
 
@@ -95,4 +95,4 @@ It is recommended that key concepts such as high availability and security are w
 * [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
-* [Monitoring](monitoring.md)
+

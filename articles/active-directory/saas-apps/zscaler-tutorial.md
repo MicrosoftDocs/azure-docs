@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zscaler | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 68c453f7-aff1-4614-92d3-9b86f3ad99dc
 ms.service: active-directory
@@ -13,161 +13,178 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+ms.topic: tutorial
+ms.date: 08/13/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Zscaler
 
-In this tutorial, you learn how to integrate Zscaler with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler
 
-Integrating Zscaler with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Zscaler with Azure Active Directory (Azure AD). When you integrate Zscaler with Azure AD, you can:
 
-- You can control in Azure AD who has access to Zscaler.
-- You can enable your users to automatically get signed-on to Zscaler (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Zscaler.
+* Enable your users to be automatically signed-in to Zscaler with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with Zscaler, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Zscaler single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Zscaler single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-1. Adding Zscaler from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Zscaler supports **SP** initiated SSO
+* Zscaler supports **Just In Time** user provisioning
 
 ## Adding Zscaler from the gallery
 
 To configure the integration of Zscaler into Azure AD, you need to add Zscaler from the gallery to your list of managed SaaS apps.
 
-**To add Zscaler from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Zscaler** in the search box.
+1. Select **Zscaler** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD single sign-on for Zscaler
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with Zscaler using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Zscaler.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Zscaler, complete the following building blocks:
 
-	![The Enterprise applications blade][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Zscaler SSO](#configure-zscaler-sso)** - to configure the Single Sign-On settings on application side.
+	1. **[Create Zscaler test user](#create-zscaler-test-user)** - to have a counterpart of B.Simon in Zscaler that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button][3]
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Zscaler**, select **Zscaler** from result panel then click **Add** button to add the application.
+1. In the [Azure portal](https://portal.azure.com/), on the **Zscaler** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	![Zscaler in the results list](./media/zscaler-tutorial/tutorial_zscaler_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-In this section, you configure and test Azure AD single sign-on with Zscaler based on a test user called "Britta Simon".
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.zscaler.net`
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Zscaler is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Zscaler needs to be established.
+	> [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Zscaler Client support team](https://www.zscaler.com/company/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-To configure and test Azure AD single sign-on with Zscaler, you need to complete the following building blocks:
+1. Your Zscaler application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Zscaler test user](#creating-a-zscaler-test-user)** - to have a counterpart of Britta Simon in Zscaler that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
+	![image](common/edit-attribute.png)
 
-### Configuring Azure AD single sign-on
+1. In addition to above, Zscaler application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Zscaler application.
-
-**To configure Azure AD single sign-on with Zscaler, perform the following steps:**
-
-1. In the Azure portal, on the **Zscaler** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
-
-    ![Configure Single Sign-On](common/tutorial_general_301.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Configure Single Sign-On](common/editconfigure.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps:
-
-	![Zscaler Domain and URLs single sign-on information](./media/zscaler-tutorial/tutorial_zscaler_url.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.zscaler.net`
-
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Zscaler Client support team](https://www.zscaler.com/company/contact) to get this value.
-
-5. Zscaler application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML page**, click **Edit** button to open **User Attributes & Claims** dialog.
-
-	![The Attribute link](./media/zscaler-tutorial/tutorial_zscaler_attribute.png)
-
-6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-
-	| Name  | Source Attribute  |
+	| Name | Source Attribute |
 	| ---------| ------------ |
 	| memberOf 	   | user.assignedroles |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](./common/new_save_attribute.png)
-	
-	![image](./common/new_attribute_details.png)
+	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	b. From the **Source attribute** list, selelct the attribute value.
+	c. Leave the **Namespace** blank.
 
-	c. Click **Ok**.
+	d. Select Source as **Attribute**.
 
-	d. Click **Save**.
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Save**.
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) to know how to configure Role in Azure AD
 
-7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Base64)** and then save certificate file on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](./media/zscaler-tutorial/tutorial_zscaler_certificate.png) 
+	![The Certificate download link](common/certificatebase64.png)
 
-8. On the **Set up Zscaler** section, copy the appropriate URL as per your requirement.
+1. On the **Set up Zscaler** section, copy the appropriate URL(s) based on your requirement.
 
-	a. Login URL
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	b. Azure AD Identifier
+### Create an Azure AD test user
 
-	c. Logout URL
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Zscaler Configuration](common/configuresection.png)
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-9. In a different web browser window, log in to your ZScaler company site as an administrator.
+### Assign the Azure AD test user
 
-10. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
-   
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Zscaler**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Zscaler**.
+
+	![The Zscaler link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
+
+	![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
+
+6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
+
+	![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+
+7. In the **Add Assignment** dialog select the **Assign** button.
+
+	![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+
+## Configure Zscaler SSO
+
+1. To automate the configuration within Zscaler, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Setup Zscaler** will direct you to the Zscaler application. From there, provide the admin credentials to sign into Zscaler. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup SSO](common/setup-sso.png)
+
+1. If you want to setup Zscaler manually, open a new web browser window and sign into your Zscaler company site as an administrator and perform the following steps:
+
+1. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+
 	![Administration](./media/zscaler-tutorial/ic800206.png "Administration")
 
 	a. Under Authentication Type, choose **SAML**.
 
 	b. Click **Configure SAML**.
 
-11. On the **Edit SAML** window, perform the following steps: and click Save.  
-   			
+1. On the **Edit SAML** window, perform the following steps: and click Save.  
+
 	![Manage Users & Authentication](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
 	
 	a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
@@ -186,7 +203,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	h. Click **Save**.
 
-12. On the **Configure User Authentication** dialog page, perform the following steps:
+1. On the **Configure User Authentication** dialog page, perform the following steps:
 
     ![Administration](./media/zscaler-tutorial/ic800207.png)
 
@@ -195,22 +212,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. Click **Activate**.
 
 ## Configuring proxy settings
+
 ### To configure the proxy settings in Internet Explorer
 
 1. Start **Internet Explorer**.
 
-1. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
-  	
-	 ![Internet Options](./media/zscaler-tutorial/ic769492.png "Internet Options")
+1. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.
 
-1. Click the **Connections** tab.   
+	![Internet Options](./media/zscaler-tutorial/ic769492.png "Internet Options")
+
+1. Click the **Connections** tab.
   
-	 ![Connections](./media/zscaler-tutorial/ic769493.png "Connections")
+	![Connections](./media/zscaler-tutorial/ic769493.png "Connections")
 
 1. Click **LAN settings** to open the **LAN Settings** dialog.
 
 1. In the Proxy server section, perform the following steps:   
-   
+
 	![Proxy server](./media/zscaler-tutorial/ic769494.png "Proxy server")
 
     a. Select **Use a proxy server for your LAN**.
@@ -225,90 +243,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Click **OK** to close the **Internet Options** dialog.
 
-### Creating an Azure AD test user
+### Create Zscaler test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, a user called Britta Simon is created in Zscaler. Zscaler supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Zscaler, a new one is created after authentication.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+> [!Note]
+> If you need to create a user manually, contact [Zscaler support team](https://www.zscaler.com/company/contact).
 
-	![Create Azure AD User][100]
-
-2. Select **New user** at the top of the screen.
-
-	![Creating an Azure AD test user](common/create_aaduser_01.png) 
-
-3. In the User properties, perform the following steps.
-
-	![Creating an Azure AD test user](common/create_aaduser_02.png)
-
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Select **Create**.
-
-### Creating a Zscaler test user
-
-The objective of this section is to create a user called Britta Simon in Zscaler. Zscaler supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Zscaler if it doesn't exist yet.
->[!Note]
->If you need to create a user manually, contact [Zscaler support team](https://www.zscaler.com/company/contact).
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
-
-	![Assign User][201]
-
-2. In the applications list, select **Zscaler**.
-
-	![Configure Single Sign-On](./media/zscaler-tutorial/tutorial_zscaler_app.png)
-
-3. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202]
-
-4. Click **Add** button and then select **Users and groups** on **Add Assignment** dialog.
-
-    ![Assign User][203]
-
-5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
-
-	![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
-
-6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
-
-	![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
-
-7. In the **Add Assignment** dialog select the **Assign** button.
-
-	![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
-
-### Testing single sign-on
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zscaler tile in the Access Panel, you should get automatically signed-on to your Zscaler application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Zscaler tile in the Access Panel, you should be automatically signed in to the Zscaler for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
+- [Try Zscaler with Azure AD](https://aad.portal.azure.com/)

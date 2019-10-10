@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +45,7 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
    > [!TIP]
    > After you start entering text, more **Content path** text boxes will appear to allow you to build a list of multiple assets. To delete assets from the list, select the ellipsis (...) button, then select **Delete**.
    > 
-   > Each content path must be a relative URL that fits the following [regular expressions](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Each content path must be a relative URL that fits the following [regular expressions](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Load a single file path: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Load a single file with query string: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 

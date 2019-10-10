@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Avere vFXT for Azure - deployment overview
@@ -27,14 +27,6 @@ Here is an overview of all of the steps.
 1. Configure prerequisites 
 
    Before creating a VM, you must create a new subscription for the Avere vFXT project, configure subscription ownership, check quotas and request an increase if needed, and accept terms for using the Avere vFXT software. Read [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) for detailed instructions.
-
-1. Create an access role for the cluster nodes
-
-   Azure uses [role-based access control](../role-based-access-control/index.yml) (RBAC) to authorize the cluster node VMs to perform certain tasks. For example, the cluster nodes need to be able to assigning or reassign IP addresses to other cluster nodes. Before you create the cluster, you must define a role that gives them adequate permissions.
-
-   Read [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) for instructions.
-
-   The cluster controller also uses an access role, but you can accept the default role, Owner, instead of creating your own. If you want to create a custom role for the cluster controller, read [Customized controller access role](avere-vfxt-controller-role.md). 
 
 1. Create the Avere vFXT cluster 
 

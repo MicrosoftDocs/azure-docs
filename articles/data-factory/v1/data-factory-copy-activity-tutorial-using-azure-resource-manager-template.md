@@ -10,8 +10,6 @@ editor:
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -22,7 +20,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -318,24 +315,24 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-     ```PowerShell
-     Connect-AzAccount       
-     ```  
+	```PowerShell
+	Connect-AzAccount   	
+	```  
    * Run the following command to view all the subscriptions for this account.
    
-     ```PowerShell
-     Get-AzSubscription
-     ```   
+	```PowerShell
+	Get-AzSubscription
+	```   
    * Run the following command to select the subscription that you want to work with.
     
-     ```PowerShell
-     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```    
+	```PowerShell
+	Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+	```    
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
 	```PowerShell   
 	New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
-    ```
+	```
 
 ## Monitor pipeline
 
@@ -349,7 +346,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 4. Click your Azure data factory. You see the home page for the data factory.
    
     ![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
+6. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
 7. When a slice is in the **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL database.
 
 

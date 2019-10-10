@@ -1,13 +1,11 @@
 ---
 title: Stages of a blueprint deployment
-description: Learn the steps the Blueprint services goes through during a deployment.
-services: blueprints
+description: Learn the steps the Azure Blueprint services goes through during a deployment.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Stages of a blueprint deployment
 

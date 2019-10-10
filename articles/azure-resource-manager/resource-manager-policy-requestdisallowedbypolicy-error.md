@@ -4,7 +4,7 @@ description: Describes the cause of the RequestDisallowedByPolicy error.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: azure-resource-manager
@@ -43,7 +43,7 @@ To retrieve details about the policy that blocked your deployment, use the follo
 
 In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 
-```PowerShell
+```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 

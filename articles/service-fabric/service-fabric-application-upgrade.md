@@ -4,7 +4,7 @@ description: This article provides an introduction to upgrading a Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Service Fabric application upgrade

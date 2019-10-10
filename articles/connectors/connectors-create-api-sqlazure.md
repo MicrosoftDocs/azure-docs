@@ -34,12 +34,12 @@ app that automatically checks for new records in Dynamics CRM Online,
 adds items to your SQL database for any new records, and then sends email alerts.
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For connector-specific technical information, see the 
-<a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server connector reference</a>.
+[SQL Server connector reference](https://docs.microsoft.com/connectors/sql/).
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ which specify how often your logic app checks the table.
    To learn about other actions for this connector or other connectors, see 
    [Logic Apps connectors](../connectors/apis-list.md).
 
-5. When you're done, on the designer toolbar, choose **Save**. 
+5. When you're done, on the designer toolbar, select **Save**. 
 
    This step automatically enables and publishes your logic app live in Azure. 
 
@@ -130,14 +130,14 @@ open your logic app in Logic Apps Designer.
 This example uses the Azure portal.
 
 2. In the Logic App Designer, under the trigger or action, 
-choose **New step** > **Add an action**.
+select **New step** > **Add an action**.
 
-   ![Choose "New step", "Add an action"](./media/connectors-create-api-sqlazure/add-action.png)
+   ![Select "New step", "Add an action"](./media/connectors-create-api-sqlazure/add-action.png)
    
    To add an action between existing steps, 
    move your mouse over the connecting arrow. 
-   Choose the plus sign (**+**) that appears, 
-   and then choose **Add an action**.
+   Select the plus sign (**+**) that appears, 
+   and then select **Add an action**.
 
 2. In the search box, enter "sql server" as your filter. 
 From the actions list, select any SQL action that you want. 
@@ -161,7 +161,7 @@ From the actions list, select any SQL action that you want.
    other actions in this connector or other connectors, see 
    [Logic Apps connectors](../connectors/apis-list.md).
 
-4. When you're done, on the designer toolbar, choose **Save**. 
+4. When you're done, on the designer toolbar, select **Save**. 
 
 <a name="create-connection"></a>
 
@@ -171,36 +171,39 @@ From the actions list, select any SQL action that you want.
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## Process data in bulk
+## Handle bulk data
 
-When you work with result sets so large that the connector 
-doesn't return all the results at the same time, 
-or you want better control over the size and structure for your result sets, 
-you can use *pagination*, which helps you manage those results as smaller sets. 
+Sometimes, you might have to work with result sets so large that the 
+connector doesn't return all the results at the same time, or you 
+want better control over the size and structure for your result sets. 
+Here's some ways that you can handle such large result sets:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* To help you manage results as smaller sets, turn on *pagination*. 
+For more information, see 
+[Get bulk data, records, and items by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### Create a stored procedure
+* Create a stored procedure that organizes the results the way you want.
 
-When getting or inserting multiple rows, your logic 
-app can iterate through these items by using an 
-[*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
-within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
-But, sometimes your logic app has to work with record sets so large, 
-such as thousands or millions of rows, that you want to minimize the 
-costs for calls to the database. 
+  When getting or inserting multiple rows, your logic 
+  app can iterate through these rows by using an 
+  [*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
+  within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
+  However, when your logic app has to work with record sets so large, 
+  for example, thousands or millions of rows, that you want to minimize 
+  the costs resulting from calls to the database.
 
-Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
-the **SELECT - ORDER BY** statement to organize the results the way you want. 
-This solution gives you more control over the size and structure of your results. 
-Your logic app calls the stored procedure by using the SQL Server 
-connector's **Execute stored procedure** action. 
+  To organize the results in the way that you want, you can create a 
+  [*stored procedure*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) 
+  that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. 
+  This solution gives you more control over the size and structure of your results. 
+  Your logic app calls the stored procedure by using the SQL Server connector's 
+  **Execute stored procedure** action.
 
-For solution details, see these articles:
+  For solution details, see these articles:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
+  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY Clause</a>
+  * [SELECT - ORDER BY Clause](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## Connector-specific details
 

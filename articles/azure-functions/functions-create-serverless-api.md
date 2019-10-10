@@ -1,27 +1,24 @@
 ---
-title: Create a serverless API using Azure Functions | Microsoft Docs
-description: How to create a serverless API using Azure Functions
-services: functions
+title: Customize an HTTP endpoint in Azure Functions
+description: Learn how to customize an HTTP trigger endpoint in Azure Functions
 author: mattchenderson
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ---
 
-# Create a serverless API using Azure Functions
+# Customize an HTTP endpoint in Azure Functions
 
-In this tutorial, you will learn how Azure Functions allows you to build highly scalable APIs. Azure Functions comes with a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in a variety of languages, including Node.JS, C#, and more. In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. You will also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. All of this is accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
+In this article, you learn how Azure Functions allows you to build highly scalable APIs. Azure Functions comes with a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in a variety of languages, including Node.JS, C#, and more. In this article, you will customize an HTTP trigger to handle specific actions in your API design. You will also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. All of this is accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
 
 ## Prerequisites 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-The resulting function will be used for the rest of this tutorial.
+The resulting function will be used for the rest of this article.
 
 ### Sign in to Azure
 
@@ -178,7 +175,7 @@ Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{u
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an API on Azure Functions. You also learned how to bring multiple APIs, including mocks, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this article, you learned how to build and customize an API on Azure Functions. You also learned how to bring multiple APIs, including mocks, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 The following references may be helpful as you develop your API further:
 

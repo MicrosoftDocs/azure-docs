@@ -64,6 +64,8 @@ The Log Analytics agent for Linux also listens on port 26000 for CollectD metric
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> CollectD by default is set to read values at a 10-second [interval](https://collectd.org/wiki/index.php/Interval). As this directly affects the volume of data sent to Azure Monitor Logs, you might need to tune this interval within the CollectD configuration to strike a good balance between the monitoring requirements and associated costs and usage for Azure Monitor Logs.
 
 ## Versions supported
 - Azure Monitor currently supports CollectD version 4.8 and above.
@@ -108,14 +110,14 @@ To maintain a familiar model between infrastructure metrics already collected by
 
 | CollectD Metric field | Azure Monitor field |
 |:--|:--|
-| host | Computer |
-| plugin | None |
-| plugin_instance | Instance Name<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
-| type | ObjectName |
-| type_instance | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
-| dsnames[] | CounterName |
-| dstypes | None |
-| values[] | CounterValue |
+| `host` | Computer |
+| `plugin` | None |
+| `plugin_instance` | Instance Name<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
+| `dsnames[]` | CounterName |
+| `dstypes` | None |
+| `values[]` | CounterValue |
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

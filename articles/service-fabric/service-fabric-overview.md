@@ -3,8 +3,8 @@ title: Overview of Service Fabric on Azure | Microsoft Docs
 description: An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: masnider
 
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
-ms.author: msfussell
+ms.date: 04/22/2019
+ms.author: atsenthi
 ms.custom: mvc
 
 ---
@@ -23,6 +23,10 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 This short video introduces Service Fabric and microservices:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## Compliance
+Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPAA, and GDPR. Please review the following for a complete list of compliance certs: 
+[Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## Applications composed of microservices 
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated, lightweight runtime to build distributed, scalable, stateless, and stateful microservices running in containers. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications including containerized services.
@@ -61,7 +65,7 @@ Service Fabric provides support for the full application lifecycle and CI/CD of 
 
 Service Fabric application lifecycle management capabilities enable application administrators and IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-Most applications consist of a combination of stateless and stateful microservices, containers, and other executables that are deployed together. By having strong types on the applications, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy containers or any executables and make them reliable. For example, Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual machines, scripts, Angular, or literally anything that makes up your application.
+Most applications consist of a combination of stateless and stateful microservices, containers, and other executables that are deployed together. By having strong types on the applications, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy containers or any executables and make them reliable. For example, Service Fabric can deploy .NET, ASP.NET Core, Python, Node.js, Windows containers, Linux containers, Java virtual machines, scripts, Angular, or literally anything that makes up your application.
 
 Service Fabric is integrated with CI/CD tools such as [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), and [Octopus Deploy](https://octopus.com/) and can be used with any other popular CI/CD tool.
 

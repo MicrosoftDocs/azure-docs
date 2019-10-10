@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Elastic database tools frequently asked questions (FAQ)

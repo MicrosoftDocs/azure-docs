@@ -4,12 +4,12 @@ description: Lists the events that can cause a VM to reboot
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

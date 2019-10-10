@@ -19,10 +19,10 @@ ms.author: juliako
 ---
 # Upload files into an Azure Media Services account from Azure StorSimple  
 
-This article gives a brief overview of Azure StorSimple Data Manager. The article also links to tutorials that show you how to extract data from StorSimple and upload this data as assets to an Azure Media Services (AMS) account.
-
-> 
 > [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+>
+> 
 > Azure StorSimple Data Manager is currently in private preview. 
 > 
 

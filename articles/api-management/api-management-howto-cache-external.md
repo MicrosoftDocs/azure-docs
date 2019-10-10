@@ -11,9 +11,8 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
 
 ---
@@ -37,11 +36,6 @@ What you'll learn:
 
 > [!div class="checklist"]
 > * Add an external cache in API Management
-
-## Availability
-
-> [!NOTE]
-> This feature is currently available only in the **Consumption** tier of Azure API Management.
 
 ## Prerequisites
 
@@ -91,6 +85,7 @@ Follow the steps below to add an external Azure Cache for Redis in Azure API Man
 Once the external cache is configured in Azure API Management, it can be used through caching policies. See [Add caching to improve performance in Azure API Management](api-management-howto-cache.md) for detailed steps.
 
 ## <a name="next-steps"> </a>Next steps
+
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 

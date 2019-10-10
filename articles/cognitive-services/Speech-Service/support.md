@@ -1,16 +1,16 @@
 ---
-title: Support and help options
-titlesuffix: Azure Cognitive Services
+title: Support and help options - Speech Service
+titleSuffix: Azure Cognitive Services
 description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ---
 
 # Support and help options
@@ -19,6 +19,7 @@ Are you just starting to explore the functionality of the Speech Services? Are y
 
 > [!div class="checklist"]
 > * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
+> * Release notes contain information for all releases.
 > * Search to see if your issue was discussed by the community, or if existing documentation for the feature you want to implement already exists.
 > * If you can't find a satisfactory answer, ask a question on *Stack Overflow*.
 > * If you find an issue with one of the samples on GitHub, raise a *GitHub* issue.
@@ -27,6 +28,10 @@ Are you just starting to explore the functionality of the Speech Services? Are y
 ## Stay informed
 
 News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## Release notes
+
+The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
 
 ## Search
 
@@ -46,7 +51,7 @@ Where *{Your Search Terms}* is your search keywords.
 
 Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question to Stack Overflow
@@ -62,6 +67,7 @@ If you can't find an answer to your problem via search, submit a new question to
 |Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Speech Intent |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Voice-first Virtual Assistants (Preview) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
@@ -73,9 +79,9 @@ If you can't find an answer to your problem via search, submit a new question to
 Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-You can create a bug report, feature request, or ask an general question and share best practices. For bug reports, please follow the provided template:
+You can create a bug report, feature request, or ask a general question and share best practices. For bug reports, please follow the provided template:
 
 **Describe the bug**
 
@@ -104,7 +110,7 @@ Which version of the SDK are you using.
 **Additional context**
 
  - Error messages, log information, stack trace, ...
- - If you report an error for a specific service interaction, please report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
+ - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
  - Any other additional information
 
 

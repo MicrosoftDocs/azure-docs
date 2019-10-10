@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
@@ -65,29 +64,20 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
    ![Application ID 1][api-management-howto-aad-b2c-app-id]
 
 9. Switch back to the API Management **Add identity provider** pane and paste the ID into the **Client Id** text box.
-
-   ![Application ID 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Switch back to the B2C app registration, click the **Keys** button, and then click **Generate key**. Click **Save** to save the configuration and display the **App key**. Copy the key to the clipboard.
 
     ![App key 1][api-management-howto-aad-b2c-app-key]
 
 11. Switch back to the API Management **Add identity provider** pane and paste the key into the **Client Secret** text box.
+    
+12. Specify the domain name of the Azure Active Directory B2C tenant in **Signin tenant**.
 
-    ![App key 2][api-management-howto-aad-b2c-client-secret]
+13. The **Authority** field let you control the Azure AD B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
 
-12. Specify the domain name of the Azure Active Directory B2C tenant in **Allowed Tenant**.
+14. Specify the **Signup Policy** and **Signin Policy** from the B2C Tenant policies. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
 
-    ![Allowed tenant][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Specify the **Signup Policy** and **Signin Policy** from the B2C Tenant policies. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
-
-    ![Policies][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].
-
-14. After you've specified the desired configuration, click **Save**.
+15. After you've specified the desired configuration, click **Save**.
 
     After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 

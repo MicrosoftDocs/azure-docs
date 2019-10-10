@@ -93,7 +93,7 @@ The default value is false. If enabled, your node application can connect to a n
 
 ### idlePageOutTimePeriod
 
-The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
+The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. The recommendation is to not enable them on live production applications.
@@ -276,7 +276,7 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 Follow these links to learn more about node.js applications on Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [How to debug a Node.js web app in Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)

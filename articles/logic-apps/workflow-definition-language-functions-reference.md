@@ -1,31 +1,37 @@
 ---
-# required metadata
-title: Functions reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
-description: Learn about Workflow Definition Language functions for Azure Logic Apps
+title: Reference for functions in Workflow Definition Language - Azure Logic Apps and Microsoft Flow
+description: Reference guide for functions in expressions created with Workflow Definition Language for Azure Logic Apps and Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 08/15/2018
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.topic: reference
+ms.date: 08/23/2019
 ---
 
-# Functions reference for Workflow Definition Language in Azure Logic Apps
+# Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
 
-Some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions)
-in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) get their values from runtime
-actions that might not yet exist when your logic app workflow definition starts to run.
-To reference or work with these values in expressions, you can use *functions* provided by the
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-For example, you can use math functions for calculations, such as the
-[add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function,
-which returns the sum from integers or floats. Here are a couple more example tasks
-you can perform with functions:
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 
+[expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
+get their values from runtime actions that might not yet exist when your 
+workflow starts running. To reference these values or process the values 
+in these expressions, you can use *functions* provided by the 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+> [!NOTE]
+> This reference page applies to both Azure Logic Apps and Microsoft Flow, 
+> but appears in the Azure Logic Apps documentation. Although this page refers 
+> specifically to logic apps, these functions work for both flows and logic apps. 
+> For more information about functions and expressions in Microsoft Flow, see 
+> [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+
+For example, you can calculate values by using math functions, such as the
+[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
+when you want the sum from integers or floats. Here are other 
+example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -33,9 +39,8 @@ you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This article describes the functions you can use when creating your logic app definitions.
 To find functions [based on their general purpose](#ordered-by-purpose),
-continue with the following tables. Or, for detailed information about each function,
+review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
 
 > [!NOTE]
@@ -164,7 +169,7 @@ For the full reference about each function, see the
 
 To change a value's type or format, you can use these conversion functions.
 For example, you can change a value from a Boolean to an integer.
-To learn how Logic Apps handles content types during
+For more information about how Logic Apps handles content types during
 conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md).
 For the full reference about each function, see the
 [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
@@ -255,7 +260,7 @@ For the full reference about each function, see the
 These workflow functions can help you:
 
 * Get details about a workflow instance at run time.
-* Work with the inputs used for instantiating logic apps.
+* Work with the inputs used for instantiating logic apps or flows.
 * Reference the outputs from triggers and actions.
 
 For example, you can reference the outputs from
@@ -267,16 +272,19 @@ For the full reference about each function, see the
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Return the current action's output at runtime, or values from other JSON name-and-value pairs. See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Return an action's `body` output at runtime. See also [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) and [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Return an action's output at runtime, or values from other JSON name-and-value pairs. See also [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a for-each or do-until-loop, return the current item from the specified loop.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a Foreach or Until loop, return the current item from the specified loop.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app definition. |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from all the actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -325,6 +333,11 @@ For the full reference about each function, see the
 |||
 
 <a name="alphabetical-list"></a>
+
+## All functions - alphabetical list
+
+This section lists all the available functions in alphabetical order.
+
 <a name="action"></a>
 
 ### action
@@ -409,9 +422,7 @@ And returns this result:
 
 ### actionOutputs
 
-Return an action's output at runtime.
-Shorthand for `actions('<actionName>').outputs`.
-See [actions()](#actions).
+Return an action's output at runtime.  and is shorthand for `actions('<actionName>').outputs`. See [actions()](#actions). The `actionOutputs()` function resolves to `outputs()` in the Logic App Designer, so consider using [outputs()](#outputs), rather than `actionOutputs()`. Although both functions work the same way, `outputs()` is preferred.
 
 ```
 actionOutputs('<actionName>')
@@ -680,8 +691,8 @@ And returns this result: `"2018-03-15T00:15:00.0000000Z"`
 ### addProperty
 
 Add a property and its value, or name-value pair, to a JSON object,
-and return the updated object. If the object already exists at runtime,
-the function throws an error.
+and return the updated object. If the property already exists at runtime,
+the function fails and throws an error.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -699,15 +710,81 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-*Example*
-
-This example adds the `accountNumber` property to the `customerProfile` object,
-which is converted to JSON with the [JSON()](#json) function.
-The function assigns a value that is generated by the
-[guid()](#guid) function, and returns the updated object:
+To add a child property to an existing property, use this syntax:
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | Yes | Object | The JSON object where you want to add a property |
+| <*parent-property*> | Yes | String | The name for parent property where you want to add the child property |
+| <*child-property*> | Yes | String | The name for the child property to add |
+| <*value*> | Yes | Any | The value to set for the specified property |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | The updated JSON object whose property you set |
+||||
+
+*Example 1*
+
+This example adds the `middleName` property to a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The object already includes the `firstName` and `surName` properties. The function assigns the specified value to the new property and returns the updated object:
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Example 2*
+
+This example adds the `middleName` child property to the existing `customerName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -784,7 +861,7 @@ This example adds one day to the specified timestamp:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-02T00:00:00:0000000Z"`
+And returns this result: `"2018-01-02T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -1220,7 +1297,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information, see [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1262,8 +1339,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information, see [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information, see [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1305,7 +1382,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information, see [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1402,7 +1479,7 @@ And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 Return the binary version for a data uniform resource identifier (URI).
 Use this function rather than [decodeDataUri()](#decodeDataUri).
 Although both functions work the same way,
-`decodeDataUri()` is preferred.
+`dataUriBinary()` is preferred.
 
 ```
 dataUriToBinary('<value>')
@@ -1885,7 +1962,7 @@ And return these results:
 Convert a string version for a floating-point
 number to an actual floating point number.
 You can use this function only when passing custom
-parameters to an app, such as a logic app.
+parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -2364,6 +2441,105 @@ This example gets the current item from the specified for-each loop:
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### iterationIndexes
+
+Return the index value for the current iteration inside an Until loop. 
+You can use this function inside nested Until loops. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Yes | String | The name for the Until loop | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | The index value for the current iteration inside the specified Until loop | 
+|||| 
+
+*Example* 
+
+This example creates a counter variable and increments that 
+variable by one during each iteration in an Until loop until 
+the counter value reaches five. The example also creates a 
+variable that tracks the current index for each iteration. 
+In the Until loop, during each iteration, the example increments 
+the counter and then assigns the counter value to the current 
+index value and then increments the counter. At any time, 
+you can determine the current iteration number by 
+retrieving the current index value.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>
@@ -2872,7 +3048,7 @@ Check whether an expression is false.
 Return true when the expression is false,
 or return false when true.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2890,7 +3066,7 @@ not(<expression>)
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2904,7 +3080,7 @@ And return these results:
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2940,7 +3116,7 @@ or(<expression1>, <expression2>, ...)
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2954,7 +3130,7 @@ And return these results:
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2964,12 +3140,75 @@ And return these results:
 * First example: At least one expression is true, so the function returns `true`.
 * Second example: Both expressions are false, so the function returns `false`.
 
+<a name="outputs"></a>
+
+### outputs
+
+Return an action's outputs at runtime. Use this function, rather than `actionOutputs()`, which resolves to `outputs()` in the Logic App Designer. Although both functions work the same way, `outputs()` is preferred.
+
+```
+outputs('<actionName>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*actionName*> | Yes | String | The name for the action's output that you want |
+|||||
+
+| Return value | Type | Description |
+| ------------ | -----| ----------- |
+| <*output*> | String | The output from the specified action |
+||||
+
+*Example*
+
+This example gets the output from the Twitter action `Get user`:
+
+```
+outputs('Get_user')
+```
+
+And returns this result:
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
+
 <a name="parameters"></a>
 
 ### parameters
 
 Return the value for a parameter that is
-described in your logic app definition.
+described in your workflow definition.
 
 ```
 parameters('<parameterName>')
@@ -3106,7 +3345,7 @@ And returns this result: `"the new string"`
 
 ### removeProperty
 
-Remove a property from an object and return the updated object.
+Remove a property from an object and return the updated object. If the property that you try to remove doesn't exist, the function returns the original object.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3123,22 +3362,208 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Object | The updated JSON object without the specified property |
 ||||
 
-*Example*
-
-This example removes the `"accountLocation"` property from a `"customerProfile"` object,
-which is converted to JSON with the [JSON()](#json) function, and returns the updated object:
+To remove a child property from an existing property, use this syntax:
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | Yes | Object | The JSON object whose property you want to remove |
+| <*parent-property*> | Yes | String | The name for parent property with the child property that you want to remove |
+| <*child-property*> | Yes | String | The name for the child property to remove |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | The updated JSON object whose child property that you removed |
+||||
+
+*Example 1*
+
+This example removes the `middleName` property from a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Example 2*
+
+This example removes the `middleName` child property from a `customerName` parent property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function, and returns the updated object:
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### result
+
+Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. This function is useful returning the results from a failed action so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+
+```
+result('<scopedActionName>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | Yes | String | The name of the scoped action from which to return the inputs and outputs from all the inner actions |
+||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each action that appears inside the specified scoped action |
+||||
+
+*Example*
+
+This example returns the inputs and outputs from each iteration of an HTTP action inside that's inside a `For_each` loop by using the `result()` function in the `Compose` action:
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+Here's how the example returned array might look where the outer `outputs` object contains the inputs and outputs from each iteration of the actions inside the `For_each` action.
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### setProperty
 
-Set the value for an object's property and return the updated object.
-To add a new property, you can use this function
-or the [addProperty()](#addProperty) function.
+Set the value for JSON object's property and return the updated object. If the property that you try to set doesn't exist, the property gets added to the object. To add a new property, use the [addProperty()](#addProperty) function.
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3151,20 +3576,79 @@ setProperty(<object>, '<property>', <value>)
 | <*value*> | Yes | Any | The value to set for the specified property |
 |||||
 
+To set the child property in a child object, use a nested `setProperty()` call instead. Otherwise, the function returns only the child object as output.
+
+```
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | Yes | Object | The JSON object whose property you want to set |
+| <*parent-property*> | Yes | String | The name for parent property with the child property that you want to set |
+| <*child-property*> | Yes | String | The name for the child property to set |
+| <*value*> | Yes | Any | The value to set for the specified property |
+|||||
+
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Object | The updated JSON object whose property you set |
 ||||
 
-*Example*
+*Example 1*
 
-This example sets the `"accountNumber"` property on a `"customerProfile"` object,
-which is converted to JSON with the [JSON()](#json) function.
-The function assigns a value generated by [guid()](#guid) function,
-and returns the updated JSON object:
+This example sets the `surName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*Example 2*
+
+This example sets the `surName` child property for the `customerName` parent property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the property and returns the updated object:
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+Here's the current JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+Here's the updated JSON object:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
@@ -4371,7 +4855,7 @@ character (\\) as an escape character for the double quotation mark (").
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Here are the arguments:
 
@@ -4385,9 +4869,9 @@ Here are the arguments:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Here is the result node that matches the `<location></location` node:
+Here is the result node that matches the `<location></location>` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

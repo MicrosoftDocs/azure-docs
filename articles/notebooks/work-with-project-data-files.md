@@ -4,13 +4,11 @@ description: How to bring data into an Azure Notebooks project from external sou
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb

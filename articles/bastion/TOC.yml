@@ -1,0 +1,38 @@
+- name: Bastion Documentation
+  href: index.yml
+- name: Overview
+  items: 
+  - name: About Azure Bastion
+    href: bastion-overview.md
+- name: How-to guides
+  items:
+  - name: Create a bastion host
+    href: bastion-create-host-portal.md
+  - name: Connect to a virtual machine
+    items:
+    - name: SSH (Linux)
+      href: bastion-connect-vm-ssh.md
+    - name: RDP (Windows)
+      href: bastion-connect-vm-rdp.md
+  - name: Work with a virtual machine session
+    items:
+    - name: Copy and paste
+      href: bastion-vm-copy-paste.md
+    - name: Full screen view
+      href: bastion-vm-full-screen.md
+  - name: Work with NSGs
+    href: bastion-nsg.md
+- name: Resources
+  items:
+  - name: Bastion FAQ
+    href: bastion-faq.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla

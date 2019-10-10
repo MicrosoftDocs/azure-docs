@@ -113,7 +113,7 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -166,12 +166,12 @@ Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quic
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
 
 To list scale set public IP addresses using PowerShell, use the _Get-AzPublicIpAddress_ command. For example:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
@@ -247,7 +247,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -279,7 +279,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -326,7 +326,7 @@ For example:
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",

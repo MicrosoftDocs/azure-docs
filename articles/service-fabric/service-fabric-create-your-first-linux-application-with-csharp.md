@@ -4,7 +4,7 @@ description: Learn how to create and deploy a Service Fabric application using C
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Create your first Azure Service Fabric application
@@ -110,7 +110,7 @@ template includes a simple test script that you can use to interact with the act
 
 1. Run the script using the watch utility to see the output of the actor service.
 
-   In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the some location inside the container by running the following additional commands.
+   In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the same location inside the container by running the following additional commands.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -1,15 +1,13 @@
 ---
-title: Samples - ISO 27001 Shared Services blueprint - Overview
-description: Overview and architecture of the ISO 27001 Shared Services blueprint sample.
-services: blueprints
+title: Sample - ISO 27001 Shared Services blueprint - Overview
+description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers asses specific ISO 27001 controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
-# Overview of the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Overview of the ISO 27001 Shared Services blueprint sample
 
 The ISO 27001 Shared Services blueprint sample provides a set of compliant infrastructure patterns
 and policy guard-rails that help towards ISO 27001 attestation. This blueprint helps customers
@@ -51,12 +49,12 @@ composed of:
   ASGs for full micro-segmentation containing:
   - A jumpbox or bastion host used for management purposes, which can only be accessed over an [Azure Firewall](../../../../firewall/overview.md)
     deployed in the ingress stack subnet
-  - Two virtual machines running Active Directory Directory Services (ADDS) and DNS only accessible
+  - Two virtual machines running Active Directory Domain Services (ADDS) and DNS only accessible
     through the jumpbox, and can be configured only to replicate AD over a VPN or [ExpressRoute](../../../../expressroute/expressroute-introduction.md)
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
@@ -79,7 +77,7 @@ sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

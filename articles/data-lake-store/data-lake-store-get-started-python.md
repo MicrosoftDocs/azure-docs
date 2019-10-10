@@ -3,8 +3,8 @@ title: 'Python: Account management operations on Azure Data Lake Storage Gen1 | 
 description: Learn how to use Python SDK to work with Azure Data Lake Storage Gen1 account management operations.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 
@@ -39,7 +39,7 @@ Learn how to use the Python SDK for Azure Data Lake Storage Gen1 to perform basi
 To work with Data Lake Storage Gen1 using Python, you need to install three modules.
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
-* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](/python/api/azure-mgmt-datalake-store/).
 * The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see [azure-datalake-store filesystem module reference](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.

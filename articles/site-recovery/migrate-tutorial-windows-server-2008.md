@@ -5,8 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -25,11 +24,14 @@ This tutorial shows you how to migrate on-premises servers running Windows Serve
 
 The limitations and known issues section, lists some of limitations and workarounds for known issues that you may encounter while migrating Windows Server 2008 machines to Azure. 
 
+> [!NOTE]
+> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-services-overview.md).
+
 
 ## Supported Operating Systems and environments
 
 
-|Operating System  | On-premise environment  |
+|Operating System  | On-premises environment  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bit and 64 bit(IA-32 and x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VMs, Hyper-V VMs, and Physical Servers    |
 |Windows Server 2008 R2 SP1 - 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VMs, Hyper-V VMs, and Physical Servers|

@@ -1,19 +1,16 @@
 ---
-title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure CLI | Microsoft Docs
+title: 'Quickstart: Set and retrieve a secret from Azure Key Vault'
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
+ms.custom: mvc, seo-javascript-september2019
+ms.date: 09/03/2019
+ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI
@@ -22,7 +19,7 @@ Azure Key Vault is a cloud service that works as a secure secrets store. You can
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -32,7 +29,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 
@@ -92,7 +89,9 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
+In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-> [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md)
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault?view=azure-cli-latest)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

@@ -4,18 +4,18 @@ description: An overview of how configuration data is stored in Azure App Config
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
 ---
 
-# Key-value store
+# Keys and values
 
 Azure App Configuration stores configuration data as key-value pairs. Key-value pairs are a simple yet flexible way to represent various kinds of application settings that developers are familiar with.
 
@@ -23,7 +23,7 @@ Azure App Configuration stores configuration data as key-value pairs. Key-value 
 
 Keys serve as the name for key-value pairs and are used to store and retrieve corresponding values. It's a common practice to organize keys into a hierarchical namespace by using a character delimiter, such as `/` or `:`. Use a convention that's best suited for your application. App Configuration treats keys as a whole. It doesn't parse keys to figure out how their names are structured or enforce any rule on them.
 
-The usage of configuration store within application frameworks might dictate specific naming schemes for key values. As an example, Java's Spring Cloud framework defines `Environment` resources that supply settings to a Spring application to be parameterized by variables that include *application name* and *profile*. Keys for Spring Cloud-related configuration data typically start with these two elements separated by a delimiter.
+The usage of configuration data within application frameworks might dictate specific naming schemes for key values. As an example, Java's Spring Cloud framework defines `Environment` resources that supply settings to a Spring application to be parameterized by variables that include *application name* and *profile*. Keys for Spring Cloud-related configuration data typically start with these two elements separated by a delimiter.
 
 Keys stored in App Configuration are case-sensitive, unicode-based strings. The keys *app1* and *App1* are distinct in an app configuration store. Keep this in mind when you use configuration settings within an application because some frameworks handle configuration keys case-insensitively. For example, the ASP.NET Core configuration system treats keys as case-insensitive strings. To avoid unpredictable behaviors when you query App Configuration within an ASP.NET Core application, don't use keys that differ only by casing.
 
@@ -41,29 +41,27 @@ You can organize keys in App Configuration hierarchically in many ways. Think of
 
 Here are several examples of how you can structure your key names into a hierarchy:
 
-* Based on environments
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Based on component services
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Based on deployment regions
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### Label keys
+
+Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an app configuration store. By default, the label for a key value is empty, or `null`.
+
+Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### Version key values
-
-Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *v1* and *v2* form two separate key values in an app configuration store. By default, the label for a key value is empty, or `null`.
 
 App Configuration doesn't version key values automatically as they're modified. Use labels as a way to create multiple versions of a key value. For example, you can input an application version number or a Git commit ID in labels to identify key values associated with a particular software build.
 
@@ -92,7 +90,7 @@ You also can include the following label patterns:
 | `label=1.0.*` | Matches labels that start with **1.0.** |
 | `label=*.0.0` | Matches labels that end with **.0.0** |
 | `label=*.0.*` | Matches labels that contain **.0.** |
-| `label=%00,1.0.0` | Matches labels `null` or **1.0.1**, limited to five CSVs |
+| `label=%00,1.0.0` | Matches labels `null` or **1.0.0**, limited to five CSVs |
 
 ## Values
 
@@ -102,4 +100,5 @@ Configuration data stored in an app configuration store, which includes all keys
 
 ## Next steps
 
-* [Concept: Point-in-time snapshot](concept-point-time-snapshot.md)  
+* [Point-in-time snapshot](./concept-point-time-snapshot.md)  
+* [Feature management](./concept-feature-management.md)  

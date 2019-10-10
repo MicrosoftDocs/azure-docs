@@ -4,14 +4,14 @@ description: Introduce the steps to troubleshoot the issue in which VM startup i
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
@@ -21,7 +21,7 @@ ms.author: delhan
 
 This article helps you resolve the issue when your virtual machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer" stage during startup.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Symptoms
 
@@ -128,7 +128,7 @@ After you collect the memory dump file, follow these steps to rebuild the VM.
 
 **For non-managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 
@@ -159,7 +159,7 @@ New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 
 **For managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 

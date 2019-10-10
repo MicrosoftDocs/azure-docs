@@ -2,12 +2,12 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
+ms.date: 06/03/2019
+ms.author: mlearned
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
@@ -66,38 +66,75 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
 
-In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform.
+In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
 
-If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use Windows containers or a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
+If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
 ### Resource reservations
 
-You don't need to manage the core Kubernetes components on each node, such as the *kubelet*, *kube-proxy*, and *kube-dns*, but they do consume some of the available compute resources. To maintain node performance and functionality, the following compute resources are reserved on each node:
+Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepency between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
 
-- **CPU** - 60 ms
-- **Memory** - 20% up to 4 GiB
+To find a node's allocatable resources run:
+```kubectl
+kubectl describe node [NODE_NAME]
+
+```
+
+To maintain node performance and functionality, resources are reserved on each node by AKS. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
+
+>[!NOTE]
+> Using add-ons such as OMS will consume additional node resources.
+
+- **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
+
+| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kube-reserved (millicores)|60|100|140|180|260|420|740|
+
+- **Memory** - reservation of memory follows a progressive rate
+  - 25% of the first 4 GB of memory
+  - 20% of the next 4 GB of memory (up to 8 GB)
+  - 10% of the next 8 GB of memory (up to 16 GB)
+  - 6% of the next 112 GB of memory (up to 128 GB)
+  - 2% of any memory above 128 GB
 
 These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
 
-For example:
-
-- **Standard DS2 v2** node size contains 2 vCPU and 7 GiB memory
-    - 20% of 7 GiB memory = 1.4 GiB
-    - A total of *(7 - 1.4) = 5.6 GiB* memory is available for the node
-    
-- **Standard E4s v3** node size contains 4 vCPU and 32 GiB memory
-    - 20% of 32 GiB memory = 6.4 GiB, but AKS only reserves a maximum of 4 GiB
-    - A total of *(32 - 4) = 28 GiB* is available for the node
-    
 The underlying node OS also requires some amount of CPU and memory resources to complete its own core functions.
 
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
 ### Node pools
 
-Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
+Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes. Multiple node pool support is currently in preview in AKS.
 
-When you scale or upgrade an AKS cluster, the action is performed against the default node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
+> [!NOTE]
+> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
+
+When you scale or upgrade an AKS cluster, the action is performed against the default node pool. You can also choose to scale or upgrade a specific node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
+
+For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
+
+### Node selectors
+
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
+
+The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+For more information on how to control where pods are scheduled, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
 ## Pods
 
@@ -193,6 +230,9 @@ Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `ki
 
 For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 
+> [!NOTE]
+> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
+
 ## Namespaces
 
 Kubernetes resources, such as pods and Deployments, are logically grouped into a *namespace*. These groupings provide a way to logically divide an AKS cluster and restrict access to create, view, or manage resources. You can create namespaces to separate business groups, for example. Users can only interact with resources within their assigned namespaces.
@@ -238,3 +278,6 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

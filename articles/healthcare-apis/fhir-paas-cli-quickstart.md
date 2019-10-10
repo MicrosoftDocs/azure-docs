@@ -4,6 +4,7 @@ description: Deploy Azure API for FHIR using Azure CLI.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -15,7 +16,7 @@ In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Azure Resource Manager template
 
@@ -41,7 +42,7 @@ az ad user show --upn-or-object-id myuser@consoso.com | jq -r .objectId
 
 Read the how-to guide on [finding identity object IDs](find-identity-object-ids.md) for more details.
 
-# Create Azure Resource Group
+## Create Azure Resource Group
 
 Pick a name for the resource group that will contain the Azure API for FHIR and create it:
 

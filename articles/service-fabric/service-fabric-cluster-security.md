@@ -3,8 +3,8 @@ title: Secure an Azure Service Fabric cluster | Microsoft Docs
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Service Fabric cluster security scenarios

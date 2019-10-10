@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add, change, or delete a virtual network subnet in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Add, change, or delete a virtual network subnet
@@ -66,7 +67,7 @@ The account you log into, or connect to Azure with, must be assigned to the [net
     - **Users**: You can control access to the subnet by using built-in roles or your own custom roles. To learn more about assigning roles and users to access the subnet, see [Use role assignment to manage access to your Azure resources](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Network security group** and  **Route table**: See step 5 of [Add a subnet](#add-a-subnet).
     - **Service endpoints**: See service endpoints in step 5 of [Add a subnet](#add-a-subnet). When enabling a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet from using the default route with the *0.0.0.0/0* address prefix and next hop type of *Internet*, to using a new route with the address prefixes of the service, and a next hop type of *VirtualNetworkServiceEndpoint*. During the switch, any open TCP connections may be terminated. The service endpoint is not enabled until traffic flows to the service for all network interfaces are updated with the new route. To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md).
-    - **Subnet delegation:** See service endpoints in step 5 of [Add a subnet](#add-a-subnet). Subnet delegation can be modified to zero or multiple delegations enabled for it. If a resource for a service is already deployed in the subnet, subnet delegation cannot be removed until the all resources for the service are removed. To delegate for a different service, select the service you want to delegate to from the **Services** list.
+    - **Subnet delegation:** See service endpoints in step 5 of [Add a subnet](#add-a-subnet). Subnet delegation can be modified to zero or multiple delegations enabled for it. If a resource for a service is already deployed in the subnet, subnet delegation cannot be added or removed until the all resources for the service are removed. To delegate for a different service, select the service you want to delegate to from the **Services** list.
 5. Select **Save**.
 
 **Commands**

@@ -2,7 +2,7 @@
 title: Quickstart to access and create a new tenant - Azure Active Directory | Microsoft Docs
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -56,7 +56,7 @@ If you’re not going to continue to use this application, you can delete the te
 
     The tenant and its associated information is deleted.
 
-    ![Create directory page, with sample information](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 - Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
@@ -65,6 +65,6 @@ If you’re not going to continue to use this application, you can delete the te
 
 - Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-- Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) and [Conditional access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
+- Learn about [role-based access using Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) and [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
 
 - Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).

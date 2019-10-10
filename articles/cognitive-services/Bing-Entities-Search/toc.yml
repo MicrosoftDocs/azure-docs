@@ -45,7 +45,8 @@
 - name: How-to guides
   items:
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Concepts
   items:
     - name: Searching for entities
@@ -58,13 +59,13 @@
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
   - name: Bing Entity Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference
   - name: SDKs
     items:
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable
+        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python
       - name: Node.js
@@ -92,4 +93,7 @@
   - name: Bing Entity Search endpoint
     href: entity-search-endpoint.md
   - name: Analytics for Bing Entity Search API
-    href: bing-entity-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

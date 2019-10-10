@@ -1,12 +1,9 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
@@ -42,6 +39,13 @@ The following sample *host.json* files have all possible options specified.
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -82,6 +86,9 @@ The following sample *host.json* files have all possible options specified.
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -111,6 +118,28 @@ The following sections of this article explain each top-level property. All are 
 ## applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## DocumentDB
+
+Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## durableTask
 
@@ -235,11 +264,40 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
 |newBatchThreshold|batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.| 
 
+## SendGrid
+
+Configuration setting for the [SendGrind output binding](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
+
 ## serviceBus
 
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
+|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
 
 ## singleton
 

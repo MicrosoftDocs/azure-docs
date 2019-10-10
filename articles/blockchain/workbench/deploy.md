@@ -1,37 +1,39 @@
 ---
-title: Deploy Azure Blockchain Workbench
-description: How to deploy Azure Blockchain Workbench
+title: Deploy Azure Blockchain Workbench Preview
+description: How to deploy Azure Blockchain Workbench Preview
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
-# Deploy Azure Blockchain Workbench
+# Deploy Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
+Azure Blockchain Workbench Preview is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
 For more information about the components of Blockchain Workbench, see [Azure Blockchain Workbench architecture](architecture.md).
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## Prepare for deployment
 
 Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned within a resource group in your Azure subscription.
 
-* 1 Event Grid Topic
-* 1 Service Bus Namespace
-* 1 Application Insights
-* 1 SQL Database (Standard S0)
-* 2 App Services (Standard)
-* 2 Azure Key Vaults
-* 2 Azure Storage accounts (Standard LRS)
-* 2 Virtual machine scale sets (for validator and worker nodes)
-* 2 Virtual Networks (including load balancer, network security group, and public IP address for each virtual network)
-* Optional: Azure Monitor
+* App Service Plan (Standard)
+* Application Insights
+* Event Grid
+* Azure Key Vault
+* Service Bus
+* SQL Database (Standard S0) + SQL Logical Server
+* Azure Storage account (Standard LRS)
+* Virtual machine scale set with capacity of 1
+* Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
+* Azure Blockchain Service. If you are using a previous Blockchain Workbench deployment, consider redeploying Azure Blockchain Workbench to use Azure Blockchain Service.
 
 The following is an example deployment created in **myblockchain** resource group.
 
@@ -39,17 +41,12 @@ The following is an example deployment created in **myblockchain** resource grou
 
 The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> If you are using a subscription with low service limits such as an Azure free tier subscription, the deployment may fail due to insufficient quota of VM cores. Prior to deployment, check your quota using guidance from the [virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) article. The default VM selection requires 6 VM cores. Changing to a smaller size VM such as *Standard DS1 v2* reduces the number of cores to 4.
-
 ## Prerequisites
 
 Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-ad-configuration) before deployment or run a script post deployment. If you are redeploying Blockchain Workbench, see [Azure AD configuration](#azure-ad-configuration) to verify your Azure AD configuration.
 
 > [!IMPORTANT]
 > Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md) and [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## Deploy Blockchain Workbench
 
@@ -77,7 +74,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Authentication type | Select if you want to use a password or key for connecting to VMs. |
     | Password | The password is used for connecting to VMs. |
     | SSH | Use an RSA public key in the single-line format beginning  with **ssh-rsa** or use the multi-line PEM format. You can generate SSH keys using `ssh-keygen` on Linux and OS X, or by using PuTTYGen on Windows. More information on SSH keys, see [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Database password / Confirm database password | Specify the password to use for access to the database created as part of the deployment. |
+    | Database and Blockchain password | Specify the password to use for access to the database created as part of the deployment. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;) |
     | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availability, this should match the **Location** setting. |
     | Subscription | Specify the Azure Subscription you wish to use for your deployment. |
     | Resource groups | Create a new Resource group by selecting **Create new** and specify a unique resource group name. |
@@ -89,15 +86,15 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     For **Create new**:
 
-    The *create new* option creates a set of Ethereum Proof-of Authority (PoA) nodes within a single member’s subscription. 
+    The *create new* option deploys an Azure Blockchain Service Quorum ledger with the default basic sku.
 
     ![Advanced settings for new blockchain network](media/deploy/advanced-blockchain-settings-new.png)
 
     | Setting | Description  |
     |---------|--------------|
-    | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
+    | Azure Blockchain Service pricing tier | Choose **Basic** or **Standard** Azure Blockchain Service tier that is used for Blockchain Workbench |
     | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
-    | VM selection | Choose the preferred VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
+    | VM selection | Select preferred storage performance and VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
 
     For **Use existing**:
 
@@ -116,7 +113,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
      |---------|--------------|
      | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `http<s>://<network-url>:<port>` |
      | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
-     | VM selection | Choose the preferred VM size for your blockchain network. |
+     | VM selection | Select preferred storage performance and VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
 
 9. Select **OK** to finish Advanced Settings.
 

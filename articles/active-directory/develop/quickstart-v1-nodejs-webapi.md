@@ -1,10 +1,10 @@
 ---
-title: Secure a Web API with Azure AD | Microsoft Docs
+title: 'Quickstart: Secure a Web API with Azure Active Directory'
 description: Learn how to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a Node.js REST web API that integrates with Azure Active Directory for authentication.
 ms.collection: M365-identity-device-management
+ms.custom: seo-javascript-september2019
 ---
 
 # Quickstart: Secure a Web API with Azure Active Directory

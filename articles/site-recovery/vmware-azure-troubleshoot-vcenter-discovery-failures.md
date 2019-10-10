@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot failback to on-premises during VMware VM disaster recovery to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
-author: vDonGlover
-manager: JarrettRenshaw
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: v-doglov
+ms.author: raynew
 
 ---
 # Troubleshoot vCenter discovery failures
@@ -41,8 +41,8 @@ In general, the proxy is used to communicate to public networks; such as communi
 
 The following situations occur when this issue is encountered:
 
-- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: (503) Server Unavailable
-- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: Unable to connect to the remote server.
+- The vCenter server \<vCenter> is not reachable because of the error: The remote server returned an error: (503) Server Unavailable
+- The vCenter server \<vCenter> is not reachable because of the error: The remote server returned an error: Unable to connect to the remote server.
 - Unable to connect to vCenter/ESXi server.
 
 To resolve the issue:

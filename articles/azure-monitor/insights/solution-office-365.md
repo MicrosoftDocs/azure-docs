@@ -6,16 +6,24 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/13/2019
 ms.author: bwren
 ---
 # Office 365 management solution in Azure (Preview)
 
 ![Office 365 logo](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> The recommended method to install and configure the Office 365 solution is enabling the [Office 365 connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) instead of using the steps in this article. This is an updated version of the Office 365 solution with an improved configuration experience. To connect Azure AD logs, you can use either the [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md) or [configure Azure AD diagnostic settings](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), which provides richer log data than the Office 365 management logs. 
+>
+> When you [onboard Azure Sentinel](../../sentinel/quickstart-onboard.md), specify the Log Analytics workspace  that you want the Office 365 solution installed in. Once you enable the connector, the solution will be available in the workspace and used exactly the same as any other monitoring solutions you have installed.
+>
+> Users of the Azure government cloud must install the Office 365 using the steps in this article since Azure Sentinel is not yet available in the government cloud.
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
@@ -25,9 +33,11 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
+
 The following is required prior to this solution being installed and configured.
 
 - Organizational Office 365 subscription.
@@ -36,12 +46,16 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
+
 This solution does not install any management packs in [connected management groups](../platform/om-agents.md).
   
+
 ## Install and configure
+
 Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-monitoring-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
 ### Required information
+
 Before you start this procedure, gather the following information.
 
 From your Log Analytics workspace:
@@ -58,58 +72,61 @@ From your Office 365 subscription:
 - Client Secret: Encrypted string necessary for authentication.
 
 ### Create an Office 365 application in Azure Active Directory
+
 The first step is to create an application in Azure Active Directory that the management solution will use to access your Office 365 solution.
 
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 1. Select **Azure Active Directory** and then **App registrations**.
-1. Click **New application registration**.
+1. Click **New registration**.
 
     ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use `http://localhost` for the URL, and keep _Web app / API_ for the **Application type**
+1. Enter an application **Name**. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** for the **Supported account types**.
     
     ![Create application](media/solution-office-365/create-application.png)
-1. Click **Create** and validate the application information.
+1. Click **Register** and validate the application information.
 
     ![Registered app](media/solution-office-365/registered-app.png)
 
 ### Configure application for Office 365
 
-1. Click **Settings** to open the **Settings** menu.
-1. Select **Properties**. Change **Multi-tenanted** to _Yes_.
+1. Select **Authentication** and verify that **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected under **Supported account types**.
 
     ![Settings multitenant](media/solution-office-365/settings-multitenant.png)
 
-1. Select **Required permissions** in the **Settings** menu and then click **Add**.
-1. Click **Select an API** and then **Office 365 Management APIs**. click **Office 365 Management APIs**. Click **Select**.
+1. Select **API permissions** and then **Add a permission**.
+1. Click **Office 365 Management APIs**. 
 
     ![Select API](media/solution-office-365/select-api.png)
 
-1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
+1. Under **What type of permissions does your application require?** select the following options for both **Application permissions** and **Delegated permissions**:
    - Read service health information for your organization
    - Read activity data for your organization
    - Read activity reports for your organization
 
-     ![Select API](media/solution-office-365/select-permissions.png)
+     ![Select API](media/solution-office-365/select-permissions-01.png)![Select API](media/solution-office-365/select-permissions-02.png)
 
-1. Click **Select** and then **Done**.
-1. Click **Grant permissions** and then click **Yes** when asked for verification.
+1. Click **Add permissions**.
+1. Click **Grant admin consent** and then click **Yes** when asked for verification.
 
-    ![Grant permissions](media/solution-office-365/grant-permissions.png)
 
-### Add a key for the application
+### Add a secret for the application
 
-1. Select **Keys** in the **Settings** menu.
+1. Select **Certificates & secrets** and then **New client secret**.
+
+    ![Keys](media/solution-office-365/secret.png)
+ 
 1. Type in a **Description** and **Duration** for the new key.
-1. Click **Save** and then copy the **Value** that's generated.
+1. Click **Add** and then copy the **Value** that's generated.
 
     ![Keys](media/solution-office-365/keys.png)
 
 ### Add admin consent
+
 To enable the administrative account for the first time, you must provide administrative consent for the application. You can do this with a PowerShell script. 
 
 1. Save the following script as *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -155,9 +172,11 @@ To enable the administrative account for the first time, you must provide admini
     ```
 
 2. Run the script with the following command. You will be prompted twice for credentials. Provide the credentials for your Log Analytics workspace first and then the global admin credentials for your Office 365 tenant.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Example:
 
     ```
@@ -169,11 +188,12 @@ To enable the administrative account for the first time, you must provide admini
     ![Admin consent](media/solution-office-365/admin-consent.png)
 
 ### Subscribe to Log Analytics workspace
+
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
 
 1. Save the following script as *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -336,12 +356,14 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     ```
 
 2. Run the script with the following command:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Example:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -349,7 +371,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
 
 You may see the following error if your application is already subscribed to this workspace or if this tenant is subscribed to another workspace.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -360,7 +382,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 You may see the following error if invalid parameter values are provided.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -371,11 +393,12 @@ At line:12 char:18
 ```
 
 ## Uninstall
+
 You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-monitoring-solution). This will not stop data being collected from Office 365 into Azure Monitor though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
 
 1. Save the following script as *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -466,15 +489,18 @@ You can remove the Office 365 management solution using the process in [Remove a
 
     Example:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## Data collection
+
 ### Supported agents
+
 The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
+
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
 ## Using the solution
@@ -505,6 +531,7 @@ The dashboard includes the columns in the following table. Each column lists the
 All records created in the Log Analytics workspace in Azure Monitor by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
 
 ### Common properties
+
 The following properties are common to all Office 365 records.
 
 | Property | Description |
@@ -522,6 +549,7 @@ The following properties are common to all Office 365 records.
 
 
 ### Azure Active Directory base
+
 The following properties are common to all Azure Active Directory records.
 
 | Property | Description |
@@ -533,19 +561,21 @@ The following properties are common to all Azure Active Directory records.
 
 
 ### Azure Active Directory Account logon
+
 These records are created when an Active Directory user attempts to log on.
 
 | Property | Description |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Application | The application that triggers the account login event, such as Office 15. |
-| Client | Details about the client device, device OS, and device browser that was used for the of the account login event. |
-| LoginStatus | This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms. |
-| UserDomain | The Tenant Identity Information (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | The application that triggers the account login event, such as Office 15. |
+| `Client` | Details about the client device, device OS, and device browser that was used for the of the account login event. |
+| `LoginStatus` | This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms. |
+| `UserDomain` | The Tenant Identity Information (TII). | 
 
 
 ### Azure Active Directory
+
 These records are created when change or additions are made to Azure Active Directory objects.
 
 | Property | Description |
@@ -563,6 +593,7 @@ These records are created when change or additions are made to Azure Active Dire
 
 
 ### Data Center Security
+
 These records are created from Data Center Security audit data.  
 
 | Property | Description |
@@ -578,6 +609,7 @@ These records are created from Data Center Security audit data.
 
 
 ### Exchange Admin
+
 These records are created when changes are made to Exchange configuration.
 
 | Property | Description |
@@ -592,6 +624,7 @@ These records are created when changes are made to Exchange configuration.
 
 
 ### Exchange Mailbox
+
 These records are created when changes or additions are made to Exchange mailboxes.
 
 | Property | Description |
@@ -614,6 +647,7 @@ These records are created when changes or additions are made to Exchange mailbox
 
 
 ### Exchange Mailbox Audit
+
 These records are created when a mailbox audit entry is created.
 
 | Property | Description |
@@ -628,6 +662,7 @@ These records are created when a mailbox audit entry is created.
 
 
 ### Exchange Mailbox Audit Group
+
 These records are created when changes or additions are made to Exchange groups.
 
 | Property | Description |
@@ -646,6 +681,7 @@ These records are created when changes or additions are made to Exchange groups.
 
 
 ### SharePoint Base
+
 These properties are common to all SharePoint records.
 
 | Property | Description |
@@ -662,6 +698,7 @@ These properties are common to all SharePoint records.
 
 
 ### SharePoint Schema
+
 These records are created when configuration changes are made to SharePoint.
 
 | Property | Description |
@@ -674,6 +711,7 @@ These records are created when configuration changes are made to SharePoint.
 
 
 ### SharePoint File Operations
+
 These records are created in response to file operations in SharePoint.
 
 | Property | Description |
@@ -694,6 +732,7 @@ These records are created in response to file operations in SharePoint.
 
 
 ## Sample log searches
+
 The following table provides sample log searches for update records collected by this solution.
 
 | Query | Description |
@@ -707,6 +746,7 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
+
 * Use [log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

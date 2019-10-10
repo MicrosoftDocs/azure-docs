@@ -3,8 +3,8 @@ title: Viewing diagnostic logs for Azure Data Lake Storage Gen1 | Microsoft Docs
 description: 'Understand how to setup and access diagnostic logs for Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Accessing diagnostic logs for Azure Data Lake Storage Gen1

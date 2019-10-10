@@ -2,24 +2,24 @@
 title: Password complexity - Azure Active Directory B2C | Microsoft Docs
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Configure complexity requirements for passwords in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C supports changing the complexity requirements for passwords supplied by an end user when creating an account. By default, Azure AD B2C uses `Strong` passwords. Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
+Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requirements for passwords supplied by an end user when creating an account. By default, Azure AD B2C uses `Strong` passwords. Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
 
 ## Password rule enforcement
 
-During sign-up or password reset, an end user must supply a password that meets the complexity rules. Password complexity rules are enforced per user flow. It is possible to have one user flow require a four-digit pin during sign-up while another user flow requires a eight character string during sign-up. For example, you may use a user flow with different password complexity for adults than for children.
+During sign-up or password reset, an end user must supply a password that meets the complexity rules. Password complexity rules are enforced per user flow. It is possible to have one user flow require a four-digit pin during sign-up while another user flow requires an eight character string during sign-up. For example, you may use a user flow with different password complexity for adults than for children.
 
 Password complexity is never enforced during sign-in. Users are never prompted during sign-in to change their password because it doesn't meet the current complexity requirement.
 
@@ -33,7 +33,7 @@ If you are using custom policies, you can ([configure password complexity in a c
 ## Configure password complexity
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **User flows**.
 2. Select a user flow, and click **Properties**.

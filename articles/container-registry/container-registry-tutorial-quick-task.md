@@ -3,6 +3,7 @@ title: Tutorial - Build container images in the cloud - Azure Container Registry
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: tutorial
@@ -29,7 +30,7 @@ In this tutorial, part one of a series:
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
 
-In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md) (currently in preview), using a YAML file to define steps to build, push, and optionally test multiple containers.
+In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -73,7 +74,7 @@ The commands in this tutorial series are formatted for the Bash shell. If you pr
 
 Now that you've pulled the source code down to your machine, follow these steps to create a container registry and build the container image with ACR Tasks.
 
-To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
+To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, contain only lower case letters, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>

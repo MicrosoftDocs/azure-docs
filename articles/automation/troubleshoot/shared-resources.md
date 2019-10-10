@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Azure Automation shared resources
 description: Learn how to troubleshoot issues with Azure Automation shared resources
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
@@ -39,7 +39,7 @@ Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResour
 
 A banner with the following message stays in your account after trying to update your AzureRM modules:
 
-```
+```error
 Azure modules are being updated
 ```
 

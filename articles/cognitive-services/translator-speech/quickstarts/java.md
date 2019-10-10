@@ -3,13 +3,13 @@ title: "Quickstart: Translator Speech API Java"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the  Translator Speech API.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Quickstart: Translator Speech API with Java

@@ -2,6 +2,7 @@
 layout: HubPage
 hide_bc: true
 experiment_id: "81ba5f65-59fb-4d"
+experimental: false
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
@@ -131,7 +132,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/go/azure/">
+                                                    <a href="/azure/go/">
                                                         <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
@@ -3123,10 +3124,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">Get started</a>
+                                                    <a href="https://docs.microsoft.com/azure/python/python-sdk-azure-overview">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API reference</a>
+                                                    <a href="https://docs.microsoft.com/azure/python/python-sdk-azure-overview">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
@@ -3234,10 +3235,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/go/azure/">Get the Go SDK</a>
+                                                    <a href="/azure/go/">Get the Go SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
+                                                    <a href="/azure/go/azure-sdk-go-qs-vm">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>
@@ -3317,7 +3318,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Download PowerShell</a>
+                                                    <a href="/powershell/azure/install-Az-ps">Download Azure PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>

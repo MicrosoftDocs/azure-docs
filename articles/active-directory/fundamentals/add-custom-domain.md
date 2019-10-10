@@ -2,7 +2,7 @@
 title: Add your custom domain - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -80,6 +80,8 @@ After you register your custom domain name, you need to make sure it's valid in 
 4. On the **Contoso** page, select **Verify** to make sure your custom domain is properly registered and is valid for Azure AD.
 
     ![Contoso page with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+After you've verified your custom domain name, you can delete your verification TXT or MX file.
 
 ## Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:

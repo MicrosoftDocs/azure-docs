@@ -1,6 +1,6 @@
 ---
 title: Image Moderation - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use Content Moderator’s machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
 services: cognitive-services
 author: sanjeev3
@@ -63,7 +63,7 @@ Example extract:
 
 ## Detecting faces
 
-Detecting faces helps to detect personally identifiable information (PII) such as faces in the images. You detect potential faces and the number of potential faces in each image.
+Detecting faces helps to detect personal data such as faces in the images. You detect potential faces and the number of potential faces in each image.
 
 A response includes this information:
 

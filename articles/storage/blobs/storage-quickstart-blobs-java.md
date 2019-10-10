@@ -1,33 +1,33 @@
 ---
-title: How to create a blob in Azure Storage using the client library for Java v7 | Microsoft Docs
-description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java v7 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-services: storage
-author: roygara
+title: "Quickstart: Azure Blob storage client library for Java SDK v8"
+description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java SDK v8 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+author: mhopkins-msft
 
-ms.custom: mvc
+ms.author: mhopkins
+ms.date: 10/05/2019
 ms.service: storage
+ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.author: rogarana
 ---
 
-# How to upload, download, and list blobs using the client library for Java v7
+# Quickstart: Azure Blob storage client library for Java SDK v8
 
-In this how-to guide, you learn how to use the client library for Java v7 to upload, download, and list block blobs in a container in Azure Blob storage.
+Get started with the Azure Blob Storage client library for Java. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-> [!TIP]
-> The latest version of the Azure Storage client library for Java is v10. Microsoft recommends that you use the latest version of the client library when possible. To get started using v10, see [Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
+Use the Azure Blob Storage client library for Java to:
+
+* Create a container
+* Set permissions on a container
+* Create a blob in Azure Storage
+* Download the blob to your local computer
+* List all of the blobs in a container
+* Delete a container
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-Also create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
-
-Make sure you have the following prerequisites:
-
-* Install an IDE that has Maven integration.
-
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* An IDE that has Maven integration.
 * Alternatively, install and configure Maven to work from the command line.
 
 This guide uses [Eclipse](https://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
@@ -205,6 +205,5 @@ sourceFile.deleteOnExit();
 In this article, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Java, continue to our GitHub source code repository.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK v10 for Java](https://github.com/azure/azure-storage-java) 
-> [Java API Reference](https://docs.microsoft.com/java/azure/)
+> [Java API Reference](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
 > [Code Samples for Java](../common/storage-samples-java.md)

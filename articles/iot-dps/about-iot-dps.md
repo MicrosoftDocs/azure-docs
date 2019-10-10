@@ -3,7 +3,7 @@ title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Describes device provisioning in Azure with the Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -103,8 +103,9 @@ There is a 99.9% Service Level Agreement for the Device Provisioning Service, an
 ## Quotas
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
 
-For more details on quota limits:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
 
 ## Related Azure components

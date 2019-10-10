@@ -7,7 +7,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
 
 ---
@@ -101,9 +101,9 @@ When you initiate a test failover, don't include all the domain controllers in t
 Beginning with Windows Server 2012, [additional safeguards are built into Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN rollbacks if the underlying hypervisor platform supports **VM-GenerationID**. Azure supports **VM-GenerationID**. Because of this, domain controllers that run Windows Server 2012 or later on Azure virtual machines have these additional safeguards.
 
 
-When **VM-GenerationID** is reset, the **InvocationID** value of the AD DS database is also reset. In addition, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+When **VM-GenerationID** is reset, the **InvocationID** value of the AD DS database is also reset. In addition, the RID pool is discarded, and sysvol folder is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Failing over to Azure might cause **VM-GenerationID** to reset. Resetting **VM-GenerationID** triggers additional safeguards when the domain controller virtual machine starts in Azure. This might result in a *significant delay* in being able to log in to the domain controller virtual machine.
+Failing over to Azure might cause **VM-GenerationID** to reset. Resetting **VM-GenerationID** triggers additional safeguards when the domain controller virtual machine starts in Azure. This might result in a *significant delay* in being able to sign in to the domain controller virtual machine.
 
 Because this domain controller is used only in a test failover, virtualization safeguards aren't necessary. To ensure that the **VM-GenerationID** value for the domain controller virtual machine doesn't change, you can change the value of following DWORD to **4** in the on-premises domain controller:
 
@@ -123,11 +123,11 @@ If virtualization safeguards are triggered after a test failover, you might see 
 
     ![Invocation ID Change](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL and NETLOGON shares aren't available.
+* Sysvol folder and NETLOGON shares aren't available.
 
-    ![SYSVOL share](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol folder share](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol folder](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR databases are deleted.
 
@@ -141,7 +141,7 @@ If virtualization safeguards are triggered after a test failover, you might see 
 >
 >
 
-1. At the command prompt, run the following command to check whether SYSVOL and NETLOGON folders are shared:
+1. At the command prompt, run the following command to check whether sysvol folder and NETLOGON folder are shared:
 
 	`NET SHARE`
 
@@ -161,7 +161,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 	* Although we don't recommend [FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), if you use FRS replication, follow the steps for an authoritative restore. The process is described in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762).
 
         For more information about BurFlags, see the blog post [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated SYSVOL (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556).
+	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated sysvol folder (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556).
 
         You can also use the PowerShell functions. For more information, see [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

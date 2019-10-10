@@ -1,6 +1,6 @@
 ---
-title: Upload, encode, and stream with Azure Media Services v3 using .NET | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3 using .NET.
+title: Upload, encode, and stream with Azure Media Services v3 | Microsoft Docs
+description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,11 +11,14 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 03/22/2019
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos using .NET
+# Tutorial: Upload, encode, and stream videos
+
+> [!NOTE]
+> Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via a HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
 
@@ -79,7 +82,7 @@ In Media Services v3, you use Azure Storage APIs to upload files. The following 
 The following function performs these actions:
 
 * Creates an **Asset** 
-* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Uploads the file into the container in storage using the SAS URL
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -193,6 +196,10 @@ az group delete --name amsResourceGroup
 ## Multithreading
 
 The Azure Media Services v3 SDKs are not thread-safe. When developing a multi-threaded application, you should generate and use a new  AzureMediaServicesClient object per thread.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

@@ -4,8 +4,6 @@ description: Learn how to deploy virtual machine extensions with Azure Resource 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: 
 
 ms.service: azure-resource-manager
 ms.workload: multiple
@@ -46,7 +44,7 @@ To complete this article, you need:
 
 ## Prepare a PowerShell script
 
-A PowerShell script with the following content is shared from an [Azure storage account with public access](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
+A PowerShell script with the following content is shared from [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -61,7 +59,7 @@ Azure Quickstart Templates is a repository for Resource Manager templates. Inste
 1. In Visual Studio Code, select **File** > **Open File**.
 1. In the **File name** box, paste the following URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. To open the file, select **Open**.  
+1. To open the file, select **Open**.
     The template defines five resources:
 
    * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -94,7 +92,7 @@ Add a virtual machine extension resource to the existing template with the follo
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -104,10 +102,10 @@ Add a virtual machine extension resource to the existing template with the follo
 
 For more information about this resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./resource-group-authoring-templates.md#child-resources).
+* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
 * **dependsOn**: Create the extension resource after you've created the virtual machine.
 * **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
-* **commandToExecute**: This command invokes the script.  
+* **commandToExecute**: This command invokes the script.
 
 ## Deploy the template
 
@@ -116,7 +114,7 @@ For the deployment procedure, see the "Deploy the template" section of [Tutorial
 ## Verify the deployment
 
 1. In the Azure portal, select the VM.
-1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab.  
+1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab.
    The default Internet Information Services (IIS) welcome page opens:
 
 ![The Internet Information Services welcome page](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
@@ -127,7 +125,7 @@ When you no longer need the Azure resources you deployed, clean them up by delet
 
 1. In the Azure portal, in the left pane, select **Resource group**.
 2. In the **Filter by name** box, enter the resource group name.
-3. Select the resource group name.  
+3. Select the resource group name.
     Six resources are displayed in the resource group.
 4. In the top menu, select **Delete resource group**.
 

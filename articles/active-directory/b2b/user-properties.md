@@ -1,24 +1,24 @@
 ---
-title: Properties of a B2B collaboration user - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B collaboration user properties are configurable
+title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B guest user properties and states before and after invitation redemption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-ms.custom: "it-pro, seo-update-azuread-jan"
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
 
-An Azure Active Directory (Azure AD) business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
+This article describes the properties and states of the B2B guest user object in Azure Active Directory (Azure AD) before and after invitation redemption. An Azure AD business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
 
 Depending on the inviting organization's needs, an Azure AD B2B collaboration user can be in one of the following account states:
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Azure CLI to create and 
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

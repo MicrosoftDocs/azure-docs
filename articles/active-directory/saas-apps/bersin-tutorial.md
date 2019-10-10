@@ -47,7 +47,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Bersin into Azure AD, you need to add Bersin from the gallery to your list of managed SaaS apps.
 
-**To add Bersin from the gallery, perform the following steps:**
+**To add Bersin from the gallery**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with Bersin, you need to complete 
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Bersin, perform the following steps:
+To configure Azure AD single sign-on with Bersin, do the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Bersin** application integration page, select **Single sign-on**.
 
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Bersin, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, do the following step:
 
     ![Bersin Domain and URLs single sign-on information](common/idp-identifier-relay.png)
 
@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with Bersin, perform the following steps:
     c. In the **Relay State** text box, type a URL using the following pattern:
     `https://www.bersin.com/secure/`
 
-5. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+5. Click **Set additional URLs** and do the following steps if you wish to configure the application in **SP** initiated mode:
 
     ![Bersin Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
@@ -132,7 +132,7 @@ To configure Azure AD single sign-on with Bersin, perform the following steps:
 
 ### Configure Bersin Single Sign-On
 
-To configure single sign-on on **Bersin** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Bersin support team](mailto:ramansabde@gmail.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Bersin** side, send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Bersin support team](mailto:ramansabde@gmail.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -146,13 +146,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![New user Button](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. In the User properties, do the following steps.
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -181,13 +181,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you're expecting any role value in the SAML assertion, then in the **Select Role** dialog, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Bersin test user
 
-In this section, you create a user called Britta Simon in Bersin. Work with the [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Bersin. Work with the [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain that must be added to an allow list for the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
@@ -197,8 +197,8 @@ When you click the Bersin tile in the Access Panel, you should be automatically 
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

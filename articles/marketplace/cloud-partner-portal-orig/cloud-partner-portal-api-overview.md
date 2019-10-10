@@ -1,20 +1,12 @@
 ---
-title: Cloud Partner Portal API Reference | Microsoft Docs
+title: Cloud Partner Portal API Reference | Azure Marketplace
 description: Description of, prerequisites to use, and list of marketplace API operations.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

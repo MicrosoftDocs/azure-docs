@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a virtual network in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Create, change, or delete a virtual network
@@ -34,7 +34,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 1. Select **+ Create a resource** > **Networking** > **Virtual network**.
 2. Enter or select values for the following settings, then select **Create**:
-   - **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Following a naming convention can help make it easier to manage multiple virtual networks.
+   - **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Following a naming convention can help make it easier to manage multiple virtual networks.
    - **Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address ranges:
      - 224.0.0.0/4 (Multicast)
      - 255.255.255.255/32 (Broadcast)

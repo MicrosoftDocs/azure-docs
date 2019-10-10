@@ -1,5 +1,5 @@
 ---
-title: Batch test
+title: "Tutorial: Batch test - LUIS"
 titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 12/21/2018
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ Requirements for batch testing:
 
 * Maximum of 1000 utterances per test. 
 * No duplicates. 
-* Entity types allowed: only machined-learned entities of simple, hierarchical (parent-only), and composite. Batch testing is only useful for machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
 
@@ -90,7 +90,7 @@ Use the following steps:
 
 ## Review batch results
 
-The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
+The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together. 
 
@@ -98,27 +98,27 @@ The chart is in four quadrants, with two of the sections displayed in red. **The
 
 ### GetJobInformation test results
 
-The **GetJobInformation** test results displayed in the filter show that 2 of the four predictions were successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
+The **GetJobInformation** test results displayed in the filter show that 2 of the four predictions were successful. Select the name **False negative** at the bottom left quadrant to see the utterances below the chart. 
 
-![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Use the keyboard, Ctrl + E, to switch to the label view to see the exact text of the user utterance. 
 
-Why are two of the utterances predicted as **ApplyForJob**, instead of the correct intent **GetJobInformation**? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
+The utterance `Is there a database position open in Los Colinas?` is labeled as _GetJobInformation_ but the current model predicted the utterance as _ApplyForJob_. 
+
+There are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor, causing the incorrect prediction. 
 
 Notice that both intents have the same count of errors. An incorrect prediction in one intent affects the other intent as well. They both have errors because the utterances were incorrectly predicted for one intent, and also incorrectly not predicted for another intent. 
 
-![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-The utterances corresponding the top point in the **False positive** section are `Can I apply for any database jobs with this resume?` and `Can I apply for any database jobs with this resume?`. For the first utterance, the word `resume` has only been used in **ApplyForJob**. For the second utterance, the word `apply` has only been used in the **ApplyForJob** intent.
-
-## Fix the app
+## How to fix the app
 
 The goal of this section is to have all the utterances correctly predicted for **GetJobInformation** by fixing the app. 
 
-A seemingly quick fix would be to add these batch file utterances to the correct intent. That is not what you want to do though. You want LUIS to correctly predict these utterances without adding them as examples. 
+A seemingly quick fix would be to add these batch file utterances to the correct intent. That is not what you want to do. You want LUIS to correctly predict these utterances without adding them as examples. 
 
 You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent accurately next time. 
 
-The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` and `apply` toward the **ApplyForJob** intent. 
+The fix is to add more utterances to **GetJobInformation**. Remember to vary utterance length, word choice and word arrangement while still targeting the intent of finding job information, _not_ applying for the job.
 
 ### Add more utterances
 
@@ -156,15 +156,13 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 1. Select **Test** in the top navigation bar. If the batch results are still open, select **Back to list**.  
 
-2. Select the ellipsis (***...***) button to the right of the batch name and select **Run Dataset**. Wait until the batch test is done. Notice that the **See results** button is now green. This means the entire batch ran successfully.
+1. Select the ellipsis (***...***) button to the right of the batch name and select **Run**. Wait until the batch test is done. Notice that the **See results** button is now green. This means the entire batch ran successfully.
 
-3. Select **See results**. The intents should all have green icons to the left of the intent names. 
-
-    ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Select **See results**. The intents should all have green icons to the left of the intent names. 
 
 ## Create batch file with entities 
 
-In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. 
 
 The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
@@ -173,7 +171,6 @@ When first writing and testing batch files, it is best to start with a few utter
 The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If _your own_ human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
 
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/) or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) it.
-
 
 2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token-based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This causes an error during the batch file import.  
 
@@ -198,11 +195,11 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 ## Review entity batch results
 
-The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
+The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the entity predictions with errors. 
 
 1. Select the **Job** entity in the filter.
 
-    ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Error entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     The chart changes to display the entity predictions. 
 

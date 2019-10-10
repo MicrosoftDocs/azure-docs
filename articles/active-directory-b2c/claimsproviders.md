@@ -2,14 +2,14 @@
 title: ClaimsProviders  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsProvider element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -51,7 +51,7 @@ The **ClaimsProvider** element contains the following child elements:
 | DisplayName | 0:1 | A string that contains the name of the claims provider that can be displayed to users. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 
-**ClaimsProvider** organizes your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
+**ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
 
 ```XML
 <ClaimsProvider>

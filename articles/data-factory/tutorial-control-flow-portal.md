@@ -3,18 +3,16 @@ title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
 description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
 ---
+
 # Branching and chaining activities in a Data Factory pipeline
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, the pipeline sends details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
@@ -124,9 +122,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![New->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
       
      ![New data factory page](./media/tutorial-control-flow-portal/new-azure-data-factory.png)

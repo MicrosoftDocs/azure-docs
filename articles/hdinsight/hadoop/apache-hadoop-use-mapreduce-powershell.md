@@ -1,7 +1,6 @@
 ---
 title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -23,9 +22,6 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
-
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **A workstation with Azure PowerShell**.
 

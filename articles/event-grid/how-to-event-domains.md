@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 07/11/2019
 ---
 
 # Manage topics and publish events using event domains
@@ -31,7 +31,7 @@ To learn about event domains, see [Understand event domains for managing Event G
 
 To manage large sets of topics, create an event domain.
 
-For Azure CLI, use:
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -44,8 +44,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-For PowerShell, use:
-
+# [PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -56,6 +55,7 @@ New-AzureRmEventGridDomain `
   -Name <my-domain-name> `
   -Location <location>
 ```
+---
 
 Successful creation returns the following values:
 
@@ -82,6 +82,7 @@ Managing access to topics is done via [role assignment](https://docs.microsoft.c
 
 Event Grid has two built-in roles, which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
 
+# [Azure CLI](#tab/azurecli)
 The following Azure CLI command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurecli-interactive
@@ -91,6 +92,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
+# [PowerShell](#tab/powershell)
 The following PowerShell command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurepowershell-interactive
@@ -99,6 +101,7 @@ New-AzureRmRoleAssignment `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
+---
 
 For more information about managing access for Event Grid operations, see [Event Grid security and authentication](./security-authentication.md).
 
@@ -110,7 +113,7 @@ Subscribing to a topic in a domain is the same as subscribing to any other Azure
 
 Typically, the user you granted access to in the preceding section would create the subscription. To simplify this article, you create the subscription. 
 
-For Azure CLI, use:
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -119,7 +122,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-For PowerShell, use:
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -127,6 +130,8 @@ New-AzureRmEventGridSubscription `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
 ```
+
+---
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -166,6 +171,7 @@ Publishing events to a domain is the same as [publishing to a custom topic](./po
 }]
 ```
 
+# [Azure CLI](#tab/azurecli)
 To get the domain endpoint with Azure CLI, use
 
 ```azurecli-interactive
@@ -182,6 +188,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+# [PowerShell](#tab/powershell)
 To get the domain endpoint with PowerShell, use
 
 ```azurepowershell-interactive
@@ -197,6 +204,7 @@ Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
+---
 
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
 

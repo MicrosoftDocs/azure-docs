@@ -94,7 +94,7 @@ As soon as the IP address is updated, Site Recovery components will start receiv
 ## Migrate few protected virtual machines to a new vCenter
 
 > [!NOTE]
-> This section is applicable only when you are migrating a few of your protected virtual machines to a new vCenter. If you want protect a new set of virtual machines from a new vCenter, [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault) and start with **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
+> This section is applicable only when you are migrating a few of your protected virtual machines to a new vCenter. If you want to protect a new set of virtual machines from a new vCenter, [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault) and start with **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
 
 To move a few virtual machines to a new vCenter:
 
@@ -104,7 +104,7 @@ To move a few virtual machines to a new vCenter:
 4. Now, protect migrated virtual machines by [selecting the new vCenter when you enable protection](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> If the number of virtual machines being migrated is **higher** that the number of number of virtual machines retained in the old vCenter, update the IP address of the new vCenter using the instructions given [here](#modify-vcenter-ip-address-port). For the few virtual machines that are retained on the old vCenter, [disable replication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault), and start **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
+> If the number of virtual machines being migrated is **higher** that the number of number of virtual machines retained in the old vCenter, update the IP address of the new vCenter using the instructions given here. For the few virtual machines that are retained on the old vCenter, [disable replication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault), and start **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
 
 ## Frequently asked questions
 

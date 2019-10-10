@@ -4,7 +4,7 @@ description: This article helps you automate installation of the Mobility Servic
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/14/2019
 ms.author: ramamill
 ---
 
@@ -173,10 +173,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
-
-   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
+9. On the next page, select the target operating systems. 
 10. To complete the wizard, click **Next** twice.
 
 

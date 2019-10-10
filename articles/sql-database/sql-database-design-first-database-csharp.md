@@ -8,8 +8,7 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in a single database within Azure SQL Database C&#x23; and ADO.NET
 
@@ -25,9 +24,12 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 
 *If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
+
 ## Prerequisites
 
-An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+An installation of [Visual Studio 2019](https://www.visualstudio.com/downloads/) or later.
 
 ## Create a blank single database
 

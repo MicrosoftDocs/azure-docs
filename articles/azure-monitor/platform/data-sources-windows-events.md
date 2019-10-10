@@ -29,6 +29,9 @@ As you type the name of an event log, Azure Monitor provides suggestions of comm
 
 ![Configure Windows events](media/data-sources-windows-events/configure.png)
 
+> [!NOTE]
+> Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
+
 ## Data collection
 Azure Monitor collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then it collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
 
@@ -49,7 +52,7 @@ Windows event records have a type of **Event** and have the properties in the fo
 | EventLevelName |Severity of the event in text form. |
 | EventLog |Name of the event log that the event was collected from. |
 | ParameterXml |Event parameter values in XML format. |
-| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is AOI-<workspace ID> |
+| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is `AOI-<workspace ID>` |
 | RenderedDescription |Event description with parameter values |
 | Source |Source of the event. |
 | SourceSystem |Type of agent the event was collected from. <br> OpsManager – Windows agent, either direct connect or Operations Manager managed <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |

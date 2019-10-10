@@ -3,7 +3,7 @@ title: CLI Example - Load balance multiple websites with the Azure CLI | Microso
 description: This Azure CLI script example shows how to load balance multiple websites to the same virtual machine
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags:
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Azure CLI script example: Load balance multiple websites

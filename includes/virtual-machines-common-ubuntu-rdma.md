@@ -38,7 +38,7 @@ ms.author: cynthn
  
    Only Intel MPI 5.x runtimes are supported.
  
-   For installation steps, see the [Intel MPI Library Installation Guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+   For installation steps, see the [Intel MPI Library Installation Guide](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Enable ptrace for non-root non-debugger processes (needed for the most recent versions of Intel MPI).
  

@@ -11,17 +11,24 @@ ms.topic: "include"
 ms.date: 01/25/2019
 ---
 
-1. Complete the [Azure Machine Learning Python quickstart](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) to create a workspace.  Feel free to skip the **Use the notebook** section if you wish.
+1. [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/how-to-manage-workspace.md).
+
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-    ```
+    ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
-1. Add a workspace configuration file using either of these methods:
-    * Copy the **aml_config\config.json** file you created using the prerequisite quickstart into the cloned directory.
+
+1. Add a workspace configuration file to the cloned directory using either of these methods:
+
+    * In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace. 
+
+    ![Download config.json](./media/aml-dsvm-server/download-config.png)
+
     * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook in your cloned directory.
+
 1. Start the notebook server from your cloned directory.
-    
+
     ```shell
     jupyter notebook
     ```

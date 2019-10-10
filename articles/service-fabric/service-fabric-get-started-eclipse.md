@@ -4,7 +4,7 @@ description:  Get started with the Service Fabric plug-in for Eclipse.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -23,6 +23,9 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 
 > [!NOTE]
 > The Eclipse plugin is currently not supported on Windows. 
+
+> [!IMPORTANT]
+> Be sure JDK 8 is installed on the system and selected in Eclipse.
 
 ## Install or update the Service Fabric plug-in in Eclipse
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.

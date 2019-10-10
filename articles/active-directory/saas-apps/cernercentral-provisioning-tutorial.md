@@ -3,9 +3,8 @@ title: 'Tutorial: Configure Cerner Central for automatic user provisioning with 
 description: Learn how to configure Azure Active Directory to automatically provision users to a roster in Cerner Central.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -14,22 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: asmalser-msft
+ms.date: 03/27/2019
+ms.author: arvinh
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cerner Central for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in Cerner Central and Azure AD to automatically provision and de-provision user accounts from Azure AD to a user roster in Cerner Central. 
-
+The objective of this tutorial is to show you the steps you need to perform in Cerner Central and Azure AD to automatically provision and de-provision user accounts from Azure AD to a user roster in Cerner Central.
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active Directory tenant
-*   A Cerner Central tenant 
+* An Azure Active Directory tenant
+* A Cerner Central tenant
 
 > [!NOTE]
 > Azure Active Directory integrates with Cerner Central using the [SCIM](http://www.simplecloud.info/) protocol.
@@ -44,12 +42,11 @@ Before configuring and enabling the provisioning service, you should decide what
 
 ### Important tips for assigning users to Cerner Central
 
-*	It is recommended that a single Azure AD user be assigned to Cerner Central to test the provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user be assigned to Cerner Central to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
 * Once initial testing is complete for a single user, Cerner Central recommends assigning the entire list of users intended to access any Cerner solution (not just Cerner Central) to be provisioned to Cerner’s user roster.  Other Cerner solutions leverage this list of users in the user roster.
 
-*	When assigning a user to Cerner Central, you must select the **User** role in the assignment dialog. Users with the "Default Access" role are excluded from provisioning.
-
+* When assigning a user to Cerner Central, you must select the **User** role in the assignment dialog. Users with the "Default Access" role are excluded from provisioning.
 
 ## Configuring user provisioning to Cerner Central
 
@@ -58,9 +55,7 @@ This section guides you through connecting your Azure AD to Cerner Central’s U
 > [!TIP]
 > You may also choose to enabled SAML-based Single Sign-On for Cerner Central, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
 
-
 ### To configure automatic user account provisioning to Cerner Central in Azure AD:
-
 
 In order to provision user accounts to Cerner Central, you’ll need to request a Cerner Central system account from Cerner, and generate an OAuth bearer token that Azure AD can use to connect to Cerner's SCIM endpoint. It is also recommended that the integration be performed in a Cerner sandbox environment before deploying to production.
 
@@ -102,11 +97,11 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * In the **Tenant URL** field, enter a URL in the format below, replacing "User-Roster-Realm-ID" with the realm ID you acquired in step #4.
 
-> Sandbox:
-> https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> Production:
-> https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Sandbox:
+    > https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > Production:
+    > https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection**.
 
@@ -114,13 +109,13 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
 1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
-1. Click **Save**. 
+1. Click **Save**.
 
 1. In the **Attribute Mappings** section, review the user and group attributes to be synchronized from Azure AD to Cerner Central. The attributes selected as **Matching** properties are used to match the user accounts and groups in Cerner Central for update operations. Select the Save button to commit any changes.
 
 1. To enable the Azure AD provisioning service for Cerner Central, change the **Provisioning Status** to **On** in the **Settings** section
 
-1. Click **Save**. 
+1. Click **Save**.
 
 This starts the initial synchronization of any users and/or groups assigned to Cerner Central in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Cerner Central app.
 
@@ -134,4 +129,5 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
+
 * [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

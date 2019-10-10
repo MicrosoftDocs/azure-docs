@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
-manager: craigg
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database
