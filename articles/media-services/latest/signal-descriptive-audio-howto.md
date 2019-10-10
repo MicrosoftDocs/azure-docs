@@ -33,7 +33,7 @@ This article shows how to encode a video, upload an audio-only MP4 file (AAC cod
 
 The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. 
 
-If you want to learn how to encode from a HTTPS URL, see [this article](job-input-from-http-how-to.md) .  
+If you want to learn how to encode from an HTTPS URL, see [this article](job-input-from-http-how-to.md) .  
 
 In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
@@ -57,7 +57,7 @@ Here is an example of a call to the `CreateOutputAssetAsync` function:
 Asset outputAsset = await CreateOutputAssetAsync(client, config.ResourceGroup, config.AccountName, outputAssetName);
 ```
 
-Make sure to use the object returned from `CreateOutputAssetAsync` to get the name of the ouput asset, in this case we call it `outputAsset`. Pass the `outputAsset.Name` value to the `SubmitJobAsync` and `UploadAudioIntoOutputAsset` functions shown later in the topic.
+Make sure to use the object returned from `CreateOutputAssetAsync` to get the name of the output asset, in this case we call it `outputAsset`. Pass the `outputAsset.Name` value to the `SubmitJobAsync` and `UploadAudioIntoOutputAsset` functions shown later in the topic.
 
 ## Create a transform and a job that encodes the uploaded file
 
