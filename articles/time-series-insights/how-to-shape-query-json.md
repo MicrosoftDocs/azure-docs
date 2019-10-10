@@ -6,7 +6,7 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
 
@@ -24,6 +24,7 @@ This article provides guidance on how to shape JSON to maximize the efficiency o
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## Best practices
+
 Think about how you send events to Time Series Insights. Namely, you always:
 
 1. Send data over the network as efficiently as possible.
@@ -56,7 +57,7 @@ In the following example, there's a single Azure IoT Hub message where the outer
 
 Example JSON payload:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -102,8 +103,8 @@ Example JSON payload:
 
 Notes on these two tables:
 
-- The **deviceId** column serves as the column header for the various devices in a fleet. Making the deviceId value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
-- Unnecessary properties are avoided, for example, the make and model information. Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
+- The **deviceId** column serves as the column header for the various devices in a fleet. Making the **deviceId** value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
+- Unnecessary properties are avoided (for example, the make and model information). Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
 - Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Time Series Insights for querying.
 - Two layers of nesting are used, which is the maximum amount of nesting supported by Time Series Insights. It's critical to avoid deeply nested arrays.
 - Measures are sent as separate properties within the same object because there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
@@ -115,7 +116,7 @@ Notes on these two tables:
 
 Example JSON payload:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -193,4 +194,5 @@ For a property with a large number of possible values, it's best to send as dist
 ## Next steps
 
 - Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
+
 - Learn [how to shape events](./time-series-insights-send-events.md).
