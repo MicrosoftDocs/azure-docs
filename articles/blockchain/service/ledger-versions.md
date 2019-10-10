@@ -20,7 +20,7 @@ Currently, Azure Blockchain Service supports [Quorum version 2.2.3](https://gith
 
 ## Managing updates and upgrades
 
-Versioning in Quorum is done through a major, minor and patch releases. For example, if the Quorum version is 2.0.1, release type would be categorized as follows:
+Versioning in Quorum is done through a major, minor, and patch releases. For example, if the Quorum version is 2.0.1, release type would be categorized as follows:
 
 |Major | Minor  | Patch  |
 | :--- | :----- | :----- |
