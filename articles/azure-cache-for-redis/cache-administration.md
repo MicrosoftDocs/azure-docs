@@ -49,7 +49,6 @@ The impact on client applications varies depending on which nodes that you reboo
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [What pricing tiers can use the reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 ### Which node should I reboot to test my application?
 To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the secondary node, reboot the **Slave** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
