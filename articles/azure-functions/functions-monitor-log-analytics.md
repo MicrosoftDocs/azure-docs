@@ -35,17 +35,35 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 
 ## User generated logs
 
-TODO: go through the different languages and have an example for emitting logs 
-
 **JavaScript**
+
+```javascript
+    context.log('My app logs here.');
+```
 
 **Python**
 
+```python
+    logging.info('My app logs here.')
+```
+
 **.NET**
+
+```csharp
+    log.LogInformation("My app logs here.");
+```
 
 **Java**
 
+```java
+    context.getLogger().info("My app logs here.");
+```
+
 **PowerShell**
+
+```powershell
+    Write-Host "My app logs here."
+```
 
 ## Querying the logs
 
