@@ -36,7 +36,7 @@ The message count shown in the Azure portal will remain 0 until it accumulates t
 
 ## How connections are counted
 
-There are server connections and client connections. By default, when application server starts, each application server has five initial connections per hub with Azure SignalR Service, and each client has one client connection with Azure SignalR Service.
+There are server connections and client connections with Azure SignalR Service. By default, each application server starts with five initial connections per hub, and each client has one client connection.
 
 The connection count shown in the Azure portal includes both server connections and client connections.
 
