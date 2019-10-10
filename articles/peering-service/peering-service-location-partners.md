@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Peering connection - portal | Microsoft Docs'
+title: Microsoft Azure Peering Service | Microsoft Docs'
 description: 
 services: networking
 documentationcenter: na
@@ -13,27 +13,25 @@ ms.date: 09/25/2019
 ms.author: v-meravi
 ---
 
-# Peering Service - Location and Partners
+# Peering Service connectivity partners
 
-## Who are our Partners?
+Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity subject to technical requirements in terms of resiliency, geo redundancy and optimal routing (shortest paths and no intermediates in the routing path). 
+
+The table in this article provide information on the Peering Service connectivity partners and their geographical locations.
 
 | **Partners** | **Location**|
 |-----------|---------|
-| PCCW Global | |
-| interCloud  | |
-| BT          |  |
-| Tata COMMUNICATIONS | |
-| Colt |  |
+| Kordia |New Zealand  |
+| NTT | Japan |
+| TATA | India  |
+| CCL |New Zealand  |
+| KDDI |Japan  |
+| PCCW |HK   |
+| Intercloud|France, UK  |
+| Liquid Telecom | Africa  |
 
-## Requirements from Partners
-The table listed below provide an insight to the set of requirements need to be fulfilled by the partners to establish the Peering Service connection.
+## Next steps
 
-| **Requirements** | **Why**|
-|-----------|---------|
-| Partner must establish 1:1 connection in a metro. Each connection needs to originate from different device. | To provide local redundancy |
-| Partner must establish peering with Microsoft at multiple metro(locations). | To provide geo redundancy |
-| In case, a Partner-Microsoft interconnect node goes down, Partner must route the traffic to Microsoft through alternate sites.| To provide geo redundancy|
-|Partner must provide a BGP community tag indicating the routes belong to Peering Service| Identify Peering Service traffic and provide route optimization|
-| Partner may provide BW guarantee or QoS through their network for Peering Service traffic.| Strengthens the Peering Service offering |
-| Peering Service must be supported through PNI (as opposed to Internet Exchange Peering) |1 hop connectivity  |
-| Partner should connect customers to the nearest possible Microsoft edge.| Latency optimization |
+For more information about Peering Service, see the [Peering Service FAQ](peering-service-faq.md).
+
+For more information on how to onboard Peering Service, see the [Onboarding Peering Service](peering-service-onboarding-peering-service.md).

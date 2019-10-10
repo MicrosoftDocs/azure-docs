@@ -26,39 +26,6 @@ Finally, if you're running PowerShell locally, you'll also need to run `Connect-
 
 Use the **Azure PowerShell** module to register and manage Peering Service. Register or manage Peering Service can be done from the PowerShell command line or in scripts.
 
-## Prerequisites
-
-To access **Peering Service**, you'll need an Azure subscription. If you don't have a subscription, then create a free account before you begin.
-
-### Sign in
-
-Make sure you install the latest version of the **Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see How to install and configure Azure PowerShell. This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
-
-1. Open your PowerShell console with elevated privileges, and sign into your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
-
-```Powershell
-Connect-AzAccount
-```
-
-2. Get a list of your Azure subscriptions.
-
-```PowerShellCopy
-Get-AzSubscription
-```
-
-3. Specify the subscription that you want to use.
-
-```PowerShellCopy
-Select-AzSubscription -SubscriptionName "Name of subscription"
-```
-
-4. Create resources / Resource Group
-
-
-```PowerShellCopy
-New-AzResourceGroup -Location "West US" -Name "testRG"
-```
-
 ## Register the Peering Service
 
 ### Pre-processing commands  
