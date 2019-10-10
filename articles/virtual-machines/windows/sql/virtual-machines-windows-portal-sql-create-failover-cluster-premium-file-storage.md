@@ -22,17 +22,6 @@ This article explains how to create a SQL Server failover cluster instance (FCI)
 
 Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance for SQL Server 2012 and newer on Windows Server 2012 and newer. Premium file shares give you greater flexibility, allowing you to resize and scale the file share without any downtime. 
 
-## Licensing and pricing
-
-On Azure Virtual Machines, you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
-
-With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
-
-Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
-
-To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
-
-For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 
 ## Before you begin
