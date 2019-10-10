@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -30,7 +30,7 @@ Azure Blockchain Service automatically updates patch releases of Quorum to exist
 
 ## Availability of new ledger versions
 
-Azure Blockchain Service provides the latest major and minor versions of the Quorum ledger within 60 days of being available from the Quorum manufacturer. A maximum of four minor releases are provided for consortia to choose from when provisioning a new member and consortium. Upgrading from to a major or minor release is currently not supported.
+Azure Blockchain Service provides the latest major and minor versions of the Quorum ledger within 60 days of being available from the Quorum manufacturer. A maximum of four minor releases are provided for consortia to choose from when provisioning a new member and consortium. Upgrading from to a major or minor release is currently not supported. For example, if you are running version 2.x, an upgrade to version 3.x is not currently supported. Similarly, if you are running version 2.2, an upgrade to version 2.3 is not currently supported.
 
 ## Next steps
 
