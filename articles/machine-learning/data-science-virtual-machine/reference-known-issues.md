@@ -39,5 +39,5 @@ This is expected behavior, as for boot performance we have disabled some service
 
 Your final screen should look like this:
 
-    ![Enable Hyper-V](./media/workaround/hyperv-enable-dsvm.png)
+   ![Enable Hyper-V](./media/workaround/hyperv-enable-dsvm.png)
 
