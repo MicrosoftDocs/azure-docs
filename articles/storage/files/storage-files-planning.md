@@ -194,8 +194,6 @@ This section only applies to the standard file shares. All premium file shares a
 
 ### Restrictions
 
-- Azure preview [terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) apply to large file shares while in preview including when used with Azure File Sync deployments.
-- Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
 - LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
 
 
@@ -225,36 +223,9 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
-### Steps to onboard
+### Enable and create larger file shares
 
-To enroll your subscription to the larger file shares preview, you need to use Azure PowerShell. You can either use [Azure Cloud Shell](https://shell.azure.com/) or install the [Azure PowerShell module locally](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) to run the following PowerShell commands:
-
-First, make sure the subscription you want to enroll in the preview is selected:
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-Then, enroll in the preview using the following commands:
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-Your subscription is automatically approved once both commands are run.
-
-To verify your registration status, you can run the following command:
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-It may take up to 15 minutes for your status to update to **registered**. Once your status is **registered**, you should be able to use the feature.
-
-### Use larger file shares
-
-To begin using larger file shares, create a new general purpose v2 storage account and a new file share.
+To begin using larger file shares, see our article [Enable large fileshares](storage-files-how-to-create-large-file-share.md).
 
 ## Data growth pattern
 
