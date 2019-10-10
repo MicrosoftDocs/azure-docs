@@ -45,7 +45,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer](ui-concept-visual-interface.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
+    + [Azure Machine Learning designer](ui-concept-visual-interface.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces).
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -66,13 +66,14 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Python SDK / R SDK       | CLI        |
-|---------------------------|------------------|------------|------------|
-| Create a workspace        | **&check;**     | **&check;** | **&check;** |
-| Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
-| Manage workspace access    | **&check;**   | |  **&check;**    |
-| Upgrade to Enterprise SKU    | **&check;**   | |     |
-| Create a notebook VM | **&check;**   | |     |
+| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        |
+|---------------------------|---------|---------|------------|------------|
+| Create a workspace        | **&check;**     | | **&check;** | **&check;** |
+| Manage workspace access    | **&check;**   || |  **&check;**    |
+| Upgrade to Enterprise SKU    | **&check;** |  | |     |
+| Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
+| Create a compute instance |   | **&check;** | |     |
+
 
 ## <a name='create-workspace'></a> Create a workspace
 
@@ -108,4 +109,7 @@ To get started with Azure Machine Learning, see:
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
 + [Create a workspace](how-to-manage-workspace.md)
 + [Manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Train a model](tutorial-train-models-with-aml.md)
++ [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
++ [Tutorial: Get started with Azure Machine Learning  with the R SDK](tutorial-1st-experiment-R-set-up.md)
++ [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
++ [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
