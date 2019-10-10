@@ -3,7 +3,7 @@ title: Change feed in Azure Blob Storage (Preview) | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 10/09/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
@@ -48,7 +48,9 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - Changes are captured only at the blob service level.
 
-- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the  [conditions](#conditions) of the current release). 
+- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the  [conditions](#conditions) of the current release).
+
+- Accounts that have a hierarchical namespace are not supported.
 
 ## Consuming Change feed
 
@@ -188,8 +190,6 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 }
 
 ```
-
-- Accounts that have a hierarchical namespace are not supported.
 
 <a id="register"></a>
 
