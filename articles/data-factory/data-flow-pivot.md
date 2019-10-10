@@ -9,7 +9,7 @@ ms.date: 01/30/2019
 ---
 
 # Azure data factory pivot transformation
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use Pivot in ADF Data Flow as an aggregation where one or more grouping columns has its distinct row values transformed into individual columns. Essentially, you can Pivot row values into new columns (turn data into metadata).
 

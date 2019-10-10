@@ -51,7 +51,7 @@ There are three primary ways to interact with data stored in Time Series Insight
 
 - The second way to start is to use the JavaScript SDK to quickly embed powerful charts and graphs in your  web application. With just a few lines of code, you can author powerful queries. Use them to populate line charts, pie charts, bar charts, heatmaps, data grids, and more. All of these elements exist out-of-the-box by using the SDK. The SDK also abstracts Time Series Insights query APIs. You can use them to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs. They provide seamless connection points with the Time Series Insights Preview explorer for deep dives into data.
 
-    * Read the [Time Series Insights JS client library](tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
+    * Read about the [Time Series Insights JS client library](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
     * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md).
 
