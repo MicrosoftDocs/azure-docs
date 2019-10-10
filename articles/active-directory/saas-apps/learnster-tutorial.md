@@ -69,7 +69,7 @@ To configure and test Azure AD SSO with Learnster, complete the following buildi
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Learnster** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
@@ -78,11 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+   1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.learnster.com/auth/login/force`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+   1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.learnster.com/`
 
 	> [!NOTE]
