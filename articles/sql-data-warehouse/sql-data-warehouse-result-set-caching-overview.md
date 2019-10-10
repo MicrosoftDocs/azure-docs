@@ -1,5 +1,5 @@
 ---
-title: Result Set Caching in Azure SQL Data Warehouse | Microsoft Docs
+title: Result set caching in Azure SQL Data Warehouse | Microsoft Docs
 description: Feature overview  
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -12,16 +12,18 @@ ms.author: xiaoyul
 ms.reviewer: nidejaco;  
 ---
 
+# Result Set Caching in Azure SQL Data Warehouse
+
 When result set caching is enabled, Azure SQL Data Warehouse automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
 
 ## Key commands
-[Turn ON/OFF result set caching for a user database](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
+[Turn ON/OFF result set caching for a user database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
 
-[Turn ON/OFF result set caching for a session](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)
+[Turn ON/OFF result set caching for a session](https://docs.microsoft.com/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)
 
-[Check the size of cached result set](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest)  
+[Check the size of cached result set](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest)  
 
-[Clean up the cache](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)
+[Clean up the cache](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)
 
 ## What's not cached  
 
@@ -35,9 +37,9 @@ Queries with large result sets (for example, > 1 million rows) may experience sl
 ## When cached results are used
 
 Cached result set is reused for a query if all of the following requirements are all met:
-1. The user who's running the query has access to all the tables referenced in the query.
-2. There is an exact match between the new query and the previous query that generated the result set cache.
-3. There is no data or schema changes in the tables where the cached result set was generated from.
+- The user who's running the query has access to all the tables referenced in the query.
+- There is an exact match between the new query and the previous query that generated the result set cache.
+- There is no data or schema changes in the tables where the cached result set was generated from.
 
 Run this command to check if a query was executed with a result cache hit or miss. If there is a cache hit, the result_cache_hit will return 1.
 
