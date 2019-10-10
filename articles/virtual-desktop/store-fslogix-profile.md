@@ -13,7 +13,7 @@ ms.author: helohr
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article compares storage solutions Azure Storage offers for Windows Virtual Desktop FSLogix profile container user profiles.
 
-Windows Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V virtual hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
+Windows Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. At sign-in, this container is dynamically attached to the computing environment using a natively supported Virtual Hard Disk (VHD) and a Hyper-V virtual hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
 
 The following tables compare the storage solutions Azure Storage offers for Windows Virtual Desktop FSLogix profile container user profiles.
 
