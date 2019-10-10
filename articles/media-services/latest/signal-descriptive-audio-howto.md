@@ -73,7 +73,7 @@ The following function submits a job.
 Here is an example of a call to the `SubmitJobAsync` function:
 
 ```csharp
-Job job = await SubmitJobAsync(client, config.ResourceGroup, config.AccountName, AdaptiveStreamingTransformName, jobName, inputAssetName, outputAsset.Name);
+Job job = await SubmitJobAsync(client, config.ResourceGroup, config.AccountName, AdaptiveStreamingTransformName, jobName, inputAsset.Name, outputAsset.Name);
 ```
 
 ## Wait for the job to complete
