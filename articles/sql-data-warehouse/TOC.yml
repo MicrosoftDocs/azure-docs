@@ -1,5 +1,5 @@
 - name: SQL Data Warehouse Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is SQL Data Warehouse?
@@ -151,6 +151,10 @@
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
       - name: Set for a session 
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+      - name: Check cache size 
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest
+      - name: Clean up cache
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest
     - name: Tables
       items:
       - name: Overview

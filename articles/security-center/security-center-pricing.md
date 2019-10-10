@@ -43,7 +43,7 @@ To get the Standard tier:
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
 >
 >
 
@@ -59,7 +59,7 @@ Security Center offers enhanced security and threat protection for your hybrid c
 In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier’s enhanced security and advanced threat protection, see:
 
 - [Advanced threat detection](security-center-threat-report.md)
-- [Just in time VM access control](security-center-just-in-time.md)
+- [Just-in-time VM access control](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

@@ -7,4 +7,4 @@ ms.author: glenga
 ---
 
 > [!NOTE]
-> Azure CLI commands in this article work in Bash and are verified to run in [Azure CLoud Shell](../articles/cloud-shell/overview.md). You must modify them to run in a local Windows command prompt.
+> Azure CLI commands in this article work in Bash and are verified to run in [Azure Cloud Shell](../articles/cloud-shell/overview.md). You must modify them to run in a local Windows command prompt.
