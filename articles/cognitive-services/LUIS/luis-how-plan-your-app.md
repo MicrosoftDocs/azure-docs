@@ -48,4 +48,4 @@ When you determine which entities to use in your app, keep in mind that there ar
 
 ## Next steps
 
-Learn about the typical [authoring cycle](luis-concept-app-iteration).  
+Learn about the typical [development cycle](luis-concept-app-iteration.md).  

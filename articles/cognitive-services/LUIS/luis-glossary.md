@@ -43,7 +43,7 @@ A collaborator is not the [owner](#owner) of the app, but has the same permissio
 
 ## <a name="currently-editing"></a>Currently editing
 
-Same as [active version](#active-version)
+Same as active version.
 
 ## <a name="domain"></a>Domain
 
@@ -125,7 +125,7 @@ Renamed to [authoring key](#authoring-key).
 
 ## <a name="publish"></a>Publish
 
-Publishing means making a LUIS [active version](#active-version) available on either the staging or production [endpoint](#endpoint).  
+Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).  
 
 ## <a name="quota"></a>Quota
 
@@ -171,7 +171,7 @@ A token is the smallest unit that can be labeled in an entity. Tokenization is b
 
 ## <a name="train"></a>Train
 
-Training is the process of teaching LUIS about any changes to the [active version](#active-version) since the last training.
+Training is the process of teaching LUIS about any changes to the active version since the last training.
 
 ## <a name="true-negative"></a>True negative (TN)
 
