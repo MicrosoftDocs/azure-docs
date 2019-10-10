@@ -72,7 +72,7 @@ Depending on the language you've chosen, the pipeline YAML has been checked-in a
 To create a Pipeline from this file:
 1. On your DevOps project main page, navigate to Pipelines > Builds.
 1. Select the option to create a **New** build pipeline.
-1. Select **GitHub** as the source, authorize with your GitHub account if necessary, and select the _azds_updates_ branch from your forked version of the dev-spaces sampleapp repository.
+1. Select **GitHub** as the source, authorize with your GitHub account if necessary, and select the _azds_updates_ branch from your forked version of the _dev-spaces_ sample application repository.
 1. Select **Configuration as code**, or **YAML**, as your template.
 1. You are now presented with a configuration page for your build pipeline. As mentioned above navigate to the language-specific path for the **YAML file path** using the **...** button. For example, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Go to the **Variables** tab.
