@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Authoring changes for V2 and V3
 
-The authoring APIs are updated, for both V2 and V3, to allow for [model decomposition with machine-learned entities](luis-concept-model.md#model-decomposition). 
+The authoring APIs are updated, for both V2 and V3, to allow for [model decomposition with machine-learned entities](luis-concept-data-extraction.md). 
 
 Adding model decomposition is provided on both authoring API versions so you can choose to migrate your app's authoring and prediction at different times. 
 
