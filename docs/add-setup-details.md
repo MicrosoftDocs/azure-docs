@@ -10,17 +10,14 @@ On the Product setup page, you can indicate whether you want your solution to be
 
 ## Setup details
 
+### Apple Store availability
+
 If you want your Word, Excel, Outlook, or PowerPoint add-in to be available in the Apple Store, select the iOS check box. Currently, only Outlook add-ins can be made available for Android. 
 
 > [!NOTE]
 > To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
 
-If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box. 
-
-> [!NOTE]
-> If your Power BI visual requires the purchase of a service, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
-
-## Authorization
+### Authorization
 
 If your add-in requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your add-in requires Azure AD if it targets a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph. 
 
@@ -32,6 +29,17 @@ When you select the check box, you must select one of the following target plans
 
 > [!Note]
 > Add-ins that require Azure AD might be subject to additional validation requirements during the certification process.
+
+### Associated service purchase 
+If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box. 
+
+> [!NOTE]
+> If your Power BI visual requires the purchase of a service, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
+
+### Power BI certification
+Certified Power BI visuals are visuals in the Marketplace that meet certain specified code requirements that the Microsoft Power BI team has tested and approved. To request certification, select the Request Power BI certification check box.
+We recommend that you submit and publish your Power BI visual before you request certification, because the certification process can take time. When you request certification, be sure to provide all required certification information in the Notes for certification box on the Review and publish page.
+
 
 ## Lead management
 
