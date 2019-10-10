@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items: 
+  - name: Azure IoT Central
+    tocHref: /azure/iot-central/
+    topicHref: /azure/iot-central/index
+    items: 
+    - name: IoT Central for Healthcare 
+      tocHref: /azure/iot-central/healthcare
+      topicHref: /azure/iot-central/healthcare/index

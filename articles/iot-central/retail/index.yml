@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Azure IoT Central for Retail documentation # < 60 chars
+summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+
+metadata:
+  title: Azure IoT Central for Retail documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # Required; article description that is displayed in search results. < 160 chars.
+  services: iot-central
+  ms.service: iot-central #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: philmea #Required; your GitHub user alias, with correct capitalization.
+  ms.author: philmea #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/09/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Build Retail Solutions
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Retail solutions for Azure IoT Central
+            url: overview-iot-central-retail.md
+      - linkListType: tutorial
+        links:
+          - text: 1- Create a retail application
+            url: tutorial-condition-monitor-create-app-pnp.md
+          - text: 2- Customize the dashboard
+            url: tutorial-condition-monitor-customize-dashboard-pnp.md
+          - text: 3 - Visualize Insights
+            url: tutorial-condition-monitor-export-data-visualize-insights-pnp.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect a Rigado Cascade 500
+            url: howto-connect-rigado-cascade-500-pnp.md

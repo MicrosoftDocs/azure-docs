@@ -1,0 +1,117 @@
+### YamlMime:Landing
+
+title: Azure IoT Central for Healthcare documentation # < 60 chars
+summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+
+metadata:
+  title: Azure IoT Central for Healthcare documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # Required; article description that is displayed in search results. < 160 chars.
+  services: iot-central
+  ms.service: iot-central #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: philmea #Required; your GitHub user alias, with correct capitalization.
+  ms.author: philmea #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/24/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Build Healthcare Solutions
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Continuous Patient Monitoring overview
+            url: placeholder.md
+      - linkListType: tutorial
+        links:
+          - text: Build a Continuous Patient Monitoring solution
+            url: placeholder.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage health data privacy and compliance
+            url: placeholder.md
+          - text: Build a health data triage dashboard
+            url: placeholder.md  
+  
+  # Card (optional)
+  - title: Get connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Set up a device template
+            url: placeholder.md
+          - text: Connect an IoT Plug and Play device
+            url: placeholder.md
+          - text: Connect an Edge device
+            url: placeholder.md
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare and connect an MX Chip IoT DevKit
+            url: placeholder.md
+          - text: Connect other IoT clouds
+            url: placeholder.md
+          - text: Connect a device
+            url: placeholder.md
+  # Card (optional)
+  - title: Stay connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use device groups
+            url: placeholder.md
+          - text: Manage your devices
+            url: placeholder.md
+          - text: Run a job
+            url: placeholder.md
+          - text: Analyze your device data
+            url: placeholder.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor device connectivity using command line
+            url: placeholder.md
+          - text: Version device template
+            url: placeholder.md
+  # Card (optional)
+  - title: Transform
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create telemetry rule
+            url: placeholder.md
+          - text: Create an event rule
+            url: placeholder.md
+          - text: Export to Blob Storage (pick one)
+            url: placeholder.md
+          - text: API tutorial - TBD
+            url: placeholder.md                        
+      - linkListType: how-to-guide
+        links:
+          - text: Export to Event Hubs and Service Bus
+            url: placeholder.md
+          - text: Create custom rules
+            url: placeholder.md
+          - text: Create custom analytics
+            url: placeholder.md
+          - text: Visualize your data in Power BI
+            url: placeholder.md
+
+  # Card
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Administer your application
+            url: placeholder.md
+          - text: Manage users and roles
+            url: placeholder.md
+          - text: View your bill
+            url: placeholder.md
+          - text: Customize application UI
+            url: placeholder.md
+          - text: Prepare and upload image
+            url: placeholder.md
+          - text: Configure application dashboard
+            url: placeholder.md
