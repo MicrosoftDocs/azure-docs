@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 To update the application to work with your Azure AD B2C tenant and invoke its user flows instead of those in the default demo tenant:
 
 1. Open the **active-directory-b2c-wpf** solution (`active-directory-b2c-wpf.sln`) in Visual Studio.
-2. In the **active-directory-b2c-wpf** project, open the *App.xaml.cs* file. Replace `{your-tenant-name}` with your Azure AD B2C tenant name and replace`{application-ID}` with the application ID that you recorded earlier.
+2. In the **active-directory-b2c-wpf** project, open the *App.xaml.cs* file and find the following variable definitions. Replace `{your-tenant-name}` with your Azure AD B2C tenant name and `{application-ID}` with the application ID that you recorded earlier.
 
     ```csharp
     private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
