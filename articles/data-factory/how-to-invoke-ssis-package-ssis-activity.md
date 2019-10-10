@@ -170,190 +170,190 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
    > [!IMPORTANT]
    > Replace object names, descriptions, and paths, property or parameter values, passwords, and other variable values before you save the file. 
     
-           ```json
-           {
-               "name": "RunSSISPackagePipeline",
-               "properties": {
-                   "activities": [{
-                       "name": "MySSISActivity",
-                       "description": "My SSIS package/activity description",
-                       "type": "ExecuteSSISPackage",
-                       "typeProperties": {
-                           "connectVia": {
-                               "referenceName": "MyAzureSSISIR",
-                               "type": "IntegrationRuntimeReference"
+   ```json
+   {
+       "name": "RunSSISPackagePipeline",
+       "properties": {
+           "activities": [{
+               "name": "MySSISActivity",
+               "description": "My SSIS package/activity description",
+               "type": "ExecuteSSISPackage",
+               "typeProperties": {
+                   "connectVia": {
+                       "referenceName": "MyAzureSSISIR",
+                       "type": "IntegrationRuntimeReference"
+                   },
+                   "executionCredential": {
+                       "domain": "MyExecutionDomain",
+                       "username": "MyExecutionUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "MyExecutionPassword"
+                       }
+                   },
+                   "runtime": "x64",
+                   "loggingLevel": "Basic",
+                   "packageLocation": {
+                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx",
+                       "type": "SSISDB"
+                   },
+                   "environmentPath": "MyFolder/MyEnvironment",
+                   "projectParameters": {
+                       "project_param_1": {
+                           "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyProjectParameter",
+                               "type": "Expression"
+                           }
+                       }
+                   },
+                   "packageParameters": {
+                       "package_param_1": {
+                           "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MyPackageParameter"
+                           }
+                       }
+                   },
+                   "projectConnectionManagers": {
+                       "MyAdonetCM": {
+                           "username": {
+                               "value": "MyConnectionUsername"
                            },
-                           "executionCredential": {
-                               "domain": "MyExecutionDomain",
-                               "username": "MyExecutionUsername",
-                               "password": {
+                           "password": {
+                               "value": {
                                    "type": "SecureString",
-                                   "value": "MyExecutionPassword"
-                               }
-                           },
-                           "runtime": "x64",
-                           "loggingLevel": "Basic",
-                           "packageLocation": {
-                               "packagePath": "MyFolder/MyProject/MyPackage.dtsx",
-                               "type": "SSISDB"
-                           },
-                           "environmentPath": "MyFolder/MyEnvironment",
-                           "projectParameters": {
-                               "project_param_1": {
-                                   "value": "123"
-                               },
-                               "project_param_2": {
-                                   "value": {
-                                       "value": "@pipeline().parameters.MyProjectParameter",
-                                       "type": "Expression"
-                                   }
-                               }
-                           },
-                           "packageParameters": {
-                               "package_param_1": {
-                                   "value": "345"
-                               },
-                               "package_param_2": {
-                                   "value": {
-                                       "type": "AzureKeyVaultSecret",
-                                       "store": {
-                                           "referenceName": "myAKV",
-                                           "type": "LinkedServiceReference"
-                                       },
-                                       "secretName": "MyPackageParameter"
-                                   }
-                               }
-                           },
-                           "projectConnectionManagers": {
-                               "MyAdonetCM": {
-                                   "username": {
-                                       "value": "MyConnectionUsername"
-                                   },
-                                   "password": {
-                                       "value": {
-                                           "type": "SecureString",
-                                           "value": "MyConnectionPassword"
-                                       }
-                                   }
-                               }
-                           },
-                           "packageConnectionManagers": {
-                               "MyOledbCM": {
-                                   "username": {
-                                       "value": {
-                                           "value": "@pipeline().parameters.MyConnectionUsername",
-                                           "type": "Expression"
-                                       }
-                                   },
-                                   "password": {
-                                       "value": {
-                                           "type": "AzureKeyVaultSecret",
-                                           "store": {
-                                               "referenceName": "myAKV",
-                                               "type": "LinkedServiceReference"
-                                           },
-                                           "secretName": "MyConnectionPassword",
-                                           "secretVersion": "MyConnectionPasswordVersion"
-                                       }
-                                   }
-                               }
-                           },
-                           "propertyOverrides": {
-                               "\\Package.MaxConcurrentExecutables": {
-                                   "value": 8,
-                                   "isSensitive": false
+                                   "value": "MyConnectionPassword"
                                }
                            }
-                       },
-                       "policy": {
-                           "timeout": "0.01:00:00",
-                           "retry": 0,
-                           "retryIntervalInSeconds": 30
                        }
-                   }]
+                   },
+                   "packageConnectionManagers": {
+                       "MyOledbCM": {
+                           "username": {
+                               "value": {
+                                   "value": "@pipeline().parameters.MyConnectionUsername",
+                                   "type": "Expression"
+                               }
+                           },
+                           "password": {
+                               "value": {
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyConnectionPassword",
+                                   "secretVersion": "MyConnectionPasswordVersion"
+                               }
+                           }
+                       }
+                   },
+                   "propertyOverrides": {
+                       "\\Package.MaxConcurrentExecutables": {
+                           "value": 8,
+                           "isSensitive": false
+                       }
+                   }
+               },
+               "policy": {
+                   "timeout": "0.01:00:00",
+                   "retry": 0,
+                   "retryIntervalInSeconds": 30
                }
-           }
-           ```
+           }]
+       }
+   }
+   ```
 
    To execute packages stored in file systems, file shares, or Azure Files, enter the values for your package or log location properties as follows:
 
-           ```json
+   ```json
+   {
+       {
            {
                {
-                   {
-                       {
-                           "packageLocation": {
-                               "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
-                               "type": "File",
-                               "typeProperties": {
-                                   "packagePassword": {
-                                       "type": "SecureString",
-                                       "value": "MyEncryptionPassword"
-                                   },
-                                   "accessCredential": {
-                                       "domain": "Azure",
-                                       "username": "MyStorageAccount",
-                                       "password": {
-                                           "type": "SecureString",
-                                           "value": "MyAccountKey"
-                                       }
-                                   }
-                               }
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
                            },
-                           "logLocation": {
-                               "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
-                               "type": "File",
-                               "typeProperties": {
-                                   "accessCredential": {
-                                       "domain": "Azure",
-                                       "username": "MyStorageAccount",
-                                       "password": {
-                                           "type": "AzureKeyVaultSecret",
-                                           "store": {
-                                               "referenceName": "myAKV",
-                                               "type": "LinkedServiceReference"
-                                           },
-                                           "secretName": "MyAccountKey"
-                                       }
-                                   }
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
+                               }
+                           }
+                       }
+                   },
+                   "logLocation": {
+                       "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
+                       "type": "File",
+                       "typeProperties": {
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "username": "MyStorageAccount",
+                               "password": {
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                           },
+                                   "secretName": "MyAccountKey"
                                }
                            }
                        }
                    }
                }
            }
-           ```
+       }
+   }
+   ```
 
    To execute packages within projects stored in file systems, file shares, or Azure Files, enter the values for your package location property as follows:
 
-           ```json
+   ```json
+   {
+       {
            {
                {
-                   {
-                       {
-                           "packageLocation": {
-                               "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
-                               "type": "File",
-                               "typeProperties": {
-                                   "packagePassword": {
-                                       "type": "SecureString",
-                                       "value": "MyEncryptionPassword"
-                                   },
-                                   "accessCredential": {
-                                       "domain": "Azure",
-                                       "userName": "MyStorageAccount",
-                                       "password": {
-                                           "type": "SecureString",
-                                           "value": "MyAccountKey"
-                                       }
-                                   }
+                   "packageLocation": {
+                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
+                       "type": "File",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "accessCredential": {
+                               "domain": "Azure",
+                               "userName": "MyStorageAccount",
+                               "password": {
+                                   "type": "SecureString",
+                                   "value": "MyAccountKey"
                                }
                            }
                        }
                    }
                }
            }
-           ```
+       }
+   }
+   ```
 
 2. In Azure PowerShell, switch to the *C:\ADF\RunSSISPackage* folder.
 
@@ -415,29 +415,29 @@ In the previous step, you ran the pipeline on demand. You can also create a sche
 
 1. Create a JSON file named *MyTrigger.json* in the *C:\ADF\RunSSISPackage* folder with the following content: 
         
-           ```json
-           {
-               "properties": {
-                   "name": "MyTrigger",
-                   "type": "ScheduleTrigger",
-                   "typeProperties": {
-                       "recurrence": {
-                           "frequency": "Hour",
-                           "interval": 1,
-                           "startTime": "2017-12-07T00:00:00-08:00",
-                           "endTime": "2017-12-08T00:00:00-08:00"
-                       }
-                   },
-                   "pipelines": [{
-                       "pipelineReference": {
-                           "type": "PipelineReference",
-                           "referenceName": "RunSSISPackagePipeline"
-                       },
-                       "parameters": {}
-                   }]
+   ```json
+   {
+       "properties": {
+           "name": "MyTrigger",
+           "type": "ScheduleTrigger",
+           "typeProperties": {
+               "recurrence": {
+                   "frequency": "Hour",
+                   "interval": 1,
+                   "startTime": "2017-12-07T00:00:00-08:00",
+                   "endTime": "2017-12-08T00:00:00-08:00"
                }
-           }    
-           ```
+           },
+           "pipelines": [{
+               "pipelineReference": {
+                   "type": "PipelineReference",
+                   "referenceName": "RunSSISPackagePipeline"
+               },
+               "parameters": {}
+           }]
+       }
+   }    
+   ```
     
 1. In Azure PowerShell, switch to the *C:\ADF\RunSSISPackage* folder.
 1. Run the **Set-AzDataFactoryV2Trigger** cmdlet, which creates the trigger. 
