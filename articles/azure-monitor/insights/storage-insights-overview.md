@@ -238,7 +238,7 @@ To help troubleshoot any storage-related issues you identify with Azure Monitor 
 
 ### Why can I only see 200 storage accounts?
 
-The number of selected storage account has a limit of 200, regardless of the number of subscriptions that are selected. They can be selected and viewed in the SAI.
+The number of selected storage accounts has a limit of 200, regardless of the number of subscriptions that are selected. They can be selected and viewed in the SAI.
 
 ### What happens when I click on a recently pinned tile in the dashboard?
 
@@ -248,7 +248,7 @@ The number of selected storage account has a limit of 200, regardless of the num
 
 ### What happens when I save a workbook?
 
-* When you **save** a workbook it lets you create a new copy of the workbook with your edits and change the title. Saving does not overwrite the workbook, the current workbook will always be the default view.
+* When you save a workbook, it lets you create a new copy of the workbook with your edits and change the title. Saving does not overwrite the workbook, the current workbook will always be the default view.
 * An **unsaved** workbook is just the default view of the workbook.
 
 
@@ -257,10 +257,6 @@ The number of selected storage account has a limit of 200, regardless of the num
 The portal will show data only for selected subscriptions on portal launch. To change what subscriptions are selected, go to the top right and click on the notebook with a filter icon. This will show the Directory + subscriptions tab.
 
 ![Directory + subscription](./media/storage-insights-overview/fqa3.png)
-
-### I am getting missing data/timeout error message in metrics, what to do now? [??Need to fix??]
-
-Check in the metrics explorer once, whether you can see the metrics data there for the same subscription, storage account and the time range as it is in the Workbooks.  If data exists in the metrics explorer, then please try it once again in the SAI. If the message says, "The Request timed out", it is most likely a server timeout issue that is currently being investigated metric team. Try clicking out of storage insights and back in. Usually the info box will give some indication of what the error is. Could be throttling, permission issues etc.
 
 ### How to change the coloring and threshold for availability?
 
@@ -273,7 +269,7 @@ section for the detailed steps on how to change the coloring and thresholds for 
 
 ### Why don’t I see all the types of errors in metrics?
 
-A: Currently, up-to 3 different types of error are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
+A: Currently, up-to three different types of error are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
 
 1. Click on edit workbook.
 2. Go to metrics, click on edit and then select **Transactions, Sum** or whatever metrics you want to edit.
@@ -292,19 +288,19 @@ Each Workbook is saved in the storage account that you saved in it. Try to find 
 
 ### What is the time granularity once we pin any part of the Workbooks to a dashboard?
 
-The default time granularity is set to automatic, it currently can't be changed at this time. To see this you can click on the ellipse in the top right of a tile on the dashboard and select **Customize tile data** this will bring up the "configure tile settings" on the right.
+The default time granularity is set to automatic, it currently can't be changed at this time. To see this, you can click on the ellipse in the top right of a tile on the dashboard and select **Customize tile data** this will bring up the "configure tile settings" on the right.
 
-### What is the time range when workbook step is pinned to a dashboard?
+### How do I change the timespan/ time range of the workbook step on my dashboard?
 
-The time range is determined by what it is set to at the top of the workbook, when pinned. To change the time range, click on the dropdown in the **TimeRange** oval below the title of the workbook then pin it to your dashboard.
+By default the time span on your dashboard tile is set to 24 hours, to change this click on the ellipses in the top right, select **Customize tile data**, check "override the dashboard time settings at the title level" box and then pick a timespan using the dropdown menu.  
+
+![Select Metric Parameters"](./media/storage-insights-overview/fqa-data-settings.png)
+
+![Select Metric Parameters"](./media/storage-insights-overview/fqa-timespan-2.png)
 
 ### How do I change the title of the workbook or a workbook step I pinned to a dashboard?
 
-To change the title you must save your own copy of the workbook. When you do this you will be able to name the workbook before you press save. To change the title of a workbook step, you must select edit near of your saved workbook. The title of the workbook or workbook step that is pinned to a dashboard retains the same name it had in the workbook.
-
-### What if I am not seeing any health data or getting auth issue while retrieving the health data? 
-
-To verify whether this issue is related to workbook or Storage, go to **Storage accounts** and select the storage account name you are concerned about then  check the **Resource Health** under support + troubleshooting.
+The title of the workbook or workbook step that is pinned to a dashboard retains the same name it had in the workbook. To change the title, you must save your own copy of the workbook. Then you will be able to name the workbook before you press save. To change the title of a workbook step, you must select edit at the top of the step of your saved workbook.
 
 ## Next steps
 
