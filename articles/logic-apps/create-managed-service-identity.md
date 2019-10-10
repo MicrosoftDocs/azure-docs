@@ -152,11 +152,11 @@ After your logic app is [set up with a managed identity](#azure-portal-system-lo
    > optionally select an authentication type. To make the property visible in these cases, 
    > in the trigger or action, open the **Add new parameter** list, and select **Authentication**.
 
-   For example, suppose you want to call an [Azure service that supports Azure Active Directory (Azure AD) authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) by using an HTTP action. You want to use the logic app's system-assigned identity for authentication when sending a request to the target service. The **URI** property specifies the resource ID for the target service, combined with your Azure subscription ID, and the API version to use. In this case, the resource ID is for Azure Resource Manager in the Azure Global environment.
+   For example, suppose you want to call an [Azure service that supports managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) by using an HTTP action. You want your logic app to use its system-assigned identity when authenticating outbound requests to the target service. The **URI** property specifies the resource ID for the target service, your Azure subscription ID, and the API version to use. In this case, the resource ID is for Azure Resource Manager in the Azure Global environment.
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. After you select **Managed Identity**, the **Audience** property appears. The default property value is `https://management.azure.com/`, so if necessary, change this value to the target resource ID that you want.
+1. After you select **Managed Identity**, the **Audience** property appears. The default property value is `https://management.azure.com/`. If necessary, change this value to the target resource ID that you want.
 
    > [!NOTE]
    > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
@@ -166,7 +166,7 @@ After your logic app is [set up with a managed identity](#azure-portal-system-lo
    > [!IMPORTANT]
    > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory expects, 
    > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
-   > a trailing slash. Check the [resource IDs in this table for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 <a name="remove-identity"></a>
 
