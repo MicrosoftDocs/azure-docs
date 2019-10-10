@@ -91,7 +91,9 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>' --include-path <semicolon-separated-file-list>` |
-| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare' --include-path 'myFile1.txt;myFile2.txt'` |
+| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare' --include-path 'photos;documents\myFile.txt'` |
+
+In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
 
 You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
@@ -164,7 +166,9 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
-| **Example** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory' 'C:\myDirectory'  --include-path 'myFile1.txt;myFile2.txt' --recursive` |
+| **Example** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
+
+In this example, AzCopy transfers the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory and the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory.
 
 You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
