@@ -66,7 +66,7 @@ For more details about Microsoft Teams app packages, see [Create the package for
 
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)

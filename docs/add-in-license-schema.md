@@ -231,7 +231,7 @@ The following example shows the add-in license for a user who is signed in with 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
