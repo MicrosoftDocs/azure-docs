@@ -17,10 +17,10 @@ This article is a collection of best practices to help you to achieve optimal pe
 
 If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Data Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
-For loading guidance, see [Guidance for loading data](guidance-for-loading-data.md).
+For loading guidance, see [Guidance for loading data](../../sql-data-warehouse/guidance-for-loading-data.md).
 
 ## Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
 
 
 ## Maintain statistics
@@ -83,12 +83,12 @@ See also [Table indexes][Table indexes], [Columnstore indexes guide][Columnstore
 ## Use larger resource class to improve query performance
 SQL Data Warehouse uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes impacts concurrency, so you will want to take this into consideration before moving all of your users to a large resource class.
 
-See also [Resource classes for workload management](resource-classes-for-workload-management.md)
+See also [Resource classes for workload management](workload-management-resource-classes.md)
 
 ## Use Smaller Resource Class to Increase Concurrency
 If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming a lot of concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-See also [Resource classes for workload management](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
+See also [Resource classes for workload management](workload-management-resource-classes.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## Use DMVs to monitor and optimize your queries
 SQL Data Warehouse has several DMVs which can be used to monitor query execution.  The monitoring article below walks through step-by-step instructions on how to look at the details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help.
@@ -105,31 +105,31 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
-[Table overview]: ./sql-data-warehouse-tables-overview.md
-[Table data types]: ./sql-data-warehouse-tables-data-types.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexes]: ./sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./guidance-for-loading-data.md
-[Load data]: ./design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
+[Create a support ticket]: ../../sql-data-warehouse-get-started-create-support-ticket.md
+[Create table as select (CTAS)]: ../../sql_data-warehouse/sql-data-warehouse-develop-ctas.md
+[Table overview]: development-tables-overview.md
+[Table data types]: development-tables-data-types.md
+[Table distribution]: ../../sql-data-warehouse-tables-distribute.md
+[Table indexes]: ../../sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]: ../../sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ../../sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]: ../../sql-data-warehouse-tables-partition.md
+[Manage table statistics]: ../../sql-data-warehouse-tables-statistics.md
+[Temporary tables]: development-tables-temporary.md
+[Guide for using PolyBase]: ../../guidance-for-loading-data.md
+[Load data]: ../../design-elt-data-loading.md
+[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
+[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
-[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
+[Load data with PolyBase]: ../../sql-data-warehouse/load-data-wideworldimportersdw.md
+[Monitor your workload using DMVs]: ../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md
+[Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Resume compute resources]:../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Understanding transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md
+[Optimizing transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
+[Troubleshooting]: ../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md
+[LABEL]: development-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx

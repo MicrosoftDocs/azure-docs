@@ -127,9 +127,9 @@ To change DWUs or cDWUs:
 
 ### PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](../../powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
+To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -154,7 +154,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### REST APIs
 
-To change the DWUs, use the [Create or Update Database](../../rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -167,7 +167,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for SQL Data Warehouse](../../sql-data-warehouse-manage-compute-rest-api.md).
+For more REST API examples, see [REST APIs for SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md).
 
 ## Check status of DWU changes
 
@@ -209,4 +209,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](workload-management-resource-classes.md) and [Memory and concurrency limits](workloat-management-memory-and-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](workload-management-resource-classes.md) and [Memory and concurrency limits](workload-management-memory-and-concurrency-limits.md).
