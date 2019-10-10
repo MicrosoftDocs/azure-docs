@@ -369,6 +369,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Discovery Benefits SSO
+        href: discovery-benefits-sso-tutorial.md
       - name: Displayr
         href: displayr-tutorial.md
       - name: dmarcian
