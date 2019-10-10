@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 10/09/2019
 ms.author: danlep
 ---
 
@@ -478,6 +478,15 @@ The fully qualified server name of the registry. Typically used to generically r
 version: v1.1.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+```
+
+### Run.RegistryName
+
+The name of the container registry. Typically used in task steps that do not require a fully qualified server name, such as `cmd` steps that call the Azure CLI to perform registry operations.
+
+```yml
+version 1.1.0
+
 ```
 
 ### Run.Date
