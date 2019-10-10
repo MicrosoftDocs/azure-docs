@@ -6,53 +6,77 @@
     href: resource-group-overview.md
   - name: Template overview
     href: template-deployment-overview.md
-- name: Quickstarts
-  expanded: true
+- name: Quickstart
   items:
-  - name: Create templates - portal
-    href: resource-manager-quickstart-create-templates-use-the-portal.md
-  - name: Create templates - VS Code
-    href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-  - name: Create templates - Visual Studio
-    href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-    href: vs-azure-tools-update-deploy-script-to-az-powershell.md
-  - name: Create templates - IntelliJ IDEA
-    href: resource-manager-quickstart-create-templates-use-intellij.md
+    - name: Create templates - portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Create templates - VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Create templates - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: Create templates - IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
-  - name: Utilize template reference
-    href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple instances
-    displayName: iteration,copy
-    href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Set resource deployment order
-    displayName: dependent resources, dependency
-    href: resource-manager-tutorial-create-templates-with-dependent-resources.md
-  - name: Use conditions
-    href: resource-manager-tutorial-use-conditions.md
-  - name: Integrate Key Vault
-    displayName: secrets
-    href: resource-manager-tutorial-use-key-vault.md
-  - name: Create linked templates
-    href: resource-manager-tutorial-create-linked-templates.md
-  - name: Deploy VM extensions
-    displayName: virtual machine extensions
-    href: resource-manager-tutorial-deploy-vm-extensions.md
-  - name: Deploy SQL extensions
-    href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
-  - name: Secure artifacts
-    href: resource-manager-tutorial-secure-artifacts.md
-  - name: Continuous integration with Azure Pipelines
-    displayName: DevOps
-    href: resource-manager-tutorial-use-azure-pipelines.md
-  - name: Use safe deployment practices
-    displayName: adm
-    href: deployment-manager-tutorial.md
-  - name: Use health check in Deployment Manager
-    displayName: adm
-    href: deployment-manager-tutorial-health-check.md
-  - name: Troubleshoot template deployment
-    href: resource-manager-tutorial-troubleshoot.md
+  - name: Beginner
+    items:
+    - name: 1 - Create first template
+      href: template-tutorial-create-first-template.md
+    - name: 2 - Add resource
+      href: template-tutorial-add-resource.md
+    - name: 3 - Add parameters
+      href: template-tutorial-add-parameters.md
+    - name: 4 - Add template functions
+      href: template-tutorial-add-functions.md
+    - name: 5 - Add variables
+      href: template-tutorial-add-variables.md
+    - name: 6 - Add outputs
+      href: template-tutorial-add-outputs.md
+    - name: 7 - Use exported template
+      href: template-tutorial-export-template.md
+    - name: 8 - Use Quickstart template
+      href: template-tutorial-quickstart-template.md
+    - name: 9 - Add tags
+      href: template-tutorial-add-tags.md
+    - name: 10 - Use parameter file
+      href: template-tutorial-use-parameter-file.md
+  - name: Advanced
+    items:
+    - name: Utilize template reference
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: Create multiple instances
+      displayName: iteration,copy
+      href: resource-manager-tutorial-create-multiple-instances.md
+    - name: Set resource deployment order
+      displayName: dependent resources, dependency
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+    - name: Use conditions
+      href: resource-manager-tutorial-use-conditions.md
+    - name: Integrate Key Vault
+      displayName: secrets
+      href: resource-manager-tutorial-use-key-vault.md
+    - name: Create linked templates
+      href: resource-manager-tutorial-create-linked-templates.md
+    - name: Deploy VM extensions
+      displayName: virtual machine extensions
+      href: resource-manager-tutorial-deploy-vm-extensions.md
+    - name: Deploy SQL extensions
+      href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+    - name: Secure artifacts
+      href: resource-manager-tutorial-secure-artifacts.md
+    - name: Continuous integration with Azure Pipelines
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
+    - name: Use safe deployment practices
+      displayName: adm
+      href: deployment-manager-tutorial.md
+    - name: Use health check in Deployment Manager
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
+    - name: Update VS Deployment script to Az Powershell
+      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
+    - name: Troubleshoot template deployment
+      href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -77,8 +101,8 @@
       href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
-  - name: Built-in security controls
-    href: azure-resource-manager-security-controls.md
+  - name: Azure common security attributes
+    href: azure-resource-manager-security-attributes.md
 - name: How to
   items:
   - name: Create templates
@@ -112,8 +136,7 @@
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
+    - name: Subscription level resources
       href: deploy-to-subscription.md
   - name: Deploy templates
     items:
@@ -121,14 +144,17 @@
       displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
-      displayName: deployment,rollback on error,redeploy
+      displayName: deployment
       href: resource-group-template-deploy-rest.md
+    - name: Redeploy on error
+      displayName: rollback
+      href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions

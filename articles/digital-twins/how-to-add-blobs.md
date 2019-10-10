@@ -1,13 +1,13 @@
 ---
-title: 'How to add blobs to objects in Azure Digital Twins | Microsoft Docs'
+title: 'How to add blobs to objects - Azure Digital Twins | Microsoft Docs'
 description: Learn how to add blobs to objects in Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
 ---
 
@@ -64,8 +64,6 @@ The Swagger documentation describes these model schemas in full detail.
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Learn about using the reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
-
-<div id="blobModel"></div>
 
 ### Blobs response data
 
@@ -181,12 +179,11 @@ Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in 
 [![Device blobs](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
-curl
- -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
- -H "Authorization: Bearer YOUR_TOKEN"
- -H "Accept: application/json"
- -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
+curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
+ -H "Authorization: Bearer YOUR_TOKEN" \
+ -H "Accept: application/json" \
+ -H "Content-Type: multipart/form-data" \
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
@@ -218,7 +215,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 ### Spaces
 
@@ -236,7 +233,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 A PATCH request to the same endpoint updates metadata descriptions and creates versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
 
@@ -256,7 +253,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 ## Common errors
 

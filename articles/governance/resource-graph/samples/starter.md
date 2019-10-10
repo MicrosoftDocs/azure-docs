@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
 ---
 # Starter Resource Graph queries
 

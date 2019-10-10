@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Understand the lifecycle of an Azure Blueprint
 

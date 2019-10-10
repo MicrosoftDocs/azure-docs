@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 
 ---
@@ -38,21 +38,20 @@ Verify that you have met the following criteria before beginning your configurat
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **VNet Name:** VNet1
+* **Virtual network name:** VNet1
 * **Address Space:** 10.1.0.0/16
 * **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
-* **Location:** East US
+* **Region:** East US
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
-* **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
-* **Gateway Subnet address range:** 10.1.255.0/27
-* **Virtual Network Gateway Name:** VNet1GW
-* **Public IP:** VNet1GWIP
-* **VPN Type:** Route-based
-* **Connection Type:** Site-to-site (IPsec)
-* **Gateway Type:** VPN
-* **Local Network Gateway Name:** Site1
-* **Connection Name:** VNet1toSite1
+* **Gateway subnet address range:** 10.1.255.0/27
+* **Virtual network gateway name:** VNet1GW
+* **Public IP address name:** VNet1GWIP
+* **VPN type:** Route-based
+* **Connection type:** Site-to-site (IPsec)
+* **Gateway type:** VPN
+* **Local network gateway name:** Site1
+* **Connection name:** VNet1toSite1
 * **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
@@ -65,6 +64,16 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### Example settings
+
+* **Instance details > Region:** East US
+* **Virtual Network > Virtual network:** VNet1
+* **Instance details > Name:** VNet1GW
+* **Instance details > Gateway type:** VPN
+* **Instance details > VPN type:** Route-based
+* **Virtual Network > Gateway subnet address range:** 10.1.255.0/27
+* **Public IP address > Public IP address name:** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -73,6 +82,13 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 ## <a name="LocalNetworkGateway"></a>3. Create the local network gateway
 
 The local network gateway typically refers to your on-premises location. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
+
+**Example values**
+
+* **Name:** Site1
+* **Resource Group:** TestRG1
+* **Location:** East US
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
