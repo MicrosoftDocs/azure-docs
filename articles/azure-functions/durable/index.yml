@@ -94,8 +94,6 @@ landingContent:
         links:
           - text: Monitor functions
             url: ../functions-monitoring.md
-          - text: Optimize performance
-            url: ../functions-best-practices.md
           - text: Networking considerations
             url: ../functions-networking-options.md
 
