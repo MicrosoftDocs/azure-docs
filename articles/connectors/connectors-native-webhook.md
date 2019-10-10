@@ -1,6 +1,6 @@
 ---
-title: Create event-based tasks and workflows in Azure Logic Apps
-description: Trigger, pause, and resume automated tasks, processes, and workflows based on events that happen at an endpoint by using Azure Logic Apps
+title: Wait and respond to events - Azure Logic Apps
+description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,11 +8,11 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/10/2019
 tags: connectors
 ---
 
-# Automate event-based tasks and workflows by using HTTP webhooks in Azure Logic Apps
+# Create and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP Webhook connector, you can automate workflows that wait and run based on specific events that happen at an HTTP or HTTPS endpoint by building logic apps. For example, you can create a logic app that monitors a service endpoint by waiting for a specific event before triggering the workflow and running the specified actions, rather than regularly checking or *polling* that endpoint.
 
@@ -35,7 +35,8 @@ For example, the Office 365 Outlook connector's [**Send approval email**](connec
 
 > [!NOTE]
 > Logic Apps enforces Transport Layer Security (TLS) 1.2 when 
-> receiving the call back to the HTTP webhook trigger or action.
+> receiving the call back to the HTTP webhook trigger or action. 
+> If you see SSL handshake errors, make sure that you use TLS 1.2.
 
 For more information, see these topics:
 
