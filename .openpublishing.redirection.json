@@ -9,7 +9,12 @@
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
-    },
+    },    
+    {
+      "source_path": "articles/container-registry/container-registry-auth-aks.md",
+      "redirect_url": "/azure/aks/cluster-container-registry-integration",
+      "redirect_document_id": true
+    },    
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
