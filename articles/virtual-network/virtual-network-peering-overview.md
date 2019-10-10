@@ -87,6 +87,9 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network for cross premises or VNet-to-VNet connectivity. Traffic to the gateway (ingress or egress) in the peered VNet will incur VNet peering charges. For more details refer to [VPN gateway charges](https://azure.microsoft.com/pricing/details/vpn-gateway/) or ExpressRoute gateway charges and [VNet peering charges.](https://azure.microsoft.com/pricing/details/virtual-network)
 
+>[!NOTE]
+> A previous version of this document stated that VNet Peering charges would not apply with Gateway Transit. This has been updated to reflect accurate pricing.
+
 ## Next steps
 
 * A virtual network peering is created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
