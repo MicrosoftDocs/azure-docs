@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # Upgrade to the latest Azure Cognitive Search service REST API version
 
-If you're using a previous version of the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
+If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
 
 Version 2019-05-06 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
 
@@ -23,11 +23,11 @@ Version 2019-05-06 of the REST API contains some changes from earlier versions. 
 <a name="WhatsNew"></a>
 
 ## What's new in version 2019-05-06
-Version 2019-05-06 is the newest generally available release of the Azure Cognitive Search REST API. Features that have transitioned to generally available status in this API version include:
+Version 2019-05-06 is the newest generally available release of the REST API. Features that have transitioned to generally available status in this API version include:
 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 
-* [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in an Azure Cognitive Search index.
+* [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in search index.
 
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
 
@@ -140,7 +140,7 @@ You can update "flat" indexes to the new format with the following steps using A
 
 ## Next steps
 
-Review the Azure Cognitive Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)
