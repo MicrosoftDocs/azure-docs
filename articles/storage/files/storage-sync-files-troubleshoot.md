@@ -1004,7 +1004,7 @@ If files fail to be recalled:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 > [!NOTE]
-> An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
+> An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). Check the [Recall errors and remediation](#recall-errors-and-remediation) section to see if remediation steps are listed for the error code.
 
 ### Recall errors and remediation
 
