@@ -46,9 +46,7 @@ Use these pre-configured tools on the AzureML compute instance:
 These environments are installed for your machine learning tasks:
 
 * Python
-    * list here
 * R
-    * list here
 
 Compute instances can be used as a compute target for training and inferencing.  For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
