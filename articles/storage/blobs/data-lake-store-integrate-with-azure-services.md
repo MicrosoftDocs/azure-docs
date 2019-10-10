@@ -28,4 +28,5 @@ This table describes which services are supported
 |DataBox|  [Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster)|
 |Azure Search |  <li>[Searching Blob storage with Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)]|
 |Azure Logic Apps |  <li>[Overview - What is Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
+|Azure Data Factory |  <li>[Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
