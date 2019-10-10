@@ -1,7 +1,7 @@
 ---
-title: Upgrade to Azure Cognitive Search .NET SDK version 3
+title: Upgrade to Azure Search .NET SDK version 3
 titleSuffix: Azure Cognitive Search
-description: Migrate code to the Azure Cognitive Search .NET SDK version 3 from older versions. Learn what's new and which code changes are required.
+description: Migrate code to the Azure Search .NET SDK version 3 from older versions. Learn what's new and which code changes are required.
 
 manager: nitinme
 author: brjohnstmsft
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ---
 
-# Upgrade to Azure Cognitive Search .NET SDK version 3
+# Upgrade to Azure Search .NET SDK version 3
 
 <!--- DETAILS in the word doc
 cosmosdb

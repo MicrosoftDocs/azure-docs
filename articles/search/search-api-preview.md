@@ -12,7 +12,7 @@ ms.date: 10/04/2019
 ---
 # Azure Cognitive Search service REST api-version 2019-05-06-Preview
 
-This article describes the `api-version=2019-05-06-Preview` version of Azure Cognitive Search service REST API, offering experimental features not yet generally available.
+This article describes the `api-version=2019-05-06-Preview` version of Search service REST API, offering experimental features not yet generally available.
 
 > [!NOTE]
 > Preview features are available for testing and experimentation with the goal of gathering feedback and are subject to change. We strongly advise against using preview APIs in production applications.
@@ -45,7 +45,7 @@ Azure Cognitive Search service is available in multiple versions. For more infor
 
 ## Next steps
 
-Review the Azure Cognitive Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)

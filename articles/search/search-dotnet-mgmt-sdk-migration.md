@@ -1,7 +1,7 @@
 ---
 title: Upgrade to the Azure Search .NET Management SDK version 2
 titleSuffix: Azure Cognitive Search
-description: Upgrade to the Azure Cognitive Search .NET Management SDK version 2 from previous versions. Learn what's new and what code changes are required.
+description: Upgrade to the Azure Search .NET Management SDK version 2 from previous versions. Learn what's new and what code changes are required.
 
 manager: nitinme
 author: brjohnstmsft
