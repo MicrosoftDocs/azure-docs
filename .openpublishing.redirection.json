@@ -22946,7 +22946,7 @@
     },
     {
       "source_path": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
-      "redirect_url": "git stas",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
 
