@@ -412,8 +412,8 @@
       href: transform-data-using-hadoop-streaming.md
     - name: ML Batch Execution Activity
       href: transform-data-using-machine-learning.md
-    - name: ML Batch Execution Activity
-      href: transform-data-using-machine-learning.md
+    - name: ML Update Resource Activity
+      href: update-machine-learning-models.md
     - name: ML Execute Pipeline Activity
       href: transform-data-machine-learning-service.md
     - name: Stored Procedure Activity
