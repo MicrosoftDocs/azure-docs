@@ -189,13 +189,11 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
+If you used a compute instance, stop the VM when you are not using it to reduce cost.
 
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
+1. In your workspace, select **Compute**.
 
 1. From the list, select the VM.
 

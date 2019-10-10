@@ -29,34 +29,30 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Create a cloud notebook server
+## <a name="azure"></a>Create a compute instance
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
+This example uses a cloud workstation in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
 
-From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning.
+From your workspace, you create a cloud resource to get started using R Studio. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning in R.
 
-1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  If you're not sure how to locate your workspace, see how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/). 
 
-1. On your workspace page in the Azure Machine Learning studio, select **Notebook VMs** on the left.
+1. On your workspace page in the Azure Machine Learning studio, select **Compute** on the left.
 
-1. Select **+New** to create a notebook VM.
+1. Select **+ Add Compute** to create a new Azure Machine Learning compute instance.
 
-     ![Select New VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
-
-1. Provide a name for your VM. 
-   + Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  
+1. Provide a name for your compute instance. 
+   + The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  
    + The name must also be unique across your Azure subscription.
 
-1. Then select **Create**. It can take a moment to set up your VM.
+1. Then select **Create**. It can take a moment to set up your machine.
 
 1. Wait until the status changes to **Running**.
-   After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+   After your VM is running, use the **Compute** section to launch the RStudio web interface.
 
-1. Select **Jupyter** in the **URI** column for your VM.
+1. Select **RStudio** in the **URI** column for your VM.
 
-    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
-
-   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
+   The link starts your notebook server and opens the RStudio a new browser tab.  
 
 
 ## Next steps
