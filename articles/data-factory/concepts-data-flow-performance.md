@@ -5,7 +5,7 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
+ms.date: 10/09/2019
 ---
 
 # Mapping data flows performance and tuning guide
@@ -44,6 +44,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * If you chose "column", then pick the partition column.
 * Also, set the maximum number of connections to your Azure SQL DB. You can try a higher setting to gain parallel connections to your database. However, some cases may result in faster performance with a limited number of connections.
 * Your source database tables do not need to be partitioned.
+* Note that setting lots of partitions against your souce may result in high utilization of your database.
 * Setting a query in your Source transformation that matches the partitioning scheme of your database table will allow the source database engine to leverage partition elimination.
 * If your source is not already partitioned, ADF will still use data partitioning in the Spark transformation environment based on the key that you select in the Source transformation.
 
