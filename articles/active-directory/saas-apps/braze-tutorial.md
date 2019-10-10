@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 10/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -90,11 +90,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> For the subdomain, use the coordinating subdomain listed in your Braze instance URL. For example, if your instance is US-01, your URL is https://dashboard-01.braze.com. This means that your subdomain will be dashboard-01.
 
-1. Braze application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. Braze application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
-1. In the **User Attributes** section, the attributes shown in the above image are the default attributes added by the Azure AD. Braze application expects few more attributes to be passed back in SAML response. Those attributes also are added by default when you added the application from the gallery as mentioned in the table below. You can **Add new claim/Edit** the attributes as per your requirement.
+1. In addition to above, Braze application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name | Source Attribute|
 	| -----| --------------- |
