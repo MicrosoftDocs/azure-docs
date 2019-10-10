@@ -33,21 +33,21 @@ The following sections show Security Center features that are available for thei
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|[Microsoft Defender ATP integration](https://docs.microsoft.com/en-gb/azure/security-center/security-center-wdatp)|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](https://docs.microsoft.com/en-gb/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](https://docs.microsoft.com/en-gb/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
-|[Network-based threat detection alerts](https://docs.microsoft.com/en-gb/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
-|[Just-In-Time VM access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
-|[File Integrity Monitoring](https://docs.microsoft.com/en-us/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[Adaptive application controls](https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
-|[Network map](https://docs.microsoft.com/en-gb/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
-|[Adaptive network hardening](https://docs.microsoft.com/en-gb/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
+|[Microsoft Defender ATP integration](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|[Virtual Machine Behavioral Analytics threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|[Fileless threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
+|[Network-based threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
+|[Just-In-Time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
+|[File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
+|[Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
+|[Network map](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
+|[Adaptive network hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
-|[Regulatory Compliance dashboard & reports](https://docs.microsoft.com/en-gb/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
+|[Regulatory Compliance dashboard & reports](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
 |Missing OS patches assessment|✔|✔|✔|✔|✔|✔|Free|
 |Security misconfigurations assessment|✔|✔|✔|✔|✔|✔|Free|
-|[Endpoint protection assessment](https://docs.microsoft.com/en-us/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Free|
+|[Endpoint protection assessment](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Free|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party vulnerability assessment|✔|X|X|✔|X|X|Free|
 |[Network security assessment]()|✔|✔|X|✔|✔|X|Free|
