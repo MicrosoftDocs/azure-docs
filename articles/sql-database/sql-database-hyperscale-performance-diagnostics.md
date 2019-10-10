@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Hyperscale performance troubleshooting diagnostics | Microsoft Docs
-description: This article describes how to troubleshoot Hyperscale performance problems in SQL Database.
+title: Performance diagnostics in the Hyperscale service tier | Microsoft Docs
+description: This article describes how to troubleshoot Hyperscale performance problems in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -17,13 +17,13 @@ ms.date: 10/09/2019
 # SQL Hyperscale performance troubleshooting diagnostics
 
 
-To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](sql-database-monitor-tune-overview.md) on the Azure SQL database compute node is the starting point of a performance investigation. However, given the [distributed architecture](sql-database-service-tier-hyperscale.md) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
+To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](sql-database-monitor-tune-overview.md) on the Azure SQL database compute node is the starting point of a performance investigation. However, given the [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
 
 
 ## Log rate throttling waits
 
 
-Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service tier. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This throttling happens when a [page server or another compute replica](sql-database-service-tier-hyperscale.md) is significantly behind applying new log records from the Log service.
+Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service level. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This throttling happens when a [page server or another compute replica](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) is significantly behind applying new log records from the Log service.
 
 The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) describe the reasons why log rate can be throttled on the primary compute replica:
 
@@ -31,7 +31,7 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Occurs when a Hyperscale database primary compute node log generation rate is being throttled due to delayed log consumption at the page server(s).         |
 |RBIO_RG_DESTAGE        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the long-term log storage.         |
-|RBIO_RG_REPLICA        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the readable secondary replica node(s).         |
+|RBIO_RG_REPLICA        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the readable secondary replica(s).         |
 |RBIO_RG_LOCALDESTAGE   | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the log service.         |
 
 
@@ -41,7 +41,7 @@ The compute replicas do not cache a full copy of the database locally. The data 
  
 When a read is issued on a compute replica, if the data does not exists in the Buffer Pool or local RBPEX cache, a getPage(pageId, LSN) function call is issued, and the page is fetched from the corresponding page server. Reads from page servers are remote reads and are thus slower than reads from the local RBPEX. When troubleshooting IO-related performance problems, we need to be able to tell how many IOs were done via relatively slower remote page server reads.
 
-We have added page server reads to a set of DMVs and extended events to help identify what reads are remote reads from a page server v/s logical reads
+Several DMVs and extended events have columns and fields that specify the number of remote reads from a page server which can be compared against the total reads. 
 
 - Columns to report page server reads are available in execution DMVs, such as:
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
@@ -56,7 +56,7 @@ We have added page server reads to a set of DMVs and extended events to help ide
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - query-store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads are added to query plan XML for actual plans.
+- ActualPageServerReads/ActualPageServerReadAheads are added to query plan XML for actual plans. For example:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
@@ -66,7 +66,7 @@ We have added page server reads to a set of DMVs and extended events to help ide
 
 ## Virtual File Stats and IO accounting
 
-In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Server IO. IO characteristics on Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache that is a non-covering cache on the compute node.
+In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Server IO. IO characteristics on Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache that is a non-covering cache on the compute replica.
 
 
 ### Local RBPEX cache usage
@@ -82,7 +82,7 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 - When reads are issued by the SQL Server engine on a compute replica, they may be served either by the local RBPEX cache, or by remote page servers, or by a combination of the two if reading multiple pages.
 - When the compute replica reads some pages from a specific file, for example file_id 1, if this data resides solely on the local RBPEX cache, all IO for this read is accounted against file_id 0 (RBPEX). If some part of that data is in the local RBPEX cache, and some part is on a remote page server, then IO is accounted towards file_id 0 for the part served from RBPEX, and the part served from the remote page server is accounted towards file_id 1. 
-- When a compute replica requests a page at a particular [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) from a page server, if the page server has not caught up to the LSN requested, the read on the compute replica will wait until the page server catches up before the page is returned to the compute replica. For any read from a page server on the compute replica, you will see the PAGEIOLATCH_XX wait type if it is waiting on that IO. This wait time includes both the time to catch up the requested page on the page server to the LSN required, and the time needed to transfer the page from the page server to the compute replica.
+- When a compute replica requests a page at a particular [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) from a page server, if the page server has not caught up to the LSN requested, the read on the compute replica will wait until the page server catches up before the page is returned to the compute replica. For any read from a page server on the compute replica, you will see the PAGEIOLATCH_* wait type if it is waiting on that IO. This wait time includes both the time to catch up the requested page on the page server to the LSN required, and the time needed to transfer the page from the page server to the compute replica.
 - Large reads such as read-ahead are often done using ["Scatter-Gather" Reads](/sql/relational-databases/reading-pages/). This allows reads of up to 4 MB of pages at a time, considered a single read in the SQL Server engine. However, when data being read is in RBPEX, these reads are accounted as multiple individual 8 KB reads since the buffer pool and RBPEX always use 8 KB pages. As the result, the number of read IOs seen against RBPEX may be larger than the actual number of IOs performed by the engine.
 
 
@@ -94,8 +94,8 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 ### Log Writes
 
-- On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone, which is remote Azure premium storage.
-- On the secondary replica, log records are not hardened on the secondary replica on a commit, log is applied by the Xlog service to the remote replicas. Given log writes do not actually occur on secondary replicas and are for tracking purposes only.
+- On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone.
+- Log records are not hardened on the secondary replica on a commit. In Hyperscale, log is applied by the Xlog service to the remote replicas. Given log writes do not actually occur on secondary replicas, any accounting of Log IO's on the secondary replicas are for tracking purposes only.
 
 ## Additional Resources
 
