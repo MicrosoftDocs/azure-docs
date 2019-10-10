@@ -49,6 +49,8 @@
       href: https://example.com
     - name: Select an audio input device
       href: https://example.com
+    - name: Automatic language detection
+      href: how-to-automatic-language-detection.md
   - name: Tutorials
     items:
     - name: Intent recognition with LUIS
