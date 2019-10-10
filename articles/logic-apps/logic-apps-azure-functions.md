@@ -209,7 +209,6 @@ To set up and use the system-assigned identity, follow these steps:
 1. Set up your Azure function app and functions to support authentication by following these steps:
 
    * [Set up anonymous authentication in your function](#set-authentication-function-app)
-
    * [Set up Azure AD authentication in your function app](#set-azure-ad-authentication)
 
 <a name="set-authentication-function-app"></a>

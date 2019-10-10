@@ -600,10 +600,10 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 
 | Authentication type | Supported by |
 |---------------------|--------------|
-| [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Client Certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions |
-| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions |
+| [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure API Management |
+| [Client Certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure API Management |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
+| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 | [Managed identity](#managed-identity-authentication) (system-assigned only) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 |||
 
@@ -627,7 +627,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "https://www.microsoft.com",
+      "uri": "@parameters(`targetResourceURIParam`)",
       "authentication": {
          "type": "Basic",
          "username": "@parameters('userNameParam')",
@@ -658,7 +658,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "https://www.microsoft.com",
+      "uri": "@parameters(`targetResourceURIParam`)",
       "authentication": {
          "type": "ClientCertificate",
          "pfx": "@parameters('pfxParam')",
@@ -703,12 +703,12 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "https://www.microsoft.com",
+      "uri": "@parameters(`targetResourceURIParam`)",
       "authentication": {
          "type": "ActiveDirectoryOAuth",
-         "tenant": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",
+         "tenant": "@parameters('tenantIdParam')",
          "audience": "https://management.core.windows.net/",
-         "clientId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+         "clientId": "@parameters('clientIdParam')",
          "credentialType": "Secret",
          "secret": "@parameters('secretParam')"
      }
@@ -721,14 +721,46 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Raw authentication
 
-If the [Raw]() option is available, you can use this authentication type for services that don't follow the [OAuth 2.0 protocol](https://oauth.net/2/). You can then manually create the authentication header value that you send with the request.
+If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that aren't the [OAuth 2.0 protocol](https://oauth.net/2/). You manually create the authentication header that you send with the request and include that value in your trigger or action.
+
+Here is an example for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849):
+
+```text
+POST /initiate HTTP/1.1
+Host: photos.example.net
+Authorization: OAuth realm="Photos",
+   oauth_consumer_key="dpf43f3p2l4k3l03",
+   oauth_signature_method="HMAC-SHA1",
+   oauth_timestamp="137131200",
+   oauth_nonce="wIjqoS",
+   oauth_callback="http%3A%2F%2Fprinter.example.com%2Fready",
+   oauth_signature="74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D"
+```
+
+In the trigger or action that supports Raw authentication, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | `Raw` | The authentication type to use |
-| **Value** | `value` | Yes | <*authorization-token-value*> | The  |
-| **Headers** | `headers` | | | |
+| **Value** | `value` | Yes | <*authorization-header-value*> | The authorization header value or content to use for authentication |
 ||||||
+
+When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `Raw`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "@parameters(`targetResourceURIParam`)",
+      "authentication": {
+         "type": "Raw",
+         "value": "@parameters('authHeaderParam')"
+      }
+   },
+   "runAfter": {}
+}
+```
 
 <a name="managed-identity-authentication"></a>
 
@@ -738,7 +770,10 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. For an Azure function to use the system-assigned identity, follow these additional steps:
+1. For an Azure function to use the system-assigned identity, follow these additional setup steps:
+
+   * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
+   * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)
 
 1. In the trigger or action where you want to use the managed identity, specify these property values:
 
@@ -748,39 +783,22 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
    | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. for example, `https://management.azure.com/`. <p>**Note**: To make this property visible in the designer, on the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID exactly matches the value that Azure Active Directory expects, including any required trailing slashes. You can find these resource ID values in [this table that lists the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash. |
    |||||
 
-   This example action definition specifies the authentication `type` as `ManagedServiceIdentity` and sends an HTTP request to the target service.
+   When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
    ```json
    "HTTP": {
+      "type": "Http",
       "inputs": {
-         "authentication": {
-            "audience": "https://management.azure.com/",
-            "type": "ManagedServiceIdentity"
-         },
          "method": "GET",
-         "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01"
+         "uri": "@parameters(`targetResourceURIParam`)",
+         "authentication": {
+            "type": "ManagedServiceIdentity",
+            "audience": "https://management.azure.com/"
+         },
       },
-      "runAfter": {},
-      "type": "Http"
-      }
-      ```
-
-When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01",
-      "authentication": {
-         "type": "ManagedServiceIdentity",
-         "audience": "https://management.azure.com/"
-     }
-   },
-   "runAfter": {}
-}
-```
+      "runAfter": {}
+   }
+   ```
 
 ## Next steps
 
