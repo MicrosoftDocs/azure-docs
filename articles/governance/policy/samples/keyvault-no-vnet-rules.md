@@ -1,5 +1,5 @@
 ---
-title: Sample - Key Vaults with no vNet endpoints
+title: Sample - Key vaults with no vNet endpoints
 description: This sample policy definition audits Key Vault vaults to detect instances that have no virtual network service endpoints.
 author: DCtheGeek
 ms.service: azure-policy
