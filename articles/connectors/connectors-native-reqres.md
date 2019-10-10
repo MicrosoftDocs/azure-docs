@@ -10,7 +10,7 @@ ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/11/2019
 tags: connectors
 ---
 
@@ -23,8 +23,8 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 * Receive and respond to an HTTPS call from another logic app.
 
 > [!NOTE]
-> The Request trigger supports *only* HTTPS and Transport Layer Security (TLS) 1.2. 
-> To make outgoing HTTP or HTTPS calls instead, use the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) instead.
+> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
+> continue to support TLS 1.0, 1.1, and 1.2. If you see SSL handshake errors, make sure that you use TLS 1.2.
 
 ## Prerequisites
 
