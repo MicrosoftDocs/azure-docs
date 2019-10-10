@@ -1,6 +1,6 @@
 ---
 title: Sample - NIST SP 800-53 R4 blueprint - Control mapping
-description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy.
+description: Control mapping of the NIST SP 800-53 R4 blueprint sample. Each control is mapped to one or more Azure Policies that assists with assessment.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
