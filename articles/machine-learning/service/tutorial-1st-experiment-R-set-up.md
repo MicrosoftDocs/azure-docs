@@ -65,7 +65,7 @@ In this tutorial, you completed these tasks:
 In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train your first model](tutorial-1st-experiment-r-set-up.md)
+> [Tutorial: Train your first model](tutorial-1st-experiment-r-train-model.md)
 
 > [!IMPORTANT]
 > If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
