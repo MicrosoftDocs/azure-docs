@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 10/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -62,10 +62,10 @@ Configure and test Azure AD SSO with Veracode using a test user called **B.Simon
 To configure and test Azure AD SSO with Veracode, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Veracode SSO](#configure-veracode-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Veracode test user](#create-veracode-test-user)** - to have a counterpart of B.Simon in Veracode that is linked to the Azure AD representation of user.
+    * **[Create Veracode test user](#create-veracode-test-user)** - to have a counterpart of B.Simon in Veracode that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -83,6 +83,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
+
+1. Veracode application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Veracode application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute|
+	| ---------------| --------------- |
+	| firstname |User.givenname |
+	| lastname |User.surname |
+	| email |User.mail |
 
 1. On the **Set up Veracode** section, copy the appropriate URL(s) based on your requirement.
 
@@ -165,7 +177,7 @@ In order to enable Azure AD users to log into Veracode, they must be provisioned
 > [!NOTE]
 > You can use any other Veracode user account creation tools or APIs provided by Veracode to provision Azure AD user accounts.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
