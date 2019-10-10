@@ -107,7 +107,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for both scopes. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
 
 ### Create client secret
 
@@ -127,15 +127,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 The following PowerShell script shows an example of how to query the Azure AD reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
 
-You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, key, and the name of your Azure AD B2C tenant.
+You can try this script in the [Azure Cloud Shell](../cloud-shell/overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI

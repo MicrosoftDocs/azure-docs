@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Enable authentication in a native client application - Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Enable authentication in a native client application - Azure Active Directory B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -39,26 +39,29 @@ Record the **Application (client) ID** for use in a later step.
 
 ## Configure the sample
 
-In this tutorial, you configure a sample that you can download from GitHub. The sample WPF desktop application demonstrates sign-up, sign-in, and calls a protected web API in Azure AD B2C. [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [browse the repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample from GitHub.
+In this tutorial, you configure a sample that you can download from GitHub. The sample WPF desktop application demonstrates sign-up, sign-in, and can call a protected web API in Azure AD B2C. [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [browse the repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample from GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
 ```
 
-To change the app settings, replace the `<your-tenant-name>` with your tenant name and replace`<application-ID`> with the application ID that you recorded.
+To update the application to work with your Azure AD B2C tenant and invoke its user flows instead of those in the default demo tenant:
 
-1. Open the `active-directory-b2c-wpf` solution in Visual Studio.
-2. In the `active-directory-b2c-wpf` project, open the **App.xaml.cs** file and make the following updates:
+1. Open the **active-directory-b2c-wpf** solution (`active-directory-b2c-wpf.sln`) in Visual Studio.
+2. In the **active-directory-b2c-wpf** project, open the *App.xaml.cs* file. Replace `{your-tenant-name}` with your Azure AD B2C tenant name and replace`{application-ID}` with the application ID that you recorded earlier.
 
     ```csharp
-    private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
-    private static string ClientId = "<application-ID>";
+    private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
+    private static readonly string AzureAdB2CHostname = "{your-tenant-name}.b2clogin.com";
+    private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Update the **PolicySignUpSignIn** variable with the name of the user flow that you created.
+3. Update the policy name variables with the names of the user flows that you created as part of the prerequisites. For example:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
+    public static string PolicyEditProfile = "B2C_1_profileediting1";
+    public static string PolicyResetPassword = "B2C_1_passwordreset1";
     ```
 
 ## Run the sample
@@ -77,10 +80,11 @@ Press **F5** to build and run the sample.
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 
-Now, the user can use their email address to sign in and use the desktop app.
+The user can now use their email address to sign in and use the desktop application.
 
-> [!NOTE]
-> If you click the **Call API** button, you will receive an "Unauthorized" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD B2C tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant.
+If you click the **Call API** button, an **error message** is displayed. You encounter the error because, in its current state, the application is attempting to access an API protected by the demo tenant, `fabrikamb2c.onmicrosoft.com`. Since your access token is valid only for your Azure AD B2C tenant, the API call is therefore unauthorized.
+
+Continue to the next tutorial to register a protected web API in your own tenant and enable the **Call API** functionality.
 
 ## Next steps
 
