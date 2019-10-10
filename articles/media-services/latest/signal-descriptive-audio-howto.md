@@ -44,19 +44,17 @@ The following function performs these actions:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
+If you need to pass the name of the created input asset to other methods, make sure to use the the `Name` property on the asset object returned from `CreateInputAssetAsync`, for example, inputAsset.Name. 
+
 ## Create an output asset to store the result of the encoding job
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. The following function shows how to create an output asset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Here is an example of a call to the `CreateOutputAssetAsync` function:
+If you need to pass the name of the created output asset to other methods, make sure to use the the `Name` property on the asset object returned from `CreateIOutputAssetAsync`, for example, outputAsset.Name. 
 
-```csharp
-Asset outputAsset = await CreateOutputAssetAsync(client, config.ResourceGroup, config.AccountName, outputAssetName);
-```
-
-Make sure to use the object returned from `CreateOutputAssetAsync` to get the name of the output asset, in this case we call it `outputAsset`. Pass the `outputAsset.Name` value to the `SubmitJobAsync` and `UploadAudioIntoOutputAsset` functions shown later in the topic.
+In the case of this article, pass the `outputAsset.Name` value to the `SubmitJobAsync` and `UploadAudioIntoOutputAsset` functions.
 
 ## Create a transform and a job that encodes the uploaded file
 
@@ -69,12 +67,6 @@ The following example creates a transform (if one does not exist).
 The following function submits a job.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
-
-Here is an example of a call to the `SubmitJobAsync` function:
-
-```csharp
-Job job = await SubmitJobAsync(client, config.ResourceGroup, config.AccountName, AdaptiveStreamingTransformName, jobName, inputAsset.Name, outputAsset.Name);
-```
 
 ## Wait for the job to complete
 
@@ -134,7 +126,7 @@ private static async Task UpoadAudioIntoOutputAsset(
 Here is an example of a call to the `UpoadAudioIntoOutputAsset` function:
 
 ```csharp
-await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.mp4");
+await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
 ```
 
 ## Edit the .ism file
