@@ -231,7 +231,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     If you want more words added to the phrase list, select **Recommand** then review the new **Related Values** and add any that are relevant. 
 
-    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md).
+    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Select **Done** to activate the phrase list.
 

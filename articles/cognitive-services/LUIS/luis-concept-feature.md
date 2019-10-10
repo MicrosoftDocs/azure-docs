@@ -37,6 +37,8 @@ When you want to be able to recognize new instances, like a meeting scheduler th
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. 
 
+<a name="how-to-use-phrase-lists"></a>
+
 ### How to use a phrase list
 
 [Create a phrase list](luis-how-to-add-features.md) list when your intent or entity has words or phrases that are important such as:

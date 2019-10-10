@@ -67,7 +67,7 @@ This article is going to create an entity list with the thermostat. The alternat
 |cold|
 |colder|
 
-If LUIS needs to determine a new alternative often, then a [phrase list](luis-concept-feature.md) is a better answer.
+If LUIS needs to determine a new alternative often, then a [phrase list](luis-concept-feature.md#how-to-use-phrase-lists) is a better answer.
 
 ## Create a list entity
 Create a Node.js file and copy the following code into it. Change the authoringKey, appId, versionId, and region values.
