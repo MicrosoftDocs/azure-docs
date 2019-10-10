@@ -10,6 +10,4 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 11/04/2019
 ---
-
-
 <Token>**APPLIES TO:** ![yes](media/aml-applies-to-skus/yes.png)Basic SKU ![yes](media/aml-applies-to-skus/yes.png)Enterprise SKU  </Token>
