@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -64,7 +64,7 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 ### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
 
-See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text. 
 
 ### I tried to import an app or version file but I got an error, what happened? 
 
