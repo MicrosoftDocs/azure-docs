@@ -57,6 +57,16 @@ When used with Windows Virtual Desktop, ControlUp provides additional capabiliti
 - [See the join solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Go to the partner website](https://www.controlup.com/solutions/ms_wvd/).
 
+## deviceTRUST
+
+![deviceTRUST Logo](./media/partners/devicetrust.png)
+
+deviceTRUST is a Windows Virtual Desktop value-added services provider that contextualizes the corporate enterprise, allowing users the freedom to access their Windows Virtual Desktop from any location, on any device, over any network, while giving IT departments the information and control they need to meet their governance requirements. 
+
+deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
+
+- [Go to the partner website](https://devicetrust.com/wvd).
+
 ## Lakeside Software
 
 ![Lakeside Software Logo](./media/partners/lakeside.png)
@@ -79,6 +89,14 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Go to the partner website](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## Login VSI
+
+![Login VSI Logo](./media/partners/loginvsi.png)
+
+Login VSI is a Windows Virtual Desktop value-added services provider and Microsoft partner delivering software for application performance testing, for Windows Virtual Desktop environments. Customers moving their on-prem business services to Windows Virtual Desktop use Login VSI Enterprise Edition to evaluate and maintain optimal performance, scalability and availability of Windows 10 multisession, Windows 10 Desktop and Windows 7 enabled with their business critical applications.
+
+- [Go to the partner website](https://www.loginvsi.com).
+
 ## Nerdio
 
 ![Nerdio Logo](./media/partners/nerdio.png)
@@ -89,6 +107,30 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
+
+## PolicyPak
+
+![PolicyPak Logo](./media/partners/policypak.png)
+
+PolicyPak Software is a Windows Virtual Desktop partner which performs total settings management for applications, desktop, browsers, Java and security settings. PolicyPak keeps your desktop, system and security settings in compliance. 
+
+PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows’ built-in administration. Use your existing Active Directory Group Policy and/or Microsoft Intune to deliver PolicyPak’s settings and increase administrators’ ability to manage their Windows 10 machines. 
+
+The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block ransomware, manage multiple browsers, manage Internet Explorer’s Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.
+
+- [Go to partner website](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## PrinterLogic
+
+![PrinterLogic Logo](./media/partners/printerlogic.png)
+
+PrinterLogic is a Windows Virtual Desktop value-added services provider that delivers a true SaaS solution. PrinterLogic SaaS helps IT teams eliminate all print servers and deliver a highly available direct IP printing infrastructure. PrinterLogic SaaS integrates with WVD in a powerful way, and ensures that users always have the redirected printers that they need in their virtual sessions. 
+
+PrinterLogic SaaS eliminates all print servers from your network environment, replacing them with simple, secure, and efficient centrally managed direct-IP printing. Single points of failure are removed, and the result is high availability in which printing stays local, and continues even when the internet is down. Printer and driver deployments are managed centrally using a web-based Admin Console, eliminating the need for troublesome scripting and GPOs.  
+
+The platform also features location-based printing based on IP address range. If a worker changes locations, printers that are no longer relevant are dropped from the user’s printer menu and new ones that are closeby appear automatically. PrinterLogic’s solution delivers secure release printing, mobile printing, self-service printer installation for users, and a host of other features that conventional print-management software cannot deliver. 
+
+- [Go to partner website](https://www.printerlogic.com).
 
 ## ThinPrint
 
