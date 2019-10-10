@@ -101,13 +101,12 @@ Example JSON payload:
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-Notes on these two tables:
-
-- The **deviceId** column serves as the column header for the various devices in a fleet. Making the **deviceId** value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
-- Unnecessary properties are avoided (for example, the make and model information). Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
-- Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Time Series Insights for querying.
-- Two layers of nesting are used, which is the maximum amount of nesting supported by Time Series Insights. It's critical to avoid deeply nested arrays.
-- Measures are sent as separate properties within the same object because there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
+> [!NOTE]
+> - The **deviceId** column serves as the column header for the various devices in a fleet. Making the **deviceId** value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
+> - Unnecessary properties are avoided (for example, the make and model information). Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
+> - Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Time Series Insights for querying.
+> - Two layers of nesting are used, which is the maximum amount of nesting supported by Time Series Insights. It's critical to avoid deeply nested arrays.
+> - Measures are sent as separate properties within the same object because there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
 
 ## Scenario two: Several measures exist
 
@@ -177,12 +176,11 @@ Example JSON payload:
    | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Notes on these two tables:
-
-- The columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute limits the query to 594 (for S1 environments) or 794 (for S2 environments) total devices with the other six columns.
-- Unnecessary properties were avoided, for the reason cited in the first example.
-- Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, which is used for the unique pair of **messageId** and **deviceLocation**. The composite key **series.tagId** is used for the unique pair of **type** and **unit**. The composite key allows the  **deviceId** and **series.tagId** pair to be used to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time. It's then stored in Time Series Insights for querying.
-- Two layers of nesting are used, for the reason cited in the first example.
+> [!NOTE]
+> - The columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute limits the query to 594 (for S1 environments) or 794 (for S2 environments) total devices with the other six columns.
+> - Unnecessary properties were avoided, for the reason cited in the first example.
+> - Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, which is used for the unique pair of **messageId** and **deviceLocation**. The composite key **series.tagId** is used for the unique pair of **type** and **unit**. The composite key allows the  **deviceId** and **series.tagId** pair to be used to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time. It's then stored in Time Series Insights for querying.
+> - Two layers of nesting are used, for the reason cited in the first example.
 
 ### For both scenarios
 
