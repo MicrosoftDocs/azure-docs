@@ -45,8 +45,8 @@ type | Type of activity is ‘AzureMLExecutePipeline’ | String | Yes
 linkedServiceName | Linked Service to Azure ML Service | Linked service reference | Yes
 mlPipelineId | ID of the published Azure ML pipeline | String (or expression with resultType of string) | Yes
 experimentName | Run history experiment name of the ML pipeline run | String (or expression with resultType of string) | No
-mlPipelineParameters | Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published ML pipeline | Object with key value pairs (or Expression with resultType object) | No
-mlParentRunId | The parent Azure ML Service pipeline run id | String (or expression with resultType of string) | No
+mlPipelineParameters | Key, Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published ML pipeline | Object with key value pairs (or Expression with resultType object) | No
+mlParentRunId | The parent Azure ML Service pipeline run ID | String (or expression with resultType of string) | No
 continueOnStepFailure | Whether to continue execution of other steps in the ML pipeline run if a step fails | boolean | No
 
 ## Next steps
