@@ -233,7 +233,7 @@ The player can use the `Label` element to display on its UI.
 
 ### Signaling audio description tracks
 
-You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. You need to annotate an audio track as audio description in the manifest. To do that, add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate"` to the .ism file for a specific audio track.
+You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. You need to annotate an audio track as audio description in the manifest. To do that, add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate"` to the .ism file for a specific audio track. For more information, see the [How to signa descriptive audio](signal-descriptive-audio-howto.md) example.
 
 #### Smooth Streaming manifest
 
