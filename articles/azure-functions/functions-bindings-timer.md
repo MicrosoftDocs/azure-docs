@@ -324,7 +324,7 @@ If a function app scales out to multiple instances, only a single instance of a 
 
 ## Function apps sharing Storage
 
-If you share a Storage account across multiple function apps, make sure that each function app has a different identifying configuration. 
+If you are sharing storage accounts across function apps that are not deployed to app service, you might need to explicitly assign host ID to each app.
 
 | Functions version | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
