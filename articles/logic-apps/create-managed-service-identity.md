@@ -15,13 +15,7 @@ ms.date: 10/11/2019
 
 To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-Your logic app can use managed identities only with triggers and actions that support managed identities. Currently, you can use the system-assigned identity with these triggers and actions:
-
-* HTTP
-* Azure Functions
-* Azure API Management
-
-This article shows how to set up and use the system-assigned managed identity for your logic app. To use the identity in triggers and actions, see the connector's usage page. For limits on managed identities for logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity).
+Your logic app can use managed identities only in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#authenticate-access-outbound). This article shows how to set up and use the system-assigned managed identity for your logic app. For limits on managed identities in logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity). For more information about the authentication types where available in triggers and actions, see [Authenticate access for outbound requests](logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
 
 ## Prerequisites
 
@@ -149,11 +143,30 @@ For more information, see [Assign a managed identity access to a resource](../ac
 
 ## Authenticate access with managed identity
 
-Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication with these triggers and actions that support managed identities:
+After your logic app is [set up with a managed identity](#azure-portal-system-logic-app) and that [identity has access to the target resource](#access-other-resources), you can use that identity for authentication in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-* HTTP
-* Azure Functions
-* Azure API Management
+1. In the trigger or action, open the **Authentication** list, and select **Managed Identity**.
+
+   > [!NOTE]
+   > The Authentication property is hidden in some triggers and actions where you can 
+   > optionally select an authentication type. To make the property visible in these cases, 
+   > in the trigger or action, open the **Add new parameter** list, and select **Authentication**.
+
+   For example, suppose you want to call an [Azure service that supports Azure Active Directory (Azure AD) authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) by using an HTTP action. You want to use the logic app's system-assigned identity for authentication when sending a request to the target service. The **URI** property specifies the resource ID for the target service, combined with your Azure subscription ID, and the API version to use. In this case, the resource ID is for Azure Resource Manager in the Azure Global environment.
+
+   ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+
+1. After you select **Managed Identity**, the **Audience** property appears. The default property value is `https://management.azure.com/`, so if necessary, change this value to the target resource ID that you want.
+
+   > [!NOTE]
+   > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
+
+   ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+
+   > [!IMPORTANT]
+   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory expects, 
+   > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
+   > a trailing slash. Check the [resource IDs in this table for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 <a name="remove-identity"></a>
 

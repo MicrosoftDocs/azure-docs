@@ -592,31 +592,30 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
 ## Authenticate access for outbound requests
 
-HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests that access these endpoints, you can select from varying ranges of authentication types.
+HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests that access these endpoints, you can select from varying ranges of authentication types. To make sure that you protect any sensitive information that your logic app handles, use secured parameters and encode data as necessary. For more information about using and securing parameters, see [Access to parameter inputs](#secure-action-parameters).
+
+> [!NOTE]
+> In the Logic App Designer, the **Authentication** property might be hidden on some triggers and actions 
+> where you can specify the authentication type. To make the property appear in these cases, on the trigger or action, open the **Add new parameter** list, and select **Authentication**.
 
 | Authentication type | Supported by |
 |---------------------|--------------|
 | [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Client certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
+| [Client Certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Raw authentication] | HTTP, HTTP + Swagger, HTTP Webhook |
-| [System-assigned managed identity](#managed-identity-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
+| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
+| [Managed identity](#managed-identity-authentication) (system-assigned only) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 |||
-
-> [!IMPORTANT]
-> Make sure that you protect any sensitive information that your logic app handles. 
-> Use secured parameters and encode data as necessary. For more information about using and securing parameters, 
-> see [Access to parameter inputs](#secure-action-parameters).
 
 <a name="basic-authentication"></a>
 
 ### Basic authentication
 
-If [basic authentication](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) is available, specify these property values:
+If the [Basic](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | `Basic` | The authentication type to use |
+| **Authentication** | `type` | Yes | - **Basic** (designer) <br>- `Basic` (JSON) | The authentication type to use |
 | **Username** | `username` | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
 | **Password** | `password` | Yes | <*password*> | The password for authenticating access to the target service endpoint |
 ||||||
@@ -641,13 +640,13 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 <a name="client-certificate-authentication"></a>
 
-### Client certificate authentication
+### Client Certificate authentication
 
-If [certificate-based authentication](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) is available, specify these property values:
+If the [Client Certificate](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | `ClientCertificate` | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. <p><p>For the limits on the number of client certificates that you can use, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md##artifact-limits-per-integration-account). |
+| **Authentication** | `type` | Yes | - **Client Certificate** (designer) <br>- `ClientCertificate` (JSON)| The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
 | **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password`| Yes | <*password-for-pfx-file*> | The password for accessing the PFX file |
 |||||
@@ -670,23 +669,31 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 }
 ```
 
+For more information about securing services by using client certificate authentication, see these topics:
+
+* [Secure APIs using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
+* [Secure your RESTfuL service by using client certificates](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
+* [Use an SSL certificate in your application code in Azure App Service](../app-service/app-service-web-ssl-cert-load.md)
+
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### Azure Active Directory (AD) OAuth authentication
+### Azure Active Directory OAuth authentication
 
-If [Azure AD OAuth authentication](../active-directory/develop/authentication-scenarios.md) is available, specify these property values:
+If the [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | `ActiveDirectoryOAuth` | The authentication type to use |
+| **Authentication** | `type` | Yes | - **Active Directory OAuth** (designer) <br>- `ActiveDirectoryOAuth` (JSON) | The authentication type to use. Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
 | **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant |
 | **Audience** | `audience` | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Yes | <*client-ID*> | The client ID for the app requesting authorization |
-| **Credential Type** | `credentialType` | Yes | "Certificate" or "Secret" | The credential type that the client uses for requesting authorization. This property and value don't appear in your logic app's underlying definition, but determines the properties that appear for the selected credential type. |
+| **Credential Type** | `credentialType` | Yes | `Certificate` or `Secret` | The credential type that the client uses for requesting authorization. This property and value don't appear in your logic app's underlying definition, but determines the properties that appear for the selected credential type. |
 | **Secret** | `secret` | Yes, but only for the "Secret" credential type | <*client-secret*> | The client secret for requesting authorization |
 | **Pfx** | `pfx` | Yes, but only for the "Certificate" credential type | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password` | Yes, but only for the "Certificate" credential type | <*password-for-pfx-file*> | The password for accessing the PFX file |
-| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token. By default, this value is `https://login.windows.net`. <p>**Tip**: To add this property in the designer, on the trigger or action, open the **Add new parameter** list, and select **Authority**. |
+| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token. By default, this value is `https://login.windows.net`. <p>**Note**: To make this property visible in the designer, on the trigger or action, open the **Add new parameter** list, and select **Authority**. |
 |||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
@@ -714,7 +721,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Raw authentication
 
-If [raw authentication]() is available, specify these property values:
+If the [Raw]() option is available, you can use this authentication type for services that don't follow the [OAuth 2.0 protocol](https://oauth.net/2/). You can then manually create the authentication header value that you send with the request.
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -727,46 +734,36 @@ If [raw authentication]() is available, specify these property values:
 
 ### Managed identity authentication
 
-If [managed identity authentication](../active-directory/managed-identities-azure-resources/overview.md) is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
+If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-1. Before you use the managed identity in your trigger or action, follow these steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md):
+1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-   1. Enable the system-assigned identity on your logic app.
+1. For an Azure function to use the system-assigned identity, follow these additional steps:
 
-   1. Assign a role to that identity on the resource where that identity needs access.
+1. In the trigger or action where you want to use the managed identity, specify these property values:
 
-1. Based on the trigger or action where you use the managed identity, 
+   | Property (designer) | Property (JSON) | Required | Value | Description |
+   |---------------------|-----------------|----------|-------|-------------|
+   | **Authentication** | `type` | Yes | - **Managed Identity** (designer) <br>- `ManagedServiceIdentity` (JSON) | The authentication type to use |
+   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. for example, `https://management.azure.com/`. <p>**Note**: To make this property visible in the designer, on the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID exactly matches the value that Azure Active Directory expects, including any required trailing slashes. You can find these resource ID values in [this table that lists the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash. |
+   |||||
 
+   This example action definition specifies the authentication `type` as `ManagedServiceIdentity` and sends an HTTP request to the target service.
 
-specify these property values:
-
-| Property (designer) | Property (JSON) | Required | Value | Description |
-|---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | `ManagedServiceIdentity` | The authentication type to use |
-| **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. for example, `https://management.azure.com/`. <p>**Tip**: To add this property in the designer, on the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that the resource ID exactly matches the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash. |
-|||||
-
-For example, suppose you want to the system-assigned identity to access an [Azure service that supports Azure Active Directory (Azure AD) authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).  This example HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and sends an HTTP request to the target service.
-
-```json
-"HTTP": {
-   "inputs": {
-      "authentication": {
-         "audience": "https://management.azure.com/",
-         "type": "ManagedServiceIdentity"
+   ```json
+   "HTTP": {
+      "inputs": {
+         "authentication": {
+            "audience": "https://management.azure.com/",
+            "type": "ManagedServiceIdentity"
+         },
+         "method": "GET",
+         "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01"
       },
-      "method": "GET",
-      "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01"
-   },
-   "runAfter": {},
-   "type": "Http"
-   }
-   ```
-
-1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
-
-   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
-
+      "runAfter": {},
+      "type": "Http"
+      }
+      ```
 
 When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
