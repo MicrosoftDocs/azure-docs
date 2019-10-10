@@ -49,7 +49,7 @@ Use Ethereum Blockchain event triggers when you want a logic app to run after a 
 
 1. In the Logic Apps Designer, select the Ethereum Blockchain connector.
 1. From the **Triggers** tab, select **When a smart contract event occurs**.
-1. Change or [Create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
+1. Change or [create an API connection](#create-an-api-connection) to Azure Blockchain Service.
 1. Enter the details about the smart contract that you want to check for events.
 
     ![Logic Apps Designer with Event trigger properties](./media/ethereum-logic-app/event-properties.png)
@@ -77,7 +77,7 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     ![Logic Apps Designer with Actions properties](./media/ethereum-logic-app/action-properties.png)
 
-1. Change or [Create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
+1. Change or [create an API connection](#create-an-api-connection) to Azure Blockchain Service.
 1. Depending on the action you chose, provide the following details about your smart contract function.
 
     | Property | Description |
@@ -95,12 +95,12 @@ You can now use your logic app. When the logic app event is triggered, the Ether
 
 The Azure Blockchain Development Kit for Ethereum Visual Studio Code extension can generate logic app workflows for common scenarios. Four scenarios are available:
 
-* Data publishing to an Azure SQL Database instance.
+* Data publishing to an Azure SQL Database instance
 * Event publishing to an instance of Azure Event Grid or Azure Service Bus
 * Report publishing
 * REST-based microservice
 
- The Azure Blockchain development kit uses Truffle to simplify blockchain development. To generate a logic app based on a smart contract, you need a Truffle solution for the smart contract. You also need a connection to your Azure Blockchain Service consortium network. For more information, see [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network quickstart](connect-vscode.md).
+ The Azure Blockchain Development Kit uses Truffle to simplify blockchain development. To generate a logic app based on a smart contract, you need a Truffle solution for the smart contract. You also need a connection to your Azure Blockchain Service consortium network. For more information, see [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network quickstart](connect-vscode.md).
 
 For example, the following steps generate a REST-based microservice logic app based on the quickstart **HelloBlockchain** smart contract:
 
@@ -126,7 +126,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
 1. Select **Designer** to switch to the designer view.
 1. The logic app includes the basic steps for the scenario. However, you need to update the configuration details for the Ethereum Blockchain connector.
-1. Select the **Connections** step and change or [Create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
+1. Select the **Connections** step and change or [create an API connection](#create-an-api-connection) to Azure Blockchain Service.
 
     ![Designer view with the Connections selection](./media/ethereum-logic-app/microservice-logic-app.png)
 
@@ -134,7 +134,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     ![Logic Apps Designer pane with the HTTP POST URL](./media/ethereum-logic-app/post-url.png)
 
-1. Use cURL to create an HTTP POST request. Replace the placeholder text **\<HTTP POST URL\>** with the URL from the previous step.
+1. Use cURL to create an HTTP POST request. Replace the placeholder text *\<HTTP POST URL\>* with the URL from the previous step.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -144,7 +144,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     ![Code output from the RequestMessage smart contract function](./media/ethereum-logic-app/curl.png)
 
-For more information about using the development kit, see the [Azure Blockchain Development Kit for Ethereum wiki](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) page.
+For more information about using the development kit, see the [Azure Blockchain Development Kit for Ethereum wiki page](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki).
 
 ## Create an API connection
 
@@ -153,7 +153,7 @@ An API connection to a blockchain is required for the Ethereum Blockchain connec
 > [!IMPORTANT]
 > A private key or account address and password are required for creating transactions on a blockchain. Only one form of authentication is needed. You don't need to provide both the private key and account details. Querying contracts does not require a transaction. If you are using actions that query contract state, the private key or account address and password are not required.
 
-To set up a connection to an Azure Blockchain Service member, the following list has possible properties you may need depending on your scenario.
+To help you set up a connection to an Azure Blockchain Service member, the following list has possible properties you might need depending on your scenario.
 
 | Property | Description |
 |----------|-------------|
@@ -204,7 +204,7 @@ You can use the Ethereum account's private key to authenticate when sending a tr
 
 ## Get the account address
 
-You can use the member account and password to authenticate when you send a transaction to the blockchain. The password is set when you create the member.
+You can use the member account and password to authenticate when you send a transaction to the blockchain. The password is set when you create the member.
 
 1. In the Azure portal, go to your Azure Blockchain Service overview page.
 1. Copy the **Member account** address.
