@@ -67,9 +67,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add support for `ScoringExplainer` to be created directly using `MimicWrapper`
   + **azureml-pipeline-core**
     + Improved performance for large Pipeline creation
+  + **azureml-train-core**
+    + Added TensorFlow 2.0 support in TensorFlow Estimator
   + **azureml-train-automl**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
-    + Added TensorFlow 2.0 support in TensorFlow Estimator
     + Added local-docker and local-conda support for AutoML experiments
 
 ## 2019-09-30
