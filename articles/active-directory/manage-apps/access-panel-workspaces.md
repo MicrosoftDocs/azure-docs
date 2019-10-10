@@ -1,6 +1,6 @@
 ---
-title: Create My Apps Workspaces for end users  | Microsoft Docs
-description: Use Access Panel Workspaces to organize applications and provide a cleaner, customized My Apps experience for your end users.
+title: Create workspaces for end user My Apps portals  | Microsoft Docs
+description: Use My Apps workspaces to Customize My Apps pages for a simpler My Apps experience for your end users. Organize applications into groups with separate tabs.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -19,11 +19,11 @@ ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ---
 
-# How to use My Apps workspaces to customize user access panels (preview)
+# Create workspaces on the My Apps (preview) portal
 
 The **My Apps** portal at https://myapps.microsoft.com lets end users view and launch the cloud-based applications you've given them access to. By default, all applications are listed together on a single page. If you're an admin with an Azure AD Premium license, you can use My Apps workspaces to create logical groupings of applications for specific job roles, tasks, or projects. With a workspace, you group applications together and present them on a separate tab. Then users viewing that workspace will only see the applications they have access to. If the workspace contains other applications the user doesn't have access to, the user can see them by selecting **Add app**.
 
-This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps access panel and workspaces, see [TBD](TBD.md).
+This article covers how an admin can enable and create workspaces. For information for the end user about how to use the My Apps access panel and workspaces, see  [Access and use workspaces](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces.md).
 
 ## Enable My Apps preview features
 
