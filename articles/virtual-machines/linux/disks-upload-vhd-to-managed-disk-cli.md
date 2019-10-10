@@ -119,4 +119,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## Next steps
 
-Now that you've successfully uploaded a vhd to a managed disk, you can [attach the disk to a VM](upload-vhd.md#create-the-vm) to create a new VM.
+Now that you've successfully uploaded a vhd to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
+
