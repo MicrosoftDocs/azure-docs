@@ -118,11 +118,11 @@ This table contains basic settings used for the dataset monitor.
 | Setting | Description | Tips | Mutable | 
 | ------- | ----------- | ---- | ------- | 
 | Name | Name of the dataset monitor. | | No |
-| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | Set to a model's target dataset | No |
-| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset | No | 
-| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill | Adjust this setting to include a comparable size of data to the baseline | No | 
-| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can change this setting after the monitor is created. | Yes | 
-| Compute target | Azure Machine Learning compute target to run the dataset monitor jobs | | Yes | 
+| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | Set to a model's target dataset. | No |
+| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset. | No | 
+| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill. | Adjust this setting to include a comparable size of data to the baseline. | No | 
+| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can backfill and existing data drift monitor after adjusting the list of features. | Yes | 
+| Compute target | Azure Machine Learning compute target to run the dataset monitor jobs. | | Yes | 
 
 ### Monitor settings
 
@@ -130,10 +130,10 @@ These settings are for the scheduled dataset monitor pipeline which will be crea
 
 | Setting | Description | Tips | Mutable | 
 | ------- | ----------- | ---- | ------- |
-| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created | Yes | 
+| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created. | Yes | 
 | Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | Yes | 
 | Email addresses | Email addresses for alerting based on breach of the data drift percentage threshold. | Emails are sent through Azure Monitor. | Yes | 
-| Threshold | Data drift percentage threshold for email alerting | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource | Yes | 
+| Threshold | Data drift percentage threshold for email alerting. | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource. | Yes | 
 
 ### Backfill settings
 
@@ -142,7 +142,7 @@ These settings are for running a backfill on past data for data drift metrics.
 | Setting | Description | Tips |
 | ------- | ----------- | ---- |
 | Start date | Start date of the backfill job. | | 
-| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. Additional backfill runs can be performed after the dataset monitor creation |
+| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. On an existing dataset monitor, metrics can be backfilled to anlayze historical data or replace metrics with updated settings. |
 
 ## Create dataset monitors 
 
@@ -183,7 +183,7 @@ The **Drift overview** section contains top-level insights into the magnitude of
 
 | Metric | Description | Tips | 
 | ------ | ----------- | ---- | 
-| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude | 
+| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
 | Drift contribution by feature | The contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
 The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/en-us/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 
