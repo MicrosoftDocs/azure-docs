@@ -12,7 +12,7 @@ ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: 'vsts'
