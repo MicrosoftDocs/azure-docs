@@ -52,13 +52,13 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ### Allocate compute
 
-* In your workspace, choose the **Compute** section.
-* Select **+ Add Compute**.
-* Name your selection `cpu-compute`.
-* Select **Machine Learning Compute**.
-* Select an inexpensive VM size, such as `Standard_D1_v2`.
-* Leave the other values at their defaults.
-* Select **Create** to allocate the resource.
+* In your workspace, choose the **Compute** section
+* Select **+ Add Compute**
+* Name your selection `cpu-compute`
+* Select **Machine Learning Compute**
+* Select an inexpensive VM size, such as `Standard_D1_v2`
+* Leave the other values at their defaults
+* Select **Create** to allocate the resource
 
 >[!IMPORTANT] 
 > Take note of your **workspace**, **resource_group**, and **subscription**. You'll need these to ensure you create your pipeline in the right place. 
@@ -67,9 +67,9 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, a pipeline will encapsulate a complex process such as data preparation or training. For this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
 
-* Activate the Python environment in which you've installed the Azure Machine Learning SDK for Python. 
+* Activate the Python environment in which you've installed the Azure Machine Learning SDK for Python
 
-* In the directory in which you downloaded the notebook, start Jupyter: 
+* In the directory in which you downloaded the notebook, start Jupyter:
 
 ```shell
 jupyter notebook
@@ -79,10 +79,10 @@ jupyter notebook
 
 These cells, when run:
 
-* Creates a subdirectory called **pipeline-scheduling-src**.
-* Writes two files (**color.py** and **preprocessing.py**) to that subdirectory.
-* Creates some fake data and stores it in **unprocessed_data.csv**.
-* Reads that fake data, normalizes it, and writes it to **processed_data.csv**.
+* Creates a subdirectory called **pipeline-scheduling-src**
+* Writes two files (**color.py** and **preprocessing.py**) to that subdirectory
+* Creates some fake data and stores it in **unprocessed_data.csv**
+* Reads that fake data, normalizes it, and writes it to **processed_data.csv**
 
 In a real ML scenario, **unprocessed_data.csv** would be coming in continuously from some upstream process: a Web service, the field, or sensors. Unlike this trivial sample, real-world data preparation is often time-consuming and periodically updating it is a good scenario for a pipeline.
 
@@ -90,8 +90,8 @@ In a real ML scenario, **unprocessed_data.csv** would be coming in continuously 
 
 The next step is to create a pipeline. For a more in-depth explanation of the steps in this section, see [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md). 
 
-* In your browser, navigate to the Machine Learning workspace.
-* Download the workspace's **config.json** to the directory in which you are running the Jupyter notebook.
+* In your browser, navigate to the Machine Learning workspace
+* Download the workspace's **config.json** to the directory in which you are running the Jupyter notebook
 
 ![Showing Workspace **Download config.json** option](media/tutorial-pipeline-schedule/export-config-json.png)
 
@@ -124,9 +124,9 @@ def config_compute() :
 
 Now, to build the `PythonScriptStep` that encapsulates our preprocessing data, run the next cell to: 
 
-* Upload the contents of **pipeline-scheduling-src/** (**color.py** and **processing.py**).
-* Set **preprocessing.py* as the main script the step will execute.
-* Use the `compute_target` and `compute_config` set in the previous cell.
+* Upload the contents of **pipeline-scheduling-src/** (**color.py** and **processing.py**)
+* Set **preprocessing.py* as the main script the step will execute
+* Use the `compute_target` and `compute_config` set in the previous cell
 
 ```python
 preprocessing_step = PythonScriptStep(
@@ -165,9 +165,9 @@ pipeline_run.wait_for_completion()
 
 In order to schedule a pipeline, you must:
 
-* Publish the pipeline.
-* Specify how you would like it to recur.
-* Schedule it.
+* Publish the pipeline
+* Specify how you would like it to recur
+* Schedule it
 
 In the notebook, you can do these steps by executing the cells in the **Publish and schedule a pipeline** section. For demonstration purposes, the pipeline is set to run every 3 minutes. More realistically, a data preparation script might run once or twice a day. 
 
@@ -238,5 +238,5 @@ For more information, see:
 > [!div class="nextstepaction"]
 > [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 
-+ Learn more about [pipelines](concept-ml-pipelines.md).
-+ Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md).
++ Learn more about [pipelines](concept-ml-pipelines.md)
++ Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
