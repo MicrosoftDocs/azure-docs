@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes how to manage assignments to access packages.
+In Azure AD entitlement management, you can see who has been assigned to access packages, their policy, and status. If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view and change assignments to access packages.
 
 ## View who has an assignment
 
@@ -39,6 +39,8 @@ This article describes how to manage assignments to access packages.
 1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Assignments** to see a list of active assignments.
+
+    ![List of assignments to an access package](./media/entitlement-management-access-package-assignments/assignments-list.png)
 
 1. Click a specific assignment to see additional details.
 
@@ -82,3 +84,5 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## Next steps
 
+- [Change user, request, and expiration settings](entitlement-management-access-package-policy.md)
+- [View reports and logs](entitlement-management-reports.md)

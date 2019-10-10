@@ -28,11 +28,13 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes how to update expiration dates for an access package.
+Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal. However, you can change the **Hidden** setting so that the access package is not listed in user's My Access portal.
+
+This article describes how to hide or delete an access package.
 
 ## Change the Hidden setting
 
-Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal.
+Follow these steps to change the **Hidden** setting for an access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -46,11 +48,11 @@ Access packages are discoverable by default. This means that if a policy allows 
 
     If set to **No**, the access package will be listed in the user's My Access portal.
 
-    If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **My Access portal link** to the access package.
+    If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **My Access portal link** to the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md).
 
 ## Delete an access package
 
-An access package can only be deleted if it has no active user assignments.
+An access package can only be deleted if it has no active user assignments. Follow these steps to delete an access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -66,3 +68,5 @@ An access package can only be deleted if it has no active user assignments.
 
 ## Next steps
 
+- [View and change assignments](entitlement-management-access-package-assignments.md)
+- [View reports and logs](entitlement-management-reports.md)

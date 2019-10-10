@@ -183,3 +183,6 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 ## Next steps
 
+- [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md)
+- [Introduction to SharePoint Online](/sharepoint/introduction)

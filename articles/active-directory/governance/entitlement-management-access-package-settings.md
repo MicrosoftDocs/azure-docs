@@ -50,4 +50,5 @@ As long as the catalog for the access package is [enabled for external users](en
 
 ## Next steps
 
-
+- [Request access to an access package](entitlement-management-request-access.md)
+- [Approve or deny access requests](entitlement-management-request-approve.md)

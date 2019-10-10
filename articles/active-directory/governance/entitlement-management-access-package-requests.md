@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article describes how to manage requests for access to an access package.
+In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for access packages.
 
 ## View requests
 
@@ -41,6 +41,8 @@ This article describes how to manage requests for access to an access package.
 1. Click **Requests**.
 
 1. Click a specific request to see additional details.
+
+    ![List of requests for an access package](./media/entitlement-management-access-package-requests/requests-list.png)
 
 ## View a request's delivery errors
 
@@ -78,4 +80,5 @@ You can only cancel a pending request that has not yet been delivered.
 
 ## Next steps
 
-
+- [Change user, request, and expiration settings for an access package](entitlement-management-access-package-policy.md)
+- [View and change assignments for an access package](entitlement-management-access-package-assignments.md)
