@@ -106,7 +106,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName}
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Note the returned service connection string for later use in this quickstart.. It looks like the following example:
