@@ -18,7 +18,7 @@ ms.date: 10/14/2019
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift in datasets, and setup alerts.
 
-![Demo video](media/how-to-monitor-datasets/video.mp4)
+![Demo video](media/how-to-monitor-datasets/video.gif)
 
 With Azure Machine Learning dataset monitors, you can:
 * **Analyze drift in your data** to understand how it changes over time.
