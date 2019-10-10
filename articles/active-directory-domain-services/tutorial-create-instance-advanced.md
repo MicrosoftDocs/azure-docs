@@ -90,7 +90,7 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 
     ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance-advanced/basics-window.png)
 
-1. To manually configure additional options, choose **Next - Networking**. Otherwise, select **Review + create** to accept the default configuration options, then skip to the section to [Deploy your managed domain](#deploy-your-managed-domain). The following defaults are configured when you choose this create option:
+1. To manually configure additional options, choose **Next - Networking**. Otherwise, select **Review + create** to accept the default configuration options, then skip to the section to [Deploy your managed domain](#deploy-the-managed-domain). The following defaults are configured when you choose this create option:
 
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
 * Creates subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
