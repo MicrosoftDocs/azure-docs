@@ -23,7 +23,7 @@ To troubleshoot performance problems in a Hyperscale database, [general performa
 ## Log rate throttling waits
 
 
-Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service tier. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This happens when a [page server or another compute replica](sql-database-service-tier-hyperscale.md) is significantly behind applying new log records from the Log service.
+Every Azure SQL Database service level has log generation rate limits enforced via [log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). In Hyperscale, the log generation limit is currently set to 100 MB/sec, regardless of the service tier. However, there are times when the log generation rate on the primary compute replica has to be throttled to maintain recoverability SLAs. This throttling happens when a [page server or another compute replica](sql-database-service-tier-hyperscale.md) is significantly behind applying new log records from the Log service.
 
 The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) describe the reasons why log rate can be throttled on the primary compute replica:
 
@@ -66,12 +66,12 @@ We have added page server reads to a set of DMVs and extended events to help ide
 
 ## Virtual File Stats and IO accounting
 
-In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Server IO. IO characteristics on Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache that is a non-covering cache on the compute node.
+In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is the primary way to monitor SQL Server IO. IO characteristics on Hyperscale are different due to its [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on IO (reads and writes) to data files as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a remote page server. The RBPEX cache mentioned here is a local SSD-based cache that is a non-covering cache on the compute node.
 
 
 ### Local RBPEX cache usage
 
-Local RBPEX cache exists on the compute node on local SSD storage. Thus, IO on this RBPEX cache is faster than IO on remote page servers. Currently, [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in a Hyperscale database has a special row reporting the IO done on the local RBPEX cache on the compute replica. This row has the value of 0 for both `database_id` and `file_id` columns. For example, the query below returns RBPEX usage statistics since database start up.
+Local RBPEX cache exists on the compute node on local SSD storage. Thus, IO on this RBPEX cache is faster than IO on remote page servers. Currently, [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in a Hyperscale database has a special row reporting the IO done on the local RBPEX cache on the compute replica. This row has the value of 0 for both `database_id` and `file_id` columns. For example, the query below returns RBPEX usage statistics since database startup.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -83,7 +83,7 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 - When reads are issued by the SQL Server engine on a compute replica, they may be served either by the local RBPEX cache, or by remote page servers, or by a combination of the two if reading multiple pages.
 - When the compute replica reads some pages from a specific file, for example file_id 1, if this data resides solely on the local RBPEX cache, all IO for this read is accounted against file_id 0 (RBPEX). If some part of that data is in the local RBPEX cache, and some part is on a remote page server, then IO is accounted towards file_id 0 for the part served from RBPEX, and the part served from the remote page server is accounted towards file_id 1. 
 - When a compute replica requests a page at a particular [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) from a page server, if the page server has not caught up to the LSN requested, the read on the compute replica will wait until the page server catches up before the page is returned to the compute replica. For any read from a page server on the compute replica, you will see the PAGEIOLATCH_XX wait type if it is waiting on that IO. This wait time includes both the time to catch up the requested page on the page server to the LSN required, and the time needed to transfer the page from the page server to the compute replica.
-- Large reads such as read-ahead are often done using ["Scatter-Gather" Reads](/sql/relational-databases/reading-pages/). This allows reads of up to 4MB of pages at a time, considered a single read in the SQL Server engine. However, when data being read is in RBPEX, these reads are accounted as multiple individual 8 KB reads since the buffer pool and RBPEX always use 8 KB pages. As the result, the number of read IOs seen against RBPEX may be larger than the actual number of IOs performed by the engine.
+- Large reads such as read-ahead are often done using ["Scatter-Gather" Reads](/sql/relational-databases/reading-pages/). This allows reads of up to 4 MB of pages at a time, considered a single read in the SQL Server engine. However, when data being read is in RBPEX, these reads are accounted as multiple individual 8 KB reads since the buffer pool and RBPEX always use 8 KB pages. As the result, the number of read IOs seen against RBPEX may be larger than the actual number of IOs performed by the engine.
 
 
 ### Data Writes
@@ -94,12 +94,12 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 ### Log Writes
 
-- On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone which is remote Azure premium storage.
+- On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone, which is remote Azure premium storage.
 - On the secondary replica, log records are not hardened on the secondary replica on a commit, log is applied by the Xlog service to the remote replicas. Given log writes do not actually occur on secondary replicas and are for tracking purposes only.
 
 ## Additional Resources
 
-- For VCore resource limits for a hyperscale single database see [Hyperscale service tier Vcore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
+- For vCore resource limits for a hyperscale single database see [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](sql-database-performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
