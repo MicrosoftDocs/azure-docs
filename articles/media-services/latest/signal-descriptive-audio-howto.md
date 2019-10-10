@@ -15,9 +15,9 @@ ms.date: 09/25/2019
 ms.author: juliako
 ---
 
-# Signal audio description tracks
+# Adding audio description tracks
 
-You can use descriptive audio to create a narration track that describes your video. It enables visually impaired consumers to follow the video recording by listening to the narration. 
+You can add a narration to your video to help visually impaired consumers to follow the video recording by listening to the narration. 
 
 In Media Services v3, you can signal audio description tracks by annotating the audio track in the manifest. For more information, see the [Signaling audio description tracks](dynamic-packaging-overview.md#signaling-audio-description-tracks) concept.
 
