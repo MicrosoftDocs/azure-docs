@@ -466,3 +466,5 @@ On Azure virtual machines, MSDTC is not supported on Windows Server 2016 and ear
 
 ## See Also
 
+- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
