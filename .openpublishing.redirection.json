@@ -22871,7 +22871,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
-      "redirect_url": "/azure/azure-monitor/app/usage-workbooks",
+      "redirect_url": "azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
@@ -22936,17 +22936,17 @@
     },
     {
       "source_path": "articles/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack.md",
-      "redirect_url": "/azure-monitor/app/usage-workbooks",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/reports-monitoring/howto-power-bi-content-pack.md",
-      "redirect_url": "/azure-monitor/app/usage-workbooks",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
-      "redirect_url": "/azure-monitor/app/usage-workbooks",
+      "redirect_url": "git stas",
       "redirect_document_id": false
     },
 
