@@ -53,7 +53,7 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension), and sign into your account.
+1. In a web browser, open the [Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure), and sign into your account.
 
 1. Search for the **Azure Spring Cloud** and select it to go to the overview page. Select the **Create** button to get started.
 
