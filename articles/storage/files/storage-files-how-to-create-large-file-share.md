@@ -10,9 +10,9 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Enable large fileshares
+# Enable large file shares
 
-Originally, fileshares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. In order to scale up to 100 TiB, you must enable your storage account to use large fileshares. You can either enable an existing account or create a new account to use large file shares.
+Originally, file shares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. In order to scale up to 100 TiB, you must enable your storage account to use large file shares. You can either enable an existing account or create a new account to use large file shares.
 
 
 ## Prerequisites
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Restrictions
 
-Large file share enabled accounts cannot use ZRS, GRS, or RA-GRS. Enabling large file shares on an account is currently an irreversible process, so only enable it on an account that you do not want to use ZRS, GRS, or RA-GRS with.
+Large file share enabled accounts support LRS or ZRS. For now, large file share enabled accounts do not support GZRS, GRS, or RA-GRS. Enabling large file shares on an account is an irreversible process, once it is enabled your account cannot be converted to GZRS, GRS, or RA-GRS.
 
 ## Create a new storage account
 
@@ -52,15 +52,19 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable on existing account
 
-You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use ZRS, GRS, or RA-GRS. This choice is irreversible on this account.
+You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
 1. Open the [Azure portal](https://portal.azure.com) and navigate to the storage account you want to enable large file shares on.
 1. Open the storage account and select **Configuration**.
 1. Select **Enabled** on **Large file shares**, then select save.
+1. Select **Overview** and select **Refresh**.
+
+
+![enable-large-file-shares-on-existing.png](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
 
 You've now enabled large file shares on your storage account.
 
-![enable-large-file-shares-on-existing.png](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
+If you receive the following error: "Large file shares are not available for the account yet." Then Please reach out to support.
 
 ## Create a large file share
 
@@ -68,6 +72,8 @@ Creating a large file share is almost identical to creating a standard file shar
 
 1. From your storage account, select **File shares**.
 1. Select **+ File Share**.
-1. Enter a name for your file share and the quota size you'd like, up to 100 TiB, then select **Create**.
+1. Enter a name for your file share and the quota size you'd like, up to 100 TiB, then select **Create**. 
 
 ![create-large-file-share-GA.png](media/storage-files-how-to-create-large-file-share/create-large-file-share-GA.png)
+
+## Update existing file share

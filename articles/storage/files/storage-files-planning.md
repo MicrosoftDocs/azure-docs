@@ -190,33 +190,33 @@ Keep these points in mind when deciding which replication option to use:
 
 ## Onboard to larger file shares (standard tier)
 
-This section only applies to the standard file shares. All premium file shares are available with 100 TiB as a GA offering.
+This section only applies to the standard file shares. All premium file shares are available with 100 TiB.
 
 ### Restrictions
 
-- LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+- LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created with large file shares.
 
 
 ### Regional availability
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region |Supported redundancy |Supports existing storage accounts |Portal support* |
-|-------|---------|---------|---------|
-|Australia East |LRS     |No    |Yes|
-|Australia Southeast|LRS |No    |Yes|
-|Central India  |LRS     |No    |Yes|
-|East Asia      |LRS     |No    |Yes|
-|East US        |LRS     |No    |Yes|
-|France Central |LRS, ZRS|No    |Yes|
-|France South   |LRS     |No    |Yes|
-|North Europe   |LRS     |No    |Not yet|
-|South India    |LRS     |No    |Yes|
-|Southeast Asia |LRS, ZRS|No    |Yes|
-|West Central US|LRS     |No    |Yes|
-|West Europe    |LRS, ZRS|No    |Yes|
-|West US        |LRS     |No    |Yes|
-|West US 2      |LRS, ZRS|No    |Yes|
+|Region |Supported redundancy |
+|-------|---------|
+|Australia East |LRS     |
+|Australia Southeast|LRS |
+|Central India  |LRS     |
+|East Asia      |LRS     |
+|East US        |LRS     |
+|France Central |LRS, ZRS|
+|France South   |LRS     |
+|North Europe   |LRS     |
+|South India    |LRS     |
+|Southeast Asia |LRS, ZRS|
+|West Central US|LRS     |
+|West Europe    |LRS, ZRS|
+|West US        |LRS     |
+|West US 2      |LRS, ZRS|
 
 
 *For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Alternatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
