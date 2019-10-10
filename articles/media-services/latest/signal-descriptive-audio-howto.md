@@ -143,7 +143,7 @@ When your encoding job is done, the output asset will contain the files generate
 
 To signal the descriptive audio, you need to add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate" />` to the .ism file for a specific audio track, as shown in the following example.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
   <head>
@@ -196,7 +196,7 @@ To signal the descriptive audio, you need to add “accessibility” and “role
     </switch>
   </body>
 </smil>
----
+```
 
 ## Get a streaming locator
 
