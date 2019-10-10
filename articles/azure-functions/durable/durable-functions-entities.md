@@ -26,15 +26,17 @@ Entities behave a bit like tiny services that communicate via messages. Each ent
 
 To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another. 
 
-<a name="Entity-Identity"></a>
-**Entity ID.** Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
+### Entity ID
+Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
 
 * An **entity name**: a name that identifies the type of the entity (for example, "Counter"). This name must match the name of the entity function that implements the entity. It isn't sensitive to case.
 * An **entity key**: a string that uniquely identifies the entity among all other entities of the same name (for example, a GUID).
 
 For example, a *counter* entity function might be used for keeping score in an online game. Each instance of the game will have a unique entity ID, such as `@Counter@Game1`, `@Counter@Game2`, and so on. All operations that target a particular entity require specifying an entity ID as a parameter.
 
-**Entity Operations**. To invoke an operation on an entity, one specifies
+### Entity operations ###
+
+To invoke an operation on an entity, one specifies
 
 * The *entity ID* of the target entity
 * The *operation name*, a string that specifies the operation to perform. For example, the counter entity could support "add", "get", or "reset" operations.
@@ -44,7 +46,6 @@ Operations can return a result value, or an error result (such as a JavaScript e
 
 An entity operation can also create, read, update, and delete the state of the entity. The state of the entity is always durably persisted in storage.
 
-<a name="function-based-entity"></a>
 ## Defining entities
 
 We currently offer two distinct APIs for defining entities.
@@ -121,7 +122,7 @@ Entities can be accessed from within client functions, from within orchestrator 
 Below we show some examples that illustrate these various ways of accessing entities.
 
 > [!NOTE]
-> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities.md#accessing-entities-via-interfaces) as it provides more type checking.
+> For simplicity, the examples below show the loosely typed syntax for accessing entities. In general, we recommend [Accessing entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) as it provides more type checking.
 
 ### Example: client signals an entity
 
@@ -287,7 +288,7 @@ Any violations of these rules cause a runtime error (such as a `LockingRulesViol
 
 ## Comparison with virtual actors
 
-Many of the Durable Entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then you may recognize many of the concepts described in this article. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/) in many ways:
+Many of the Durable Entities features are inspired by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then you may recognize many of the concepts described in this article. Durable entities are particularly similar to [virtual actors](https://research.microsoft.com/projects/orleans/), or *grains*, as popularized by the [Orleans project](http://dotnet.github.io/orleans/). For example:
 
 * Durable entities are addressable via an *entity ID*.
 * Durable entity operations execute serially, one at a time, to prevent race conditions.
@@ -298,15 +299,16 @@ There are some important differences, however, that are worth noting:
 
 * Durable entities prioritize *durability* over *latency*, and thus may not be appropriate for applications with strict latency requirements.
 * Durable entities do not have built-in timeouts for messages. In Orleans, all messages time out after a configurable time (30 seconds by default).
-* Messages sent between entities are delivered reliably and in order. In Orleans, this behavior is supported only for streams, and cannot be applied automatically to all messages.
-* Durable entities can be used in conjunction with durable orchestrations, and support distributed locking mechanisms. 
-* Request/response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as "signaling") is permitted, as in the original actor model.
+* Messages sent between entities are delivered reliably and in order. In Orleans, reliable or ordered delivery is supported for content sent through streams, but is not guaranteed for all messages between grains.
+* Request/response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as "signaling") is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities do not deadlock. In Orleans, deadlocks can occur (and do not resolve until messages time out).
+* Durable entities can be used in conjunction with durable orchestrations, and support distributed locking mechanisms. 
 
 
 ## Next steps
 
-For more information on the syntax and the properties of the features discussed in this article, and for some general advice on how to develop durable entities in .NET, read the [Developer's Guide to Durable Entities in .NET](durable-functions-dotnet-entities.md#developers-guide-to-durable-entities-in-net-preview).
+> [!div class="nextstepaction"]
+> [Read the Developer's Guide to Durable Entities in .NET](durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
 > [Learn about task hubs](durable-functions-task-hubs.md)

@@ -3,16 +3,16 @@ title: Developer's Guide to Durable Entities in .NET - Azure Functions
 description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
 services: functions
 author: sebastianburckhardt
-manager: jeconnoc
+manager: gwallace
 keywords:
 ms.service: azure-functions
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-#Customer intent: As a developer, I want to learn how to use Durable Entities in .NET.
+#Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
-# Developer's Guide to Durable Entities in .NET (preview)
+# Developer's guide to durable entities in .NET (preview)
 
 In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
 
@@ -20,7 +20,7 @@ Entity functions provide serverless application developers with a convenient way
 
 We currently offer two APIs for defining entities:
 
-- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner via interfaces. 
+- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner through interfaces. 
 
 - The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
 
@@ -67,7 +67,7 @@ public class Counter
 }
 ```
 
-The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted Json found in storage (if any). Then it invokes the method with the matching name.
+The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
 > [!NOTE]
 > The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
@@ -76,13 +76,13 @@ The `Run` function contains the boilerplate required for using the class-based s
  
 Entity classes are POCOs (plain old CLR objects) that require no special superclasses, interfaces, or attributes. However:
 
-- The class must be constructible (see [Entity Construction](#entity-construction)).
-- The class must be Json-serializable (see [Entity Serialization](#entity-serialization)).
+- The class must be constructible (see [Entity construction](#entity-construction)).
+- The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
 
 Also, any method that is intended to be invoked as an operation must satisfy additional requirements:
 
 - An operation must have at most one argument, and must not have any overloads or generic type arguments.
-- An operation meant to be called from an orchestration via an interface must return `Task` or `Task<T>`.
+- An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
 - Arguments and return values must be serializable values or objects.
 
 ### What can operations do?
@@ -116,7 +116,7 @@ For example, we can modify the counter entity so it starts an orchestration when
 Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Accessing entities](durable-functions-entities.md#accessing-entities). 
 
 > [!NOTE]
-> Where possible, we recommend [Accessing entities via interfaces](), because it provides more type checking.
+> Where possible, we recommend [Accessing entities through interfaces](), because it provides more type checking.
 
 ### Example: client signals entity
 
@@ -176,9 +176,9 @@ public static async Task<int> Run(
 }
 ```
 
-## Accessing entities via interfaces
+## Accessing entities through interfaces
 
-Interfaces can be used for accessing entities via proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
+Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
 
 For example, we can modify the counter example as follows:
 
@@ -200,7 +200,7 @@ Entity classes and entity interfaces are similar to the grains and grain interfa
 
 Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 
-### Example: client signals entity via interface
+### Example: client signals entity through interface
 
 Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. For example:
 
@@ -221,10 +221,9 @@ In this example, the `proxy` parameter is a dynamically generated instance of `I
 
 > [!NOTE]
 > The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
-
 For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
 
-### Example: orchestration first signals, then calls entity via proxy
+### Example: orchestration first signals, then calls entity through proxy
 
 To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
 
@@ -261,7 +260,7 @@ If only the entity key is specified and a unique implementation can't be found a
 
 ### Restrictions on entity interfaces
 
-As usual, all parameter and return types must be Json-serializable. Otherwise, serialization exceptions are thrown at runtime.
+As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
 
 We also enforce some additional rules:
 * Entity interfaces must only define methods.
@@ -274,7 +273,7 @@ If any of these rules are violated, an `InvalidOperationException` is thrown at 
 > [!NOTE]
 > Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
 
-## Entity Serialization
+## Entity serialization
 
 Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
 
@@ -297,7 +296,7 @@ public class User
     public Dictionary<Guid, Contact> Contacts { get; set; } = new Dictionary<Guid, Contact>();
 
     [JsonObject(MemberSerialization = MemberSerialization.OptOut)]
-    public struct Entry
+    public struct Contact
     {
         public string Name;
         public string Number;
@@ -310,8 +309,8 @@ public class User
 ### Serialization Attributes
 
 In the example above, we chose to include several attributes to make the underlying serialization more visible:
-- We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as Json properties.
--  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the Json representation.
+- We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
+-  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
 
 However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
 
@@ -331,23 +330,23 @@ public class Counter
 }
 ```
 
-By default, the name of the class is *not* stored as part of the Json representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
+By default, the name of the class is *not* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
 
 ### Making changes to class definitions
 
-Some care is required when making changes to a class definition after an application has been run, because the stored Json object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
 
 For example, here are some examples of changes and their effect:
 
-1. If a new property is added, which is not present in the stored Json, it assumes its default value.
-1. If a property is removed, which is present in the stored Json, the previous content is lost.
+1. If a new property is added, which is not present in the stored JSON, it assumes its default value.
+1. If a property is removed, which is present in the stored JSON, the previous content is lost.
 1. If a property is renamed, the effect is as if removing the old one and adding a new one.
-1. If the type of a property is changed so it can no longer be deserialized from the stored Json, an exception is thrown.
-1. If the type of a property is changed, but it can still be deserialized from the stored Json, it will do so.
+1. If the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
+1. If the type of a property is changed, but it can still be deserialized from the stored JSON, it will do so.
 
-There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored Json contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read Json stored in arbitrary formats.
+There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
 
-## Entity Construction
+## Entity construction
 
 Sometimes we want to exert more control over how entity objects are constructed. We now describe several options for changing the default behavior when constructing entity objects. 
 
@@ -504,6 +503,7 @@ Finally, the following members are used to signal other entities, or start new o
 * `SignalEntity(EntityId, operation, input)`: sends a one-way message to an entity.
 * `CreateNewOrchestration(orchestratorFunctionName, input)`: starts a new orchestration.
 
+## Next steps
 
-
-
+> [!div class="nextstepaction"]
+> [Learn about entity concepts](durable-functions-entities.md)
