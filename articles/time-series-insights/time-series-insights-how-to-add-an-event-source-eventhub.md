@@ -61,9 +61,11 @@ To add a new consumer group in your event hub:
 
 1. Select the appropriate values for **Import option**:
 
+    [![Select an Event Source import option](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+
    - If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
 
-     [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
+    [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
 
      The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
@@ -74,9 +76,6 @@ To add a new consumer group in your event hub:
      | Event Hub name | The name of the desired event hub instance. |
      | Event Hub policy value | Select the desired shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions. |
      | Event Hub policy key | Pre-populated from the selected Event Hub policy value. |
-     | Event Hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source. |
-     | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
-     | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
     - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
@@ -90,15 +89,18 @@ To add a new consumer group in your event hub:
       | Event Hub name | The name of the desired event hub instance. |
       | Event Hub policy value | Select the desired shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions. |
       | Event Hub policy key | The shared access key that's used to authenticate access to the Service Bus namespace. Enter the primary or secondary key here. |
-      | Event Hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source. |
-      | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
-      | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
+
+    - Both options share the following configuration options:
+
+     | Property | Description |
+     | --- | --- |
+     | Event Hub consumer group | The consumer group that reads events from the event hub. We highly recommend that you use a dedicated consumer group for your event source. |
+     | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
+     | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
 1. Add the dedicated Time Series Insights consumer group name that you added to your event hub.
 
 1. Select **Create**.
-
-   [![Select Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    After the event source is created, Time Series Insights automatically begins streaming data to your environment.
 
