@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,9 +14,9 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application and also how to manage roles in your Azure IoT Central application.
+This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your Azure IoT Central application.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
 
 ## Add users
 
@@ -39,7 +39,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 ### Edit the roles that are assigned to users
 
-Roles can't be changed after they are assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
+Roles can't be changed after they're assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
 
 > [!NOTE]
 > The roles assigned are specific to IoT Central application and cannot be managed from the Azure Portal.
@@ -50,7 +50,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 ## Manage roles
 
-Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) if you require finer-grained control.
+Roles enable you to control who within your organization is allowed to perform various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) if you require finer-grained control.
 
 ### Administrator
 
@@ -64,7 +64,7 @@ Users in the **Application Builder** role can do everything in an application ex
 
 ### Application Operator
 
-Users in the **Application Operator** role can't make changes to device templates and can't administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
+Users in the **Application Operator** role aren't allowed to make changes to device templates or to administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
 
 ## Next steps
 

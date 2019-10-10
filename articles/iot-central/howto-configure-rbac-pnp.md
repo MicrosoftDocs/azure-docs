@@ -16,8 +16,8 @@ manager: philmea
 
 By default, you can assign users in your IoT Central application to one of three built-in *roles*:
 
-- **Application Administrator**: Users in this role have access to all functionality in a Azure IoT Central application.
-- **Application Builder**: Users in this role can do everything in a Azure IoT Central application except administer the application.
+- **Application Administrator**: Users in this role have access to all functionality in an Azure IoT Central application.
+- **Application Builder**: Users in this role can do everything in an Azure IoT Central application except administer the application.
 - **Application Operator**: Users in this role don't have access to **Design** mode or the **Application Builder** page. These users can't administer the application.
 
 If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. You can [add users to custom roles](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to the built-in roles.
