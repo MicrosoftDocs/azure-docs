@@ -5602,7 +5602,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Peering Service</h3>
-                                                    <p>Get optimal internet connectivity to access Microsoft network</p>
+                                                    <p>Get optimal internet connectivity to access the Microsoft network</p>
                                                 </div>
                                             </div>
                                         </div>
