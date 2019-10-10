@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/08/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -20,17 +20,16 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### November 4, 2019 - Ignite
 
-**Generally available (GA)**:
-
 * [LUIS portal](https://www.luis.ai)
     * New authoring experience
-
-* New capabilities
-    * Entity as a _feature_ to an intent or entity
-
-* [V3 prediction API](luis-migration-api-v3-prediction.md) is now generally available (GA)
+* New capabilities and concepts
+    * Constraints and descriptors for intents and entities   * Subcomponents of machine-learned entities
+* [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
+* API - Prediction endpoint runtime
+    * V3 API is now generally available (GA)
     * Japanese prebuilt age, currency, number, percentage are not support in V3
     * Italian prebuilt age, currency, dimension, number, percentage resolution changed from V2
+
 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
 

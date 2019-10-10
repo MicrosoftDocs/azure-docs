@@ -114,7 +114,7 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 
 1. Under **Admin Credentials**, do the following:
 
-   a. In the **Tenant URL** box, enter the **https://concierge.food.ee/scim/v2** value that you retrieved earlier.
+   a. In the **Tenant URL** box, enter the **https:\//concierge.food.ee/scim/v2** value that you retrieved earlier.
 
    b. In the **Secret Token** box, enter the **API Token** value that you retrieved earlier.
    

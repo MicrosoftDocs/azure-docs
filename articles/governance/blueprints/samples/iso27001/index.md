@@ -1,5 +1,5 @@
 ---
-title: Samples - ISO 27001 blueprint - Overview
+title: Sample - ISO 27001 blueprint - Overview
 description: Overview of the ISO 27001 blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
