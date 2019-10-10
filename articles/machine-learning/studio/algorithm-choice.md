@@ -1,7 +1,7 @@
 ---
 title: How to choose algorithms
 titleSuffix: Azure Machine Learning Studio
-description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
+description: How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ---
-# How to choose algorithms for Azure Machine Learning Studio
+# How to choose algorithms for Azure Machine Learning 
 
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
@@ -22,15 +22,15 @@ The documentation provides some information about each algorithm and how to tune
 
 ## The Machine Learning Algorithm Cheat Sheet
 
-The **[Microsoft Azure Machine Learning Studio Algorithm Cheat Sheet](algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
+The **[Microsoft Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
 This article walks you through how to use this cheat sheet.
 
 > [!NOTE]
-> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
+> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet](../algorithm-cheat-sheet.md).
 > 
 > 
 
-This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here.
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Learning Algorithm Cheat Sheet. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here.
 
 These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but we've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 

@@ -78,6 +78,8 @@
   - name: Designer
     displayName: studio
     href: ui-concept-visual-interface.md
+  - name: Algorithm cheat sheet
+    href: ../algorithm-cheat-sheet.md   
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
