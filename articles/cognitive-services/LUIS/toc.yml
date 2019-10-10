@@ -108,7 +108,7 @@
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
-  - name: App cycles and versions
+  - name: Development lifecycle
     href: luis-concept-app-iteration.md
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
