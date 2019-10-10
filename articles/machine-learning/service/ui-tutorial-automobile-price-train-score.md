@@ -45,11 +45,11 @@ If you have an Azure Machine Learning workspace, skip to the next section.
 
 ### Create a pipeline
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).
+1. Open [Azure Machine Learning studio](https://ml.azure.com), sign-in if you are prompted to, and select the workspace you want to work with.
 
-1. In your workspace, select **Visual interface**.
+1. In the studio, select **Visual Interface**.
 
-    ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
+    ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
 
 1. Select **Blank Pipeline**.
 
@@ -145,9 +145,7 @@ First, remove the **normalized-losses** column completely.
 
 1. Select the **Select Columns in Dataset** 
 
-1. In the **Properties** pane type "Exclude normalized losses." in the **Comment** box.  
-        
-    ![Comments](./media/ui-tutorial-automobile-price-train-score/comments.png)
+1. In the **Properties** pane type "Exclude normalized losses." in the **Comment** box.
 
 ### Clean missing data
 
@@ -163,7 +161,7 @@ When you train a model, you have to do something about the data that is missing.
 
     Your pipeline should now look something like this:
     
-    ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+    ![select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
 
 ## Train a machine learning model
 
@@ -197,15 +195,13 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Find and drag the **Train Model** module to the pipeline canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
-    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
+    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
 
-1. Select the **Train Model** module. In the Properties pane, select **Edit column**umn selector and then type **price** next to **Column names**. Price is the value that your model is going to predict
-
-    ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
+1. Select the **Train Model** module. In the Properties pane, select **Edit column** selector and then type **price** next to **Column names**. Price is the value that your model is going to predict
 
     Your pipeline should look like this:
 
-    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
+    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/pipeline-train-graph.png)
 
 ## Evaluate a machine learning model
 
@@ -215,7 +211,7 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final pipeline should look something like this:
 
-    ![Screenshot showing the final correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
+    ![Screenshot showing the final correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
 
 1. Run the pipeline using the compute resource you created earlier.
 
