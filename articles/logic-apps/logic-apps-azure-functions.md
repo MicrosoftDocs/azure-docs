@@ -200,11 +200,11 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use the same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/securing-a-logic-app.md#authenticate-access-outbound).
+If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/securing-a-logic-app.md#authenticate-access-outbound).
 
 To set up and use the system-assigned identity, follow these steps:
 
-1. Enable the system-assigned identity on your logic app and set up that identity's access to the target resource. See [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Enable the system-assigned identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Set up your Azure function app and functions to support authentication by following these steps:
 
@@ -218,7 +218,7 @@ To set up and use the system-assigned identity, follow these steps:
 
 To use your logic app's system-assigned identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
 
-1. In the [Azure portal](https://portal.azure.com), find and select your function app.
+1. In the [Azure portal](https://portal.azure.com), find and select your function app. These steps use "FabrikamFunctionApp" as the example function app.
 
 1. On the function app pane, select **Platform features**. Under **Development tools**, select **Advanced tools (Kudu)**.
 
@@ -226,9 +226,9 @@ To use your logic app's system-assigned identity in your Azure function, you hav
 
 1. On the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
 
-   ![Open debug console for Kudu, select the "CMD" option](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
+   ![From debug console menu, select the "CMD" option](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*, for example:
+1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*. These steps use "FabrikamAzureFunction" as the example function.
 
    ![Select "site" > "wwwroot" > your function](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
@@ -260,11 +260,11 @@ Before you start this task, find and put these values aside for later use:
 
   1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
-  1. Find and select your Azure AD tenant.
+  1. Find and select your Azure AD tenant. These steps use "Fabrikam" as the example tenant.
 
   1. On the tenant's menu, under **Manage**, select **Properties**.
 
-  1. Copy your tenant's directory ID, for example, and save that ID somewhere:
+  1. Copy your tenant's directory ID, for example, and save that ID for later use.
 
      ![Find and copy Azure AD tenant's directory ID](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
@@ -300,7 +300,7 @@ Now you're ready to set up Azure AD authentication for your function app.
 
    1. In the **Allowed Token Audiences** property, enter the resource ID for the target resource that you want to access.
 
-      This resource ID is the same resource ID that you later use in your function's **Audience** property for the **Managed Identity** authentication type.
+      This resource ID is the same value that you later use in the **Audience** property when you [set up your function action to use the system-assigned identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
    At this point, your version looks similar to this example:
 
