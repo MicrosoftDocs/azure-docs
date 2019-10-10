@@ -59,7 +59,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
-### Push events (windmills sample)
+### Push events to windmills sample
 
 1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 
@@ -70,7 +70,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
     [![Copy the value for the primary key connection string](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
 1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
-1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
+1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
   
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
