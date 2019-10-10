@@ -80,6 +80,8 @@
         href: connect-symantec.md
       - name: Connect Cisco
         href: connect-cisco.md
+      - name: Connect Zscaler
+        href: connect-zscaler.md   
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
