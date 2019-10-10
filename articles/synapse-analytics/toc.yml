@@ -275,13 +275,13 @@
       # - name: Architecture
       #   href: article-template.md
       - name: Resource consumption models
-        href: ../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-anlytics/resource-consumption.md
       - name: Best practices
-        href: ../sql-data-warehouse/sql-data-warehouse-best-practices.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/best-practices.md
     - name: Data loading
       items:
       - name: Overview
-        href: ../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-overview.md
       - name: Best practices
         href: ../sql-data-warehouse/guidance-for-loading-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Columnstore compression
