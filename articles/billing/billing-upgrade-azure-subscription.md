@@ -32,7 +32,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
     ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Select the subscription that was created when you signed up for Azure free account.
-1. In the subscription overview, click **Upgrade subscription** in the command bar. <!-- TODO: Update this to incorporate MCA as well>
+1. In the subscription overview, click **Upgrade subscription** in the command bar. If you don't see the upgrade subscription button, click on the upgrade banner at the top of the page. <!-- TODO: Update this once all the experiences are the same-->
 
     ![Screenshot that shows upgrade button](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 

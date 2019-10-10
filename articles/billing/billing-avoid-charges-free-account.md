@@ -41,7 +41,7 @@ Your free services and quantities expire at the end of 12 months. You can find o
 
 3.	Select **Subscriptions**.
 
-4.	Select the subscription that got created when you signed up for free account.
+4.	Select the subscription that was created when you signed up for free account.
 
 5.  Scroll down to find free services grid. Click the tooltip located on the top left of the grid.
 
