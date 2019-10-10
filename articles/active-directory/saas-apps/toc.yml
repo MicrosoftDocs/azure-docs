@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -367,6 +369,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Discovery Benefits SSO
+        href: discovery-benefits-sso-tutorial.md
       - name: Displayr
         href: displayr-tutorial.md
       - name: dmarcian
@@ -765,6 +769,8 @@
         href: lifesize-cloud-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: Learnster
+        href: learnster-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
