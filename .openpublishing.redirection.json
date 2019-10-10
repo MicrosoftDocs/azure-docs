@@ -38039,6 +38039,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/runbook-datacollect.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -42198,7 +42203,7 @@
     },
     {
       "source_path": "articles/security/fundamentals/network-security.md",
-      "redirect_url": "/azure/security/fundamentals/network-security",
+      "redirect_url": "/azure/security/fundamentals/network-overview",
       "redirect_document_id": false
     },
     {
