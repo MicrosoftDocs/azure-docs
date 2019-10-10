@@ -68,7 +68,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 1. Click **Add users** to select the users you want to assign the access package to.
 
-1. In the **Select policy** list, select a policy that has the [None (administrator direct assignments only)](#policy-none-administrator-direct-assignments-only) setting.
+1. In the **Select policy** list, select a policy that has the [None (administrator direct assignments only)](#none-administrator-direct-assignments-only) setting.
 
     If this access package does not have this type of policy, you can click **Create new policy** to add one.
 

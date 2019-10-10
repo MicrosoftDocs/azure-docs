@@ -50,7 +50,7 @@ If you need to add resources to an access package, you should check whether the 
 
 1. If you are an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
-## Open Add resource roles
+## Add resource roles
 
 A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, Teams, applications, and SharePoint sites.
 

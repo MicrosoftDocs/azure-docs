@@ -26,7 +26,7 @@ Follow these steps if you want your policy to be for users in your directory tha
 
 1. Click **Select** to add the users and groups.
 
-1. Skip down to the [Policy: Request](#policy-request) section.
+1. Skip down to the [Request](#request) section.
 
 ## For users not in your directory
 
@@ -54,7 +54,7 @@ Follow these steps if you want your policy to be for users not in your directory
 
 1. Once you have added all directories you'd like to include in the policy, click **Select**.
 
-1. Skip down to the [Policy: Request](#policy-request) section.
+1. Skip down to the [Request](#request) section.
 
 ## None (administrator direct assignments only)
 
@@ -64,7 +64,7 @@ Follow these steps if you want your policy to bypass access requests and allow a
 
     After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory.
 
-1. Skip down to the [Policy: Expiration](#policy-expiration) section.
+1. Skip down to the [Expiration](#expiration) section.
 
 ## Request
 
