@@ -1,6 +1,6 @@
 ---
 title: Sample - ISO 27001 blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 blueprint sample.
+description: Deploy steps for the standalone ISO 27001 blueprint sample including blueprint artifact parameter details.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
@@ -9,8 +9,7 @@ ms.service: blueprints
 ---
 # Deploy the ISO 27001 blueprint sample
 
-To deploy the Azure Blueprints ISO 27001 blueprint sample, the following steps must
-be taken:
+To deploy the Azure Blueprints ISO 27001 blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
