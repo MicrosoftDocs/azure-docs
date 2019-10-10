@@ -9,12 +9,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/09/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you have trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
 > * Prepare a model for deployment
@@ -31,9 +31,15 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 Before you deploy your experiment as a web service, you first have to convert your *training experiment* into a *predictive experiment*.
 
-1. Select **Create Predictive Experiment*** at the bottom of the experiment canvas.
+1. Select **Publish** at the top of the pipeline canvas.
 
-    ![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+1. Select the drop-down arrow under **PipelineEndpoint** and select **+New PipelineEndpoint**
+
+1. Select **Publish**
+
+1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
+
+    ![Animated gif showing the automatic conversion of a training experiment to a predictive pipeline](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
     When you select **Create Predictive Experiment**, several things happen:
     
@@ -41,13 +47,12 @@ Before you deploy your experiment as a web service, you first have to convert yo
     * Modules that were used for training are removed; specifically:
       * Train Model
       * Split Data
-      * Evaluate Model
-    * The saved trained model is added back into the experiment.
-    * **Web service input** and **Web service output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
+    * The saved trained model is added back into the pipeline.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
 
-    The **training experiment** is still saved under the new tabs at the top of the experiment canvas.
+    The **training pipeline** is still saved under the new tabs at the top of the pipeline canvas.
 
-1. **Run** the experiment.
+1. **Run** the pipeline using the same experiment you used in part 1.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
@@ -57,7 +62,11 @@ Your experiment should now look like this:
 
 ## Deploy the web service
 
-1. Select **Deploy Web Service** below the canvas.
+1. Select **Deploy** above the canvas.
+
+1. Select **Deploy new real-time endpoint**. 
+
+1. Name your real-time endpoint **"auto-price"**.
 
 1. Select the **Compute Target** that you'd like to run your web service.
 
@@ -65,15 +74,15 @@ Your experiment should now look like this:
 
     ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
 
-1. Select **Deploy Web Service**. You'll see the following notification when deployment completes. Deployment may take a few minutes.
+1. Select **Deploy**. You'll see the following notification when deployment completes. Deployment may take a few minutes.
 
     ![Screenshot showing the confirmation message for a successful deployment.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
 
 ## Test the web service
 
-You can test and manage your visual interface web services by navigating to the **Web Services** tab.
+You can test and manage your visual interface web services by navigating to the **Endpoints** tab.
 
-1. Go to the web service section. You'll see the web service you deployed with the name **Tutorial - Predict Automobile Price[Predictive Exp]**.
+1. Go to the web service section. You'll see the web service you deployed with the name **auto-price**.
 
      ![Screenshot showing the web service tab with the recently created web service highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 

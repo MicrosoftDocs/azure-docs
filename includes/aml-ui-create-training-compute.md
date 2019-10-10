@@ -2,20 +2,20 @@
 title: "include file"
 description: "include file"
 services: machine-learning
-author: sdgilley
+author: peterclu
 ms.service: machine-learning
-ms.author: sgilley
+ms.author: peterlu
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 05/06/2019
+ms.date: 10/09/2019
 ---
 
-An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
+A pipeline runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
-1. Select **Run** at the bottom to run the experiment.
+1. Select **Run** at the top to run the pipeline.
 
-1. When the **Setup Compute Targets** dialog appears, if your workspace already has a compute resource, you can select it now.  Otherwise, select **Create new**.
+1. When the **Set up compute target** dialog appears, if your workspace already has a compute resource, you can select it now.  Otherwise, select **Create new**.
 
     > [!NOTE]
     > The visual interface can only run experiments on Machine Learning Compute targets. Other compute targets will not be shown.
