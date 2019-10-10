@@ -18,6 +18,9 @@ The list of categories that you can choose from varies based on your solution ty
 
 Choose the right industries to help customers find your add-in more easily. You must choose at least one and can choose up to two industries. The industries that you choose appear on your AppSource listing.
 
+> [!NOTE] 
+> If your solution does not apply specifically to an industry or applies equally to all choices, do not select any industries. 
+
 The following are the industries that you can choose from:
 
 - Agriculture
