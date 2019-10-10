@@ -12,7 +12,7 @@ ms.reviewer: sadodd
 
 # Change feed support in Azure Blob Storage (Preview)
 
-The purpose of the change feed is to provide transaction logs of all that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. See the [conditions](#conditions) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
@@ -25,20 +25,20 @@ Change feed support is well-suited for scenarios that process data based on obje
 
   - Update a secondary index, synchronize with a cache, search-engine or any other content-management scenarios.
   
-  - Extract business analytics insights and metrics either in a streaming manner or batched mode.
+  - Extract business analytics insights and metrics, based on changes occuring to your objects, either in a streaming manner or batched mode.
   
-  - Store, audit and analyze changes over any period of time for security, compliance or intelligence for enterprise data management.
+  - Store, audit and analyze changes to your objects, over any period of time, for security, compliance or intelligence for enterprise data management.
 
-  - Build solutions to backup, mirror or replicate object state in your account for disaster management and compliance.
+  - Build solutions to backup, mirror or replicate object state in your account for disaster management or compliance.
 
-  - Build connected applications which trigger events or schedule executions based on created or changed object.
+  - Build connected application pipelines which react to change events or schedule executions based on created or changed object.
 
 > [!NOTE]
 > [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to react to changes that occur to a blob. The change feed provides a durable, ordered log model of the changes. Changes in your change feed are made available in your change feed at within an order few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
 
 ## Enabling and disabling the change feed
 
-You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using the Azure portal. 
+You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using the Azure portal.
 
 Show screenshot here.
 
@@ -226,9 +226,10 @@ az provider register --namespace 'Microsoft.Storage'
 This section describes known issues and conditions in the current public preview of the change feed.
 
 - The change feed captures only create, update, delete, and copy operations.
+- Change event records for any single change might appear more than once in your change feed.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them.
 - The `url` property of the log file is always empty.
-- The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property. 
+- The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 
 ## Next steps
 
