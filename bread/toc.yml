@@ -102,7 +102,7 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
   - name: ASC for IoT
