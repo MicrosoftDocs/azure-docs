@@ -23,11 +23,11 @@ See the [list of known issues](reference-known-issues.md) to learn about known b
 ### Updates to software on the Windows DSVM
 
 - Azure Storage Explorer 1.10.1
-- PowerBI Desktop 2.73.55xx
+- Power BI Desktop 2.73.55xx
 - Firefox 69.0.2
 - PyCharm 19.2.3
 - RStudio 1.2.50xx
 
 ### Default Browser for Windows updated
 
-Earlier, the default browser was set to Internet Explorer. Now, users are prompted to choose a default browser when they first log in.
+Earlier, the default browser was set to Internet Explorer. Users are now prompted to choose a default browser when they first log in.
