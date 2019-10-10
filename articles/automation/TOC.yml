@@ -308,14 +308,18 @@
       href: automation-connections.md
     - name: Credentials
       href: automation-credentials.md
-    - name: Modules
-      href: automation-integration-modules.md
+    - name: PowerShell Modules
+      items: 
+      - name: Modules
+        href: automation-integration-modules.md
+      - name: Using Az Modules in Azure Automation
+        href: az-modules.md
+      - name: Update Azure PowerShell modules
+        href: automation-update-azure-modules.md
     - name: Schedules
       href: automation-schedules.md
     - name: Variables
       href: automation-variables.md
-    - name: Update Azure PowerShell modules
-      href: automation-update-azure-modules.md
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Troubleshoot Shared Resources
