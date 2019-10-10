@@ -389,7 +389,7 @@ The UPDATE STATISTICS statement is easy to use. Just remember that it updates *a
 > [!NOTE]
 > When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
-For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](development-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
 For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
@@ -512,4 +512,4 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 ## Next steps
 
-For further improve query performance, see [Monitor your workload](sql-data-warehouse-manage-monitor.md)
+For further improve query performance, see [Monitor your workload](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md)

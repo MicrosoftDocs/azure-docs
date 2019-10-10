@@ -62,4 +62,4 @@ The following list shows the data types that SQL Data Warehouse does not support
 
 
 ## Next steps
-For more information on developing tables, see [Table Overview](sql-data-warehouse-tables-overview.md).
+For more information on developing tables, see [Table Overview](development-overview.md).

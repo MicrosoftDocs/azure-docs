@@ -54,13 +54,13 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### Temporary table
-A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  Temporary tables utilize local storage to offer fast performance.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
+A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  Temporary tables utilize local storage to offer fast performance.  For more information, see  [Temporary tables](development-tables-temporary.md).
 
 ### External table
-An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
+An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Data types
-SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
 A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse supports three methods for distributing data, round-robin (default), hash and replicated.
@@ -68,17 +68,17 @@ A fundamental feature of SQL Data Warehouse is the way it can store and operate 
 ### Hash-distributed tables
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
 
-For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
+For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ### Replicated tables
 A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables since joins on replicated tables do not require data movement. Replication requires extra storage, though, and is not practical for large tables. 
 
-For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
+For more information, see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md).
 
 ### Round-robin tables
 A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  However, queries can require more data movement than the other distribution methods. 
 
-For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
+For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ### Common distribution methods for tables
 The table category often determines which option to choose for distributing the table. 
@@ -90,7 +90,7 @@ The table category often determines which option to choose for distributing the 
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
 ## Table partitions
-A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Data Warehouse is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data. 
+A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Data Warehouse is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -99,13 +99,13 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ## Columnstore indexes
 By default, SQL Data Warehouse stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  A heap table can be especially useful for loading transient data, such as a staging table which is transformed into a final table.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](data-loading-columnstore-compression.md).
 
 ## Statistics
-The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. [Creating statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) happens automatically.  However, updating statistics does not happen automatically. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](sql-data-warehouse-tables-statistics.md).
+The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to have statistics on individual columns, especially columns used in query joins. [Creating statistics]development-tables-statistics#automatic-creation-of-statistic) happens automatically.  However, updating statistics does not happen automatically. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](development-tables-statistics.md).
 
 ## Primary key and unique key
-PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported with NOT ENFORCED is used.  Check [SQL Data Warehouse Table Constraints](sql-data-warehouse-table-constraints.md).
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported with NOT ENFORCED is used.  Check [SQL Data Warehouse Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md).
 
 ## Commands for creating tables
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
@@ -131,7 +131,7 @@ SQL Data Warehouse supports many, but not all, of the table features offered by 
 - [Indexed Views](/sql/relational-databases/views/create-indexed-views)
 - [Sequence](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Sparse Columns](/sql/relational-databases/tables/use-sparse-columns)
-- Surrogate Keys. Implement with [Identity](sql-data-warehouse-tables-identity.md).
+- Surrogate Keys. Implement with [Identity](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md).
 - [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unique Indexes](/sql/t-sql/statements/create-index-transact-sql)
@@ -337,4 +337,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](../../sql-data-warehouse/load-data-wideworldimportersdw.md).

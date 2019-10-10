@@ -200,5 +200,5 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
 
 ## Next steps
-To learn more about developing tables, see the [Table Overview](sql-data-warehouse-tables-overview.md).
+To learn more about developing tables, see the [Table Overview](development-tables-overview.md).
 
