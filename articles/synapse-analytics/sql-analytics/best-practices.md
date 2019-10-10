@@ -109,15 +109,15 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Create table as select (CTAS)]: ../../sql_data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: development-tables-overview.md
 [Table data types]: development-tables-data-types.md
-[Table distribution]: ../../sql-data-warehouse-tables-distribute.md
-[Table indexes]: ../../sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ../../sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ../../sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ../../sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ../../sql-data-warehouse-tables-statistics.md
+[Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
+[Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]: ../../sql-data-warehouse/ql-data-warehouse-tables-partition.md
+[Manage table statistics]: ../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md
 [Temporary tables]: development-tables-temporary.md
-[Guide for using PolyBase]: ../../guidance-for-loading-data.md
-[Load data]: ../../design-elt-data-loading.md
+[Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
+[Load data]: ../../sql-data-warehouse/design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
