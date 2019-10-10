@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for Python platform setup - Speech service
 
-This article shows how to install the Speech SDK for Python for the supported platforms.
+This article shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
