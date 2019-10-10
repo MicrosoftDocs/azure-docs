@@ -189,6 +189,7 @@ Configuration settings can be found in [http triggers and bindings](functions-bi
             "maxConcurrentRequests": 100,
             "dynamicThrottlesEnabled": true
         }
+    }
 }
 ```
 
