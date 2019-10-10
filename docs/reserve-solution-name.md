@@ -28,3 +28,7 @@ For guidelines for add-in names, see [Use a succinct and descriptive name](creat
 > You might find that you can't reserve a name, even though you don't see any apps listed by that name in AppSource. This is usually because another developer has reserved the name but hasn't submitted it yet. If you're unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in AppSource using that name, [contact Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=233777).
 
 After you reserve a name, you have three months to submit your solution. If you don't submit it within three months, the name reservation will expire, and another developer can use that name. You might encounter an error if you try to submit an add-in with a name that has expired.
+
+## Choose product display name
+
+If you reserve more than one name for your product, you can specify which name you want to use for the display name in Partner Center. In the **Names for this product** list, choose **Make alias** in the Actions column next to the reserved name that you would like to use for the display name.

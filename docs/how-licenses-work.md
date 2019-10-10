@@ -1,6 +1,6 @@
 ---
 title: How licenses work for Office and SharePoint Add-ins
-description: The types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
+description: Defines the types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
 ms.date: 4/29/2019
 localization_priority: Normal
 ---

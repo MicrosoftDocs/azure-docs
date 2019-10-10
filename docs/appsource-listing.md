@@ -1,6 +1,6 @@
 ---
 title: Create your AppSource listing
-description:
+description: You enter the AppSource listing information on the Marketplace listings page in Partner Center.
 localization_priority: Normal
 ---
 
