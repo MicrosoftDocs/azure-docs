@@ -223,7 +223,7 @@ Computer Vision can read visible text in an image and convert it to a character 
 
 ### Set up test images
 
-Save a reference the URL of the images you want to extract text from.
+Save a reference of the URL of the images you want to extract text from.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 

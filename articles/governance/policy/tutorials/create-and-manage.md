@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
 ---
 # Tutorial: Create and manage policies to enforce compliance
 

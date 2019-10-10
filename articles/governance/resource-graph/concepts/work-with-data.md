@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
 ---
 # Working with large Azure resource data sets
 

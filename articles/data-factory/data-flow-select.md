@@ -9,7 +9,7 @@ ms.date: 02/12/2019
 ---
 
 # Mapping data flow select transformation
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Use this transformation for column selectivity (reducing number of columns), alias columns and stream names, and reorder columns.
 

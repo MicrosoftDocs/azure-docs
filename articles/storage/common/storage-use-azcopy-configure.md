@@ -94,7 +94,7 @@ AzCopy creates log and plan files for every job. You can use the logs to investi
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` directory on Windows or `$HOME\\.azcopy` directory on Mac and Linux, but you can change that location if you want.
+By default, the log and plan files are located in the `%USERPROFILE$\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location if you want.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
@@ -143,6 +143,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
+<<<<<<< HEAD
 
 ## Change the location of the plan and log files
 
@@ -185,3 +186,5 @@ If you want to remove all plan and log files from your local machine to save dis
 To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.
 
 
+=======
+>>>>>>> 50fe95a067b245164c3b71ffbe4593036d1d3d51
