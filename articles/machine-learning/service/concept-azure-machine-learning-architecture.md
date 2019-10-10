@@ -83,7 +83,7 @@ Activities can provide notifications through the SDK or the web UI so that you c
 
 ### Compute instance
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a virtual machine that includes multiple tools and environments installed for machine learning. Compute instances can be used for training on a compute target or local web service deployment endpoints.
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a virtual machine that includes multiple tools and environments installed for machine learning. Compute instances can be used for training on a compute target or deploying models to a local web service endpoint.
 
 Learn more about compute instances.
 
