@@ -1,5 +1,5 @@
 ---
-title: Storage options for FSLogix profile containers - Azure
+title: Storage options for FSLogix profile containers in Windows Virtual Desktop - Azure
 description: Options for storing your Windows Virtual Desktop FSLogix profile on Azure Storage.
 services: virtual-desktop
 author: Heidilohr
@@ -9,17 +9,15 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: helohr
 ---
-# Storage options for FSLogix profile containers
+# Storage options for FSLogix profile containers in Windows Virtual Desktop
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article compares storage solutions Azure Storage offers for Windows Virtual Desktop FSLogix profile container user profiles.
 
 Windows Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V virtual hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
 
-## Comparing Azure storage options
-
 The following tables compare the storage solutions Azure Storage offers for Windows Virtual Desktop FSLogix profile container user profiles.
 
-### Azure platform details
+## Azure platform details
 
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
@@ -31,7 +29,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 4 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
 |Protocols|SMB 2.1/3. and REST|NFSv3, NFSv4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
-### Azure management details
+## Azure management details
 
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
@@ -42,3 +40,19 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Azure Active Directory integration|Azure Active Directory and Azure Active Directory Domain Services|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
 
 Once you've chosen your storage method, check out [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
+
+## Next steps
+
+To learn more about FSLogix profile containers, check out these articles:
+
+- [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- To compare FSLogix profile containers and user profile disks, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-file.md)
+- To compare FSLogix profile containers and user profile disks, see  and 
+
+If you're ready to create your own FSLogix profile containers, get started with these tutorials:
+
+- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
+- [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
+- The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) also apply when you use an FSLogix profile container instead of a user profile disk
+
+You can also start from the very beginning and set up your own Windows Virtual Desktop solution at [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
