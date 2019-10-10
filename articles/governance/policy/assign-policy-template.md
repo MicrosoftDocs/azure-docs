@@ -1,5 +1,5 @@
 ---
-title: Create a policy assignment with a Resource Manager template
+title: Create assignment with Resource Manager template
 description: This article walks you through the steps to use a Resource Manager template to create a policy assignment to identify non-compliant resources.
 author: DCtheGeek
 ms.author: dacoulte

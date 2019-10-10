@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure Azure route tables using Ansible | Microsoft Docs
+title: Tutorial - Configure Azure route tables using Ansible
 description: Learn how to create, change, and delete Azure route tables using Ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 ms.topic: tutorial
