@@ -65,11 +65,11 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Write a data preprocessing script
 
-You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, a pipeline will encapsulate a complex process such as data preparation or training. For the purposes of this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
+You create and use an Azure Machine Learning pipeline to create a repeatable machine learning workflow. Generally, a pipeline will encapsulate a complex process such as data preparation or training. For this tutorial, we have an intentionally simplistic domain. We generate a **raw_data.csv** file that contains timestamped "votes" for a color. 
 
 * Activate the Python environment in which you've installed the Azure Machine Learning SDK for Python. 
 
-* In the directory in which you downloaded **tutorial-pipeline-scheduling.ipynb**, start Jupyter: 
+* In the directory in which you downloaded the notebook, start Jupyter: 
 
 ```shell
 jupyter notebook
@@ -181,7 +181,7 @@ print(schedule)
 
 ## View the results of the pipeline experiment
 
-In your Web browser, navigate to your Machine Learning service workspace. From the **Assets** section of the navigation panel, choose **Pipelines**. This will take you to a list of the pipelines published in the Workspace.
+In your Web browser, navigate to your Machine Learning service workspace. From the **Assets** section of the navigation panel, choose **Pipelines**. This link takes you to a list of the pipelines published in the Workspace.
 
 ![Pipelines page of Workspace](media/tutorial-pipeline-schedule/pipelines-list.png)
 
@@ -233,10 +233,10 @@ If you then run `Schedule.list(ws)` again, you should get an empty list.
 
 In this tutorial, you used the Azure Machine Learning SDK for Python to create and configure an Azure Machine Learning pipeline. You then learned how to schedule that pipeline by publishing it, specifying how often it should be rerun, and creating a schedule. You saw how to use the portal to examine the experiment, pipeline, and individual runs of the pipeline. Finally, you learned how to disable a schedule so that the pipeline stops running. 
 
-See these articles for more information and next steps:
+For more information, see:
 
 > [!div class="nextstepaction"]
-> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 
-+ Learn more about [pipelines](concept-ml-pipelines).
-+ Learn more about [exploring Azure Machine Learning with Jupyter](sample-notebooks.md).
++ Learn more about [pipelines](concept-ml-pipelines.md).
++ Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md).
