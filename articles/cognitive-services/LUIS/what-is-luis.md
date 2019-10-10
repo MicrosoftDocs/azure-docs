@@ -92,7 +92,7 @@ The minimum JSON endpoint response contains the query utterance, and the top sco
 
 ## Improve model prediction
 
-After your LUIS app is published and receives real user utterances, LUIS provides [active learning](luis-concept-review-endpoint-utterances.md) of endpoint utterances to improve prediction accuracy.
+After your LUIS app is published and receives real user utterances, LUIS provides [active learning](luis-concept-review-endpoint-utterances.md) of endpoint utterances to improve prediction accuracy. 
 
 <a name="using-luis"></a>
 
@@ -100,7 +100,7 @@ After your LUIS app is published and receives real user utterances, LUIS provide
 LUIS provides tools, versioning, and collaboration with other LUIS authors to integrate into the full [development life cycle](luis-concept-app-iteration.md). 
 
 ## Implementing LUIS
-Language Understanding (LUIS), as a REST API, can be used with any product, service, or framework that makes an HTTP request. The following list contains the top Microsoft products and services used with LUIS.
+Language Understanding (LUIS), as a REST API, can be used with any product, service, or framework with an HTTP request. The following list contains the top Microsoft products and services used with LUIS.
 
 The top client application for LUIS is:
 * [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
@@ -123,7 +123,7 @@ Samples using LUIS:
 
 ## Next steps
 
-Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain. [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md) of a public IoT app.
+Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain. [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md) of a public IoT app. Learn about [developer resources](developer-reference-resource.md) for LUIS. 
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
