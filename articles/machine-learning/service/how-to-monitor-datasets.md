@@ -14,16 +14,15 @@ ms.date: 10/14/2019
 ## Customer intent: As a data scientist, I want to create dataset monitors and set alerts to monitor data drift in my datasets.
 ---
 
-test commit
-
 # Detect data drift (preview) on datasets
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift in datasets, and setup alerts.
 
 With Azure Machine Learning dataset monitors, you can:
 * **Analyze drift in your data** to understand how it changes over time.
-* **Set up alerts on data drift** for early warnings to potential issues. 
 * **Monitor model data** for differences between training and serving datasets.
+* **Monitor new data** for differences between any baseline and target dataset.
+* **Set up alerts on data drift** for early warnings to potential issues. 
 
 > [!Note]
 > This Azure Machine Learning service capability is in preview.
@@ -92,6 +91,8 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
+For a full example of using the timeseries trait of datasets, see the [example notebook](http://aka.ms/azureml-tsd-notebook) or the [datasets api documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
+
 #### Azure Machine Learning studio
 
 If you create your dataset using Azure Machine Learning studio, ensure the path to your data contains timestamp information, include all subfolders with data, and set the partition format. 
@@ -114,34 +115,34 @@ The various dataset monitor settings are broken into three groups: **Basic info,
 
 This table contains basic settings used for the dataset monitor.
 
-| Setting | Description | Tips |
-| ------- | ----------- | ---- |
-| Name | Name of the dataset monitor. | |
-| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | Set to a model's target dataset | 
-| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset | 
-| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill | Adjust this setting to include a comparable size of data to the baseline | 
-| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can change this setting after the monitor is created. | 
-| Compute target | Azure Machine Learning compute target to run the dataset monitor jobs | | 
+| Setting | Description | Tips | Mutable | 
+| ------- | ----------- | ---- | ------- | 
+| Name | Name of the dataset monitor. | | No |
+| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | Set to a model's target dataset | No |
+| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset | No | 
+| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill | Adjust this setting to include a comparable size of data to the baseline | No | 
+| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can change this setting after the monitor is created. | Yes | 
+| Compute target | Azure Machine Learning compute target to run the dataset monitor jobs | | Yes | 
 
 ### Monitor settings
 
 These settings are for the scheduled dataset monitor pipeline which will be created. 
 
-| Setting | Description | Tips | 
-| ------- | ----------- | ---- | 
-| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created | 
-| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | 
-| Email addresses | Email addresses for alerting based on breach of the data drift percentage threshold. | Emails are sent through Azure Monitor. | 
-| Threshold | Data drift percentage threshold for email alerting | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource | 
+| Setting | Description | Tips | Mutable | 
+| ------- | ----------- | ---- | ------- |
+| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created | Yes | 
+| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | Yes | 
+| Email addresses | Email addresses for alerting based on breach of the data drift percentage threshold. | Emails are sent through Azure Monitor. | Yes | 
+| Threshold | Data drift percentage threshold for email alerting | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource | Yes | 
 
 ### Backfill settings
 
 These settings are for running a backfill on past data for data drift metrics.
 
-| Setting | Description | Tips | 
-| ------- | ----------- | ---- | 
+| Setting | Description | Tips |
+| ------- | ----------- | ---- |
 | Start date | Start date of the backfill job. | | 
-| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. Additional backfill runs can be performed after the dataset monitor creation | 
+| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. Additional backfill runs can be performed after the dataset monitor creation |
 
 ## Create dataset monitors 
 
@@ -182,10 +183,10 @@ The **Drift overview** section contains top-level insights into the magnitude of
 
 | Metric | Description | Tips | 
 | ------ | ----------- | ---- | 
-| Data drift magnitude | Data drift magnitude, given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude | 
+| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude | 
 | Drift contribution by feature | The contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
-The following image is fan example of charts seen in the **Drift overview**  results in Azure Machine Learning studio.
+The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/en-us/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 
  
 ![Drift overview](media/how-to-monitor-datasets/drift-overview.png)
 
