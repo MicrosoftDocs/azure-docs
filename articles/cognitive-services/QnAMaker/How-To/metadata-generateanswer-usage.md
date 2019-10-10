@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/09/2019
 ms.author: diberry
 ---
 
@@ -54,7 +54,7 @@ You can also get your endpoint details from the **Settings** tab of your knowled
 
 ## GenerateAnswer request configuration
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md). 
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
 
 The POST request uses:
 
@@ -77,7 +77,7 @@ An example JSON body looks like:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
-    "scoreThreshold": 20,
+    "scoreThreshold": 30,
     "strictFilters": [
     {
         "name": "category",
@@ -86,6 +86,8 @@ An example JSON body looks like:
     "userId": "sd53lsY="
 }
 ```
+
+The previous JSON requested only answers that are at 30% or above the threshold score. 
 
 <a name="generateanswer-response"></a>
 
@@ -97,7 +99,7 @@ The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 {
     "answers": [
         {
-            "score": 28.54820341616869,
+            "score": 38.54820341616869,
             "Id": 20,
             "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
             "source": "Custom Editorial",
@@ -115,25 +117,32 @@ The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 }
 ```
 
+The previous JSON responded with an answer with a score of 38.5%. 
+
 ## Use QnA Maker with a bot in C#
 
-The bot framework provides access to the QnA Maker's properties:
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
 var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
 var qnaOptions = new QnAMakerOptions();
 
+metadata.Name = Constants.MetadataName.Intent;
+metadata.Value = topIntent;
+qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
 qnaOptions.Top = Constants.DefaultTop;
 qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
+The previous JSON requested only answers that are at 30% or above the threshold score. 
+
 The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) with this code.
 
 ## Use QnA Maker with a bot in Node.js
 
-The bot framework provides access to the QnA Maker's properties:
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -141,11 +150,13 @@ this.qnaMaker = new QnAMaker(endpoint);
 
 // Default QnAMakerOptions
 var qnaMakerOptions = {
-    ScoreThreshold: 0.03,
+    ScoreThreshold: 0.30,
     Top: 3
 };
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
+
+The previous JSON requested only answers that are at 30% or above the threshold score. 
 
 The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) with this code.
 
@@ -224,9 +235,21 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 ```
 
+## Common HTTP errors
+
+|Code|Explanation|
+|:--|--|
+|2xx|Success|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
+
 ## Next steps
 
 The **Publish** page also provides information to generate an answer with [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) and [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
-> [Create a knowledge base](./create-knowledge-base.md)
+> [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)

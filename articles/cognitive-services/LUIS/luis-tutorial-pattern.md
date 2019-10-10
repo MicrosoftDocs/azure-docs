@@ -1,5 +1,5 @@
 ---
-title: Patterns - LUIS
+title: "Tutorial: Patterns - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text.
 services: cognitive-services

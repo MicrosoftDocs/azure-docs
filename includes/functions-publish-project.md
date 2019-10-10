@@ -20,6 +20,12 @@ After the function app is created in Azure, you can use the [`func azure functio
 func azure functionapp publish <APP_NAME>
 ```
 
+### Python
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
 ### TypeScript
 
 ```command

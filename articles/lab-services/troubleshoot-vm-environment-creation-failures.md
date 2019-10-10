@@ -20,7 +20,7 @@ ms.author: spelluru
 DevTest Labs gives you warnings if a machine name is invalid or if you're about to violate a lab policy. Sometimes, you see red `X` next to your lab VM or environment status that informs you that something went wrong.  This article provides a few tricks that you can use to find the underlying issue and, hopefully, avoid the issue in the future.
 
 ## Portal notifications
-If you're using the Azure portal, the first place to look at is the **notifications panel**.  The notifications panel, available on the main command bar by clicking the **bell icon**, will tell you whether the lab VM or environment creation was successful or not.  If there was a failure, you see the error message associated with the creation failure. The details often give further information to help you resolve the issue. In the following example, the virtual machine creation failed because of running out of cores. The detailed message tells you how to fix the issue and request a core quota increase.
+If you're using the Azure portal, the first place to look at is the **notifications panel**.  The notifications panel, available on the main command bar by clicking the **bell icon**, will tell you whether the lab VM or environment creation was successful or not.  If there was a failure, you see the error message associated with the creation failure. The details often give further information to help you resolve the issue. In the following example, the virtual machine creation failed because of running out of cores. The detailed message tells you how to fix the issue and request a core quota increase.
 
 ![Azure portal notification](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

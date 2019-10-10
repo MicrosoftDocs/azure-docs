@@ -1,6 +1,6 @@
 ---
 title: Create a map with Azure Maps | Microsoft Docs
-description: How to create a Javascript map
+description: How to create a map with the Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -17,7 +17,7 @@ This article shows you ways to create a map and animate a map.
 
 ## Loading a map
 
-To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map a DIV element ID to render the map and a set of options to use when loading the map are passed in. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map in that event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
+To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map, a DIV element ID to render the map and a set of options to use when loading the map are passed in. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map in that event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
 
 <br/>
 
@@ -48,7 +48,7 @@ There are two ways you can set the displayed area of the map using the camera. Y
 
 ### Set the camera
 
-In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created and the center and zoom options are set. Map properties such as center and zoom level are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
+In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created and the center and zoom options are set. Map properties such as center, and zoom level are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -101,3 +101,6 @@ See code examples to add functionality to your app:
 
 > [!div class="nextstepaction"]
 > [Add controls to the map](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

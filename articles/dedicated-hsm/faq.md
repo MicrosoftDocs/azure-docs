@@ -3,7 +3,7 @@ title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
 author: johncdawson
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 5/8/2019
-ms.author: barclayn
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
@@ -55,9 +55,9 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
-### Q: Does Azure Dedicated HSM support payment (PIN/ETF) features?
+### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 

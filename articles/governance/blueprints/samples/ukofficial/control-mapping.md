@@ -1,13 +1,12 @@
 ---
 title: Sample - UK OFFICIAL and UK NHS blueprints - Control mapping
-description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples.
+description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
@@ -20,6 +19,18 @@ with an [Azure Policy](../../../policy/overview.md) initiative. To review the co
 open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]
 Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit
 requirements** built-in policy initiative.
+
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## 1 Data in transit protection
 
@@ -41,7 +52,7 @@ encryption on storage accounts, SQL databases, virtual machine disks, and automa
 variables; audit insecure connections to storage accounts and Redis Cache; audit weak virtual
 machine password encryption; and audit unencrypted Service Fabric communication.
 
-- Monitor unencrypted SQL databases in Azure Security Center
+- Transparent Data Encryption on SQL databases should be enabled
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
 - Secure transfer to storage accounts should be enabled
@@ -166,7 +177,7 @@ multi-factor authentication enabled.
 
 Systems used for administration of a cloud service will have highly privileged access to that
 service. Their compromise would have significant impact, including the means to bypass security
-controls and steal or manipulate large volumes of data. The methods used by the service provider’s
+controls and steal or manipulate large volumes of data. The methods used by the service provider's
 administrators to manage the operational service should be designed to mitigate any risk of
 exploitation that could undermine the security of the service. If this principle isn't implemented,
 an attacker may have the means to bypass security controls and steal or manipulate large volumes of
@@ -208,7 +219,7 @@ This blueprint helps you ensure system events are logged by assigning [Azure Pol
 definitions that audit log settings on Azure resources. An assigned policy also audits if virtual
 machines aren't sending logs to a specified log analytics workspace.
 
-- Monitor unaudited SQL servers in Azure Security Center
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
@@ -226,7 +237,7 @@ following articles to learn about the overview and how to deploy this sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

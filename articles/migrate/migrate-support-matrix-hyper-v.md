@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -22,9 +22,9 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Deployment** | **Details***
 --- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
-**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure. 
+**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration. 
+Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration.
 
 ## Azure Migrate projects
 
@@ -32,17 +32,20 @@ Migration of Hyper-V servers managed with System Center Virtual Machine Manager 
 --- | ---
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 Hyper-V VMs | Assess up to 35,000 Hyper-V VMs in a single project. You can have multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
-Geography | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific ographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+Geography | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
   **Geography** | **Metadata storage location**
   --- | ---
   Azure Government | US Gov Virginia
   Asia Pacific | East Asia or Southeast Asia
   Australia | Australia East or Australia Southeast
+  Brazil | Brazil South
   Canada | Canada Central or Canada East
   Europe | North Europe or West Europe
+  France | France Central
   India | Central India or South India
   Japan |  Japan East or Japan West
+  Korea | Korea Central or Korea South
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 
@@ -77,8 +80,13 @@ For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V V
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> You can discover up to 5000 Hyper-V VMs with a single appliance.
-| **Hyper-V**    |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 8 vCPUs, and 1 external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.
+| **Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+| **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
+| **Hyper-V hosts**          | An appliance can connect to up to 300 Hyper-V hosts.
+| **Discovery**              | A single appliance can discover up to 5000 VMs.
+| **Assessment group**       | You can add up to 35,000 machines in a single group.
+| **Assessment**             | You can assess up to 35,000 VMs in a single assessment.
+
 
 
 ## Assessment-appliance URL access
@@ -112,6 +120,9 @@ The following table summarizes port requirements for assessment.
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Outbound connections on ports 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 **Hyper-V host/cluster** | Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata of the Hyper-V VMs using a Common Information Model (CIM) session.
 
+## Migration-Limitations
+You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
+
 ## Migration-Hyper-V host requirements
 
 | **Support**                | **Details**               
@@ -129,7 +140,8 @@ The following table summarizes port requirements for assessment.
 | **Integration Services**       | [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) must be running on VMs that you assess, in order to capture operating system information. |
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks. |
-| **UEFI boot**                  | VMs with UEFI boot aren't supported for migration.  |
+| **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.
+  |
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.
 | **Disk number** | A maximum of 16 disks per VM.
 | **Encrypted disks/volumes**    | Not supported for migration. |

@@ -7,10 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
+
+::: zone target = "docs"
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
 
@@ -52,6 +55,7 @@ Before you begin, make sure that:
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
 
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -66,6 +70,16 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+# Cable and connect to your device
+
+After you have reviewed the prerequisites, you'll cable and connect to your device.
+
+::: zone-end
 
 ## Cable for power
 
@@ -102,6 +116,9 @@ This step takes about 5-7 minutes to complete.
 This step takes about 15-20 minutes to complete.
 
 Follow the steps used for the first node to cable and configure the second node on the device.  
+
+
+::: zone target = "docs"
 
 ## Copy data
 
@@ -154,3 +171,5 @@ In this quickstart, you’ve deployed a Data Box Heavy to help import your data 
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Heavy](data-box-portal-admin.md)
+
+::: zone-end

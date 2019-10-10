@@ -1,12 +1,11 @@
 ---
-title: Samples - ISO 27001 Shared Services blueprint - Overview
-description: Overview and architecture of the ISO 27001 Shared Services blueprint sample.
+title: Sample - ISO 27001 Shared Services blueprint - Overview
+description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers asses specific ISO 27001 controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
 
@@ -55,7 +54,7 @@ composed of:
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
@@ -78,7 +77,7 @@ sample:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

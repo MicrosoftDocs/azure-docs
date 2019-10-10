@@ -2,7 +2,7 @@
 title: 'C# Tutorial: Index multiple data sources - Azure Search'
 description: Learn how to import data from multiple data sources into a single Azure Search index.
 author: RobDixon22
-manager: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -65,7 +65,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. [Sign in to the Azure portal](https://portal.azure.com), and then navigate your Azure Cosmos DB account Overview page.
 
-1. From the menu bar, click Add Container. Specify "Create new database" and use the name **hotel-rooms-db**. Enter **hotel-rooms** for the collection name, and **/HotelId** for the Partition key. Click **OK** to create the database and container.
+1. From the menu bar, click Add Container. Specify "Create new database" and use the name **hotel-rooms-db**. Enter **hotels** for the collection name, and **/HotelId** for the Partition key. Click **OK** to create the database and container.
 
    ![Add Azure Cosmos DB container](media/tutorial-multiple-data-sources/cosmos-add-container.png "Add an Azure Cosmos DB container")
 

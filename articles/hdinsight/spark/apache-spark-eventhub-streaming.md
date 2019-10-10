@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in Azure HDInsight '
+title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in HDInsight'
 description: Tutorial - Connect Apache Spark in Azure HDInsight to Azure Event Hubs and process the streaming data.  
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
@@ -132,7 +132,7 @@ Create a Jupyter notebook, and name it **SendTweetsToEventHub**.
 
     ```
     %%configure
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
 2. Edit the code below by replacing `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`, and `<TOKEN SECRET>` with the appropriate values. Run the edited code to send tweets to your event hub:
@@ -214,7 +214,7 @@ Create another Jupyter notebook, and name it **ReadTweetsFromEventHub**.
 
     ```
     %%configure -f
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
 2. Edit the code below by replacing `<Event hub name>`, and `<Event hub namespace connection string>` with the appropriate values. Run the edited code to read tweets from your event hub:
@@ -249,7 +249,7 @@ With HDInsight, your data is stored in Azure Storage or Azure Data Lake Storage,
 
 Open the cluster in the Azure portal, and select **Delete**.
 
-![Delete HDInsight cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+![HDInsight Azure Portal delete cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight Spark cluster, and the default storage account.
 

@@ -7,7 +7,7 @@ manager: carmonm
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
@@ -62,7 +62,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
     - download.microsoft.com
     - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.com (For Azure public geos)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China 21Vianet)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.us (For Azure US Government)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.de (For Azure Germany)
     - outbound port 3260
@@ -241,7 +241,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to login into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
+The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to log in into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 

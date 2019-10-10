@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
-titleSuffix: Azure Machine Learning service
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK. 
+titleSuffix: Azure Machine Learning
+description: Find and use example Jupyter notebooks to explore the Azure Machine Learning Python for SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-# Explore Azure Machine Learning service with Jupyter notebooks
+# Explore Azure Machine Learning with Jupyter notebooks
 
 The [example Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes the latest Azure Machine Learning Python SDK samples. These Juypter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.
 
@@ -24,7 +24,6 @@ This article shows you how to access the repository from the following environme
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [Bring your own notebook server](#byo)
 - [Data Science Virtual Machine](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
@@ -51,17 +50,10 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-<a name="aznb"></a>
-## Get samples on Azure Notebooks
-
-On [Azure Notebooks](https://notebooks.azure.com/), the SDK and notebook server are installed and configured for you. Azure Notebooks provides a fully-managed, lightweight notebook environment for you to explore.
-
-To access the sample repository on Azure Notebooks, navigate to your Azure Machine Learning workspace through the [Azure portal](https://portal.azure.com). From the  **Overview** section, select **Get Started in Azure Notebooks**.
-
 ## Next steps
 
-Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning service can do, or try these tutorials:
+Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning can do, or try these tutorials:
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
-- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-data-prep.md)
+- [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-auto-train-models.md)

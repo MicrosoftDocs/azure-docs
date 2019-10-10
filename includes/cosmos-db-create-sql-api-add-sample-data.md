@@ -11,7 +11,7 @@
 ---
 You can now add data to your new container using Data Explorer.
 
-1. From the **Data Explorer**, expand the **Tasks** database, expand the **Items** container. Select **Items**, and then click **New Item**.
+1. From the **Data Explorer**, expand the **Tasks** database, expand the **Items** container. Select **Items**, and then select **New Item**.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   

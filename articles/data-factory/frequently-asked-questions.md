@@ -3,19 +3,16 @@ title: 'Azure Data Factory: Frequently asked questions | Microsoft Docs'
 description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: shlo
 ---
+
 # Azure Data Factory FAQ
 This article provides answers to frequently asked questions about Azure Data Factory.  
 

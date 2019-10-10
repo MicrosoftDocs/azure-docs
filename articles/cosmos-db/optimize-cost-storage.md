@@ -10,7 +10,7 @@ ms.author: rimman
 
 # Optimize storage cost in Azure Cosmos DB
 
-Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, which you have to provision/configure on your Azure Cosmos containers or databases, the storage is billed based on a consumption basis. You are billed only for the logical storage you consume and you don’t have to reserve any storage in advance. Storage automatically scales up and down based on the data that you add or remove to an Azure Cosmos DB container.
+Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, which you have to provision/configure on your Azure Cosmos containers or databases, the storage is billed based on a consumption basis. You are billed only for the logical storage you consume and you don’t have to reserve any storage in advance. Storage automatically scales up and down based on the data that you add or remove to an Azure Cosmos container.
 
 ## Storage cost
 

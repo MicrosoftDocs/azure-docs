@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -69,7 +69,7 @@ Here are a few examples of normalization automatically performed on the transcri
 | Go get -em! | go get em |
 | I'm double-jointed | I'm double jointed |
 | 104 Elm Street | one oh four Elm street |
-| Tune to 102.7 | tune to one oh two seven |
+| Tune to 102.7 | tune to one oh two point seven |
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 

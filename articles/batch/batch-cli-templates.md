@@ -7,7 +7,6 @@ manager: gwallace
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018

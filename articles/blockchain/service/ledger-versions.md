@@ -16,7 +16,7 @@ manager: femila
 
 Azure Blockchain Service uses the Ethereum-based [Quorum](https://www.goquorum.com/developers) ledger designed for the processing of private transactions within a group of known participants, identified as a consortium in Azure Blockchain Service.
 
-Currently, Azure Blockchain Service supports [Quorum version 2.2.1](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
+Currently, Azure Blockchain Service supports [Quorum version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
 
 ## Managing updates and upgrades
 

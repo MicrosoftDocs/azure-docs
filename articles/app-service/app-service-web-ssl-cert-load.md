@@ -10,7 +10,6 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
@@ -69,7 +68,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 To make all your certificates accessible, set the value to `*`.
 
 > [!NOTE]
-> This setting places the specified certificates in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but in the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), it places the certificates in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store.
+> This setting places the specified certificates in the [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store for most pricing tiers, but if your app is running on the **Isolated** tier (i.e. app runs in an [App Service Environment](environment/intro.md)), you may need to check in the [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store instead.
 >
 
 ![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)

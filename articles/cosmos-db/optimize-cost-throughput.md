@@ -4,7 +4,7 @@ description: This article explains how to optimize throughput costs for the data
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
 ---
 
@@ -24,7 +24,7 @@ You can provision throughput on databases or containers and each strategy can he
 
 The following are some guidelines to decide on a provisioned throughput strategy:
 
-**Consider provisioning throughput on an Azure Cosmos DB database (containing a set of containers) if**:
+**Consider provisioning throughput on an Azure Cosmos database (containing a set of containers) if**:
 
 1. You have a few dozen Azure Cosmos containers and want to share throughput across some or all of them. 
 
@@ -60,7 +60,7 @@ By provisioning throughput at different levels, you can optimize your costs base
 
 ## Optimize with rate-limiting your requests
 
-For workloads that aren't sensitive to latency, you can provision less throughput and let the application handle rate-limiting when the actual throughput exceeds the provisioned throughput. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
+For workloads that aren't sensitive to latency, you can provision less throughput and let the application handle rate-limiting when the actual throughput exceeds the provisioned throughput. The server will preemptively end the request with `RequestRateTooLarge` (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
 
 ```html
 HTTP Status 429, 
@@ -72,15 +72,13 @@ HTTP Status 429,
 
 The native SDKs (.NET/.NET Core, Java, Node.js and Python) implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is  accessed concurrently by multiple clients, the next retry will succeed.
 
-If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently that is currently set to 9 may not be sufficient. In such case, the client throws a `DocumentClientException` with status code 429 to the application. The default retry count can be changed by setting the `RetryOptions` on the ConnectionPolicy instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value. 
+If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently that is currently set to 9 may not be sufficient. In such case, the client throws a `DocumentClientException` with status code 429 to the application. The default retry count can be changed by setting the `RetryOptions` on the ConnectionPolicy instance. By default, the `DocumentClientException` with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) is set to 3, so in this case, if a request operation is rate limited by exceeding the reserved throughput for the collection, the request operation retries three times before throwing the exception to the application. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is set to 60, so in this case if the cumulative retry waits time in seconds since the first request exceeds 60 seconds, the exception is thrown.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) is set to 3, so in this case, if a request operation is rate limited by exceeding the reserved throughput for the container, the request operation retries three times before throwing the exception to the application. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is set to 60, so in this case if the cumulative retry wait time in seconds since the first request exceeds 60 seconds, the exception is thrown.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 

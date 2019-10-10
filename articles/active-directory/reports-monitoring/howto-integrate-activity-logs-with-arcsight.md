@@ -3,7 +3,7 @@ title: How to integrate Azure Active Directory logs with ArcSight using Azure Mo
 description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To use this feature, you need:
 * An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * A configured instance of ArcSight Syslog NG Daemon SmartConnector (SmartConnector) or ArcSight Load Balancer. If the events are sent to ArcSight Load Balancer, they are consequently sent to the SmartConnector by the Load Balancer.
 
-Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
+Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
 
 ## Integrate Azure AD logs with ArcSight
 

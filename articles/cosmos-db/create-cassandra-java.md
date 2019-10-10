@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.custom: seo-java-august2019
+ms.custom: seo-java-august2019, seo-java-september2019
 ---
 
-# Quickstart: Build a Cassandra app with Java SDK and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -147,9 +147,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
+    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
-2. Use the ![Copy button](./media/create-cassandra-java/copy.png) button on the right side of the screen to copy the CONTACT POINT value.
+2. Use the ![Copy button](./media/create-cassandra-java/copy-button-azure-portal.png) button on the right side of the screen to copy the CONTACT POINT value.
 
 3. Open the `config.properties` file from `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` folder. 
 
@@ -203,7 +203,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    ![View the data in Data Explorer](./media/create-cassandra-java/data-explorer.png)
+    ![View the data in Data Explorer - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## Review SLAs in the Azure portal
 
@@ -215,7 +215,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB container. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos container. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

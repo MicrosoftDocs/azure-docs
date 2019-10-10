@@ -100,12 +100,12 @@ Each Azure Cache for Redis offering provides different levels of **size**, **ban
 
 The following are considerations for choosing a Cache offering.
 
-* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
+* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 1.2 TB (as a cluster) or 120 GB (non-clustered). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Network Performance**: If you have a workload that requires high throughput, the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. For more information, see the [following table](#cache-performance).
 * **Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you may receive timeouts on the client side. For more information, see the following table.
 * **High Availability/SLA**: Azure Cache for Redis guarantees that a Standard/Premium cache is available at least 99.9% of the time. To learn more about our SLA, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
 * **Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache, all the data is stored only in memory. Underlying infrastructure issues might result in potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Cache for Redis offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
-* **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
+* **Redis Cluster**: To create caches larger than 120 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 * **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Cache for Redis, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 * **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
 * **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
@@ -274,7 +274,7 @@ For more information about using Azure Cache for Redis as a PHP session cache wi
 
 ### What are Redis databases?
 
-Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example, a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
+Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example, a C6 cache has 53 GB of memory, and a P5 has 120 GB. You can choose to put all 53 GB / 120 GB into one database or you can split it up between multiple databases. 
 
 > [!NOTE]
 > When using a Premium Azure Cache for Redis with clustering enabled, only database 0 is available. This limitation is an intrinsic Redis limitation and is not specific to Azure Cache for Redis. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
@@ -466,7 +466,7 @@ The following are some common reason for a cache disconnect.
 >
 
 ### Azure Cache for Redis
-Azure Cache for Redis is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
+Azure Cache for Redis is Generally Available in sizes up to 120 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 1.2 TB and support for clustering, VNET, and persistence, with a 99.9% SLA.
 
 Azure Cache for Redis gives customers the ability to use a secure, dedicated Azure Cache for Redis, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
 

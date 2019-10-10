@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-5. To Modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
+5. To Modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
 	![Saml Response](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create The Cloud Security Fabric test user
 
-In this section, you create a user called B.Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO 
 

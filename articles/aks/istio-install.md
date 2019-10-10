@@ -19,7 +19,7 @@ This article shows you how to install Istio. The Istio `istioctl` client binary 
 > [!NOTE]
 > These instructions reference Istio version `1.1.3`.
 >
-> The Istio `1.1.x` releases have been tested by the Istio team against Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
+> The Istio `1.1.x` releases have been tested by the Istio team against Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio News][istio-release-notes].
 
 In this article, you learn how to:
 
@@ -37,6 +37,8 @@ In this article, you learn how to:
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.11` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
 You'll need [Helm][helm] to follow these instructions and install Istio. It's recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install]. All Istio pods must also be scheduled to run on Linux nodes.
+
+Ensure that you have read the [Istio Performance and Scalability](https://istio.io/docs/concepts/performance-and-scalability/) documentation to understand the additional resource requirements for running Istio in your AKS cluster. The core and memory requirements will vary based on your specific workload. Choose an appropriate number of nodes and VM size to cater for your setup.
 
 This article separates the Istio installation guidance into several discrete steps. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
 
@@ -549,7 +551,7 @@ To learn how to monitor your AKS application using Application Insights and Isti
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
 [istio-github]: https://github.com/istio/istio
 [istio-github-releases]: https://github.com/istio/istio/releases
-[istio-release-notes]: https://istio.io/about/notes/
+[istio-release-notes]: https://istio.io/news/
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
 [istio-install-helm]: https://istio.io/docs/setup/kubernetes/install/helm/
 [istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/

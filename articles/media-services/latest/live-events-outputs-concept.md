@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 09/30/2019
 ms.author: juliako
 
 ---
@@ -31,7 +31,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 
 A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. 
+* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested stream passes through the Live Event without any further processing. 
 * **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
 * **LiveEventEncodingType.Premium1080p** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrates pairs. 
 
@@ -62,15 +62,29 @@ The resolutions and bitrates contained in the output from the live encoder is de
 > [!NOTE]
 > If you need to customize the live encoding preset, please open a support ticket via Azure portal. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 720p(if requesting a preset for a Standard live encoder) or at 1080p (if requesting a preset for a Premium1080p live encoder), and at most 6 layers.
 
-## Live Event creation options
+## Creating Live Events 
+
+### Options
 
 When creating a Live Event, you can specify the following options:
 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
-* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 * When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. 
 
     For more information, see [Live Event states and billing](live-event-states-billing.md).
+* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
+
+    If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, click on the **Details** section on the page.
+        
+### Naming rules
+
+* Max live event name is 32 characters.
+* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+
+> [!TIP]
+> To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
 
 ## Live Event ingest URLs
 
@@ -151,16 +165,7 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 
 Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
-> [!NOTE]
-> Live Outputs start on creation and stop when deleted. When you delete the Live Output, you are not deleting the underlying Asset and content in the asset. 
-
-The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (Live Event) represents a constant stream of video and a recording (Live Output) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in Live Events is managed via the **archiveWindowLength** property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
-
-The Live Output object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource. The Live Output also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the archiveWindowLength property of the Live Output. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple Live Outputs (up to three maximum) on a Live Event with different archive lengths and settings.  
-
-If you have published the Live Output's **Asset** using a **Streaming Locator**, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
-
-For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
+For detailed information about Live Outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
 ## Ask questions, give feedback, get updates
 

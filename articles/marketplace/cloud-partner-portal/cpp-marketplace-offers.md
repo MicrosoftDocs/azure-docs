@@ -31,7 +31,7 @@ The process of creating a new offer differs greatly across offer types, for exam
 
 *Test Drive* is a marketplace feature that provides customers a "try before you buy" demonstration option for each offer so enabled.  The Test Drive capability is limited to the following subset of offer types: [Azure applications](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS applications](./saas-app/cpp-saas-offer.md), and [virtual machines](./virtual-machine/cpp-virtual-machine-offer.md).  This capability requires the publisher to create a Test Drive template, customized for its offer.  For more information, see the section [Test Drive](./test-drive/what-is-test-drive.md).
 
-You can browse the existing marketplace offers that have Test Drive demonstrations by applying the [test drive filter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+You can browse the existing marketplace offers that have Test Drive demonstrations by applying the [test drive filter](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
 
 ## Azure Marketplace and AppSource offer types

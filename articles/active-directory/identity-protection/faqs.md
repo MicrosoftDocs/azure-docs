@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Identity Protection FAQ | Microsoft Docs
 description: 'Frequently asked questions about Azure AD Identity Protection'
 
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) Identity Protection. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
-## Why do some risk events have “Closed (system)” status?
+## Why do some risk detections have “Closed (system)” status?
 
-**A:** These risk events were detected by Identity Protection and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
+**A:** These risk detections were detected by Identity Protection and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
 
 ---
 
@@ -38,6 +38,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## How can I sort users in "Users flagged for risk"?
 
-**A:** Download the users flagged for risk report by clicking **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
+**A:** Download the users flagged for risk report by clicking **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
 
 ---

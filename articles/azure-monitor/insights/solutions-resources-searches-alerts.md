@@ -166,28 +166,27 @@ The properties for Alert action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| Type | Yes | Type of the action.  This is **Alert** for alert actions. |
-| Name | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
-| Description | No | Optional description of the alert. |
-| Severity | Yes | Severity of the alert record from the following values:<br><br> **critical**<br>**warning**<br>**informational**
-
+| `type` | Yes | Type of the action.  This is **Alert** for alert actions. |
+| `name` | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
+| `description` | No | Optional description of the alert. |
+| `severity` | Yes | Severity of the alert record from the following values:<br><br> **critical**<br>**warning**<br>**informational**
 
 #### Threshold
 This section is required. It defines the properties for the alert threshold.
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
-| Value | Yes | The value to compare the results. |
+| `Operator` | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
+| `Value` | Yes | The value to compare the results. |
 
 ##### MetricsTrigger
 This section is optional. Include it for a metric measurement alert.
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| TriggerCondition | Yes | Specifies whether the threshold is for total number of breaches or consecutive breaches from the following values:<br><br>**Total<br>Consecutive** |
-| Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
-| Value | Yes | Number of the times the criteria must be met to trigger the alert. |
+| `TriggerCondition` | Yes | Specifies whether the threshold is for total number of breaches or consecutive breaches from the following values:<br><br>**Total<br>Consecutive** |
+| `Operator` | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
+| `Value` | Yes | Number of the times the criteria must be met to trigger the alert. |
 
 
 #### Throttling

@@ -1,6 +1,6 @@
 ---
-title: Support multiple token issuers in an OWIN-based web application - Azure Active Directory B2C
-description: Learn how to enable a .NET web application to support tokens issued by multiple domains.
+title: Migrate OWIN-based web APIs to b2clogin.com - Azure Active Directory B2C
+description: Learn how to enable a .NET web API to support tokens issued by multiple token issuers while you migrate your applications to b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -13,14 +13,16 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Support multiple token issuers in an OWIN-based web application
+# Migrate an OWIN-based web API to b2clogin.com
 
-This article describes a technique for enabling support for multiple token issuers in web apps and APIs that implement the [Open Web Interface for .NET (OWIN)](http://owin.org/). Supporting multiple token endpoints is useful when you're migrating Azure Active Directory (Azure AD) B2C applications from *login.microsoftonline.com* to *b2clogin.com*.
+This article describes a technique for enabling support for multiple token issuers in web APIs that implement the [Open Web Interface for .NET (OWIN)](http://owin.org/). Supporting multiple token endpoints is useful when you're migrating Azure Active Directory B2C (Azure AD B2C) APIs and their applications from *login.microsoftonline.com* to *b2clogin.com*.
 
-The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Microsoft OWIN][katana] middleware components (Katana). Although the code examples are specific to the Microsoft OWIN middleware, the general technique should be applicable to other OWIN libraries.
+By adding support in your API for accepting tokens issued by both b2clogin.com and login.microsoftonline.com, you can migrate your web applications in a staged manner before removing support for login.microsoftonline.com-issued tokens from the API.
+
+The following sections present an example of how to enable multiple issuers in a web API that uses the [Microsoft OWIN][katana] middleware components (Katana). Although the code examples are specific to the Microsoft OWIN middleware, the general technique should be applicable to other OWIN libraries.
 
 > [!NOTE]
-> This article is intended for Azure AD B2C customers with currently deployed applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed.
+> This article is intended for Azure AD B2C customers with currently deployed APIs and applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed.
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 
 ## Get token issuer endpoints
 
-You first need to get the token issuer endpoint URIs for each issuer you want to support in your application. To get the *b2clogin.com* and *login.microsoftonline.com* endpoints supported by your Azure AD B2C tenant, use the following procedure in the Azure portal.
+You first need to get the token issuer endpoint URIs for each issuer you want to support in your API. To get the *b2clogin.com* and *login.microsoftonline.com* endpoints supported by your Azure AD B2C tenant, use the following procedure in the Azure portal.
 
 Start by selecting one of your existing user flows:
 

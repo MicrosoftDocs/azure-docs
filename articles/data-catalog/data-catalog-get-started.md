@@ -33,7 +33,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 
-    ![Create Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog create button](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Specify a **name** for the data catalog, the **subscription** you want to use, the **location** for the catalog, and the **pricing tier**. Then select **Create**.
 

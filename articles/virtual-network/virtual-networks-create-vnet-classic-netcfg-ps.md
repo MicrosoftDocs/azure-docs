@@ -4,7 +4,7 @@ description: Learn how to create a virtual network using a network configuration
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

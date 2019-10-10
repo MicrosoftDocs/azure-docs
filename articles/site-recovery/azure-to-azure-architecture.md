@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/03/2019
 ms.author: raynew
 ---
 
@@ -62,7 +62,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
 **Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every 60 minutes.
+**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
 
 ### Managing replication policies
 
@@ -135,6 +135,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
+Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### Source region rules
 

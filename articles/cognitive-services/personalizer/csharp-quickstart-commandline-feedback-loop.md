@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/5/2019
+ms.date: 09/26/2019
 ms.author: diberry
-#Customer intent: 
+#Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 
 ---
 
@@ -30,9 +30,17 @@ Get started with the Personalizer client library for .NET. Follow these steps to
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## Setting up
+## Using this quickstart
 
-### Create a Personalizer Azure resource
+There are several steps to use this quickstart:
+
+* In the Azure portal, create a Personalizer resource
+* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In a code editor, create a code file and edit the code file
+* In the command line or terminal, install the SDK from the command line
+* In the command line or terminal, run the code file
+
+## Create a Personalizer Azure resource
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
@@ -45,15 +53,17 @@ After you get a key from your trial subscription or resource, create two [enviro
 * `PERSONALIZER_RESOURCE_KEY` for the resource key.
 * `PERSONALIZER_RESOURCE_ENDPOINT` for the resource endpoint.
 
-### Change the model update frequency
+In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
 
-In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+## Change the model update frequency
+
+In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
 When a Personalizer loop is first instantiated, there is no model since there has been no Reward API calls to train from. Rank calls will return equal probabilities for each item. Your application should still always rank content using the output of RewardActionId.
 
-### Create a new C# application
+## Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE. 
 
@@ -79,7 +89,7 @@ Build succeeded.
 ...
 ```
 
-### Install the SDK
+## Install the SDK
 
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
@@ -221,6 +231,12 @@ static void Main(string[] args)
 }
 ```
 
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+
+* GetUsersTimeOfDay
+* GetUsersTastePreference
+* GetKey
+
 ## Request a rank
 
 To complete the rank request, the program asks the user's preferences to create a `currentContent` of the content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the actions, currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 
@@ -241,7 +257,7 @@ This quickstart assigns a simple number as a reward, either a zero or a 1. In pr
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 

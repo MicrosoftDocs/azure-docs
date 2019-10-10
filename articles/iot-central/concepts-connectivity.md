@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: philmea
 ---
 
 # Device connectivity in Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 
@@ -27,14 +29,17 @@ Using DPS enables:
 
 This article describes the following four use cases:
 
-1. [Quickly connect a single device using SAS](#connect-a-single-device)
-1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
-1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
-1. [Connect without first registering devices](#connect-without-registering-devices)
+- [Quickly connect a single device using SAS](#connect-a-single-device)
+- [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
+- [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
+- [Connect without first registering devices](#connect-without-registering-devices)
 
 ## Connect a single device
 
-This approach is useful when you're experimenting with IoT Central or testing devices. You can use the device connection information from your IoT Central application to generate the connection string for a device. For detailed steps, see [How to generate a device connection string to connect to an Azure IoT Central application](howto-generate-connection-string.md).
+This approach is useful when you're experimenting with IoT Central or testing devices. You can use the device connection information from your IoT Central application to connect a device to your IoT Central application using the Device Provisioning Service (DPS). You can find sample DPS device client code for the following languages:
+
+- [C\#](./howto-connect-raspberry-pi-csharp.md)
+- [Node.js](./howto-connect-nodejs.md)
 
 ## Connect devices at scale using SAS
 
@@ -82,7 +87,7 @@ The following steps describe how to connect devices to IoT Central using X.509 c
 
 - Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### For testing purposes only
 
@@ -156,8 +161,6 @@ The Azure Device SDKs offer the easiest way for you implement your device code. 
 - [Azure IoT SDK for Node.js](https://github.com/azure/azure-iot-sdk-node)
 - [Azure IoT SDK for Java](https://github.com/azure/azure-iot-sdk-java)
 - [Azure IoT SDK for .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Each device connects using a unique connection string that identifies the device. A device can only connect to the IoT hub where it's registered. When you create a real device in your Azure IoT Central application, the application generates the information you need to construct a connection string using `dps-keygen`.
 
 ### SDK features and IoT Hub connectivity
 

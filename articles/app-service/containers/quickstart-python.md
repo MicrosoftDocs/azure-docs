@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 
 experimental: true
@@ -35,7 +34,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory with the sample code.
+In a terminal window, run the following commands to clone the sample application to your local machine, and go to the directory with the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -49,13 +48,14 @@ The repository contains an *application.py*, which tells App Service that the re
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
-# In PowerShell
+```
+```powershell
+# In Powershell (for Windows)
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
@@ -63,7 +63,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-Open a web browser, and navigate to the sample app at `http://localhost:5000/`.
+Open a web browser, and go to the sample app at `http://localhost:5000/`.
 
 You see the **Hello World!** message from the sample app displayed in the page.
 
@@ -80,7 +80,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
@@ -156,7 +156,7 @@ The Python sample code is running in App Service on Linux with a built-in image.
 
 ## Update locally and redeploy the code
 
-In the Cloud Shell, type `code application.py` to open the Cloud Shell editor.
+In the Cloud Shell, enter `code application.py` to open the Cloud Shell editor.
 
 ![Code application.py](media/quickstart-python/code-applicationpy.png)
 
@@ -182,7 +182,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+From the left menu, select **App Services**, and then select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/quickstart-python/app-service-list.png)
 

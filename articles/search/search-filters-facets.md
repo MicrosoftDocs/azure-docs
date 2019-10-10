@@ -2,7 +2,7 @@
 title: Facet filters for search navigation in apps - Azure Search
 description: Filter criteria by user security identity, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

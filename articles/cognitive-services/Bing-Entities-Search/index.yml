@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Bing Entity Search Documentation 
 metadata:
-  title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
   description: How to use the Bing Entity Search API to obtain information about people, places, or other defined subjects. Tutorials explain how to build apps that use the service.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

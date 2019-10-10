@@ -31,15 +31,15 @@ Queries on the **username** field are case-sensitive, while queries on the **Nam
 
 Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
 
-**Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
+**Dismiss all events** in classic Identity Protection sets the status of the risk detections to **Closed (resolved)**.
 
 ## Risky sign-ins report known issues
 
-**Resolve** on a risk event sets the status to **Users passed MFA driven by risk-based policy**.
+**Resolve** on a risk detection sets the status to **Users passed MFA driven by risk-based policy**.
 
 ## Frequently asked questions
 
-### Why can’t I set my own risk levels for each risk event?
+### Why can’t I set my own risk levels for each risk detection?
 
 Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
 
@@ -65,11 +65,11 @@ IP geolocation mapping is an industry-wide challenge. If you feel that the locat
 - In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
 
     > [!NOTE]
-    > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk events.
+    > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk detections.
 
-### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk events are shown in Identity Protection?
+### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?
 
-Given the user risk is cumulative in nature and does not expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk events shown in Identity Protection. This could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk events. We do not expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+Given the user risk is cumulative in nature and does not expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk detections shown in Identity Protection. This could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk detections. We do not expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
 

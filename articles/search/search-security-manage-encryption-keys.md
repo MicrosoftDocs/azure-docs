@@ -2,7 +2,7 @@
 title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview) - Azure Search 
 description: Supplement server-side encryption over indexes and synonym maps in Azure Search through keys that you create and manage in Azure Key Vault.
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search

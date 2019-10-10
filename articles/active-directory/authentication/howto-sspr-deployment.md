@@ -34,7 +34,7 @@ Before deploying SSPR, organizations may want to determine how many password res
 
 ## Licensing considerations
 
-Azure Active Directory is license per-user meaning each user has to have an appropriate license for the features they utilize.
+Azure Active Directory is licensed per-user meaning each user has to have an appropriate license for the features they utilize.
 
 More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
 

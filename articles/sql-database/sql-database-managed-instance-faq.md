@@ -30,15 +30,21 @@ For available service tiers and their characteristics, see [technical difference
 
 ## Where can I find known issues and bugs?
 
-For bugs and known issues, see [behavioral changes](sql-database-managed-instance-transact-sql-information.md#Changes) and [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
+For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## Where can I find latest features and the features in public preview?
+
+For new and preview features see [release notes](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## How much time takes to create or update instance, or to restore a database?
+
+Expected time to create new managed instance or change service tier (vCores, storage) depend on several factors. Take a look at the [Management operations](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
 
 ## Can a managed instance have the same name as on-premises SQL Server?
 
 Managed instance must have a name that ends with *database.windows.net*. To use another DNS zone instead of the default, for example, **mi-another-name**.contoso.com: 
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or script as well.
 - Use *CNAME* with *TrustServerCertificate=true* option.
-
 
 ## How can I move database from managed instance back to SQL Server or Azure SQL Database?
 
@@ -50,7 +56,7 @@ Native `COPY_ONLY` backups taken from managed instance cannot be restored to SQL
 
 ## How can I migrate my instance database to a single Azure SQL Database?
 
-One option is to [export the database to a BACPAC](sql-database-export.md) and then [import the BACPAC file]( sql-database-import.md). 
+One option is to [export the database to a BACPAC](sql-database-export.md) and then [import the BACPAC file](sql-database-import.md). 
 
 This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
 
@@ -64,7 +70,7 @@ It is strongly advised to test the performance of actual workloads intended for 
 
 ## Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online? 
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you can use [script from blog post](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) explaining how to switch between hardware generations.
 
 This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 
@@ -119,9 +125,10 @@ To mitigate any networking risks, customers are recommended to apply a set of se
 
 Managed instance case studies:
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
   
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Database managed instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

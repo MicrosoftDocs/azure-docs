@@ -82,57 +82,39 @@ In Azure Monitor, Change Analysis is currently built into the self-service **Dia
 
 ### Enable Change Analysis at scale
 
-If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. In this case, follow these alternative instructions.
+If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 
-### Register the Change Analysis resource provider for your subscription
+Pre-requisites:
+* PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Register the Change Analysis feature flag (preview). Because the feature flag is in preview, you need to register it to make it visible to your subscription:
+Run the following script:
 
-   1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Change the shell type to **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Run the following PowerShell command:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Register the Change Analysis resource provider for the subscription.
+```
 
-   - Go to **Subscriptions**, and select the subscription you want to enable in the change service. Then select resource providers:
 
-        ![Screenshot showing how to register the Change Analysis resource provider](./media/change-analysis/register-rp.png)
-
-       - Select **Microsoft.ChangeAnalysis**. Then at the top of the page, select **Register**.
-
-       - After the resource provider is enabled, you can set a hidden tag on the web app to detect changes at the level of deployment. To set a hidden tag, follow the instructions under **Unable to fetch Change Analysis information**.
-
-   - Alternatively, you can use a PowerShell script to register the resource provider:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        To use PowerShell to set a hidden tag on a web app, run the following command:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > After you add the hidden tag, you might still need to wait up to 4 hours before you start seeing changes. Results are delayed because Change Analysis scans your web app only every 4 hours. The 4-hour schedule limits the scan's performance impact.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
@@ -168,7 +168,7 @@ Both of these technologies can help you avoid unnecessary load (and bottlenecks)
 
 #### Useful resources
 
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1.md).  
+For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 

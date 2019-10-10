@@ -1,5 +1,5 @@
 ---
-title: Keep Me Signed In in Azure Active Directory B2C | Microsoft Docs
+title: Keep Me Signed In in Azure Active Directory B2C
 description: Learn how to set up Keep Me Signed In (KMSI) in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/29/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can enable Keep Me Signed In (KMSI) functionality for your web and native applications in Azure Active Directory (Azure AD) B2C. This feature grants access to returning users to the application without prompting them to reenter their username and password. This access is revoked when a user signs out.
+You can enable Keep Me Signed In (KMSI) functionality for users of your web and native applications that have local accounts in your Azure Active Directory B2C (Azure AD B2C) directory. This feature grants access to users returning to your application without prompting them to reenter their username and password. This access is revoked when a user signs out.
 
 Users should not enable this option on public computers.
 
@@ -25,7 +25,9 @@ Users should not enable this option on public computers.
 
 ## Prerequisites
 
-An Azure AD B2C tenant that is configured to allow local account sign-up and sign-in. If you don't have a tenant, you can create one using the steps in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+An Azure AD B2C tenant that is configured to allow local account sign-in. KMSI is unsupported for external identity provider accounts.
+
+If you don't have a tenant, you can create one using the steps in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
 ## Add a content definition element
 
@@ -83,7 +85,7 @@ Add the application identifiers to the *TrustFrameworkExtensions.xml* file.
 
 1. In the *TrustFrameworkExtensions.xml* file, find the **TechnicalProfile** element with the identifier of `login-NonInteractive` and the **TechnicalProfile** element with an identifier of `login-NonInteractive-PasswordChange` and replace all values of `IdentityExperienceFrameworkAppId` with the application identifier of the Identity Experience Framework application as described in [Getting started](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -179,11 +181,3 @@ Update the relying party (RP) file that initiates the user journey that you crea
 5. To test the custom policy that you uploaded, in the Azure portal, go to the policy page, and then select **Run now**.
 
 You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

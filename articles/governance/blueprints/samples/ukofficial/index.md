@@ -1,13 +1,12 @@
 ---
-title: Samples - UK OFFICIAL and UK NHS blueprint - Overview
-description: Overview and architecture of the UK OFFICIAL and UK NHS blueprint samples.
+title: Sample - UK OFFICIAL and UK NHS blueprint - Overview
+description: Overview and architecture of the UK OFFICIAL and UK NHS blueprint samples. This blueprint sample helps customers asses specific controls.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the UK OFFICIAL and UK NHS blueprint samples
 
@@ -34,7 +33,7 @@ visit the following articles to learn about the control mapping and how to deplo
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

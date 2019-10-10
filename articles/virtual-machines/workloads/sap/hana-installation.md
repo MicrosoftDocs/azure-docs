@@ -8,7 +8,7 @@ manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -42,7 +42,7 @@ Validate the following before you begin the HANA installation:
 
 After you receive the HANA Large Instance unit from Microsoft, validate the following settings and adjust as necessary.
 
-The **first step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to check in Azure portal whether the instance(s) are showing up with the correct SKUs and OS in Azure portal. Read [Azure HANA Large Instances control through Azure portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) for the steps necessary to perform the checks.
+The **first step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to check in Azure portal whether the instance(s) are showing up with the correct SKUs and OS. Read [Azure HANA Large Instances control through Azure portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) for the steps necessary to perform the checks.
 
 The **second step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to register the OS of the instance with your OS provider. This step includes registering your SUSE Linux OS in an instance of SUSE SMT that's deployed in a VM in Azure. 
 

@@ -6,14 +6,25 @@
   - name: What is Personalizer?
     href: what-is-personalizer.md
     displayName: loop, context, feature, action, rank, reward, developer, use case
+  - name: What's new
+    href: whats-new.md  
+    displayName: release notes, service updates, videos
 - name: Quickstarts
   items:
   - name: Using C#
     href: csharp-quickstart-commandline-feedback-loop.md
     displayName: code, sample, quickstart, c#
+  - name: Using Node.js
+    href: quickstart-command-line-feedback-loop-nodejs-sdk.md
+    displayName: code, sample, quickstart, node, npm, sdk    
   - name: Using Python
     href: python-quickstart-commandline-feedback-loop.md
-    displayName: code, sample, quickstart, python    
+    displayName: code, sample, quickstart, python  
+- name: Tutorials
+  items: 
+  - name: Use Azure Notebook
+    href: tutorial-use-azure-notebook-generate-loop-data.md
+    displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
 - name: Concepts
   items:
   - name: How Personalizer works
@@ -29,7 +40,7 @@
     items: 
     - name: "Features Action and Context"
       href: concepts-features.md
-      displayName: action, context, feature, namespace, JSON, best practice, set
+      displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id, 
     - name: Active learning
       href: concept-active-learning.md
       displayName: active, inactive
@@ -69,8 +80,8 @@
     items:
     - name: .NET
       items: 
-      - name: .NET SDK Reference 
-        href: https://go.microsoft.com/fwlink/?linkid=2092353
+      - name: Reference 
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
     - name: Go

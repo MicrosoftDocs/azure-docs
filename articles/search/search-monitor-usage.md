@@ -2,15 +2,13 @@
 title: Monitor resource usage and query metrics for an search service - Azure Search
 description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Monitor resource consumption and query activity in Azure Search
 
@@ -59,7 +57,7 @@ The following table compares options for storing logs and adding in-depth monito
 | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view file contents.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
-Both Azure Monitor logs and Blob storage are available as a Free shared service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
+Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
 The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Search operations.
 

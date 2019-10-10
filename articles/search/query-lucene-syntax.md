@@ -8,7 +8,7 @@ ms.date: 08/08/2019
 
 author: "brjohnstmsft"
 ms.author: "brjohnst"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"

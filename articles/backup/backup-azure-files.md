@@ -28,7 +28,6 @@ Before you can back up an Azure file share, ensure that it's present in one of t
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 - Support for Backup of Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently limited to [these regions](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no CLI available for protecting Azure Files using Azure Backup.
 - Azure Backup currently supports configuring scheduled once-daily backups of Azure File Shares.
 - The maximum number of scheduled backups per day is one.
@@ -83,13 +82,15 @@ Occasionally you may want to generate a backup snapshot, or recovery point, outs
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. From the list of Azure file shares, select the desired file share. The Backup Item menu for the selected file share opens.
+3. From the list of Azure file shares, select the desired file share. The **Backup Item** details appears. From the **Backup Item** menu, click **Backup now**. Because this is an on-demand backup job, there is no retention policy associated with the recovery point.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/backup-item-menu.png)
 
-4. From the Backup Item menu, click **Backup Now**. Because this is an on-demand backup job, there is no retention policy associated with the recovery point. The **Backup Now** dialog opens. Specify the last day you want to retain the recovery point.
+4. The **Backup Now** dialog opens. Specify the last day you want to retain the recovery point.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/backup-now-menu.png)
+
+5. Click **Ok** to confirm the on-demand backup job.
 
 ## Restore from backup of Azure file share
 If you need to restore an entire file share or individual files or folders from a Restore Point, head to the Backup Item as detailed in the previous section. Choose **Restore Share** to restore an entire file share from a desired Point-in-time. From the list of Restore Points that show up, select one to be able to Overwrite your current file share or Restore this to an alternate file share in the same region.

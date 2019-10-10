@@ -4,20 +4,22 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/08/2019
+ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
+manager: corywink
 ---
 
 # Export your data to Azure Blob Storage
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 *This topic applies to administrators.*
 
-This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
+This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account** or **Azure Data Lake Storage Gen2 storage account**. You can export **measurements**, **devices**, and **device templates** to files in JSON or Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
-> Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
+> When you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 
 ## Prerequisites
@@ -29,17 +31,15 @@ This article describes how to use the continuous data export feature in Azure Io
 
 If you don't have an existing Storage to export to, follow these steps:
 
-## Create Storage account
-
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more in [Azure Storage docs](https://aka.ms/blobdocscreatestorageaccount).
-2. For the account type, choose **General purpose** or **Blob storage**.
-3. Choose a subscription. 
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
 
     > [!Note] 
-    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+    > If you choose to export data to an ADLS v2 storage account, you must choose **Account Kind** as **BlobStorage**. 
 
-4. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container
+    > [!Note] 
+    > You can export data to storage accounts in subscriptions different than the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 
+2. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
 ## Set up continuous data export
 
@@ -47,19 +47,17 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, select **Continuous Data Export**.
+2. In the left menu, select **Data Export**.
 
     > [!Note]
-    > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
-
-    ![Create new cde Event Hub](media/howto-export-data/export_menu1.png)
+    > If you don't see Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
 3. Select the **+ New** button in the top right. Choose **Azure Blob Storage** as the destination of your export. 
 
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data/export_new1.png)
+    ![Create new continuous data export](media/howto-export-data/export-new2.png)
 
 4. In the drop-down list box, select your **Storage Account namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -69,34 +67,43 @@ Now that you have a Storage destination to export data to, follow these steps to
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data/export-create-blob.png)
+    ![Create new export to Blob](media/howto-export-data/export-create-blob2.png)
 
-5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
-    - Storage account, go to the Storage account in the Azure portal.
+5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your storage account, go to the Storage account in the Azure portal:
         - Under **Settings**, select **Access keys**
         - Copy either the key1 Connection string or the key2 Connection string
  
-6. Choose a Container from the drop-down list box.
+6. Choose a Container from the drop-down list box. If you don't have a container, go to your Storage account in the Azure portal:
+    - Under **Blob service**, select **Blobs**. Click **+ Container** and give your container a name. Choose a public access level for your data (any will work with Continuous data export). Learn more from [Azure Storage docs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
-7. Under **Data to export**, specify each type of data to export by setting the type to **On**.
+7. Choose the **Data format** you prefer: JSON or [Apache Avro](https://avro.apache.org/docs/current/index.html) format.
 
-6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
+8. Under **Data to export**, specify each type of data to export by setting the type to **On**.
 
-   ![Configure continuous data export](media/howto-export-data/export-list-blob.png)
+9. To turn on continuous data export, make sure the **Data export** toggle is **On**. Select **Save**.
 
-7. After a few minutes, your data will appear in your chosen destination.
+   ![Configure continuous data export](media/howto-export-data/export-list-blob2.png)
+
+10. After a few minutes, your data will appear in your storage account.
 
 
-## Export to Azure Blob Storage
+## Path structure
 
-Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, and will be exported in to three folders. The default paths in your storage account are:
-- Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON or Avro format. The default paths in your storage account are:
+- Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+
+You can browse the exported files in the Azure portal by navigating to the file and choosing the **Edit blob** tab.
+
+## Data format 
 
 ### Measurements
 
 The exported measurements data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
+
+> [!NOTE]
+> Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See [IoT Hub documentation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) for an example.
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.
@@ -104,16 +111,16 @@ The exported measurements data has all the new messages received by IoT Central 
 The following example shows a record in a decoded Avro file:
 
 ```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
+{ 
+  "EnqueuedTimeUtc":"2019-06-11T00:00:08.2250000Z",
+  "Properties":{},
+  "SystemProperties":{ 
+    "connectionDeviceId":"<deviceId>",
+    "connectionAuthMethod":"{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "connectionDeviceGenerationId":"<generationId>",
+    "enqueuedTime":"2019-06-11T00:00:08.2250000Z"
+  },
+  "Body":"{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
 }
 ```
 
@@ -137,33 +144,33 @@ A new snapshot is written once per minute. The snapshot includes:
 >
 > The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
 
-A record in the decoded Avro file can look like:
+Exported files contain a single line per record. The following example shows a record in Avro format, decoded:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
+{ 
+  "id":"<id>",
+  "name":"Refrigerator 2",
+  "simulated":true,
+  "deviceId":"<deviceId>",
+  "deviceTemplate":{ 
+    "id":"<template id>",
+    "version":"1.0.0"
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":"New York",
+      "maintCon":true,
+      "tempThresh":20
     },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
+    "device":{ 
+      "lastReboot":"2018-02-09T22:22:47.156Z"
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":0
+    }
+  }
 }
 ```
 
@@ -185,79 +192,79 @@ A new snapshot is written once per minute. The snapshot includes:
 > [!NOTE]
 > Device templates deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted device templates.
 
-A record in the decoded Avro file can look like this:
+Exported files contain a single line per record. The following example shows a record in Avro format, decoded:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
+{ 
+  "id":"<id>",
+  "name":"Refrigerated Vending Machine",
+  "version":"1.0.0",
+  "measurements":{ 
+    "telemetry":{ 
+      "humidity":{ 
+        "dataType":"double",
+        "name":"Humidity"
+      },
+      "magnetometerX":{ 
+        "dataType":"double",
+        "name":"Magnetometer X"
+      },
+      "magnetometerY":{ 
+        "dataType":"double",
+        "name":"Magnetometer Y"
+      },
+      "magnetometerZ":{ 
+        "dataType":"double",
+        "name":"Magnetometer Z"
+      }
     },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
+    "states":{ 
+      "connectivity":{ 
+        "dataType":"enum",
+        "name":"Connectivity"
+      }
     },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
+    "events":{ 
+      "opened":{ 
+        "name":"Door Opened",
+        "category":"informational"
+      }
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":{ 
+        "dataType":"double",
+        "name":"Fan Speed",
+        "initialValue":0
+      }
+    }
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":{ 
+        "dataType":"string",
+        "name":"Location",
+        "initialValue":"Seattle"
+      },
+      "maintCon":{ 
+        "dataType":"boolean",
+        "name":"Maintenance Contract",
+        "initialValue":true
+      },
+      "tempThresh":{ 
+        "dataType":"double",
+        "name":"Temperature Alert Threshold",
+        "initialValue":30
+      }
+    },
+    "device":{ 
+      "lastReboot":{ 
+        "dataType":"dateTime",
+        "name":"Last Reboot"
+      }
+    }
+  }
 }
 ```
 

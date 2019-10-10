@@ -1,6 +1,6 @@
 ---
-title: Create and use Azure Web Application Firewall (WAF) v2 custom rules
-description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
+title: Create and use Azure web application firewall (WAF) v2 custom rules
+description: This article discusses how to create web application firewall (WAF) v2 custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
@@ -9,20 +9,20 @@ ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Create and use Web Application Firewall v2 custom rules
+# Create and use web application firewall v2 custom rules
 
-The Azure Application Gateway Web Application Firewall (WAF) v2 provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
+Azure Application Gateway web application firewall (WAF) v2 provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) core rule set. In some cases, you might need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Overview: Custom web application firewall rules](custom-waf-rules-overview.md).
 
-This article shows you some example custom rules that you can create and use with your v2 WAF. To learn how to deploy a WAF with a custom rule using Azure PowerShell, see [Configure Web Application Firewall custom rules using Azure PowerShell](configure-waf-custom-rules.md).
+This article shows you some example custom rules that you can create and use with WAF v2. To learn how to deploy WAF with a custom rule by using Azure PowerShell, see [Configure web application firewall custom rules by using Azure PowerShell](configure-waf-custom-rules.md).
 
->[!NOTE]
-> If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
+> [!NOTE]
+> If your application gateway isn't using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
 
 ![Enable WAF][fig1]
 
 ## Example 1
 
-You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
+You know there's a bot named *evilbot* that you want to block from crawling your website. In this example, you block the User-Agent *evilbot* in the request headers.
 
 Logic: p
 
@@ -46,7 +46,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-And here is the corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
   {
@@ -70,11 +70,11 @@ And here is the corresponding JSON:
   }
 ```
 
-To see a WAF deployed using this custom rule, see [Configure a Web Application Firewall custom rule using Azure PowerShell](configure-waf-custom-rules.md).
+To view a WAF that's deployed by using this custom rule, see [Configure a web application firewall custom rule by using Azure PowerShell](configure-waf-custom-rules.md).
 
 ### Example 1a
 
-You can accomplish the same thing using a regular expression:
+You can accomplish the same thing by using a regular expression:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -96,7 +96,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-And the corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
   {
@@ -122,9 +122,9 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to block all requests from IP addresses in the range 198.168.5.4/24.
+You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
-In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 100.
+In this example, you block all traffic that comes from a range of IP addresses. The name of the rule is *myrule1*, and the priority is set to 100.
 
 Logic: p
 
@@ -135,18 +135,18 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
    -Action Block
 ```
 
-Here's the corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
   {
@@ -154,14 +154,14 @@ Here's the corresponding JSON:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "Block",
         "matchConditions": [
           {
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -170,14 +170,15 @@ Here's the corresponding JSON:
   }
 ```
 
-Corresponding CRS rule:
-  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+Here's the corresponding core rule set rule:
+
+  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.4/24 are blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To achieve this result, you can create two separate match conditions and put them both in the same rule. This approach ensures that if both *evilbot* in the User-Agent header *and* IP addresses from the range 192.168.5.0/24 are matched, the request is blocked.
 
-Logic: p **and** q
+Logic: p *and* q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -190,7 +191,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -202,13 +203,13 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
  $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1, $condition2 `
    -Action Block
 ```
 
-Here's the corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
 { 
@@ -217,7 +218,7 @@ Here's the corresponding JSON:
       { 
         "name": "myrule", 
         "ruleType": "MatchRule", 
-        "priority": 100, 
+        "priority": 10, 
         "action": "block", 
         "matchConditions": [ 
             { 
@@ -225,7 +226,7 @@ Here's the corresponding JSON:
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -247,9 +248,9 @@ Here's the corresponding JSON:
 
 ## Example 4
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.0/24*, or the user agent string isn't *chrome* (that is, the user isn’t using the Chrome browser). Because this logic uses *or*, the two conditions are in separate rules, as shown in the following example. To block the traffic, both *myrule1* and *myrule2* need to match.
 
-Logic: **not** (p **and** q) = **not** p **or not** q.
+Logic: *not* (p *and* q) = *not* p *or not* q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -262,7 +263,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -274,20 +275,20 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
    -Action Block
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
-   -Priority 200 `
+   -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
    -Action Block
 ```
 
-And the corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
 {
@@ -295,7 +296,7 @@ And the corresponding JSON:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "block",
         "matchConditions": [
           {
@@ -303,7 +304,7 @@ And the corresponding JSON:
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -311,7 +312,7 @@ And the corresponding JSON:
       {
         "name": "myrule2",
         "ruleType": "MatchRule",
-        "priority": 200,
+        "priority": 20,
         "action": "block",
         "matchConditions": [
           {
@@ -334,9 +335,9 @@ And the corresponding JSON:
 
 ## Example 5
 
-You want to block custom SQLI. Since the logic used here is **or**, and all the values are in the *RequestUri*, all of the *MatchValues* can be in a comma-separated list.
+You want to block custom SQLI. Because the logic used here is *or* and all the values are in the *RequestUri*, all the *MatchValues* can be in a comma-separated list.
 
-Logic: p **or** q **or** r
+Logic: p *or* q *or* r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -355,7 +356,7 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
   {
@@ -381,7 +382,7 @@ Corresponding JSON:
   }
 ```
 
-Alternative Azure PowerShell:
+Here's the alternative Azure PowerShell code:
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -394,7 +395,7 @@ $condition1 = New-AzApplicationGatewayFirewallCondition `
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
 -Action Block
@@ -410,7 +411,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
-   -Priority 200 `
+   -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
    -Action Block
@@ -426,13 +427,13 @@ $condition3 = New-AzApplicationGatewayFirewallCondition `
 
 $rule3 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule3 `
-   -Priority 300 `
+   -Priority 30 `
    -RuleType MatchRule `
    -MatchCondition $condition3 `
    -Action Block
 ```
 
-Corresponding JSON:
+Here's the corresponding JSON code:
 
 ```json
   {
@@ -440,7 +441,7 @@ Corresponding JSON:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "block",
         "matchConditions": [
           {
@@ -455,7 +456,7 @@ Corresponding JSON:
       {
         "name": "myrule2",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 20,
         "action": "block",
         "matchConditions": [
           {
@@ -473,7 +474,7 @@ Corresponding JSON:
       {
         "name": "myrule3",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 30,
         "action": "block",
         "matchConditions": [
           {

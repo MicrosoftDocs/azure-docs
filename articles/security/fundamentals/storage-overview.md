@@ -84,7 +84,7 @@ Disk Encryption for VMs works for Linux and Windows operating systems. It also u
 
 Learn more
 
-* [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Azure Disk Encryption overview](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## Firewalls and Virtual networks
 

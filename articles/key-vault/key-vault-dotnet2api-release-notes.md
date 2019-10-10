@@ -3,7 +3,7 @@ title: Key Vault .NET 2.x API Release Notes| Microsoft Docs
 description: .NET developers will use this API to code for Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
 
 ms.service: key-vault

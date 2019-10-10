@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -38,7 +38,7 @@ Specifically, this HDFS connector supports:
 
 ## Prerequisites
 
-To copy data from an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Make sure the Integration Runtime can access to **ALL** the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. Default [name node port] is 50070, and default [data node port] is 50075.
@@ -60,7 +60,7 @@ The following properties are supported for HDFS linked service:
 | authenticationType | Allowed values are: **Anonymous**, or **Windows**. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
 
@@ -110,12 +110,12 @@ The following properties are supported for HDFS linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
 
-To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for HDFS under `location` settings in format-based dataset:
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for HDFS under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -154,7 +154,7 @@ To copy data from **Parquet, delimited text or binary format**, refer to [Parque
 
 ### Other format dataset
 
-To copy data from HDFS in **ORC/Avro/JSON format**, the following properties are supported:
+To copy data from HDFS in **ORC format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -205,12 +205,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### HDFS as source
 
-- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
 
-#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
 
-To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for HDFS under `storeSettings` settings in format-based copy source:
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for HDFS under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -275,7 +275,7 @@ To copy data from **Parquet, delimited text or binary format**, refer to [Parque
 
 #### Other format source
 
-To copy data from HDFS in **ORC/Avro/JSON format**, the following properties are supported in the copy activity **source** section:
+To copy data from HDFS in **ORC format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -478,6 +478,10 @@ There are two options to set up the on-premises environment so as to use Kerbero
 **In Azure Data Factory:**
 
 * Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps

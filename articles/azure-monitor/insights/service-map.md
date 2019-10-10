@@ -16,6 +16,7 @@ ms.author: magoedte
 ---
 
 # Using Service Map solution in Azure
+
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). To summarize, you need the following:
@@ -550,16 +551,57 @@ Microsoft automatically collects usage and performance data through your use of 
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-
 ## Next steps
 
 Learn more about [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
 
-
 ## Troubleshooting
 
-See the [Troubleshooting section of the Configuring Service Map document]( service-map-configure.md#troubleshooting).
+If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
+### Dependency agent installation problems
+
+#### Installer prompts for a reboot
+The Dependency agent *generally* does not require a reboot upon installation or removal. However, in certain rare cases, Windows Server requires a reboot to continue with an installation. This happens when a dependency, usually the Microsoft Visual C++ Redistributable library requires a reboot because of a locked file.
+
+#### Message "Unable to install Dependency agent: Visual Studio Runtime libraries failed to install (code = [code_number])" appears
+
+The Microsoft Dependency agent is built on the Microsoft Visual Studio runtime libraries. You'll get a message if there's a problem during installation of the libraries. 
+
+The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file is `dd_vcredist_arch_yyyymmddhhmmss.log`, where *arch* is `x86` or `amd64` and *yyyymmddhhmmss* is the date and time (24-hour clock) when the log was created. The log provides details about the problem that's blocking installation.
+
+It might be useful to install the [latest runtime libraries](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) first.
+
+The following table lists code numbers and suggested resolutions.
+
+| Code | Description | Resolution |
+|:--|:--|:--|
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to `Windows8.1-KB2999226-x64.msu` is followed by a line `Error 0x80240017: Failed to execute MSU package,` you don't have the prerequisites to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226) article. You might need to run Windows Update and reboot multiple times in order to install the prerequisites.<br><br>Run the Microsoft Dependency agent installer again. |
+
+### Post-installation issues
+
+#### Server doesn't appear in Service Map
+
+If your Dependency agent installation succeeded, but you don't see your machine in the Service Map solution:
+* Is the Dependency agent installed successfully? You can validate this by checking to see if the service is installed and running.<br><br>
+**Windows**: Look for the service named **Microsoft Dependency agent**.
+**Linux**: Look for the running process **microsoft-dependency-agent**.
+
+* Are you on the [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monitor/)? The Free plan allows for up to five unique Service Map machines. Any subsequent machines won't appear in Service Map, even if the prior five are no longer sending data.
+
+* Is your server sending log and perf data to Azure Monitor Logs? Go to Azure Monitor\Logs and run the following query for your computer: 
+
+    ```kusto
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the workspace. If not, check the agent on your machine: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../platform/agent-linux-troubleshoot.md).
+
+#### Server appears in Service Map but has no processes
+
+If you see your machine in Service Map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 
+
+Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) or `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
 ## Feedback
 

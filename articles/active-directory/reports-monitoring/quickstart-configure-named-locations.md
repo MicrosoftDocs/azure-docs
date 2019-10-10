@@ -3,7 +3,7 @@ title: Configure named locations in Azure Active Directory | Microsoft Docs
 description: Learn how to configure named locations.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can whitelist them and configure location-based Conditional Access.
 ms.collection: M365-identity-device-management
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 # Quickstart: Configure named locations in Azure Active Directory
 
 With named locations, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
-- Detect false positives in [risk events](concept-risk-events.md). Signing in from a trusted location lowers a user's sign-in risk.   
+- Detect false positives in [risk detections](concept-risk-events.md). Signing in from a trusted location lowers a user's sign-in risk.   
 - Configure [location-based Conditional Access](../conditional-access/location-condition.md).
 
 In this quickstart, you learn how to configure named locations in your environment.

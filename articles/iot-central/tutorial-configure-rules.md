@@ -15,6 +15,8 @@ manager: peterpr
 
 *This article applies to operators, builders, and administrators.*
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
 
 In this tutorial, you learn how to:

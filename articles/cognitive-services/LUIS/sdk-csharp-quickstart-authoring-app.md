@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library for .NET
@@ -31,9 +31,9 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 
 ## Setting up
 
-### Get your Language Understanding (LUIS) authoring key
+### Get your Language Understanding (LUIS) starter key
 
-Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### Create a new C# application
 
@@ -184,7 +184,7 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 

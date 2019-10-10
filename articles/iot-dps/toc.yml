@@ -117,7 +117,7 @@
     - name: Manage disenrollment
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
-      href: how-to-unprovision-devices.md    
+      href: how-to-unprovision-devices.md      
   - name: Manage Device Provisioning Service
     items:
     - name: Configure Device Provisioning Service using Azure CLI
@@ -142,6 +142,8 @@
     href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
+  - name: Troubleshooting
+    href: how-to-troubleshoot-dps.md 
 - name: Reference
   items:
   - name: REST API
@@ -162,28 +164,30 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
       href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks    
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks   
 - name: Resources
   items:
   - name: Azure IoT Samples for C# (.NET)

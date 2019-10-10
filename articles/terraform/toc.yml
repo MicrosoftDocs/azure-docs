@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a multi-service application
-      href: terrafom-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: Create a multi-service application
+      href: terrafom-quickstart.md
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -25,7 +25,7 @@
       items:
         - name: Create a Kubernetes cluster with AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
-        - name: Create a Kubernetes cluster with Application Gateway as ingress controller with AKS
+        - name: Create an Application Gateway ingress controller in AKS
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastructure
       items:
@@ -67,10 +67,6 @@
   items:
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
-- name: Concepts
-  items:
-    - name: Azure Cloud Shell integration
-      href: terraform-cloud-shell.md
 - name: How-to guides
   items:
     - name: Store state in Azure Storage
@@ -79,7 +75,7 @@
   items:
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
-    - name: Terraform reference
+    - name: Terraform Azure Provider
       href: https://aka.ms/terraform
 - name: Resources
   items:

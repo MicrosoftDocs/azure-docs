@@ -5,7 +5,7 @@ author: roygara
 ms.service: virtual-machines-windows
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.subservice: disks
 

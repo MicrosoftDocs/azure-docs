@@ -28,7 +28,7 @@ Map networks as follows:
 3. In **Add network mapping**, select the source and target locations. In our example, the source VM is running in the East Asia region, and replicates to the Southeast Asia region.
 
     ![Select source and target](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Now create a network mapping in the opposite directory. In our example, the source will now be Southeast Asia, and the target will be East Asia.
+3. Now create a network mapping in the opposite direction. In our example, the source will now be Southeast Asia, and the target will be East Asia.
 
     ![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -92,5 +92,3 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 - Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
 - [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.
-
-If the target network chosen is the failover vnet” and 2nd point to say “If the target network chosen is different from the failover vnet but has the same subnet range as failover vnet”

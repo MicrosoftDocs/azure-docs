@@ -3,21 +3,16 @@ title: Create/Schedule Pipelines, Chain Activities in Data Factory | Microsoft D
 description: Learn to create a data pipeline in Azure Data Factory to move and transform data. Create a data driven workflow to produce ready to use information.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Pipelines and Activities in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-pipelines.md)

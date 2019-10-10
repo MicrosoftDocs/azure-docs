@@ -11,7 +11,7 @@ ms.date: 08/08/2019
 ms.author: atsenthi 
 ---
 
-# Granting a Service Fabric application's managed identity access to Azure resources
+# Granting a Service Fabric application's managed identity access to Azure resources (preview)
 
 Before the application can use its managed identity to access other resources, permissions must be granted to that identity on the protected Azure resource being accessed. Granting permissions is typically a management action on the 'control plane' of the Azure service owning the protected resource routed via Azure Resource Manager, which will enforce any applicable role-based access checking.
 
@@ -36,9 +36,14 @@ Similarly with accessing storage, you can leverage the managed identity of a Ser
 
 ![Key Vault access policy](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-The following example illustrates granting access to a vault via a template deployment; add the snippet below as another entry under the `resources` element of the template.
+The following example illustrates granting access to a vault via a template deployment; add the snippet(s) below as another entry under the `resources` element of the template. The sample demonstrates access granting for both user-assigned and system-assigned identity types, respectively - choose the applicable one.
 
 ```json
+	# under 'variables':
+  "variables": {
+		"userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+	}
+	# under 'resources':
 	{
 		"type": "Microsoft.KeyVault/vaults/accessPolicies",
 		"name": "[concat(parameters('keyVaultName'), '/add')]",
@@ -61,23 +66,45 @@ The following example illustrates granting access to a vault via a template depl
 		}
 	},
 ```
+And for system-assigned managed identities:
+```json
+	# under 'variables':
+  "variables": {
+		"sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+	}
+	# under 'resources':
+	{
+		"type": "Microsoft.KeyVault/vaults/accessPolicies",
+		"name": "[concat(parameters('keyVaultName'), '/add')]",
+		"apiVersion": "2018-02-14",
+		"properties": {
+			"accessPolicies": [
+			{
+					"name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+					"tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+					"objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+					"dependsOn": [
+						"[variables('sfAppSystemAssignedIdentityResourceId')]"
+					],
+					"permissions": {
+						"secrets": [
+							"get",
+							"list"
+						],
+						"certificates": 
+						[
+							"get", 
+							"list"
+						]
+					}
+			},
+		]
+		}
+	}
+```
 
 For more details, please see [Vaults - Update Access Policy](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Next steps
-
 * [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
-## Related articles
-
-* Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
-
-* [Deploy a new](./configure-new-azure-service-fabric-enable-managed-identity.md) Azure Service Fabric cluster with managed identity support 
-
-* [Enable managed identity](./configure-existing-cluster-enable-managed-identity-token-service.md) in an existing Azure Service Fabric cluster
-
-* Leverage a Service Fabric application's [managed identity from source code](./how-to-managed-identity-service-fabric-app-code.md)
-
-* Consult the list of [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md)

@@ -29,6 +29,7 @@ You can then use the following network access controls to selectively allow acce
 
 - Virtual Network firewall rules: - Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
 
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## Allow Azure services 
 During creation of a new Azure SQL Server [from  Azure portal](sql-database-single-database-get-started.md), this setting is left unchecked.
@@ -68,7 +69,9 @@ Ip based firewall is a feature of Azure SQL Server that prevents all access to y
 ## Virtual Network firewall rules
 
 In addition to IP rules, the Azure SQL Server firewall allows you to define *virtual network rules*.  
-To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### Azure Networking terminology  
 Be aware of the following Azure Networking terms as you explore Virtual Network firewall rules

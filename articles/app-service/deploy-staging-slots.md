@@ -12,9 +12,8 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
 
 ---
@@ -98,38 +97,8 @@ When you swap two slots (usually from a staging slot into the production slot), 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
 ### Which settings are swapped?
-When you clone configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (not slot specific), whereas other configuration elements stay in the same slot after a swap (slot specific). The following lists show the settings that change when you swap slots.
 
-**Settings that are swapped**:
-
-* General settings, such as framework version, 32/64-bit, web sockets
-* App settings (can be configured to stick to a slot)
-* Connection strings (can be configured to stick to a slot)
-* Handler mappings
-* Monitoring and diagnostic settings
-* Public certificates
-* WebJobs content
-* Hybrid connections *
-* Virtual network integration *
-* Service endpoints *
-* Azure Content Delivery Network *
-
-Features marked with an asterisk (*) are planned to be made sticky to the slot. 
-
-**Settings that aren't swapped**:
-
-* Publishing endpoints
-* Custom domain names
-* Private certificates and SSL bindings
-* Scale settings
-* WebJobs schedulers
-* IP restrictions
-* Always On
-* Protocol settings (HTTPS, TLS version, client certificates)
-* Diagnostic log settings
-* Cross-origin resource sharing (CORS)
-
-<!-- VNET and hybrid connections not yet sticky to slot -->
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
 To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting is not swappable. 
 
@@ -166,9 +135,6 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 <a name="Multi-Phase"></a>
 
 ### Swap with preview (multi-phase swap)
-
-> [!NOTE]
-> Swap with preview isn't supported in web apps on Linux.
 
 Before you swap into production as the target slot, validate that the app runs with the swapped settings. The source slot is also warmed up before the swap completion, which is desirable for mission-critical applications.
 
@@ -231,7 +197,8 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 <a name="Warm-up"></a>
 
 ## Specify custom warm-up
-When you're using [auto swap](#Auto-Swap), some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
+
+Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -246,6 +213,9 @@ You can also customize the warm-up behavior with one or both of the following [a
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. An example is `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+
+> [!NOTE]
+> `<applicationInitialization>` is part each app start-up, where as these two app settings apply only to slot swaps.
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
@@ -358,7 +328,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## Automate with ARM templates
+
+[ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+
+- `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.
+
+### Example ARM Template
+
+The following ARM template will update the `buildVersion` of the staging slot and set the `targetBuildVersion` on the production slot. This will swap the two slots. The template assumes you already have a webapp created with a slot named "staging".
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+This ARM template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
@@ -395,6 +419,8 @@ Here are some common swap errors:
     </conditions>
     ```
 - Some [IP restriction rules](app-service-ip-restrictions.md) might prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment. You should allow them to connect to your app.
+
+- After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app setting](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) on *all slots*. However, this app setting does *not* work with Windows Communication Foundation (WCF) apps.
 
 ## Next steps
 [Block access to non-production slots](app-service-ip-restrictions.md)

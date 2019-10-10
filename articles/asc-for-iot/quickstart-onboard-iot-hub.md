@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
@@ -35,19 +35,6 @@ This article provides an explanation of how to enable the Azure Security Center 
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs. 
 - IoT Hub (standard tier)
 - Meet all [service prerequisites](service-prerequisites.md) 
-
-|Supported Azure service regions | ||
-|---|---|---|
-| Central US |East US |East US 2 |
-| West Central US |West US |West US2 |
-| Central US South|North Central US | Canada Central|
-| Canada East| North Europe|Brazil South|
-| France Central| UK West|UK South|
-|West Europe|Northern Europe| Japan West|
-|Japan East | Australia Southeast|Australia East|
-|East Asia| Southeast Asia| Korea Central|
-|Korea South| Central India| South India|
-|
 
 ## Enable Azure Security Center for IoT on your IoT Hub 
 

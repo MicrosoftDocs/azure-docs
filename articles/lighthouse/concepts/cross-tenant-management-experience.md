@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/25/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -83,6 +83,10 @@ Currently, the cross-tenant management experience supports the following scenari
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
   - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
 
+[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+
+- Manage Azure Sentinel resources in customer tenants
+
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 
 - Monitor the health of customer resources with Azure Resource Health
@@ -107,6 +111,7 @@ Support requests:
 
 - Open support requests for delegated resources from the **Help + support** blade in the Azure portal (selecting the support plan available to the delegated scope)
 
+## Current limitations
 With all scenarios, please be aware of the following current limitations:
 
 - Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren’t supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 

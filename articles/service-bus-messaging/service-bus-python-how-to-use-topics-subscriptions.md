@@ -35,7 +35,7 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 
     > [!NOTE]
     > You will create a **topic** and a **subscription** to the topic by using **Python** in this quickstart. 
-3. Install [Azure Python package][Azure Python package]. See the [Python Installation Guide](../python-how-to-install.md).
+3. Install [Azure Python package][Azure Python package]. See the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
 ## Create a topic
 

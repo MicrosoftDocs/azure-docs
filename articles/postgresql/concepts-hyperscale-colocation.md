@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
-# Table colocation in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Table colocation in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-Colocation means storing related information together on the same nodes. Queries can go fast when the all necessary data is available without any network traffic. Colocating related data on different nodes allows queries to run efficiently in parallel on each node.
+Colocation means storing related information together on the same nodes. Queries can go fast when all the necessary data is available without any network traffic. Colocating related data on different nodes allows queries to run efficiently in parallel on each node.
 
 ## Data colocation for hash-distributed tables
 
-In Hyperscale, a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
+In Azure Database for PostgreSQL – Hyperscale (Citus) Preview, a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
 
-![shards](media/concepts-hyperscale-colocation/colocation-shards.png)
+![Shards](media/concepts-hyperscale-colocation/colocation-shards.png)
 
 ## A practical example of colocation
 
@@ -41,12 +41,12 @@ CREATE TABLE page (
 );
 ```
 
-Now we want to answer queries that may be issued by a customer-facing
-dashboard, such as: "Return the number of visits in the past week for
+Now we want to answer queries that might be issued by a customer-facing
+dashboard. An example query is "Return the number of visits in the past week for
 all pages starting with '/blog' in tenant six."
 
-If our data was in a single-server deployment option, we could easily express
-our query using the rich set of relational operations offered by SQL:
+If our data was in the Single-Server deployment option, we could easily express
+our query by using the rich set of relational operations offered by SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -61,15 +61,14 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-As long as the [working set](https://en.wikipedia.org/wiki/Working_set) for this query fits in memory, a single-server table is an appropriate solution. However, let's consider the opportunities of scaling the data model with the Hyperscale deployment option.
+As long as the [working set](https://en.wikipedia.org/wiki/Working_set) for this query fits in memory, a single-server table is an appropriate solution. Let's consider the opportunities of scaling the data model with the Hyperscale (Citus) deployment option.
 
-### Distributing tables by ID
+### Distribute tables by ID
 
-Single-server queries start slowing down as the number of tenants and the data stored for each tenant grows. The
-working set stops fitting in memory and CPU becomes a bottleneck.
+Single-server queries start slowing down as the number of tenants and the data stored for each tenant grows. The working set stops fitting in memory and CPU becomes a bottleneck.
 
-In this case, we can shard the data across many nodes using Hyperscale. The
-first and most important choice we need to make when sharding is the
+In this case, we can shard the data across many nodes by using Hyperscale (Citus). The
+first and most important choice we need to make when we decide to shard is the
 distribution column. Let's start with a naive choice of using `event_id` for
 the event table and `page_id` for the `page` table:
 
@@ -80,7 +79,7 @@ SELECT create_distributed_table('event', 'event_id');
 SELECT create_distributed_table('page', 'page_id');
 ```
 
-When data is dispersed across different workers, we cannot perform a join as we would on a single PostgreSQL node. Instead, we will need to issue two queries:
+When data is dispersed across different workers, we can't perform a join like we would on a single PostgreSQL node. Instead, we need to issue two queries:
 
 ```sql
 -- (Q1) get the relevant page_ids
@@ -100,23 +99,22 @@ application.
 
 Running the queries must consult data in shards scattered across nodes.
 
-![inefficient queries](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+![Inefficient queries](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
 
-In this case the data distribution creates substantial drawbacks:
+In this case, the data distribution creates substantial drawbacks:
 
--   Overhead from querying each shard, running multiple queries
--   Overhead of Q1 returning many rows to the client
--   Q2 becoming large
--   The need to write queries in multiple steps
-    requires changes in the application
+-   Overhead from querying each shard and running multiple queries.
+-   Overhead of Q1 returning many rows to the client.
+-   Q2 becomes large.
+-   The need to write queries in multiple steps requires changes in the application.
 
-Because the data is dispersed, the queries can be parallelized. However, it's
+The data is dispersed, so the queries can be parallelized. It's
 only beneficial if the amount of work that the query does is substantially
 greater than the overhead of querying many shards.
 
-### Distributing tables by tenant
+### Distribute tables by tenant
 
-In Hyperscale, rows with the same distribution column value are guaranteed to
+In Hyperscale (Citus), rows with the same distribution column value are guaranteed to
 be on the same node. Starting over, we can create our tables with `tenant_id`
 as the distribution column.
 
@@ -126,7 +124,7 @@ SELECT create_distributed_table('event', 'tenant_id');
 SELECT create_distributed_table('page', 'tenant_id', colocate_with => 'event');
 ```
 
-Now Hyperscale can answer the original single-server query without modification (Q1):
+Now Hyperscale (Citus) can answer the original single-server query without modification (Q1):
 
 ```sql
 SELECT page_id, count(event_id)
@@ -141,16 +139,15 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Because of filter and join on tenant_id, Hyperscale knows that the entire
-query can be answered using the set of colocated shards that contain the data
+Because of filter and join on tenant_id, Hyperscale (Citus) knows that the entire
+query can be answered by using the set of colocated shards that contain the data
 for that particular tenant. A single PostgreSQL node can answer the query in
 a single step.
 
-![better query](media/concepts-hyperscale-colocation/colocation-better-query.png)
+![Better query](media/concepts-hyperscale-colocation/colocation-better-query.png)
 
-In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. However, this is usually a
-straightforward change.
+In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. This change is usually straightforward.
 
 ## Next steps
 
-- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-hyperscale-multi-tenant.md)
+- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-hyperscale-multi-tenant.md).

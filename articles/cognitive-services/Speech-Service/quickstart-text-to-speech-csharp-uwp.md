@@ -1,22 +1,22 @@
 ---
 title: 'Quickstart: Synthesize speech, C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech SDK. You synthesize speech from text in real time to your device's speaker. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
+description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech SDK. You synthesize speech from text in real time to your device's speaker. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/24/2019
+ms.date: 08/19/2019
 ms.author: yinhew
 ---
 
 # Quickstart: Synthesize speech in a UWP app by using the Speech SDK
 
-Quickstarts are also available for [speech-recognition](quickstart-csharp-uwp.md), [speech-translation](quickstart-translate-speech-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech translation](quickstart-translate-speech-uwp.md), and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
-In this article, you develop a C# Universal Windows Platform (UWP; Windows version 1709 later) application by using the Cognitive Services [Speech SDK](speech-sdk.md). The program will synthesize speech from text in real time to your device's speaker. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later (any edition).
+In this article, you develop a C# Universal Windows Platform (UWP) application by using the Cognitive Services [Speech SDK](speech-sdk.md). The program synthesizes speech from text in real time to your device's speaker. You build the application using the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -25,7 +25,7 @@ In this article, you develop a C# Universal Windows Platform (UWP; Windows versi
 
 This quickstart requires:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project
@@ -34,33 +34,39 @@ This quickstart requires:
 
 ## Add sample code
 
-1. The application's user interface is defined by using XAML. Open `MainPage.xaml` in Solution Explorer. In the designer's XAML view, insert the following XAML snippet into the Grid tag (between `<Grid>` and `</Grid>`).
+Now add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
+
+1. In **Solution Explorer**, open `MainPage.xaml`.
+
+1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag (between `<Grid>` and `</Grid>`):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace all the code in it with the following.
+1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
+
+1. Replace all the code in it with the following snippet:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-1. In the `Speak_ButtonClicked` handler in this file, replace the string `YourSubscriptionKey` with your subscription key.
+1. In the source file's `Speak_ButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
-1. In the `Speak_ButtonClicked` handler, replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. In the `Speak_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
-1. Save all changes to the project.
+1. From the menu bar, choose **File** > **Save All** to save your changes.
 
-## Build and run the app
+## Build and run the application
 
-1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
+Now you are ready to build and test your application.
 
-    ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-uwp-08-build.png "Successful build")
+1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Start the application. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**.
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start the app into debugging")
+   ![Sample UWP speech synthesis application in C# - quickstart](media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
 1. Enter some text into the textbox, and click **Speak**. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-    ![Screenshot of speech synthesis user interface](media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Speech synthesis user interface](media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## Next steps
 
@@ -69,5 +75,5 @@ This quickstart requires:
 
 ## See also
 
-- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Create and use Custom Voice models](how-to-custom-voice-create-voice.md)
 - [Record voice samples](record-custom-voice-samples.md)

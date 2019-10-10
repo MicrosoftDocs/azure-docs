@@ -60,7 +60,8 @@ All examples in this document will use the following feature to demonstrate diff
 		"type": "Point",
 		"coordinates": [-122.13284, 47.63699]
 	},
-	"properties": {		
+	"properties": {	
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -305,6 +306,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+The following example uses a match expression to perform an "in array" or "array contains" type filter, in this case filtering data that has an ID value that is in a list of allowed IDs. When using expressions with filters, the result needs to be a Boolean value.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -629,7 +652,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[See live example](map-add-shape.md#line-stroke-gradient)
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
 ### Text field format expression
 
@@ -811,8 +834,11 @@ See the following articles for more code samples that implement expressions:
 > [!div class="nextstepaction"] 
 > [Add a bubble layer](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Add shapes](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Add a line layer](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Add a heat map layer](map-add-heat-map-layer.md)

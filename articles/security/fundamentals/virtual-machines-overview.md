@@ -75,7 +75,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 
 Learn more:
 
-* [Get Started with WDATP](/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 * [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## Hardware security module
@@ -98,7 +98,7 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 Learn more:
 
 * [Azure Disk Encryption for IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
-* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
 

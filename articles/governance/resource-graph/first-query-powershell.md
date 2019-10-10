@@ -1,13 +1,11 @@
 ---
-title: Run your first query using Azure PowerShell
+title: Run your first query using PowerShell
 description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -20,8 +18,6 @@ choice and run your first Resource Graph query.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Add the Resource Graph module
 
@@ -48,7 +44,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the correct version (0.7.3):
+1. Validate that the module has been imported and is the latest version (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module

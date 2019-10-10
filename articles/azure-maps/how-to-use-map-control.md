@@ -91,13 +91,13 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
                 aadAppId: '<Your AAD App Id>',
-                aadTenant: 'msft.ccsctp.net'
+                aadTenant: '<Your AAD Tenant Id>'
             }
         });
     </script>
     ```
 
-    For more information, see [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
+    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document.
 
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
@@ -184,7 +184,7 @@ map = new atlas.Map('myMap', {
         authType: 'aad',
         clientId: '<Your AAD Client Id>',
         aadAppId: '<Your AAD App Id>',
-        aadTenant: 'msft.ccsctp.net'
+        aadTenant: '<Your AAD Tenant Id>'
     }
 });
 ```
@@ -209,3 +209,11 @@ Learn how to style a map:
 
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
+
+To add more data to your map:
+
+> [!div class="nextstepaction"]
+> [Create a map](map-create.md)
+
+> [!div class="nextstepaction"]
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

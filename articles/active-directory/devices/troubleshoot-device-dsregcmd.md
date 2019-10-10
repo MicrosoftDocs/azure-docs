@@ -293,6 +293,9 @@ This section displays the output of sanity checks performed on a device joined t
 
 This section performs the perquisite checks for the provisioning of an NGC key. 
 
+> [!NOTE]
+> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
+
 ### Sample NGC prerequisite check output
 
 ```

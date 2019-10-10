@@ -47,8 +47,10 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 ## Private site access
 
 Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
-* Private site access is available in the [Premium](./functions-premium-plan.md) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
+* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. 
+    * Service endpoints can be configured on a per-app basis under Platform features > Networking > Configure Access Restrictions > Add Rule. Virtual networks can be selected now as the "type" of a rule.
+    * For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
@@ -94,6 +96,13 @@ Virtual network integration in Functions uses shared infrastructure with App Ser
 * [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+
+### Restricting your storage account to a virtual network
+
+> [!note] 
+> Temporarily, it may take up to 12 hours for your storage account to become available to your function app once you configure access restrictions on that storage account. During this time your application will be completely offline.
+
+In order to provide a higher level of security, you can restrict your application's storage account to a virtual network. You must then integrate your site with that virtual network to access your storage account. This configuration is supported on all plans that support virtual network integration.
 
 ## Virtual network triggers (non-HTTP)
 

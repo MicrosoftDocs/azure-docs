@@ -8,22 +8,22 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 07/31/2019
+ms.date: 08/14/2019
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
 
-1. In the upper-left corner of Azure portal, select **Create a resource**.
+1. In the upper-left corner of Azure portal, select **+ Create a resource**.
+
+      ![Create a new resource](media/aml-create-in-portal/portal-create-resource.png)
 
 1. Use the search bar to find **Machine Learning service workspace**.
 
 1. Select **Machine Learning service workspace**.
 
-1. In the **ML service workspace** pane, select **Create** to begin.
+1. In the **Machine Learning service workspace** pane, select **Create** to begin.
 
-1. Configure your new workspace by providing the workspace name, subscription, resource group, and location.
-
-    ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab.png)
+1. Provide the following information to configure your new workspace:
 
    Field|Description 
    ---|---
@@ -34,16 +34,10 @@ ms.date: 07/31/2019
 
 1. After you are finished configuring the workspace, select **Create**. 
 
-   It can take a few moments to create the workspace.
+   > [!Warning] 
+   > It can take several minutes to create your workspace in the cloud.
 
-   When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.
+   When the process is finished, a deployment success message appears. 
+ 
+ 1. To view the new workspace, select **Go to resource**.
 
-   ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
-
-1. If your code references this workspace from your local environment, select  **Download config.json** from the **Overview** section of the workspace.  
-
-   ![Download config.json](./media/aml-create-in-portal/configure.png)
-
-    Place this JSON file in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
-
-   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) there is no need to download this file, it is added to correct directory on the VM for you.

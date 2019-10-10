@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/26/2019
 ms.author: dapine
 ---
 
@@ -20,8 +20,8 @@ The two speech containers are **speech-to-text** and **text-to-speech**.
 
 |Function|Features|Latest|
 |-|-|--|
-|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.1.3|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
+|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.2.0|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.2.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,6 +34,8 @@ You must meet the following prerequisites before using Speech containers:
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Speech resource |In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Request access to the container registry
 
@@ -96,10 +98,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text** in the 1.1.3 version of the container:
+The following table lists the supported locales for **speech-to-text** in the 1.2.0 version of the container:
 
 |Language locale|Tags|
 |--|--|
@@ -124,10 +126,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech** in the 1.1.0 version of the container:
+The following table lists the supported locales for **text-to-speech** in the 1.2.0 version of the container:
 
 |Language locale|Tags|Supported voices|
 |--|--|--|
@@ -169,16 +171,12 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
-**During the preview**, the billing settings must be valid to start the container, but you aren't billed for usage.
+[Examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
-| Placeholder | Value |
-|-------------|-------|
-|{API_KEY} | This key is used to start the container, and is available on the Azure portal's Speech Keys page.  |
-|{ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Speech Overview page.|
-
-Replace these parameters with your own values in the following example `docker run` command.
+> [!NOTE]
+> **During the preview**, the billing settings must be valid to start the container, but you aren't billed for usage.
 
 ### Text-to-speech
 
@@ -267,7 +265,9 @@ The container provides REST endpoint APIs that can be found [here](https://docs.
 
 ## Troubleshooting
 
-When you run the container, the container uses **stdout** and **stderr** to output information that is helpful to troubleshoot issues that happen while starting or running the container.
+If you run the container with an output [mount](speech-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

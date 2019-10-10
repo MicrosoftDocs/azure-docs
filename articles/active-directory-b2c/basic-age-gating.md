@@ -16,10 +16,10 @@ ms.subservice: B2C
 # Enable Age Gating in Azure Active Directory B2C
 
 >[!IMPORTANT]
->This feature is in public preview. Do not use feature for production applications. 
+>This feature is in public preview. Do not use feature for production applications.
 >
 
-Age gating in Azure Active Directory (Azure AD) B2C enables you to identify minors that want to use your application. You can choose to block the minor from signing into the application. Users can also go back to the application and identify their age group and their parental consent status. Azure AD B2C can block minors without parental consent. Azure AD B2C can also be set up to allow the application to decide what to do with minors.
+Age gating in Azure Active Directory B2C (Azure AD B2C) enables you to identify minors that want to use your application. You can choose to block the minor from signing into the application. Users can also go back to the application and identify their age group and their parental consent status. Azure AD B2C can block minors without parental consent. Azure AD B2C can also be set up to allow the application to decide what to do with minors.
 
 After you enable age gating in your [user flow](active-directory-b2c-reference-policies.md), users are asked when they were born and what country/region they live in. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
 
@@ -66,11 +66,11 @@ Age gating involves two age values: the age that someone is no longer considered
 | SK | Slovakia | 16 | 18 |
 | TD | Chad | None | 21 |
 | TH | Thailand | None | 20 |
-| TW | Taiwan | None | 20 | 
+| TW | Taiwan | None | 20 |
 | US | United States | 13 | 18 |
 
 ## Age gating options
- 
+
 ### Allowing minors without parental consent
 
 For user flows that allow either sign-up, sign-in, or both, you can choose to allow minors without consent into your application. Minors without parental consent are allowed to sign in or sign up as normal and Azure AD B2C issues an ID token with the **legalAgeGroupClassification** claim. This claim defines the experience that users have, such as collecting parental consent and updating the **consentProvidedForMinor** field.
@@ -86,7 +86,7 @@ For user flows that allow either sign-up, sign-in or both, you can choose to blo
 
 To use age gating in a user flow, you need to configure your tenant to have additional properties.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu. Select the directory that contains your tenant. 
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu. Select the directory that contains your tenant.
 2. Select **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 3. Select **Properties** for your tenant in the menu on the left.
 2. Under the **Age gating** section, click on **Configure**.
@@ -99,7 +99,7 @@ After your tenant is set up to use age gating, you can then use this feature in 
 1. Create a user flow that has age gating enabled.
 2. After you create the user flow, select **Properties** in the menu.
 3. In the **Age gating** section, select **Enabled**.
-4. You then decide how you want to manage users that identify as minors. For **Sign-up or sign-in**, you select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you select `Send a JSON back to the application` or `Show an error message`. 
+4. You then decide how you want to manage users that identify as minors. For **Sign-up or sign-in**, you select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you select `Send a JSON back to the application` or `Show an error message`.
 
 
 

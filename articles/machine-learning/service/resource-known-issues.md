@@ -1,7 +1,7 @@
 ---
 title: Known issues & troubleshooting
-titleSuffix: Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -13,9 +13,9 @@ ms.date: 08/09/2019
 ms.custom: seodec18
 
 ---
-# Known issues and troubleshooting Azure Machine Learning service
+# Known issues and troubleshooting Azure Machine Learning
 
-This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
+This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
 ## Visual interface issues
 
@@ -44,6 +44,15 @@ Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
+
+**Error message: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
+This can be worked around by creating a new Conda Environment using this command:
+```bash
+conda create -n <env-name> python=3.7.3
+```
+Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
 
 ## Trouble creating Azure Machine Learning Compute
 
@@ -76,7 +85,7 @@ Databricks and Azure Machine Learning issues.
 
 ### Failure when installing packages
 
-Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning service SDK. You might experience this issue with other libraries, too. Example:
+Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -129,10 +138,10 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning service logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+> Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 ## Activity logs
 
@@ -163,3 +172,65 @@ For example, you will receive an error if you try to create or attach a compute 
 If you receive an error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, apply following workarounds.
 
 If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
+
+## Webservices in Azure Kubernetes Service failures 
+
+Many webservice failures in Azure Kubernetes Service can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an Azure Kubernetes Service Cluster by running
+
+```bash
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+## Updating Azure Machine Learning components in AKS cluster
+
+Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+If you no longer have the SSL certificate and private key, or you are using a certificate generated by Azure Machine Learning, you can retrieve the files prior to detaching the cluster by connecting to the cluster using `kubectl` and retrieving the secret `azuremlfessl`.
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
+
+## Recommendations for error fix
+Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
+
+### ModuleErrors (No module named)
+If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
+
+If you are using [Estimators](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
+
+Azure ML also provides framework specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
+ 
+ Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+
+>[Note!]
+> If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+ 
+ ### NameError (Name not defined), AttributeError (Object has no attribute)
+This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script, fix the error before retrying. 
+
+### Horovod is shutdown
+In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shutdown. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 

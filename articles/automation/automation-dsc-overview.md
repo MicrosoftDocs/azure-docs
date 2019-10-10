@@ -64,16 +64,13 @@ For nodes running Windows, the following versions are supported:
 - Windows 8.1
 - Windows 7
 
+The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016)
+standalone product sku does not contain an implementation of Desired State Configuraion
+so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
+
 For nodes running Linux, the following distros/versions are supported:
 
-The DSC Linux extension supports all the Linux distributions
-[endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
-except:
-
-Distribution | Version
--|-
-Debian	| all versions
-Ubuntu	| 18.04
+The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### DSC requirements
 
@@ -144,18 +141,6 @@ For a list of region IP addresses instead of region names, download the [Azure D
 >An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 >
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
-
-## Introduction video
-
-Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation
-State Configuration was first announced.
-
-> [!NOTE]
-> While the concepts and life cycle discussed in this video are correct, Azure Automation State
-> Configuration has progressed a lot since this video was recorded. It is now generally available,
-> has a much more extensive UI in the Azure portal, and supports many additional capabilities.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -50,12 +50,31 @@ Here’s what you need to know about the various components shown in the diagram
   * To quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more, see the **Quickstarts** section of the documentation.
   * To get in-depth, scenario-based procedures for top auth developer tasks like obtaining access tokens and using them in calls to the Microsoft Graph API and other APIs, implementing sign-in with Microsoft with a traditional web browser-based app using OpenID Connect, and more, see the **Tutorials** section of the documentation.
   * To download code samples, go to [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* The flow of requests and responses for the authentication process is determined by the authentication protocol that you used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. For more info about protocols, see the **Concepts > Protocols** section of the documentation.
+* The flow of requests and responses for the authentication process is determined by the authentication protocol that you used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. For more info about protocols, see the **Concepts > Authentication protocol** section of the documentation.
 
 In the example scenario above, you can classify the apps according to these two roles:
 
 * Apps that need to securely access resources
 * Apps that play the role of the resource itself
+
+### How each flow emits tokens and codes
+
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart proides an overview:
+
+|Flow | Requires | id_token | access token | refresh token | authorization code | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | refresh token | x | x | x| |
+|[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Device code flow](v2-oauth2-device-code.md) | | x| x| x| |
+|[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
+
+**Notes**:
+
+Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims. 
+
 
 Now that you have an overview of the basics, read on to understand the identity app model and API, how provisioning works in Microsoft identity platform, and links to detailed info about the common scenarios that Microsoft identity platform supports.
 

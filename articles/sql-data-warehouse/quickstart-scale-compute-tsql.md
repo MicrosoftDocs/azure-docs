@@ -145,4 +145,4 @@ AND
 You've now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
