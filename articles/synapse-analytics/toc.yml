@@ -283,31 +283,33 @@
       - name: Overview
         href: sql-analytics/data-loading-overview.md
       - name: Best practices
-        href: ../sql-data-warehouse/guidance-for-loading-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-best-practices.md
       - name: Columnstore compression
-        href: ../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-columnstore-compression.md
     - name: Development
       items:
       - name: Overview
-        href: ../sql-data-warehouse/sql-data-warehouse-overview-develop.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-overview.md
       - name: Best practices
-        href: ../sql-data-warehouse/sql-data-warehouse-best-practices-development.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-best-practices.md
       - name: Materialized view
         items:
-        - name: Create  (Transact-SQL)
+        - name: Performance tuning guidance
+          href: sql-analytics/development-materialized-view-performance-tuning.md
+        - name: Create 
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Alter  (Transact-SQL)
+        - name: Alter 
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Tables
         items:
         - name: Overview
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-overview.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-data-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Indexes
@@ -319,9 +321,9 @@
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-statistics.md
         - name: Temporary
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-temporary.md
         # - name: External tables
         #   href: article-template.md
         # - name: CETAS
@@ -329,12 +331,12 @@
       - name: T-SQL language elements
         items:
         - name: Loops
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-loops.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-loops.md
         - name: Stored procedures
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-stored-procedures.md
         - name: Transactions
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Transactions Best Practices
+          href: sql-analytics/development-transactions
+        - name: Transaction Best Practices
           href: ../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: ../sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
