@@ -44,7 +44,7 @@ The following function performs these actions:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-If you need to pass the name of the created input asset to other methods, make sure to use the the `Name` property on the asset object returned from `CreateInputAssetAsync`, for example, inputAsset.Name. 
+If you need to pass the name of the created input asset to other methods, make sure to use the `Name` property on the asset object returned from `CreateInputAssetAsync`, for example, inputAsset.Name. 
 
 ## Create an output asset to store the result of the encoding job
 
@@ -52,7 +52,7 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-If you need to pass the name of the created output asset to other methods, make sure to use the the `Name` property on the asset object returned from `CreateIOutputAssetAsync`, for example, outputAsset.Name. 
+If you need to pass the name of the created output asset to other methods, make sure to use the `Name` property on the asset object returned from `CreateIOutputAssetAsync`, for example, outputAsset.Name. 
 
 In the case of this article, pass the `outputAsset.Name` value to the `SubmitJobAsync` and `UploadAudioIntoOutputAsset` functions.
 
