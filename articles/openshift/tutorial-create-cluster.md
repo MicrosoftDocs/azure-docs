@@ -125,7 +125,7 @@ For example: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 You're now ready to create a cluster. The following will create the cluster in the specified Azure AD tenant, specify the Azure AD app object and secret to use as a security principal, and the security group that contains the members that have admin access to the cluster.
 
 > [!IMPORTANT]
-> Make sure you have correctly added the appropriate permissions for the AAD app as [detailed here](howto-aad-app-configuration.md#add-api-permissions) before creating the cluster
+> Make sure you have correctly added the appropriate permissions for the Azure AD app as [detailed here](howto-aad-app-configuration.md#add-api-permissions) before creating the cluster
 
 If you are **not** peering your cluster to a virtual network, use the following command:
 
