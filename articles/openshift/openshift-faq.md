@@ -186,7 +186,7 @@ This would be achieved via Azure AD integration. 
 
 Each Azure Red Hat OpenShift cluster is dedicated to a given customer and lives within the customer's subscription. 
 
-## Can we choose any persistent storage solution. OCS? 
+## Can we choose any persistent storage solution, like OCS? 
 
 Two storage classes are available to select from: Azure Disk and Azure File.
 
