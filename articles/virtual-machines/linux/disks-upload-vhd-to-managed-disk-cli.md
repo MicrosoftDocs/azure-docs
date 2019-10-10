@@ -119,6 +119,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## Next steps
 
-Now that you've successfully uploaded a vhd to a managed disk, you can attach your disk to a VM and begin using it.
-
-To learn how to attach a disk to a VM, see our article on the subject: [Add a disk to a Linux VM](add-disk.md).
+Now that you've successfully uploaded a vhd to a managed disk, you can [attach the disk to a VM](upload-vhd.md#create-the-vm) to create a new VM.
