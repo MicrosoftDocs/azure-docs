@@ -1,5 +1,5 @@
 ---
-title: 'What's new on the Data Science Virtual Machine'
+title: "What's new on the Data Science Virtual Machine"
 description: 'Release notes for the Azure Data Science Virtual Machine'
 author: gvashishtha
 ms.service: machine-learning
@@ -8,8 +8,6 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 10/10/2019
 ms.topic: reference
-
-
 ---
 
 # Azure Data Science Virtual Machine release notes
