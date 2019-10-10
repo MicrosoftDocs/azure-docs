@@ -119,6 +119,10 @@ Container and database level throughput provisioning are separate offerings and 
 
 Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
 
+## What are the Azure Cosmos DB service quotas and throughput limits
+
+See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
+
 ## SQL API
 
 ### How do I start developing against the SQL API?
