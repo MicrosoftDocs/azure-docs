@@ -256,6 +256,83 @@ Unsupported:
 
 - Put block from URL
 
+## Event Grid on IoT Edge Integration
+> [!CAUTION]
+> The integration with Event Grid on IoT Edge is in preview
+
+This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. You can follow the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/deploy-blob-storage-module-portal.md).
+
+The `api` values for BlobCreated and BlobDeleted events:
+
+| Event | API Values | Extra Notes |
+| ----- | ----- | ----- |
+| BlobCreated | `PutBlob` and `PutBlockList` | &nbsp; |
+| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
+
+### Sample Microsoft.Storage.BlobCreated event:
+
+```json
+        Received event data [
+        {
+          "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
+          "topic": "MicrosoftStorage",
+          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
+          "eventType": "Microsoft.Storage.BlobCreated",
+          "eventTime": "2019-10-01T21:35:17.7219554Z",
+          "dataVersion": "1.0",
+          "metadataVersion": "1",
+          "data": {
+            "api": "PutBlob",
+            "clientRequestId": "00000000-0000-0000-0000-000000000000",
+            "requestId": "ef1c387b-4c3c-4ac0-8e04-ff73c859bfdc",
+            "eTag": "0x8D746B740DA21FB",
+            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
+            "contentType": "image/jpeg",
+            "contentLength": 858129,
+            "blobType": "BlockBlob"
+          }
+        }
+      ]
+```
+
+### Sample Microsoft.Storage.BlobDeleted event:
+
+```json
+        Received event data [
+        {
+          "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
+          "topic": "MicrosoftStorage",
+          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
+          "eventType": "Microsoft.Storage.BlobDeleted",
+          "eventTime": "2019-10-01T21:36:09.2562941Z",
+          "dataVersion": "1.0",
+          "metadataVersion": "1",
+          "data": {
+            "api": "DeleteBlob",
+            "clientRequestId": "00000000-0000-0000-0000-000000000000",
+            "requestId": "2996bbfb-c819-4d02-92b1-c468cc67d8c6",
+            "eTag": "0x8D746B740DA21FB",
+            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
+            "contentType": "image/jpeg",
+            "contentLength": 858129,
+            "blobType": "BlockBlob"
+          }
+        }
+      ]
+```
+
+### Event Properties
+
+Check out the BlobCreated and BlobDeleted [Event Properties](../event-grid/event-schema-blob-storage.md#event-properties)
+
+### Reacting to the Blob Storage Events
+
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+
+Check out examples on how to [filer events](../storage/blobs/storage-blob-event-overview.md#filtering-events)
+
+Check out the [practices for consuming events](../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+
 ## Release Notes
 
 Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module

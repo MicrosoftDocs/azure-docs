@@ -10,6 +10,8 @@
       href: deploy-event-grid-portal.md
     - name: Deploy Azure Functions
       href: deploy-func-webhook-module-portal.md
+    - name: Deploy Azure Blob Storage on IoT Edge
+      href: deploy-blob-storage-module-portal.md
     - name: Publish and Subscribe
       href: pub-sub-events-webhook-local.md
   - name: Publish and subscribe to the cloud
