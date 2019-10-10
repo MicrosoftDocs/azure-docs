@@ -56,7 +56,7 @@ If you can't assign the required role to the AKS service principal, you might be
 This section shows two options:
 
 * [Create a service principal](#create-a-service-principal)
-* [Use registry admin credentials](#use-registry admin-credentials)
+* [Use registry admin credentials](#use-registry-admin-credentials)
 
 ### Create a service principal
 
@@ -88,7 +88,7 @@ echo "Service principal password: $SP_PASSWD"
 
 ### Use registry admin credentials
 
-Each container registry includes an [admin user account](../container-registry/container-registry-authentication#admin-account.md), which is disabled by default. 
+Each container registry includes an [admin user account](../container-registry/container-registry-authentication.md#admin-account), which is disabled by default. 
 
 
 ### Store credentials in pull secret
