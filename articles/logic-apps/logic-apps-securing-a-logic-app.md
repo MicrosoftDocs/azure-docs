@@ -602,8 +602,8 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 |---------------------|--------------|
 | [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
 | [Client Certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
-| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions |
+| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions |
 | [Managed identity](#managed-identity-authentication) (system-assigned only) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 |||
 
