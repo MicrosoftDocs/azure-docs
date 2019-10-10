@@ -143,7 +143,6 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
-<<<<<<< HEAD
 
 ## Change the location of the plan and log files
 
@@ -186,5 +185,3 @@ If you want to remove all plan and log files from your local machine to save dis
 To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.
 
 
-=======
->>>>>>> 50fe95a067b245164c3b71ffbe4593036d1d3d51
