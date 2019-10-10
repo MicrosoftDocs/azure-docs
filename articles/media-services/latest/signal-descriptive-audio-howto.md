@@ -19,7 +19,7 @@ ms.author: juliako
 
 You can add a narration to your video to help visually impaired consumers to follow the video recording by listening to the narration. 
 
-In Media Services v3, you signal audio description tracks by annotating the audio track in the manifest. For more information, see the [Signaling audio description tracks](dynamic-packaging-overview.md#signaling-audio-description-tracks) concept.
+In Media Services v3, you signal audio description tracks by annotating the audio track in the manifest file. For more information, see the [Signaling audio description tracks](dynamic-packaging-overview.md#signaling-audio-description-tracks) concept.
 
 This article shows how to encode a video, upload an audio-only MP4 file (AAC codec) containing descriptive audio into the output asset, and edit the .ism file to include the descriptive audio.
 
