@@ -5,7 +5,7 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.author: danlep
 ---
 
@@ -27,19 +27,19 @@ At a minimum, specify the following when you run `az acr pack build`:
 * An Azure container registry where you run the command
 * An image name and tag for the resulting image
 * One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
-* The name of a Buildpack builder image, such as `cloudfoundry/cnb:bionic`.  
+* The name of a Buildpack builder image, such as `cloudfoundry/cnb:0.0.12-bionic`.  
 
 `az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with Cloud Foundry builder
 
-The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:bionic` builder:
+The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:0.0.12-bionic` builder:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
