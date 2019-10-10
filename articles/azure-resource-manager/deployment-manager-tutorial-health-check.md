@@ -45,7 +45,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
-* Download [the templates and the artifacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) that is used by this tutorial.
+* Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally.
+* Run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial#prepare-the-artifacts.md).  The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
 
 ## Create a health check service simulator
 
@@ -63,7 +64,7 @@ To deploy the Azure function, select **Try it** to open the Azure Cloud shell, a
 > Save a copy of the project name. You use the same projectName through the tutorial.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used in preparing the artifacts."
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
 
