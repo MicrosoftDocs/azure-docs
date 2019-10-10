@@ -109,7 +109,7 @@ To disable Azure Application Insights, use the following code:
 ## Evaluate data
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
-1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Azure Application Insights link.
+1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com). Click on Azure Application Insights link.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
