@@ -710,30 +710,80 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 }
 ```
 
+<a name="raw-authentication"></a>
+
+### Raw authentication
+
+If [raw authentication]() is available, specify these property values:
+
+| Property (designer) | Property (JSON) | Required | Value | Description |
+|---------------------|-----------------|----------|-------|-------------|
+| **Authentication** | `type` | Yes | `Raw` | The authentication type to use |
+| **Value** | `value` | Yes | <*authorization-token-value*> | The  |
+| **Headers** | `headers` | | | |
+||||||
+
 <a name="managed-identity-authentication"></a>
 
-### Managed identity
+### Managed identity authentication
 
-For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
+If [managed identity authentication](../active-directory/managed-identities-azure-resources/overview.md) is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
-1. In your logic app, add the **HTTP** action.
+1. Before you use the managed identity in your trigger or action, follow these steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md):
 
-1. Provide the necessary details for that action, such as the request **Method** and **URI** location for the resource that you want to call. In the **URI** box, enter the endpoint URL for that Azure service. So, if you're using Azure Resource Manager, enter this value in the **URI** property:
+   1. Enable the system-assigned identity on your logic app.
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
+   1. Assign a role to that identity on the resource where that identity needs access.
+
+1. Based on the trigger or action where you use the managed identity, 
+
+
+specify these property values:
+
+| Property (designer) | Property (JSON) | Required | Value | Description |
+|---------------------|-----------------|----------|-------|-------------|
+| **Authentication** | `type` | Yes | `ManagedServiceIdentity` | The authentication type to use |
+| **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. for example, `https://management.azure.com/`. <p>**Tip**: To add this property in the designer, on the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that the resource ID exactly matches the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash. |
+|||||
+
+For example, suppose you want to the system-assigned identity to access an [Azure service that supports Azure Active Directory (Azure AD) authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).  This example HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and sends an HTTP request to the target service.
+
+```json
+"HTTP": {
+   "inputs": {
+      "authentication": {
+         "audience": "https://management.azure.com/",
+         "type": "ManagedServiceIdentity"
+      },
+      "method": "GET",
+      "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01"
+   },
+   "runAfter": {},
+   "type": "Http"
+   }
+   ```
 
 1. From the **Authentication** list, select **Managed Identity**. After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
 
    ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-   > [!IMPORTANT]
-   >
-   > In the **Audience** property, the resource ID value must exactly match the value that Azure AD expects, 
-   > including any required trailing slashes. You can find these resource ID values in this 
-   > [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
 
+When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01",
+      "authentication": {
+         "type": "ManagedServiceIdentity",
+         "audience": "https://management.azure.com/"
+     }
+   },
+   "runAfter": {}
+}
+```
 
 ## Next steps
 

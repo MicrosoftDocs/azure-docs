@@ -39,19 +39,18 @@ This article shows how to set up and use the system-assigned managed identity fo
 
 Unlike user-assigned identities, you don't have to manually create the system-assigned identity. To set up your logic app's system-assigned identity, here are the options that you can use:
 
-* [Azure portal](#azure-portal) 
-* [Azure Resource Manager templates](#template)
+* [Azure portal](#azure-portal-system-logic-app)
+* [Azure Resource Manager templates](#template-system-logic-app)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
 * [Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
-<a name="azure-portal"></a>
+<a name="azure-portal-system-logic-app"></a>
 
 ### Enable system-assigned identity in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in Logic App Designer.
 
-1. On the logic app menu, under **Settings**, select **Identity** > **System assigned**. 
-Under **Status**, select **On** > **Save** > **Yes**.
+1. On the logic app menu, under **Settings**, select **Identity** > **System assigned**. Under **Status**, select **On** > **Save** > **Yes**.
 
    ![Enable the system-assigned identity](./media/create-managed-service-identity/turn-on-system-assigned-identity.png)
 
@@ -64,7 +63,7 @@ Under **Status**, select **On** > **Save** > **Yes**.
    | **Object ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in your Azure AD tenant |
    ||||
 
-<a name="template"></a>
+<a name="template-system-logic-app"></a>
 
 ### Enable system-assigned identity in Azure Resource Manager template
 
@@ -152,7 +151,7 @@ For more information, see [Assign a managed identity access to a resource](../ac
 
 Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication with these triggers and actions that support managed identities:
 
-* [HTTP]
+* HTTP
 * Azure Functions
 * Azure API Management
 
