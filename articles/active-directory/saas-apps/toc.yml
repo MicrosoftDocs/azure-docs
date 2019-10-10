@@ -453,6 +453,8 @@
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
         href: expiration-reminder-tutorial.md
+      - name: EZOfficeInventory
+        href: ezofficeinventory-tutorial.md
     - name: F - G
       items:
       - name: F5
