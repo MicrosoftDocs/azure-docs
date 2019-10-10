@@ -49,7 +49,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
   * Central US
   * Central US EUAP
 
-* The two sample applications that you run in this quickstart are written by using C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
+* The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 
   You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
 
