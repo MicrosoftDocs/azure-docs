@@ -369,6 +369,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Discovery Benefits SSO
+        href: discovery-benefits-sso-tutorial.md
       - name: Displayr
         href: displayr-tutorial.md
       - name: dmarcian
@@ -701,6 +703,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Juno Journey
+        href: juno-journey-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
@@ -767,6 +771,8 @@
         href: lifesize-cloud-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: Learnster
+        href: learnster-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
