@@ -292,7 +292,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 * For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, logic apps can access Azure storage accounts, except Azure Table Storage and Azure Queue Storage, that exist in a different region because a public IP address is used for communicating across regions. Just make sure that you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Otherwise, you can use either more advanced options here:
+* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions. Otherwise, you can use the more advanced options here:
 
   * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
 
