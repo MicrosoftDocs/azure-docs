@@ -17,28 +17,43 @@ ms.reviewer: jrasnick
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# AzureFAQ 
+# FAQ 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
 --->
-## Security
+
+## Ressources
+### Q: What is a good use case for Spark in Synapse
+
+A: Our first goal is to provide a great Data Engineering experience for transforming data over the lake in batch or stream. Its tight and simple integration to our data orchestration makes the operationalization of your development work straightforward.
+
+Another use case for Spark is for a Data Scientist to:
+- extract a feature
+- explore data
+- train a model
+
+### Q: What is a good use case for SQL Analytics On-Demand in Synapse
+
+A: SQL On-Demand is a great tool for exploring the data with T-SQL. It is also a great tool for running Business Intelligence at a low cost if data is accessed infrequently.
+
+## Security and Access
 ### Q: What is the primary way to authenticate and give access to users 
 
-A: End to end single sign-on experience is very important in Azure Synapse. Therefore, managing and passing through the identity through a full AAD integration is a must. 
+A: End to end single sign-on experience is very important in Azure Synapse Analytics. Therefore, managing and passing through the identity through a full AAD integration is a must. 
 
 ### Q: How do I get access to files and folders in the ADLSg2?
 
 A: Access to files and folders is currently managed through ADLSg2. An interface in the Synapse Studio will be soon available. Formore information, visit the page [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
 
-Q: Can I use third party business intelligence tools with Lake Formation?
+### Q: Can I use third party business intelligence tools to access Azure Synapse Analytics?
 
-A: Yes, you can use your third-party business applications, like Tableau and Looker, to connect to your AWS data sources through services like Athena or Redshift. Access to data is managed by the underlying Data Catalog, so regardless of which application you use, you are assured that access to your data is governed and controlled.
+A: Yes, you can use your third-party business applications, like Tableau and Power BI, to connect to SQL Analytics pool and SQL Analytics On-Demand. Spark supports IntelliJ.
 
-Q: Does Lake Formation provide APIs or a CLI?
+### Q: Does Azure Synapse Analytics provide APIs?
 
-A: Yes, Lake Formation provides APIs and a CLI to integrate Lake Formation functionality into your custom applications. Java and C++ SDKs are also available to enable you to integrate your own data engines with Lake Formation.
-Introductory paragraph.
+A: Yes, we provide an SDK to programatically interact to Azure Synapse Analytics. More information is available [here] on which operations are supported by Synapse.
+
 <!---Required:
 The introductory paragraph helps customers quickly determine whether an article is relevant.
 Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
