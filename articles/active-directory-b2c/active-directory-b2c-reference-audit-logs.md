@@ -85,8 +85,7 @@ Audit logs are published to the same pipeline as other activities for Azure Acti
 
 To allow script- or application-based access to the Azure AD reporting API, you need an Azure Active Directory application registered in your Azure AD B2C tenant with the following API permissions:
 
-* Microsoft Graph
-  * Application: Read all audit log data
+* Microsoft Graph > Application permissions > AuditLog.Read.All
 
 You can enable these permissions on an existing Azure Active Directory application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 

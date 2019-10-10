@@ -80,7 +80,7 @@ Press **F5** to build and run the sample.
 Now, the user can use their email address to sign in and use the desktop app.
 
 > [!NOTE]
-> If you click the **Call API** button, you will receive an "Unauthorized" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant.
+> If you click the **Call API** button, you will receive an "Unauthorized" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD B2C tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant.
 
 ## Next steps
 
@@ -91,5 +91,7 @@ In this tutorial, you learned how to:
 > * Configure the sample to use the application
 > * Sign up using the user flow
 
+Next, to enable the **Call API** button functionality, grant the WPF desktop application access to a web API registered in your own Azure AD B2C tenant:
+
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access to a Node.js web API from a desktop app using Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Grant access to a Node.js web API from a desktop app >](active-directory-b2c-tutorials-desktop-app-webapi.md)

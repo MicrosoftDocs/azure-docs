@@ -41,7 +41,7 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 ## Grant permissions
 
-To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *app1*. You use this application to call the web API.
+To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *nativeapp1*. You use this application to call the web API.
 
 1. Select **Applications (Preview)**, and then select the web application that should have access to the API. For example, *nativeapp1*.
 1. Under **Manage**, select **API permissions**.
