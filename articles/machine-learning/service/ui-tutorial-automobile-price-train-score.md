@@ -83,8 +83,6 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
     In the **Select Columns** dialog, select **All columns** and include **All features**. The dialog should look like this:
 
-     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
-
 1. On the lower right, select **Save** to close the column selector.
 
 ### Run the pipeline
@@ -95,16 +93,17 @@ At any time, click the output port of a dataset or module to see what the data l
 
 After the compute target is available, the pipeline runs. When the run is complete, a green check mark appears on each module.
 
-
 ### Visualize the data
 
 Now that you have run your initial pipeline, you can visualize the data to understand more about the dataset you have.
 
-1. Select the **Select Columns in Dataset** module then select **Visualize**.
+1. Select the **Select Columns in Dataset**.
 
 1. In the **Properties** pane to the right of the canvas, select **Outputs**.
 
-1. Select the graph icon to visualize the data
+1. Select the graph icon to visualize the data.
+
+
 
 1. Select the different columns in the data window to view information about that column.
 
@@ -137,7 +136,7 @@ First, remove the **normalized-losses** column completely.
 
     * On the lower right, select **Save** to close the column selector.
 
-    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
+    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
         
     Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
         
@@ -211,7 +210,7 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final pipeline should look something like this:
 
-    ![Screenshot showing the final correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
+    ![Screenshot showing the correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
 
 1. Run the pipeline using the compute resource you created earlier.
 

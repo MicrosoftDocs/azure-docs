@@ -29,7 +29,7 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 ## Prepare for deployment
 
-Before you deploy your experiment as a web service, you first have to convert your *training experiment* into a *predictive experiment*.
+Before you deploy your pipeline as a web service, you first have to convert your *training pipeline* into a *predictive pipeline*.
 
 1. Select **Publish** at the top of the pipeline canvas.
 
@@ -39,9 +39,9 @@ Before you deploy your experiment as a web service, you first have to convert yo
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
-    ![Animated gif showing the automatic conversion of a training experiment to a predictive pipeline](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+    ![Animated gif showing the automatic conversion of a training pipeline to a predictive pipeline](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-    When you select **Create Predictive Experiment**, several things happen:
+    When you select **Create Predictive Pipeline**, several things happen:
     
     * The trained model is stored as a **Trained Model** module in the module palette. You can find it under **Trained Models**.
     * Modules that were used for training are removed; specifically:
@@ -52,13 +52,13 @@ Before you deploy your experiment as a web service, you first have to convert yo
 
     The **training pipeline** is still saved under the new tabs at the top of the pipeline canvas.
 
-1. **Run** the pipeline using the same experiment you used in part 1.
+1. **Run** the pipeline using the same pipeline you used in part 1.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
-Your experiment should now look like this:  
+Your pipeline should now look like this:  
 
-![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
 ## Deploy the web service
 
@@ -114,9 +114,9 @@ The models and web service deployments you create in the visual interface can al
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
-1. In your workspace, select **Models**. Then select the experiment you created.
+1. In your workspace, select **Models**. Then select the pipeline you created.
 
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
+    ![Screenshot showing how to navigate to pipelines in the Azure portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
 
     On this page, you'll see additional details about the model.
 
@@ -132,7 +132,7 @@ You can also find these models and deployments in the **Models** and **Endpoints
 
 ## Next steps
 
-In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample experiments.
+In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample pipelines.
 
 > [!div class="nextstepaction"]
 > [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
