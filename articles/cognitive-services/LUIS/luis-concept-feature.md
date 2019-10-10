@@ -23,11 +23,7 @@ Features in Language Understanding include:
 * Phrase list as a feature to intents or entities
 * Entities as features to intents or entities
 
-Features should be considered as part of your schema, necessary for model decomposition. 
-
-## Features are not classifiers
-
-A feature is not a classifier in the model. 
+Features should be considered as a necessary part of your schema for model decomposition. 
 
 ## When to use a phrase list
 
