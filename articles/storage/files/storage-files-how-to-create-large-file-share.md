@@ -1,10 +1,10 @@
 ---
-title: Create a premium Azure file share
-description: In this article, you learn how to create a premium Azure file share.
+title: Enable and create large file shares - Azure Files
+description: In this article, you learn how to enable and create large file shares.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2019
+ms.date: 10/10/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -19,6 +19,10 @@ Originally, fileshares could only scale up to 5 TiB, now, with large file shares
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+## Restrictions
+
+Large file share enabled accounts cannot use RA-GRS. Enabling large file shares on an account is currently an irreversible process, so only enable it on an account that you do not want to use RA-GRS with.
+
 ## Create a new storage account
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -31,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     ![Screenshot showing how to create a resource group in the portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
-1. Select a location for your storage account, or use the default location.
+1. Select a location for your storage account, make sure it is [one of the regions supported for LFS](storage-files-planning.md#regional-availability).
 1. Set the replication to Locally-redundant storage.
 1. Leave these fields set to their default values:
 
@@ -45,3 +49,25 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Advanced** and select **Enabled** for **Large file shares**.
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
+
+## Enable on existing account
+
+You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use RA-GRS. This choice is irreversible on this account.
+
+1. Open the [Azure portal](https://portal.azure.com) and navigate to the storage account you want to enable large file shares on.
+1. Open the storage account and select **Configuration**.
+1. Select **Enabled** on **Large file shares**, then select save.
+
+You've now enabled large file shares on your storage account.
+
+![enable-large-file-shares-on-existing.png](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
+
+## Create a large file share
+
+Creating a large file share is almost identical to creating a standard file share. The main difference is that you can set a quota up to 100 TiB.
+
+1. From your storage account, select **File shares**.
+1. Select **+ File Share**.
+1. Enter a name for your file share and the quota size you'd like, up to 100 TiB, then select **Create**.
+
+![create-large-file-share-GA.png](media/storage-files-how-to-create-large-file-share/create-large-file-share-GA.png)
