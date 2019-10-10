@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # Specify availability for your Office solution
 
-You can define the markets, visibility, and publishing schedule for your solution on the Pricing and availability page in Partner Center.
+You can define the markets and visibility for your solution, and schedule the date on which your solution will be discoverable, on the Availability page in Partner Center.
 
 ## Markets
 
@@ -32,10 +32,10 @@ If you choose not to make your solution discoverable in AppSource, you have the 
 
 ## Schedule
 
-By default, your solution will be made available and discoverable in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in AppSource, choose **Show options** to specify a release schedule. You have the following options:
+By default, your solution will be made available and discoverable in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in AppSource, choose **Show options** to specify a release schedule. Note that your solution will still be accessible via direct link in AppSource prior to the release date. You have the following options:
 
 - **as soon as possible** - Your solution will be available as soon as it is validated and published.
-- **at** - Your solution will be discoverable on the day and time that you specify. You must select the time in UTC. Your solution will be made available at the same time in all markets; you can't customize the availability for different markets.
+- **at** - Your solution will be discoverable on the day and time that you specify. You must select the time in UTC and it cannot be a date in the past. Your solution will be made available at the same time in all markets; you can't customize the discoverability schedule for different markets.
 
 If you choose not to make your solution discoverable in AppSource, you can't schedule the release date.
 
