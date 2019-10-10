@@ -91,7 +91,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to AppSource can function only to install the full-control app.|
 |5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted. For more information, see *How can I avoid errors when submitting my app or add-in to AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
-|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#office-initialize) has been called. This ensures that content display will synchronize with presentations correctly.|
+|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#office-initialize-reason-) has been called. This ensures that content display will synchronize with presentations correctly.|
 
 <a name="bk_6"> </a>
 ## 6. Apps and add-ins are appropriate for a global audience
