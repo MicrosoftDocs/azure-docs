@@ -6,23 +6,16 @@ ms.date: 10/9/2019
 ms.author: pabouwer
 ---
 
-## Download Istio
+## Download and install the Istio istioctl client binary
 
-First, download and extract the latest Istio release. 
-
-On Linux or [Windows Subsystem for Linux][install-wsl], use `curl` to download the latest Istio release and then extract with `tar` as follows:
+In a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl], use `curl` to download the Istio release and then extract with `tar` as follows:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.1.3
+ISTIO_VERSION=1.3.2
 
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
-
-## Install the Istio istioctl client binary
-
-> [!IMPORTANT]
-> Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
 
 The `istioctl` client binary runs on your client machine and allows you to interact with the Istio service mesh. Use the following commands to install the Istio `istioctl` client binary in a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl]. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
