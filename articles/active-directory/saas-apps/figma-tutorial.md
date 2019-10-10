@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 10/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -62,10 +62,10 @@ Configure and test Azure AD SSO with Figma using a test user called **B.Simon**.
 To configure and test Azure AD SSO with Figma, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Figma SSO](#configure-figma-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Figma test user](#create-figma-test-user)** - to have a counterpart of B.Simon in Figma that is linked to the Azure AD representation of user.
+    * **[Create Figma test user](#create-figma-test-user)** - to have a counterpart of B.Simon in Figma that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -93,6 +93,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You will get the `TENANT ID` from step#11 of Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+
+1. Figma application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Figma application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| `externalId` | `user.mailnickname` |
+	| `displayName` | `user.displayname` |
+	| `title` | `user.jobtitle` |
+	| `emailaddress` | `user.mail` |
+	| `familyName` | `user.surname` |
+	| `givenName` | `givenName` |
+	| `userName` | `user.userprincipalname` |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
