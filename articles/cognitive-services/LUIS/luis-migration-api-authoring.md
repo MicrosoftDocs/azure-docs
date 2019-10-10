@@ -15,26 +15,14 @@ ms.author: diberry
 
 # Authoring changes for V2 and V3
 
-The authoring APIs are updated, for both V2 and V3, to allow for model decomposition with machine-learned entities. Use this guide to understand how to use these new authoring APIs. 
+The authoring APIs are updated, for both V2 and V3, to allow for [model decomposition with machine-learned entities](luis-concept-model.md#model-decomposition). 
 
-The V3 API provides the following new features to support model decomposition:
+Adding model decomposition is provided on both authoring API versions so you can choose to migrate your app's authoring and prediction at different times. 
 
-* [Machine-learned entities](#machine-learned-entities)
-* [Descriptors](#descriptors)
-* [Constraints](#constraints)
+You can author in either V2 or V3 from the APIs. The same app can also choose to use V2 or V3 prediction endpoint responses. You do not have to have the same version of API for authoring and response.
 
-## Machine-learned entities
-
-[include file]
-
-## Descriptors
-
-[include file]
-
-## Constraints
-
-[include file]
+The LUIS portal uses the V3 authoring APIs exclusively.
 
 ## Next steps
 
-Review [changes to the prediction endpoint](luis-migration-api-v3-prediction.md) for V3 API.
+Review [changes to the prediction endpoint](luis-migration-api-v3.md) for V3 API.
