@@ -10,36 +10,44 @@ author: dominicbetts
 ms.date: 10/03/2019
 ---
 
-# Tutorial:  Export data from Azure IoT Central and visualize insights in Power BI
+# Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-AUTHORS: A single sentence intro about AML. Intro paragraph to explain the intent of this tutorial. Lead with a light intro that describes, in customer-friendly language, what they’ll learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question. Avoid starting the tutorial with a bunch of notes or caveats.
+In this tutorial, you configure your IoT Central retail monitoring application to export telemetry collected from the devices. You then create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
-In this tutorial you will do X...
-
-AUTHORS: Quick read tutorial guidance: https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=master  And, don't forget to run Acrolinx to find issues before you commit.
-
-In this tutorial, you use X to do Y or you learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create something
-> * Do something
-> * Do something else
-> * Finish something 
-> 
-> [Important!]
-> Avoid notes, tips, and important boxes. Except for this one, ha!
-> 
-> Tutorials are typically longer and more complex than quickstarts. They are created from the list of top user tasks identified in milestone one and focus on the single best procedure for completing that task. A tutorial usually aligns to one or two customer tasks. At a minimum, you need one tutorial in the Tutorials node of the TOC.
-> 
-> Tutorials are 100 – 200 level for an audience new to the service, product, or scenario. Ideally, your tutorials should build on each other using a common theme with the result being a completed customer scenario. Unlike how-to content, they are not open-ended, exhaustive walkthroughs of a feature.
+> * Configure an IoT Central application to export telemetry to an event hub.
+> * Use Logic Apps to send data from an event hub to a Power BI streaming dataset.
+> * Create a Power BI dashboard to visualize data in the streaming dataset.
 
 ## Prerequisites
 
 To complete this tutorial, you need:
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn how to install Docker here: https://docs.docker.com/engine/installation/.
 
+* To complete the previous two tutorials, [Create a condition monitoring retail application in Azure IoT Central](./tutorial-condition-monitor-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-condition-monitor-customize-dashboard-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
-## Log in to the Azure portal
+## Create an event hub
+
+Before you can configure the retail monitoring application to export telemetry, you need to create the event hub that receives the exported data. The following steps show you how to create your event hub:
+
+## Configure data export
+
+Now you have an event hub, you can configure the retail monitoring application to export telemetry from the connected devices. The following steps show you how to configure the export:
+
+## Create a Power BI dataset
+
+Your Power BI dashboard will display data from your retail monitoring application. In this solution, you use a Power BI streaming dataset as the data source for the dashboard. In this section, you define the schema of the streaming dataset so that the Logic app can forward data from the event hub. The following steps show you how to create the streaming dataset:
+
+## Create a Logic app
+
+In this so
+
+## Create a Power BI dashboard
+
+## Sign in to the application
+
 Log in to the [Azure portal](https://portal.azure.com).
 
 Don’t number H2 and H3 headings. Tutorials are procedure based and customers understand that the sections follow in sequence.
