@@ -31,7 +31,7 @@ LUIS supports _model decomposition_, breaking down the model into smaller models
 
 ## Intents classify utterances
 
-Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents. 
+Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. 
 
 The result of well-designed intents, with their example utterances, is a high intent prediction. 
 
@@ -62,7 +62,7 @@ This utterance _may_ have several entities:
 
 ## Entity subcomponents help extract data
 
-A subcomponent is an child entity within a machine-learned entity. The subcomponent can be any entity type: machine-learned, non-machine-learned, prebuilt entity. 
+A subcomponent is a child entity within a machine-learned entity. The subcomponent can be any entity type: machine-learned, non-machine-learned, prebuilt entity. 
 
 Use the subcomponent to decompose the parts of the machine-learned entity (parent entity).
 
