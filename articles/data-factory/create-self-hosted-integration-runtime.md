@@ -268,9 +268,9 @@ At the *corporate firewall* level, you need to configure the following domains a
 At the *Windows firewall* level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on a self-hosted integration runtime machine.
 
 > [!NOTE]
-> Based on your source and sinks, you might have to whitelist additional domains and outbound ports in your corporate firewall or Windows firewall.
+> Based on your source and sinks, you might have to allow additional domains and outbound ports in your corporate firewall or Windows firewall.
 >
-> For some cloud databases (for example, Azure SQL Database and Azure Data Lake), you might need to whitelist IP addresses of self-hosted integration runtime machines on their firewall configuration.
+> For some cloud databases (for example, Azure SQL Database and Azure Data Lake), you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
 
 ### Copy data from a source to a sink
 Ensure that the firewall rules are enabled properly on the corporate firewall, the Windows firewall on the self-hosted integration runtime machine, and the data store itself. Enabling these rules allows the self-hosted integration runtime to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
@@ -351,7 +351,7 @@ If you select the **Use system proxy** setting for the HTTP proxy, the self-host
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company’s whitelist. You can download the list of valid Microsoft Azure IP addresses from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company’s allow list. You can download the list of valid Microsoft Azure IP addresses from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it's likely due to improper configuration of the firewall or proxy server, which blocks the self-hosted integration runtime from connecting to Data Factory to authenticate itself. To ensure that your firewall and proxy server are properly configured, refer to the previous section.

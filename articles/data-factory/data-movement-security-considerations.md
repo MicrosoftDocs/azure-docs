@@ -150,7 +150,7 @@ The following images show the use of self-hosted integration runtime for moving 
 
 ![IPSec VPN with gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Firewall configurations and whitelisting IP addresses
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Firewall configurations and allow list setting up for IP addresses
 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a corporate firewall runs on the central router of the organization. Windows Firewall runs as a daemon on the local machine in which the self-hosted integration runtime is installed. 
@@ -160,7 +160,7 @@ The following table provides outbound port and domain requirements for corporate
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> You might have to manage ports or whitelisting domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.   
+> You might have to manage ports or set up allow list for domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.   
 
 The following table provides inbound port requirements for Windows Firewall:
 
@@ -170,10 +170,10 @@ The following table provides inbound port requirements for Windows Firewall:
 
 ![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### IP configurations and whitelisting in data stores
-Some data stores in the cloud also require that you whitelist the IP address of the machine accessing the store. Ensure that the IP address of the self-hosted integration runtime machine is whitelisted or configured in the firewall appropriately.
+#### IP configurations and allow list setting up in data stores
+Some data stores in the cloud also require that you allow the IP address of the machine accessing the store. Ensure that the IP address of the self-hosted integration runtime machine is allowed or configured in the firewall appropriately.
 
-The following cloud data stores require that you whitelist the IP address of the self-hosted integration runtime machine. Some of these data stores, by default, might not require whitelisting. 
+The following cloud data stores require that you allow the IP address of the self-hosted integration runtime machine. Some of these data stores, by default, might not require allow list. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -189,7 +189,7 @@ Yes. More details [here](https://azure.microsoft.com/blog/sharing-a-self-hosted-
 
 **What are the port requirements for the self-hosted integration runtime to work?**
 
-The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8060 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
+The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8060 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and allow list setting up for IP addresses](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) section. 
 
 
 ## Next steps
