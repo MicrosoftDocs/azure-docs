@@ -148,7 +148,7 @@ Azure AD DS lets you synchronize *all* users and groups available in Azure AD, o
 
 1. Select **Review + create**.
 
-## Deploy your managed domain
+## Deploy the managed domain
 
 On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes.
 

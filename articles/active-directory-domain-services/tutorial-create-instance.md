@@ -49,7 +49,7 @@ Although not required for Azure AD DS, it's recommended to [configure self-servi
 
 In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an instance and configure basic settings
+## Create an instance
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
@@ -97,7 +97,7 @@ To quickly create an Azure AD DS managed domain, you can select **Review + creat
 
 1. Select **Review + create** to accept these default configuration options.
 
-## Deploy your managed domain
+## Deploy the managed domain
 
 On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes.
 
