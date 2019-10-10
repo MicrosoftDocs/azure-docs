@@ -82,20 +82,40 @@ You design how the data is matched and extracted by which models you choose and 
 
 ## Constraints are text rules
 
-A constraint is a text-matching rule applied at prediction time to a subcomponent of a machine-learned entity. You define these rules while authoring the subcomponent. The rule is applied to a user utterance at prediction time. 
-
-Constraints are regular expression entities or list entities. 
+A constraint is a text-matching rule applied at prediction time to a subcomponent of a machine-learned entity. You define these rules while authoring the subcomponent. 
 
 Use a constraint when you know the exact text to extract.
 
+Constraints include:
+
+* regular expression entities
+* list entities 
+
 Continuing with the example of the plane ticket, the airport codes can be in a List entity for exact text matches. 
+
+For an airport list, the list entry for Seattle is the city name, `Seattle` and the synonyms for Seattle include the airport code for Seattle along with surrounding towns and cities:
+
+|`Seattle` List entity synonyms|
+|--|
+|`Sea`|
+|`seatac`|
+|`Bellevue`|
+
+If you want to only recognize 3 letter codes for airport codes, use a regular expression as the constraint. 
+
+`/^[A-Z]{3}$/`
 
 ## Descriptors are features
 
-A descriptor is a feature applied to a model at training time. A descriptor includes both phrase lists and entities. 
+A descriptor is a feature applied to a model at training time. A descriptor includes:
 
-Use a descriptor when you want to add boost the prediction score, using the words and phrases identified by the descriptor, to an intent or entity. 
+* phrase lists
+* entities 
 
+Use a descriptor when you want to:
+
+* boost the significance of words and phrases identified by the descriptor
+* have LUIS recommend new text or phrases to recommend for the descriptor
 
 ## Next steps
 
