@@ -122,11 +122,9 @@ The top use cases for PolicyPak are to remove local admin rights and overcome UA
 
 ![PrinterLogic Logo](./media/partners/printerlogic.png)
 
-PrinterLogic is a Windows Virtual Desktop value-added services provider that delivers a true SaaS solution. PrinterLogic SaaS helps IT teams eliminate all print servers and deliver a highly available direct IP printing infrastructure. PrinterLogic SaaS integrates with WVD in a powerful way, and ensures that users always have the redirected printers that they need in their virtual sessions. 
+PrinterLogic is a Windows Virtual Desktop value-added service provider platform which empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure.  PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to centrally manage and deploy printer objects to any printer or endpoint OS.   
 
-PrinterLogic SaaS eliminates all print servers from your network environment, replacing them with simple, secure, and efficient centrally managed direct-IP printing. Single points of failure are removed, and the result is high availability in which printing stays local, and continues even when the internet is down. Printer and driver deployments are managed centrally using a web-based Admin Console, eliminating the need for troublesome scripting and GPOs.  
-
-The platform also features location-based printing based on IP address range. If a worker changes locations, printers that are no longer relevant are dropped from the user’s printer menu and new ones that are closeby appear automatically. PrinterLogic’s solution delivers secure release printing, mobile printing, self-service printer installation for users, and a host of other features that conventional print-management software cannot deliver. 
+Available as SaaS or as a Web Stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based upon user ID, device name or location.  This functionality is complemented by a full suite of enterprise print management features such as Print tracking and Reporting, Mobile Printing and Secure Badge Release Printing. 
 
 - [Go to partner website](https://www.printerlogic.com).
 
