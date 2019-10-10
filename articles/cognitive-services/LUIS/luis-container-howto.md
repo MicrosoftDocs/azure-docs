@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/10/2019
 ms.author: dapine
 ---
 
@@ -100,7 +100,7 @@ Place the package file in a directory and reference this directory as the input 
 
 ### Package types
 
-The input mount directory can contain the **Production**, **Staging**, and **Trained** versions of the app simultaneously. All the packages are mounted. 
+The input mount directory can contain the **Production**, **Staging**, and **Versioned** models of the app simultaneously. All the packages are mounted.
 
 |Package Type|Query Endpoint API|Query availability|Package filename format|
 |--|--|--|--|
@@ -118,7 +118,7 @@ Before packaging a LUIS application, you must have the following:
 |Packaging Requirements|Details|
 |--|--|
 |Azure _Cognitive Services_ resource instance|Supported regions include<br><br>West US (`westus`)<br>West Europe (`westeurope`)<br>Australia East (`australiaeast`)|
-|Trained or published LUIS app|With no [unsupported dependencies](#unsupported-dependencies). |
+|Trained or published LUIS app|With no [unsupported dependencies][unsupported-dependencies]. |
 |Access to the [host computer](#the-host-computer)'s file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
   
 ### Export app package from LUIS portal
@@ -140,7 +140,7 @@ The published app's package is available from the **My Apps** list page.
 
 ### Export versioned app's package from LUIS portal
 
-The trained app's package is available from the **Versions** list page. 
+The versioned app's package is available from the **Versions** list page.
 
 1. Sign on to the LUIS [portal](https://www.luis.ai).
 1. Select the app in the list. 
@@ -189,7 +189,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{AUTHORING_KEY}** | The authoring key of the LUIS account for the published LUIS app.<br/>You can get your authoring key from the **User Settings** page on the LUIS portal. |
 | **{AZURE_REGION}** | The appropriate Azure region:<br/><br/>`westus` - West US<br/>`westeurope` - West Europe<br/>`australiaeast` - Australia East |
 
-To download the trained package, refer to the [API documentation here][download-trained-package]. If successfully downloaded, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
+To download the versioned package, refer to the [API documentation here][download-versioned-package]. If successfully downloaded, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
 ## Run the container with `docker run`
 
@@ -236,16 +236,16 @@ Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available wit
 
 ## Query the container's prediction endpoint
 
-The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps.
+The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for versioned apps.
 
 Use the host, `http://localhost:5000`, for container APIs.
 
 # [V3 prediction endpoint](#tab/v3)
 
-|Package type|Method|Route|Query parameters|
+|Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
 |Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Trained|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|query={query}<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 
@@ -258,10 +258,10 @@ The query parameters configure how and what is returned in the query response:
 
 # [V2 prediction endpoint](#tab/v2)
 
-|Package type|Method|Route|Query parameters|
+|Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
 |Published|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
-|Trained|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
+|Versioned|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 The query parameters configure how and what is returned in the query response:
 
@@ -291,7 +291,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-To make queries to the **Staging** environment, replace **production** route with **staging**:
+To make queries to the **Staging** environment, replace `production` in the route with `staging`:
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -366,29 +366,6 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
-## Supported dependencies for `latest` container
-
-The latest container, released at 2019 //Build, will support:
-
-* [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use. 
-
-<a name="unsupported-dependencies"></a>
-
-## Unsupported dependencies for `latest` container
-
-To [export for container](#export-packaged-app-from-luis), you must remove unsupported dependencies from your LUIS app. When you attempt to export for container, the LUIS portal reports these unsupported features that you need to remove.
-
-You can use a LUIS application if it **doesn't include** any of the following dependencies:
-
-Unsupported app configurations|Details|
-|--|--|
-|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
-|Unsupported entities for all cultures|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) prebuilt entity for all cultures|
-|Unsupported entities for English (en-US) culture|[GeographyV2](luis-reference-prebuilt-geographyV2.md) prebuilt entities|
-|Speech priming|External dependencies are not supported in the container.|
-|Sentiment analysis|External dependencies are not supported in the container.|
-|Bing spell check|External dependencies are not supported in the container.|
-
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -408,10 +385,12 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
-* See [LUIS container languages supported](luis-container-language-support.md) the available languages.
+* See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
 * Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
-[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip
+[download-versioned-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip
+
+[unsupported-dependencies]: luis-container-limitations.md#unsupported-dependencies-for-latest-container
