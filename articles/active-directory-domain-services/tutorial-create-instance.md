@@ -99,7 +99,7 @@ To quickly create an Azure AD DS managed domain, you can select **Review + creat
 
 ## Deploy the managed domain
 
-On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes.
+On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes. To redeploy an Azure AD DS managed domain to a different Azure AD tenant in a consistent way using these configuration options, you can also **Download a template for automation**.
 
 1. To create the managed domain, select **Create**. A note is displayed that certain configuration options such as DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
 1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
@@ -165,15 +165,15 @@ It takes a few minutes after you've changed your password for the new password t
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Configure DNS and virtual network settings for a managed domain
+> * Understand DNS requirements for a managed domain
 > * Create an Azure AD DS instance
 > * Add administrative users to domain management
 > * Enable user accounts for Azure AD DS and generate password hashes
 
-To see this managed domain in action, create and join a virtual machine to the domain.
+Before you domain-join VMs and deploy applications that use the Azure AD DS managed domain, configure an Azure virtual network for application workloads.
 
 > [!div class="nextstepaction"]
-> [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
+> [Configure Azure virtual network for application workloads to use your managed domain](tutorial-configure-networking.md)
 
 <!-- INTERNAL LINKS -->
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md

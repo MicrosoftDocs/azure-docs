@@ -11,6 +11,8 @@
   items:
     - name: Create a managed domain
       href: tutorial-create-instance.md
+    - name: Configure the virtual network for apps
+      href: tutorial-configure-networking.md
     - name: Domain-join a Windows Server VM
       href: join-windows-vm.md
     - name: Install management tools
