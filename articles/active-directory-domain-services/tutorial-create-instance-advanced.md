@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create an Azure Active Directory Domain Services instance | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services instance using the Azure portal.
+description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services instance and specify advanced configuration options using the Azure portal.
 author: iainfoulds
 manager: daveba
 
@@ -11,20 +11,21 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: iainfou
 
-#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
+#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance and define advanced configuration options so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
 
-# Tutorial: Create and configure an Azure Active Directory Domain Services instance
+# Tutorial: Create and configure an Azure Active Directory Domain Services instance with advanced configuration options
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
-You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows how to use default options to create and configure an Azure AD DS instance using the Azure portal.
+You can [create a managed domain using default configuration options][tutorial-create-instance] for networking and synchronization, or manually define these settings. This tutorial shows how to define those advanced configuration options to create and configure an Azure AD DS instance using the Azure portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Understand DNS requirements for a managed domain
+> * Configure DNS and virtual network settings for a managed domain
 > * Create an Azure AD DS instance
+> * Add administrative users to domain management
 > * Enable password hash synchronization
 
 If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -87,32 +88,82 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
 1. Choose the Azure **Location** in which the managed domain should be created.
 
-    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
+    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance-advanced/basics-window.png)
 
-To quickly create an Azure AD DS managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
+1. To manually configure additional options, choose **Next - Networking**. Otherwise, select **Review + create** to accept the default configuration options, then skip to the section to [Deploy your managed domain](#deploy-your-managed-domain). The following defaults are configured when you choose this create option:
 
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
 * Creates subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
 * Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
 
-1. Select **Review + create** to accept these default configuration options.
+## Create and configure the virtual network
+
+To provide connectivity, an Azure virtual network and a dedicated subnet are needed. Azure AD DS is enabled in this virtual network subnet. In this tutorial, you create a virtual network, though you could instead choose to use an existing virtual network. In either approach, you must create a dedicated subnet for use by Azure AD DS.
+
+Some considerations for this dedicated virtual network subnet include the following areas:
+
+* The subnet must have at least 3-5 available IP addresses in its address range to support the Azure AD DS resources.
+* Don't select the *Gateway* subnet for deploying Azure AD DS. It's not supported to deploy Azure AD DS into a *Gateway* subnet.
+* Don't deploy any other virtual machines to the subnet. Applications and VMs often use network security groups to secure connectivity. Running these workloads in a separate subnet lets you apply those network security groups without disrupting connectivity to your managed domain.
+* You can't move your managed domain to a different virtual network after you enable Azure AD DS.
+
+For more information on how to plan and configure the virtual network, see [networking considerations for Azure Active Directory Domain Services][network-considerations].
+
+Complete the fields in the *Network* window as follows:
+
+1. On the **Network** page, choose a virtual network to deploy Azure AD DS into from the drop-down menu, or select **Create new**.
+    1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
+    1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
+
+    ![Create a virtual network and subnet for use with Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+
+    Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Azure AD DS.
+
+1. Select a virtual network subnet, such as *DomainServices*.
+1. When ready, choose **Next - Administration**.
+
+## Configure an administrative group
+
+A special administrative group named *AAD DC Administrators* is used for management of the Azure AD DS domain. Members of this group are granted administrative permissions on VMs that are domain-joined to the managed domain. On domain-joined VMs, this group is added to the local administrators group. Members of this group can also use Remote Desktop to connect remotely to domain-joined VMs.
+
+You don't have *Domain Administrator* or *Enterprise Administrator* permissions on a managed domain using Azure AD DS. These permissions are reserved by the service and aren't made available to users within the tenant. Instead, the *AAD DC Administrators* group lets you perform some privileged operations. These operations include joining computers to the domain, belonging to the administration group on domain-joined VMs, and configuring Group Policy.
+
+The wizard automatically creates the *AAD DC Administrators* group in your Azure AD directory. If you have an existing group with this name in your Azure AD directory, the wizard selects this group. You can optionally choose to add additional users to this *AAD DC Administrators* group during the deployment process. These steps can be completed later.
+
+1. To add additional users to this *AAD DC Administrators* group, select **Manage group membership**.
+
+    ![Configure group membership of the AAD DC Administrators group](./media/tutorial-create-instance-advanced/admin-group.png)
+
+1. Select the **Add members** button, then search for and select users from your Azure AD directory. For example, search for your own account, and add it to the *AAD DC Administrators* group.
+1. If desired, change or add additional recipients for notifications when there are alerts in the Azure AD DS managed domain that require attention.
+1. When ready, choose **Next - Synchronization**.
+
+## Configure synchronization
+
+Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize *all* users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
+
+1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
+
+    ![Perform a full synchronization of users and groups from Azure AD](./media/tutorial-create-instance-advanced/sync-all.png)
+
+1. Select **Review + create**.
 
 ## Deploy your managed domain
 
 On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes.
 
-1. To create the managed domain, select **Create**. A note is displayed that certain configuration options such as DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
+1. To create the managed domain, select **Create**. A note is displayed that certain configuration options like DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
 1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
 
-    ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
+    ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
 1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
-    ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
+    ![Domain Services status during the provisioning state](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 
 1. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as *Running*.
 
-    ![Domain Services status once successfully provisioned](./media/tutorial-create-instance/successfully-provisioned.png)
+    ![Domain Services status once successfully provisioned](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
 During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in your directory. These Enterprise Applications are needed to service your managed domain. It's imperative that these applications are not deleted at any time.
 
@@ -124,7 +175,7 @@ With Azure AD DS successfully deployed, now configure the virtual network to all
 
     The addresses listed are the domain controllers for use in the virtual network. In this example, those addresses are *10.1.0.4* and *10.1.0.5*. You can later find these IP addresses on the **Properties** tab.
 
-    ![Configure DNS settings for your virtual network with the Azure AD Domain Services IP addresses](./media/tutorial-create-instance/configure-dns.png)
+    ![Configure DNS settings for your virtual network with the Azure AD Domain Services IP addresses](./media/tutorial-create-instance-advanced/configure-dns.png)
 
 1. To update the DNS server settings for the virtual network, select the **Configure** button. The DNS settings are automatically configured for your virtual network.
 
@@ -152,7 +203,7 @@ To change the password for a cloud-only user, the user must complete the followi
 1. Go to the Azure AD Access Panel page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
 
-    ![Select profile](./media/tutorial-create-instance/select-profile.png)
+    ![Select profile](./media/tutorial-create-instance-advanced/select-profile.png)
 
 1. On the **Profile** page, select **Change password**.
 1. On the **Change password** page, enter your existing (old) password, then enter and confirm a new password.
@@ -176,7 +227,7 @@ To see this managed domain in action, create and join a virtual machine to the d
 > [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
 
 <!-- INTERNAL LINKS -->
-[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[tutorial-create-instance]: tutorial-create-instance.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [network-considerations]: network-considerations.md
