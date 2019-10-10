@@ -62,7 +62,7 @@ For a richer experience when you work with function parameters in the Logic Apps
 
       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. Under **CORS**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and choose **Save**.
+   1. Under **CORS**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and select **Save**.
 
       ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -105,15 +105,15 @@ Before you can create an Azure function starting from inside your logic app by u
 
 1. To create and add your function, follow the step that applies to your scenario:
 
-   * Under the last step in your logic app's workflow, choose **New step**.
+   * Under the last step in your logic app's workflow, select **New step**.
 
-   * Between existing steps in your logic app's workflow, move your mouse over the arrow, choose the plus (+) sign, and then select **Add an action**.
+   * Between existing steps in your logic app's workflow, move your mouse over the arrow, select the plus (+) sign, and then select **Add an action**.
 
-1. In the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function - Azure Functions**
+1. In the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-1. From the function apps list, select your function app. After the actions list opens, select this action: **Azure Functions - Create New Function**
+1. From the function apps list, select your function app. After the actions list opens, select this action: **Create New Function**
 
    ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -129,7 +129,7 @@ Before you can create an Azure function starting from inside your logic app by u
 
       `context.body.<property-name>`
 
-      For example, to reference the `content` property inside the `context` object, use this syntax: 
+      For example, to reference the `content` property inside the `context` object, use this syntax:
 
       `context.body.content`
 
@@ -140,20 +140,19 @@ Before you can create an Azure function starting from inside your logic app by u
       > isn't the same as the **Body** token from an action's output, 
       > which you might also pass to your function.
 
-   1. When you're done, choose **Create**.
+   1. When you're done, select **Create**.
 
 1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
 
-   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger:
+   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger.
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, 
-   or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks:  
+   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks.
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. To specify other details such as the method to use, request headers, or query parameters, open the **Add new parameter** list, and select the options that you want.
+1. To specify other details such as the method to use, request headers, or query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound requests](#authenticate-functions).
 
 <a name="add-function-logic-app"></a>
 
@@ -163,9 +162,9 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. Under the step where you want to add the function, choose **New step**, and select **Add an action**.
+1. Under the step where you want to add the function, select **New step**.
 
-1. In the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function - Azure Functions**
+1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -173,28 +172,141 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
    ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   For functions that have API definitions (Swagger descriptions) and are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**:
+   For functions that have API definitions (Swagger descriptions) and are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**.
 
-   ![Select your function app, "Swagger actions"", and your Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   ![Select your function app, "Swagger actions", and your Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
 
-   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so that you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger:
+   This input is the *context object* or message that your logic app sends to your function. When you click in the **Request Body** field, the dynamic content list appears so that you can select tokens for outputs from previous steps. This example specifies that the context payload contains a property named `content` that has the **From** token's value from the email trigger.
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, 
-   or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks:
+   Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. However, when the context object isn't a JSON token that passes a string, a JSON object, or a JSON array, you get an error. So, if this example used the **Received Time** token instead, you can cast the context object as a string by adding double-quotation marks:
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. To specify other details such as the method to use, request headers, or query parameters, open the **Add new parameter** list, and select the options that you want.
+1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound requests](#authenticate-functions).
 
 <a name="call-logic-app"></a>
 
 ## Call logic apps from Azure functions
 
 When you want to trigger a logic app from inside an Azure function, the logic app must start with a trigger that provides a callable endpoint. For example, you can start the logic app with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL, and include the payload you want that logic app to process. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md).
+
+<a name="authenticate-functions"></a>
+
+## Authenticate outbound requests
+
+To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use the same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/securing-a-logic-app.md#authenticate-access-outbound).
+
+Here are the steps to set up the system-assigned identity:
+
+1. Enable the system-assigned identity on your logic app and set up that identity's access to the target resource. See [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+
+1. Set up your Azure function app and functions to support authentication by following these steps:
+
+   * [Set up anonymous authentication in your function](#set-authentication-function-app)
+
+   * [Set up Azure AD authentication in your function app](#set-azure-ad-authentication)
+
+<a name="set-authentication-function-app"></a>
+
+### Set up anonymous authentication in your function
+
+To use your logic app's system-assigned identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
+
+1. In the [Azure portal](https://portal.azure.com), find and select your function app.
+
+1. On the function app pane, select **Platform features**. Under **Development tools**, select **Advanced tools (Kudu)**.
+
+   ![Open advanced tools for Kudu](./media/create-managed-service-identity/open-advanced-tools-kudu.png)
+
+1. On the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
+
+   ![Open debug console for Kudu, select "CMD"](./media/create-managed-service-identity/open-debug-console-kudu.png)
+
+1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*, for example:
+
+   ![Select "site" > "wwwroot" > your function](./media/create-managed-service-identity/select-site-wwwroot-function-folder.png)
+
+1. Open the `function.json` file for editing.
+
+   ![Click edit for "function.json" file](./media/create-managed-service-identity/edit-function-json-file.png)
+
+1. In the `bindings` object, add the `authLevel` property, and set the property value to `anonymous`:
+
+   ![Add "authLevel" property and set to "anonymous"](./media/create-managed-service-identity/set-authentication-level-function-app.png)
+
+1. When you're done, save your settings, and then continue to the next section.
+
+<a name="set-azure-ad-authentication"></a>
+
+### Set up Azure AD authentication for your function app
+
+Before you start this task, find and put these values aside for later use:
+
+* The object ID that's generated for the system-assigned identity that represents your logic app
+
+  * To generate this object ID, [enable your logic app's system-assigned identity](#azure-portal-system-logic-app).
+
+  * Otherwise, to find this object ID, open your logic app in the Logic App Designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
+
+* The directory ID for your tenant in Azure Active Directory (Azure AD)
+
+  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
+
+  1. In the [Azure portal](https://portal.azure.com), find and select your function app.
+
+  1. Find and select your Azure AD tenant.
+
+  1. On the tenant's menu, under **Manage**, select **Properties**.
+
+  1. Copy your tenant's directory ID, for example, and save that ID somewhere:
+
+     ![Find and copy Azure AD tenant's directory ID](./media/create-managed-service-identity/azure-active-directory-tenant-id.png)
+
+* The resource ID for the target resource that you want to access
+
+  This property appears after you set the **Authentication type** property to **Managed Identity**, for example:
+
+  !["Audience" property set to target resource ID](./media/create-managed-service-identity/functions-authentication-audience-property.png)
+
+  This ID is the same value that you specify in the your Azure function's **Audience** property. 
+
+  This resource ID value must exactly match the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+  For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
+
+Now you're ready to set up authentication for your function app.
+
+1. On the function app pane, select **Platform features**. Under **Networking**, select **Authentication / Authorization**.
+
+   ![View authentication and authorization settings](./media/create-managed-service-identity/view-authentication-authorization-settings.png)
+
+1. Change the **App Service Authentication** setting to **On**. From the **Action to take when request is not authenticated** list, select **Log in with Azure Active Directory**. Under **Authentication Providers**, select **Azure Active Directory**.
+
+   ![Turn on authentication with Azure AD](./media/create-managed-service-identity/turn-on-authentication-azure-active-directory.png)
+
+1. On the **Azure Active Directory Settings** pane, follow these steps:
+
+   1. Set **Management mode** to **Advanced**.
+
+   1. In the **Client ID** property, enter the object ID for your logic app's system-assigned identity.
+
+   1. In the **Issuer Url** property, enter the `https://sts.windows.net/` URL and append your Azure AD tenant's directory ID:
+
+      `https://sts.windows.net/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+   1. In the **Allowed Token Audiences** property, enter the URL that you'll use for the **Audience** property from your Azure function in your logic app.
+
+   Here's an example that shows how your version might look:
+
+   ![Azure Active Directory authentication settings](./media/create-managed-service-identity/azure-active-directory-authentication-settings.png)
+
+1. When you're done, select **OK**.
 
 ## Next steps
 

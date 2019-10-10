@@ -734,7 +734,7 @@ If the [Raw]() option is available, you can use this authentication type for ser
 
 ### Managed identity authentication
 
-If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
+If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
