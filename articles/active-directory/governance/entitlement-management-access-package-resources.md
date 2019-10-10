@@ -30,11 +30,25 @@ ms.collection: M365-identity-device-management
 
 As an access package manager, you can change the resources in an access package at any time without worrying about provisioning the user's access to the new resources, or removing their access from the previous resources. This article describes how to change the resources and resource roles for an existing access package.
 
-This video provides an overview of how to change resources and resource roles for an access package.
+This video provides an overview of how to change an access package.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3LD4Z]
 
 ## Check catalog for resources
+
+If you need to add resources to an access package, you should check whether the resources your need are available in the catalog. If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Catalog** and then open the catalog.
+
+1. In the left menu, click **Resources** to see the list of resources in this catalog.
+
+    ![List of resources in a catalog](./media/entitlement-management-access-package-resources/catalog-resources.png)
+
+1. If you are an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
 ## Open Add resource roles
 
