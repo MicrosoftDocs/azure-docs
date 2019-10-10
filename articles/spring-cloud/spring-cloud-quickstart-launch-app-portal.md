@@ -16,7 +16,7 @@ ms.author: v-vasuke
 
 Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
-This quickstart shows you how to deploy an existing Spring Cloud application to Azure. [Here is a link](https://github.com/xscript/PiggyMetrics) to the sample application code used in this tutorial. When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
+This quickstart shows you how to deploy an existing Spring Cloud application to Azure. [Here is a link](https://github.com/Azure-Samples/PiggyMetrics) to the sample application code used in this tutorial. When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
 
 Following this quickstart, you will learn how to:
 
@@ -30,8 +30,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a  preview service, we ask customers to reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a  preview service, we ask customers to reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us by email: azure-spring-cloud@service.microsoft.com.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -54,9 +53,9 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open the [Azure portal](https://portal.azure.com), and sign into your account.
+1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
 
-1. Search for the **Azure Spring Cloud** and select it to go to the overview page. Select the **Create** button to get started.
+1. Select **Azure Spring Cloud** to go to the overview page. Then select the **Create** button to get started.
 
 1. Fill out the form, considering the following guidelines:
     - Service Name: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
@@ -104,26 +103,26 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
     ```azurecli
     az configure --defaults group=<resource group name>
-    az configure --defaults asc=<service instance name>
+    az configure --defaults spring-cloud=<service instance name>
     ```
 
 1. Create the `gateway` application and deploy the JAR file.
 
     ```azurecli
-    az asc app create -n gateway
-    az asc app deploy -n gateway --jar-path ./gateway/target/gateway.jar
+    az spring-cloud app create -n gateway
+    az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
 1. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
 
     ```cli
-    az asc app create -n account-service
-    az asc app deploy -n account-service --jar-path ./account-service/target/account-service.jar
-    az asc app create -n auth-service
-    az asc app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
+    az spring-cloud app create -n account-service
+    az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
+    az spring-cloud app create -n auth-service
+    az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Application Dashboard** in the Azure portal. You should see a line each of the three applications.
+1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see a line each of the three applications.
 
 ## Assign a public endpoint to gateway
 
@@ -142,8 +141,7 @@ In this quickstart, you learned how to:
 > * Set a configuration server for an instance
 > * Build a microservices application locally
 > * Deploy each microservice
-> * Edit environment variables for applications
-> * Assign public IP for your application gateway
+> * Assign public endpoint for your application gateway
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
