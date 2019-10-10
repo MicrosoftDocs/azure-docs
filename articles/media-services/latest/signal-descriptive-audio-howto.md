@@ -15,7 +15,7 @@ ms.date: 09/25/2019
 ms.author: juliako
 ---
 
-# Adding audio description tracks
+# Add audio description tracks
 
 You can add a narration to your video to help visually impaired consumers to follow the video recording by listening to the narration. 
 
