@@ -25,7 +25,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
   - Update a secondary index, synchronize with a cache, search-engine or any other content-management scenarios.
   
-  - Extract business analytics insights and metrics, based on changes occuring to your objects, either in a streaming manner or batched mode.
+  - Extract business analytics insights and metrics, based on changes that occur to your objects, either in a streaming manner or batched mode.
   
   - Store, audit and analyze changes to your objects, over any period of time, for security, compliance or intelligence for enterprise data management.
 
@@ -62,7 +62,7 @@ Your client applications can consume the change feed by using the blob change fe
 
 The change feed is a log of changes which is organized into **hourly** *segments* (See [Specifications](#specifications)). This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log.
 
-An available hourly Segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that Segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the Segment describes the start of the hourly time-range that the segment represents. (See the [Specifications](#specifications)). You can use that list to filter out the segments of logs that are interest to you.
+An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. (See the [Specifications](#specifications)). You can use that list to filter out the segments of logs that are interest to you.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -76,7 +76,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 > [!NOTE]
 > The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty. 
 
-The segment manifest file (`meta.json`) shows the path of the change feed files for that Segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
+The segment manifest file (`meta.json`) shows the path of the change feed files for that segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
 
 ```json
 {
@@ -149,7 +149,7 @@ Here's an example of change event record from change feed file converted to Json
 For a description of each property, see [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
-> The change feed files for a Segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
+> The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
 
 <a id="specifications"></a>
 
