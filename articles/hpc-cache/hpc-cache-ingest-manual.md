@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Azure HPC Cache (preview) data ingest - manual copy method

@@ -22921,7 +22921,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/howto-power-bi-content-pack",
+      "redirect_url": "azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
@@ -22984,6 +22984,23 @@
       "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/howto-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+
+
     {
       "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
