@@ -144,12 +144,12 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy application
 
-1. Edit the source file *iothub_client_c2d_streaming_proxy_sample.c* in the folder *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample*, and provide your device connection string, target device IP/hostname, and the SSH port 22:
+1. Edit the source file **iothub_client_c2d_streaming_proxy_sample.c** in the folder `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample`, and provide your device connection string, target device IP/hostname, and the SSH port 22:
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 

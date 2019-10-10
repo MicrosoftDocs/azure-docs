@@ -111,21 +111,21 @@ Ensure the device-side application is running before proceeding to the next step
 
 ### Run the service-side application
 
-Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
+Assuming the device-side application is running, follow the steps below in a local terminal window to run the service-side application in Node.js:
 
 * Provide your service credentials and device ID as environment variables.
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   If you chose a different device ID for your device than `MyDevice`, change to that ID above.
+   Change the ServiceConnectionString placeholder to match your service connection string, and **MyDevice** to match your device ID if you gave yours a different name.
 
 * Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
 

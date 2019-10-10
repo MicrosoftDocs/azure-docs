@@ -119,15 +119,15 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy application
 
-Go to the *device-streams-proxy/device* directory in your unzipped project folder. Keep the following information handy:
+In a local terminal window, navigate to the `device-streams-proxy/device` directory in your unzipped project folder. Keep the following information handy:
 
 | Argument name | Argument value |
 |----------------|-----------------|
-| `deviceConnectionString` | The connection string of the device that you created earlier. |
+| `DeviceConnectionString` | The device connection string of the device that you created earlier. |
 | `targetServiceHostName` | The IP address where the SSH server listens. The address would be `localhost` if it were the same IP where the device-local proxy application is running. |
 | `targetServicePort` | The port that's used by your application protocol (for SSH, by default, this would be port 22).  |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -137,23 +137,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### Run the service-local proxy application
 
-Navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
+In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `iotHubConnectionString` | The service connection string of your IoT Hub. |
-| `deviceId` | The identifier of the device you created earlier. |
+| `ServiceConnectionString` | The service connection string of your IoT Hub. |
+| `MyDevice` | The identifier of the device you created earlier. |
 | `localPortNumber` | A local port that your SSH client will connect to. We use port 2222 in this sample, but you could use other arbitrary numbers. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -163,10 +163,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### Run the SSH client
@@ -197,38 +197,38 @@ The setup for RDP is very similar to the setup for SSH (described above). You us
 
 ### Run the device-local proxy application (RDP)
 
-Go to the *device-streams-proxy/device* directory in your unzipped project folder. Keep the following information handy:
+In a local terminal window, navigate to the `device-streams-proxy/device` directory in your unzipped project folder. Keep the following information handy:
 
 | Argument name | Argument value |
 |----------------|-----------------|
-| `DeviceConnectionString` | The connection string of the device that you created earlier. |
+| `DeviceConnectionString` | The device connection string of the device that you created earlier. |
 | `targetServiceHostName` | The hostname or IP address where RDP server runs. The address would be `localhost` if it were the same IP where the device-local proxy application is running. |
 | `targetServicePort` | The port used by your application protocol (for RDP, by default, this would be port 3389).  |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### Run the service-local proxy application (RDP)
 
-Navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
+In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `iotHubConnectionString` | The service connection string of your IoT Hub. |
-| `deviceId` | The identifier of the device you created earlier. |
+| `ServiceConnectionString` | The service connection string of your IoT Hub. |
+| `MyDevice` | The identifier of the device you created earlier. |
 | `localPortNumber` | A local port that your SSH client will connect to. We use port 2222 in this sample, but you could modify this to other arbitrary numbers. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -238,10 +238,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### Run RDP client

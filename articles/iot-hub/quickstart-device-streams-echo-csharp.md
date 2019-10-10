@@ -95,14 +95,14 @@ In this section, you run both the device-side application and the service-side a
 
 ### Run the service-side application
 
-Go to the *iot-hub/Quickstarts/device-streams-echo/service* directory in your unzipped project folder. Keep the following information handy:
+In a local terminal window, navigate to the `iot-hub/Quickstarts/device-streams-echo/service` directory in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `ServiceConnectionString` | Provide the service connection string of your IoT hub. |
-| `DeviceId` | Provide the ID of the device you created earlier (for example, *MyDevice*). |
+| `ServiceConnectionString` | The service connection string of your IoT hub. |
+| `MyDevice` | The identifier of the device you created earlier. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/service/
@@ -112,10 +112,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<ServiceConnectionString>" "<MyDevice>"
+dotnet run "{ServiceConnectionString}" "MyDevice"
 
 # In Windows
-dotnet run <ServiceConnectionString> <MyDevice>
+dotnet run {ServiceConnectionString} MyDevice
 ```
 
 > [!NOTE]
@@ -123,13 +123,13 @@ dotnet run <ServiceConnectionString> <MyDevice>
 
 ### Run the device-side application
 
-Go to the *iot-hub/Quickstarts/device-streams-echo/device* directory in your unzipped project folder. Keep the following information handy:
+In another local terminal window, navigate to the `iot-hub/Quickstarts/device-streams-echo/device` directory in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `DeviceConnectionString` | Provide the device connection string of your IoT Hub. |
+| `DeviceConnectionString` | The device connection string of your IoT Hub. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/device/
@@ -139,10 +139,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<DeviceConnectionString>"
+dotnet run "{DeviceConnectionString}"
 
 # In Windows
-dotnet run <DeviceConnectionString>
+dotnet run {DeviceConnectionString}
 ```
 
 At the end of the last step, the service-side application initiates a stream to your device. After the stream is established, the application sends a string buffer to the service over the stream. In this sample, the service-side application simply echoes back the same data to the device, which demonstrates a successful bidirectional communication between the two applications.

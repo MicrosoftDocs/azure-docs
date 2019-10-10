@@ -144,14 +144,14 @@ In this section, you run both the device-side application and the service-side a
 
 To run the device-side application, follow these steps:
 
-1. Provide your device credentials by editing the *iothub_client_c2d_streaming_sample.c* source file in the *iothub_client/samples/iothub_client_c2d_streaming_sample* folder and then providing your device connection string.
+1. Provide your device credentials by editing the **iothub_client_c2d_streaming_sample.c** source file in the `iothub_client/samples/iothub_client_c2d_streaming_sample` folder and adding your device connection string.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. Compile the code as follows:
+1. Compile the code with the following commands:
 
    ```bash
    # In Linux

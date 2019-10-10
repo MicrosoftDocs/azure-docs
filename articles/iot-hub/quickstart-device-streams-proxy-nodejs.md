@@ -105,25 +105,25 @@ Before you proceed to the next step, ensure that the device-local proxy applicat
 
 ### Run the service-local proxy application
 
-With the device-local proxy application running, run the service-local proxy application that's written in Node.js by doing the following:
+With the device-local proxy application running, run the service-local proxy application that's written in Node.js by doing the following in a local terminal window:
 
 1. For environment variables, provide your service credentials, the target device ID where the SSH daemon runs, and the port number for the proxy that's running on the device.
 
    ```
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
    export PROXY_PORT=2222
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    SET PROXY_PORT=2222
    ```
 
-   Change the preceding values to match your device ID and connection string.
+   Change the ServiceConnectionString placeholder to match your service connection string, and **MyDevice** to match your device ID if you gave yours a different name.
 
-1. Go to the *Quickstarts/device-streams-service* directory in your unzipped project folder, and run the service-local proxy application.
+1. Navigate to the `Quickstarts/device-streams-service` directory in your unzipped project folder. Use the following code to run the service-local proxy application:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -163,7 +163,7 @@ Now use your RDP client application and connect to the service proxy on port 222
 
 ## Next steps
 
-In this quickstart, you set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH traffic will be tunneled through a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
+In this quickstart, you set up an IoT hub, registered a device, and deployed a service proxy application to enable RDP and SSH on an IoT device. The RDP and SSH tradotnetffic will be tunneled through a device stream through the IoT hub. This process eliminates the need for direct connectivity to the device.
 
 To learn more about device streams, see:
 
