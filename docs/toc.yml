@@ -33,13 +33,13 @@
     - name: Partner Center overview
       href: use-partner-center-to-submit-to-appsource.md
     - name: Reserve add-in name
-      href: reserve-add-in-name.md
+      href: reserve-solution-name.md
     - name: Add setup details
       href: add-setup-details.md
     - name: Upload your package
       href: upload-package.md
     - name: Define add-in properties
-      href: define-add-in-properties.md
+      href: define-office-solution-properties.md
     - name: Create your AppSource listing
       href: appsource-listing.md
     - name: Specify availability

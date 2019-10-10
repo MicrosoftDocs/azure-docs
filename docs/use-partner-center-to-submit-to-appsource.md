@@ -16,16 +16,16 @@ For information about the AppSource approval process, see [Make your solutions a
 
 Submitting your solution involves specifying your solution name and adding your solution details via Partner Center.
 
-### Create your submission and reserve name
+### Create your solution and reserve name
 
-On the [Office Products](https://partner.microsoft-int.com/en-us/dashboard/office/products) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
+On the [Overview](https://partner.microsoft.com/en-us/dashboard/office/overview) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
 
 - Office add-in
 - SharePoint solution
 - Power BI visual
 - Microsoft Teams app
 
-In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](reserve-add-in-name.md).
+In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](reserve-solution-name.md).
 
 After you've verified that the name you chose is available, choose **Create**.
 
@@ -37,7 +37,7 @@ On the Product overview page, add the details associated with your submission. T
 |:-------------|:-------|
 |Add setup and lead management details|[Add setup details](add-setup-details.md)|
 |Upload your add-in manifest or app package|[Upload your submission package](upload-package.md)|
-|Define your Store settings|[Define properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
+|Define your marketplace listing|[Define properties](define-office-solution-properties.md) and [Create your AppSource listing](appsource-listing.md)|
 |Specify the availability for your solution|[Specify availability](specify-availability.md)|
 
 > [!NOTE]
@@ -45,7 +45,7 @@ On the Product overview page, add the details associated with your submission. T
 
 ### Review and publish
 
-After you add your information, you can submit your solution for publishing. Your approved solution will be listed in product-specific stores.
+After you have defined all the required information, you can submit your solution for publishing. Your approved solution will be listed in product-specific marketplaces.
 
 1. Complete your submission details.
 2. Select **Publish** on the top right in Partner Center.
@@ -54,7 +54,7 @@ After you add your information, you can submit your solution for publishing. You
 5. Select **Publish**.
     
 > [!NOTE]
-> After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you receive an email message indicating that your solution was approved or that you need to make changes before it can be approved. 
+> After you submit a solution for approval, After you submit a solution for approval, you can make changes to your submission, but you cannot submit them until your initial submission is completed. When the approval process is complete, you receive an email message indicating that your solution was approved or that you need to make changes before it can be approved. 
 
 ## See also
 <a name="bk_addresources"> </a>

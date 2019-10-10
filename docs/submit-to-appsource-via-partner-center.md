@@ -21,7 +21,7 @@ For information about how to submit Power BI custom visuals to AppSource, see [P
 <a name="bk_approval"> </a>
 ## Approval process
 
-After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit your solution for approval, but during the approval process, you won't be able to make any changes.
+After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit your solution for approval. During the approval process, you can make changes to your submission, but you can’t submit them for publishing until your current submission is complete.
 
 > [!NOTE] 
 > You must submit Microsoft Teams apps for pre-approval before you submit them to AppSource via Partner Center. For details, see [Microsoft Teams app pre-approval](https://docs.microsoft.com/microsoftteams/platform/publishing/office-store-approval).
@@ -61,15 +61,15 @@ After you submit your solution:
 3. When the certification process is complete, you receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the status of your submission in Partner Center:
 
    - Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview).
-   - On the **Add-in overview** tab, under **Retail**, the status of your submission will be one of the following:
+   - On the **Product overview** page, the status of your submission will be one of the following:
       - Pre-processing
       - Certification
       - Published
 
         > [!NOTE]
-        > After your submission is certified, there might be a delay before it is published. After certification, a submission typically appears in AppSource within one hour.
+        > After your product is certified, there might be a delay before it is published. After certification, a product typically appears in AppSource within one hour.
 
-      - If the status is **Attention needed**, your submission needs changes to be approved. Choose your submission, and then on the summary page, select **View report** for details about the required changes.
+      - If the status is **Attention needed**, your submission needs changes to be approved. For details about the required changes, on the **Product overview** page, select **View report**.
 
 If you make changes after your submission is certified, it must go through the certification process again.
 
