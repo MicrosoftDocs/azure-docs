@@ -1,37 +1,34 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
+title: SQL Server FCI with premium file share - Azure Virtual Machines 
+description: "This article explains how to create a SQL Server Failover Cluster Instance using a premium file share on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
-
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/11/2018
-ms.author: mikeray
+ms.date: 10/09/2019
+ms.author: mathoma
 ---
 
-# Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
+# Configure SQL Server Failover Cluster Instance with premium file share on Azure Virtual Machines
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines using [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md). 
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md). 
 
-
+Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance for SQL Server 2012 and newer or Windows Server 2012 and newer. Premium file shares give you greater flexibility, allowing you to resize and scale the file share without any downtime. 
 
 ## Licensing and pricing
 
-On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
+On Azure Virtual Machines, you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
 
 With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
+Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -42,7 +39,6 @@ For complete information about licensing SQL Server, see [Pricing](https://www.m
 
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
-### What to know
 You should have an operational understanding of the following technologies:
 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
@@ -58,7 +54,7 @@ Additionally, you should have a general understanding of the following technolog
 > [!IMPORTANT]
 > At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
-### What to have
+## Prerequisites 
 
 Before following the instructions in this article, you should already have:
 
@@ -164,16 +160,19 @@ After the virtual machines are created and configured, you can configure the pre
 1. Sign into the [Azure portal](https://portal.azure.com) and go to your storage account.
 1. Go to **File Shares** under **File service** and select the premium file share you want to use for your SQL storage. 
 1. Select **Connect** to bring up the connection string for your file share. 
-1. Select the drive letter you want to use from the drop-down and then copy the two PowerShell commands from the two PowerShell command blocks.  Save them to a text editor, such as notepad. 
+1. Select the drive letter you want to use from the drop-down and then copy the two PowerShell commands from the two PowerShell command blocks.  Paste them to a text editor, such as notepad. 
+
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
+
 1. RDP into the SQL Server VM using the account that your SQL Server FCI will use for the service account. 
 1. Launch an administrative PowerShell command console. 
-1. Run `Test-NetConnection` command to test connectivity to the storage account. Do not run the `cmd` command from the first code block. 
+1. Run `Test-NetConnection` command to test connectivity to the storage account. Do not run the `cmdkey` command from the first code block. 
 
-  ```console
-  example: Test-NetConnection -ComputerName sqlvmstorageaccount.file.core.windows.net -Port 445
-  ```
+   ```console
+   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
+   ```
 
-1. Run the second `cmdkey` command from the *second* code block to mount the file share as a drive, and persist it. 
+1. Run the `cmdkey` command from the *second* code block to mount the file share as a drive, and persist it. 
 
    ```console
    example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
@@ -379,15 +378,15 @@ To create the load balancer:
 
 1. Click OK.
 
-### Set load balancing rules
+### Set load-balancing rules
 
-1. On the load balancer blade, click **Load balancing rules**.
+1. On the load balancer blade, click **Load-balancing rules**.
 
 1. Click **+ Add**.
 
-1. Set the load balancing rules parameters:
+1. Set the load-balancing rules parameters:
 
-   - **Name**: A name for the load balancing rules.
+   - **Name**: A name for the load-balancing rules.
    - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource.
    - **Port**: Set for the SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: This value uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
@@ -420,7 +419,7 @@ In the preceding script, set the values for your environment. The following list
 
    - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
@@ -429,7 +428,7 @@ In the preceding script, set the values for your environment. The following list
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
-After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+After you set the cluster probe, you can see all of the cluster parameters in PowerShell. Run the following script:
 
    ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
