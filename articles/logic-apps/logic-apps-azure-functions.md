@@ -222,23 +222,23 @@ To use your logic app's system-assigned identity in your Azure function, you hav
 
 1. On the function app pane, select **Platform features**. Under **Development tools**, select **Advanced tools (Kudu)**.
 
-   ![Open advanced tools for Kudu](./media/create-managed-service-identity/open-advanced-tools-kudu.png)
+   ![Open advanced tools for Kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
 1. On the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
 
-   ![Open debug console for Kudu, select the "CMD" option](./media/create-managed-service-identity/open-debug-console-kudu.png)
+   ![Open debug console for Kudu, select the "CMD" option](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
 1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*, for example:
 
-   ![Select "site" > "wwwroot" > your function](./media/create-managed-service-identity/select-site-wwwroot-function-folder.png)
+   ![Select "site" > "wwwroot" > your function](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
 1. Open the `function.json` file for editing.
 
-   ![Click edit for "function.json" file](./media/create-managed-service-identity/edit-function-json-file.png)
+   ![Click edit for "function.json" file](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
 1. In the `bindings` object, add the `authLevel` property, and set the property value to `anonymous`:
 
-   ![Add "authLevel" property and set to "anonymous"](./media/create-managed-service-identity/set-authentication-level-function-app.png)
+   ![Add "authLevel" property and set to "anonymous"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
 1. When you're done, save your settings, and then continue to the next section.
 
@@ -266,19 +266,15 @@ Before you start this task, find and put these values aside for later use:
 
   1. Copy your tenant's directory ID, for example, and save that ID somewhere:
 
-     ![Find and copy Azure AD tenant's directory ID](./media/create-managed-service-identity/azure-active-directory-tenant-id.png)
+     ![Find and copy Azure AD tenant's directory ID](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
-* The resource ID for the target resource that you want to access
+* The resource ID for the target resource that you want to access. To find these resource IDs, review the [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-  This property appears after you set the **Authentication type** property to **Managed Identity**, for example:
+  > [!IMPORTANT]
+  > This resource ID must exactly match the value that Azure AD expects, 
+  > including any required trailing slashes.
 
-  !["Audience" property set to target resource ID](./media/create-managed-service-identity/functions-authentication-audience-property.png)
-
-  This ID is the same value that you specify in the your Azure function's **Audience** property. 
-
-  This resource ID value must exactly match the value that Azure AD expects, including any required trailing slashes. You can find these resource ID values in this [table that describes the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
-
-  For example, if you're using the Azure Resource Manager resource ID, make sure that the URI has a trailing slash.
+  This resource ID is also the same value that you later use in the **Audience** property when you [set up your function action to use the system-assigned identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 Now you're ready to set up Azure AD authentication for your function app.
 
@@ -286,11 +282,11 @@ Now you're ready to set up Azure AD authentication for your function app.
 
 1. On the function app pane, select **Platform features**. Under **Networking**, select **Authentication / Authorization**.
 
-   ![View authentication and authorization settings](./media/create-managed-service-identity/view-authentication-authorization-settings.png)
+   ![View authentication and authorization settings](./media/logic-apps-azure-functions/view-authentication-authorization-settings.png)
 
 1. Change the **App Service Authentication** setting to **On**. From the **Action to take when request is not authenticated** list, select **Log in with Azure Active Directory**. Under **Authentication Providers**, select **Azure Active Directory**.
 
-   ![Turn on authentication with Azure AD](./media/create-managed-service-identity/turn-on-authentication-azure-active-directory.png)
+   ![Turn on authentication with Azure AD](./media/logic-apps-azure-functions/turn-on-authentication-azure-active-directory.png)
 
 1. On the **Azure Active Directory Settings** pane, follow these steps:
 
@@ -308,7 +304,7 @@ Now you're ready to set up Azure AD authentication for your function app.
 
    At this point, your version looks similar to this example:
 
-   ![Azure Active Directory authentication settings](./media/create-managed-service-identity/azure-active-directory-authentication-settings.png)
+   ![Azure Active Directory authentication settings](./media/logic-apps-azure-functions/azure-active-directory-authentication-settings.png)
 
 1. When you're done, select **OK**.
 
