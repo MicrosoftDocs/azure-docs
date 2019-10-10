@@ -115,7 +115,7 @@ FROM GrpCube;
 
 The following shows the results of the CTAS:
 
-![Group by cube](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
+![Group by cube](../../sql-data-warehouse/media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 The second step is to specify a target table to store interim results:
 
@@ -176,5 +176,5 @@ ORDER BY 1,2,3
 By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](development-overview.md).
 

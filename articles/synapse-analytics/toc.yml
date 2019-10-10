@@ -363,7 +363,7 @@
       - name: Workload importance
         href: sql-analytics/workload-management-importance.md
       - name: Memory & concurrency limits
-        href: sql-analytics/workload-management-memory-and-concurrency.md
+        href: sql-analytics/workload-management-memory-and-concurrency-limits.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD

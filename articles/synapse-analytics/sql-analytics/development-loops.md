@@ -65,5 +65,5 @@ DROP TABLE #tbl;
 ```
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](development-overview.md).
 

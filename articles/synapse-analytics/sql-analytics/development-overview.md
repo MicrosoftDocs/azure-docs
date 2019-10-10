@@ -41,28 +41,28 @@ These articles highlight specific coding techniques, tips, and recommendations f
 * [variable assignment][variable assignment]
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL Data Warehouse T-SQL statements](../../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./resource-classes-for-workload-management.md
-[connections]: ./sql-data-warehouse-connect-overview.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
-[group by options]: ./sql-data-warehouse-develop-group-by-options.md
-[labels]: ./sql-data-warehouse-develop-label.md
-[looping]: ./sql-data-warehouse-develop-loops.md
-[statistics]: ./sql-data-warehouse-tables-statistics.md
-[stored procedures]: ./sql-data-warehouse-develop-stored-procedures.md
-[table distribution]: ./sql-data-warehouse-tables-distribute.md
-[table indexes]: ./sql-data-warehouse-tables-index.md
-[table partitions]: ./sql-data-warehouse-tables-partition.md
-[temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[transactions]: ./sql-data-warehouse-develop-transactions.md
-[user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
-[variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
-[views]: ./sql-data-warehouse-develop-views.md
+[concurrency]: workload-management-resource-classes.md
+[connections]: ../../sql-data-warehouse/sql-data-warehouse-connect-overview.md
+[CTAS]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
+[dynamic SQL]: development-dynamic-sql.md
+[group by options]: development-group-by-options.md
+[labels]: development-label.md
+[looping]: development-loops.md
+[statistics]: development-tables-statistics.md
+[stored procedures]: development-stored-procedures.md
+[table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
+[table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
+[table partitions]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
+[temporary tables]: development-tables-temporary.md
+[transactions]: development-transactions.md
+[user-defined schemas]: development-user-defined-schemas.md
+[variable assignment]: development-variable-assignment.md
+[views]: development-views.md
 
 
 <!--MSDN references-->
