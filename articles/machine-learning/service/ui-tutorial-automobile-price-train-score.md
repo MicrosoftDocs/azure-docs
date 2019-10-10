@@ -16,7 +16,7 @@ ms.date: 10/09/2019
 
 In this two-part tutorial, you learn how to use Azure Machine Learning's visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
 
-In part one, you'll set up your environment, drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create an experiment. 
+In part one, you set up your environment, drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create a pipeline. 
 
 In part one of the tutorial you learn how to:
 
@@ -27,15 +27,15 @@ In part one of the tutorial you learn how to:
 > * Train a machine learning model
 > * Evaluate a machine learning model
 
-In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service so you can use it to predict the price of any car based on technical specifications you send it. 
+In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as an Azure web service to predict the price of any car based on technical specifications you send it. 
 
-A completed version of this tutorial is available as a sample experiment.
+A completed version of this tutorial is available as a sample pipeline.
 
-To find it, from the **Experiments page**, select **Add New**, then select the **Sample 1 - Regression: Automobile Price Prediction(Basic)** experiment.
+To find it, go to the **Visual interface in your workspace**. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
 
-## Create a new experiment
+## Create a new pipeline
 
-To create a visual interface experiment, you first need  an Azure Machine Learning service workspace. In this section you learn how to create both these resources.
+To create a visual interface pipeline, you first need  an Azure Machine Learning service workspace. In this section, you learn how to create both these resources.
 
 ### Create a new workspace
 
@@ -43,23 +43,23 @@ If you have an Azure Machine Learning workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-### Create an experiment
+### Create a pipeline
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 
-1. In your workspace, select **Visual interface**. Then select **Launch visual interface**. 
+1. In your workspace, select **Visual interface**.
 
     ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
 1. Select **Blank Pipeline**.
 
-1. Select the default experiment name **"Pipeline-Created-on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
+1. Select the default pipeline name **"Pipeline-Created-on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
 ## Import data
 
 Machine learning depends on data. Luckily, there are several sample datasets included in this interface available for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
 
-1. To the left of the experiment canvas is a palette of datasets and modules. Select **Datasets** then view the **Samples** section to view the available sample datasets.
+1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets** then view the **Samples** section to view the available sample datasets.
 
 1. Select the dataset, **Automobile price data (Raw)**, and drag it onto the canvas.
 
@@ -72,12 +72,10 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
     > [!TIP]
-    > You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
+    > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
     >
 
     ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-    The red exclamation mark indicates that you haven't set the properties for the module yet.
 
 1. Select the **Select Columns in Dataset** module.
 
@@ -89,13 +87,13 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. On the lower right, select **Save** to close the column selector.
 
-### Run the experiment
+### Run the pipeline
 
-At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the experiment.
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the pipeline.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
-After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
+After the compute target is available, the pipeline runs. When the run is complete, a green check mark appears on each module.
 
 
 ### Visualize the data
@@ -131,7 +129,7 @@ First, remove the **normalized-losses** column completely.
 
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Paramters** > **Edit column**.
+1. In the **Properties** pane to the right of the canvas, select **Parameters** > **Edit column**.
 
     * Select the **+** to add a new rule.
 
@@ -157,13 +155,13 @@ When you train a model, you have to do something about the data that is missing.
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
-1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module. 
+1. Drag the **Clean Missing Data** module to the pipeline canvas and connect it to the **Select Columns in Dataset** module. 
 
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
 1. In the **Properties** pane type "Remove missing value rows." in the **Comment** box.  
 
-    Your experiment should now look something like this:
+    Your pipeline should now look something like this:
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
@@ -195,9 +193,9 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Expand the **Machine Learning**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
-1. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas.
+1. For this pipeline, select **Regression** > **Linear Regression** and drag it to the pipeline canvas.
 
-1. Find and drag the **Train Model** module to the experiment canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
+1. Find and drag the **Train Model** module to the pipeline canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
     ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
 
@@ -207,17 +205,17 @@ Train the model by giving it a set of data that includes the price. The model sc
 
     Your pipeline should look like this:
 
-    ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
+    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ## Evaluate a machine learning model
 
 Now that you've trained the model using 70 percent of your data, you can use it to score the other 30 percent of the data to see how well your model functions.
 
-1. Type **score model** in the search box to find the **Score Model** module and drag the module to the experiment canvas. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
+1. Type **score model** in the search box to find the **Score Model** module and drag the module to the pipeline canvas. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
 
-1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the experiment canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final experiment should look something like this:
+1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final pipeline should look something like this:
 
-    ![Screenshot showing the final correct configuration of the experiment.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
+    ![Screenshot showing the final correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
 1. Run the pipeline using the compute resource you created earlier.
 
@@ -227,7 +225,7 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. To view the output from the **Evaluate Model** module select the **Score Model** module. Then, in the **Properties** pane, select **Output** > **Visualize**, and then select **Visualize**.
 
-    ![Screenshot showing the evaluation results for the final experiment.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
+    ![Screenshot showing the evaluation results for the final pipeline.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
 The following statistics are shown for your model:
 
@@ -252,7 +250,7 @@ In part one of this tutorial, you completed these steps:
 * Trained the model
 * Scored and evaluated the model
 
-In part two, you'll learn how to deploy your model as an pipeline endpoint.
+In part two, you'll learn how to deploy your model as a pipeline endpoint.
 
 > [!div class="nextstepaction"]
 > [Continue to deploying models](ui-tutorial-automobile-price-deploy.md)
