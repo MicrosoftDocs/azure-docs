@@ -260,7 +260,13 @@ Unsupported:
 > [!CAUTION]
 > The integration with Event Grid on IoT Edge is in preview
 
-This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. You can follow the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/deploy-blob-storage-module-portal.md). The blob storage module now publishes **BlobCreated** event on `PutBlob` and `PutBlockList` operations, and **BlobDeleted** event on `DeleteBlob`, `deleteAfterUpload` which is one of the property in deviceToCloudUploadProperties and `deleteAfterMinutes` which is one of the property in deviceAutoDeleteProperties.
+This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. You can follow the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/deploy-blob-storage-module-portal.md). The blob storage module publishes **BlobCreated** event on `PutBlob` and `PutBlockList` operations. And it publishes **BlobDeleted** event on `DeleteBlob`, `DeleteAfterUpload` which is one of the property in deviceToCloudUploadProperties and `AutoDelete` which is one of the property in deviceAutoDeleteProperties.
+
+The `api` values for BlobCreated and BlobDeleted events:
+| Event | API Values | Extra Notes |
+| ----- | ----- | ----- |
+| BlobCreated | `PutBlob` and `PutBlockList` | |
+| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
 
 ### Sample Microsoft.Storage.BlobCreated event:
 

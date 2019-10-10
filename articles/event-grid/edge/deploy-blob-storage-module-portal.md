@@ -23,7 +23,7 @@ This article shows you how to deploy the Azure Blob Storage on IoT module, which
 To complete this tutorial, you will need:-
 
 * **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up.
-* **Azure Function module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Azure Functions module](deploy-func-webhook-module-portal.md) article if you don't have this set up.
+* **Azure Function module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Azure Functions module](deploy-func-webhook-module-portal.md) article if you don't have this set up. This module will act as the subscriber.
 
 ## Select your IoT Edge device
 
@@ -44,7 +44,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 3. Provide the name, image, and container create options of the container:
 
    * **Name**: azureblobstorageoniotedge
-   * **Image URI**: blobstoragebuilds.azurecr.io/azure-blob-storage:linux-amd64-20190917.2-delete-event-2
+   * **Image URI**: mcr.microsoft.com/azure-blob-storage:1.2.2-preview
    * **Container Create Options**:
 
 ```json
