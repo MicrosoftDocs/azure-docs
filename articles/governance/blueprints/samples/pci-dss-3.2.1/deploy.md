@@ -1,6 +1,6 @@
 ---
 title: Sample - PCI-DSS v3.2.1 blueprint - Deploy steps
-description: Deploy steps of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample.
+description: Deploy steps for the Payment Card Industry Data Security Standard v3.2.1 blueprint sample including blueprint artifact parameter details.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
