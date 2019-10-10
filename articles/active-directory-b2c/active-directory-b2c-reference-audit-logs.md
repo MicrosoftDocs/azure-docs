@@ -98,13 +98,17 @@ Follow these steps register an application, grant it the required Microsoft Grap
 
 ### Assign API access permissions
 
-1. On the **Registered app** overview page, select **Settings**.
-1. Under **API ACCESS**, select **Required permissions**.
-1. Select **Add**, and then **Select an API**.
-1. Select **Microsoft Graph**, and then **Select**.
-1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
-1. Select the **Select** button, and then select **Done**.
-1. Select **Grant permissions**, and then select **Yes**.
+1. Under **Manage**, select **API permissions**.
+1. Under **Configured permissions**, select **Add a permission**.
+1. Select the **Microsoft APIs** tab.
+1. Select **Microsoft Graph**.
+1. Select **Application permissions**.
+1. Expand **AuditLog** and then select the **AuditLog.Read.All** check box.
+1. Select **Add permissions**. As directed, wait at least **10 seconds** before proceeding to the next step.
+1. Select **Grant admin consent for (your tenant name)**.
+1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
+1. Select **Accept**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for both scopes. It might take a few minutes for the permissions to propagate.
 
 ### Create client secret
 
