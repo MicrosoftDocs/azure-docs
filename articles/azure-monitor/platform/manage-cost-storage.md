@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/10/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -326,8 +326,7 @@ For data from nodes hosted in Azure you can get the **size** of billable events 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
-    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" resourceGroup "/providers/microsoft.operationalinsights/workspaces/" resourceName   
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
