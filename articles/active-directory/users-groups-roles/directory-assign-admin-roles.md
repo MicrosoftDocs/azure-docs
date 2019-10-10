@@ -65,8 +65,6 @@ Users with this role can set or reset non-password credentials and can update pa
 * Message Center Reader
 * Reports Reader
 
-The Authentication administrator role is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 
@@ -168,7 +166,10 @@ This role is available for assignment only as an additional local administrator 
 
 ### [Directory Readers](#directory-readers-permissions)
 
-This is a role that should be assigned only to legacy applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Don't assign it to users.
+Users in this role can read basic directory information. This role should be used for:
+* Granting a specific set of guest users read access instead of granting it to all guest users.
+* Granting a specific set of non-admin users access to Azure Portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
+* Granting service principals access to directory where Directory.Read.All is not an option.
 
 ### [Directory Synchronization Accounts](#directory-synchronization-accounts-permissions)
 
@@ -206,6 +207,23 @@ Users with this role have access to all administrative features in Azure Active 
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
 >
+>
+
+### [Global Reader](#global-reader-permissions)
+
+Users in this role can read settings and administrative information across Microsoft 365 services but can't take management actions. Global reader is the read-only counterpart to Global administrator. Assign Global reader instead of Global administrator for planning, audits, or investigations. Use Global reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the assigning the Global Administrator role. Global reader works with Microsoft 365 admin center, Exchange admin center, Teams admin center, Security center, Compliance center, Azure AD admin center, and Device Management admin center.
+
+> [!NOTE]
+> Global reader role has a few limitations right now -
+>
+>* SharePoint admin center - SharePoint admin center does not support the Global reader role. You won't see 'SharePoint' in left pane under Admin Centers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage), and you'll get access denied when to you try to go to *https://{Azure AD organization name}-admin.sharepoint.com*.
+>* [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
+>* [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
+>* [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.
+>* [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
+>
+> These features are currently in development.
 >
 
 ### [Guest Inviter](#guest-inviter-permissions)
@@ -394,13 +412,13 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ### [User Administrator](#user-administrator-permissions)
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
+Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. The roles that are exceptions to this restriction are listed in the following table.
 
 | | |
 | --- | --- |
 |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets<p>Update password expiration policies|
 |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
-|Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>
+|Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>|
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -961,6 +979,76 @@ Configure identity providers for use in direct federation.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
+
+### Global Reader permissions
+Can read everything that a Global Administrator can, but not edit anything. 
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#global-reader) above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.commerce.billing/allEntities/read	| Read all aspects of Office 365 billing. |
+| microsoft.directory/administrativeUnits/basic/read	| Read basic properties on administrativeUnits in Azure Active Directory. |
+| microsoft.directory/administrativeUnits/members/read	| Read administrativeUnits.members property in Azure Active Directory. |
+| microsoft.directory/applications/basic/read	| Read basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/read	| Read applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/policies/read	| Read applications.policies property in Azure Active Directory. |
+| microsoft.directory/contacts/basic/read	| Read basic properties on contacts in Azure Active Directory. |
+| microsoft.directory/contacts/memberOf/read	| Read contacts.memberOf property in Azure Active Directory. |
+| microsoft.directory/contracts/basic/read	| Read basic properties on contracts in Azure Active Directory. |
+| microsoft.directory/devices/basic/read	| Read basic properties on devices in Azure Active Directory. |
+| microsoft.directory/devices/memberOf/read	| Read devices.memberOf property in Azure Active Directory. |
+| microsoft.directory/devices/registeredOwners/read	| Read devices.registeredOwners property in Azure Active Directory. |
+| microsoft.directory/devices/registeredUsers/read	| Read devices.registeredUsers property in Azure Active Directory. |
+| microsoft.directory/directoryRoles/basic/read	| Read basic properties on directoryRoles in Azure Active Directory. |
+| microsoft.directory/directoryRoles/eligibleMembers/read	| Read directoryRoles.eligibleMembers property in Azure Active Directory. |
+| microsoft.directory/directoryRoles/members/read	| Read directoryRoles.members property in Azure Active Directory. |
+| microsoft.directory/domains/basic/read	| Read basic properties on domains in Azure Active Directory. |
+| microsoft.directory/groups/appRoleAssignments/read	| Read groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/read	| Read basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/hiddenMembers/read	| Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.directory/groups/memberOf/read	| Read groups.memberOf property in Azure Active Directory. |
+| microsoft.directory/groups/members/read	| Read groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/read	| Read groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/settings/read	| Read groups.settings property in Azure Active Directory. |
+| microsoft.directory/groupSettings/basic/read	| Read basic properties on groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettingTemplates/basic/read	| Read basic properties on groupSettingTemplates in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/basic/read	| Read basic properties on oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/organization/basic/read	| Read basic properties on organization in Azure Active Directory. |
+| microsoft.directory/organization/trustedCAsForPasswordlessAuth/read	| Read organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
+| microsoft.directory/policies/standard/read	| Read standard policies in Azure Active Directory. |
+| microsoft.directory/roleAssignments/basic/read	| Read basic properties on roleAssignments in Azure Active Directory. |
+| microsoft.directory/roleDefinitions/basic/read	| Read basic properties on roleDefinitions in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/read	| Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/read	| Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/read	| Read basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/memberOf/read	| Read servicePrincipals.memberOf property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read	| Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/ownedObjects/read	| Read servicePrincipals.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/read	| Read servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/read	| Read servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read	| Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.directory/subscribedSkus/basic/read	| Read basic properties on subscribedSkus in Azure Active Directory. |
+| microsoft.directory/users/appRoleAssignments/read	| Read users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/users/basic/read	| Read basic properties on users in Azure Active Directory. |
+| microsoft.directory/users/directReports/read	| Read users.directReports property in Azure Active Directory. |
+| microsoft.directory/users/manager/read	| Read users.manager property in Azure Active Directory. |
+| microsoft.directory/users/memberOf/read	| Read users.memberOf property in Azure Active Directory. |
+| microsoft.directory/users/oAuth2PermissionGrants/basic/read	| Read users.oAuth2PermissionGrants property in Azure Active Directory. |
+| microsoft.directory/users/ownedDevices/read	| Read users.ownedDevices property in Azure Active Directory. |
+| microsoft.directory/users/ownedObjects/read	| Read users.ownedObjects property in Azure Active Directory. |
+| microsoft.directory/users/registeredDevices/read	| Read users.registeredDevices property in Azure Active Directory. |
+| microsoft.directory/users/strongAuthentication/read	| Read strong authentication properties like MFA credential information. |
+| microsoft.office365.exchange/allEntities/read	| Read all aspects of Exchange Online. |
+| microsoft.office365.messageCenter/messages/read	| Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.messageCenter/securityMessages/read	| Read securityMessages in microsoft.office365.messageCenter. |
+| microsoft.office365.protectionCenter/allEntities/read	| Read all aspects of Office 365 Protection Center. |
+| microsoft.office365.securityComplianceCenter/allEntities/read	| Read all standard properties in microsoft.office365.securityComplianceCenter. |
+| microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/standard/read	| Read standard properties on all resources in microsoft.office365.webPortal. |
 
 ### Guest Inviter permissions
 Can invite guest users independent of the ‘members can invite guests’ setting.
@@ -1536,6 +1624,7 @@ Directory Synchronization Accounts | Directory synchronization accounts | d29b2b
 Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5

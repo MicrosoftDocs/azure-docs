@@ -59,7 +59,7 @@ The following providers offer FIDO2 security keys of different form factors that
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
+| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
 If you are a vendor and want to get your device on this list, contact [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).

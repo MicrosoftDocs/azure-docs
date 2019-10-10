@@ -306,7 +306,10 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
 > |secret|Header|The value of the MSI_SECRET environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.|
-> |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
+> |clientid|Query|(Optional unless for user-assigned) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
+
+> [!IMPORTANT]
+> If you are attempting to obtain tokens for user-assigned identities, you must include the `clientid` property. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
 
 A successful 200 OK response includes a JSON body with the following properties:
 

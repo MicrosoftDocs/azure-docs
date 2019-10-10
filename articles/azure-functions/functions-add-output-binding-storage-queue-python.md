@@ -25,20 +25,11 @@ Most bindings require a stored connection string that Functions uses to access t
 
 Before you start this article, complete the steps in [part 1 of the Python quickstart](functions-create-first-function-python.md).
 
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
 ## Download the function app settings
 
-In the previous quickstart article, you created a function app in Azure, along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
-
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
-
-You might need to sign in to your Azure account.
-
-> [!IMPORTANT]  
-> Because it contains secrets, the local.settings.json file never gets published, and it should be excluded from source control.
-
-You need the value `AzureWebJobsStorage`, which is the Storage account connection string. You use this connection to verify that the output binding works as expected.
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## Enable extension bundles
 
@@ -48,80 +39,13 @@ You can now add the Storage output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires that a `direction`, a `type`, and a unique `name` be defined in the function.json file. Depending on the binding type, additional properties might be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding.
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-To create a binding, you add a binding configuration object to the function.json file. Edit the function.json file in your HttpTrigger folder to add an object to the `bindings` array that has these properties:
-
-| Property | Value | Description |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | The name that identifies the binding parameter referenced in your code. |
-| **`type`** | `queue` | The binding is an Azure Storage queue binding. |
-| **`direction`** | `out` | The binding is an output binding. |
-| **`queueName`** | `outqueue` | The name of the queue that the binding writes to. When the `queueName` doesn't exist, the binding creates it on first use. |
-| **`connection`** | `AzureWebJobsStorage` | The name of an app setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
-
-Your function.json file should now look like this example:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ## Add code that uses the output binding
 
-After the `name` is configured, you can start using it to access the binding as a method attribute in the function signature. In the following example, `msg` is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
 When you use an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
@@ -144,34 +68,11 @@ Next, you use the Azure CLI to view the new queue and verify that a message was 
 
 ### Set the Storage account connection
 
-Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string by using this Bash command:
-
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-```
-
-When you set the connection string in the `AZURE_STORAGE_CONNECTION_STRING` environment variable, you can access your Storage account without having to provide authentication each time.
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 ### Query the Storage queue
 
-You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-The output from this command includes a queue named `outqueue`, which is the queue that was created when the function ran.
-
-Next, use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, as in this example:
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-The string returned should be the same as the message you sent to test the function.
-
-> [!NOTE]  
-> The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](functions-bindings-storage-queue.md#encoding).
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 Now it's time to republish the updated function app to Azure.
 

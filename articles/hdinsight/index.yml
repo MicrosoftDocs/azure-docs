@@ -6,7 +6,7 @@ summary: Azure HDInsight is a managed Apache Hadoop service that lets you run Ap
 metadata:
   title: Azure HDInsight # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure HDInsight is a managed Apache Hadoop cloud service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more. # Required; article description that is displayed in search results. < 160 chars.
-  services: service
+  services: hdinsight
   ms.service: hdinsight #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
@@ -30,7 +30,7 @@ landingContent:
         links:
           - text: HDInsight components and versions
             url: ./hdinsight-component-versioning.md
-          - text: HDInsight supported node configurations
+          - text: HDInsight supported VM types
             url: ./hdinsight-supported-node-configuration.md
           - text: Compare storage options
             url: ./hdinsight-hadoop-compare-storage-options.md
@@ -40,6 +40,14 @@ landingContent:
             url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Create clusters with Data Lake Store Gen2
             url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+      - linkListType: whats-new
+        links:
+          - text: 'Autoscale: automatically scale hadoop clusters'
+            url: ./hdinsight-autoscale-clusters.md
+          - text: Monitoring with HDInsight
+            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+          - text: Migrate Apache Hive tables to HDInsight 4.0
+            url: ./interactive-query/apache-hive-migrate-workloads.md
 
   # Card
   - title: Apache Spark

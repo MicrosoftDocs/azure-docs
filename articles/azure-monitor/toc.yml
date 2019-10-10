@@ -119,6 +119,10 @@
       href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
+  - name: Monitoring scenarios
+    items:
+    - name: Monitor Azure service
+      href: insights/monitor-azure-resource.md
   - name: Manage Azure Monitor
     items:
     - name: Design a workspace deployment
@@ -138,7 +142,7 @@
           href: learn/quick-create-workspace-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-create-workspace-posh.md
-      - name: Delete a workspace
+      - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
@@ -180,27 +184,19 @@
           - name: Web apps
             displayname: java
             href: app/java-get-started.md
-          - name: Web apps (2.5.0-BETA)
-            href: app/java-get-started-25-beta.md
           - name: Docker apps
             href: app/docker.md
           - name: Log traces
             href: app/java-trace-logs.md
-          - name: Log traces (2.5.0-BETA)
-            href: app/java-trace-logs-25-beta.md
           - name: Unix metrics
             href: app/java-collectd.md
           - name: Dependencies
             href: app/java-agent.md
-          - name: Dependencies (2.5.0-BETA)
-            href: app/java-agent-25-beta.md
           - name: Filter telemetry
             href: app/java-filter-telemetry.md
           - name: Micrometer Metrics
             displayname: java
             href: app/micrometer-java.md
-          - name: Micrometer Metrics (2.5.0-BETA)
-            href: app/micrometer-java-25-beta.md
           - name: Spring Boot app
             displayname: java
             href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
@@ -431,6 +427,8 @@
           href: app/asp-net-trace-logs.md        
         - name: Performance counters
           href: app/performance-counters.md
+        - name: EventCounters
+          href: app/eventcounters.md
         - name: Dependencies
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
@@ -518,7 +516,9 @@
         - name: Azure Diagnostics extension
           items:
           - name: Overview
-            href: platform/diagnostics-extension-overview.md  
+            href: platform/diagnostics-extension-overview.md
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
           - name: Windows 
             items:   
             - name: Version history
@@ -644,22 +644,20 @@
         href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
-    - name: Azure resources
+    - name: Azure platform
       items:
-      - name: Diagnostic logs
+      - name: Platform logs overview
+        href: platform/platform-logs-overview.md 
+      - name: Resource logs
         items: 
         - name: Overview
-          href: platform/diagnostic-logs-overview.md 
-        - name: Collect in Logs
-          href: platform/diagnostic-logs-stream-log-store.md
-        - name: Collect from Azure Storage
-          href: platform/azure-storage-iis-table.md
+          href: platform/resource-logs-overview.md 
+        - name: Collect in Azure Monitor Logs
+          href: platform/resource-logs-collect-workspace.md
         - name: Archive to storage
-          href: platform/archive-diagnostic-logs.md
-        - name: Enable with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
-    - name: Azure Subscription
-      items:
+          href: platform/resource-logs-collect-storage.md
+        - name: Stream to Event Hubs
+          href: platform/resource-logs-stream-event-hubs.md
       - name: Activity log
         items:
         - name: Overview
@@ -674,6 +672,14 @@
           href: platform/activity-log-export.md
         - name: Schema
           href: platform/activity-log-schema.md
+      - name: Diagnostic settings
+        items: 
+        - name: Create diagnostic setting
+          href: platform/diagnostic-settings.md
+        - name: Create diagnostic setting with Resource Manager
+          href: platform/diagnostic-settings-template.md
+        - name: Change to blob storage format
+          href: platform/resource-logs-blob-format.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
@@ -685,6 +691,7 @@
     - name: Storage
       items:
       - name: Azure Monitor for Storage
+        displayname: storage, monitor, insights, storage accounts, azure storage
         href: insights/storage-insights-overview.md
     - name: Databases
       items:
@@ -747,7 +754,7 @@
       - name: Connect Configuration Manager
         href: platform/collect-sccm.md
     - name: Stream data to Event Hubs
-      href: platform/diagnostic-logs-stream-event-hubs.md
+      href: platform/resource-logs-stream-event-hubs.md
   - name: Analyze data
     items:
     - name: Metrics
@@ -827,6 +834,8 @@
           href: log-query/app-expression.md
         - name: workspace expression
           href: log-query/workspace-expression.md   
+        - name: resource expression
+          href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
       - name: Examples and guidance

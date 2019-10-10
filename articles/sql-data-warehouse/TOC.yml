@@ -1,5 +1,5 @@
 - name: SQL Data Warehouse Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is SQL Data Warehouse?
@@ -78,7 +78,7 @@
     - name: Authentication
       items:
       - name: Overview
-        href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+        href: sql-data-warehouse-authentication.md
       - name: Azure Active Directory
         href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Logins and users
@@ -92,7 +92,7 @@
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
-        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data protection
       items:
       - name: Transparent Data Encryption (TDE) overview
@@ -139,12 +139,22 @@
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
+      - name: Create table
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+      - name: CTAS   
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+      - name: Create and change index
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and- 
     - name: Result set caching
       items:
       - name: Set for a database
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
       - name: Set for a session 
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+      - name: Check cache size 
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest
+      - name: Clean up cache
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest
     - name: Tables
       items:
       - name: Overview
@@ -155,6 +165,8 @@
         href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
+      - name: Table constraints 
+        href: sql-data-warehouse-table-constraints.md
       - name: Indexes
         href: sql-data-warehouse-tables-index.md
       - name: Identity
@@ -232,9 +244,9 @@
   - name: Secure
     items:
     - name: Configure Azure AD auth
-      href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Conditional Access
-      href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Enable encryption - portal
@@ -336,7 +348,7 @@
   - name: T-SQL
     items:
     - name: Full reference
-      href: /sql/t-sql/language-reference
+      href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: SQL DW language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
     - name: SQL DW statements

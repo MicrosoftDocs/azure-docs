@@ -18,7 +18,7 @@ ms.custom: seodec18
 # Use Key Vault references for App Service and Azure Functions (preview)
 
 > [!NOTE] 
-> Key Vault references are currently in preview.
+> Currently, Key Vault references are in preview, and they are not currently supported by Linux consumption plans.
 
 This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
@@ -194,7 +194,7 @@ If the syntax is correct, you can view other causes for error by checking the cu
 ### Using the detector for App Service
 
 1. In the portal, navigate to your app.
-2. Select **Diagnose and solve prolems**.
+2. Select **Diagnose and solve problems**.
 3. Choose **Availability and Performance** and select **Web app down.**
 4. Find **Key Vault Application Settings Diagnostics** and click **More info**.
 
@@ -203,6 +203,6 @@ If the syntax is correct, you can view other causes for error by checking the cu
 
 1. In the portal, navigate to your app.
 2. Navigate to **Platform features.**
-3. Select **Diagnose and solve prolems**.
+3. Select **Diagnose and solve problems**.
 4. Choose **Availability and Performance** and select **Function app down or reporting errors.**
 5. Click on **Key Vault Application Settings Diagnostics.**

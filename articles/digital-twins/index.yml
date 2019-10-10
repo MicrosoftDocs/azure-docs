@@ -45,7 +45,7 @@ landingContent:
             url: tutorial-facilities-udf.md
           - text: Notify with Logic Apps
             url: tutorial-facilities-events.md
-          - text: Visualize events with TSI
+          - text: Visualize events with Time Series Insights
             url: tutorial-facilities-analyze.md
 
   - title: Develop with Azure Digital Twins

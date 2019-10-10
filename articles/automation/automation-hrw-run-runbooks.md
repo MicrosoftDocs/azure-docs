@@ -35,8 +35,8 @@ Start-AzureRmAutomationRunbook â€“AutomationAccountName "MyAutomationAccount" â€
 
 ## Runbook permissions
 
-Runbooks running on a Hybrid Runbook Worker can't use the same method that is typically used for runbooks authenticating to Azure resources, since they're accessing resources not in Azure. The runbook can either provide its own authentication to local resources, or can configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-). You can also specify a RunAs account to provide a user context for all runbooks.
+Runbooks running on a Hybrid Runbook Worker can't use the same method that is typically used for runbooks authenticating to Azure resources, since they're accessing resources not in Azure. The runbook can either provide its own authentication to local resources, or can configure authentication using
+[managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). You can also specify a RunAs account to provide a user context for all runbooks.
 
 ### Runbook authentication
 

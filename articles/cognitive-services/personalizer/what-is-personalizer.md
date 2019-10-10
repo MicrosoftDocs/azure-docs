@@ -49,7 +49,7 @@ For example, your client application can add Personalizer to:
 * Choose a chat bot's response to clarify user intent or suggest an action.
 * Prioritize suggestions of what a user should do as the next step in a business process.
 
-Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action a context a single model that can obtain maximum rewards when similar features occur. 
+Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action of a context in a single model that can obtain maximum rewards when similar features occur. 
 
 ## Personalization for developers
 
