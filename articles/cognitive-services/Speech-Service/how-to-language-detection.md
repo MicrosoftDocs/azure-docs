@@ -23,7 +23,7 @@ In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to con
 Automatic language detection currently has a limit of two source languages on the service side that can be used for detection. Keep this in mind when construction your `AudoDetectSourceLanguageConfig` In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
 
 >[!TIP]
-> You can also specify a custom model to use when performing speech recognition. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-identification).
+> You can also specify a custom model to use when performing speech recognition. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
 
 The following snippets illustrate how to use automatic language detection in your apps:
 
@@ -50,9 +50,9 @@ audioConfig.close();
 result.close();
 ```
 
-## Use a custom model for automatic language identification
+## Use a custom model for automatic language detection
 
-In addition to language identification using Speech service models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
+In addition to language detection using Speech service models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
 
 The snippets below illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the endpoint for the custom model is used:
 
