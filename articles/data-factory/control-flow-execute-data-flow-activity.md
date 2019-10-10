@@ -4,21 +4,17 @@ description: How to execute data flows from inside a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 10/07/2019
 ms.author: makromer
-
+ms.date: 10/07/2019
 ---
+
 # Data Flow activity in Azure Data Factory
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ## Syntax
 

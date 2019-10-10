@@ -4,7 +4,7 @@ description: Learn about commonly asked questions and answers for Azure Service 
 services: service-fabric-mesh
 keywords: 
 author: chackdan
-ms.author: chackdan
+ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh

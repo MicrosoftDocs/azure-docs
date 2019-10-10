@@ -172,6 +172,9 @@ For more granularity, reference the updated list of [Microsoft Azure Datacenter 
 
 For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) article.
 
+> [!NOTE]
+> SSPR can also fail if the account if the "Password never expires" or "User cannot change password" settings are configured on the account in AD DS on-premises. 
+
 ### Restart the Azure AD Connect Sync service
 
 To resolve connectivity problems or other transient problems with the service, restart the Azure AD Connect Sync service:

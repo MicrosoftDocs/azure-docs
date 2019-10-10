@@ -23,9 +23,9 @@
     href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
-  - name: About Azure Files
+  - name: Planning for an Azure Files deployment
     href: storage-files-planning.md
-  - name: About Azure File Sync
+  - name: Planning for an Azure File Sync deployment
     href: storage-sync-files-planning.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
