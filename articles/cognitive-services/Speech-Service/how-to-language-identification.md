@@ -12,20 +12,20 @@ ms.date: 11/04/2019
 ms.author: susanhu
 ---
 
-# Automatic language identification for speech recognition
+# Automatic language detection for speech recognition
 
-Automatic language identification is used to detect the language of audio/speech passed to the Speech service using the Speech SDK. This value returned by automatic language identification is then used to select the correct language model for speech recognition, providing you with an accurate transcription. To see which languages are available, see [Language support](language-support.md).
+Automatic language detection is used to determine the most likely match for audio passed to the Speech SDK when compared against a list of provided languages. The value returned by automatic language detection is then used to select the language model for speech recognition, providing you with a more accurate transcription. To see which languages are available, see [Language support](language-support.md).
 
-In this article, you'll learn how to use `AutoDetectSourcLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
+In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
-## Automatic language identification with the Speech SDK
+## Automatic language detection with the Speech SDK
 
-Automatic language identification currently has a limit of two source languages that can be provided when constructing `AutoDetectSourcLanguageConfig`. In the samples below, you'll create an `AutoDetectSourcLanguageConfig`, then use it to construct a `SpeechRecognizer`.
+Automatic language detection currently has a limit of two source languages on the service side that can be used for detection. Keep this in mind when construction your `AudoDetectSourceLanguageConfig` In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
 
 >[!TIP]
-> You can also specify a custom model to use when performing speech recognition. For more information, see [Use a custom model for automatic language identification](#use-a-custom-model-for-automatic-language-identification).
+> You can also specify a custom model to use when performing speech recognition. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-identification).
 
-The following snippets illustrate how to use automatic language identification in your apps:
+The following snippets illustrate how to use automatic language detection in your apps:
 
 ```C++
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
