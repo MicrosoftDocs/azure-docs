@@ -45,11 +45,11 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-1. On the **Settings** tab for the Execute SSIS Package activity, select an Azure-SSIS IR where you want to run your package. If your package uses Windows authentication to access data stores, for example, SQL servers or file shares on-premises or Azure Files, select the **Windows authentication** check box. Enter the values for your package execution credentials in the **Domain**, **Username**, and **Password** boxes. 
+1. On the **Settings** tab for the Execute SSIS Package activity, select an Azure-SSIS IR where you want to run your package. If your package uses Windows authentication to access data stores (for example, SQL servers or file shares on-premises or Azure Files), select the **Windows authentication** check box. Enter the values for your package execution credentials in the **Domain**, **Username**, and **Password** boxes. 
 
-    Alternatively, you can use secrets stored in your Azure Key Vault as their values. To do so, select the **AZURE KEY VAULT** check box next to the relevant credential. Select or edit your existing Key Vault linked service or create a new one. Then select the secret name or version for your credential value.
+    Alternatively, you can use secrets stored in your Azure key vault as their values. To do so, select the **AZURE KEY VAULT** check box next to the relevant credential. Select or edit your existing key vault linked service or create a new one. Then select the secret name or version for your credential value.
 
-    When you create or edit your Key Vault linked service, you can select or edit your existing Key Vault or create a new one. Make sure to grant Data Factory managed identity access to your Key Vault if you haven't done so already. You can also enter your secrets directly in the following format: `<Key Vault linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, select the **32-Bit runtime** check box.
+    When you create or edit your key vault linked service, you can select or edit your existing key vault or create a new one. Make sure to grant Data Factory managed identity access to your key vault if you haven't done so already. You can also enter your secrets directly in the following format: `<Key vault linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, select the **32-Bit runtime** check box.
 
    For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with the SSIS catalog (SSISDB) hosted by an Azure SQL Database server or managed instance, specify your package to run that was deployed into SSISDB. 
 
@@ -75,9 +75,9 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    Next, specify the credentials to access your project, package, or configuration files. If you previously entered the values for your package execution credentials (see previous), you can reuse them by selecting the **Same as package execution credentials** check box. Otherwise, enter the values for your package access credentials in the **Domain**, **Username**, and **Password** boxes. For example, if you store your project, package, or configuration in Azure Files, the domain is `Azure`, the username is `<storage account name>`, and the password is `<storage account key>`. 
 
-   Alternatively, you can use secrets stored in your Key Vault as their values (see previous). These credentials are used to access your package and child packages in Execute Package Task, all from their own path or the same project, as well as configurations, which include those specified in your packages. 
+   Alternatively, you can use secrets stored in your key vault as their values (see previous). These credentials are used to access your package and child packages in Execute Package Task, all from their own path or the same project, as well as configurations, which include those specified in your packages. 
    
-   If you used the **EncryptAllWithPassword** or **EncryptSensitiveWithPassword** protection level when you created your package via SQL Server Data Tools, enter the value for your password in the **Encryption password** box. Alternatively, you can use a secret stored in your Key Vault as its value (see previous). If you used the **EncryptSensitiveWithUserKey** protection level, reenter your sensitive values in configuration files or on the **SSIS Parameters**, **Connection Managers**, or **Property Overrides** tabs (see later). 
+   If you used the **EncryptAllWithPassword** or **EncryptSensitiveWithPassword** protection level when you created your package via SQL Server Data Tools, enter the value for your password in the **Encryption password** box. Alternatively, you can use a secret stored in your key vault as its value (see previous). If you used the **EncryptSensitiveWithUserKey** protection level, reenter your sensitive values in configuration files or on the **SSIS Parameters**, **Connection Managers**, or **Property Overrides** tabs (see later). 
 
    If you used the **EncryptAllWithUserKey** protection level, it's unsupported. You need to reconfigure your package to use another protection level via SQL Server Data Tools or the `dtutil` command-line utility. 
    
@@ -85,7 +85,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    
    Finally, specify the credentials to access your log folder. If you previously entered the values for your package access credentials (see previous), you can reuse them by selecting the **Same as package access credentials** check box. Otherwise, enter the values for your logging access credentials in the **Domain**, **Username**, and **Password** boxes. For example, if you store your logs in Azure Files, the domain is `Azure`, the username is `<storage account name>`, and the password is `<storage account key>`. 
 
-    Alternatively, you can use secrets stored in your Key Vault as their values (see previous). These credentials are used to store your logs. 
+    Alternatively, you can use secrets stored in your key vault as their values (see previous). These credentials are used to store your logs. 
    
    For all UNC paths previously mentioned, the fully qualified file name must be fewer than 260 characters. The directory name must be fewer than 248 characters.
 
@@ -93,7 +93,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    
    If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SQL Server Data Tools and **File System (Package)** or **File System (Project)** is selected as your package location, you also need to reenter your sensitive parameters to assign values to them in configuration files or on this tab. 
    
-   When you assign values to your parameters, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your Key Vault as their values (see previous).
+   When you assign values to your parameters, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your key vault as their values (see previous).
 
    ![Set properties on the SSIS Parameters tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
@@ -101,7 +101,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    
    If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SQL Server Data Tools and **File System (Package)** or **File System (Project)** is selected as your package location, you also need to reenter your sensitive connection manager properties to assign values to them in configuration files or on this tab. 
    
-   When you assign values to your connection manager properties, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your Key Vault as their values (see previous).
+   When you assign values to your connection manager properties, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your key vault as their values (see previous).
 
    ![Set properties on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
