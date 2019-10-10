@@ -53,7 +53,7 @@ You can add a new facility by typing in its name and clicking **+**. For each fa
 
 ![Configure Syslog](media/data-sources-syslog/configure.png)
 
-By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
+By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my machines*.
 
 ### Configure Syslog on Linux agent
 When the [Log Analytics agent is installed on a Linux client](../../azure-monitor/learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected. You can modify this file to change the configuration. The configuration file is different depending on the Syslog daemon that the client has installed.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure role-based access control (RBAC) roles in Azure Kubernetes Service (AKS) using Ansible | Microsoft Docs
+title: Tutorial - Configure role-based access control (RBAC) roles in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Configure role-based access control (RBAC) roles in Azure Kubernetes Service (AKS) using Ansible
@@ -27,14 +27,14 @@ AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directo
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 - **Install the RedHat OpenShift library** - `pip install openshift`
 
 ## Configure Azure AD for AKS authentication
 
-When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-server-application). 
+When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 From the Azure tenant administrator, get the following values:
 
@@ -68,7 +68,7 @@ Save the following playbook as `aks-create.yml`:
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 

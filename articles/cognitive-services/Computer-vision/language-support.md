@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ---

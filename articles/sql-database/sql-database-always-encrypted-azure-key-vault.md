@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
@@ -220,7 +219,7 @@ The following code shows how to enable Always Encrypted by setting [SqlConnectio
 ## Register the Azure Key Vault provider
 The following code shows how to register the Azure Key Vault provider with the ADO.NET driver.
 
-```C#
+```csharp
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()

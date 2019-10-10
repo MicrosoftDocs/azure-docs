@@ -6,6 +6,7 @@ author: vhorne
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Import and export a DNS zone file using the Azure CLI
@@ -148,7 +149,7 @@ After you have verified that the zone has been imported correctly, you need to u
 
 ## Export a DNS zone file from Azure DNS
 
-The format of the Azure CLI command to import a DNS zone is:
+The format of the Azure CLI command to export a DNS zone is:
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

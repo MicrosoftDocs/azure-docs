@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 # Two-Class Decision Forest module
 
@@ -41,7 +40,7 @@ Decision trees in general have many advantages for classification tasks:
 
 However, simple decision trees can overfit on data, and are less generalizable than tree ensembles.
 
-For more information, see [Decision Forests](http://go.microsoft.com/fwlink/?LinkId=403677).  
+For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## How to configure
   

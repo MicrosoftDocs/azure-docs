@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.author: Evgeny.Ternovsky
+ms.author: evternov
 
 ---
 
@@ -24,7 +24,7 @@ Some situations where you might want custom data include:
 
 - Data enrichment or lookup tables: for example, supplement a server name with the owner of the server and the lab location in which it can be found 
 - Correlation with non-Application Insights data sources: for example, correlate data about a purchase on a web-store with information from your purchase-fulfillment service to determine how accurate your shipping time estimates were 
-- Completely custom data: many of our customers love the query language and performance of the Azure Monitor log platform that backs Application Insights, and want to use it to query data that is not at all related to Application Insights. For example, to track the solar panel performance as part of a smart home installation as outlined [here]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Completely custom data: many of our customers love the query language and performance of the Azure Monitor log platform that backs Application Insights, and want to use it to query data that is not at all related to Application Insights. For example, to track the solar panel performance as part of a smart home installation as outlined [here](https://www.catapultsystems.com/blogs/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## How to correlate custom data with Application Insights data 
 

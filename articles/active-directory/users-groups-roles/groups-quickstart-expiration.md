@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -31,11 +31,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisite
 
-You must be a Global administrator or User administrator in the organization to set up group expiration.
+ The least-privileged role required to set up group expiration is User administrator in the organization.
 
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global administrator or User administrator for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
 
 2. Select **Groups**, and then select **General**.
   
@@ -76,7 +76,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ## Next steps
 
-For more information about expiration including technical constraints, adding a list of custom blocked words, and end user experiences across Office 365 apps, see the following article containing those expiration policy details:
+For more information about expiration including PowerShell instructions and technical constraints, see the following article:
 
 > [!div class="nextstepaction"]
-> [Expiration policy all details](groups-lifecycle.md)
+> [Expiration policy PowerShell](groups-lifecycle.md)

@@ -1,21 +1,21 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
-description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
+title: Session host virtual machine configuration - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
-ms.author: v-chjenk
+ms.topic: troubleshooting
+ms.date: 10/02/2019
+ms.author: helohr
 ---
-# Tenant and host pool creation
+# Session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## VMs are not joined to the domain
 
@@ -29,39 +29,45 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Cause:** There was a typo made when the credentials were entered in the Azure Resource Manager template interface fixes.
 
-**Fix:** Follow these instructions to correct the credentials.
+**Fix:** Take one of the following actions to resolve.
 
-1. Manually add the VMs to a domain.
-2. Redeploy once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Manually add the VMs to a domain.
+- Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### Error: Timeout waiting for user input
 
 **Cause:** The account used to complete the domain join may have multi-factor authentication (MFA).
 
-**Fix:** Follow these instructions to complete the domain join.
+**Fix:** Take one of the following actions to resolve.
 
-1. Temporarily remove MFA for the account.
-2. Use a service account.
+- Temporarily remove MFA for the account.
+- Use a service account.
 
 ### Error: The account used during provisioning doesn't have permissions to complete the operation
 
 **Cause:** The account being used doesn't have permissions to join VMs to the domain due to compliance and regulations.
 
-**Fix:** Follow these instructions.
+**Fix:** Take one of the following actions to resolve.
 
-1. Use an account that is a member of the Administrator group.
-2. Grant the necessary permissions to the account being used.
+- Use an account that is a member of the Administrator group.
+- Grant the necessary permissions to the account being used.
 
 ### Error: Domain name doesn't resolve
 
-**Cause 1:** VMs are in a resource group that's not associated with the virtual network (VNET) where the domain is located.
+**Cause 1:** VMs are on a virtual network that's not associated with the virtual network (VNET) where the domain is located.
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Cause 2:** When using AadService (AADS), DNS entries have not been set.
+**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+
+**Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
+
+**Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
+- Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
@@ -197,7 +203,12 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
@@ -280,6 +291,77 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
+## Remote Licensing model isn't configured
+
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
+
+If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
+
+If you see either of these messages, this means you need to open the Group Policy editor and manually configure the licensing mode to **Per user**. The manual configuration process is different depending on which version of Windows 10 Enterprise multi-session you're using. The following sections explain how to check your version number and what to do for each.
+
+>[!NOTE]
+>Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### Identify which version of Windows 10 Enterprise multi-session you're using
+
+To check which version of Windows 10 Enterprise multi-session you have:
+
+1. Sign in with your admin account.
+2. Enter "About" into the search bar next to the Start menu.
+3. Select **About your PC**.
+4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
+   
+    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
+
+Now that you know your version number, skip ahead to the relevant section.
+
+### Version 1809
+
+If your version number says "1809," you can either upgrade to Windows 10 Enterprise multi-session, version 1903 or redeploy the host pool with the latest image.
+
+To upgrade to Windows 10, version 1903:
+
+1. If you haven't already, download and install the [Windows 10 May 2019 Update](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Sign in to your computer with your admin account.
+3. Run **gpedit.msc** to open the Group Policy editor.
+4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+5. Select **Set the Remote Desktop licensing mode**.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
+    
+    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
+
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
+
+To redeploy the host pool with the latest image:
+
+1. Follow the instructions in [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) until you're prompted to choose an Image OS version. You can choose either Windows 10 Enterprise multi-session with or without Office365 ProPlus.
+2. Sign in to your computer with your admin account.
+3. Run **gpedit.msc** to open the Group Policy editor.
+4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+5. Select **Set the Remote Desktop licensing mode**.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**.
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
+
+### Version 1903
+
+If your version number says "1903," follow these instructions:
+
+1. Sign in to your computer with your admin account.
+2. Run **gpedit.msc** to open the Group Policy editor.
+3. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
+4. Select **Set the Remote Desktop licensing mode**.
+6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
+    
+    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
+
+7. Select **Apply**.
+8. Select **OK**.
+9.  Restart your computer.
+
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
@@ -287,7 +369,7 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

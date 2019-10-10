@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2017
+ms.date: 06/04/2019
 ms.author: mbullwin
 ---
 #  Create Application Insights resources using PowerShell
@@ -40,7 +40,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
             "appName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Enter the application name."
+                    "description": "Enter the name of your Application Insights resource."
                 }
             },
             "appType": {
@@ -52,20 +52,39 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                     "other"
                 ],
                 "metadata": {
-                    "description": "Enter the application type."
+                    "description": "Enter the type of the monitored application."
                 }
             },
             "appLocation": {
                 "type": "string",
-                "defaultValue": "East US",
+                "defaultValue": "eastus",
+                "metadata": {
+                    "description": "Enter the location of your Application Insights resource."
+                }
+            },
+            "retentionInDays": {
+                "type": "int",
+                "defaultValue": 90,
                 "allowedValues": [
-                    "South Central US",
-                    "West Europe",
-                    "East US",
-                    "North Europe"
+                    30,
+					60,
+					90,
+					120,
+					180,
+					270,
+					365,
+					550,
+					730
                 ],
                 "metadata": {
-                    "description": "Enter the application location."
+                    "description": "Data retention in days"
+                }
+            },
+			"ImmediatePurgeDataOn30Days": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
                 }
             },
             "priceCode": {
@@ -76,7 +95,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "Pricing plan: 1 = Per GB (or legacy Basic plan), 2 = Per Node (legacy Enterprise plan)"
                 }
             },
             "dailyQuota": {
@@ -135,6 +154,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
+                    "retentionInDays": "[variables('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -446,4 +466,3 @@ Other automation articles:
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

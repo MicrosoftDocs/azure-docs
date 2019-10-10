@@ -4,13 +4,13 @@ description: Lists the different storage optimized sizes available for Windows v
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -21,7 +21,7 @@ ms.author: jonbeck
 
 # Storage optimized virtual machine sizes
 
-[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
+[!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 ## Other sizes
 

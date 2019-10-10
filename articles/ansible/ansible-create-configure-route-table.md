@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure Azure route tables using Ansible | Microsoft Docs
+title: Tutorial - Configure Azure route tables using Ansible
 description: Learn how to create, change, and delete Azure route tables using Ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 ms.topic: tutorial
@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Configure Azure route tables using Ansible
@@ -30,8 +30,8 @@ Azure automatically routes traffic between Azure subnets, virtual networks, and 
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a route table
 

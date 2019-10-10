@@ -44,3 +44,5 @@
     href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
   - name: Pricing information
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure topics in Azure Service Bus using Ansible | Microsoft Docs
+title: Tutorial - Configure topics in Azure Service Bus using Ansible
 description: Learn how to use Ansible to create an Azure Service Bus topic
 keywords: ansible, azure, devops, bash, playbook, service bus, topics, subscriptions
 ms.topic: tutorial
@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Configure topics in Azure Service Bus using Ansible
@@ -29,8 +29,8 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create the Service Bus topic
 

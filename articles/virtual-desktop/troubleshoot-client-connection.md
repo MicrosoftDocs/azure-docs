@@ -2,12 +2,12 @@
 title: Remote Desktop client connections in Windows Virtual Desktop - Azure
 description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Remote Desktop client connections
 
@@ -15,7 +15,7 @@ Use this article to resolve issues with Windows Virtual Desktop client connectio
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## You can't open a web client
 
@@ -23,9 +23,9 @@ Confirm there's internet connectivity by opening another web site; for example, 
 
 Use **nslookup** to confirm DNS can resolve the FQDN:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
 
@@ -103,24 +103,23 @@ Follow these general troubleshooting instructions for client connection error co
 1. Confirm user name and time when issue was experienced.
 2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
 3. Confirm connection to the correct tenant with **Get-RdsTenant.**
-4. If needed, set the tenant group context with **Set-RdsContext –TenantGroupt\<TenantGroup\>**.
-5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
-6. Execute the command below to get a list of all failed activities of type connection for the specified time window:
+4. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
+5. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Using the **ActivityId** from the previous cmdlet output, run the command below:
+6. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
+7. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -149,13 +148,18 @@ Follow these general troubleshooting instructions for client connection error co
 
 **Fix:** Join all VMs that are part of a host pool to the domain controller.
 
+### Error: ConnectionFailedUserSIDInformationMismatch
+**Cause:** The SID from the user's Azure Active Directory (AD) token doesn't match the SID returned by the domain controller when attempting to enable the user for remote sign in. This error typically happens when attempting to sign in to an Azure Active Directory Domain Services (Azure AD DS) environment with a user originally sourced from a Windows Server AD.
+
+**Fix:** This scenario isn't supported at this time. Only users sourced from Azure Active Directory can sign in to Windows Virtual Desktop VMs connected to Azure AD DS.
+
 ## User connects but nothing is displayed (no feed)
 
 A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
 Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
@@ -169,7 +173,4 @@ If the web client is being used, confirm that there are no cached credentials is
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

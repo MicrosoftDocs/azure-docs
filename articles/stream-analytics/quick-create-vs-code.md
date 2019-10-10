@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio Code."
@@ -22,23 +22,13 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 * Install [Visual Studio Code](https://code.visualstudio.com/).
 
-* Download the [Azure Stream Analytics extension for VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
-
 ## Install the Azure Stream Analytics extension
-
-Install Azure Stream Analytics extension from the private VSIX package you downloaded.
 
 1. Open Visual Studio Code.
 
-2. From **Extensions** on the left pane, select the ellipses **(…)** on the top right. Then select **Install from VSIX**.
+2. From **Extensions** on the left pane, search for **Stream Analytics** and select **Install** on the **Azure Stream Analytics** extension.
 
-   ![Install from VSIX in Visual Studio Code](./media/quick-create-vs-code/install-vsix.png)
-
-3. Choose the extension you downloaded as a prerequisite, and select **Install**.  This may take several seconds.
-
-4. When installation finished successfully, select **Reload Now** in the pop up window if you are prompted.
-
-5. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
+3. Once the extension is installed, verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
    ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -120,12 +110,31 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
-4. The asaproj.json configuration file contains the inputs, outputs and job configuration file information needed for submitting the ASA job to Azure.
+4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 
    ![Stream Analytics job configuration file in VS Code](./media/quick-create-vs-code/job-configuration.png)
 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
+
+## Define the transformation query
+
+1. Open **myASAproj.asaql** from your project folder.
+
+2. Add the following query:
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## Test with sample data
+Before running the query in the cloud, you can test your query with local sample data to verify the query logic.
+
+Follow the instructions in [Test with sample data](vscode-local-run.md) for more details. 
+
+ ![Test with sample data in VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
 
 ## Define an input
 
@@ -141,16 +150,19 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    ![Select an ASA script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Enter the input file name as **IotHub.json**.
+4. Enter the input file name as **IotHub**.
 
-5. Edit **IoTHub.json** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you enter a string or select from a dropdown list.
+5. Edit **IoTHub.json** with the following values. Keep default values for fields not mentioned below. You can use the CodeLens to help you enter a string, select from a dropdown list, or change the text directly in the file.
 
    |Setting|Suggested value|Description|
    |-------|---------------|-----------|
    |Name|Input|Enter a name to identify the job’s input.|
    |IotHubNamespace|MyASAIoTHub|Choose or enter the name of your IoT Hub. IoT Hub names are automatically detected if they are created in the same subscription.|
-   |EndPoint|Messaging| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Configure input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## Define an output
 
@@ -162,9 +174,9 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 3. Choose the ASA query script that will use this input.
 
-4. Enter the output file name as **BlobStorage.json**.
+4. Enter the output file name as **BlobStorage**.
 
-5. Edit **BlobStorage.json** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you enter a string or select from a dropdown list.
+5. Edit **BlobStorage** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you select from a dropdown list or enter a string. 
 
    |Setting|Suggested value|Description|
    |-------|---------------|-----------|
@@ -173,22 +185,11 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    |Container|container1|Select the existing container that you created in your storage account.|
    |Path Pattern|output|Enter the name of a file path to be created within the container.|
 
-## Define the transformation query
+ ![Configure output in Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
-1. Open **myASAproj.asaql** from your project folder.
+## Compile the script
 
-2. Add the following query:
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
-
-## Compile script
-
-Script compilation does two things: check syntax and generate the Azure Resource Manager templates for auto-deployment.
+Script compilation does two things: check syntax and generate the Azure Resource Manager templates for autodeployment.
 
 There are two ways to trigger script compilation:
 
@@ -200,7 +201,9 @@ There are two ways to trigger script compilation:
 
     ![Right-click the ASA script to compile](./media/quick-create-vs-code/compile-script2.png)
 
-3. After compilation, you can find the two generated Azure Resource Manager templates in **Deploy** folder of your project. These two files are used for auto-deployment.
+3. After compilation, you can find the two generated Azure Resource Manager templates in **Deploy** folder of your project. These two files are used for autodeployment.
+
+    ![Stream Analytics deployment templates in file explorer](./media/quick-create-vs-code/deployment-templates.png)
 
 ## Submit a Stream Analytics job to Azure
 
@@ -210,13 +213,16 @@ There are two ways to trigger script compilation:
 
 2. Select your subscription from the popup list.
 
-3. Select **Select a job**. Then choose Create a new job.
+3. Select a job**. Then choose Create a new job.
 
 4. Enter your job name, **myASAjob** and then follow the instructions to choose the resource group and location.
 
 5. Select **Submit to Azure**. The logs can be found in the output window. 
 
-6. When your job is created, you can see it in the Stream Analytics Explorer.
+6. When your job is created, you can see it in the **Stream Analytics Explorer**.
+
+![List job in Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
+
 
 ## Run the IoT simulator
 
@@ -230,13 +236,15 @@ There are two ways to trigger script compilation:
 
 ## Start the Stream Analytics job and check output
 
-1. Open Stream Analytics Explorer in Visual Studio Code and find your job,**myASAJob**.
+1. Open **Stream Analytics Explorer** in Visual Studio Code and find your job, **myASAJob**.
 
 2. Right-click on the job name. Then, select **Start** from the context menu.
 
+   ![Start Stream Analytics job in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+
 3. Choose **Now** in the popup window to start the job.
 
-4. Note the job status has changed to **Running**. Right-click on the job name and choose **Open Job View in Portal** to see the input and output event metrics. This may take a few minutes.
+4. Note the job status has changed to **Running**. Right-click on the job name and choose **Open Job View in Portal** to see the input and output event metrics. This action may take a few minutes.
 
 5. To view the results, open the blob storage in the Visual Studio Code extension or in the Azure portal.
 

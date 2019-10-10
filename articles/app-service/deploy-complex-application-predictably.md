@@ -11,7 +11,6 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin

@@ -1,11 +1,11 @@
 ---
 title: Create a container in Azure Cosmos DB
 description: Learn how to create a container in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 04/17/2019
-ms.author: rimman
+ms.topic: conceptual
+ms.date: 09/28/2019
+ms.author: mjbrown
 ---
 
 # Create an Azure Cosmos container
@@ -20,15 +20,15 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
-1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a collection ID.
+   * Enter a container ID.
    * Enter a partition key.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Data Explorer pane, with New Collection highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    ![Screenshot of Data Explorer pane, with New Container highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -36,15 +36,15 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a collection ID.
+   * Enter a container ID.
    * Enter a shard key.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Azure Cosmos DB API for MongoDB, Add Collection dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    ![Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -60,7 +60,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    ![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
@@ -80,7 +80,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    ![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
 ### <a id="portal-table"></a>Table API
 
@@ -94,78 +94,34 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
+    ![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
 
-## Create a container using Azure CLI
+## Create a container using Azure CLI<a id="cli-sql"></a><a id="cli-mongodb"></a><a id="cli-cassandra"></a><a id="cli-gremlin"></a><a id="cli-table"></a>
 
-### <a id="cli-sql"></a>SQL API
+The links below show how to create container resources for Azure Cosmos DB using Azure CLI.
 
-```azurecli-interactive
-# Create a container with a partition key and provision 1000 RU/s throughput.
+For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL API](cli-samples.md), [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md), and [Table API](cli-samples-table.md)
 
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 1000
-```
+* [Create a container with Azure CLI](manage-with-cli.md#create-a-container)
+* [Create a collection for Azure Cosmos DB for MongoDB API with Azure CLI](./scripts/cli/mongodb/create.md)
+* [Create a Cassandra table with Azure CLI](./scripts/cli/cassandra/create.md)
+* [Create a Gremlin graph with Azure CLI](./scripts/cli/gremlin/create.md)
+* [Create a Table API table with Azure CLI](./scripts/cli/table/create.md)
 
-### <a id="cli-mongodb"></a>Azure Cosmos DB API for MongoDB
+## Create a container using PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
-```azurecli-interactive
-# Create a collection with a shard key and provision 1000 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $collectionName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myShardKey \
-    --throughput 1000
-```
+The links below show how to create container resources for Azure Cosmos DB using PowerShell.
 
-### <a id="cli-cassandra"></a>Cassandra API
+For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL API](powershell-samples-sql.md), [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md), and [Table API](powershell-samples-table.md)
 
-```azurecli-interactive
-# Create a table with a partition/primary key and provision 1000 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $tableName \
-    --name $accountName \
-    --db-name $keyspaceName \
-    --partition-key-path /myPrimaryKey \
-    --throughput 1000
-```
-
-### <a id="cli-gremlin"></a>Gremlin API
-
-```azurecli-interactive
-# Create a graph with a partition key and provision 1000 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $graphName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 1000
-```
-
-### <a id="cli-table"></a>Table API
-
-```azurecli-interactive
-# Create a table with 1000 RU/s
-# Note: you don't need to specify partition key in the following command because the partition key is set on each row.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $tableName \
-    --name $accountName \
-    --db-name $databaseName \
-    --throughput 1000
-```
+* [Create a container with Powershell](manage-with-powershell.md#create-container)
+* [Create a collection for Azure Cosmos DB for MongoDB API with Powershell](./scripts/powershell/mongodb/ps-mongodb-create.md)
+* [Create a Cassandra table with Powershell](./scripts/powershell/cassandra/ps-cassandra-create.md)
+* [Create a Gremlin graph with Powershell](./scripts/powershell/gremlin/ps-gremlin-create.md)
+* [Create a Table API table with Powershell](./scripts/powershell/table/ps-table-create.md)
 
 ## Create a container using .NET SDK
 
@@ -205,7 +161,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## Next steps
 
-- [Partitioning in Azure Cosmos DB](partitioning-overview.md)
-- [Request Units in Azure Cosmos DB](request-units.md)
-- [Provision throughput on containers and databases](set-throughput.md)
-- [Work with Azure Cosmos account](account-overview.md)
+* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
+* [Request Units in Azure Cosmos DB](request-units.md)
+* [Provision throughput on containers and databases](set-throughput.md)
+* [Work with Azure Cosmos account](account-overview.md)

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 5/10/2018
-ms.author: erikre
+ms.date: 10/01/2019
+ms.author: banders
 ms.custom: seodec18
 ---
 

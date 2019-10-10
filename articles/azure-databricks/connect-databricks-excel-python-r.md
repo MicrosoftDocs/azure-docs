@@ -147,7 +147,7 @@ The following code snippet performs these tasks:
 import pyodbc
 
 # establish a connection using the DSN you created earlier
-conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
+conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit=True)
 
 # run a SQL query using the connection you created
 cursor = conn.cursor()
@@ -156,7 +156,6 @@ cursor.execute("SELECT * FROM radio_sample_data")
 # print the rows retrieved by the query.
 for row in cursor.fetchall():
     print(row)
-
 ```
 
 ## Next steps

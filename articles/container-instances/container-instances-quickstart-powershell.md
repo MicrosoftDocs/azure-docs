@@ -3,6 +3,7 @@ title: Quickstart - Deploy Docker container to Azure Container Instances - Power
 description: In this quickstart, you use Azure PowerShell to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: quickstart
@@ -23,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

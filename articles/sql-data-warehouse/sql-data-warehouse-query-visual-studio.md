@@ -2,13 +2,13 @@
 title: Connect to Azure SQL Data Warehouse - VSTS | Microsoft Docs
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.subservice: development
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
 ---
 
@@ -22,17 +22,17 @@ ms.reviewer: igorstan
 > 
 > 
 
-Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio. 
+Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL data warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
+* An existing SQL Data Warehouse. To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this. For installation instructions and options, see [Installing Visual Studio and SSDT][Installing Visual Studio and SSDT].
 * The fully qualified SQL server name. To find this, see [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## 1. Connect to your SQL Data Warehouse
-1. Open Visual Studio 2013 or 2015.
+1. Open Visual Studio 2019.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer][1]

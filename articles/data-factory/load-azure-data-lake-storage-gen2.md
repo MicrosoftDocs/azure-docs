@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
 ---
 
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
-Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offers a scale-out, managed data movement solution. Due to the scale-out architecture of ADF, it can ingest data at a high throughput. For details, see [Copy activity performance](copy-activity-performance.md).
 
@@ -126,13 +126,6 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Verify that the data is copied into your Data Lake Storage Gen2 account.
-
-## Best practices
-
-When copy large volume of data from file-based data store, you are suggested to:
-
-- Partition the files into 10TB to 30TB fileset each.
-- Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
 
 ## Next steps
 

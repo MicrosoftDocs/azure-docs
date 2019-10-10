@@ -1,9 +1,9 @@
 ---
-title: "Azure Status Monitor v2 API Reference: Disable instrumentation engine | Microsoft Docs"
-description: Status Monitor v2 API Reference Disable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+title: "Azure Status Monitor v2 API reference: Disable instrumentation engine | Microsoft Docs"
+description: Status Monitor v2 API reference. Disable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,22 +13,16 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Disable-InstrumentationEngine (v0.2.1-alpha)
+# Status Monitor v2 API: Disable-InstrumentationEngine
 
-This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## Description
-
-This cmdlet will disable the Instrumentation Engine by removing some registry keys.
-Restart IIS for these changes to take effect.
+Disables the instrumentation engine by removing some registry keys.
+Restart IIS for the changes to take effect.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell Session with Administrator permissions.
+> This cmdlet requires a PowerShell session with Admin permissions.
 
 ## Examples
 
@@ -39,7 +33,7 @@ PS C:\> Disable-InstrumentationEngine
 ## Parameters 
 
 ### -Verbose
-**Common Parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to output detailed logs.
 
 ## Output
 
@@ -53,3 +47,9 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC[E
 Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]'
 Configuring registry for instrumentation engine...
 ```
+
+
+## Next steps
+
+ Do more with Status Monitor v2:
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.

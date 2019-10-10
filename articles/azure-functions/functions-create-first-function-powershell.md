@@ -5,7 +5,8 @@ services: functions
 keywords:
 author: joeyaiello
 manager: jeconnoc
-ms.author: jaiello, glenga
+ms.author: jaiello
+ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
@@ -31,7 +32,7 @@ The following steps are supported on macOS, Windows, and Linux-based operating s
 
 To complete this quickstart:
 
-* Install [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
@@ -45,24 +46,7 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
-
-## Enable PowerShell in the extension
-
-Use the following steps to enable PowerShell in the Azure Functions Extension:
-
-1. In Visual Studio Code, choose one of the following menu commands:
-
-    * On Windows or Linux, choose **File** > **Preferences** > **Settings**.
-    * On macOS, choose **Code** > **Preferences** > **Settings**.
-
-1. In the Search settings field, type `powershell`.
-
-1. In the **User settings** tab, expand **Extensions** > **Azure Functions**, then **Enable preview support for PowerShell**.
-
-    ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-powershell/enable-powershell-support-vs-code.png)
-
-Close the settings. PowerShell is now enabled.  
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)] 
 
 ## Create a function app project
 
@@ -107,7 +91,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     You can also execute the GET request from a browser.
 
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a 500 error. When you review the code in run.ps1, you see that this error occurs by design.
+    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a [HttpStatusCode]::BadRequest error. When you review the code in run.ps1, you see that this error occurs by design.
 
 1. To stop debugging, press Shift + F5.
 
@@ -115,6 +99,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
+
+> [!NOTE]
+> Creating a Function App in Azure will only prompt for Function App name. 
+> Set azureFunctions.advancedCreation to true to be prompted for all other values.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

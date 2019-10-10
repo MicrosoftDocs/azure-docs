@@ -9,7 +9,6 @@ manager: ggailey777
 
 ms.assetid: 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
@@ -73,8 +72,6 @@ You must have a function app to host the execution of your functions. A function
 
 8. Select **Go to resource** to view your new function app.
 
-> [!TIP]
-> Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Next, you create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function

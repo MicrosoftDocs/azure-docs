@@ -12,10 +12,9 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
 
 ---

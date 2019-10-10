@@ -35,6 +35,8 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   Administrative share is currently not supported on the Azure-SSIS IR.
 
+-   IBM iSeries Access ODBC Driver is not supported on the Azure-SSIS IR. You may see installation error during custom setup. Please contact IBM support for assistance.
+
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

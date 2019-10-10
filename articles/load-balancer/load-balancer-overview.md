@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 
@@ -167,6 +167,7 @@ For information about the Standard Load Balancer SLA, go to the [Load Balancer S
 
 - Load Balancer is a TCP or UDP product for load balancing and port forwarding for these specific IP protocols.  Load balancing rules and inbound NAT rules are supported for TCP and UDP and not supported for other IP protocols including ICMP. Load Balancer does not terminate, respond, or otherwise interact with the payload of a UDP or TCP flow. It is not a proxy. Successful validation of connectivity to a frontend must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a frontend.  Not receiving an in-band response from the Load Balancer frontend indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer frontend without a virtual machine able to respond.  This also applies to outbound connections where [port masquerade SNAT](load-balancer-outbound-connections.md#snat) is only supported for TCP and UDP; any other IP protocols including ICMP  will also fail.  Assign an instance-level Public IP address to mitigate.
 - Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the frontend of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT port exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the backend pool attempts a flow to frontend of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the backend pool which created the flow to the frontend, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the frontend and the corresponding inbound flow appears to originate from the VM to itself. From the guest OS's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack will not recognize these halves of the same flow as being part of the same flow as the source and destination don't match.  When the flow maps to any other VM in the backend pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend which originated the flow. There are several common workarounds for reliably achieving this scenario (originating flows from a backend pool to the backend pools respective internal Load Balancer frontend) which include either insertion of a proxy layer behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  Customers can combine an internal Load Balancer with any 3rd party proxy or substitute internal [Application Gateway](../application-gateway/application-gateway-introduction.md) for proxy scenarios limited to HTTP/HTTPS. While you could use a public Load Balancer to mitigate, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat) and should be avoided unless carefully managed.
+- In general, forwarding IP fragments or performing IP fragmentation of UDP and TCP packets are not supported on load balancing rules.  [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) are an exception to this general statement and can be used to forward existing IP fragments.
 
 ## Next steps
 

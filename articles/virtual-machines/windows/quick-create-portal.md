@@ -4,17 +4,17 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -91,7 +91,7 @@ In the portal, select the VM and in the overview of the VM, use the **Click to c
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+When no longer needed, you can delete the resource group, virtual machine, and all related resources. Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 ## Next steps
 

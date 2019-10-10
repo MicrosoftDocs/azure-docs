@@ -3,18 +3,11 @@ title: Collect on Performance Counters in Azure Cloud Services | Microsoft Docs
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: 
-
-ms.assetid: 
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/02/2018
-ms.author: jeconnoc
+ms.author: gwallace
 ---
 
 # Collect performance counters for your Azure Cloud Service

@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
@@ -24,7 +22,7 @@ You perform the following steps in this tutorial:
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create Azure Storage and Azure SQL Database linked services.
-> * Create Azure BLob and Azure SQL Database datasets.
+> * Create Azure Blob and Azure SQL Database datasets.
 > * Create a pipeline contains a Copy activity.
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.

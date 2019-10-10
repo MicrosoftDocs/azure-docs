@@ -4,14 +4,14 @@ description: Run OSS or Pivotal Cloud Foundry on Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags:
 keywords: ''
 
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

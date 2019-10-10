@@ -8,10 +8,11 @@ manager: femila
 editor: ''
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
 ---
 
@@ -63,7 +64,7 @@ When [uploading videos](https://api-portal.videoindexer.ai/docs/services/operati
 
 ## Azure subscription per tenant 
 
-When using this architecture, each tenant will have his own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
+When using this architecture, each tenant will have their own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
 
 ![Azure subscription per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

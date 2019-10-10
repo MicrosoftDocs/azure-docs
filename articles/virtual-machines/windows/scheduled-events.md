@@ -4,13 +4,13 @@ description: Scheduled events using the Azure Metadata service for on your Windo
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -41,7 +41,7 @@ Many applications can benefit from time to prepare for virtual machine maintenan
 Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. See the Event Scheduling section below for details.
 
 Scheduled Events provides events in the following use cases:
-- [Platform initiated maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
 - Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
 - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets

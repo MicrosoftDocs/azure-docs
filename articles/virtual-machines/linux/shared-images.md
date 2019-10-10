@@ -1,27 +1,27 @@
 ---
-title: Create shared VM images with the Azure CLI | Microsoft Docs
+title: Create shared image galleries with the Azure CLI | Microsoft Docs
 description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2018
-ms.author: akjosh; cynthn
+ms.date: 05/06/2019
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
-
-# Preview: Create a shared image gallery with the Azure CLI
+# Create a shared image gallery with the Azure CLI
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
@@ -44,22 +44,26 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 ## Create a VM
 
-Create a VM from the image version using [az vm create](/cli/azure/vm#az-vm-create).
+Create a VM from the latest image version using [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
-   -g myGalleryRG \
-   -n myVM \
-   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
+   --resource-group myGalleryRG \
+   --name myVM \
+   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --generate-ssh-keys
 ```
 
+You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
+
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
-
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## Next steps
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+[Azure Image Builder (preview)](image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
+
+You can also create Shared Image Gallery resources using templates. There are several Azure Quickstart Templates available: 
 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

@@ -1,6 +1,6 @@
 ---
 title: Understand time handling in Azure Stream Analytics
-description: Learn about time handling in Azure Stream Analytics
+description: Learn about how time handling works and how to solve time handling problems in Azure Stream Analytics.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea

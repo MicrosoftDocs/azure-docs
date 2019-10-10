@@ -32,7 +32,7 @@ If you're new to logic apps, review
 * An [Outlook.com account](https://outlook.live.com/owa/)
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * The logic app where you want to access your Outlook.com account. 
 To start your logic app with an Outlook trigger, you need a 

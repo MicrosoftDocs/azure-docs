@@ -2,12 +2,12 @@
 title: Operator best practices - Network connectivity in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for network connectivity and security in Azure Kubernetes Service (AKS)
@@ -43,7 +43,7 @@ When you use Azure CNI networking, the virtual network resource is in a separate
 
 For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation].
 
-As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale up events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet.
+As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale up events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers (currently in preview in AKS), as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 To calculate the IP address required, see [Configure Azure CNI networking in AKS][advanced-networking].
 
@@ -97,6 +97,8 @@ spec:
 
 An ingress controller is a daemon that runs on an AKS node and watches for incoming requests. Traffic is then distributed based on the rules defined in the ingress resource. The most common ingress controller is based on [NGINX]. AKS doesn't restrict you to a specific controller, so you can use other controllers such as [Contour][contour], [HAProxy][haproxy], or [Traefik][traefik].
 
+Ingress controllers must be scheduled on a Linux node. Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller. Use a node selector in your YAML manifest or Helm chart deployment to indicate that the resource should run on a Linux-based node. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
+
 There are many scenarios for ingress, including the following how-to guides:
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
@@ -120,9 +122,9 @@ Load balancer or ingress resources continue to run in your AKS cluster to furthe
 
 **Best practice guidance** - Use network policies to allow or deny traffic to pods. By default, all traffic is allowed between pods within a cluster. For improved security, define rules that limit pod communication.
 
-Network policy (currently in preview in AKS) is a Kubernetes feature that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. The use of network policies gives a cloud-native way to control the flow of traffic. As pods are dynamically created in an AKS cluster, the required network policies can be automatically applied. Don't use Azure network security groups to control pod-to-pod traffic, use network policies.
+Network policy is a Kubernetes feature that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. The use of network policies gives a cloud-native way to control the flow of traffic. As pods are dynamically created in an AKS cluster, the required network policies can be automatically applied. Don't use Azure network security groups to control pod-to-pod traffic, use network policies.
 
-To use network policy, the feature must be enabled when you create an AKS cluster. You can't enable network policy on an existing AKS cluster. Plan ahead to make sure that you enable network policy on clusters and can use them as needed.
+To use network policy, the feature must be enabled when you create an AKS cluster. You can't enable network policy on an existing AKS cluster. Plan ahead to make sure that you enable network policy on clusters and can use them as needed. Network policy should only be used for Linux-based nodes and pods in AKS.
 
 A network policy is created as a Kubernetes resource using a YAML manifest. The policies are applied to defined pods, then ingress or egress rules define how the traffic can flow. The following example applies a network policy to pods with the *app: backend* label applied to them. The ingress rule then only allows traffic from pods with the *app: frontend* label:
 
@@ -182,3 +184,5 @@ This article focused on network connectivity and security. For more information 
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

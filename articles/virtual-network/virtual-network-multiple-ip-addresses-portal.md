@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
-ms.author: annahar
+ms.author: anavin
 
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal

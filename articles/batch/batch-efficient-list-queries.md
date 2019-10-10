@@ -4,12 +4,11 @@ description: Increase performance by filtering your queries when requesting info
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
@@ -85,7 +84,7 @@ The expand string reduces the number of API calls that are required to obtain ce
 * This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
 
 > [!NOTE]
-> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). See the tables below for property mappings between the .NET and REST APIs.
+> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
 > 
 > 
 
@@ -106,7 +105,7 @@ Within the [Batch .NET][api_net] API, the [ODATADetailLevel][odata] class is use
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: Specify which property values are returned with each item.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Retrieve data for all items in a single API call instead of separate calls for each item.
 
-The following code snippet uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools. In this scenario, the Batch user has both test and production pools. The test pool IDs are prefixed with "test", and the production pool IDs are prefixed with "prod". In the snippet, *myBatchClient* is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) class.
+The following code snippet uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools. In this scenario, the Batch user has both test and production pools. The test pool IDs are prefixed with "test", and the production pool IDs are prefixed with "prod". In the snippet, *myBatchClient* is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -135,7 +134,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> An instance of [ODATADetailLevel][odata] that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), to limit the amount of data that is returned.
+> An instance of [ODATADetailLevel][odata] that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), to limit the amount of data that is returned.
 > 
 > 
 

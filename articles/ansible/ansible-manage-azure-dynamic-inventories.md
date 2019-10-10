@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure dynamic inventories of your Azure resources using Ansible | Microsoft Docs
+title: Tutorial - Configure dynamic inventories of your Azure resources using Ansible
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Configure dynamic inventories of your Azure resources using Ansible
@@ -25,9 +25,9 @@ Ansible can be used to pull inventory information from various sources (includin
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create the test VMs
 

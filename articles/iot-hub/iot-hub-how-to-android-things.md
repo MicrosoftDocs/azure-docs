@@ -1,12 +1,12 @@
 ---
 title: Develop for Android Things platform using Azure IoT SDKs | Microsoft Docs
 description: Developer guide - Learn about how to develop on Android Things using Azure IoT Hub SDKs.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: yizhon
+ms.author: robinsh
 ---
 # Develop for Android Things platform using Azure IoT SDKs
 

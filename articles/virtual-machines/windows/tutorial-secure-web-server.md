@@ -1,16 +1,15 @@
-﻿---
+---
 title: Tutorial - Secure a Windows web server with SSL certificates in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use Azure PowerShell to secure a Windows virtual machine that runs the IIS web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -31,7 +30,7 @@ To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to e
 > * Create a VM and install the IIS web server
 > * Inject the certificate into the VM and configure IIS with an SSL binding
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Launch Azure Cloud Shell
 
@@ -55,7 +54,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Next, create a Key Vault with [New-​Azure​Rm​Key​Vault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -66,16 +65,16 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [Import-​Azure​Key​Vault​Certificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) that uses the default certificate policy from [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+For production use, you should import a valid certificate signed by trusted provider with [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) that uses the default certificate policy from [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
-$policy = New-AzureKeyVaultCertificatePolicy `
+$policy = New-AzKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
     -IssuerName Self `
     -ValidityInMonths 12
 
-Add-AzureKeyVaultCertificate `
+Add-AzKeyVaultCertificate `
     -VaultName $keyvaultName `
     -Name "mycert" `
     -CertificatePolicy $policy 
@@ -119,10 +118,10 @@ It takes a few minutes for the VM to be created. The last step uses the Azure Cu
 
 
 ## Add a certificate to VM from Key Vault
-To add the certificate from Key Vault to a VM, obtain the ID of your certificate with [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Add the certificate to the VM with [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
+To add the certificate from Key Vault to a VM, obtain the ID of your certificate with [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Add the certificate to the VM with [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
-$certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
+$certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId

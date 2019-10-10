@@ -48,7 +48,7 @@ The following example shows how to create a DNS zone with two [Azure Resource Ma
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS now also supports private DNS zones (currently in public preview).  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS also supports private DNS zones.  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Get a DNS zone
 

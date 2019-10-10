@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
 
 ---
@@ -84,6 +84,31 @@ Allowed types are:
 * int (any valid JSON integer)
 * bool (any valid JSON Boolean)
 * array (any valid JSON array)
+
+## Secrets as secure strings
+Declare secrets as secure strings. Here is the syntax for declaring a secure string parameter within the `parameters` section of the **artifactfile.json** file:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+For the artifact install command, run the PowerShell script that takes the secure string created by using the ConvertTo-SecureString command. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+For the complete example artifactfile.json and the artifact.ps1 (PowerShell script), see [this sample on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Another important point to note is not to log secrets to the console as output is captured for user debugging. 
 
 ## Artifact expressions and functions
 You can use expressions and functions to construct the artifact install command.

@@ -62,7 +62,7 @@ Circonus is a microservices monitoring and analytics platform built for on premi
 ![CloudHealth Logo](./media/partners/cloudhealth.png)
 
 
-Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The Cloudhealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
+Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The CloudHealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
 
 [Learn More.][cloudhealth-doc]
 
@@ -231,12 +231,12 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 - [Learn more about Azure Monitor](../../azure-monitor/overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Stream Diagnostic Logs to a non-Microsoft service](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+- [Stream Diagnostic Logs to a non-Microsoft service](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 
 <!--Partner Documentation-->
-[alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
+[alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/

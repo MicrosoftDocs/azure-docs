@@ -83,10 +83,10 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 Now that the claims are in place, we can configure trusted IPs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Conditional access** > **Named locations**.
-3. From the **Conditional access - Named locations** blade, select **Configure MFA trusted IPs**
+2. Select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
 
-   ![Azure AD conditional access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
 
 4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
 5. Click **save**.

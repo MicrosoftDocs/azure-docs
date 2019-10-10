@@ -5,11 +5,9 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-## Set up your device
+## Set up your device in Unity
 
-In Unity, open the project in the `Unity` folder.
-
-![Unity window](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### Set up an Android Device
 
@@ -25,7 +23,7 @@ In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples`
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-In the **Inspector** pane, enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+In the **Project** pane, navigate to `Assets\AzureSpatialAnchors.Examples\Resources`. Select `SpatialAnchorSamplesConfig`. Then, in the **Inspector** pane, enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
@@ -37,20 +35,32 @@ Sign in on your Android device and connect it to your computer by using a USB ca
 
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
-Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scene and clear the check marks from all other scenes.
+Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 Make sure **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your `.apk` file. You can pick any name for it.
 
-Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**. The first scenario lets you create an anchor that can be located later on the same device or on a different one. The second scenario, if you've already run the app, either on the same device or on a different one, allows you to locate previously shared anchors. After you pick your scenario, the app will guide you with further instructions around what do to. For example, you'll be asked to move around your device to collect environment information. Later on, you'll place an anchor in the world, will wait while it uploads, and so on.
+Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+
+The first scenario lets you create an anchor that can be located later on the same device or on a different one.
+The second scenario, if you've already run the app, either on the same device or on a different one, allows you
+to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+instructions around what to do. For example, you'll be asked to move your device around to collect environment
+information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
 
 ### Deploy to an iOS device
 
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
-Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scene and clear the check marks from all other scenes.
+Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**. The first scenario lets you create an anchor that can be located later on the same device or on a different one. The second scenario, if you've already run the app, either on the same device or on a different one, allows you to locate previously shared anchors. After you pick your scenario, the app will guide you with further instructions around what do to. For example, you'll be asked to move around your device to collect environment information. Later on, you'll place an anchor in the world, will wait while it uploads, and so on.
+Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+
+The first scenario lets you create an anchor that can be located later on the same device or on a different one.
+The second scenario, if you've already run the app, either on the same device or on a different one, allows you
+to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+instructions around what to do. For example, you'll be asked to move your device around to collect environment
+information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
 
 In Xcode, stop the app by selecting **Stop**.

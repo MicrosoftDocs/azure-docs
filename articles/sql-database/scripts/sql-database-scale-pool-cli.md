@@ -7,11 +7,10 @@ ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to scale an elastic pool in Azure SQL Database
 
@@ -32,7 +31,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation

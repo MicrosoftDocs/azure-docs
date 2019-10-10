@@ -1,21 +1,23 @@
 ---
-title: Working with projections in a knowledge store - Azure Search
+title: Working with projections in a knowledge store (preview) - Azure Search
 description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
-ms.custom: seomay2019
 ---
 # Working with projections in a knowledge store in Azure Search
 
+> [!Note]
+> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+>
+
 Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-Projections, a component of [knowledge store (preview)](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
+Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
 
 Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases. 
 
@@ -25,7 +27,7 @@ The knowledge store supports two types of projections:
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md)
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
 ## Projection groups
 
@@ -58,6 +60,9 @@ You can project a single document in your index into multiple tables, preserving
 ### Defining a table projection
 
 When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project. 
+
+#### Projection Slicing
+When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all of your table projections.
 
 Each table requires three properties:
 

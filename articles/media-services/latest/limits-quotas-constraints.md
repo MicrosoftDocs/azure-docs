@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/16/2019
 ms.author: juliako
 ---
 
@@ -32,26 +32,37 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Listing Jobs|Paginate the response, with 500 Jobs per page|
 | Live Events per Media Services account |5|
 | Media Services accounts in a single subscription | 25 (fixed) |
-| Live Outputs in running state per Live Event |3|
+| Live Outputs per Live Event |3 <sup>(3)</sup> |
 | Max Live Output duration | 25 hours |
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
 | Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
-| Streaming Policies | 100 <sup>(3)</sup> |
+| Streaming Policies | 100 <sup>(5)</sup> |
 | Transforms per Media Services account | 100  (fixed)|
-| Unique Streaming Locators associated with an Asset at one time | 100<sup>(5)</sup> (fixed) |
-| Content Key Policy |30 | 
+| Unique Streaming Locators associated with an Asset at one time | 100<sup>(6)</sup> (fixed) |
+| Options per Content Key Policy |30 | 
+| Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
-<sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260-GB, your Job will likely fail. If you have 4K content that is larger than 260-GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
+<sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
+
+The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
+
+|Media reserved unit type	|Maximum input size (GB)|
+|---|---|
+|S1 |	26|
+|S2	| 60|
+|S3	|260|
 
 <sup>2</sup> This number includes queued, finished, active, and canceled Jobs. It does not include deleted Jobs. 
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-<sup>3</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
+<sup>3</sup> Live Outputs start on creation and stop when deleted.
 
 <sup>4</sup> The storage accounts must be from the same Azure subscription.
 
-<sup>5</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
+<sup>5</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
+
+<sup>6</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
 ## Support ticket
 

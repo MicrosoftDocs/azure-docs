@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na

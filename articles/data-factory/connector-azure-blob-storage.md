@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -29,6 +29,7 @@ This Azure Blob connector is supported for the following activities:
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, this Blob storage connector supports:
 
@@ -56,7 +57,10 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
+>When using PolyBase to load data into SQL Data Warehouse, if your source or staging Blob storage is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase, and use Self-hosted Integration Runtime with version 3.18 or above. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+
+>[!NOTE]
+>HDInsights and Azure Machine Learning activities only support Azure Blob storage account key authentication.
 
 ### Account key authentication
 
@@ -67,6 +71,9 @@ To use storage account key authentication, the following properties are supporte
 | type | The type property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see notes below). |Yes |
 | connectionString | Specify the information needed to connect to Storage for the connectionString property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Secondary Blob Service Endpoint is not supported when using account key authentication. You can use other authentication types.
 
 >[!NOTE]
 >If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureBlobStorage" linked service type going forward.
@@ -126,7 +133,7 @@ To use storage account key authentication, the following properties are supporte
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
->- Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+>- Data Factory now supports both **service shared access signatures** and **account shared access signatures**. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 >- In later dataset configuration, the folder path is the absolute path starting from container level. You need to configure one aligned with the path in your SAS URI.
 
 > [!TIP]
@@ -269,6 +276,9 @@ Refer to [Authenticate access to Azure Storage using Azure Active Directory](../
     - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
     - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
+>[!IMPORTANT]
+>If you use PolyBase to load data from Blob (as source or as staging) into SQL Data Warehouse, when using managed identity authentication for Blob, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Blob storage is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+
 These properties are supported for an Azure Blob storage linked service:
 
 | Property | Description | Required |
@@ -302,12 +312,12 @@ These properties are supported for an Azure Blob storage linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet and delimited text format**, refer to [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
-- For other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### Parquet and delimited text format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
 
-To copy data to and from Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `location` settings in format-based dataset:
+To copy data to and from Blob storage in Parquet, delimited text, Avro or binary format, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -349,15 +359,15 @@ To copy data to and from Blob storage in Parquet or delimited text format, refer
 
 ### Other format dataset
 
-To copy data to and from Blob storage in ORC/Avro/JSON/Binary format, set the type property of the dataset to **AzureBlob**. The following properties are supported.
+To copy data to and from Blob storage in ORC/JSON format, set the type property of the dataset to **AzureBlob**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to **AzureBlob**. |Yes |
 | folderPath | Path to the container and folder in the blob storage. <br/><br/>Wildcard filter is supported for the path excluding container name. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br/><br/>Examples: myblobcontainer/myblobfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes for Copy/Lookup activity, No for GetMetadata activity |
-| fileName | **Name or wildcard filter** for the blob(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", e.g. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", e.g. "MyTable.csv". |No |
-| modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
-| modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
+| fileName | **Name or wildcard filter** for the blob(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following pattern: "*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", e.g. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", e.g. "MyTable.csv". |No |
+| modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
+| modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
@@ -400,12 +410,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Blob storage as a source type
 
-- For copy from **Parquet and delimited text format**, refer to [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
-- For copy from other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format source
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
 
-To copy data from Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
+To copy data to and from Blob storage in **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -418,7 +428,7 @@ To copy data from Blob storage in Parquet or delimited text format, refer to [Pa
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
 
 > [!NOTE]
-> For Parquet/delimited text format, **BlobSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **BlobSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -463,7 +473,7 @@ To copy data from Blob storage in Parquet or delimited text format, refer to [Pa
 
 #### Other format source
 
-To copy data from Blob storage in ORC/Avro/JSON/Binary format, set the source type in the copy activity to **BlobSource**. The following properties are supported in the copy activity **source** section.
+To copy data from Blob storage in **ORC format**, set the source type in the copy activity to **BlobSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -505,12 +515,12 @@ To copy data from Blob storage in ORC/Avro/JSON/Binary format, set the source ty
 
 ### Blob storage as a sink type
 
-- For copy to **Parquet and delimited text format**, refer to [Parquet and delimited text format sink](#parquet-and-delimited-text-format-sink) section.
-- For copy to other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format sink](#other-format-sink) section.
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format sink
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
 
-To copy data to Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity sink and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy sink:
+To copy data from Blob storage in **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -519,7 +529,7 @@ To copy data to Blob storage in Parquet or delimited text format, refer to [Parq
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 > [!NOTE]
-> For Parquet/delimited text format, **BlobSink** type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **BlobSink** type copy activity sink mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -558,7 +568,7 @@ To copy data to Blob storage in Parquet or delimited text format, refer to [Parq
 
 #### Other format sink
 
-To copy data to Blob storage, set the sink type in the copy activity to **BlobSink**. The following properties are supported in the **sink** section.
+To copy data to Blob storage in **ORC format**, set the sink type in the copy activity to **BlobSink**. The following properties are supported in the **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -625,6 +635,18 @@ This section describes the resulting behavior of the Copy operation for differen
 ## Mapping Data Flow properties
 
 Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 
 ## Next steps
 

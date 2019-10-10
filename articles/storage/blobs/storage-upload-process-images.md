@@ -1,15 +1,13 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
 description: Use Azure Blob storage with a web app to store app data
-services: storage
-author: tamram
-
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: tamram
-ms.custom: mvc
+ms.author: normesta
+ms.reviewer: dineshm
 ---
 
 # Tutorial: Upload image data in the cloud with Azure Storage
@@ -17,13 +15,13 @@ ms.custom: mvc
 This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [\.NET](#tab/dotnet)
-![Images container view](media/storage-upload-process-images/figure2.png)
+![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
 
 # [Node.js V2 SDK](#tab/nodejs)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -126,7 +124,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
-The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage.
+The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob), and the Microsoft.Azure.Storage.Auth namespaces from the Azure Storage client library to interact with Azure storage.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -158,7 +156,7 @@ az webapp deployment source config --name $webapp \
 
 # [\.NET](#tab/dotnet)
 
-The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
+The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
 ```azurecli-interactive
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -206,9 +204,9 @@ To test the web app, browse to the URL of your published app. The default URL of
 
 Select the **Upload photos** region to select and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section will remain empty until we test it later in this topic.
 
-![ImageResizer app](media/storage-upload-process-images/figure1.png)
+![Upload Photos in .NET](media/storage-upload-process-images/figure1.png)
 
-In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
+In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method. The following code sample contains the `UploadFiletoStorage` task.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -239,17 +237,17 @@ The following classes and methods are used in the preceding task:
 
 |Class  |Method  |
 |---------|---------|
-|[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)     |         |
-|[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet)       |
-|[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet)         |
-|[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet)        |
-|[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
+|[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)     |         |
+|[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)       |
+|[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)     |[GetContainerReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getcontainerreference)         |
+|[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)    | [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)        |
+|[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)     | [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync)        |
 
 # [Node.js V2 SDK](#tab/nodejs)
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
-![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
+![Upload Photos in Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
@@ -313,7 +311,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
-![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
+![Upload Photos in Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
@@ -395,7 +393,7 @@ Sign in to the [Azure portal](https://portal.azure.com). From the left menu, sel
 
 Verify the image is shown in the container.
 
-![Images container view](media/storage-upload-process-images/figure13.png)
+![Azure Portal listing of images container](media/storage-upload-process-images/figure13.png)
 
 ## Test thumbnail viewing
 
@@ -408,13 +406,13 @@ Choose a file with the file picker and select **Upload**.
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
 # [\.NET](#tab/dotnet)
-![Images container view](media/storage-upload-process-images/figure2.png)
+![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
 # [Node.js V2 SDK](#tab/nodejs)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V2 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V10 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

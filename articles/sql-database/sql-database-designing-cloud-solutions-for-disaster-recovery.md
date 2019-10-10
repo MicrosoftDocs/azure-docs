@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/04/2018
 ---
 # Designing globally available services using Azure SQL Database

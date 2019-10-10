@@ -64,7 +64,7 @@ To troubleshoot performance problems, select **investigate performance**.
 
 ### Go to details
 
-Select **go to details** to explore the end-to-end transaction experience, which can offer views done to the call stack level.
+Select **go to details** to explore the end-to-end transaction experience, which can offer views down to the call stack level.
 
 ![Screenshot of go-to-details button](media/app-map/go-to-details.png)
 
@@ -90,7 +90,9 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 Application Map uses the **cloud role name** property to identify the components on the map. The Application Insights SDK automatically adds the cloud role name property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the cloud role name property. However, there are cases where you may want to override the default value. To override cloud role name and change what gets displayed on the Application Map:
 
-### .NET
+### .NET/.NET Core
+
+**Write custom TelemetryInitializer as below.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -106,16 +108,16 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
 
-**Load your initializer**
+**ASP.NET apps: Load initializer to the active TelemetryConfiguration**
 
-In ApplicationInsights.config:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -127,7 +129,7 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-An alternate method is to instantiate the initializer in code, for example in Global.aspx.cs:
+An alternate method for ASP.NET Web apps is to instantiate the initializer in code, for example in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -138,6 +140,22 @@ An alternate method is to instantiate the initializer in code, for example in Gl
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
     }
+```
+
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+**ASP.NET Core apps: Load initializer to the TelemetryConfiguration**
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### Node.js
@@ -175,7 +193,7 @@ For further information on Java correlation and how to configure cloud role name
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
@@ -250,4 +268,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* To learn more about how correlation works in Application Insights consult the [telemetry correlation article](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights monitored components into a single view.
+* For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.

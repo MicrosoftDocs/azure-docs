@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 
 # Boosted Decision Tree Regression module
@@ -41,7 +40,7 @@ For additional information, see these articles:
 
     This Wikipedia article on gradient boosting provides some background on boosted trees. 
   
--  [http://research.microsoft.com/apps/pubs/default.aspx?id=132652](http://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
+-  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: From RankNet to LambdaRank to LambdaMART: An Overview. By J.C. Burges.
 
@@ -84,7 +83,7 @@ The gradient boosting method can also be used for classification problems by red
 
 10. Run the experiment.  
   
-### Results
+## Results
 
 After training is complete:
 

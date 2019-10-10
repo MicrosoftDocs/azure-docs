@@ -1,7 +1,7 @@
 ---
 title: Manage roles in an Azure Machine Learning workspace
-titleSuffix: Azure Machine Learning service
-description: Learn how to access to an Azure Machine Learning service workspace using role-based access control (RBAC).
+titleSuffix: Azure Machine Learning
+description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
 
 ---
@@ -46,13 +46,13 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a CLI command to assign roles to users.
 
 ```azurecli-interactive 
-az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
+az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
 The `user` field is the email address of an existing user in the instance of Azure Active Directory where the workspace parent subscription lives. Here is an example of how to use this command:
 
 ```azurecli-interactive 
-az ml workspace share -n my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
 ## Create custom role
@@ -101,14 +101,16 @@ az role definition create --role-definition data_scientist_role.json
 After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
 
 ```azurecli-interactive
-az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
+For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
-For more information, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
+For more information on the operations (actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
-- [Securely run experiments and inferencing inside a virtual network](how-to-enable-virtual-network.md)
+- [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
 - [Tutorial: Train models](tutorial-train-models-with-aml.md)
+- [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

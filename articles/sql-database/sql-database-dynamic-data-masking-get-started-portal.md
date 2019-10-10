@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/04/2018
 ---
 # Get started with SQL Database dynamic data masking with the Azure portal

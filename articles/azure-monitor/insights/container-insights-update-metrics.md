@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
 ---
 
@@ -50,7 +50,7 @@ Perform the following steps to update all clusters in your subscription using Ba
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     The configuration change can take a few seconds to complete. When it's completed, a message is displayed that's similar to the following and includes the result:

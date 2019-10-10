@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Split-merge security configuration

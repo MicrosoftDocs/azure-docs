@@ -11,7 +11,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database

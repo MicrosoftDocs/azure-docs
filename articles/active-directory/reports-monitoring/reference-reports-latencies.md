@@ -3,7 +3,7 @@ title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 05/13/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -38,10 +38,10 @@ The following table lists the latency information for activity reports.
 > **Latency (95th percentile)** refers to the time by which 95% of the logs will be reported, and **Latency (99th percentile)** refers to the time by which 99% of the logs will be reported. 
 >
 
-| Report | Latency (95th percentile) |Latency (99th percentile)|Time range within which logs will be reported|
-| :-- | --- | --- | --- |
-| Audit logs | 2 mins  | 5 mins  | 2-60 mins |
-| Sign-ins | 2 mins  | 5 mins | 2-120 mins |
+| Report | Latency (95th percentile) |Latency (99th percentile)|
+| :-- | --- | --- |
+| Audit logs | 2 mins  | 5 mins  |
+| Sign-ins | 2 mins  | 5 mins |
 
 ### How soon can I see activities data after getting a premium license?
 
@@ -61,11 +61,11 @@ The following table lists the latency information for security reports.
 | Users at risk          | 5 minutes   | 15 minutes  | 2 hours  |
 | Risky sign-ins         | 5 minutes   | 15 minutes  | 2 hours  |
 
-## Risk events
+## Risk detections
 
-Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk event**.
+Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk detection**.
 
-The following table lists the latency information for risk events.
+The following table lists the latency information for risk detections.
 
 | Report | Minimum | Average | Maximum |
 | :-- | --- | --- | --- |
@@ -81,4 +81,4 @@ The following table lists the latency information for risk events.
 
 * [Azure AD reports overview](overview-reports.md)
 * [Programmatic access to Azure AD reports](concept-reporting-api.md)
-* [Azure Active Directory risk events](concept-risk-events.md)
+* [Azure Active Directory risk detections](concept-risk-events.md)

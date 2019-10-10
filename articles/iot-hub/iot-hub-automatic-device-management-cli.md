@@ -6,7 +6,7 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
 ---
 
@@ -24,7 +24,9 @@ Automatic device management works by updating a set of device twins with desired
 
 * The **target content** defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.
 
-* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
+* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated.
+
+Automatic device configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic device configuration runs.
 
 ## CLI prerequisites
 
@@ -51,7 +53,7 @@ Before you create a configuration, you must specify which devices you want to af
 
 ## Define the target content and metrics
 
-The target content and metric queries are specified as JSON documents that describe the device twin desired properties to set and reported properties to measure.  To create an automatic device configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device. 
+The target content and metric queries are specified as JSON documents that describe the device twin desired properties to set and reported properties to measure.  To create an automatic device configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device.
 
 Here's a basic target content sample:
 

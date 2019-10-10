@@ -33,7 +33,7 @@ Click the **Device Simulation** tile:
 
 Click **Try now** on the Device Simulation description page:
 
-![Click Try Now](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Click Try Now](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 On the **Create Device Simulation solution** page, enter a unique **Solution name**.
 
@@ -55,7 +55,7 @@ Click **Accept** to accept the permissions request, the Device Simulation soluti
 
 When first opened, you see the Device Simulation dashboard with a **Getting started** guide. Click on the first tile to open a sample simulation. If you close the **Getting started** guide, you can open the **Sample Simple Simulation** from the dashboard by clicking its tile:
 
-![Solution dashboard](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Solution dashboard](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## Sample Simulation
 
@@ -69,7 +69,7 @@ As a sample simulation, it can't be edited. The simulation is configured with th
 | Telemetry frequency | 10 seconds                  |
 | Simulation duration | Run indefinitely            |
 
-![Simulation configuration](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Simulation configuration](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## Run the simulation
 

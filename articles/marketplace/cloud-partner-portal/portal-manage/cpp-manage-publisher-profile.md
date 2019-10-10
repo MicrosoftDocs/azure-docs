@@ -45,7 +45,7 @@ You can also link your existing Dev Center account with your publisher profile o
 > [!NOTE]
 > Developer Center Account registration is mandatory for publishing paid market place SKUs.
 
-If you don't have a Developer Center Account, you can create an account as described in [Register in Dev Center](../../register-dev-center.md).  Then add the registered email address as an owner on the Cloud Partner Portal for your offer. An owner can only add the registered email address to your publishing profile from the
+If you don't have a Developer Center Account, you can create an account as described in [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Then add the registered email address as an owner on the Cloud Partner Portal for your offer. An owner can only add the registered email address to your publishing profile from the
 **User** section. Then, sign in to the portal using the same email address, and link your Dev Center account.
 
 ![Publisher Profile Details - publisher profile description](./media/publisherprofiledescription.png)

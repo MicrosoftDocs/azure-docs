@@ -10,7 +10,6 @@ tags: azure-service-management
 
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
@@ -49,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifies a web app's configuration. |
-| [Get-AzWebAppMetrics](/powershell/module/az.websites/get-azwebappmetrics) | Gets a web app's metrics. |
+| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Gets a web app's metrics. |
 
 ## Next steps
 

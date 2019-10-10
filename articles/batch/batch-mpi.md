@@ -4,12 +4,11 @@ description: Learn how to execute Message Passing Interface (MPI) applications u
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.date: 03/13/2019
@@ -277,7 +276,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2017. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2019. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.

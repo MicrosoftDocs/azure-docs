@@ -1,12 +1,13 @@
 ---
 title: Best practices when using the Anomaly Detector API
+titleSuffix: Azure Cognitive Services
 description: Learn about best practices when detecting anomalies with the Anomaly Detector API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ---
@@ -46,7 +47,7 @@ Below is the same data set using batch anomaly detection. The model built for th
 
 ## Data preparation
 
-The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. 
+The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. [Granularity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) is defined as the rate that your data is sampled at. 
 
 Data points sent to the Anomaly Detector API must have a valid Coordinated Universal Time (UTC) timestamp, and numerical value. 
 
@@ -63,6 +64,15 @@ Data points sent to the Anomaly Detector API must have a valid Coordinated Unive
         "value": 29615278
       },
     ]
+}
+```
+
+If your data is sampled at a non-standard time interval, you can specify it by adding the `customInterval` attribute in your request. For example, if your series is sampled every 5 minutes, you can add the following to your JSON request:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

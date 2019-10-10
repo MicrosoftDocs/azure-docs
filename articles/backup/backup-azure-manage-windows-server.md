@@ -1,13 +1,13 @@
 ---
 title: Manage Azure Recovery Services vaults and servers
 description: Manage jobs and alerts in an Azure Recovery Services vault.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: raynew
+ms.date: 07/08/2019
+ms.author: dacurwin
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -24,7 +24,7 @@ The prerequisites for this article are: an Azure subscription, a Recovery Servic
 
 To monitor alerts, or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 
 2. In the portal, click **All services**.
 
@@ -150,7 +150,7 @@ Choose the alert severity (Critical or Warning) used to generate email. Currentl
 
 ## Manage Backup items
 
-A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. [Learn more](backup-overview.md#what-can-i-back-up) about what you can back up. To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -170,7 +170,7 @@ The list of virtual machines has helpful data: the associated Resource Group, pr
 
 The **Backup Jobs** tile in the vault dashboard shows the number of jobs that are In Progress, or Failed in the last 24 hours. The tile provides a glimpse into the Backup Jobs menu.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 To see additional details about the jobs, click **In Progress** or **Failed** to open the Backup Jobs menu filtered for that state.
 
@@ -180,11 +180,11 @@ The **Backup Jobs** menu displays information about the Item type, Operation, St
 
 To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 The list of Backup jobs opens.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 The Backup Jobs menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
 
@@ -192,11 +192,11 @@ To change the filters:
 
 1. In the vault Backup Jobs menu, click **Filter**.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     The Filter menu opens.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Choose the filter settings and click **Done**. The filtered list refreshes based on the new settings.
 
@@ -254,21 +254,6 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-
-## Frequently asked questions
-
-### How long does it take for the Azure backup agent job status to reflect in the portal?
-The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
-
-### When a backup job fails, how long does it take to raise an alert?
-An alert is raised within 20 mins of the Azure backup failure.
-
-### Is there a case where an email won’t be sent if notifications are configured?
-Yes. In the following situations, notifications are not sent.
-
-* If notifications are configured hourly, and an alert is raised and resolved within the hour
-* When a job is canceled
-* If a second backup job fails because the original backup job is in progress
 
 ## Troubleshooting Monitoring Issues
 

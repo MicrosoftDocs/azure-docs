@@ -3,6 +3,7 @@ title: Use restart policies with containerized tasks in Azure Container Instance
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

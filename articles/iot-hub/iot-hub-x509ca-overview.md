@@ -34,7 +34,7 @@ For production environment, we recommend that you purchase an X.509 CA certifica
 
 You may also create a self-signed X.509 CA for experimentation or for use in closed IoT networks.
 
-Regardless of how you obtain your X.509 CA certificate, make sure to keep it's corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication.
+Regardless of how you obtain your X.509 CA certificate, make sure to keep its corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication.
 
 Learn how to [create a self-signed CA certificate](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), which you can use for experimentation throughout this feature description.
 

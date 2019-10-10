@@ -1,44 +1,40 @@
 ---
-title: Configure replication for Azure Disk Encryption-enabled VMs in Azure Site Recovery | Microsoft Docs
+title: Configure replication for Azure Disk Encryption-enabled VMs in Azure Site Recovery 
 description: This article describes how to configure replication for Azure Disk Encryption-enabled VMs from one Azure region to another by using Site Recovery.
-services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
 
 ---
 
 # Replicate Azure Disk Encryption-enabled virtual machines to another Azure region
 
-This article describes how to replicate Azure Disk Encryption-enabled VMs from one Azure region to another.
+This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
->Azure Site Recovery currently supports only Azure VMs that run a Windows OS and that are [enabled for encryption with Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
+> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows.  For machines running ADE 1.1 (without AAD), the Windows VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
 
-## Required user permissions
-Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys to the region.
 
-To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions:
+## <a id="required-user-permissions"></a> Required user permissions
+Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys from source region key vault to the target region key vault.
+
+To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions on both the **source region and target region** key vaults.
 
 - Key vault permissions
-    - List
-    - Create
-    - Get
-
--	Key vault secret permissions
-    - List
-    - Create
-    - Get
-
+    - List, Create and Get
+    
+- Key vault secret permissions
+    - Secret Management Operations
+    	- Get, List and Set
+	
 - Key vault key permissions (required only if the VMs use key encryption key to encrypt disk encryption keys)
-    - List
-    - Get
-    - Create
-    - Encrypt
-    - Decrypt
+    - Key Management Operations
+    	- Get, List and Create
+    - Cryptographic Operations
+    	- Decrypt and Encrypt
 
 To manage permissions, go to the key vault resource in the portal. Add the required permissions for the user. The following example shows how to enable permissions to the key vault *ContosoWeb2Keyvault*, which is in the source region.
 
@@ -135,18 +131,25 @@ You can use [a script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
 
-**Cause 1:** You might have selected from the target region an already-created key vault that doesn't have the required permissions instead of letting Site Recovery create one. Make sure that the key vault has the require permissions, as described earlier.
+Azure Site Recovery requires at least read permission on the Source region Key vault and write permission on the target region key vault to read the secret and copy it to the target region key vault. 
+
+**Cause 1:** You don't have "GET" permission on the **source region Key vault** to read the keys. </br>
+**How to fix:** Regardless of whether you are a subscription admin or not, it is important that you have get permission on the key vault.
+
+1. Go to source region Key vault which in this example is "ContososourceKeyvault" > **Access policies** 
+2. Under **Select Principal** add your user name for example: "dradmin@contoso.com"
+3. Under **Key permissions** select GET 
+4. Under **Secret Permission** select GET 
+5. Save the access policy
+
+**Cause 2:** You don't have required permission on the **Target region Key vault** to write the keys. </br>
 
 *For example*: You try to replicate a VM that has key vault *ContososourceKeyvault* on a source region.
 You have all the permissions on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions. An error occurs.
 
-**How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
+Permission required on [target Key vault](#required-user-permissions)
 
-**Cause 2:** You might have selected from the target region an already-created key vault that doesn't have decrypt-encrypt permissions instead of letting Site Recovery create one. Make sure that you have decrypt-encrypt permissions if you're also encrypting the key on the source region.</br>
-
-*For example*: You try to replicate a VM that has a key vault *ContososourceKeyvault* on the source region. You have all the necessary permission on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions to decrypt and encrypt. An error occurs.</br>
-
-**How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies**. Add permissions under **Key permissions** > **Cryptographic Operations**.
+**How to fix:** Go to **Home** > **Keyvaults** > **ContosotargetKeyvault** > **Access policies** and add the appropriate permissions.
 
 ## Next steps
 

@@ -10,5 +10,5 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 01/25/2019
 ---
-* Complete the [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](../articles/machine-learning/service/quickstart-run-cloud-notebook.md) to create a workspace and launch the notebook webpage. 
+* Complete the [Tutorial: Setup environment and workspace](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) to create a workspace and launch the notebook webpage. 
 

@@ -4,13 +4,13 @@ description: Learn how to install and configure PostgreSQL on a Linux virtual ma
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -229,7 +229,7 @@ This deletes all the information in the "John" row. The output is:
 ![image](./media/postgresql-install/no8.png)
 
 ### Update data in a table
-Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":
+Use the following command to update data in a table. For this one, Sandy has confirmed that they are attending, so we will change the RSVP from "N" to "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

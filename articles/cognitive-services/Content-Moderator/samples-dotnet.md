@@ -1,5 +1,6 @@
 ---
 title: Code samples - Content Moderator, .NET
+titleSuffix: Azure Cognitive Services
 description: Use Content Moderator in your .NET applications through the SDK.
 services: cognitive-services
 author: sanjeev3
@@ -15,8 +16,6 @@ ms.author: sajagtap
 # Content Moderator .NET SDK samples
 
 The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
-
-- **Helper library**: [Create a Content Moderator client for use in other samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). See [quickstart](content-moderator-helper-quickstart-dotnet.md).
 
 ## Moderation
 

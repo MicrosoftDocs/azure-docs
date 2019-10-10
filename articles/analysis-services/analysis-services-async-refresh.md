@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,7 +14,7 @@ ms.reviewer: minewiskan
 
 By using any programming language that supports REST calls, you can  perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale-out. 
 
-Data-refresh operations can take some time depending on a number of factors including data volume, level of optimization using partitions, etc. These operations have traditionally been invoked with existing methods such as using [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
+Data-refresh operations can take some time depending on a number of factors including data volume, level of optimization using partitions, etc. These operations have traditionally been invoked with existing methods such as using [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
 
 The REST API for Azure Analysis Services enables data-refresh operations to be carried out asynchronously. By using the REST API, long-running HTTP connections from client applications aren't necessary. There are also other built-in features for reliability, such as auto retries and batched commits.
 
@@ -95,9 +95,9 @@ Specifying parameters is not required. The default is applied.
 
 | Name             | Type  | Description  |Default  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
+| `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
 | `CommitMode`     | Enum  | Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) or using other methods.       | 10        |
+| `MaxParallelism` | Int   | This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) or using other methods.       | 10        |
 | `RetryCount`     | Int   | Indicates the number of times the operation will retry before failing.      |     0    |
 | `Objects`        | Array | An array of objects to be processed. Each object includes: "table" when processing the entire table or "table" and "partition" when processing a partition. If no objects are specified, the whole model is refreshed. |   Process the entire model      |
 
@@ -196,42 +196,9 @@ Here's a C# code sample to get you started, [RestApiSample on GitHub](https://gi
 1.	Clone or download the repo. Open the RestApiSample solution.
 2.	Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
 
-The code sample can use interactive login, username/password, or [service principal](#service-principal).
+The code sample uses [service principal](#service-principal) authentication.
 
-#### Interactive login or username/password
-
-This form of authentication requires an Azure application be created with the necessary API permissions assigned. 
-
-1.	In Azure portal, click **Create a resource** > **Azure Active Directory** > **App registrations** > **New application registration**.
-
-    ![New Application registration](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.	In **Create**, type a name, select **Native** application type. For **Redirect URI**, enter **urn:ietf:wg:oauth:2.0:oob**, and then click **Create**.
-
-    ![Settings](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.	Select your app and then copy and save the **Application ID**.
-
-    ![Copy application ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.	In **Settings**, click **Required permissions** > **Add**.
-
-    ![Add API access](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.	In **Select an API**, type **Azure Analysis Services** into the search box, and then select it.
-
-    ![Select API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.	Select **Read and Write all Models**, and then click **Select**. When both are selected, click **Done** to add the permissions. It may take a few minutes to propagate.
-
-    ![Select Read and Write all models](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.	In the code sample, find the **UpdateToken()** method. Observe the contents of this method.
-8.	Find **string clientID = …**, and then enter the **Application ID** you copied from step 3.
-9.	Run the sample.
-
-#### Service principal
+### Service principal
 
 See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 

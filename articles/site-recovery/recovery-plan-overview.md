@@ -1,12 +1,12 @@
 ---
-title: Using recovery plans in disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Using recovery plans in disaster recovery with Azure Site Recovery 
 description: Learn about using recovery plans for disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/18/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
 
 ---
@@ -14,8 +14,7 @@ ms.author: raynew
 
 This article describes recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
-A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.
-
+A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.  Machines can be referenced in multiple Recovery Plans, in which subsequent plans will skip the deployment/startup of the machine if it was previously deployed via another recovery plan.
 
 
 ## Why use a recovery plan?
@@ -32,10 +31,10 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 
 You can plan and create a recovery group to capture app-specific properties. As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Typically, you customize the recovery plan so that machines in each tier start in the correct order after failover.
 
-	- The SQL backend should start first, the middleware next, and finally the web frontend.
-	- This start order ensures that the app is working by the time the last machine starts.
-	- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
-	- This order also helps ensure that the front-end server starts last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
+- The SQL backend should start first, the middleware next, and finally the web frontend.
+- This start order ensures that the app is working by the time the last machine starts.
+- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
+- This order also helps ensure that the front-end server starts last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
 
 To create this order, you add groups to the recovery group, and add machines into the groups.
 - Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.

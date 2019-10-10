@@ -25,7 +25,7 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- [Visual Studio 2019)](https://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
@@ -55,7 +55,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
-   ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
     2. Choose the pricing tier (Basic or Standard).

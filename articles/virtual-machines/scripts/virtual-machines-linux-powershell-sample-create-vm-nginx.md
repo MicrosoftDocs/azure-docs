@@ -4,13 +4,13 @@ description: Azure PowerShell Script Sample - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

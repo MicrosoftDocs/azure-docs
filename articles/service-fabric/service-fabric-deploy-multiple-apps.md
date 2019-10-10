@@ -29,7 +29,7 @@ You can use Visual Studio to produce the application package that contains multi
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## Manually package the multiple guest executable application
-Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [https://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
+Alternatively you can manually package the guest executable. For details, see [Manually package and deploy an existing executable](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### Packaging the Node.js application
 This article assumes that Node.js is not installed on the nodes in the Service Fabric cluster. As a consequence, you need to add Node.exe to the root directory of your node application before packaging. The directory structure of the Node.js application (using Express web framework and Jade template engine) should look similar to the one below:
@@ -203,7 +203,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 Once the application is successfully published to the local cluster, you can access the Node.js application on the port that we have entered in the service manifest of the Node.js application--for example http:\//localhost:3000.
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
-
 
 ## Adding more guest executables to an existing application using Yeoman on Linux
 

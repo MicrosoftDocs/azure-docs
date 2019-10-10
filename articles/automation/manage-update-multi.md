@@ -4,8 +4,8 @@ description: This article describes how to manage updates for Azure virtual mach
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
@@ -79,7 +79,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Non-compliant**: Computers that are missing at least one critical or security update.
 
-- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last 3 hours. For Windows computers, the expected timeframe is in the last 12 hours.
+- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
 
 To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
@@ -110,7 +110,7 @@ After a computer completes a scan for update compliance, the agent forwards the 
 
 In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
 
-For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
+For a Linux computer, the compliance scan is performed every hour by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 

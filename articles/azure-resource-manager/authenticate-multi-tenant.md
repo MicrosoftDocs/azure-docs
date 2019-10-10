@@ -1,13 +1,8 @@
 ---
 title: Authenticate across tenants - Azure Resource Manager
 description: Describes how Azure Resource Manager handles authentication requests across tenants.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
@@ -24,7 +19,7 @@ The request has the following authentication header values:
 | Header name | Description | Example value |
 | ----------- | ----------- | ------------ |
 | Authorization | Primary token | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Auxiliary tokens | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
+| x-ms-authorization-auxiliary | Auxiliary tokens | Bearer &lt;auxiliary-token1&gt;, EncryptedBearer &lt;auxiliary-token2&gt;, Bearer &lt;auxiliary-token3&gt; |
 
 The auxiliary header can hold up to three auxiliary tokens. 
 

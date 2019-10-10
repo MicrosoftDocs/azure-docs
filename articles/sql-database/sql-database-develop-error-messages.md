@@ -11,8 +11,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 03/06/2019
+ms.date: 10/02/2019
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
@@ -50,13 +49,35 @@ The following errors are transient, and should be retried in application logic:
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. For more information, see [Errors 4000 to 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) [embedded within the message of error 40197](sql-database-develop-error-messages.md#embedded-error-codes) provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md).|
 | 40613 |17 |Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'.<br/><br/> This error may occur if there is already an existing dedicated administrator connection (DAC) established to the database. For more information, see [Transient errors](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md). |
 | 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait until pending create or update requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md). |
 | 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md). |
 | 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
+
+## Embedded error codes
+
+The following errors are embedded in the more general error code 40197:
+
+```
+The service has encountered an error processing your request. Please try again. Error code %d.
+```
+
+| Error code | Severity | Description | 
+| ---:| ---:|:---|
+|  1104 |17 |TEMPDB ran out of space during spilling. Create space by dropping objects and/or rewrite the query to consume fewer rows. If the issue still persists, consider upgrading to a higher service level objective.|
+| 40020 |16 |The database is in transition and transactions are being terminated.|
+| 40143 |16 |The replica that the data node hosts for the requested partition is not primary.|
+| 40166 |16 |A CloudDB reconfiguration is going on and all new user transactions are aborted.|
+| 40540 |16 |Transaction was aborted as database is moved to read-only mode. This is a temporary situation and please retry the operation.|
+
+Details on other embedded errors can be found by querying `sys.messages`:
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## Database copy errors
 

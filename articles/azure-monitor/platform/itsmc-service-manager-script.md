@@ -116,7 +116,7 @@ Write-Host "Requirement check complete!!"
 
 $errorActionPreference = "Stop"
 
-$templateUri = "https://raw.githubusercontent.com/SystemCenterServiceManager/SMOMSConnector/master/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/SMOMSConnector/master/azuredeploy.json"
 
 if(!$siteNamePrefix)
 {
@@ -147,8 +147,8 @@ do
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-
-    $resource = Find-AzResource -ResourceNameContains $siteName -ResourceType Microsoft.Web/sites
+    
+    $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
 
@@ -187,9 +187,9 @@ Write-Output "Web App Deployed successfully!!"
 
 Add-Type -AssemblyName System.Web
 
-$clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+$secret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+$clientSecret = $secret | ConvertTo-SecureString -AsPlainText -Force
 
-$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
 
 try
 {
@@ -229,11 +229,13 @@ try
     ForEach ($item in $appSettingList) {
         $appSettings[$item.Name] = $item.Value
     }
+
     $appSettings['ida:Tenant'] = $tenant
     $appSettings['ida:Audience'] = $azureSite
     $appSettings['ida:ServerName'] = $serverName
     $appSettings['ida:Domain'] = $domain
     $appSettings['ida:Username'] = $userName
+	$appSettings['ida:WhitelistedClientId'] = $clientId
 
     $connStrings = @{}
     $kvp = @{"Type"="Custom"; "Value"=$password}
@@ -279,7 +281,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     }   
 }
 
-$resource = Find-AzResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
+$resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
 
 if(!$resource)
 {
@@ -309,13 +311,11 @@ Write-Host "App Details"
 Write-Host "============"
 Write-Host "App Name:"  $siteName
 Write-Host "Client Id:"  $clientId
-Write-Host "Client Secret:"  $clientSecret
+Write-Host "Client Secret:"  $secret
 Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}
-
-```
+}```
 ## Next steps
 [Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

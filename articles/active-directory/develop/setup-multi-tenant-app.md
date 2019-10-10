@@ -1,20 +1,21 @@
 ---
-title: How to configure a new multi-tenant application | Microsoft Docs
+title: Configure a new multi-tenant application | Microsoft Docs
 description: Learn how to configure an application as multi-tenant, and how multi-tenant applications work
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 
 ms.collection: M365-identity-device-management
 ---

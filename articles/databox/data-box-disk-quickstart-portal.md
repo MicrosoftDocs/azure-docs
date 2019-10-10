@@ -6,18 +6,41 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: quickstart
-ms.date: 02/26/2019
+ms.topic: quickstart 
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
+::: zone target="docs"
+
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Get started with Azure Data Box Disk 
+
+::: zone-end
+
+::: zone target="docs"
 
 This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+This guide walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## Prerequisites
 
@@ -28,6 +51,23 @@ Before you begin:
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+> [!div class="checklist"]
+>
+> - **Review prerequisites**: Check the number of disks and cables, operating system, and other software.
+> - **Connect and unlock**: Connect the device and unlock the disk to copy the data.
+> - **Copy data to the disk and validate**: Copy data to the disks into the precreated folders.
+> - **Return the disks**: Return the disks to Azure datacenter where data is uploaded into your storage account.
+> - **Verify the data in Azure**: Verify that your data has uploaded into your storage account before you delete it from source data server.
+
+::: zone-end
+
+
+::: zone target="docs"
 
 ## Order
 
@@ -118,3 +158,5 @@ In this quickstart, you’ve deployed Azure Data Box Disk to help import your da
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Disk](data-box-portal-ui-admin.md)
+
+::: zone-end

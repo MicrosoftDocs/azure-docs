@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services
@@ -8,12 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
 
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-cpp-linux.md).
+
+If desired, switch to a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
@@ -25,8 +28,6 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 ## Install Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-The current version of the Cognitive Services Speech SDK is `1.5.0`.
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
@@ -104,6 +105,12 @@ Download and install the SDK as follows:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
+* On an **ARM64**  (64-bit) system, run the following command to build the application.
+
+  ```sh
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
+  ```
+
 ## Run the app
 
 1. Configure the loader's library path to point to the Speech SDK library.
@@ -118,6 +125,12 @@ Download and install the SDK as follows:
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
+     ```
+
+   * On an **ARM64** (64-bit) system, enter the following command.
+
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
 1. Run the application.

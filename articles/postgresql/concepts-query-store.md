@@ -1,15 +1,15 @@
 ---
-title: Query Store in Azure Database for PostgreSQL
-description: This article describes the Query Store feature in Azure Database for PostgreSQL.
+title: Query Store in Azure Database for PostgreSQL - Single Server
+description: This article describes the Query Store feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 08/21/2019
 ---
 # Monitor performance with the Query Store
 
-**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -169,6 +169,7 @@ Query_store.staging_data_reset() returns void
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
+- [Read replicas](concepts-read-replicas.md) replicate Query Store data from the master server. This means that a read replica's Query Store does not provide statistics about queries run on the read replica.
 
 
 ## Next steps

@@ -2,16 +2,14 @@
 title: Named Entity Recognition cognitive search skill - Azure Search
 description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 
 #	 Named Entity Recognition cognitive skill
@@ -19,7 +17,7 @@ ms.custom: seodec2018
 The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location` and `organization`.
 
 > [!IMPORTANT]
-> Named entity recognition skill is now discontinued replaced by [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stopped on February 15, 2019 and the API was removed from the product on May 2, 2019. Follow the recommendations in [Deprecated Cognitive Search Skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
+> Named entity recognition skill is now discontinued replaced by [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stopped on February 15, 2019 and the API was removed from the product on May 2, 2019. Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
@@ -31,7 +29,7 @@ The **Named Entity Recognition** skill extracts named entities from text. Availa
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -89,7 +87,7 @@ Parameters are case-sensitive.
         "recordId": "1",
         "data":
            {
-             "text": "This is the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia… Ana Smith is provided as a reference.",
              "languageCode": "en"
            }
       }

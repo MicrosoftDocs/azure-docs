@@ -1,14 +1,14 @@
 ---
-title: Connect Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL
-description: Learn about connecting Azure Kubernetes Service with Azure Database for PostgreSQL
+title: Connect Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Single Server
+description: Learn about connecting Azure Kubernetes Service with Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
 ---
 
-# Connecting Azure Kubernetes Service and Azure Database for PostgreSQL
+# Connecting Azure Kubernetes Service and Azure Database for PostgreSQL - Single Server
 
 Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for PostgreSQL together to create an application.
 

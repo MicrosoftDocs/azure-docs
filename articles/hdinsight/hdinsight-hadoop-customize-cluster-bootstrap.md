@@ -12,7 +12,7 @@ ms.date: 04/19/2019
 
 # Customize HDInsight clusters using Bootstrap
 
-Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically. 
+Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically.
 
 There are three approaches to set configuration file settings as your HDInsight cluster is created:
 
@@ -50,8 +50,7 @@ For information on installing additional components on HDInsight cluster during 
 The following PowerShell code customizes an [Apache Hive](https://hive.apache.org/) configuration:
 
 > [!IMPORTANT]  
-> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues). You can pass empty values to the parameter as shown in the code example below.
-
+> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the code example below.
 
 ```powershell
 # hive-site.xml configuration
@@ -61,7 +60,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 
@@ -125,9 +124,10 @@ You can use bootstrap in Resource Manager template:
 }
 ```
 
-![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
+
 * [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
@@ -137,20 +137,14 @@ You can use bootstrap in Resource Manager template:
 [hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
 
 ## Appendix: PowerShell sample
 
 This PowerShell script creates an HDInsight cluster and customizes a Hive setting. Be sure to enter values for `$nameToken`, `$httpPassword`, and `$sshPassword`.
 
-> [!IMPORTANT]  
-> The values for `DefaultStorageAccount`, and `DefaultStorageContainer` are not returned from [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) when [secure transfer](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
 > [!WARNING]  
 > Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
-
 
 ```powershell
 ####################################
@@ -238,7 +232,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

@@ -1,16 +1,16 @@
 ---
 title: Certificates required for whitelisting backends in Azure Application Gateway
-description: This article provides examples of how an SSL certificate can be converted to authentication certificate and trusted root certificate which are required for whitelisting backend instances in Azure Application Gateway
+description: This article provides examples of how an SSL certificate can be converted to authentication certificate and trusted root certificate that are required for whitelisting backend instances in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/14/2019
+ms.date: 07/23/2019
 ms.author: absha
 ---
-# Create certificates for whitelisting backend with Azure Application Gateway
+# Create certificates to allow the backend with Azure Application Gateway
 
-To perform end to end SSL, application gateway requires the backend instances to be whitelisted by uploading authentication/trusted root certificates. In case of v1 SKU, authentication certificates are required whereas in case of v2 SKU, trusted root certificates are required for whitelisting the certificates
+To do end to end SSL, Application Gateway requires the backend instances to be allowed by uploading authentication/trusted root certificates. For the v1 SKU, authentication certificates are required, but for the v2 SKU trusted root certificates are required to allow the certificates.
 
 In this article, you learn how to:
 
@@ -21,11 +21,11 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-You require an existing backend certificate to generate the authentication certificates or trusted root certificates required for whitelisting backend instances with application gateway. The backend certificate can be same as SSL certificate or different for added security. Application gateway does not provide you any mechanism to create or purchase an SSL certificate. For testing purposes, you can create a self-signed certificate but you should not use it for production workloads. 
+An existing backend certificate is required to generate the authentication certificates or trusted root certificates required for allowing backend instances with Application Gateway. The backend certificate can be the same as the SSL certificate or different for added security. Application Gateway doesn't provide you any mechanism to create or purchase an SSL certificate. For testing purposes, you can create a self-signed certificate but you shouldn't use it for production workloads. 
 
 ## Export authentication certificate (for v1 SKU)
 
-Authentication certificate is required to whitelist backend instances in application gateway v1 SKU. Authentication certificate is the public key of backend server certificates in Base-64 encoded X.509(.CER) format. In this example, we will use an SSL certificate for the backend certificate and export its public key to be used as authentication certification. Also, in this example, we will use the Windows Certificate Manager tool to export the required certificates. You can choose to use any other tool as per your convenience.
+An authentication certificate is required to allow backend instances in Application Gateway v1 SKU. The authentication certificate is the public key of backend server certificates in Base-64 encoded X.509(.CER) format. In this example, you'll use an SSL certificate for the backend certificate and export its public key to be used as authentication certification. Also, in this example, you'll use the Windows Certificate Manager tool to export the required certificates. You can choose to use any other tool that is convenient.
 
 From your SSL certificate, export the public key .cer file (not the private key). The following steps help you export the .cer file in Base-64 encoded X.509(.CER) format for your certificate:
 
@@ -61,13 +61,13 @@ From your SSL certificate, export the public key .cer file (not the private key)
 
    ![Exported](./media/certificates-for-backend-authentication/exported.png)
 
-8. If you open the exported certificate using Notepad, you see something similar to this example. The section in blue contains the information that is uploaded to application gateway. If you open your certificate with Notepad and it does not look similar to this, typically this means you did not export it using the Base-64 encoded X.509(.CER) format. Additionally, if you want to use a different text editor, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
+8. If you open the exported certificate using Notepad, you see something similar to this example. The section in blue contains the information that is uploaded to application gateway. If you open your certificate with Notepad and it doesn't look similar to this, typically this means you didn't export it using the Base-64 encoded X.509(.CER) format. Additionally, if you want to use a different text editor, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
 
    ![Open with Notepad](./media/certificates-for-backend-authentication/format.png)
 
 ## Export trusted root certificate (for v2 SKU)
 
-Trusted root certificate is required to whitelist backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use an SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. 
+Trusted root certificate is required to whitelist backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use an SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. The intermediate certificate(s) should be bundled with server certificate and installed on the backend server.
 
 The following steps help you export the .cer file for your certificate:
 
@@ -87,7 +87,7 @@ The following steps help you export the .cer file for your certificate:
 
    ![cert path](./media/certificates-for-backend-authentication/rootcert.png)
 
-   You should be able to view the root certificate details.
+   You should see the root certificate details.
 
    ![cert info](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
@@ -95,8 +95,9 @@ The following steps help you export the .cer file for your certificate:
 
    ![copy root cert](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. At this point, you have extracted the details of the root certificate from the backend certificate. You will see the **Certificate Export Wizard**. Now use steps 2-9 mentioned in the section **Export authentication certificate from a backend certificate (for v1 SKU)** above to export the trusted root certificate in the Base-64 encoded X.509(.CER) format.
+6. At this point, you've extracted the details of the root certificate from the backend certificate. You'll see the **Certificate Export Wizard**. Now use steps 2-9 mentioned in the section **Export authentication certificate from a backend certificate (for v1 SKU)** above to export the trusted root certificate in the Base-64 encoded X.509(.CER) format.
 
 ## Next steps
 
 Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to whitelist your backend servers for end to end SSL encryption. See [how to configure end to end SSL encryption](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

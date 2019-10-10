@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -24,7 +24,7 @@ This topic gives a brief overview of Azure Media Services terminology and concep
 The fundamental concepts described in these topics should be reviewed prior to starting development.
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Terminology
 
@@ -132,7 +132,7 @@ You can use Azure Media Player to play back media content streamed by Media Serv
 
 - [Azure Media Player overview](use-azure-media-player.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

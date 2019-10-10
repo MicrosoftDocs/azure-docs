@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ---

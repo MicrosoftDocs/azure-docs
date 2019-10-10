@@ -1,5 +1,5 @@
 ---
-title: Connect a Node.js MongoDB app to Azure Cosmos DB 
+title: 'Quickstart: Connect a Node.js MongoDB app to Azure Cosmos DB' 
 description: This quickstart demonstrates how to connect an existing MongoDB app written in Node.js to Azure Cosmos DB.
 author: rimman
 ms.author: rimman
@@ -7,8 +7,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: rimman
+ms.custom: seo-javascript-september2019
 
 ---
 # Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB 
@@ -96,7 +97,7 @@ Create a [resource group](../azure-resource-manager/resource-group-overview.md) 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
+If you are using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -200,7 +201,7 @@ npm start
 
 A console message should now tell you that the development environment is up and running. 
 
-Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and try to create two dummy users. 
+Go to `http://localhost:3000` in a browser. Select **Sign Up** in the top menu and try to create two dummy users. 
 
 The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your Azure Cosmos DB connection is working. 
 
@@ -212,7 +213,7 @@ Data stored in a Cosmos database is available to view and query in the Azure por
 
 To view, query, and work with the user data created in the previous step, login to the [Azure portal](https://portal.azure.com) in your web browser.
 
-In the top Search box, type Azure Cosmos DB. When your Cosmos account blade opens, select your Cosmos account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
+In the top Search box, enter **Azure Cosmos DB**. When your Cosmos account blade opens, select your Cosmos account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
 ![Data Explorer in the Azure portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 

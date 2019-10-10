@@ -3,20 +3,19 @@ title: Microsoft identity platform ID token reference | Microsoft Docs
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2019
-ms.author: celested
+ms.topic: conceptual
+ms.date: 08/27/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 ## Using the id_token
 
-ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it shouldn't be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application.
+ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it shouldn't be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, as keys in a database, and providing access to the client application.  When creating keys for a database, `idp` should not be used because it messes up guest scenarios.  Keying should be done on `sub` alone (which is always unique), with `tid` used for routing if need be.  If you need to share data across services, `oid`+`sub`+`tid` will work since multiple services all get the same `oid`.
 
 ## Claims in an id_token
 
@@ -77,7 +76,7 @@ This list shows the claims that are in most id_tokens by default (except where n
 |`email` | String | The `email` claim is present by default for guest accounts that have an email address.  Your app can request the email claim for managed users (those from the same tenant as the resource) using the `email` [optional claim](active-directory-optional-claims.md).  On the v2.0 endpoint, your app can also request the `email` OpenID Connect scope - you don't need to request both the optional claim and the scope to get the claim.  The email claim only supports addressable mail from the user's profile information. |
 |`name` | String | The `name` claim provides a human-readable value that identifies the subject of the token. The value isn't guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required to receive this claim. |
 |`nonce`| String | The nonce matches the parameter included in the original /authorize request to the IDP. If it does not match, your application should reject the token. |
-|`oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they're considered different accounts, even though the user logs into each account with the same credentials. |
+|`oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they're considered different accounts, even though the user logs into each account with the same credentials. The `oid` claim is a GUID and cannot be reused. |
 |`roles`| Array of strings | The set of roles that were assigned to the user who is logging in. |
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |

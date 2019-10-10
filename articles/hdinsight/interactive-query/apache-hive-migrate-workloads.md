@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 04/24/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -23,8 +23,9 @@ This article covers the following subjects:
 
 One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. The metastore database schema differs between Hive versions. Do the following to upgrade a HDInsight 3.6 Hive Metastore so that it's compatible with HDInsight 4.0.
 
-1. Create a new copy of your external metastore. HDInsight 3.6 and HDInsight 4.0 require different metastore schemas and can't share a single metastore.
-1. Attach the new copy of the metastore to a) an existing HDInsight 4.0 cluster, or b) a cluster that you're creating for the first time. See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster. Once the Metastore is attached, it will automatically be converted into a 4.0-compatible metastore.
+1. Create a new copy of your external metastore. HDInsight 3.6 and HDInsight 4.0 require different metastore schemas and can't share a single metastore. See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster. 
+2. Launch a script action against your HDI 3.6 cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh.
+In the textbox marked "Arguments", enter the servername, database, username and password for the **copied** Hive metastore, separated by spaces. Do not include ".database.windows.net" when specifying the servername.
 
 > [!Warning]
 > The upgrade which converts the HDInsight 3.6 metadata schema to the HDInsight 4.0 schema, cannot be reversed.
@@ -65,7 +66,7 @@ Once your table properties are set correctly, execute the Hive warehouse migrati
 1. Execute the following command from the shell. Replace `${{STACK_VERSION}}` with the version string from the previous step:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0. 
@@ -93,9 +94,7 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Data Analytics Studio can be launched with URL : https://<clustername>.azurehdinsight.net/das/
-
-
+Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: https://\<clustername>.azurehdinsight.net/das/
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

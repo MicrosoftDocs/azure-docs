@@ -3,7 +3,7 @@ title: Preview REST API for Azure Search 2019-05-06-Preview - Azure Search
 description: Azure Search Service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and customer-managed encryption keys.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.devlang: rest-api
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/02/2019
-ms.author: HeidiSteen
+ms.author: heidist
 ms.custom: seodec2018
 
 ---
@@ -33,6 +33,8 @@ This article describes the `api-version=2019-05-06-Preview` version of Azure Sea
 Features announced in earlier previews are still in public preview. If you're calling an API with an earlier preview api-version, you can continue to use that version or switch to `2019-05-06-Preview` with no changes to expected behavior.
 
 + [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
+* [CSV blob indexing](search-howto-index-csv-blobs.md) creates one document per line, as opposed to one document per text blob.
+* [MongoDB API support for Cosmos DB indexers](search-howto-index-cosmosdb.md) is in preview.
 
 
 ## How to call a preview API

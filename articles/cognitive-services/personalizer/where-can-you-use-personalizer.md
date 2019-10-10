@@ -3,13 +3,13 @@ title: Scenario assessment - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer can be applied in any situation where your application can select the right item, action, or product to display - in order to make the experience better, achieve better business results, or improve productivity.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 09/19/2019
+ms.author: diberry
 ---
 # Where can you use Personalizer?
 
@@ -27,7 +27,7 @@ You can apply Personalizer in situations where:
 * The best choice can and should be learned from collective user behavior and total reward score.
 * The use of machine learning for personalization follows [responsible use guidelines](ethics-responsible-use.md) and choices you chose.
 * The contextual decision can be expressed as ranking the best option (action) from a limited set of choices.
-* How well the ranked choice worked for your application can be determined by measuring some aspect of user behavior, and expressing it in a _reward score_. This is a number between -1 and 1.
+* How well the ranked choice worked for your application can be determined by measuring some aspect of user behavior, and expressing it in a _[reward score](concept-rewards.md)_.
 * The reward score doesn't bring in too many confounding or external factors. The experiment duration is low enough that the reward score can be computed while it's still relevant.
 * You can express the context for the rank as a list of at least 5 [features](concepts-features.md) that you think would help make the right choice, and that doesn't include personally identifiable information. (PII).
 * You have information about each content choice, _action_, as a list of at least 5 [features](concepts-features.md) that you think will help Personalizer make the right choice.
@@ -52,7 +52,7 @@ You can monitor the effectiveness of Personalizer periodically by performing [of
 
 Many companies use recommendation engines, marketing and campaigning tools, audience segmentation and clustering, collaborative filtering, and other means to recommend products from a large catalog to customers.
 
-The [Microsoft Recommenders GitHub repository ](https://github.com/Microsoft/Recommenders) provides examples and best practices for building recommendation systems, provided as Jupyter notebooks. It provides working examples for preparing data, building models, evaluating, tuning, and operationalizing the recommendation engines, for many common approaches including xDeepFM, SAR, ALS, RBM, DKN.
+The [Microsoft Recommenders GitHub repository](https://github.com/Microsoft/Recommenders) provides examples and best practices for building recommendation systems, provided as Jupyter notebooks. It provides working examples for preparing data, building models, evaluating, tuning, and operationalizing the recommendation engines, for many common approaches including xDeepFM, SAR, ALS, RBM, DKN.
 
 Personalizer can work with a recommendation engine when it's present.
 

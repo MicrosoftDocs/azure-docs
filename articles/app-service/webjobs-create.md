@@ -1,22 +1,18 @@
----
+﻿---
 title: Run Background tasks with WebJobs - Azure App Service
 description: Learn how to use WebJobs to run background tasks in Azure App Service web apps, API apps, or mobile apps.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
-
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.author: glenga
+ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-#Customer intent: As a web developer, I want leverage background tasks to keep my application running smoothly.
+#Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 
 ---
 
@@ -76,15 +72,15 @@ when making changes in one don't forget the other two.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
+3. Use the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
-   | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
+   | **Name** | myContinuousWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Click **OK**.
@@ -114,16 +110,16 @@ when making changes in one don't forget the other two.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
+3. Use the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_".|
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
-   | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Triggers** | Manual | |
+   | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_".|
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
+   | **Triggers** | Manual | |
 
 4. Click **OK**.
 
@@ -152,17 +148,17 @@ when making changes in one don't forget the other two.
 
    ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
+3. Use the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
-   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
-   | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
-   | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
-   | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](#cron-expressions) are described in the following section. |
+   | **Name** | myScheduledWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_". |
+   | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
+   | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
+   | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
+   | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](#ncrontab-expressions) are described in the following section. |
 
 4. Click **OK**.
 
@@ -170,9 +166,9 @@ when making changes in one don't forget the other two.
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## CRON expressions
+## NCRONTAB expressions
 
-You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#cron-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [NCRONTAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {

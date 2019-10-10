@@ -1,469 +1,179 @@
 ---
-title: Send transactions using Azure Blockchain Service
-description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and send a private transaction.
+title: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
+description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
 services: azure-blockchain
-keywords: 
+
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-#Customer intent: As a developer, I want to use Azure Blockchain Service so that I can send a private blockchain transaction to a consortium member.
+ms.reviewer: chrisseg
+
+#Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
 ---
 
-# Tutorial: Send transactions using Azure Blockchain Service
+# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts
 
-In this tutorial, you'll to create transaction nodes to test contract and transaction privacy.  You'll use Truffle to create a local development environment and deploy a smart contract and send a private transaction.
+In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
 
-You'll learn how to:
+You use Azure Blockchain Development Kit for Ethereum to:
 
 > [!div class="checklist"]
-> * Add transaction nodes
-> * Use Truffle to deploy a smart contract
-> * Send a transaction
-> * Validate transaction privacy
+> * Create a smart contract
+> * Deploy a smart contract
+> * Execute a smart contract function via a transaction
+> * Query contract state
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* Complete [Create a blockchain member using the Azure portal](create-member.md)
-* Complete [Quickstart: Use Truffle to connect to a consortium network](connect-truffle.md)
-* Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), and [Truffle](https://github.com/trufflesuite/truffle).
+* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
 
-    To set up quickly on Windows 10, install [Ubuntu on Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) for a Unix Bash shell terminal then install [Truffle](https://github.com/trufflesuite/truffle). The Ubuntu on Windows distribution includes Node.js and Git.
+## Create a smart contract
 
-* Install [Visual Studio Code](https://code.visualstudio.com/Download)
-* Install [Visual Studio Code Solidity extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts. Before you begin, complete the prerequisite [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you through the installation and configuration of the Azure Blockchain Development Kit for Ethereum.
 
-## Create transaction nodes
+1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
+1. Choose **Create basic project**.
+1. Create a new folder named `HelloBlockchain` and **Select new project path**.
 
-By default, you have one transaction node. We're going to add two more. One of the nodes participates in the private transaction. The other is not included in the private transaction.
+The Azure Blockchain Development Kit creates and initializes a new Solidity project for you. The basic project includes a sample **HelloBlockchain** smart contract and all the necessary files to build and deploy to your consortium member in Azure Blockchain Service. It may take several minutes for the project to be created. You can monitor the progress in VS Code's terminal panel by selecting the output for Azure Blockchain.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain member and select **Transaction nodes > Add**.
-1. Complete the settings for a new transaction node named `alpha`.
+The project structure looks like the following example:
 
-    ![Create transaction node](./media/send-transaction/create-node.png)
+   ![Solidity project](./media/send-transaction/solidity-project.png)
 
-    | Setting | Value | Description |
-    |---------|-------|-------------|
-    | Name | `alpha` | Transaction node name. The name is used to create the DNS address for the transaction node endpoint. For example, `alpha-mymanagedledger.blockchain.azure.com`. |
-    | Password | Strong password | The password is used to access the transaction node endpoint with basic authentication.
+## Build a smart contract
 
-1. Select **Create**.
+Smart contracts are located in the project's **contracts** directory. You compile smart contracts before you deploy them to a blockchain. Use the **Build Contracts** command to compile all the smart contracts in your project.
 
-    Provisioning a new transaction node takes about 10 minutes.
+1. In the VS Code explorer sidebar, expand the **contracts** folder in your project.
+1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu.
 
-1. Repeat steps 2 through 4 to add a transaction node named `beta`.
+    ![Build contracts](./media/send-transaction/build-contracts.png)
 
-You can continue with the tutorial while the nodes are being provisioned. When provisioning is finished, you'll have three transaction nodes.
+Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
 
-## Open Truffle project
+![Compile output](./media/send-transaction/compile-output.png)
 
-1. Open a Bash shell terminal.
-1. Change your path to the Truffle project directory from the prerequisite [Quickstart: Use Truffle to connect to a consortium network](connect-truffle.md). For example,
+## Deploy a smart contract
+
+Truffle uses migration scripts to deploy your contracts to an Ethereum network. Migrations are JavaScript files located in the project's **migrations** directory.
+
+1. To deploy your smart contract, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu.
+1. Choose your Azure Blockchain consortium network in the command palette. The consortium blockchain network was added to the project's Truffle configuration file when you created the project.
+1. Choose **Generate mnemonic**. Choose a filename and save the mnemonic file in the project folder. For example, `myblockchainmember.env`. The mnemonic file is used to generate an Ethereum private key for your blockchain member.
+
+Azure Blockchain Development Kit uses Truffle to execute the migration script to deploy the contracts to the blockchain.
+
+![Successfully deployed contract](./media/send-transaction/deploy-contract.png)
+
+## Call a contract function
+
+The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can create a script to execute the **SendRequest** function via a transaction.
+
+1. Create a new file in the root of your Truffle project and name it `sendrequest.js`. Add the following Web3 JavaScript code to the file.
+
+    ```javascript
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
+        
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling SendRequest function for contract ", instance.address);
+        return instance.SendRequest("Hello, blockchain!");
+      }).then(function(result) {
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
+
+1. When Azure Blockchain Development Kit creates a project, the Truffle configuration file is generated with your consortium blockchain network endpoint details. Open **truffle-config.js** in your project. The configuration file lists two networks: one named development and one with the same name as the consortium.
+1. In VS Code's terminal pane, use Truffle to execute the script on your consortium blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
+
+    ```PowerShell
+    truffle exec sendrequest.js --network <blockchain network>
+    ```
+
+    Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
+
+Truffle executes the script on your blockchain network.
+
+![Script output](./media/send-transaction/execute-transaction.png)
+
+When you execute a contract's function via a transaction, the transaction isn't processed until a block is created. Functions meant to be executed via a transaction return a transaction ID instead of a return value.
+
+## Query contract state
+
+Smart contract functions can return the current value of state variables. Let's add a function to return the value of a state variable.
+
+1. In **HelloBlockchain.sol**, add a **getMessage** function to the **HelloBlockchain** smart contract.
+
+    ``` solidity
+    function getMessage() public view returns (string memory)
+    {
+        if (State == StateType.Request)
+            return RequestMessage;
+        else
+            return ResponseMessage;
+    }
+    ```
+
+    The function returns the message stored in a state variable based on the current state of the contract.
+
+1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu to compile the changes to the smart contract.
+1. To deploy, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu. When prompted, choose your Azure Blockchain consortium network in the command palette.
+1. Next, create a script using to call the **getMessage** function. Create a new file in the root of your Truffle project and name it `getmessage.js`. Add the following Web3 JavaScript code to the file.
+
+    ```javascript
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
+    
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling getMessage function for contract ", instance.address);
+        return instance.getMessage();
+      }).then(function(result) {
+        console.log("Request message value: ", result);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
+
+1. In VS Code's terminal pane, use Truffle to execute the script on your blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
 
     ```bash
-    cd truffledemo
+    truffle exec getmessage.js --network <blockchain network>
     ```
 
-1. Launch Truffle's interactive development console.
+    Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
 
-    ``` bash
-    truffle develop
-    ```
+The script queries the smart contract by calling the getMessage function. The current value of the **RequestMessage** state variable is returned.
 
-    Truffle creates a local development blockchain and provides an interactive console.
+![Script output](./media/send-transaction/execute-get.png)
 
-## Connect to transaction node
+Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the contract gets a new contract address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
 
-Use Web3 to connect to the default transaction node and create an account. You can get the Web3 connection string from the Azure portal.
+1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
 
-1. In the Azure portal, navigate to the default transaction node and select **Transaction nodes > Sample code > Web3**.
-1. Copy the JavaScript from **HTTPS (Access key 1)**
-    ![Web3 sample code](./media/send-transaction/web3-code.png)
+    ![Script output](./media/send-transaction/execute-set-get.png)
 
-1. Paste the Web3 JavaScript code for the default transaction node into the Truffle interactive development console. The code creates a Web3 object that is connected to your Azure Blockchain Service transaction node.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    You can call methods on the Web3 object to interact with your transaction node.
-
-1. Create a new account on the default transaction node. Replace the password parameter with your own strong password.
-
-    ```bash
-    web3.eth.personal.newAccount("1@myStrongPassword");
-    ```
-
-    Make note of the account address returned and password you used for the next section.
-
-1. Exit the Truffle development environment.
-
-    ```bash
-    .exit
-    ```
-
-## Configure Truffle project
-
-To configure the Truffle project, you need some transaction node information from the Azure portal.
-
-### Transaction node public key
-
-Each transaction node has a public key. The public key enables you to send a private transaction to the node. In order to send a transaction from the default transaction node to the *alpha* transaction node, you need the *alpha* transaction node's public key.
-
-You can get the public key from the transaction node list. Copy the public key for the alpha node and save the value for later in the tutorial.
-
-![Transaction node list](./media/send-transaction/node-list.png)
-
-### Transaction node endpoint addresses
-
-1. In the Azure portal, navigate to each transaction node and select **Transaction nodes > Connection strings**.
-1. Copy and save the endpoint URL from **HTTPS (Access key 1) for each transaction node. You need the endpoint addresses for the smart contract configuration file later in the tutorial.
-
-    ![Transaction endpoint address](./media/send-transaction/endpoint.png)
-
-### Edit configuration file
-
-1. Launch Visual Studio Code and open the Truffle project directory folder using the **File > Open Folder** menu.
-1. Open the Truffle configuration file `truffle-config.js`.
-1. Replace the contents of the file with the following configuration information. Add variables containing the endpoints addresses and account information. Replace the angle bracket sections with values you collected from previous sections.
-
-``` javascript
-var defaultnode = "<default transaction node connection string>";
-var alpha = "<alpha transaction node connection string>";
-var beta = "<beta transaction node connection string>";
-
-var myAccount = "<account address>";
-var myPassword = "<account password>";
-
-var Web3 = require("web3");
-```
-
-Add the configuration code to the **module.exports** section of the configuration.
-
-```javascript
-module.exports = {
-  networks: {
-    defaultnode: {
-      provider:(() =>  {
-      const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-
-      const web3 = new Web3(AzureBlockchainProvider);
-      web3.eth.personal.unlockAccount(myAccount, myPassword);
-
-      return AzureBlockchainProvider;
-      })(),
-
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0,
-      from: myAccount
-    },
-    alpha: {
-      provider: new Web3.providers.HttpProvider(alpha),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    },
-    beta: {
-      provider: new Web3.providers.HttpProvider(beta),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    }
-  }
-}
-```
-
-## Create smart contract
-
-In folder **contracts**, create a new file named `SimpleStorage.sol`. Add the following code.
-
-```solidity
-pragma solidity >=0.4.21 <0.6.0;
-
-contract SimpleStorage {
-    string public storedData;
-
-    constructor(string memory initVal) public {
-        storedData = initVal;
-    }
-
-    function set(string memory x) public {
-        storedData = x;
-    }
-
-    function get() view public returns (string memory retVal) {
-        return storedData;
-    }
-}
-```
-
-In folder **migrations**, create a new file named `2_deploy_simplestorage.js`. Add the following code.
-
-```solidity
-var SimpleStorage = artifacts.require("SimpleStorage.sol");
-
-module.exports = function(deployer) {
-
-  // Pass 42 to the contract as the first constructor parameter
-  deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Account address>"})  
-};
-```
-
-Replace the values in the angle brackets.
-
-| Value | Description
-|-------|-------------
-| \<alpha node public key\> | Public key of the alpha node
-| \<Account address\> | Account address created in the default transaction node.
-
-In this example, the initial value of the **storeData** value is set to 42.
-
-**privateFor** defines the nodes to which the contract is available. In this example, the default transaction node's account can cast private transactions to the **alpha** node. You need to add public keys for all private transaction participants. If you don't include **privateFor:** and **from:**, the smart contract transactions are public and can be seen by all consortium members.
-
-Save all files by selecting **File > Save All**.
-
-## Deploy smart contract
-
-Use Truffle to deploy `SimpleStorage.sol` to default transaction node network.
-
-```bash
-truffle migrate --network defaultnode
-```
-
-Truffle first compiles and then deploys the **SimpleStorage** smart contract.
-
-Example output:
-
-```
-pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
-
-2_deploy_simplestorage.js
-=========================
-
-   Deploying 'SimpleStorage'
-   -------------------------
-   > transaction hash:    0x3f695ff225e7d11a0239ffcaaab0d5f72adb545912693a77fbfc11c0dbe7ba72
-   > Blocks: 2            Seconds: 12
-   > contract address:    0x0b15c15C739c1F3C1e041ef70E0011e641C9D763
-   > account:             0x1a0B9683B449A8FcAd294A01E881c90c734735C3
-   > balance:             0
-   > gas used:            0
-   > gas price:           0 gwei
-   > value sent:          0 ETH
-   > total cost:          0 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:                   0 ETH
-
-
-Summary
-=======
-> Total deployments:   2
-> Final cost:          0 ETH
-```
-
-## Validate contract privacy
-
-Because of contract privacy, contract values can only be queried from nodes we declared in **privateFor**. In this example, we can query the default transaction node because the account exists in that node. Using the Truffle console, connect to the default transaction node.
-
-```bash
-truffle console --network defaultnode
-```
-
-Execute a command that returns the value of the contract instance.
-
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
-
-If querying the default transaction node is successful, the value 42 is returned.
-
-Example output:
-
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
-truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
-
-Exit the console.
-
-```bash
-.exit
-```
-
-Since we declared **alpha** node's public key in **privateFor**, we can query the **alpha** node. Using the Truffle console, connect to the **alpha** node.
-
-```bash
-truffle console --network alpha
-```
-
-Execute a command that returns the value of the contract instance.
-
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
-
-If querying the **alpha** node is successful, the value 42 is returned.
-
-Example output:
-
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
-truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
-
-Exit the console.
-
-```bash
-.exit
-```
-
-Since we did not declare **beta** node's public key in **privateFor**, we won't be able to query the **beta** node because of contract privacy. Using the Truffle console, connect to the **beta** node.
-
-```bash
-truffle console --network beta
-```
-
-Execute a command that returns the value of the contract instance.
-
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
-
-Querying the **beta** node fails since the contract is private.
-
-Example output:
-
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
-truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-Thrown:
-Error: Returned values aren't valid, did it run Out of Gas?
-    at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-    at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-    at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-    at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-```
-
-Exit the console.
-
-```bash
-.exit
-```
-
-## Send a transaction
-
-Create a file called `sampletx.js`. Save it in the root of your project.
-
-This script sets the contract **storedData** variable value to 65. Add the code to the new file.
-
-```javascript
-var SimpleStorage = artifacts.require("SimpleStorage");
-
-module.exports = function(done) {
-  console.log("Getting deployed version of SimpleStorage...")
-  SimpleStorage.deployed().then(function(instance) {
-    console.log("Setting value to 65...");
-    return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Account address>"});
-  }).then(function(result) {
-    console.log("Transaction:", result.tx);
-    console.log("Finished!");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
-```
-
-Replace the values in the angle brackets then save the file.
-
-| Value | Description
-|-------|-------------
-| \<alpha node public key\> | Public key of the alpha node
-| \<Account address\> | Account address created in the default transaction node.
-
-**privateFor** defines the nodes to which the transaction is available. In this example, the default transaction node's account can cast private transactions to the **alpha** node. You need to add public keys for all private transaction participants.
-
-Use Truffle to execute the script for the default transaction node.
-
-```bash
-truffle exec sampletx.js --network defaultnode
-```
-
-Execute a command that returns the value of the contract instance.
-
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
-
-If the transaction was successful, the value 65 is returned.
-
-Example output:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Exit the console.
-
-```bash
-.exit
-```
-
-## Validate transaction privacy
-
-Because of transaction privacy, transactions can only be performed on nodes we declared in **privateFor**. In this example, we can perform transactions since we declared **alpha** node's public key in **privateFor**. Use Truffle to execute the transaction on the **alpha** node.
-
-```bash
-truffle exec sampletx.js --network alpha
-```
-
-Execute a command that returns the value of the contract instance.
-
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
-
-If the transaction was successful, the value 65 is returned.
-
-Example output:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Exit the console.
-
-```bash
-.exit
-```
-
-In this tutorial, you added two transaction nodes to demonstrate contract and transaction privacy. You used the default node to deploy a private smart contract. You tested privacy by querying contract values and performing transactions on the blockchain.
+    **sendrequest.js** sets the **RequestMessage** state variable to **Hello, blockchain!** and **getmessage.js** queries the contract for value of **RequestMessage** state variable and returns **Hello, blockchain!**.
 
 ## Clean up resources
 
-When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
+When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created in the *Create a blockchain member* prerequisite quickstart.
 
 To delete the resource group:
 
@@ -471,6 +181,8 @@ To delete the resource group:
 1. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
 
 ## Next steps
+
+In this tutorial, you created a sample Solidity project using Azure Blockchain Development Kit. You built and deployed a smart contract then called a function via a transaction on a blockchain consortium network hosted on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
 > [Developing blockchain applications using Azure Blockchain Service](develop.md)

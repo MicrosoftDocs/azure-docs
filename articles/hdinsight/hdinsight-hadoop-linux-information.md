@@ -14,9 +14,6 @@ ms.date: 03/20/2019
 
 Azure HDInsight clusters provide Apache Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## Prerequisites
 
 Many of the steps in this document use the following utilities, which may need to be installed on your system.
@@ -28,7 +25,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 ## Users
 
-Unless [domain-joined](./domain-joined/apache-domain-joined-introduction.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
+Unless [domain-joined](./domain-joined/hdinsight-security-overview.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
 
 Domain-joined HDInsight supports multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md).
 
@@ -86,7 +83,7 @@ For more information, see the [Ports used by Apache Hadoop services on HDInsight
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
 
-* **2.6.5.3006-29**: The directory name is the version of the Hortonworks Data Platform used by HDInsight. The number on your cluster may be different than the one listed here.
+* **2.6.5.3006-29**: The directory name is the version of the Hadoop platform used by HDInsight. The number on your cluster may be different than the one listed here.
 * **current**: This directory contains links to subdirectories under the **2.6.5.3006-29** directory. This directory exists so that you don't have to remember the version number.
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`.
@@ -122,11 +119,9 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using __Azure Data Lake Storage Gen2__, use one of the following URI schemes:
+When using __Azure Data Lake Storage Gen2__, use the following URI scheme:
 
-* `abfs:///`: Access default storage using unencrypted communication.
-
-* `abfss:///`: Access default storage using encrypted communication.  The abfss scheme is supported only from HDInsight version 3.6 onwards.
+* `abfs://`: Access default storage using encrypted communication.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
@@ -246,7 +241,7 @@ The different cluster types are affected by scaling as follows:
 For specific information on scaling your HDInsight cluster, see:
 
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Manage Apache Hadoop clusters in HDInsight by using Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## How do I install Hue (or other Hadoop component)?
 
@@ -283,7 +278,6 @@ To use a different version of a component, upload the version you need and use i
 
 ## Next steps
 
-* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)

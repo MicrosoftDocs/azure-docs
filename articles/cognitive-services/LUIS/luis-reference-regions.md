@@ -1,5 +1,5 @@
 ---
-title: Publishing regions & endpoints
+title: Publishing regions & endpoints - LUIS
 titleSuffix: Azure Cognitive Services
 description: 3 authoring regions and their portals support all the many publishing regions. The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you publish an app, LUIS automatically generates an endpoint URL for the region associated with the key. 
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/02/2019
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: diberry
 ---
 # Authoring and publishing regions and the associated keys
@@ -76,6 +76,7 @@ To publish to the other regions, you create LUIS apps at [https://www.luis.ai](h
 
  Global region | Authoring API region & authoring website| Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
 |-----|------|------|------|
+| Africa | `westus`<br>[www.luis.ai][www.luis.ai]| South Africa North<br>`southafricanorth` |  https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Central India<br>`centralindia` |  https://centralindia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| East Asia<br>`eastasia`     |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan East<br>`japaneast`     |   https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |

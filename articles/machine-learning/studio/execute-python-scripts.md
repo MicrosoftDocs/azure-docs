@@ -62,7 +62,7 @@ Studio datasets are not the same as Panda DataFrames. As a result, input dataset
 
 ## <a id="import-modules"></a>Importing existing Python script modules
 
-The backend used to execute Python is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
+The backend used to execute Python is based on [Anaconda](https://www.anaconda.com/distribution/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
 
 A common use-case is to incorporate existing Python scripts into Studio experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
 

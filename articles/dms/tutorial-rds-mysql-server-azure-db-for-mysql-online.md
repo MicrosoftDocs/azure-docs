@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 09/21/2019
 ---
 
 # Tutorial: Migrate RDS MySQL to Azure Database for MySQL online using DMS
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 
 > [!NOTE]
-> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information, see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
+> Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information, see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
@@ -50,10 +50,10 @@ To complete this tutorial, you need to:
 
 * Download and install the [MySQL **Employees** sample database](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Create an instance of [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 * Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Open your Windows firewall to allow Azure Database Migration Service to access the source MySQL server, which by default is TCP port 3306.
+* Configure your [Windows Firewall](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (or your Linux firewall) to allow for database engine access. For MySQL server, allow port 3306 for connectivity.
+* Open your Windows firewall to allow Azure Database Migration Service to access the source MySQL server (the  default TCP port is 3306).
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
 * Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure Database for MySQL server to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the VNet used for Azure Database Migration Service.
 
@@ -104,15 +104,15 @@ To complete this tutorial, you need to:
         FROM
         (SELECT
         KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-    	KCU.TABLE_NAME,
-    	KCU.COLUMN_NAME,
-    	CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+                    KCU.TABLE_NAME,
+                    KCU.COLUMN_NAME,
+                    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-    	FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-    	WHERE
-    	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-    	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
+                    WHERE
+                      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+                      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+      AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
@@ -165,9 +165,7 @@ To complete this tutorial, you need to:
 
 6. Select a pricing tier; for this online migration, be sure to select the Premium: 4vCores pricing tier.
 
-    For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing). If you need help with choosing the right Azure Database Migration Service pricing tier, refer to the recommendations in the posting [here](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
 7. Select **Create** to create the service.
 

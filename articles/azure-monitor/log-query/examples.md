@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/01/2019
 ms.author: bwren
 ---
 
@@ -30,7 +30,7 @@ This example searches the **Events** table for records in which **EventLog** is 
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### Search events related to unmarshaling
@@ -421,13 +421,12 @@ This example shows a list of computers that were missing one or more critical up
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```

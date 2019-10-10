@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 2/12/2019
+ms.date: 8/26/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -19,7 +19,7 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
-The source code for this sample is available [on GitHub]https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
 ## Prerequisites
 
@@ -135,4 +135,4 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 * [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
 * [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

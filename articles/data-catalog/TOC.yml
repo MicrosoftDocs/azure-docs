@@ -55,11 +55,9 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
+    href: data-catalog-samples.md
   - name: REST
     href: /rest/api/datacatalog/
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.datacatalog/catalogs
   - name: Search syntax reference
     href: /rest/api/datacatalog/data-catalog-search-syntax-reference
   - name: Developer concepts

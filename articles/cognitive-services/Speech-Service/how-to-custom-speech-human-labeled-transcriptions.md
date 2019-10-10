@@ -1,6 +1,6 @@
 ---
-title: "Human-labeled transcriptions guidelines - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Human-labeled transcriptions guidelines - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to use human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they're word-by-word, verbatim transcriptions of an audio file."
 services: cognitive-services
 author: erhopf
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -69,11 +69,11 @@ Here are a few examples of normalization automatically performed on the transcri
 | Go get -em! | go get em |
 | I'm double-jointed | I'm double jointed |
 | 104 Elm Street | one oh four Elm street |
-| Tune to 102.7 | tune to one oh two seven |
+| Tune to 102.7 | tune to one oh two point seven |
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## Mandarin Chinese (zh-cn)
+## Mandarin Chinese (zh-CN)
 
 Human-labeled transcriptions for Mandarin Chinese audio must be UTF-8 encoded with a byte-order marker. Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from web pages. If these characters are present, make sure to update them with the appropriate full-width substitution.
 

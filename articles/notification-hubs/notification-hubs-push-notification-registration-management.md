@@ -3,9 +3,9 @@ title: Registration Management
 description: This topic explains how to register devices with notification hubs in order to receive push notifications.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
@@ -13,8 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.author: jowargo
 ms.date: 04/08/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/08/2019
 ---
 
 # Registration management
@@ -86,6 +88,9 @@ An installation can contain the following properties. For a complete listing of 
 > By default, registrations and installations do not expire.
 
 Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end.
+
+> [!NOTE]
+> The Installations API does not support the Baidu service (although the Registrations API does). 
 
 ### Templates
 

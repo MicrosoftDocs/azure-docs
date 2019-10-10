@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/08/2019
 ---
 # How to use a single database in Azure SQL Database

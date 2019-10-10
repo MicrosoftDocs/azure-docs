@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
 ---
 # Ports beyond 1433 for ADO.NET 4.5
@@ -77,7 +76,7 @@ https://www.microsoft.com/download/details.aspx?id=56567
 * Connect to Azure SQL Database V12 via Redirection
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
+* [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [Azure SQL Database firewall](sql-database-firewall-configure.md)
 * [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)

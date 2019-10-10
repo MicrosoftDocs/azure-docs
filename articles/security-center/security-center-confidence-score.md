@@ -3,10 +3,8 @@ title: Confidence score in Azure Security Center | Microsoft Docs
 description: " Learn how to work with the Azure Security Center confidence score. "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Alert confidence score 

@@ -4,13 +4,12 @@ description: Understand how to use SignalR Service bindings with Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
@@ -276,14 +275,15 @@ The following example adds a user to a group.
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
         });
@@ -298,19 +298,23 @@ The following example removes a user from a group.
 [FunctionName("removeFromGroup")]
 public static Task RemoveFromGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Remove
         });
 }
 ```
+
+> [!NOTE]
+> In order to get the `ClaimsPrincipal` correctly bound, you must have configured the authentication settings in Azure Functions.
 
 ### 2.x JavaScript send message output examples
 

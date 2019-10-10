@@ -1,27 +1,27 @@
 ---
-title: Swagger documentation - Speech Services 
+title: Swagger documentation - Speech Service
 titleSuffix: Azure Cognitive Services
-description: The Swagger documentation can be used to auto-generate SDks for a number of programming languages. All operations in our service are supported by Swagger
+description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. All operations in our service are supported by Swagger
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # Swagger documentation
 
-The Speech Services offer a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the Custom Speech portal can be completed programmatically using these APIs. 
+The Speech Services offer a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the Custom Speech portal can be completed programmatically using these APIs.
 
 > [!NOTE]
 > Both Speech-to-Text and Text-to-Speech operations are supported available as REST APIs, which are in turn documented in the Swagger specification.
 
 ## Generating code from the Swagger specification
 
-The [Swager specification](https://cris.ai/swagger/ui/index) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
+The [Swagger specification](https://cris.ai/swagger/ui/index) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
 
 You'll need to set Swagger to the same region as your Speech Service subscription. You can confirm your region in the Azure portal under your Speech Services resource. For a complete list of supported regions, see [Regions](regions.md).
 

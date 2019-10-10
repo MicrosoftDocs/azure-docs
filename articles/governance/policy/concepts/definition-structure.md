@@ -3,11 +3,9 @@ title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -18,7 +16,7 @@ you can specify that only certain types of virtual machines are allowed. Or, you
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
 applied to a resource group, it's applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+The policy definition schema is found here: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -44,7 +42,7 @@ For example, the following JSON shows a policy that limits where resources are d
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -66,9 +64,12 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Mode
+
+**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
+Resource Provider property.
+
+### Resource Manager modes
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
@@ -89,6 +90,15 @@ a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
 
+### Resource Provider modes
+
+The only Resource Provider mode supported currently is `Microsoft.ContainerService.Data` for
+managing admission controller rules on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
+> policy definitions.
+
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
@@ -106,19 +116,25 @@ you can reuse that policy for different scenarios by using different values.
 
 A parameter has the following properties that are used in the policy definition:
 
-- **name**: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string** or an **array**.
-- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
-  - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
+- **name**: The name of your parameter. Used by the `parameters` deployment function within the
+  policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
+- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
+  information:
+  - `description`: The explanation of what the parameter is used for. Can be used to provide
+    examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
-  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
+    a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
     during policy assignment. This property is useful in case you wish to assign permissions outside
     the assignment scope. There is one role assignment per role definition in the policy (or per
     role definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
-- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
+  Required when updating an existing policy definition that is assigned.
+- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
+  assignment.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
@@ -134,7 +150,7 @@ would be used by each assignment of the policy definition to limit the accepted 
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -186,7 +202,9 @@ children within the hierarchy of the definition location to target for assignmen
 If the definition location is a:
 
 - **Subscription** - Only resources within that subscription can be assigned the policy.
-- **Management group** - Only resources within child management groups and child subscriptions can be assigned the policy. If you plan to apply the policy definition to several subscriptions, the location must be a management group that contains those subscriptions.
+- **Management group** - Only resources within child management groups and child subscriptions can
+  be assigned the policy. If you plan to apply the policy definition to several subscriptions, the
+  location must be a management group that contains those subscriptions.
 
 ## Display name and description
 
@@ -221,9 +239,9 @@ Supported logical operators are:
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the
-logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the
-logical **Or** operation) requires one or more conditions to be true.
+The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical
+**And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical
+**Or** operation) requires one or more conditions to be true.
 
 You can nest logical operators. The following example shows a **not** operation that is nested
 within an **allOf** operation.
@@ -263,13 +281,17 @@ supported conditions are:
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match all characters, and any other character to match that actual character.
+letter, `.` to match any character, and any other character to match that actual character.
 **match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
 **matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
@@ -282,27 +304,30 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
+  - Returns the full name of the resource. The full name of a resource is the resource name
+    prepended by any parent resource names (for example "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
   - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
 - `identity.type`
-  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
+  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+    enabled on the resource.
 - `tags`
 - `tags['<tagName>']`
   - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Examples: `tags['Acct.CostCenter']` where **Acct.CostCenter** is the name of the tag.
 - `tags['''<tagName>''']`
-  - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
+  - This bracket syntax supports tag names that have apostrophes in it by escaping with double
+    apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of declaring a tags field.
-> However, the preferred expressions are those listed above.
+> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+> declaring a tags field. However, the preferred expressions are those listed above.
 
 #### Use tags with parameters
 
@@ -442,6 +467,9 @@ Azure Policy supports the following types of effect:
 - **AuditIfNotExists**: enables auditing if a resource doesn't exist
 - **DeployIfNotExists**: deploys a resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
+- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
+  Service (preview)
+- **Modify**: adds, updates, or removes the defined tags from a resource
 
 For **append**, you must provide the following details:
 
@@ -474,6 +502,10 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
 }
 ```
 
+Similarly, **Modify** requires **roleDefinitionId** property in the **details** portion of the
+policy rule for the [remediation task](../how-to/remediate-resources.md). **Modify** also requires
+an **operations** array to define what actions to take on the resources tags.
+
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
 
@@ -481,15 +513,28 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
-use within a policy rule, except the following functions:
+use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+The following functions are available to use in a policy rule, but differ from use in an Azure
+Resource Manager template:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+  - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
@@ -534,8 +579,8 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
+  (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
 - Azure CLI
@@ -546,8 +591,8 @@ Policy, use one of the following methods:
   # List namespaces
   az provider list --query [*].namespace
 
-  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
-  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Compute -- Microsoft.Compute)
+  az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
 - REST API / ARMClient

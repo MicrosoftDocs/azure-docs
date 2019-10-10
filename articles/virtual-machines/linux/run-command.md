@@ -3,8 +3,8 @@ title: Run shell scripts in an Linux VM on Azure
 description: This topic describes how to run scripts within an Azure Linux virtual machine using Run Command
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm

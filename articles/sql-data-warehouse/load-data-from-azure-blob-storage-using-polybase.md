@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure blob  to Azure SQL Data Warehouse. 
+description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure blob  to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo  
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.subservice: load-data
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
 ---
 
@@ -37,11 +37,11 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL data warehouse
+## Create a blank SQL Data Warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL data warehouse. 
+Follow these steps to create a blank SQL Data Warehouse. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -556,6 +556,49 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
 
     ![View loaded tables](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## Authenticate using managed identities to load (optional)
+Loading using PolyBase and authenticating through managed identities is the most secure mechanism and enables you to leverage VNet Service Endpoints with Azure storage. 
+
+### Prerequisites
+1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
+
+#### Steps
+1. In PowerShell, **register your SQL Database server** with Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your SQL Database server.
+
+   > [!NOTE] 
+   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Polybase connectivity to the Azure Storage account:**
+    
+   1. Create your database scoped credential with **IDENTITY = 'Managed Service Identity'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+       > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account.
+    
+   1. Create the External Data Source specifying the Database Scoped Credential with the Managed Service Identity.
+        
+   1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Refer to the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) if you'd like to set up virtual network service endpoints for SQL Data Warehouse. 
 
 ## Clean up resources
 
@@ -592,7 +635,7 @@ You did these things:
 > * Viewed the progress of data as it is loading
 > * Created statistics on the newly loaded data
 
-Advance to the migration overview to learn how to migrate an existing database to SQL Data Warehouse.
+Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Learn how to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

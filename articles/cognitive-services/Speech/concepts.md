@@ -3,13 +3,13 @@ title: Bing Speech Concepts | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Basic concepts used in Microsoft Speech Service.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Basic concepts
@@ -27,7 +27,7 @@ If this is the first time you're creating a speech-enabled application, or if it
 Foremost among the basic concepts of speech is the *audio stream*. Unlike a keystroke, which occurs at a single point in time and contains a single piece of information, a spoken request is spread over hundreds of milliseconds and contains many kilobytes of information. The duration of spoken utterances presents some difficulty to developers looking to provide a streamlined and elegant speech experience for their application. Today's computers and algorithms perform speech transcription in approximately half of the duration of the utterance, so a 2-second utterance can be transcribed in roughly 1 second, but any application that experiences a 1-second delay in processing user is neither streamlined nor elegant.
 
 Fortunately, there are ways of "hiding" the transcription time by performing transcription on one
-part of the utterance while the user is speaking another part. For example, by splitting a 1-second utterance into 10 chunks of 100 milliseconds and by performing transcription on each chunk in turn, over 450 of the total 500 milliseconds required for transcription can be "hidden" so that the user is unaware transcription is being performed while he/she is speaking. When thinking about this example, remember that the service is performing transcription on the previous 100 milliseconds of audio while the user is speaking the next 100, so when the user stops speaking, the service will only have to transcribe roughly 100 milliseconds of audio to produce a result.
+part of the utterance while the user is speaking another part. For example, by splitting a 1-second utterance into 10 chunks of 100 milliseconds and by performing transcription on each chunk in turn, over 450 of the total 500 milliseconds required for transcription can be "hidden" so that the user is unaware transcription is being performed while they are speaking. When thinking about this example, remember that the service is performing transcription on the previous 100 milliseconds of audio while the user is speaking the next 100, so when the user stops speaking, the service will only have to transcribe roughly 100 milliseconds of audio to produce a result.
 
 To achieve this user experience, spoken audio information is collected in chunks and transcribed as the user speaks. These audio chunks collectively from the *audio stream*, and the process of sending these audio chunks to the service is called *audio streaming.* Audio streaming is an important part of any speech-enabled application; tuning the chunk size and optimizing the streaming implementation are some of the most impactful ways of improving your application's user experience.
 

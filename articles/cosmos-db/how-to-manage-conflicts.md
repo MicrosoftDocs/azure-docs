@@ -3,8 +3,8 @@ title: Learn how to manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 04/16/2019
+ms.topic: conceptual
+ms.date: 08/05/2019
 ms.author: mjbrown
 ---
 
@@ -14,9 +14,9 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. This may also be set to a user-defined path for a numeric type. In a conflict the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For SQL API, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -29,6 +29,20 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
           ConflictResolutionPath = "/myCustomId",
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
@@ -70,31 +84,31 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## Create a custom conflict resolution policy using a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container you need to create the stored procedure. The .NET SDK sample below shows an example of that. This policy is supported on Core (SQL) Api only.
+These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example. This policy is supported on Core (SQL) Api only.
 
 ### Sample custom conflict resolution stored procedure
 
 Custom conflict resolution stored procedures must be implemented using the function signature shown below. The function name does not need to match the name used when registering the stored procedure with the container but it does simplify naming. Here is a description of the parameters that must be implemented for this stored procedure.
 
 - **incomingItem**: The item being inserted or updated in the commit that is generating the conflicts. Is null for delete operations.
-- **existingItem**: The currently committed item. This value is non-null in an update and null for an insert or delete.
+- **existingItem**: The currently committed item. This value is non-null in an update and null for an insert or deletes.
 - **isTombstone**: Boolean indicating if the incomingItem is conflicting with a previously deleted item. When true, existingItem is also null.
-- **conflictingItems**: Array of the committed version of all items in the container which are conflicting with incomingItem on id or any other unique index properties.
+- **conflictingItems**: Array of the committed version of all items in the container that are conflicting with incomingItem on ID or any other unique index properties.
 
 > [!IMPORTANT]
 > Just as with any stored procedure, a custom conflict resolution procedure can access any data with the same partition key and can perform any insert, update or delete operation to resolve conflicts.
-
 
 This sample stored procedure resolves conflicts by selecting the lowest value from the `/myCustomId` path.
 
@@ -152,7 +166,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -173,6 +187,24 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
     Id = "resolver",
     Body = File.ReadAllText(@"resolver.js")
 });
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
@@ -223,23 +255,23 @@ After your container is created, you must create the `resolver` stored procedure
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 After your container is created, you must create the `resolver` stored procedure.
-
 
 ## Create a custom conflict resolution policy
 
 These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -251,6 +283,19 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
           Mode = ConflictResolutionMode.Custom,
       },
   });
+```
+
+### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
 ```
 
 ### <a id="create-custom-conflict-resolution-policy-java-async"></a>Java Async SDK
@@ -292,11 +337,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
@@ -304,10 +349,32 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically or if using a custom conflict policy.
 
-### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
+### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
+### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
 ```
 
 ### <a id="read-from-conflict-feed-java-async"></a>Java Async SDK
@@ -354,10 +421,10 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
-* [Global distribution - under the hood](global-dist-under-the-hood.md)
-* [How to configure multi-master in your applications](how-to-multi-master.md)
-* [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [How to configure multi-master in your applications](how-to-multi-master.md).
-* [Partitioning and data distribution](partition-data.md)
-* [Indexing in Azure Cosmos DB](indexing-policies.md)
+- [Global distribution - under the hood](global-dist-under-the-hood.md)
+- [How to configure multi-master in your applications](how-to-multi-master.md)
+- [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [How to configure multi-master in your applications](how-to-multi-master.md).
+- [Partitioning and data distribution](partition-data.md)
+- [Indexing in Azure Cosmos DB](indexing-policies.md)

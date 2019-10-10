@@ -10,9 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
 
 ---
@@ -66,7 +65,7 @@ Follow the steps below to create a new API from an Azure Function App.
     ![Add from Function App](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*. At this moment, Linux Function Apps are not supported.
+    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
 
 7. Switch to the **Full** view and assign **Product** to your new API. If needed, edit other pre-populated fields.
 
@@ -115,7 +114,7 @@ Import of an Azure Function App automatically generates:
 * Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
 * Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
 
-For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
+For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
 
 > [!WARNING]
 > Removing or changing value of either the Azure Function App host key or Azure API Management named value will break the communication between the services. The values do not sync automatically.

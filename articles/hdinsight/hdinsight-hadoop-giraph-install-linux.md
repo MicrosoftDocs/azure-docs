@@ -106,7 +106,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     Drawn out, and using the value (or weight) as the distance between objects, the data might look like the following diagram:
 
-    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. To save the file, use **Ctrl+X**, then **Y**, and finally **Enter** to accept the file name.
 
@@ -156,7 +156,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     Visualizing this data, you can verify the results by traveling the shortest paths between ID 1 and all other objects. The shortest path between ID 1 and ID 4 is 5. This value is the total distance between <span style="color:orange">ID 1 and 3</span>, and then <span style="color:red">ID 3 and 4</span>.
 
-    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## Next steps
 

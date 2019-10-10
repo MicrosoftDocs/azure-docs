@@ -1,13 +1,11 @@
 ---
 title: Azure Data Catalog frequently asked questions
 description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 08/01/2019
 ---
 # Azure Data Catalog frequently asked questions
 This article provides answers to frequently asked questions related to the Azure Data Catalog service.
@@ -48,6 +46,15 @@ For a list of currently supported data sources, see [Data Catalog DSR](data-cata
 
 ## How do I request support for another data source?
 To submit feature requests and other feedback, go to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+
+## Why do I get an error *Catalog already exists* when I try to create a new catalog?
+
+When you purchase Office 365 E5 with Power BI Pro License, Microsoft creates a default catalog in the subscription's region automatically. This catalog uses the free SKU. The Office 365 / Power BI user license is managed in the Office 365 Administration page. 
+
+However, this type of data catalog does not have an **Administrator Option** and is not visible in the **Azure portal**. You cannot delete this type of data catalog. Similarly, you are not allowed to rename the data catalog, and you cannot move it to another region. 
+
+Users accounts that are assigned a Power BI Pro license automatic have access to the data catalog due to License Agreement when they signed up for Office 365 E5 with the Power BI Pro License. This type of user has full access to data catalog assets without administrative privileges. That kind of user is *not* part of **Catalog User** role in Azure Data Catalog.
+
 
 ## How do I get started with Data Catalog?
 The best way to get started is by going to [Getting Started with Data Catalog](data-catalog-get-started.md). This article is an end-to-end overview of the capabilities in the service.
@@ -97,9 +104,6 @@ To report problems, share information, and ask questions, go to the [Azure Data 
 
 ## Does the catalog work with another data source that I’m interested in?
 We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
-
-## How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
-You can think of Azure Data Catalog as an evolution of the Data Catalog in Power BI. As of spring 2017, Azure Data Catalog is used to enable the sharing and discovery of queries in Excel 2016 and Power Query for Excel. Data Catalog capabilities in Excel are available to users with Power BI Pro licenses.
 
 ## What permissions do I need to register assets with Data Catalog?
 To run the Data Catalog registration tool, you need permissions on the data source that allows you to read the metadata from the source. To also include a preview, you must have permissions that allow you to read in the data from the objects being registered.

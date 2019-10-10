@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
 
 ---
 # Use the FMLE encoder to send a single bitrate live stream 

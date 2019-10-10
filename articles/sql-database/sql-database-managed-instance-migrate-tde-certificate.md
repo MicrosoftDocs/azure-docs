@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-manager: craigg
 ms.date: 04/25/2019
 ---
 

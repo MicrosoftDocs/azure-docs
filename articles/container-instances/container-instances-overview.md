@@ -3,11 +3,11 @@ title: What is Azure Container Instances?
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
@@ -52,7 +52,10 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md) (preview)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-Azure Container Instances currently supports Windows Server 2016 images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
+For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
 
 ## Co-scheduled groups
 

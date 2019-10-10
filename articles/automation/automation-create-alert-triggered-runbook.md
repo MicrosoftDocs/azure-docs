@@ -4,8 +4,8 @@ description: Learn how to trigger a runbook to run when an Azure alert is raised
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
@@ -16,7 +16,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomati
 
 ## Alert types
 
-You can use automation runbooks with four alert types:
+You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts
@@ -29,7 +29,7 @@ When an alert calls a runbook, the actual call is an HTTP POST request to the we
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|
-|[Common alert](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|[Common alert payload schema](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
+|[Common alert](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|The common alert schema that standardizes the consumption experience for alert notifications in Azure today.|Common alert payload schema|
 |[Activity log alert](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an **Active** status appears.| [Activity log alert payload schema](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
 |[Near real-time metric alert](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Sends a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than **90**, and the value for **Network In** is greater than **500 MB** for the past 5 minutes.| [Near real-time metric alert payload schema](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
@@ -54,6 +54,14 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
 5. Copy the following PowerShell example into the **Edit** page.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

@@ -35,9 +35,6 @@ For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/li
 
 For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Requirements**
 
 * The scripts must be applied to both the **Head nodes** and **Worker nodes**.

@@ -3,6 +3,7 @@ title: Use a starting command line in Azure Container Instances
 description: Override the entrypoint configured in a container image when you deploy an Azure container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -18,7 +19,7 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 ## Command line guidelines
 
-* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
+* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. The process can specify additional parameters or arguments.
 
 * To execute multiple commands, begin your command line by setting a shell environment that is supported in the container operating system. Examples:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Services'
+title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll create a simple Java application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows and Linux users.
 services: cognitive-services
@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # Quickstart: Translate speech with the Speech SDK for Java
+
+Quickstarts are also available for [speech-to-text](quickstart-java-jre.md), [text-to-speech](quickstart-text-to-speech-java-jre.md), and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
 
 In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
 

@@ -1,17 +1,21 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2019
 ---
 
 If you need to configure an HTTP proxy for making outbound requests, use these two arguments:
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTP_PROXY|string|the proxy to use, for example, `http://proxy:8888`|
-|HTTP_PROXY_CREDS|string|any credentials needed to authenticate against the proxy, for example, username:password.|
+|HTTP_PROXY|string|The proxy to use, for example, `http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, username:password.|
+|`<proxy-user>`|string|The user for the proxy.|
+|`<proxy-password>`|string|The password associated with `<proxy-user>` for the proxy.|
+||||
+
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -19,8 +23,8 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTP_PROXY=http://190.169.1.6:3128 \
-HTTP_PROXY_CREDS=jerry:123456 \
+HTTP_PROXY=<proxy-url> \
+HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```

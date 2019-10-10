@@ -29,7 +29,7 @@ Azure Application Insights collects telemetry from your application to help iden
 
 To complete this tutorial:
 
-- Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -70,7 +70,7 @@ Application Insights collects any failures in your application and lets you view
 	![Exception details](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## Identify failing code
-The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterwards, you have the option to debug the source code by downloading the snapshot and opening it in Visual Studio 2017 Enterprise.
+The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterwards, you have the option to debug the source code by downloading the snapshot and opening it in Visual Studio 2019 Enterprise.
 
 1. In the properties of the exception, click **Open debug snapshot**.
 2. The **Debug Snapshot** panel opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.

@@ -1,7 +1,7 @@
 ---
-title: Change, train app, Go
+title: "Quickstart: Change, train app, Go - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
-titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -9,16 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/03/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Go.  
 ---
 
 # Quickstart: Change model using Go
 
-In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## Prerequisites
 

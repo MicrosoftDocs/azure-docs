@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you create a user called Britta Simon in Vodeclic. Work with [Vodeclic support team](mailto:hotline@vodeclic.com) to add the users in the Vodeclic platform. Users must be created and activated before you use single sign-on.
 
 > [!NOTE]
-> According to application requirements, you might need to get your machine whitelisted. For that to happen, you need to share your public IP address with the [Vodeclic support team](mailto:hotline@vodeclic.com).
+> According to application requirements, you might need to get your machine added to an allow list. For that to happen, you need to share your public IP address with the [Vodeclic support team](mailto:hotline@vodeclic.com).
 
 ### Test single sign-on 
 
@@ -204,5 +204,5 @@ When you click the Vodeclic tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

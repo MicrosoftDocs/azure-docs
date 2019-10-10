@@ -1,13 +1,14 @@
 ---
-title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST API and Python | Microsoft Docs"
+title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST API and Python"
+titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
-ms.date: 03/26/2019
+ms.topic: quickstart
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -77,8 +78,10 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ```python
 def send_request(endpoint, url, subscription_key, request_data):
-    headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': subscription_key}
-    response = requests.post(endpoint+url, data=json.dumps(request_data), headers=headers)
+    headers = {'Content-Type': 'application/json',
+               'Ocp-Apim-Subscription-Key': subscription_key}
+    response = requests.post(
+        endpoint+url, data=json.dumps(request_data), headers=headers)
     return json.loads(response.content.decode("utf-8"))
 ```
 
@@ -95,18 +98,20 @@ def send_request(endpoint, url, subscription_key, request_data):
 ```python
 def detect_batch(request_data):
     print("Detecting anomalies as a batch")
-    result = send_request(endpoint, batch_detection_url, subscription_key, request_data)
+    result = send_request(endpoint, batch_detection_url,
+                          subscription_key, request_data)
     print(json.dumps(result, indent=4))
 
     if result.get('code') != None:
-        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(result['code'], result['message']))
+        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(
+            result['code'], result['message']))
     else:
         # Find and display the positions of anomalies in the data set
         anomalies = result["isAnomaly"]
         print("Anomalies detected in the following data positions:")
         for x in range(len(anomalies)):
             if anomalies[x] == True:
-                print (x)
+                print(x)
 ```
 
 ## Detect the anomaly status of the latest data point
@@ -119,7 +124,8 @@ def detect_batch(request_data):
 def detect_latest(request_data):
     print("Determining if latest data point is an anomaly")
     # send the request, and print the JSON result
-    result = send_request(endpoint, latest_point_detection_url, subscription_key, request_data)
+    result = send_request(endpoint, latest_point_detection_url,
+                          subscription_key, request_data)
     print(json.dumps(result, indent=4))
 ```
 

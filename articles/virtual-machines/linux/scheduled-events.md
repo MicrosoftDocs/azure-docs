@@ -4,13 +4,13 @@ description: Schedule events by using Azure Metadata Service for your Linux virt
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -43,7 +43,7 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- [Platform initiated maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
 - Degraded hardware
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets

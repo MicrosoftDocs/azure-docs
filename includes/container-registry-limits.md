@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ---
@@ -21,7 +21,7 @@ ms.custom: include file
 | Upload bandwidth MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
-| Content trust (preview) | N/A | N/A | [Supported][content-trust] |
+| Content trust | N/A | N/A | [Supported][content-trust] |
 
 <sup>1</sup>The specified storage limits are the amount of *included* storage for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Azure Container Registry pricing][pricing].
 

@@ -7,7 +7,6 @@ author: ggailey777
 manager: jeconnoc
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
@@ -59,9 +58,6 @@ You must have a function app to host the execution of your functions on Linux. T
     ![Define new function app settings](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Select **Go to resource** to view your new function app.
-
-> [!TIP]
-> Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](functions-how-to-use-azure-function-app-settings.md#favorite).
 
 Next, you create a function in the new function app. Even after your function app is available, it may take a few minutes to be fully initialized.
 

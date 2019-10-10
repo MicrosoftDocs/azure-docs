@@ -4,18 +4,18 @@ description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
 
 ---
@@ -55,20 +55,20 @@ In the example configurations, installation commands etc. ASCS instance number 0
 
 Read the following SAP Notes and papers first
 
-* SAP Note [1928533], which has:
+* SAP Note [1928533][1928533], which has:
   * List of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
 
-* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
@@ -84,6 +84,9 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse.png)
 
 The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the (A)SCS and ERS load balancer.
+
+> [!IMPORTANT]
+> Multi-SID clustering of SAP ASCS/ERS with SUSE Linux as guest operating system in Azure VMs is **NOT supported**. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster
 
 ### (A)SCS
 
@@ -111,7 +114,8 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
-* Load balancing rules
+* Load-balancing rules
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -201,9 +205,9 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. Port 621**02** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
-   1. Load balancing rules
+   1. Load-balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load balancing rules and click Add
+         1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -588,7 +592,7 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  If you are upgrading from an older version and switching to enqueue server 2, see sap note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
@@ -884,6 +888,9 @@ The following tests are a copy of the test cases in the best practices guides of
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Resource state after the test:

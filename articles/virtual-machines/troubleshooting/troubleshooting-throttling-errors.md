@@ -4,16 +4,17 @@ description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: vashan, rajraj, changov
+ms.author: changov
+ms.reviewer: vashan, rajraj
 ---
 
 # Troubleshooting API throttling errors 
@@ -76,7 +77,7 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 ## API call rate and throttling error analyzer
 A preview version of a troubleshooting feature is available for the Compute resource provider’s API. These PowerShell cmdlets provide statistics about API request rate per time interval per operation and throttling violations per operation group (policy):
 -	[Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--	[Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-	[Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
 

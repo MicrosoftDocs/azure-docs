@@ -2,13 +2,13 @@
 title: Optimizing transactions for Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/19/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 

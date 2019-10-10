@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,13 +13,39 @@ ms.custom: seodec18
 
 # Common issues and resolutions for Azure IoT Edge
 
-If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution. 
+If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution.
 
-## Standard diagnostic steps 
+## Run the iotedge 'check' command
 
-When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information. 
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
-### Check the status of the IoT Edge Security Manager and its logs:
+You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
+
+* On Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+The types of checks run by the tool can be classified as:
+
+* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
+* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
+
+For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## Standard diagnostic steps
+
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information.
+
+### Check the status of the IoT Edge Security Manager and its logs
 
 On Linux:
 - To view the status of the IoT Edge Security Manager:
@@ -67,20 +93,13 @@ On Windows:
 - To view the logs of the IoT Edge Security Manager:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
 
 On Linux:
 
@@ -188,12 +207,14 @@ Example edgeAgent logs:
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-### Root cause
+**Root cause**
+
 A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. The agent attempts to connect over AMQP (port 5671) first. If the connection fails, it tries WebSockets (port 443).
 
 The IoT Edge runtime sets up a network for each of the modules to communicate on. On Linux, this network is a bridge network. On Windows, it uses NAT. This issue is more common on Windows devices using Windows containers that use the NAT network. 
 
-### Resolution
+**Resolution**
+
 Ensure that there is a route to the internet for the IP addresses assigned to this bridge/NAT network. Sometimes a VPN configuration on the host overrides the IoT Edge network. 
 
 ## IoT Edge hub fails to start
@@ -207,19 +228,23 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-### Root cause
+**Root cause**
+
 Some other process on the host machine has bound port 443. The IoT Edge hub maps ports 5671 and 443 for use in gateway scenarios. This port mapping fails if another process has already bound this port. 
 
-### Resolution
+**Resolution**
+
 Find and stop the process that is using port 443. This process is usually a web server.
 
 ## IoT Edge agent can't access a module's image (403)
 A container fails to run, and the edgeAgent logs show a 403 error. 
 
-### Root cause
+**Root cause**
+
 The Iot Edge agent doesn't have permissions to access a module's image. 
 
-### Resolution
+**Resolution**
+
 Make sure that your registry credentials are correctly specified in your deployment manifest
 
 ## IoT Edge security daemon fails with an invalid hostname
@@ -230,10 +255,12 @@ The command `sudo journalctl -u iotedge` fails and prints the following message:
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-### Root cause
+**Root cause**
+
 The IoT Edge runtime can only support hostnames that are shorter than 64 characters. Physical machines usually don't have long hostnames, but the issue is more common on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
-### Resolution
+**Resolution**
+
 When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
 1. In the Azure portal, navigate to the overview page of your virtual machine. 
@@ -260,10 +287,12 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 ## Stability issues on resource constrained devices 
 You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry messages after a few hours.
 
-### Root cause
+**Root cause**
+
 The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This optimization is not ideal for constrained edge devices and can cause stability problems.
 
-### Resolution
+**Resolution**
+
 For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
 
 In the UI: 
@@ -292,10 +321,12 @@ In the deployment manifest:
 ## Can't get the IoT Edge daemon logs on Windows
 If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
 
-### Root cause
+**Root cause**
+
 The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
 
-### Resolution
+**Resolution**
+
 Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
 
 ```
@@ -315,10 +346,14 @@ A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Modu
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-### Root cause
+**Root cause**
+
 The IoT Edge daemon enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
 
-### Resolution
+**Resolution**
+
+As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
 
@@ -337,10 +372,12 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 
 The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
 
-### Potential root cause
+**Root cause**
+
 By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
-### Resolution
+**Resolution**
+
 
 **Option 1: Set DNS server in container engine settings**
 
@@ -359,7 +396,7 @@ Place `daemon.json` in the right location for your platform:
 | Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
 
 If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 

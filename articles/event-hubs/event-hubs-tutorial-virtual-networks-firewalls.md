@@ -8,7 +8,7 @@ manager: darosa
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
 
 ---

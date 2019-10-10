@@ -5,7 +5,7 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ---
 
@@ -50,4 +50,5 @@ You can define unique keys only when you create an Azure Cosmos container. A uni
 
 ## Next steps
 
-* Learn more about [logical partitions](partition-data.md).
+* Learn more about [logical partitions](partition-data.md)
+* Explore [how to define unique keys](how-to-define-unique-keys.md) when creating a container

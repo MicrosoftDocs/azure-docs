@@ -2,7 +2,7 @@
 title: Upgrade to the Azure Search .NET SDK version 1.1 - Azure Search
 description: Migrate code to the Azure Search .NET SDK version 1.1 from older API versions. Learn what's new and what code changes are required.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -12,10 +12,6 @@ ms.author: brjohnst
 ms.custom: seodec2018
 ---
 # Upgrading to the Azure Search .NET SDK version 1.1
-
-> [!Important]
-> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on this article to explain how to upgrade to 9.0. 
-> 
 
 If you're using version 1.0.2-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 1.1.
 

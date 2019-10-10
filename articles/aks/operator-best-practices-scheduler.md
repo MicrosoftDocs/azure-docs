@@ -2,12 +2,12 @@
 title: Operator best practices - Basic scheduler features in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for using basic scheduler features such as resource quotas and pod disruption budgets in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for basic scheduler features in Azure Kubernetes Service (AKS)
@@ -122,6 +122,8 @@ For more information about using pod disruption budgets, see [Specify a disrupti
 
 The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports on issues that it finds. One useful check is to identify pods that don't have resource requests and limits in place.
 
+The kube-advisor tool can report on resource request and limits missing in PodSpecs for Windows applications as well as Linux applications, but the kube-advisor tool itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
+
 In an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
 
 ## Next steps
@@ -143,3 +145,4 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

@@ -1,27 +1,25 @@
 ---
-title: Bring your own key for Apache Kafka on Azure HDInsight (Preview)
+title: Bring your own key for Apache Kafka on Azure HDInsight
 description: This article describes how to use your own key from Azure Key Vault to encrypt data stored in Apache Kafka on Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/06/2019
 ---
 
 # Bring your own key for Apache Kafka on Azure HDInsight
 
-Azure HDInsight includes Bring Your Own Key (BYOK) support for Apache Kafka. This capability lets you own and manage the keys used to encrypt data at rest. 
+Azure HDInsight includes Bring Your Own Key (BYOK) support for Apache Kafka. This capability lets you own and manage the keys used to encrypt data at rest.
 
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault. 
+All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault.
 
 BYOK encryption is a one-step process handled during cluster creation at no additional cost. All you need to do is register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster.
 
-All messages to the Kafka cluster (including replicas maintained by Kafka) are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight. 
+All messages to the Kafka cluster (including replicas maintained by Kafka) are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight.
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight Kafka cluster starts using the new key within minutes. Enable the "Soft Delete" key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature are not supported.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Get started with BYOK
 To create a BYOK enabled Kafka cluster, we will go through the following steps:
@@ -43,6 +41,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
    1. To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-overview.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
 
    2. Enable "soft-delete" on the key-vault by using the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli command.
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -51,20 +50,20 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         a. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generate a new key in Azure Key Vault")
 
         b. Set **Options** to **Generate** and give the key a name.
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+        ![Apache kafka generate key name](./media/apache-kafka-byok/apache-kafka-create-key.png "Generate key name")
 
         c. Select the key you created from the list of keys.
 
-        ![Azure Key Vault key list](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Apache kafka key vault key list](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. When you use your own key for Kafka cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
 
-        ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Apache kafka get key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. Add managed identity to the key vault access policy.
 
         a. Create a new Azure Key Vault access policy.
@@ -77,11 +76,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+        ![Set Key Permissions for Azure Key Vault access policy1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Set Key Permissions for Azure Key Vault access policy1")
 
         d. Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+        ![Set Key Permissions for Azure Key Vault access policy2](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Set Key Permissions for Azure Key Vault access policy2")
 
         e. Click on **Save**. 
 
@@ -96,11 +95,12 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
    During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
 
 ## Rotating the Encryption key
+
    There might be scenarios where you might want to change the encryption keys used by the Kafka cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
 
    To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#setup-the-key-vault-and-keys)). Once you have that, go to the Kafka cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
-   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## FAQ for BYOK to Apache Kafka
 
@@ -117,9 +117,9 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
    No, all managed disks in the cluster are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Apache Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 
@@ -143,5 +143,5 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-overview.md)?
 * To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).

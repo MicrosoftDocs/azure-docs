@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
 ---
 # Monitoring solutions in Azure Monitor
@@ -59,11 +59,11 @@ Click on the name of a solution to open its summary page. This page displays any
 ## Install a monitoring solution
 Monitoring solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.
 
-1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**. 
-1. To the right of **Management Solutions**, click **More**. 
+1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**.
+1. Browse or search for a solution. You can also browse solutions from [this search link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Locate the monitoring solution you want and read through its description.
 1. Click **Create** to start the installation process.
-1. When the installation process starts, you're prompted to provide required configuration which varies for each solution.
+1. When the installation process starts, you're prompted to specify the Log Analytics workspace and provide any required configuration for the solution.
 
 ![Install a solution](media/solutions/install-solution.png)
 

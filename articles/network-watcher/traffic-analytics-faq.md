@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -92,12 +92,19 @@ You can use traffic analytics for NSGs in any of the following supported regions
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US
 - West US 2
+- South Central US
+- Central US
 - East US
+- East US 2
 - France Central
 - West Europe
+- North Europe
 - UK South
+- Australia East
 - Australia Southeast
+- East Asia
 - Southeast Asia 
 - Korea Central
 - Central India
@@ -133,8 +140,8 @@ Select a supported region. If you select a non-supported region, you receive a "
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
 ```powershell-interactive
-**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?
@@ -244,7 +251,7 @@ Refer to the [data aggregation section](https://docs.microsoft.com/azure/network
 ## How does Traffic Analytics decide that an IP is malicious? 
 
 Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services,the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
-Some of this data is Mircosoft Internal. If a known IP is getting flagged as malicios, please raise a support ticket to know the details.
+Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, please raise a support ticket to know the details.
 
 ## How can I set alerts on Traffic Analytics data?
 

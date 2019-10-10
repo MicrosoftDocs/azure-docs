@@ -75,7 +75,7 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
 
 4. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and displays the version of the agent and provider. 
 
-5. To verify that the agent has been onboarded successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. To verify that the agent has been deployed successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     The status should resemble the following example:
 
@@ -106,11 +106,12 @@ The table below summarizes known errors you may encounter while using Azure Moni
 
 | Error messages  | Action |  
 | ---- | --- |  
-| Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Please allow at least 10 to 15 minutes for data to appear for your cluster. |   
-| Error Message `Error retrieving data` | While Azure Kubenetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted or lost. Check whether your workspace is available by reviewing [manage access](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). If the workspace is missing, you will need to re-onboard your cluster with Azure Monitor for containers. To re-onboard, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor for containers again. |  
-| `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When onboarding using `az aks cli`, very seldom, Azure Monitor for containers may not be properly onboarded. Check whether the solution is onboarded. To do this, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
+| Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster. |   
+| Error Message `Error retrieving data` | While Azure Kubenetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Azure Monitor for containers and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Azure Monitor for containers again. |  
+| `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When enable monitoring using `az aks cli`, Azure Monitor for containers may not be properly deployed. Check whether the solution is deployed. To do this, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md) |  
 
 To help diagnose the problem, we have provided a troubleshooting script available [here](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 
 ## Next steps
+
 With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Azure Monitor for containers, see [View Azure Kubernetes Service health](container-insights-analyze.md).

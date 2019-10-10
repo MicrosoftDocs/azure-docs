@@ -1,13 +1,13 @@
 ---
-title: Understand Digital Twins object models and spatial intelligence graph | Microsoft Docs
+title: 'Understand Azure Digital Twins object models and spatial intelligence graph | Microsoft Docs'
 description: Use Azure Digital Twins to model relationships between people, places, and devices
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.author: alinast
+ms.date: 09/17/2019
 ---
 
 # Understand Digital Twins object models and spatial intelligence graph
@@ -18,9 +18,7 @@ Digital Twins object models describe domain-specific concepts, categories, and p
 
 With Digital Twins object models and an ontology in place, you can populate a _spatial graph_. Spatial graphs are virtual representations of the many relationships between spaces, devices, and people that are relevant to an IoT solution. This diagram shows an example of a spatial graph that uses a smart building's ontology.
 
-![Digital Twins spatial graph building][1]
-
-<a id="model"></a>
+[![Digital Twins spatial graph building](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world. In this sample, venue 43 has four floors, each with many different areas. Users are associated with their workstations and given access to portions of the graph. An administrator has the rights to make changes to the spatial graph, while a visitor has rights to only view certain building data.
 
@@ -50,8 +48,6 @@ Other categories of objects are:
   - Send notifications when predefined conditions are met. Currently, UDFs can be written in JavaScript.
 - **Matchers** are objects that determine which UDFs are executed for a given telemetry message.
 - **Endpoints** are the locations where telemetry messages and Digital Twins events can be routed, for example, `Event Hub`, `Service Bus`, and `Event Grid`.
-
-<a id="graph"></a>
 
 ## Spatial intelligence graph
 
@@ -84,7 +80,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
  The full URL format appears in this image.
 
-![Digital Twins portal Management API][2]
+(![Digital Twins portal Management API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 For more details on how to use spatial intelligence graphs, visit the Azure Digital Twins Management APIs sneak preview.
 
@@ -101,7 +97,3 @@ All API calls must be authenticated by using [OAuth](https://docs.microsoft.com/
 - To learn about device connectivity and how to send telemetry messages to Digital Twins, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
 
 - To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png
