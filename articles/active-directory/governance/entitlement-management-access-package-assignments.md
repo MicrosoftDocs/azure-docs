@@ -64,7 +64,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 1. Click **New assignment** to open Add user to access package.
 
-    ![Assignments - Add user to access package](./media/entitlement-management-access-package-edit/assignments-add-user.png)
+    ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
 1. Click **Add users** to select the users you want to assign the access package to.
 

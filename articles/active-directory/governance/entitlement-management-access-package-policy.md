@@ -52,7 +52,7 @@ Follow these steps to start adding a new policy to an existing access package.
 
 1. Type a name and a description for the policy.
 
-    ![Create policy with name and description](./media/entitlement-management-access-package-edit/policy-name-description.png)
+    ![Create policy with name and description](./media/entitlement-management-access-package-policy/policy-name-description.png)
 
 1. Perform the steps in one of the following policy sections.
 
@@ -70,11 +70,11 @@ Follow these steps to start editing a policy in an existing access package.
 
     The **Policy details** pane opens at the bottom of the page.
 
-    ![Access package - Policy details pane](./media/entitlement-management-access-package-edit/policy-details.png)
+    ![Access package - Policy details pane](./media/entitlement-management-access-package-policy/policy-details.png)
 
 1. Click **Edit** to edit the policy.
 
-    ![Access package - Edit policy](./media/entitlement-management-access-package-edit/policy-edit.png)
+    ![Access package - Edit policy](./media/entitlement-management-access-package-policy/policy-edit.png)
 
 1. Perform the steps in one of the following policy sections.
 

@@ -64,7 +64,7 @@ A resource role is a collection of permissions associated with a resource. The w
 
 1. Click **Add resource roles** to open the Add resource roles to access package page.
 
-    ![Access package - Add resource roles](./media/entitlement-management-access-package-edit/resource-roles-add.png)
+    ![Access package - Add resource roles](./media/entitlement-management-access-package-resources/resource-roles-add.png)
 
 1. Depending on whether you want to add a group, Team, application, or SharePoint site, perform the steps in one of the following resource role sections.
 
@@ -87,7 +87,7 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 1. Select the groups and Teams you want to include in the access package.
 
-    ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-edit/group-select.png)
+    ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-resources/group-select.png)
 
 1. Click **Select**.
 
@@ -104,7 +104,7 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
     You typically select the Member role. If you select the Owner role, that will allow users to add or remove other members or owners.
 
-    ![Access package - Add resource role for a group or Team](./media/entitlement-management-access-package-edit/group-role.png)
+    ![Access package - Add resource role for a group or Team](./media/entitlement-management-access-package-resources/group-role.png)
 
 1. Click **Add**.
 
@@ -129,13 +129,13 @@ Here are some considerations when selecting an application:
 
 1. Select the applications you want to include in the access package.
 
-    ![Access package - Add resource roles - Select applications](./media/entitlement-management-access-package-edit/application-select.png)
+    ![Access package - Add resource roles - Select applications](./media/entitlement-management-access-package-resources/application-select.png)
 
 1. Click **Select**.
 
 1. In the **Role** list, select an application role.
 
-    ![Access package - Add resource role for an application](./media/entitlement-management-access-package-edit/application-role.png)
+    ![Access package - Add resource role for an application](./media/entitlement-management-access-package-resources/application-role.png)
 
 1. Click **Add**.
 
@@ -149,13 +149,13 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 1. Select the SharePoint Online sites you want to include in the access package.
 
-    ![Access package - Add resource roles - Select SharePoint Online sites](./media/entitlement-management-access-package-edit/sharepoint-site-select.png)
+    ![Access package - Add resource roles - Select SharePoint Online sites](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 
 1. Click **Select**.
 
 1. In the **Role** list, select a SharePoint Online site role.
 
-    ![Access package - Add resource role for a SharePoint Online site](./media/entitlement-management-access-package-edit/sharepoint-site-role.png)
+    ![Access package - Add resource role for a SharePoint Online site](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
 1. Click **Add**.
 
