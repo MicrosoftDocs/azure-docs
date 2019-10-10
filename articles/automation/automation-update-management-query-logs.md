@@ -1,5 +1,5 @@
 ---
-title: Query Update Management logs
+title: Query Azure Update Management logs
 description: This article describes how to query the logs for Update Management
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Query Update Management logs
+# Query update records for Update Management in Log Analytics
 
 In addition to the details that are provided in the Azure portal, you can do searches against the logs. On the solution pages, select **Log Analytics**. The **Log Search** pane opens.
 

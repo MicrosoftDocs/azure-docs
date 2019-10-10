@@ -46,7 +46,7 @@ You may have defined a quota in your workspace that has been reached and stoppin
 
 * Ensure your machine is reporting to the correct workspace. Verify what workspace your machine is reporting to. For instructions on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, ensure this is the workspace that is linked to your Azure Automation account. To confirm this, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
 
-* Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If you do not see your machine in the query results, your machine is not heartbeating, which means there is most likely a local configuration issue and you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). If your machine shows up in the query results, then you need to very the scope configuration specified in the following bullet.
+* Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If you do not see your machine in the query results, your machine has not recently checked in, which means there is most likely a local configuration issue and you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). If your machine shows up in the query results, then you need to very the scope configuration specified in the following bullet.
 
   ```loganalytics
   Heartbeat
@@ -206,7 +206,7 @@ The Windows registry key, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Window
 
 For Update Management clients, we recommend setting this key to "3" - **auto download but do not auto install**.
 
-For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ## <a name="machine-already-registered"></a>Scenario: Machine is already registered to a different account
 
@@ -372,15 +372,15 @@ If you can't resolve a patching issue, make a copy of the following log file and
   Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
   ```
 
-### **Updates show as installed, but I can't find them on my machine**
+### Updates show as installed, but I can't find them on my machine
 
 * Updates are often superseded by other updates. For more information, see ["Update is superseded" in the Windows Update Troubleshooting guide](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
 
-### **Installing updates by classification on Linux**
+### Installing updates by classification on Linux
 
 * Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These [limitations are documented on the Update Management overview page](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
 
-### **KB2267602 is consistently  missing**
+### KB2267602 is consistently  missing
 
 * KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It is updated daily.
 

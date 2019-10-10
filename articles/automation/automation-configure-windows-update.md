@@ -1,5 +1,5 @@
 ---
-title: Configure Windows Update settings to work with Update Management
+title: Configure Windows Update settings to work with Azure Update Management
 description: This article describes the Windows Update settings that you configure to work with Update Management
 services: automation
 ms.service: automation
@@ -57,3 +57,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 ### Intranet Microsoft update service location
 
 You can specify sources for scanning and downloading updates under [Intranet Microsoft Update Service Location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
+
+## Next Steps
+
+After configuring Windows Update settings, you can schedule an Update Deployment by following the instructions under [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)

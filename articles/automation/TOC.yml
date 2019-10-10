@@ -157,7 +157,7 @@
     - name: Integrate SCCM with Update Management
       href: oms-solution-updatemgmt-sccmintegration.md
       displayName: Configuration Manager
-    - name: Configure Windows Update settings to work with Update Management
+    - name: Configure Windows Update for Update Management
       href: automation-configure-windows-update.md
     - name: Use dynamic groups with Update Management
       href: automation-update-management-groups.md

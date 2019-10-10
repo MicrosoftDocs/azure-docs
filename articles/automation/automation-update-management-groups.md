@@ -1,5 +1,5 @@
 ---
-title: Use dynamic groups with Update Management
+title: Use dynamic groups with Azure Update Management
 description: describes how dynamic groups work with Update Management
 services: automation
 ms.service: automation

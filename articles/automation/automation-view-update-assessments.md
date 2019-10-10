@@ -1,5 +1,5 @@
 ---
-title: View update assessments
+title: View Azure Update Management update assessments
 description: This article describes how to view update assessments for update deployments
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# View update assessments
+# View Azure Update Management update assessments
 
 In your Automation account, select **Update Management** to view the status of your machines.
 
@@ -57,3 +57,7 @@ sudo yum -q --security check-update
 ```
 
 There's currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
+
+## Next Steps
+
+After you view any update assessments you can schedule an Update Deployment by following the steps under [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
