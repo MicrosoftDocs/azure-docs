@@ -35,32 +35,20 @@ Intents classify groups of example utterances. The example utterances are used t
 
 The result of well-designed intents, with their example utterances, is a high intent prediction. 
 
-## Machine-learned entities extract data
+## Entities extract data
 
-A machine-learned entity represents a unit of data you want extracted from the utterance. This top-level entity can have subcomponents and each subcomponent can have constraints and descriptors. 
+An entity represents a unit of data you want extracted from the utterance. 
+
+### Machine-learned entities
+
+A machine-learned entity is a top-level entity. It can have subcomponents and each subcomponent can have constraints and descriptors. 
 
 Use a machine-learned entity to define a single unit of information within an utterance. 
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data.
 
-## Intents versus entities
 
-An intent is the desired outcome of the utterance while entities are pieces of data extracted from the utterance.
-
-This utterance _must_ have an intent and _may_ have entities:
-
-`Buy a airline ticket from Seattle to Cairo`
-
-This utterance has a single intention:
-
-* Buying a plane ticket
-
-This utterance _may_ have several entities:
-
-* Locations of Seattle (origin) and Cairo (destination)
-* The quantity of a single ticket
-
-## Entity subcomponents help extract data
+### Entity subcomponents help extract data
 
 A subcomponent is a child entity within a machine-learned entity. The subcomponent can be any entity type: machine-learned, non-machine-learned, prebuilt entity. 
 
@@ -80,7 +68,7 @@ Some of this data, such as the origin location and destination location, should 
 
 You design how the data is matched and extracted by which models you choose and how you configure them.
 
-## Constraints are text rules
+### Constraints are text rules
 
 A constraint is a text-matching rule applied at prediction time to a subcomponent of a machine-learned entity. You define these rules while authoring the subcomponent. 
 
@@ -104,6 +92,23 @@ For an airport list, the list entry for Seattle is the city name, `Seattle` and 
 If you want to only recognize 3 letter codes for airport codes, use a regular expression as the constraint. 
 
 `/^[A-Z]{3}$/`
+
+## Intents versus entities
+
+An intent is the desired outcome of the _whole_ utterance while entities are pieces of data extracted from the utterance.
+
+This utterance _must_ have an intent and _may_ have entities:
+
+`Buy a airline ticket from Seattle to Cairo`
+
+This utterance has a single intention:
+
+* Buying a plane ticket
+
+This utterance _may_ have several entities:
+
+* Locations of Seattle (origin) and Cairo (destination)
+* The quantity of a single ticket
 
 ## Descriptors are features
 

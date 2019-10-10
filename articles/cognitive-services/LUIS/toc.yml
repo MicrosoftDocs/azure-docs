@@ -108,25 +108,24 @@
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
-  - name: Authoring models
-    items:
-    - name: Plan your app
-      displayName: simple, composite, prebuilt, list, regex, regular expression
-      href: luis-how-plan-your-app.md
-    - name: Authoring cycle
-      href: luis-concept-app-iteration.md
-      displayName: import
-    - name: Design with models
+  - name: App cycles and versions
+    href: luis-concept-app-iteration.md
+  - name: Plan your app
+    displayName: simple, composite, prebuilt, list, regex, regular expression
+    href: luis-how-plan-your-app.md
+  - name: App models
+    items: 
+    - name: Types  
       href: luis-concept-model.md
     - name: Intents
       href: luis-concept-intent.md
+    - name: Utterances
+      href: luis-concept-utterance.md      
     - name: Entities
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Entity roles
       href: luis-concept-roles.md
-    - name: Utterances
-      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
     - name: Patterns
@@ -134,15 +133,24 @@
       displayName: roles
     - name: Features
       href: luis-concept-feature.md
-    - name: Prediction score
-      href: luis-concept-prediction-score.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md    
+  - name: Prediction score
+    href: luis-concept-prediction-score.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Improve app performance
     items:
     - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
+  - name: Test
+    items:
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
   - name: Data management
     items:
     - name: Altering data
@@ -154,15 +162,6 @@
       displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
-  - name: Test
-    items:
-    - name: Interactive testing
-      href: luis-concept-test.md
-    - name: Batch testing
-      href: luis-concept-batch-test.md
-  - name: Best practices
-    href: luis-concept-best-practices.md
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Using LUIS and QnA Maker
     href: choose-natural-language-processing-service.md
     displayName: nlp, qna maker

@@ -9,30 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/10/2019
 ms.author: diberry
 ---
-# Entity types and their purposes in LUIS
+# Entities and their purpose in LUIS
 
-Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances. 
+The primary purpose of entities is to give the client application predictable extraction of data. An _optional_, secondary purpose is to boost the prediction of the intent with descriptors. 
+
+There are two types of entities: 
+
+* machine-learned - from context
+* non-machine-learned - for exact text matches
+
+Always begin with a machine-learned entity because that provides the widest range of data extraction choices.
 
 ## Entity compared to intent
 
-The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. A client application may need the entity to perform its task or use it as a guide of several choices to present to the user. 
+The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. A client application _may_ need the entity to perform its task. 
 
-An entity:
-
-* Represents a class including a collection of similar objects (places, things, people, events or concepts). 
-* Describes information relevant to the intent
-
-
-For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Book flight" intent).
-
-By comparison, the intent represents the prediction of the entire utterance. 
-
-## Entities help with data extraction only
-
-You label or mark entities for the purpose of entity extraction only, it does not help with intent prediction.
+By comparison, the prediction of the intent for an utterance is _required_ and represents the entire utterance. 
 
 ## Entities represent data
 
@@ -51,20 +46,7 @@ If your utterances do not have details your bot needs to continue, you do not ne
 
 If you're not sure how you would use the information, add a few common prebuilt entities such as [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md), and [phone number](luis-reference-prebuilt-phonenumber.md).
 
-## Label for word meaning
-
-If the word choice or word arrangement is the same, but doesn't mean the same thing, do not label it with the entity. 
-
-The following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
-
-|Utterance|
-|--|
-|What kind of county fairs are happening in the Seattle area this summer?|
-|Is the current rating for the Seattle review fair?|
-
-If you wanted an event entity to find all event data, label the word `fair` in the first utterance, but not in the second.
-
-## Entities are shared across intents
+## Entities are not shared across intents
 
 Entities are shared among intents. They don't belong to any single intent. Intents and entities can be semantically associated but it isn't an exclusive relationship.
 
