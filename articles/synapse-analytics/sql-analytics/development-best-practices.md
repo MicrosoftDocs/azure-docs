@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
 ## Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
 
 
 ## Maintain statistics
@@ -45,7 +45,7 @@ When defining your DDL, using the smallest data type which will support your dat
 See also [Table overview][Table overview], [Table data types][Table data types], [CREATE TABLE][CREATE TABLE]
 
 ## Optimize clustered columnstore tables
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high-quality columnstore segments are important, it's a good idea to use users IDs which are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
+Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high-quality columnstore segments are important, it's a good idea to use users IDs which are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table.
 
@@ -61,31 +61,31 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
-[Table overview]: ./sql-data-warehouse-tables-overview.md
-[Table data types]: ./sql-data-warehouse-tables-data-types.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexes]: ./sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./guidance-for-loading-data.md
-[Load data]: ./design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
+[Create a support ticket]: ../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
+[Create table as select (CTAS)]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
+[Table overview]: ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md
+[Table data types]: development-tables-data-types.md
+[Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
+[Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
+[Manage table statistics]: ./development-tables-statistics.md
+[Temporary tables]: ./development-tables-temporary.md
+[Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
+[Load data]: ../../sql-data-warehouse/esign-elt-data-loading.md
+[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
+[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
-[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
+[Load data with PolyBase]: ../../sql-data-warehouse/load-data-wideworldimportersdw.md
+[Monitor your workload using DMVs]: ../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md
+[Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Resume compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Understanding transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md
+[Optimizing transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
+[Troubleshooting]: ../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md
+[LABEL]: development-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx

@@ -275,7 +275,7 @@
       # - name: Architecture
       #   href: article-template.md
       - name: Resource consumption models
-        href: sql-anlytics/resource-consumption-models.md
+        href: sql-analytics/resource-consumption-models.md
       - name: Best practices
         href: sql-analytics/best-practices.md
     - name: Data loading
@@ -351,7 +351,7 @@
       - name: Group by options
         href: sql-analytics/development-group-by-options.md
       - name: Labels
-        href: sql-analytics/development-labels.md
+        href: sql-analytics/development-label.md
       # - name: Storage files
       #   href: article-template.md
     - name: Workload management
@@ -363,7 +363,7 @@
       - name: Workload importance
         href: sql-analytics/workload-management-importance.md
       - name: Memory & concurrency limits
-        href: sql-analytics/workload-management-memory and concurrency.md
+        href: sql-analytics/workload-management-memory-and-concurrency.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD

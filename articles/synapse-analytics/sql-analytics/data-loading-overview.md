@@ -33,7 +33,7 @@ The basic steps for implementing a PolyBase ELT for SQL Data Warehouse are:
 6. Insert the data into production tables.
 
 
-For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
@@ -73,13 +73,13 @@ PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addit
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 
-To land the data in Azure storage, you can move it to [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). In either location, the data should be stored in text files. PolyBase can load from either location.
+To land the data in Azure storage, you can move it to [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md). In either location, the data should be stored in text files. PolyBase can load from either location.
 
 Tools and services you can use to move data to Azure Storage:
 
-- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
+- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
 - [AZCopy utility](../storage/common/storage-moving-data.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Data Warehouse, see [Load data into SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Data Warehouse, see [Load data into SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
 ## 3. Prepare the data for loading
@@ -95,7 +95,7 @@ Defining external tables involves specifying the data source, the format of the 
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
-For an example of creating external objects, see the [Create external tables](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) step in the loading tutorial.
+For an example of creating external objects, see the [Create external tables](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) step in the loading tutorial.
 
 ### Format text files
 
@@ -115,10 +115,10 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data with PolyBase, you can use any of these loading options:
 
-- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
+- [PolyBase with T-SQL](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-- [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
-- [PolyBase with Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
+- [PolyBase with Azure Data Factory (ADF)](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
+- [PolyBase with Azure DataBricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
 
 ### Non-PolyBase loading options
 
@@ -139,11 +139,11 @@ As you design an ETL process, try running the process on a small test sample. Tr
 
 ## Partner loading solutions
 
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners](sql-data-warehouse-partner-business-intelligence.md). 
+Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md). 
 
 
 ## Next steps
 
-For loading guidance, see [Guidance for load data](guidance-for-loading-data.md).
+For loading guidance, see [Guidance for load data](../../sql-data-warehouse/guidance-for-loading-data.md).
 
 

@@ -114,7 +114,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ../../sql-data-warehouse/ql-data-warehouse-tables-partition.md
-[Manage table statistics]: ../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md
+[Manage table statistics]: development-tables-statistics.md
 [Temporary tables]: development-tables-temporary.md
 [Guide for using PolyBase]: ../../sql-data-warehouse/guidance-for-loading-data.md
 [Load data]: ../../sql-data-warehouse/design-elt-data-loading.md
