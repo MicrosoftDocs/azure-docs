@@ -12,7 +12,7 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ---
-# Restore a SQL managed-instance database to a previous point in time
+# Restore a SQL database in a managed instance to a previous point in time
 
 Use point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in an Azure SQL Database managed instance.
 
@@ -33,7 +33,7 @@ For a managed instance, point-in-time restore can also:
 
 ## Limitations
 
-When restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restores aren't currently supported.
+When restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
 
 > [!WARNING]
 > Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
@@ -48,7 +48,7 @@ The following table shows point-in-time restore scenarios for managed instances:
 
 ## Restore an existing database
 
-Restore an existing database to the same instance by using the Azure portal, Powershell, or the Azure CLI. To restore a database to another instance, use Powershell or the Azure CLI so you can specify the target managed-instance and resource-group properties. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
+Restore an existing database to the same instance by using the Azure portal, Powershell, or the Azure CLI. To restore a database to another instance, use Powershell or the Azure CLI so you can specify the properties for the target-managed instance and resource group. If you don't specify these parameters, the database will be restored to the existing instance by default. The Azure portal doesn't currently support restoring to another instance.
 
 # [Portal](#tab/azure-portal)
 
@@ -86,7 +86,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-To restore the database to another managed instance, also specify the target resource-group name and target managed-instance name:  
+To restore the database to another managed instance, also specify the names of the target resource group and managed instance:  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -115,7 +115,7 @@ az sql midb restore -g mygroupname --mi myinstancename |
 -n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
 ```
 
-To restore the database to another managed instance, also specify the target resource-group name and target managed-instance name:  
+To restore the database to another managed instance, also specify the names of the target resource group and managed instance:  
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
@@ -124,7 +124,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-For a detailed explanation of the available parameters, see the [managed-instance CLI documentation](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a managed instance](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -153,7 +153,7 @@ $properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $poi
 $properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
 ```
 
-To restore the deleted database to another instance, change the resource-group name and managed-instance name. Also, make sure that the location parameter matches the location of the resource group and the managed instance.
+To restore the deleted database to another instance, change the names of the resource group and managed instance. Also, make sure that the location parameter matches the location of the resource group and the managed instance.
 
 ```powershell-interactive
 $resourceGroupName = "<Second resource group name>"
@@ -185,9 +185,9 @@ You can also drop the database by connecting to the managed instance directly, s
 DROP DATABASE WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your managed-instance database:
+Use one of the following methods to connect to your database in the managed instance:
 
-- [SSMS/ADS via an Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SSMS/Azure Data Studio via an Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
@@ -227,7 +227,7 @@ Connect directly to the managed instance and start SQL Server Management Studio.
 ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your managed-instance database:
+Use one of the following methods to connect to your database in the managed instance:
 
 - [Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
