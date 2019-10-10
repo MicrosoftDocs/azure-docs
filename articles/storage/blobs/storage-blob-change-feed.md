@@ -73,7 +73,8 @@ $blobchangefeed/idx/segments/2019/02/22/1910/meta.json                  BlockBlo
 $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlob                      584  application/json
 ```
 
-> [!NOTE]> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty. 
+> [!NOTE]
+> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty. 
 
 The segment manifest file (`meta.json`) shows the path of the log files for that segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
 
@@ -116,10 +117,6 @@ The log files contain a series of change event records. Each change event record
 
 Log files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The path under which the log files are available for an hourly segment is indicated in the `chunkFilePaths` of the manifest file for the segment. The first log file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
-Any number of your client applications can read the log files independently at any time. The log files are immutable. Change records are appended-only and record-position is stable. Client applications can maintain their own checkpoint on the read position of the log.
-
-Change event records are batched and appended to log files every 60 to 120 seconds. Clients requiring streaming access can read by periodic polling for newer changes in the feed based on this frequency. The log files can be directly accessed as files for analytics applications requiring direct access.
-
 Here's an example of change event record from log file converted to Json.
 
 ```json
@@ -158,7 +155,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 ## Specifications
 
-- Change events records are only appended to the log files. Once these files are appended, they are immutable.
+- Change events records are only appended to the change feed files. Once these records are appended, they are immutable and record-position is stable. Client applications can maintain their own checkpoint on the read position of the log.
 
 - Change event records are appended within an order of few minutes of the change. Client applications can choose to consume records as they are appended for streaming access or in bulk at any other time.
 
