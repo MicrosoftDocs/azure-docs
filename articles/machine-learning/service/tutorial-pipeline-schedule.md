@@ -88,7 +88,7 @@ In a real ML scenario, **unprocessed_data.csv** would be coming in continuously 
 
  ## Publish a pipeline encapsulating the script
 
-The next step is to create a pipeline. For a more in-depth explanation of the steps in this section, see [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md). 
+The next step is to create a pipeline. For a more in-depth explanation of the steps in this section, see [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md). 
 
 * In your browser, navigate to the Machine Learning workspace.
 * Download the workspace's **config.json** to the directory in which you are running the Jupyter notebook.
