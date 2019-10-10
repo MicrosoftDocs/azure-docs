@@ -158,11 +158,11 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ### Using the workspace landing page
 
-Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. The workspace landing page supports the creation of both TabularDatasets and FileDatasets.
 
 The following animation shows how to create a dataset in the workspace landing page.
 
-First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. Select the Dataset Type: Tabular or file. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
+First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. Select the **Dataset Type**: *Tabular or File. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
