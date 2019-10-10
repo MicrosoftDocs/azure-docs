@@ -23,7 +23,6 @@ This article explains how to create a SQL Server failover cluster instance (FCI)
 Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance for SQL Server 2012 and newer on Windows Server 2012 and newer. Premium file shares give you greater flexibility, allowing you to resize and scale the file share without any downtime. 
 
 
-
 ## Before you begin
 
 There are a few things you need to know and a couple of things that you need in place before you proceed.
@@ -42,6 +41,12 @@ Additionally, you should have a general understanding of the following technolog
 
 > [!IMPORTANT]
 > At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+
+### Workload consideration
+
+Premium file shares provide IOPS and throughout capacity that will meet the needs of many workloads. However, for IO intensive workloads, consider [SQL Server FCI with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) based on managed premium disks or ultra-disks.  
+
+Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
 
 ### Licensing and pricing
 
@@ -66,8 +71,9 @@ Before following the instructions in this article, you should already have:
    - Both virtual machines.
    - The failover cluster IP address.
    - An IP address for each FCI.
-- DNS configured on the Azure Network, pointing to the domain controllers.\
-- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database. 
+- DNS configured on the Azure Network, pointing to the domain controllers.
+- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files. 
+- A file share for backups that is different than the premium file share used for your data files. This file share can either be standard or premium. 
 
 With these prerequisites in place, you can proceed with building your failover cluster. The first step is to create the virtual machines.
 
@@ -176,6 +182,9 @@ After the virtual machines are created and configured, you can configure the pre
 1. Open the newly-mapped drive and create at least one folder here to place your SQL Data files into. 
 1. Restart the virtual machine to ensure the drive is configured correctly and persists after restart. 
 1. Repeat these steps on each SQL Server VM that will participate in the cluster. 
+
+  > [!IMPORTANT]
+  > Do not use the same file share for both data files and back ups. Use the same steps to configure a secondary file share for backups if you want to back up your databases to a file share. 
 
 ## Step 3: Configure failover cluster with file share 
 
