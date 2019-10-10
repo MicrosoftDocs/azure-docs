@@ -58,7 +58,7 @@ If you are not using Visual Studio Code, this command installs the Python packag
 pip install azure-cognitiveservices-speech
 ```
 
-You can now use the Speech SDK import within your Python projects. For example:
+Now you can use the Speech SDK in your Python projects. For example:
 
 ```py
 import azure.cognitiveservices.speech as speechsdk
