@@ -11,4 +11,5 @@ ms.topic: "include"
 ms.date: 11/04/2019
 ---
 
-![Create a new resource](media/aml-applies-to-skus/applies-to-aml-basic-enterprise-sku.png)
+
+<Token>**APPLIES TO:** ![yes](media/aml-applies-to-skus/yes.png)Basic SKU ![yes](media/aml-applies-to-skus/yes.png)Enterprise SKU  </Token>
