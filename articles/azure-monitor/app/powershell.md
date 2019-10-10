@@ -1,6 +1,6 @@
 ---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
-description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
+description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/10/2019
 ms.author: mbullwin
 ---
-#  Create Application Insights resources using PowerShell
+#  Manage Application Insights resources using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +29,30 @@ Install the Azure Powershell module on the machine where you want to run the scr
 1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Use it to install Microsoft Azure Powershell.
 
-## Create an Azure Resource Manager template
+In addition to using ARM templates, there is a rich set of [Application Insights PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights) which make it easy to configure programatically. The capabilities enabled by the cmdlets include:
+
+1. Create and delete Application Insights resources
+2. Get lists of Application Insights resources and their properties
+3. Create and manage Continuous Export
+4. Create and manage Application Keys
+5. Set the Daily Cap
+6. Set the Pricing Plan
+
+## Create Application Insights resources using a PowerShell cmdlet
+
+Here's how to create a new Application Insights resource in the Azure East US datacenter using the [New-AzApplicationInsights ](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet:
+
+```PS
+New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
+```
+
+
+## Create Application Insights resources using an ARM template
+
+Here's how to create a new Application Insights resources using an ARM template.
+
+### Create the Azure Resource Manager template
+
 Create a new .json file - let's call it `template1.json` in this example. Copy this content into it:
 
 ```JSON
@@ -166,16 +189,13 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
     }
 ```
 
+### Use the ARM template to create a new Application Insights resource
 
-
-## Create Application Insights resources
-1. In PowerShell, sign in to Azure:
-   
-    `Connect-AzAccount`
-2. Run a command like this:
+1. In PowerShell, sign in to Azure using `$Connect-AzAccount`
+2. Set your context to a subscription with `Set-AzContext "<subscription ID>"`
+2. Run a new deployment to create a new Application Insights resource:
    
     ```PS
-   
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
@@ -188,41 +208,95 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 You can add other parameters - you'll find their descriptions in the parameters section of the template.
 
-## To get the instrumentation key
+## Get the instrumentation key
+
 After creating an application resource, you'll want the instrumentation key: 
 
+1. `$Connect-AzAccount`
+2. `Set-AzContext "<subscription ID>"`
+3. `$resource = Get-AzResource -Name "<resource name>" -ResourceType "Microsoft.Insights/components"`
+4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
+5. `$details.Properties.InstrumentationKey`
+
+To see a list of many other properties of your Application Insights resource, use:
+
 ```PS
-    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzResource -ResourceId $resource.ResourceId
-    $ikey = $details.Properties.InstrumentationKey
+Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
+Additional properties are available via the cmdlets:
+1. `Set-AzApplicationInsightsDailyCap`
+2. `Set-AzApplicationInsightsPricingPlan`
+3. `Get-AzApplicationInsightsApiKey`
+4. `Get-AzApplicationInsightsContinuousExport`
 
-<a id="price"></a>
-## Set the price plan
+Refer to the [detailed documentation](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
-You can set the [price plan](pricing.md).
+## Set the data retention 
 
-To create an app resource with the Enterprise price plan, using the template above:
+To get the current data retention for your Application Insights resource, you can use the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  (Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Here's an exmaple using ARMClient, to get the current retention:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
+```
+
+To set the retention, the command is a similar PUT:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
+```
+
+To set the data retention to 365 days using the template above, run:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
                -TemplateFile .\template1.json `
-               -priceCode 2 `
-               -appName myNewApp
+               -retentionInDays 365 `
+               -appName myApp
+```
+
+## Set the daily cap
+
+To get the daily cap properties, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+To set the daily cap properties, use same cmdlet. For instance, to set the cap to 300 GB/day, 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
+```
+
+<a id="price"></a>
+## Set the pricing plan 
+
+To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+To set the pricing plan, use same cmdlet with the `-PricingPlan` specified:  
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
+```
+
+You can also set the pricing plan on an existing Application Insights resource using the ARM template above, omitting the "microsoft.insights/components" resource and the `dependsOn` node from the billing resource. For instance to set it to the Per GB plan (formerly called the Basic plan), run:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+               -TemplateFile .\template1.json `
+               -priceCode 1 `
+               -appName myApp
 ```
 
 |priceCode|plan|
 |---|---|
-|1|Basic|
-|2|Enterprise|
-
-* If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
-* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
-
-To verify the updated price plan, look at the **Usage and estimated costs page** blade in the browser. **Refresh the browser view** to make sure you see the latest state.
-
-
+|1|Per GB (formerly named the Basic plan)|
+|2|Per Node (formerly name the Enterprise plan)|
 
 ## Add a metric alert
 
