@@ -70,7 +70,7 @@ It is strongly advised to test the performance of actual workloads intended for 
 
 ## Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online? 
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the region where your managed instance is provisioned. In this case, you can use [script from blog post](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) explaining how to switch between hardware generations.
 
 This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 

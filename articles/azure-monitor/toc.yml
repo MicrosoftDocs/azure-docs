@@ -119,6 +119,10 @@
       href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
+  - name: Monitoring scenarios
+    items:
+    - name: Monitor Azure service
+      href: insights/monitor-azure-resource.md
   - name: Manage Azure Monitor
     items:
     - name: Design a workspace deployment
@@ -830,6 +834,8 @@
           href: log-query/app-expression.md
         - name: workspace expression
           href: log-query/workspace-expression.md   
+        - name: resource expression
+          href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
       - name: Examples and guidance

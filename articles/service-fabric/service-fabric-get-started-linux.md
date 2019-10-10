@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Prepare your development environment on Linux

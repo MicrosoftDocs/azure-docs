@@ -10,7 +10,7 @@ ms.date: 08/30/2019
 
 # Mapping Data Flow JSON handling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Creating JSON structures in expression editor
 ### Derived column transformation
@@ -46,7 +46,7 @@ If this expression were entered for a column named "complexColumn" then it would
 }
 ```
 
-#### Sample manual DSL
+#### Sample manual script for complete hierarchical definition
 ```
 @(
 	title=Title,

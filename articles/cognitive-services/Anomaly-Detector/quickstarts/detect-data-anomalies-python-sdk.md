@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Quickstart: Anomaly Detector client library for Python
 
-Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
 Use the Anomaly Detector client library for Python to:
 
@@ -65,7 +65,7 @@ The Anomaly Detector response is a [LastDetectResponse](https://docs.microsoft.c
 
 ## Code examples 
 
-These code snippets show you how to do the following with the Anomaly Detector client library for .NET:
+These code snippets show you how to do the following with the Anomaly Detector client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Load a time series data set from a file](#load-time-series-data-from-a-file)

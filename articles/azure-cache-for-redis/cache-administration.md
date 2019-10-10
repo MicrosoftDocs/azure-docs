@@ -79,7 +79,7 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 Reboot is available for all pricing tiers.
 
 ## Schedule updates
-The **Schedule updates** blade allows you to designate a maintenance window for your Premium tier cache. When the maintenance window is specified, any Redis server updates are made during this window. 
+The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. When the maintenance window is specified, any Redis server updates are made during this window. 
 
 > [!NOTE] 
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.

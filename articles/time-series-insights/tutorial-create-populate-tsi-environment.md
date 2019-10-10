@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -192,4 +192,4 @@ In this tutorial, you learned how to:
 Now that you know how to create your own Time Series Insights environment, learn how to build a web application that consumes data from a Time Series Insights environment:
 
 > [!div class="nextstepaction"]
-> [Create an Azure Time Series Insights single-page web app](tutorial-create-tsi-sample-spa.md)
+> [See hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)

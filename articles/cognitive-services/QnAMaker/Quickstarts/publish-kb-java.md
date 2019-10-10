@@ -9,8 +9,9 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/02/2019
 ms.author: diberry
+
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Java
@@ -28,7 +29,7 @@ This quickstart calls QnA Maker APIs:
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
 * [Visual Studio Code](https://code.visualstudio.com/)
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your Azure dashboard for your QnA Maker resource. . 
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 * QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
