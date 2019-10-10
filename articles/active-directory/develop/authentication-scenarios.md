@@ -36,7 +36,7 @@ Instead of creating apps that each maintain their own username and password info
 
 Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
-A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign-in from the enterprise's network. Azure AD authenticates users and provides access tokens that contains information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
+A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign-in from the enterprise's network. Azure AD authenticates users and provides access tokens that contain information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
 
 The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly.
 
@@ -46,7 +46,7 @@ A cloud identity provider serves many organizations. To keep users from differen
 
 Tenants keep track of users and their associated apps. The Microsoft identity platform also supports users that sign in with personal Microsoft accounts.
 
-Azure AD also provides Azure Active Directory B2C so that organizations can  sign in users, typically customers, using social identities like a Google account. See the [Azure Active Directory B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c) for more information.
+Azure AD also provides Azure Active Directory B2C so that organizations can  sign in users, typically customers, using social identities like a Google account. For more information, see [Azure Active Directory B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c) .
 
 ### Security tokens
 
@@ -81,7 +81,7 @@ For an identity provider to know that a user has access to a particular app, bot
 
 - customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
 - decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from Linked-In, Google, and so on.
-- request scope permissions. For example, you can request the "user.read" scope which grants permission to read the profile of the signed-in user.
+- request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
 - define scopes that define access to your Web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
 - share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
@@ -91,16 +91,16 @@ Once registered, the application will be given a GUID that the app shares with A
 
 The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
-* **Identify the app by the authentication protocols it supports** This involves enumerating all the identifiers, URLs, secrets, and related information that are needed to authenticate. The Microsoft identity platform:
+Identify the app by the authentication protocols it supports by providing all the identifiers, URLs, secrets, and related information that are needed to authenticate. The Microsoft identity platform:
 
-    * Holds all the data required to support authentication at runtime.
-    * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
-    * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
+* Holds all the data required to support authentication at runtime.
+* Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
+* Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
 
-* **Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants** The Microsoft identity platform:
+**Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants** The Microsoft identity platform:
 
-    * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
-    * Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
+* Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
+* Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
 
 In the Microsoft identity platform, an **application object** describes an application as an abstract entity. At deployment time, the Microsoft identity platform uses an application object as a blueprint to create a **service principal**, which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through **consent**.
 
@@ -123,13 +123,13 @@ You can repeat this process for additional tenants. Tenant A retains the bluepri
 When a user navigates in the browser to a web app, the following happens:
 
 - The web app determines whether the user is authenticated.
-- If the user isn't authenticated, the web app delegates to Azure AD to sign in the user. That sign in will be compliant with the policy of the organization which may mean asking the user to enter their credentials, using multi-factor-authentication, or not using a password at all (for example using Windows Hello).
+- If the user isn't authenticated, the web app delegates to Azure AD to sign in the user. That sign in will be compliant with the policy of the organization, which may mean asking the user to enter their credentials, using multi-factor-authentication, or not using a password at all (for example using Windows Hello).
 - The user is asked to consent to the access that the client app needs. This is why client apps need to be registered with Azure AD, so that Azure AD can deliver tokens representing the access that the user has consented to.
 
 When the user has successfully authenticated:
 
 - Azure AD sends a token to the web app.
-- A cooke is saved associated with Azure AD's domain that contains the identity of the user in the browser's cookie jar. The next time an app uses the browser to navigate to the Azure AD authorization end point, the browser presents the cookie so that the user doesn't have to sign in again. This is also the way that SSO is  achieved. The cookie is produced by Azure AD and can only be understood by Azure AD.
+- A cookie is saved, associated with Azure AD's domain, that contains the identity of the user in the browser's cookie jar. The next time an app uses the browser to navigate to the Azure AD authorization end point, the browser presents the cookie so that the user doesn't have to sign in again. This is also the way that SSO is  achieved. The cookie is produced by Azure AD and can only be understood by Azure AD.
 - The web app then validates the token. If the validation succeeds, the web app displays the protected page and saves a session cookie in the browser's cookie jar. When the user navigates to another page, the web app knows that the user is authenticated based on the session cookie.
 
 The following sequence diagram summarizes this interaction:
@@ -140,7 +140,7 @@ The following sequence diagram summarizes this interaction:
 
 Web app developers can indicate whether all or only certain pages require authentication. For example, in ASP.NET/ASP.NET Core, this is done by adding the `[Authorize]` attribute to the controller actions. 
 
-This attribute causes ASP.NET to check for the presence of a session cookie containing the identity of the user. If a cookie isn't present, ASP.NET redirects authentication to the specified identity provider. In the case of Azure AD, the web app redirects authentication to https://login.microsoftonline.com, which displays a sign-in dialog.
+This attribute causes ASP.NET to check for the presence of a session cookie containing the identity of the user. If a cookie isn't present, ASP.NET redirects authentication to the specified identity provider. If the identity provider is Azure AD, the web app redirects authentication to https://login.microsoftonline.com, which displays a sign-in dialog.
 
 ### How a web app delegates sign-in to Azure AD and obtains a token
 
@@ -158,7 +158,7 @@ Desktop and mobile applications can use an embedded Web control, or a system bro
 
 ![Desktop app how it appears to be](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
 
-MSAL uses a browser to get tokens, and as as with web apps, delegates authentication to Azure AD.
+MSAL uses a browser to get tokens, and as with web apps, delegates authentication to Azure AD.
 
 Because Azure AD saves the same identity cookie in the browser as it does for web apps, if the native or mobile app uses the system browser it will immediately get SSO with the corresponding web app.
 
@@ -167,4 +167,4 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 ## Next steps
 
 See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
-See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts and Azure AD B2C users all in a single, streamlined programming model.
+See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
