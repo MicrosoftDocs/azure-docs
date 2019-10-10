@@ -32,7 +32,7 @@ Your offer must also use the SaaS fulfillment APIs to integrate with Commercial 
 ### Sign up for Partner Center
 To begin submitting you SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
 - If you are new to Partner Center, and have never enrolled in the Microsoft Partner Network, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
-- If you are already enrolled in the Microsoft Partner Network or in a Partner Center develop program, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) on how to create your account.
+- If you are already enrolled in the Microsoft Partner Network or in a Partner Center developer program, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) on how to create your account.
 
 ### Register a SaaS Application
 You must register a SaaS application using the Microsoft Azure Portal. After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS Fulfillment APIs.
@@ -97,10 +97,11 @@ Your add-in should have three states:
 1.	User not signed in
 2.	User signed in, no license associated
 3.	User signed in, license associated
-For documentation on how to programming authentication with AAD, see [Authorise to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
+
+For documentation on programming authentication with AAD, see [Authorise to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
 
 
-## Testing your SaaS offer
+## Piloting your SaaS offer
 
 You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
