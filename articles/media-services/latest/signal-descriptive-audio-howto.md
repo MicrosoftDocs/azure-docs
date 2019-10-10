@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Add audio description tracks
 
-You can add a narration to your video to help visually impaired consumers to follow the video recording by listening to the narration. 
+You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. 
 
 In Media Services v3, you signal audio description tracks by annotating the audio track in the manifest file. For more information, see the [Signaling audio description tracks](dynamic-packaging-overview.md#signaling-audio-description-tracks) concept.
 
