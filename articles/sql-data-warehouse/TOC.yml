@@ -147,6 +147,8 @@
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and- 
     - name: Result set caching
       items:
+      - name: Overview 
+        href: /sql-data-warehouse-result-set-caching-overview.md
       - name: Set for a database
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
       - name: Set for a session 
