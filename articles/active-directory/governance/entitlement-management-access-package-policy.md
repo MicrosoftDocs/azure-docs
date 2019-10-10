@@ -28,17 +28,19 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As an access package manager, you can change the users who can request an access package at any time by adding a new policy or editing an existing policy. Policies changes only affect new accesses. This article describes how to change the users who can request an existing access packages.
+As an access package manager, you can change the users who can request an access package at any time by adding a new policy or editing an existing policy. You can also change approval and expiration settings. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
+
+This article describes how to change user, request, and expiration settings for an existing access package.
 
 ## Choose between adding a new policy or editing an existing policy
 
 The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval and expiration settings. A single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
 
+![Multiple policies in an access package](./media/entitlement-management-access-package-policy/access-package-policy.png)
+
 ### Add a new policy
 
-The following diagram shows the high-level process to create a policy for an existing access package.
-
-![Create a policy process](./media/entitlement-management-access-package-edit/policy-process.png)
+Follow these steps to start adding a new policy to an existing access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -52,11 +54,11 @@ The following diagram shows the high-level process to create a policy for an exi
 
     ![Create policy with name and description](./media/entitlement-management-access-package-edit/policy-name-description.png)
 
-1. Based on your selection for **Users who can request access**, perform the steps in one of the following policy sections.
+1. Perform the steps in one of the following policy sections.
 
 ### Edit an existing policy
 
-You can edit a policy at any time. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
+Follow these steps to start editing a policy in an existing access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -74,7 +76,7 @@ You can edit a policy at any time. If you change the expiration date for a polic
 
     ![Access package - Edit policy](./media/entitlement-management-access-package-edit/policy-edit.png)
 
-1. When finished, click **Update**.
+1. Perform the steps in one of the following policy sections.
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 

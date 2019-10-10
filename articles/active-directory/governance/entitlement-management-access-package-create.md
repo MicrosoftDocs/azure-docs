@@ -34,15 +34,27 @@ An access package enables you to do a one-time setup of resources and policies t
 
 All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the General catalog. Currently, you can't move an existing access package to a different catalog.
 
+If you are an access package manager, you cannot add resources you own to a catalog. You are restricted to using the resources available in the catalog. If you need to add resources to a catalog, you can ask the catalog owner.
+
 All access packages must have at least one policy. Policies specify who can request the access package and also approval and expiration settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
-The following diagram shows the high-level process to create a new access package.
+![Create an access package](./media/entitlement-management-access-package-create/access-package-create.png)
 
-![Create an access package process](./media/entitlement-management-access-package-create/access-package-process.png)
+Here are the high-level steps to create a new access package.
+
+1. In Identity Governance, start the process to create a new access package.
+
+1. Select the catalog you want to create the access package in.
+
+1. Add resources from catalog to your access package.
+
+1. Assign resource roles for each resource.
+
+1. Add a policy to govern the access tot he access package.
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,20 +74,19 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** drop-down list, select the catalog you want to create the access package in. For example, you might have a catalog owner that manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be at least a Global administrator, a User administrator, catalog owner in that catalog, or access package manager in that catalog.
+    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global administrator or User administrator, or you must be a catalog owner or access package manager in that catalog.
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator, or a User administrator, and would like to create your access package in a new catalog that's not listed, click **Create new**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator or a User administrator, and would like to create your access package in a new catalog that's not listed, click **Create new**. Enter the Catalog name and description and then click **Create**.
 
     The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
-
 
 1. Click **Next**.
 
 ## Resource roles
 
-On the **Resource roles** tab, you select the resources to include in the access package.  Users who request and receive the access package will receive all the resource roles in the access package.
+On the **Resource roles** tab, you select the resources to include in the access package. Users who request and receive the access package will receive all the resource roles in the access package.
 
 1. Click the resource type you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
@@ -123,4 +134,5 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 ## Next steps
 
-- [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
+- [Share link to request an access package](entitlement-management-access-package-settings.md)
+- [Change resources and resource roles](entitlement-management-access-package-resources.md)
