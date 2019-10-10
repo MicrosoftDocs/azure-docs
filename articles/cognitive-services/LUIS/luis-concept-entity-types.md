@@ -67,6 +67,13 @@ Machine-learned entities are the top-level data unit. Subcomponents are child en
 
 **Constraints** are exact-text matching entities that apply rules to identify and extract data. **Descriptors** are features applied to boost the relevance of the words or phrases for the prediction.
 
+<a name="composite-entity"></a>
+<a name="list-entity"></a>
+<a name="patternany-entity"></a>
+<a name="prebuilt-entity"></a>
+<a name="regular-expression-entity"></a>
+<a name="simple-entity"></a>
+
 ## Types of entities
 
 Choose the entity based on how the data should be extracted and how it should be represented after it is extracted.

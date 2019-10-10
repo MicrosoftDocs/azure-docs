@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
 ---
 
@@ -39,11 +39,11 @@ See also:
 
 ## <a name="collaborator"></a>Collaborator
 
-A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
+A collaborator/contributor, is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
 
-## <a name="currently-editing"></a>Currently editing
+## <a name="contributor"></a>Contributor
 
-Same as active version.
+A contributor is the same thing as a [collaborator](#collaborator).
 
 ## <a name="domain"></a>Domain
 
@@ -52,18 +52,6 @@ In the LUIS context, a **domain** is an area of knowledge. Your domain is specif
 ## <a name="endpoint"></a>Endpoint
 
 The [LUIS endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](luis-how-to-azure-subscription.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
-
-An example endpoint looks like:
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|Querystring parameter|description|
-|--|--|
-|region| [published region](luis-reference-regions.md#publishing-regions) |
-|appID | LUIS app ID |
-|subscriptionID | LUIS endpoint (subscription) key created in Azure portal |
-|q | utterance |
-|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entity
 
@@ -95,7 +83,7 @@ Labeling, or marking, is the process of associating a word or phrase in an inten
 
 ## <a name="luis-app"></a>LUIS app
 
-A LUIS app is a trained data model for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
+A LUIS app is a collection of trained models for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
 
 ## <a name="owner"></a>Owner
 
@@ -150,11 +138,11 @@ Enable Bing spell checker to correct misspelled words in the utterances before p
 
 ## <a name="starter-key"></a>Starter key
 
-Same as [programmatic key](#programmatic-key), renamed to Authoring key.
+A free key to use when first starting out using LUIS.
 
 ## <a name="subscription-key"></a>Subscription key
 
-The subscription key is the **endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have an endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current endpoint key inside the endpoint URL at the bottom of [**Keys and endpoints** page](luis-how-to-azure-subscription.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair.
+The subscription key is the **prediction endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have an endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current endpoint key inside the endpoint URL at the bottom of [**Keys and endpoints** page](luis-how-to-azure-subscription.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair.
 
 ## <a name="test"></a>Test
 
