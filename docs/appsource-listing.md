@@ -22,26 +22,30 @@ For details about offering solution in multiple languages, see [Prepare localize
 Select a language to add the AppSource listing information for that language. Your listing includes the following information.
 
 ### Display name
-In the **Display name** field, specify the name of the solution that will be displayed in AppSource. For details, see [Manage names](manage-add-in-names.md).
+In the **Display name** field, select the name of the solution that will be displayed in AppSource. For details, see [Manage names](manage-add-in-names.md).
 
-### Short and long descriptions
+### Summary and description
 
-Both the short description and long description appear in the AppSource listing. The short description appears when a user browses or searches within AppSource or the in-product experience. The long description appears on the details page for your solution.
+Both the summary and description appear in the AppSource listing. The summary appears when a user browses or searches within AppSource or the in-product experience. The  description appears on the details page for your solution.
 
 **Guidelines for descriptions**
 
 | Item              | Maximum length    | Recommended length    | Include key message in the... |
 |:------------------|:------------------|:----------------------|:------------------------------|
-| Short description | 100 characters    | 70 characters         |First 30 characters            |
+| Summary           | 100 characters    | 70 characters         |First 30 characters            |
 | Description       | 4,000 characters  | 300-500 characters    |First 300 characters           |
 
 For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-listings.md#write-compelling-descriptions).
 
 ### Search terms
 
-Add keywords related to your solution that customers will use in search queries in AppSource. You can add up to three terms, and they can be words or short phrases, with a maximum of 40 characters each, for a total of 21 words across all seven entries.
+Add keywords related to your solution that customers will use in search queries in AppSource. You can add up to three terms, and they can be words or short phrases, with a maximum of 40 characters each.
 
-As a best practice, choose search terms that are not part of your solution name. Don't choose terms that aren't relevant to your solution.
+As a best practice, choose search terms that are not part of your solution name or summary or description, as those are automatically searchable on AppSource. Don't choose terms that aren't relevant to your solution.
+
+### Icon
+
+You can upload a logo that you would like to associate with your AppSource listing. Your logo must be a .png file and must be 300 x 300 pixels, and no larger than 50 MB.
 
 ### Screenshots
 
@@ -52,10 +56,6 @@ You must provide at least one screenshot; we recommend that you provide at least
 You can also provide a short caption of up to 200 characters that describes each screenshot.
 
 For guidance for creating compelling screenshots, see [Craft effective AppSource images](craft-effective-appsource-store-images.md).
-
-### Logo
-
-You can upload a logo that you would like to associate with your AppSource listing. Your logo must be a .png file and must be 300 x 300 pixels, and no larger than 50 MB.
 
 ### Additional information
 
