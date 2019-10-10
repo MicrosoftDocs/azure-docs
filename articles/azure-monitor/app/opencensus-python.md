@@ -14,7 +14,7 @@ manager: carmonm
 
 # Set up Application Insights for your Python application
 
-Application Insights now supports distributed tracing, metric collection and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your monitoring data to Application Insights.
+Application Insights supports distributed tracing, metric collection and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your monitoring data to Application Insights.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ First you have to create an Application Insights resource, which will generate a
     > [!NOTE]
     > `python -m pip install opencensus-ext-azure` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in a command like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to application insights: trace, metrics and logs. Follow the instructions below to see how to send these different types via the three exporters.
+2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Application Insights: trace, metrics and logs. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
 
 ### Trace
 
@@ -323,6 +323,8 @@ First you have to create an Application Insights resource, which will generate a
 
 4. For telemetry sent with the Azure Monitor logs exporter, logs will show up under `traces` and exceptions will show up under `exceptions`.
 
+5. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) for more detailed information about how to use queries and logs. 
+
 ## OpenCensus for Python
 
 * [OpenCensus Python on GitHub](https://github.com/census-instrumentation/opencensus-python)
@@ -337,3 +339,9 @@ First you have to create an Application Insights resource, which will generate a
 * [API Summary](./../../azure-monitor/app/api-custom-events-metrics.md)
 * [Application map](./../../azure-monitor/app/app-map.md)
 * [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+
+### Alerts
+
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
