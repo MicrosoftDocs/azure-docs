@@ -39,7 +39,7 @@ You can benchmark performance, and then use commands and environment variables t
 
 ### Run benchmark tests
 
-You can run a performance benchmark test on specific blob containers to view general performance statics and to identity performance bottlenecks. 
+You can run a performance benchmark test on specific blob containers to view general performance statistics and to identity performance bottlenecks. 
 
 > [!NOTE]
 > In the current release, this feature is available only for Blob Storage containers.
@@ -48,7 +48,7 @@ Use the following command to run a performance benchmark test.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>` |
+| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
@@ -146,7 +146,7 @@ When you resume a job, AzCopy looks at the job plan file. The plan file lists al
 
 ## Change the location of the plan and log files
 
-By default, plan and log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location.
+By default, plan and log files are located in the `%USERPROFILE$\.azcopy` directory on Windows, or in the `$HOME$\.azcopy` directory on Mac and Linux. You can change this location.
 
 ### Change the location of plan files
 
