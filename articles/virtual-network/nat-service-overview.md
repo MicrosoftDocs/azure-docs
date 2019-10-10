@@ -41,19 +41,19 @@ A subnet will begin using the NAT Gateway for outbound connections when it has b
 >Outbound flows will not succeed until you also assign at least one public IP address to the NAT Gateway.
 
 >[!NOTE]
-> If you require guaranteed per virtual machine allocations or need granularity for defining outbound connectivity on a per instance level or pools of instances or guarantee source network address translation (SNAT) ports to specific instance, use [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) with [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md) to define Load Balancer pool-based outbound SNAT.   This flexibility comes with significantly increased complexity and additional planning when different workloads are combined or the outbound connectivity of the workloads cannot be accurately sized down to an individual instance.
+> If you require guaranteed per virtual machine allocations or need granularity for defining outbound connectivity on a per instance level or pools of instances or guarantee source network address translation (SNAT) ports to specific instance, use [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) with [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md) to define Load Balancer pool-based outbound source network address translation (SNAT).   This flexibility comes with significantly increased complexity and additional planning when different workloads are combined or the outbound connectivity of the workloads cannot be accurately sized down to an individual instance.
 
 ## Combination of inbound and outbound scenarios, and SKUs
 
-You can create inbound and outbound scenarios on the same subnets with NAT Gateway, by combining NAT Gateway with Standard public IP to have instance-level access to virtual and Standard public Load Balancer endpoints including any services based on them. NAT Gateway and Standard public IP address and Standard public Load Balancer are flow direction aware. For outbound flows, NAT Gateway replaces all other outbound scenarios and takes precedence over [Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md) and [instance-level public IP addresses on virtual machines](../load-balancer/load-balancer-outbound-connections.md) specifically. For inbound originated flows, instance-level public IP addresses or public endpoints on Load Balancer can be used simultaneously with NAT Gateway.  When this scenario is complete, inbound and outbound flows will succeed on the same subnets.  The resulting scenario is "secure by default" for inbound originated scenarios as an NSG is required and must explicitly allow inbound originated traffic.
+You can create inbound and outbound scenarios on the same subnets with NAT Gateway, by combining NAT Gateway with Standard public IP to have instance-level access to virtual and Standard public Load Balancer endpoints including any services based on them. NAT Gateway and Standard public IP address and Standard public Load Balancer are flow direction aware. For outbound flows, NAT Gateway replaces all other outbound scenarios and takes precedence over [Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md) and [instance-level public IP addresses on virtual machines](../load-balancer/load-balancer-outbound-connections.md) specifically. For inbound originated flows, instance-level public IP addresses or public endpoints on a load balancer can be used simultaneously with NAT Gateway.  When this scenario is complete, inbound and outbound flows will succeed on the same subnets.  The resulting scenario is "secure by default" for inbound originated scenarios as an NSG is required and must explicitly allow inbound originated traffic.
 
 You have the ability to break out your deployments in a virtual network into subnets to influence the outbound behavior. You can also have public IP addresses used as instance-level public IP addresses on virtual machines and Load Balancer provided outbound SNAT for outbound connections on one subnet and NAT Gateway on a different subnet of the same virtual network. You can't combine NAT Gateways with resources using Basic public IP address resources or Basic Load Balancer resources on the same subnet. You can deploy the Basic SKU resources out to a different subnet of the same virtual network.
 
 ## Network address translation
 
-Once configuration has been completed, NAT Gateway provides port masquerading SNAT for all TCP and UDP applications by translating a virtual machine instance's private IP address to public IP addresses.
+Once configuration has been completed, NAT Gateway provides port masquerading source network address translation (SNAT) for all TCP and UDP applications by translating a virtual machine instance's private IP address to public IP addresses.
 
-Flows from private IP addresses are translated to one or more public IP addresses based on your configuration. The translation occurs because the source private IP address (SNAT) is changed to a public IP address. Port masquerading means the source port is rewritten to distinguish flows after translation and simplify a many to one/many mapping. The source port number for the resulting flow in public IP address space is assigned on demand as source virtual machines start flows. Multiple connections to the same destination public IP address, IP protocol, and destination port combination consume an additional port per flow.
+Flows from private IP addresses are translated to one or more public IP addresses based on your configuration. The translation occurs because the source private IP address source network address translation (SNAT) is changed to a public IP address. Port masquerading means the source port is rewritten to distinguish flows after translation and simplify a many to one/many mapping. The source port number for the resulting flow in public IP address space is assigned on demand as source virtual machines start flows. Multiple connections to the same destination public IP address, IP protocol, and destination port combination consume an additional port per flow.
 
 When virtual machines make outbound connections on these subnets, source ports are given on demand and released after the flow completes or idle timeout is reached. Each public IP provides 55,000 SNAT ports to use and you can scale out by using multiple public IP addresses. NAT Gateway attempts to reuse ports for flows to different destinations to increase outbound connection scale further. 
 
@@ -71,7 +71,7 @@ A zonal public IP address must match the same availability zone as the NAT Gatew
 
 When a zonal NAT Gateway has been configured, the data plane of the NAT Gateway is aligned with and isolated to the requested availability zone.
 
-You can align the data plane of the NAT Gateway with a virtual machine in a specific zone.  You can do this by creating a regional subnet, which only contains virtual machines in the same zone as the NAT Gateway configured for the subnet.
+You can align the data plane of the NAT Gateway with a virtual machine in a specific zone.  You can do this alignment by creating a regional subnet, which only contains virtual machines in the same zone as the NAT Gateway configured for the subnet.
 
 The availability zone placement of a NAT Gateway can't be changed and you can't convert a NAT Gateway from regional to zonal or zonal to regional.
 
@@ -98,7 +98,7 @@ NAT service is available in these regions
 ## Limitations
 
 - NAT service isn't compatible with Basic public IP or Basic Load Balancers on the same subnet.  They have to exist on a subnet not served by a NAT Gateway.
-- TCP and UDP based application protocols are supported.
+- TCP and UDP-based application protocols are supported.
 - NAT Gateways can be configured on one or more subnets of a virtual network.
 - IPv6 isn't supported.
 - Public IP Prefix doesn't support zonal placement and can't be used with a zonal NAT Gateway.
