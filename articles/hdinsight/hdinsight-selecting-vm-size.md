@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ---
@@ -20,19 +20,16 @@ Virtual machine families in Azure are optimized to suit different use cases. In 
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../virtual-machines/linux/sizes-general.md)          | B, Dsv3, Dv3, Dasv3, Dav3, DSv2, Dv2, Av2, DC  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md)        | Fsv2           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3, Easv3, Eav3, Mv2, M, DSv2, Dv2  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](../virtual-machines/linux/sizes-storage.md)        | Lsv2                | High disk throughput and IO ideal for Big Data, SQL, NoSQL databases, data warehousing, and large transactional databases.  |
-| [GPU](../virtual-machines/linux/sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3  | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.       |
-| [High performance compute](../virtual-machines/linux/sizes-hpc.md) | HB, HC,  H | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
+| [Entry-level](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
+| [General purpose](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](../virtual-machines/linux/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
+| [Memory optimized](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 
-- For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
-- For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
+- For information about pricing of available VM instances across HDInsight supported regions, see [HDInsight Pricing](https://azure.microsoft.com/en-us/pricing/details/hdinsight/).
 
 ## Cost saving SKUs for light workloads
 
-If you have light processing requirements, the Fsv2 series can be a good choice to get started with HDInsight. At a lower per-hour list price, the Fsv2-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU.
+If you have light processing requirements, the [F-series](https://azure.microsoft.com/blog/f-series-vm-size/) can be a good choice to get started with HDInsight. At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU.
 
 The following table describes the cluster types and node types, which can be created with the Fsv2-series VMs.
 
@@ -46,7 +43,7 @@ The following table describes the cluster types and node types, which can be cre
 | Storm | disabled | no | no | no |
 | ML Service | HDI 3.6 ONLY | F4 and above | no | no |
 
-To see the specifications of each Fsv2-series SKU, see [Compute optimized virtual machine sizes](../virtual-machines/linux/sizes-compute.md#fsv2-series-1).
+To see the specifications of each F-series SKU, see [F-series VM sizes](https://azure.microsoft.com/blog/f-series-vm-size/).
 
 ## Next steps
 
