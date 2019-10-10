@@ -12,7 +12,7 @@ ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 07/09/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: 'vsts'
@@ -92,7 +92,7 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in Azure Pipelin
 
 1. From the DevOps Projects dashboard, select **Build pipelines**.
 
-2. Once your **Azure DevOps Builds** page opens, you'll see a history of the most recent builds and the status for each build.
+2. Once your **Azure Pipelines** page opens, you'll see a history of the most recent builds and the status for each build.
 
    ![Azure DevOps Pipeline Builds](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
