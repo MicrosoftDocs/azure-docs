@@ -482,11 +482,14 @@ steps:
 
 ### Run.RegistryName
 
-The name of the container registry. Typically used in task steps that do not require a fully qualified server name, such as `cmd` steps that call the Azure CLI to perform registry operations.
+The name of the container registry. Typically used in task steps that don't require a fully qualified server name, for example, `cmd` steps that run Azure CLI commands on registries.
 
 ```yml
 version 1.1.0
-
+steps:
+# List repositories in registry
+- cmd: "mcr.microsoft.com/azure-cli az login --identity"
+- cmd: "mcr.microsoft.com/azure-cli az acr repository list --name {{.Run.RegistryName}}"
 ```
 
 ### Run.Date
