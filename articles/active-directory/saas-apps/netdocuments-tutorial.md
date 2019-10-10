@@ -79,11 +79,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `http://netdocuments.com/VAULT`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
