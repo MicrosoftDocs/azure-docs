@@ -1,21 +1,21 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
-description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
+title: Session host virtual machine configuration - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Tenant and host pool creation
+# Session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## VMs are not joined to the domain
 
@@ -369,7 +369,7 @@ If your version number says "1903," follow these instructions:
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Virtual Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

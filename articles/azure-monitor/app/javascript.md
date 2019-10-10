@@ -44,7 +44,7 @@ appInsights.loadAppInsights();
 
 ### Snippet based setup
 
-If your app does not use NPM, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies.
+If your app does not use NPM, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies. If you are using Blazor Server App, add the snippet at the top of the file `_Host.cshtml` in the `<head>` section.
 
 ```html
 <script type="text/javascript">

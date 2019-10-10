@@ -131,10 +131,10 @@ This section provides template questionnaires to help gather important informati
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||
 |**Topic**: **Meta data**|||
 |Hive DB type|Mysql, Postgres||
-|No. of Hive metastores|2||
-|No. of Hive tables|100||
-|No. of Ranger policies|20||
-|No. of Oozie workflows|100||
+|Number of Hive metastores|2||
+|Number of Hive tables|100||
+|Number of Ranger policies|20||
+|Number of Oozie workflows|100||
 |**Topic**: **Scale**|||
 |Data volume including Replication|100 TB||
 |Daily ingestion volume|50 GB||
@@ -146,11 +146,11 @@ This section provides template questionnaires to help gather important informati
 |Disk space used|75%||
 |Average Network % used|25%
 |**Topic**: **Staff**|||
-|No. of Administrators|2||
-|No. of Developers|10||
-|No. of end users|100||
+|Number of Administrators|2||
+|Number of Developers|10||
+|Number of end users|100||
 |Skills|Hadoop, Spark||
-|No. of available resources for Migration efforts|2||
+|Number of available resources for Migration efforts|2||
 |**Topic**: **Limitations**|||
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
@@ -174,7 +174,7 @@ This section provides template questionnaires to help gather important informati
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
-|No. of AD users to sync?|          100||
+|Number of AD users to sync?|          100||
 |Ok to sync passwords to cloud?|    Yes||
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 

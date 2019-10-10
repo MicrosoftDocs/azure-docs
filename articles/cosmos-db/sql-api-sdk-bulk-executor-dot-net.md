@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 11/19/2018
+ms.date: 10/08/2019
 ms.author: ramkris
 
 ---
@@ -38,6 +38,10 @@ ms.author: ramkris
 
 ## Release notes
 
+### <a name="2.4.0-preview"/>2.4.0-preview
+
+* Changed SDK dependency to >= 2.5.1
+
 ### <a name="2.3.0-preview2"/>2.3.0-preview2
 
 * Added support for graph bulk executor to accept ttl on vertices and edges
@@ -57,6 +61,12 @@ ms.author: ramkris
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
+
+### <a name="1.8.2"/>1.8.2
+
+* Fixed high CPU consumption on certain scenarios.
+* Tracing now uses TraceSource. Users can define listeners for the `BulkExecutorTrace` source.
+* Fixed a rare scenario that could cause a lock when sending documents near 2Mb of size.
 
 ### <a name="1.6.0"/>1.6.0
 

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 10/07/2019
 ms.author: magoedte
 ---
 
@@ -33,6 +33,7 @@ When using the Log Analytics agents to collect data, you need to understand the 
 
 * To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
+* The Windows agent supports the [FIPS 140 standard](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
 
 If you are using System Center Operations Manager 2012 R2 or later:
 
@@ -47,7 +48,7 @@ The agent for Linux and Windows isn't only for connecting to Azure Monitor, it a
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 * Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
 
 >[!NOTE]

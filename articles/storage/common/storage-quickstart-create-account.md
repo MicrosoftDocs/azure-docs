@@ -6,7 +6,7 @@ author: tamram
 ms.custom: mvc
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common

@@ -50,23 +50,13 @@ Web API resources need to be registered in your tenant before they can accept an
 
 Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have only read access. In this tutorial, you use scopes to define read and write permissions for the web API.
 
-1. Select **Applications**, and then select *webapi1*.
-2. Select **Published scopes**.
-3. For **scope**, enter `Hello.Read`, and for description, enter `Read access to hello`.
-4. For **scope**, enter `Hello.Write`, and for description, enter `Write access to hello`.
-5. Click **Save**.
-
-The published scopes can be used to grant a client application permission to the web API.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## Grant permissions
 
 To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *webapp1*. You use this application to call the web API.
 
-1. Select **Applications**, and then select *webapp1*.
-2. Select **API access**, and then select **Add**.
-3. In the **Select API** dropdown, select *webapi1*.
-4. In the **Select Scopes** dropdown, select the **Hello.Read** and **Hello.Write** scopes that you previously defined.
-5. Click **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Your application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the application. The application obtains an authorization grant from Azure AD B2C to access the protected web API.
 
@@ -75,8 +65,6 @@ Your application is registered to call the protected web API. A user authenticat
 Now that the web API is registered and you have scopes defined, you configure the web API to use your Azure AD B2C tenant. In this tutorial, you configure a sample web API. The sample web API is included in the project you downloaded in the prerequisite tutorial.
 
 There are two projects in the sample solution:
-
-The following two projects are in the sample solution:
 
 * **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
 * **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
@@ -95,8 +83,8 @@ The following two projects are in the sample solution:
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### Configure the web API
@@ -124,8 +112,8 @@ The following two projects are in the sample solution:
 1. Configure the scopes setting to match those you created in the portal.
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## Run the sample

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: cherylmc
 
 ---
@@ -14,6 +14,8 @@ ms.author: cherylmc
 # Advertise custom routes for P2S VPN clients
 
 You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage end-point to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public Internet.
+
+![Azure VPN Gateway Multi-Site connection example](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
 
 ## To advertise custom routes
 

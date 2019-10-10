@@ -35,7 +35,7 @@ On the **Enabling Remote Desktop Connection** message box, select **Continue wit
 > [!IMPORTANT] 
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. If RDP is already installed and configured on the virtual machine image (for example: Ubuntu Data Science Virtual Machine image), you/students can connect to VMs via RDP without following any additional steps.
 > 
-> If the VM image doesn't have RDP installed and configured, you need to connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. Then, you publish the image so that students can RDP in to the student Linux VMs.
+> If the VM image doesn't have RDP installed and configured, you need to connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. For more information, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md). Then, you publish the image so that students can RDP in to the student Linux VMs. 
 
 ## Supported operating systems
 Currently, the remote desktop connection is supported for the following operating systems:
