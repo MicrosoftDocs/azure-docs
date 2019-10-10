@@ -13,9 +13,9 @@ ms.author: victorh
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-With custom rules, you can create your own rules, which are evaluated for each request that passes through WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. To allow full customization, the custom rules have an action (to allow or block), a match condition, and an operator.
+With custom rules, you can create your own rules, which are evaluated for each request that passes through the web application firewall (WAF). These rules hold a higher priority than the rest of the rules in the managed rule sets. To allow full customization, the custom rules have an action (to allow or block), a match condition, and an operator.
 
-This article creates an Application Gateway WAF v2 that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
+This article creates an Azure Application Gateway WAF v2 that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 
 To view more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
