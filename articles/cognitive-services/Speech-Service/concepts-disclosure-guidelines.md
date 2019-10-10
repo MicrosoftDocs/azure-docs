@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 10/09/2019
 ms.author: angle
 ---
 
@@ -38,19 +38,19 @@ The need to disclose the synthetic origins of a computer-generated voice is rela
 **Embrace failure**
 <br>Use moments of failure to reinforce the capabilities of the agent.
 
-### **How to use this guide**
+### How to use this guide
 
 This guide helps you determine which disclosure patterns are best fit for your synthetic voice experience. We then offer examples of how and when to use them. Each of these patterns is designed to maximize transparency with users about synthetic speech while staying true to human-centered design.
 
 Considering the vast body of design guidance on voice experiences, we focus here specifically on:
 
-1. [**Disclosure Assessment**](#disclosure-assessment) : A process to determine the type of disclosure recommended for your synthetic voice experience.
+1. [**Disclosure Assessment**](#disclosure-assessment) : A process to determine the type of disclosure recommended for your synthetic voice experience
 
-2. [**How to Disclose**](concepts-disclosure-patterns.md#disclosure-patterns) : Examples of disclosure patterns that can be applied to your synthetic voice experience.
+2. [**How to Disclose**](concepts-disclosure-patterns.md#disclosure-patterns) : Examples of disclosure patterns that can be applied to your synthetic voice experience
 
-3. [**When to Disclose**](concepts-disclosure-patterns.md) :  Optimal moments to disclose throughout the user journey.
+3. [**When to Disclose**](concepts-disclosure-patterns.md) :  Optimal moments to disclose throughout the user journey
 
-## Disclosure Assessment
+## Disclosure assessment
 
 ### Understand Context
 
@@ -58,9 +58,9 @@ Consider your users&#39; expectations about an interaction and the context in wh
 
 |                                    | Context of use                                                                                                                                                                                                                                                                                                                                                       | Potential Risks & Challenges                                                                                                                                                                                                                                                                                                                                                                       |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1. Who is speaking?**               | **_If any of the following apply, your persona fits under the 'Human-like Persona' category:_**<br><br><ul><li> Persona embodies a real human whether it's a fictitious representation or not. (e.g., photograph or a computer-generated rendering of a real person)<br><br><li> The synthetic voice is based on the voice of a widely recognizable real person (e.g., celebrity, political figure) | The more human-like representations you give your persona, the more likely a user will associate it with a real person, or cause them to believe that the content is spoken by a real person rather than computer-generated. </ul>                                                                                                                                                                      |
-| **2. What is being said?**            | **_If any of the following apply,  your voice experience fits under the 'Sensitive' category:_**<br><br><ul><li> Obtains or displays personally identifiable information<br><br> <li> Broadcasts time sensitive news/information (e.g., emergency alert)<br><br><li> Aims to help real people communicate with each other (e.g., reads personal emails/texts)<br><br> <li> Provides medical/health assistance </ul>            | The use of synthetic voice may not feel appropriate or trust-worthy to the people using it when topics are related to sensitive, personal, or urgent matters. They may also expect the same level of empathy and contextual awareness as a real human. |
-| **3. What is the level of exposure?** |**_Your voice experience most likely fits under the 'High' category if:_** <br><br><ul><li>The user will hear or interact with the synthetic voice frequently or for a long duration of time </ul>                                                                                                                                                                             | The importance of being transparent and building trust with users is even higher when establishing long-term relationships.                                                                                                                                                                                                                                                                        |
+| **1. Who is speaking?**               | **If any of the following apply, your persona fits under the 'Human-like Persona' category:**<br><br><ul><li> Persona embodies a real human whether it's a fictitious representation or not. (e.g., photograph or a computer-generated rendering of a real person)<br><br><li> The synthetic voice is based on the voice of a widely recognizable real person (e.g., celebrity, political figure) | The more human-like representations you give your persona, the more likely a user will associate it with a real person, or cause them to believe that the content is spoken by a real person rather than computer-generated. </ul>                                                                                                                                                                      |
+| **2. What is being said?**            | **If any of the following apply,  your voice experience fits under the 'Sensitive' category:**<br><br><ul><li> Obtains or displays personally identifiable information<br><br> <li> Broadcasts time sensitive news/information (e.g., emergency alert)<br><br><li> Aims to help real people communicate with each other (e.g., reads personal emails/texts)<br><br> <li> Provides medical/health assistance </ul>            | The use of synthetic voice may not feel appropriate or trustworthy to the people using it when topics are related to sensitive, personal, or urgent matters. They may also expect the same level of empathy and contextual awareness as a real human. |
+| **3. What is the level of exposure?** |**Your voice experience most likely fits under the 'High' category if:** <br><br><ul><li>The user will hear or interact with the synthetic voice frequently or for a long duration of time </ul>                                                                                                                                                                             | The importance of being transparent and building trust with users is even higher when establishing long-term relationships.                                                                                                                                                                                                                                                                      |
 
 ### Determine Disclosure Level
 
@@ -77,4 +77,3 @@ Use the following flowchart to determine whether your synthetic voice experience
 ## Next steps
 
 * [Refer to Disclosure Design Patterns](concepts-disclosure-patterns.md)
-

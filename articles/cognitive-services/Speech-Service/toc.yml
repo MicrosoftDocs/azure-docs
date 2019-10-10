@@ -193,6 +193,8 @@
     href: call-center-transcription.md
   - name: Responsible deployment
     items:
+    - name: Gating Overview
+      href: concepts-gating-overview.md
     - name: Disclosure Design Guidelines
       href: concepts-disclosure-guidelines.md
 - name: How-to guides
