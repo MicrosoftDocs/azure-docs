@@ -60,6 +60,10 @@ To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see 
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
+### Limitations
+
+- Filestream is not supported for a failover cluster with a premium file share. To use filestream, deploy your cluster using [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+
 ## Prerequisites 
 
 Before following the instructions in this article, you should already have:
@@ -180,7 +184,6 @@ After the virtual machines are created and configured, you can configure the pre
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="File share visible as storage in file explorer":::
 
 1. Open the newly-mapped drive and create at least one folder here to place your SQL Data files into. 
-1. Restart the virtual machine to ensure the drive is configured correctly and persists after restart. 
 1. Repeat these steps on each SQL Server VM that will participate in the cluster. 
 
   > [!IMPORTANT]
@@ -256,9 +259,9 @@ To create the failover cluster, you need:
 - A name for the failover cluster
 - An IP address for the failover cluster. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes.
 
-#### Windows Server 2008-2016
+#### Windows Server 2012-2016
 
-The following PowerShell creates a failover cluster for **Windows Server 2008-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+The following PowerShell creates a failover cluster for **Windows Server 2012-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
