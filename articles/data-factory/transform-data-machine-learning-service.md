@@ -13,20 +13,20 @@ ms.author: daperlov
 ---
 # Execute Azure Machine Learning service pipelines in Azure Data Factory
 
-Run your Azure Machine Learning (AML) service pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
+Run your Azure Machine Learning service pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
 
 ## Syntax
 
 ```json
 {
-    "name": "ML Execute Pipeline",
+    "name": "Machine Learning Execute Pipeline",
     "type": "AzureMLExecutePipeline",
     "linkedServiceName": {
         "referenceName": "AzureMLService",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "mlPipelineId": "ml pipeline ID",
+        "mlPipelineId": "machine learning pipeline ID",
         "experimentName": "experimentName",
         "mlPipelineParameters": {
             "mlParameterName": "mlParameterValue"
@@ -36,18 +36,18 @@ Run your Azure Machine Learning (AML) service pipelines as a step in your Azure 
 
 ```
 
-## Type Properties
+## Type properties
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the activity in the pipeline | String | Yes
 type | Type of activity is ‘AzureMLExecutePipeline’ | String | Yes
-linkedServiceName | Linked Service to Azure ML Service | Linked service reference | Yes
-mlPipelineId | ID of the published Azure ML pipeline | String (or expression with resultType of string) | Yes
-experimentName | Run history experiment name of the ML pipeline run | String (or expression with resultType of string) | No
-mlPipelineParameters | Key, Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published ML pipeline | Object with key value pairs (or Expression with resultType object) | No
-mlParentRunId | The parent Azure ML Service pipeline run ID | String (or expression with resultType of string) | No
-continueOnStepFailure | Whether to continue execution of other steps in the ML pipeline run if a step fails | boolean | No
+linkedServiceName | Linked Service to Azure Machine Learning Service | Linked service reference | Yes
+mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or expression with resultType of string) | Yes
+experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No
+mlPipelineParameters | Key, Value pairs to be passed to the published Azure Machine Learning pipeline endpoint. Keys must match the names of pipeline parameters defined in the published Machine Learning pipeline | Object with key value pairs (or Expression with resultType object) | No
+mlParentRunId | The parent Azure Machine Learning Service pipeline run ID | String (or expression with resultType of string) | No
+continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

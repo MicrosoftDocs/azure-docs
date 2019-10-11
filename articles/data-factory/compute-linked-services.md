@@ -380,7 +380,7 @@ You create an Azure Machine Learning Studio linked service to register a Machine
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |
 | mlEndpoint             | The batch scoring URL.                   | Yes                                      |
 | apiKey                 | The published workspace model’s API.     | Yes                                      |
-| updateResourceEndpoint | The Update Resource URL for an Azure ML Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
+| updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
@@ -390,7 +390,7 @@ You create an Azure Machine Learning Studio linked service to register a Machine
 You create an Azure Machine Learning Service linked service to connect an Azure Machine Learning service workspace to a data factory.
 
 > [!NOTE]
-> Currently only service principal authentication is supported for the Azure ML Service linked service.
+> Currently only service principal authentication is supported for the Azure Machine Learning Service linked service.
 
 ### Example
 
@@ -424,7 +424,7 @@ You create an Azure Machine Learning Service linked service to connect an Azure 
 | Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
 | subscriptionId         | Azure subscription id              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
-| mlWorkspaceName        | Azure ML Service workspace name | Yes  |
+| mlWorkspaceName        | Azure Machine Learning Service workspace name | Yes  |
 | servicePrincipalId     | Specify the application's client ID.     | No |
 | servicePrincipalKey    | Specify the application's key.           | No |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
