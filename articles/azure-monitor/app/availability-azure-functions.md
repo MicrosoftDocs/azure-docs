@@ -61,7 +61,8 @@ using Microsoft.Extensions.Logging;
 // [CONFIGURATION_REQUIRED] configure test timeout accordingly for which your request should run
 private static readonly HttpClient HttpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
 
-// The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting. DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
+// The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
+//DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
 private static readonly string InstrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
 
 // [CONFIGURATION_REQUIRED] Configure EndpointAddress
@@ -217,5 +218,6 @@ You can use Logs(analytics) to view you availability results, dependencies, and 
 ![Dependencies](media/availability-azure-functions/dependencies.png)
 
 ## Next Steps
-- [Performance testing](../../azure-monitor/app/performance-testing.md)
+
 - [Application Map](../../azure-monitor/app/app-map.md)
+- [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
