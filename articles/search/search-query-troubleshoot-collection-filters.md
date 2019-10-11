@@ -6,7 +6,7 @@ description: Troubleshooting OData collection filter errors in Azure Cognitive S
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 translation.priority.mt:

@@ -6,7 +6,7 @@ description: OData collection operators, any and all, and lambda expressions in 
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 translation.priority.mt:

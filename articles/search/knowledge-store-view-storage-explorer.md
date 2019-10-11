@@ -6,7 +6,7 @@ description: View and analyze an Azure Cognitive Search knowledge store with the
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 ---

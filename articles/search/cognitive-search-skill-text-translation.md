@@ -6,7 +6,7 @@ description: Evaluates text and, for each record, returns text translated to the
 manager: nitinme
 author: careyjmac
 ms.author: chalton
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

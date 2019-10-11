@@ -6,7 +6,7 @@ description: Save and shape your enriched data from the AI enrichment indexing p
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

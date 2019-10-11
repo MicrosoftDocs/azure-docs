@@ -6,7 +6,7 @@ description: Define data extraction, natural language processing, or image analy
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

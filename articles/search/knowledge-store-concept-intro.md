@@ -6,7 +6,7 @@ description: Send enriched documents to Azure storage where you can view, reshap
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

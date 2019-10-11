@@ -6,7 +6,7 @@ description: Populate and upload data to an index in Azure Cognitive Search from
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

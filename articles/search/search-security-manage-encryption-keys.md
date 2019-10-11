@@ -6,7 +6,7 @@ description: Supplement server-side encryption over indexes and synonym maps in 
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ---

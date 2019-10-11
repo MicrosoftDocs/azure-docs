@@ -6,7 +6,7 @@ description: Evaluates unstructured text, and for each record, returns a list of
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

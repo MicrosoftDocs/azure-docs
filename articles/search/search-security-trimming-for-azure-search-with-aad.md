@@ -6,7 +6,7 @@ description: Access control on Azure Cognitive Search content using security fil
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

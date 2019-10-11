@@ -6,7 +6,7 @@ description: Learn how to index and search semi-structured Azure JSON blobs usin
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.

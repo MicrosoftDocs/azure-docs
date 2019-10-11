@@ -6,7 +6,7 @@ description: Learn about common design patterns for multitenant SaaS application
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

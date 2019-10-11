@@ -6,7 +6,7 @@ description: Schedule Azure Cognitive Search indexers to index content periodica
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

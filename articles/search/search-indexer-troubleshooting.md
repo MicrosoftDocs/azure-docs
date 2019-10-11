@@ -6,7 +6,7 @@ description: Fix errors and common problems with indexers in Azure Cognitive Sea
 manager: nitinme
 author: mgottein
 ms.author: magottei
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

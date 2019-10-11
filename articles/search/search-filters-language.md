@@ -6,7 +6,7 @@ description: Filter criteria to support multi-language search, scoping query exe
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

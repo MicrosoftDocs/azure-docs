@@ -6,7 +6,7 @@ description: Learn how to call the Azure Cognitive Search REST APIs using Postma
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 10/04/2019

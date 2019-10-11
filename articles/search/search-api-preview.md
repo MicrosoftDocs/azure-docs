@@ -6,7 +6,7 @@ description: Azure Cognitive Search service REST API Version 2019-05-06-Preview 
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

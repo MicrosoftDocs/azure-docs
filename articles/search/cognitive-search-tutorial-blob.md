@@ -6,7 +6,7 @@ description: Step through an example of text extraction and natural language pro
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 ---

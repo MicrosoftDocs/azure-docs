@@ -6,7 +6,7 @@ description: Azure Cognitive Search supports 56 languages, leveraging language a
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---
