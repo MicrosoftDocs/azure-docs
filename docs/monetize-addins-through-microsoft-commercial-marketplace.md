@@ -6,6 +6,8 @@ localization_priority: Priority
 
 # Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 
+**
+
 We’re making it easier for customers to discover bundled solutions and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 
 You can submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions and reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team. 
@@ -30,7 +32,7 @@ To get started, see [Create new SaaS offer](https://docs.microsoft.com/azure/mar
 Your offer must also use the SaaS fulfillment APIs to integrate with Commercial Marketplace. For extensive documentation, see [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
 ### Sign up for Partner Center
-To begin submitting you SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
+To begin submitting your SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
 - If you are new to Partner Center, and have never enrolled in the Microsoft Partner Network, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
 - If you are already enrolled in the Microsoft Partner Network or in a Partner Center developer program, follow the instructions [here](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) on how to create your account.
 
@@ -63,7 +65,7 @@ Types of licensing you may wish to consider:
 
 Other considerations:
 - Upsell: if a user tries to access your service, but their tenant has no more free licenses, you service could provide them with a temporary license, and use the opportunity to encourage the admin to purchase additional licenses.
-- Multiple tenant purchases: you should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales Team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team and wish to keep the account separate.
+- Multiple tenant purchases: you should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team and wish to keep the account separate.
 
 #### Connecting to AppSource
 In order to monetize through Microsoft, your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
@@ -83,7 +85,7 @@ The following diagram shows the sequence of actions when an update is initiated 
 ![API calls when the update is initiated from the marketplace](images/saas-update-api-v2-calls-from-marketplace-a.png)
 
 #### Service initiated update
-When a customer initiates an update on your service (if you allow this action) you service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At tis point the actual changes to your licensing database should be made.
+When a customer initiates an update on your service (if you allow this action) you service should update the subscription held by AppSource, which in turn will trigger a notification from AppSource to the webhook you have implemented. At this point the actual changes to your licensing database should be made.
 
 The following diagram shows the actions when an update is initiated from your SaaS service.
 
