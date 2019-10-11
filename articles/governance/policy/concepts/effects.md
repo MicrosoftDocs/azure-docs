@@ -50,6 +50,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
+An alternative to the Disabled effect is **enforcementMode** which is set on the policy assignment.
+When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+logs, and the policy effect don't occur. For more information, see
+[policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
+
 ## Append
 
 Append is used to add additional fields to the requested resource during creation or update. A
