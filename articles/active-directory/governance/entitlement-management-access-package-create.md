@@ -50,7 +50,11 @@ Here are the high-level steps to create a new access package.
 
 1. Assign resource roles for each resource.
 
-1. Add a policy to govern the access tot he access package.
+1. Specify users that can request access.
+
+1. Specify any approval settings.
+
+1. Specify expiration settings.
 
 ## Start new access package
 
@@ -78,7 +82,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator or a User administrator, and would like to create your access package in a new catalog that's not listed, click **Create new**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
 
     The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
 
@@ -106,17 +110,13 @@ On the **Resource roles** tab, you select the resources to include in the access
 
 1. Click **Next**.
 
-## Policy
+## Requests
 
-On the **Policy** tab, you create the first policy to specify who can request the access package and also approval and expiration settings. Later, you can create more policies to allow additional groups of users to request the access package with their own approval and expiration settings. You can also choose to create the policy later.
+On the **Requests** tab, you create the first policy to specify who can request the access package and also approval settings. Later, you can create more request policies to allow additional groups of users to request the access package with their own approval settings.
 
-1. Set the **Create first policy** toggle to **Now** or **Later**.
+![Access package - Requests tab](./media/entitlement-management-access-package-create/requests.png)
 
-    ![Access package - Policy](./media/entitlement-management-access-package-create/policy.png)
-
-1. If you select **Later**, skip down to the [Review + create](#review--create) section to create your access package.
-
-1. If you select **Now**, perform the steps in one of the following policy sections.
+Perform the steps in one of the following sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
