@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: active-directory
-author: rolyon
+author: msaburnley
 ms.service: active-directory
 ms.topic: include
 ms.date: 07/31/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.custom: include file
 ---
 
@@ -14,7 +14,7 @@ ms.custom: include file
 
 In the Expiration section, you specify when a user's assignment to the access package expires.
 
-1. In the **Expiration** section, set **Access package expires** to **On date**, **Number of days**, or **Never**.
+1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, or **Never**.
 
     For **On date**, select an expiration date in the future.
 
@@ -28,6 +28,12 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
     If extensions are allowed in the policy, the user will receive an email 14 days and also 1 day before their access package assignment is set to expire prompting them to extend the assignment.
 
-    ![Access package - Policy- Expiration settings](./media/active-directory-entitlement-management-lifecycle-policy/policy-expiration.png)
+    If a user's access is extended, they will not be able to request the access package after the specified extension date (date set in the time zone of the user who created the policy).
 
-1. Click **Next** or **Create**.
+1. To require approval to grant an extension, set **Require approval to grant extension** to **Yes**.
+
+    The same approval settings that were specified on the **Requests** tab will be used.
+
+    ![Access package - Lifecycle Expiration settings](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+
+1. Click **Next**.
