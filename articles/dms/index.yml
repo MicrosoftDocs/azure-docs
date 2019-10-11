@@ -77,7 +77,7 @@ landingContent:
             url: tutorial-postgresql-azure-postgresql-online.md
           - text: Migrate RDS PostgreSQL to Azure Database for PostgreSQL - Single Server - online
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-          - text: Migrate Azure Database for MySQL - online
+          - text: Migrate to Azure Database for MySQL - online
             url: tutorial-mysql-azure-mysql-online.md
           - text: Migrate RDS MySQL to Azure Database for MySQL - online
             url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
