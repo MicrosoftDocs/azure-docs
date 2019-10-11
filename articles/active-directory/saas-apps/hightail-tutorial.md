@@ -91,11 +91,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL:
     `https://www.hightail.com/loginSSO`
 
-1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. Hightail application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, PureCloud by Genesys application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Hightail application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name | Source Attribute|
 	| -------- |-------- |
