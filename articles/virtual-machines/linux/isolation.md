@@ -42,7 +42,7 @@ For details see below:
 | Date | Action | 
 | --- | --- |
 | Nov 15, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
-| Feb 14, 2019	| Last day to buy D/DS15i_v2 1-year RI | 
+| Feb 14, 2020	| Last day to buy D/DS15i_v2 1-year RI | 
 | Feb 15, 2020	 | D/DS15_v2 isolation guarantee removed | 
 | May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 15, 2019)| 
 | Nov 14, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 15, 2019) | 
