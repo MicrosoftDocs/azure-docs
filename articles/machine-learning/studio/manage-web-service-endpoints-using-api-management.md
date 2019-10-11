@@ -17,14 +17,14 @@ ms.date: 11/03/2017
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio web services.
 
 ## What is Azure API Management?
-Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](/azure/api-management/import-and-publish) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
+Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. See the [Azure API management site](https://azure.microsoft.com/services/api-management/) for more details. To get started with Azure API Management, see [the import and publish guide](/azure/api-management/import-and-publish). This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
 
 ## Prerequisites
 To complete this guide, you need:
 
 * An Azure account.
 * An AzureML account.
-* The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](create-experiment.md) for details on how to create an AzureML experiment. Click [here](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. For details on how to create an AzureML experiment, see the [Studio quickstart](create-experiment.md). For information on how to deploy a Studio experiment as a web service, see the [Studio deployment how-to](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ## Create an API Management instance
 
@@ -50,7 +50,7 @@ Once the service instance is created, the next step is to create the API. An API
 
 To create the API:
 
-1. In the Azure portal, open the service instance you just created.
+1. In the Azure portal, open the service instance you created.
 2. In the left navigation pane, select **APIs**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -129,7 +129,7 @@ First create an operation for the AzureML RRS service:
 
 ## Call an operation from the Developer portal
 
-Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
+Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step, you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
 
 1. Click **Developer portal**.
 
