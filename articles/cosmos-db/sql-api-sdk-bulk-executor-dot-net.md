@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/08/2019
+ms.date: 10/11/2019
 ms.author: ramkris
 
 ---
@@ -38,6 +38,10 @@ ms.author: ramkris
 
 ## Release notes
 
+### <a name="2.4.0-preview"/>2.4.1-preview
+
+* Fixed TotalElapsedTime in the response of BulkDelete to correctly measure the total time including any retries.
+
 ### <a name="2.4.0-preview"/>2.4.0-preview
 
 * Changed SDK dependency to >= 2.5.1
@@ -61,6 +65,10 @@ ms.author: ramkris
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
+
+### <a name="1.8.3"/>1.8.3
+
+* Fixed TotalElapsedTime in the response of BulkDelete to correctly measure the total time including any retries.
 
 ### <a name="1.8.2"/>1.8.2
 
