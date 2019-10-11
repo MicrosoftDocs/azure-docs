@@ -1,5 +1,5 @@
 ---
-title: : Execute Azure Machine Learning service pipelines in your Azure Data Factory pipelines | Microsoft Docs
+title: Execute Azure Machine Learning service pipelines in your Azure Data Factory pipelines | Microsoft Docs
 description: Learn how to run your Azure Machine Learning service pipelines in your Azure Data Factory pipelines. 
 services: data-factory
 documentationcenter: ''
