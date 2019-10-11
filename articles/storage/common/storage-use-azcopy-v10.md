@@ -24,7 +24,8 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 

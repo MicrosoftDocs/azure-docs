@@ -50,7 +50,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![View filters](./media/resource-group-audit/view-filters.png)
 
-1. To focus on specific operations, change the filters or apply new ones. For example, the following image shows a new value for the **Timespan** and **Resource type** is set to storage accounts. 
+1. To focus on specific operations, change the filters or apply new ones. For example, the following image shows a new value for the **Timespan** and **Resource type** is set to storage accounts.
 
     ![Set filter options](./media/resource-group-audit/set-filter.png)
 
@@ -188,6 +188,8 @@ The REST operations for working with the activity log are part of the [Insights 
 
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * To learn about setting security policies, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
+* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis
+.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 * To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md)
