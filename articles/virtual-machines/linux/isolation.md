@@ -22,16 +22,16 @@ ms.author: ayshak
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation-migration.md)]
 
-## Retiring D15_v2/DS15_v2 isolation on January 1, 2020
-We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After <b>January 1, 2020</b>, the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
+## Retiring D15_v2/DS15_v2 isolation on February 15, 2020
+We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After <b>February 15, 2020</b>, the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
 
 ## How does this affect me?
-After January 1, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
+After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
 ## What actions should I take?
 If hardware isolation is not important to you, there is no action you need to take. 
 
-If isolation is important to you, before January 1, 2020, you would need to either:
+If isolation is important to you, before February 15, 2020, you would need to either:
 •	Migrate your workload to Azure Dedicated Host Preview
 •	Migrate to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios. 
 •	Migrate your workload to another Azure isolated virtual machine. 
@@ -41,16 +41,16 @@ For details see below:
 ## Timeline
 | Date | Action | 
 | --- | --- |
-| Oct 1st, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
-| Dec 31st, 2019	| Last day to buy D/DS15i_v2 1-year RI | 
-| January 1, 2020	 | D/DS15_v2 isolation guarantee removed | 
-| March 31th, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before October 1st, 2019)| 
-| Sept 30th, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before October 1st, 2019) | 
+| Nov 15, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
+| Feb 14, 2019	| Last day to buy D/DS15i_v2 1-year RI | 
+| Feb 15, 2020	 | D/DS15_v2 isolation guarantee removed | 
+| May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 15, 2019)| 
+| Nov 14, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 15, 2019) | 
 
 ## FAQs
 ### Reserved Instances - Bill
 ### Q: I already purchased 1- or 3-year Reserved Instance for D15_v2 or Ds15_v2. How will the discount be applied to my VM usage?
-**A**: All RIs purchased before October 1st, 2019 will automatically extend coverage to the new isolated VM series. 
+**A**: All RIs purchased before November 15, 2019 will automatically extend coverage to the new isolated VM series. 
 
 | RI |	Instance Size Flexibility |	Benefit eligibility |	
 | --- | --- | --- |
@@ -90,10 +90,7 @@ Likewise, for Dsv2 series.
 **A**: No 
 
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
-**A**: By default, all the existing subscriptions of D/DS15_v2 should see the new D/DS15i_v2 sizes. If you are a current D/DS15_v2 customer and not seeing the new D/DS15i_v2 sizes, please request access by filling this form.: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form.: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
 
 ### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
 **A**: Each customer is assigned the default quota according to their customer segment. If you are looking for more please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u
-
-### Q: What happen to my discounts? <b>TBU by Jason Marley<b>
-**A**: Customers who have access to D/DS15_v2 and D/DS15i_v2 will keep all of their existing pricing discounts, or EA negotiated discounts.
