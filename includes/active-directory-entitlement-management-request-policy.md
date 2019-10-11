@@ -95,32 +95,41 @@ In the Approval section, you specify approval settings when users request the ac
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. To have requests automatically approved, set the toggle to **No**.
 
-1. If you require approval, in the **Select approvers** section, click **Add approvers**.
+    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
 
-1. In the Select approvers pane, select one or more users and/or groups to be approvers.
+1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
 
-    Only one of the selected approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
+1. Determine if the request will require a single or multi-stage approval. Set the **How many stages** toggle to **1** for single-stage.
 
-    ![Access package - Policy- Select approvers](./media/active-directory-entitlement-management-request-policy/policy-select-approvers.png)
+1. For approvers, select **Manager as approver** or **Choose specific approvers**.
 
-1. Click **Select** to add the approvers.
+    The manager is determined by the **Manager** attribute in the user's profile of Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Click **Show advanced request settings** to show additional settings.
+    ![Azure Active Directory user profile - Manager attribute](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
 
-    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-request-policy/policy-advanced-request.png)
+1. If you selected Manager as approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver in case entitlement management cannot find the manager.
+
+1. If you selected Choose specific approvers, click **Add approvers** to select one or more users or groups in your directory to be approvers.
+
+    Only one of the selected fallback approvers or approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
+
+1. In **Decision must be made in how many days?**, specify the number of days that an approver has to review a request for this access package.
+
+    If a request is not approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
 
 1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
-1. To require the approver to provide a justification to approve a request for the access package, set **Require approver justification** to **Yes**.
+    A justification is visible to other approvers and the requestor.
 
-1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this number of days, the request expires and the user will have to submit another request for the access package.
 
 ## Enable requests
 
-1. If you want the access package to be made immediately available to the users in the policy, click **Yes** to enable the policy.
+1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
 
     You can always enable it in the future after you have finished creating the access package.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/policy-enable.png)
+    If you selected **None (administrator direct assignments only)** and you set enable to **No**, administrators will not be able to directly assign this access package.
 
-1. Click **Next** or **Create**.
+    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+
+1. Click **Next**.
