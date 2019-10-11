@@ -542,7 +542,7 @@ The first time any user signs into your app, they will be prompted by Microsoft 
 
 ## Clean up resources
 
-When no longer needed, delete the app object that you created in the [Register your application](register-your-application) step.
+When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.
 
 ## Get help
 
