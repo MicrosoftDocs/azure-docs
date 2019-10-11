@@ -32,6 +32,8 @@
         href: virtual-wan-route-table.md
   - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
+  - name: Configure custom IPsec policy
+    href: virtual-wan-custom-ipsec-portal.md
   - name: Configure certificates for user VPN
     href: certificates-point-to-site.md
 - name: Reference

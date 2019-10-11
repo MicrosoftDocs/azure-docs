@@ -12,7 +12,8 @@ ms.author: cherylmc
 ---
 # Configure a custom IPsec policy for Virtual WAN using the portal
 
-You can configure custom IPsec policy for virtual want in the Azure portal. [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+You can configure custom IPsec policy for virtual want in the Azure portal.
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## 1. Locate the virtual hub
 
