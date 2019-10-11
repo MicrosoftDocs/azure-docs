@@ -43,15 +43,11 @@ Once you've chosen your storage method, check out [Windows Virtual Desktop prici
 
 ## Next steps
 
-To learn more about FSLogix profile containers, check out these articles:
+To learn more about FSLogix profile containers, user profile disks and other previous user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-file.md)
+
+If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
 - [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
-- To compare FSLogix profile containers and user profile disks, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-file.md)
-- To compare FSLogix profile containers and user profile disks, see  and 
-
-If you're ready to create your own FSLogix profile containers, get started with these tutorials:
-
-- [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
 - The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) also apply when you use an FSLogix profile container instead of a user profile disk
 
