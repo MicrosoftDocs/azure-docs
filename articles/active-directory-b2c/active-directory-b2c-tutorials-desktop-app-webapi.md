@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Grant access to a Node.js web API from a desktop app using Azure Active Directory B2C
 
-This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C) protected Node.js web API resource from a Windows Presentation Foundation (WPF) desktop app.
+This tutorial shows you how to call a Node.js web API protected by Azure Active Directory B2C (Azure AD B2C) from a Windows Presentation Foundation (WPF) desktop app, also protected by Azure AD B2C.
 
 In this tutorial, you learn how to:
 
@@ -43,7 +43,9 @@ Record the value under **SCOPES** for the `demo.read` scope to use in a later st
 
 ## Grant permissions
 
-To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you registered a native client application in Azure AD B2C named *nativeapp1*. You use this application to call the web API.
+To call a protected web API from a native client application, you need to grant the registered native client application permissions to the web API you registered in Azure AD B2C.
+
+In the prerequisite tutorial, you registered a native client application named *nativeapp1*. The following steps configure that native application registration with the API scopes you exposed for *webapi1* in the previous section. This allows the desktop application to obtain an access token from Azure AD B2C that the web API can use to verify and provide scoped access to its resources. You configure and run both the desktop application and web API code samples later in the tutorial.
 
 1. Select **Applications (Preview)**, and then select the native client application that should have access to the API. For example, *nativeapp1*.
 1. Under **Manage**, select **API permissions**.
@@ -127,11 +129,11 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 3. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
 4. Select the **Call API** button.
 
-The desktop application makes a request to the locally running web API, and upon verification of a valid access token, displays signed-in user's display name.
+The desktop application makes a request to the locally running web API, and upon verification of a valid access token, shows the signed-in user's display name.
 
 :::image type="content" source="media/active-directory-b2c-tutorials-desktop-app-webapi/desktop-app-01-post-api-call.png" alt-text="Display name shown in the top pane of the WPF desktop application":::
 
-Your desktop application protected by Azure AD B2C is calling the locally running web API, also protected by Azure AD B2C.
+Your desktop application, protected by Azure AD B2C, is calling the locally running web API that is also protected by Azure AD B2C.
 
 ## Next steps
 
