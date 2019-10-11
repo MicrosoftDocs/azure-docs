@@ -149,7 +149,7 @@ var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobSta
 client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
 ```
 
-## Filtering, ordering options of entities
+## Filtering and ordering options of entities
 
 The following table shows how the filtering and ordering options may be applied to different entities:
 
