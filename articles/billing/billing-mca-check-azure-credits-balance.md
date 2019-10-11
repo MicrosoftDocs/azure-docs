@@ -21,7 +21,7 @@ You are charged when you use products that aren't covered by the credits or your
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-## Check your credit balance
+## Check your credit balance in the Azure portal
 
 1. Sign in to the [Azure portal]( https://portal.azure.com).
 
@@ -81,6 +81,11 @@ Azure credits are one of the payment methods. You get credit from Microsoft like
 - Visual Studio Professional (Annual)
 - Azure Marketplace products
 - Azure support plans
+
+## Check your credit balance through the API
+
+
+
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
