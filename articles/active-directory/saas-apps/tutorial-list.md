@@ -1,6 +1,6 @@
 ---
-title: SaaS App Integration Tutorials for use with Azure AD | Microsoft Docs
-description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
+title: SSO and SCIM provisioning SaaS App Integration Tutorials for use with Azure AD | Microsoft Docs
+description: Configure Azure Active Directory single sign-on (SSO) and SCIM provisioning integration with a variety of third-party software as a service applications.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
 
-For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps). Click [here](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) to request an app be added to the application gallery. 
 
 ## Quick links
 
