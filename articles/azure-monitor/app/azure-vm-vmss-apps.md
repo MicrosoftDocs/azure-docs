@@ -75,23 +75,21 @@ $privateCfgJsonString = '{}';
 
 Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Location "<myVmLocation>" -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -Version "2.8" -SettingString $publicCfgJsonString -ProtectedSettingString $privateCfgJsonString
 ```
-> [!NOTE]
-> Include spaces in VMName. (Example: -VMName "South Central US")
 
 > [!NOTE]
-> You may install or update the Application Insights Agent as an extension across multiple Virtual Machines at-scale using a Powershell loop. Deploying via Azure Policy is not currently supported.
+> You may install or update the Application Insights Agent as an extension across multiple Virtual Machines at-scale using a Powershell loop.
 
-Uninstall Application Insights Agent extension from Azure virtual machines
+Uninstall Application Insights Agent extension from Azure virtual machine
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name "ApplicationMonitoring"
 ```
 
-Query Application Insights Agent extension status for Azure virtual machines
+Query Application Insights Agent extension status for Azure virtual machine
 ```powershell
 Get-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name ApplicationMonitoring -Status
 ```
 
-Get list of installed extensions for Azure virtual machines
+Get list of installed extensions for Azure virtual machine
 ```powershell
 Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions"
 
@@ -101,14 +99,14 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-You may also view installed extensions in the Azure virtual machine blade in the Portal.
+You may also view installed extensions in the [Azure virtual machine blade](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) in the Portal.
 
 > [!NOTE]
 > Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
 
 ## Manage Application Insights Agent for .NET applications on Azure virtual machine scale sets using powershell
 
-Install or update the Application Insights Agent as an extension for Azure virtual machine scale sets
+Install or update the Application Insights Agent as an extension for Azure virtual machine scale set
 ```powershell
 $publicCfgHashtable =
 @{
