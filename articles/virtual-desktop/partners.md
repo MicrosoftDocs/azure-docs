@@ -112,7 +112,7 @@ Nerdio extends the value of Windows Virtual Desktop by making it easy to provisi
 
 ![PolicyPak Logo](./media/partners/policypak.png)
 
-PolicyPak Software is a Windows Virtual Desktop partner which performs total settings management for applications, desktop, browsers, Java and security settings. PolicyPak keeps your desktop, system and security settings in compliance.PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows’ built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak’s settings and increase administrators’ ability to manage their Windows 10 machines. 
+PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows’ built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak’s settings and increase administrators’ ability to manage their Windows 10 machines. 
 
 The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block Ransomware, manage multiple browsers, manage Internet Explorer’s Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
 
