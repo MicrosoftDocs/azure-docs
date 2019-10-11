@@ -275,39 +275,41 @@
       # - name: Architecture
       #   href: article-template.md
       - name: Resource consumption models
-        href: ../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/resource-consumption-models.md
       - name: Best practices
-        href: ../sql-data-warehouse/sql-data-warehouse-best-practices.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/best-practices.md
     - name: Data loading
       items:
       - name: Overview
-        href: ../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-overview.md
       - name: Best practices
-        href: ../sql-data-warehouse/guidance-for-loading-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-best-practices.md
       - name: Columnstore compression
-        href: ../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/data-loading-columnstore-compression.md
     - name: Development
       items:
       - name: Overview
-        href: ../sql-data-warehouse/sql-data-warehouse-overview-develop.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-overview.md
       - name: Best practices
-        href: ../sql-data-warehouse/sql-data-warehouse-best-practices-development.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-best-practices.md
       - name: Materialized view
         items:
-        - name: Create  (Transact-SQL)
+        - name: Performance tuning guidance
+          href: sql-analytics/development-materialized-view-performance-tuning.md
+        - name: Create 
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Alter  (Transact-SQL)
+        - name: Alter 
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Tables
         items:
         - name: Overview
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-overview.md
         - name: CTAS
           href: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Data types
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-data-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-data-types.md
         - name: Distributed tables
           href: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Indexes
@@ -319,9 +321,9 @@
         - name: Replicated tables
           href: ../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Statistics
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-statistics.md
         - name: Temporary
-          href: ../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-tables-temporary.md
         # - name: External tables
         #   href: article-template.md
         # - name: CETAS
@@ -329,39 +331,39 @@
       - name: T-SQL language elements
         items:
         - name: Loops
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-loops.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-loops.md
         - name: Stored procedures
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-stored-procedures.md
         - name: Transactions
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Transactions Best Practices
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-transactions.md
+        - name: Transaction Best Practices
+          href: sql-analytics/development-transaction-best-practices.md
         - name: User-defined schemas
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-user-defined-schemas.md
         - name: Variable assignment
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-variable-assignment.md
         - name: Views
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/development-views.md
     - name: Querying
       items:
       - name: Dynamic SQL
-        href: ../sql-data-warehouse/sql-data-warehouse-develop-dynamic-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-dynamic-sql.md
       - name: Group by options
-        href: ../sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-group-by-options.md
       - name: Labels
-        href: ../sql-data-warehouse/sql-data-warehouse-develop-label.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/development-label.md
       # - name: Storage files
       #   href: article-template.md
     - name: Workload management
       items:
       - name: Resource classes & workload management
-        href: ../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/workload-management-resource-classes.md
       - name: Workload classification
-        href: ../sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/workload-management-classification.md
       - name: Workload importance
-        href: ../sql-data-warehouse/sql-data-warehouse-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/workload-management-importance.md
       - name: Memory & concurrency limits
-        href: ../sql-data-warehouse/memory-and-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql-analytics/workload-management-memory-and-concurrency-limits.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD
