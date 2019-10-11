@@ -18,8 +18,6 @@ ms.date: 10/14/2019
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift in datasets, and setup alerts.
 
-![Demo video](media/how-to-monitor-datasets/video.gif)
-
 With Azure Machine Learning dataset monitors, you can:
 * **Analyze drift in your data** to understand how it changes over time.
 * **Monitor model data** for differences between training and serving datasets.
@@ -208,7 +206,9 @@ For a full example of setting up a `timeseries` dataset and data drift detector,
 
 ## Understanding data drift results
 
-There are two groups of metrics in the dataset monitors results, **Drift overview** and **Feature details**. 
+The data monitor produces two groups of results: [**Drift overview**](#Drift-overview) and [**Feature details**](#Feature-details). The following animation shows the available drift monitor charts based on the selected  feature and metric. 
+
+![Demo video](media/how-to-monitor-datasets/video.gif)
 
 ### Drift overview
 
@@ -219,7 +219,7 @@ The **Drift overview** section contains top-level insights into the magnitude of
 | Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
 | Drift contribution by feature | The contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
-The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/en-us/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 
+The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 
  
 ![Drift overview](media/how-to-monitor-datasets/drift-overview.png)
 
@@ -262,11 +262,11 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 Limitations and known issues:
 
-* Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting 
-* Limitation of 200 features, unless a feature list is not specified 
-* Compute size must be large enough to handle the data 
+* Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting. 
+* Limitation of 200 features, unless a feature list is not specified. 
+* Compute size must be large enough to handle the data. 
 
 ## Next steps
 
-* Head to the [workspace portal](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to get started setting up a dataset monitor.
-* [Data drift for models](how-to-monitor-data-drift.md)
+* Head to the [Azure Machine Learniing studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
+* [Data drift for models](how-to-monitor-data-drift.md).
