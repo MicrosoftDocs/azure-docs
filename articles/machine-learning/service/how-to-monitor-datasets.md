@@ -204,6 +204,8 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
+For a full example of setting up a timeseries dataset and data drift detector, see our [example notebook](https://aka.ms/datadrift-notebook).
+
 ## Understanding data drift results
 
 There are two groups of metrics in the dataset monitors results, **Drift overview** and **Feature details**. 
