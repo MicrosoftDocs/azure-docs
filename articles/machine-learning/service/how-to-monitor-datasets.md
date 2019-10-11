@@ -68,7 +68,7 @@ Using Azure Machine Learning, data drift is monitored through datasets. To monit
 
 ### Setting the timestamp column in target dataset
 
-The target dataset needs to have the time series trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. This can be done through the Python SDK or Azure Machine Learning studio. 
+The target dataset needs to have the time series trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. This can be done through the Python SDK or Azure Machine Learning studio. A column representing a "fine grain" timestamp must be specified to add "timeseries" trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', you can create a virtual column through the path pattern setting and set it as the "coarse grain" timestamp to improve the importance of timeseries functionality. 
 
 #### Python SDK
 
