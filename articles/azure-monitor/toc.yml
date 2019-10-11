@@ -48,8 +48,6 @@
       href: learn/tutorial-performance.md
     - name: Alert on application health
       href: learn/tutorial-alert.md
-    - name: Availability tests using Azure Functions
-      href: learn/tutorial-availability-azure-functions.md
     - name: Understand application users
       href: learn/tutorial-users.md
     - name: Create custom dashboards
@@ -282,6 +280,8 @@
           href: app/monitor-web-app-availability.md
         - name: Multi-step tests
           displayname: availability, GSM, visual studio web test, web test
+        - name: Availability tests using Azure Functions
+           href: app/availability-azure-functions.md
           href: app/availability-multistep.md
         - name: Availability alerts
           displayname: alerts, global, alerting
