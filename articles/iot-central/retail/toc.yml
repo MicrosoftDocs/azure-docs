@@ -1,0 +1,22 @@
+- name: Azure IoT Central Documentation
+- name: Overview
+  items:
+  - name: Building retail solutions with Azure IoT Central
+    href: overview-iot-central-retail.md
+- name: Tutorials
+  items:
+  - name: 1- Create a retail application
+    href: tutorial-condition-monitor-create-app-pnp.md
+  - name: 2 - Customize the operator dashboard
+    href: tutorial-condition-monitor-customize-dashboard-pnp.md
+  - name: 3 - Export data and visualize insights
+    href: tutorial-condition-monitor-export-data-visualize-insights-pnp.md
+- name: Concepts
+- name: How-to guides
+  items:
+  - name : Connect devices
+    items:
+      - name: Connect a Rigado Cascade 500
+        href: howto-connect-rigado-cascade-500-pnp.md
+- name: Related
+- name: Resources
