@@ -65,10 +65,10 @@ Configure and test Azure AD SSO with Hightail using a test user called **B.Simon
 To configure and test Azure AD SSO with Hightail, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Hightail SSO](#configure-hightail-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Hightail test user](#create-hightail-test-user)** - to have a counterpart of B.Simon in Hightail that is linked to the Azure AD representation of user.
+    * **[Create Hightail test user](#create-hightail-test-user)** - to have a counterpart of B.Simon in Hightail that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -90,6 +90,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL:
     `https://www.hightail.com/loginSSO`
+
+1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, PureCloud by Genesys application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute|
+	| -------- |-------- |
+	| FirstName | user.givenname |
+	| LastName | user.surname |
+	| Email | user.mail |
+	| UserIdentity | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
