@@ -194,7 +194,6 @@ This section only applies to the standard file shares. All premium file shares a
 
 - LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created with large file shares.
 
-
 ### Regional availability
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, they are available with a 100 TiB limit, those regions are listed in the following table:
@@ -220,7 +219,7 @@ To help us prioritize new regions and features, please fill out this [survey](ht
 
 ### Enable and create larger file shares
 
-To begin using larger file shares, see our article [Enable large fileshares](storage-files-how-to-create-large-file-share.md).
+To begin using larger file shares, see our article [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
 ## Data growth pattern
 
