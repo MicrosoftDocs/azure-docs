@@ -32,7 +32,7 @@
         href: virtual-wan-route-table.md
   - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
-  - name: Configure certificates for point-to-site
+  - name: Configure certificates for user VPN
     href: certificates-point-to-site.md
 - name: Reference
   items:
