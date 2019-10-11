@@ -11,7 +11,11 @@ ms.author: normesta
 ---
 # Integrate Azure Data Lake Storage with Azure services
 
-You can use Azure services to ingest data, perform analytics, and create visual representations. The following table lists the Azure services that support Azure Data Lake Storage Gen2.
+You can use Azure services to ingest data, perform analytics, and create visual representations. This article provides a list of supported Azure services and provides you with links to articles that help you to use these services with Azure Data Lake Storage Gen2.
+
+## Azure services that support Azure Data Lake Storage Gen2
+
+The following table lists the Azure services that support Azure Data Lake Storage Gen2.
 
 | Azure service |  Related articles |
 |---------------|-------------------|
