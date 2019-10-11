@@ -44,7 +44,7 @@ Range operators:
 
 ## Filter
 
-**$filter** - supply an OData filter parameter to find only the objects you’re interested in.
+**$filter** - Use filter to supply an OData filter parameter to find only the objects you’re interested in.
 
 The following REST example filters on the alternateId of an asset:
 
@@ -61,7 +61,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## Order by
 
-**$orderby** - sorts the returned objects by the specified parameter. For example:    
+**$orderby** - Use it to sort the returned objects by the specified parameter. For example:    
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -149,80 +149,43 @@ var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobSta
 client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
 ```
 
-## Filtering, ordering, paging options of entities
+## Filtering, ordering options of entities
 
-### Assets
+The following table shows how the filtering and ordering options may be applied to different entities:
 
-The following table shows how the filtering and ordering options may be applied to the [asset](https://docs.microsoft.com/rest/api/media/assets) properties: 
+|Entity name|Property name|Filter|Order|
+|---|---|---|---|
+|Asset|name|`eq`, `gt`, `lt`|`asc` and `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
+|Content key policies|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.policyId|`eq`, `ne`||
+|Jobs| name                    | `eq`            | `asc` and `desc`|
+||properties.state        | `eq`, `ne`        |                         |
+||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
+|Streaming locators|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+| Streaming policies|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|Transforms| name                    | `eq`            | `asc` and `desc`|
+|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
-|Name|Filter|Order|
-|---|---|---|
-|name|`eq`, `gt`, `lt`|`asc` and `desc`|
-|properties.alternateId |`eq`||
-|properties.assetId |`eq`||
-|properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
+## Paging sizes
 
-Pagination is supported for each of the four enabled sort orders. The page size is 1000.
-
-### Content Key Policies
-
-The following table shows how these options may be applied to the [content key policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
-|properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|properties.policyId|`eq`, `ne`||
-
-Pagination is supported for each of the four enabled sort orders. The page size is 10.
-
-### Jobs
-
-The following table shows how these options may be applied to the [job](https://docs.microsoft.com/rest/api/media/jobs) properties: 
-
-| Name    | Filter                        | Order |
-|---------|-------------------------------|-------|
-| name                    | `eq`            | `asc` and `desc`|
-| properties.state        | `eq`, `ne`        |                         |
-| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
-| properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
-
-Jobs pagination is supported in Media Services v3. You can paginate the response, with 500 jobs per page.
-
-### Streaming Locators
-
-The following table shows how these options may be applied to the streaming locator properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
-|properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-
-Pagination is supported for each of the four enabled sort orders. The page size is 10.
-
-### Streaming Policies
-
-The following table shows how these options may be applied to the streaming policies:
-
-|Name|Filter|Order|
-|---|---|---|
-|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-
-### Transform
-
-The following table shows how these options may be applied to the [Transforms](https://docs.microsoft.com/rest/api/media/transforms) properties: 
-
-| Name    | Filter                        | Order |
-|---------|-------------------------------|-------|
-| name                    | `eq`            | `asc` and `desc`|
-| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
-| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
-
-You can paginate the response with 1000 transforms per page.
+|Entity name|Entities per page|
+|---|---|
+|Asset|1000|
+|Content Key Policies|10|
+|Jobs|500|
+|Streaming Locators|10|
+|Transforms|1000|
     
 ## Next steps
 
