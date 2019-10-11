@@ -226,7 +226,7 @@ The app is now complete. It can store a set of categories in the device local st
 
 1. In Visual Studio, select F5 to compile and start the app. The app UI provides a set of toggles that lets you choose the categories to subscribe to.
 
-   ![Breaking News app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews.png)
+   ![Breaking News app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breaking-news.png)
 
 1. Enable one or more category toggles, and then select **Subscribe**.
 
