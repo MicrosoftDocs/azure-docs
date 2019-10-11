@@ -167,11 +167,11 @@ These steps show how select the managed identity for trigger or action in Azure 
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-   The **URI** property specifies the HTTP or HTTPS endpoint URL for the target service that you want to call. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the Logic Apps REST API version for the HTTP operation.
+   The **URI** property specifies the HTTP or HTTPS endpoint URL for the target service that you want to call. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the HTTP operation.
 
    `https://{service-resource-ID}/subscriptions/{subscription-ID}?api-version={REST-API-version}`
 
-   This example uses the resource ID for Azure Resource Manager in the Azure Global environment.
+   For example, this URI uses the resource ID for Azure Resource Manager in the Azure Global environment.
 
    `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2016-06-01`
 
