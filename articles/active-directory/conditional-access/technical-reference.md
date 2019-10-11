@@ -70,7 +70,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### Other applications
