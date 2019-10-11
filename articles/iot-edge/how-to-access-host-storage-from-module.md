@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Give modules access to an IoT Edge device's local storage
+# Give modules access to a device's local storage
 
 In addition to storing data using Azure storage services or in your device's container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
