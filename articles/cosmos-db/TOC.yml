@@ -141,6 +141,9 @@
         - name: ORDER BY
           displayName: order by, order by clause
           href: sql-query-order-by.md
+        - name: GROUP BY 
+          displayName: group by
+          href: sql-query-group-by.md
         - name: OFFSET LIMIT
           displayName: offset limit
           href: sql-query-offset-limit.md
