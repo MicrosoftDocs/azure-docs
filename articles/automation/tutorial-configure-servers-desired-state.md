@@ -59,6 +59,10 @@ configuration TestConfig {
 }
 ```
 
+> [!NOTE]
+> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
+> make sure each module has a unique `Import-DscResource` line in your configuration.
+
 Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configuration into your Automation account:
 
 ```powershell
@@ -135,6 +139,23 @@ This assigns the node configuration named `TestConfig.WebServer` to the register
 By default, the DSC node is checked for compliance with the node configuration every 30 minutes.
 For information about how to change the compliance check interval, see
 [Configuring the Local Configuration Manager](/PowerShell/DSC/metaConfig).
+
+## Working with Partial Configurations
+
+Azure Automation State Configuration supports usage of
+[partial configurations](/powershell/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently,
+and each configuration is retrieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
+
+For details about how to register a partial configuration from pull service,
+see the documentation for
+[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+For more information about how teams can work together to collaboratively manage servers
+using configuration as code see
+[Understanding DSC's role in a CI/CD Pipeline](/powershell/dsc/overview/authoringadvanced).
 
 ## Check the compliance status of a managed node
 

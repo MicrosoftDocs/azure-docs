@@ -3,10 +3,8 @@ title: Strengthen your security posture with Azure Security Center | Microsoft D
 description: This article helps you strengthen your security posture by monitoring your resources in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Strengthen your security posture with Azure Security Center

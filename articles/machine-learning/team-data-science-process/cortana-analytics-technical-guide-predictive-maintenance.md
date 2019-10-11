@@ -154,7 +154,7 @@ The Azure Stream Analytics query can be found by:
 
 Information about Azure Stream Analytics query construction can be found
 in the [Stream Analytics Query
-Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 on MSDN.
 
 In this solution, the queries output three datasets with near real-time

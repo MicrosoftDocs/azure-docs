@@ -7,7 +7,6 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
@@ -20,8 +19,6 @@ This guide explains how to use Az module to create a policy assignment.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -69,7 +66,7 @@ The preceding commands use the following information:
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group.
 
-You’re now ready to identify non-compliant resources to understand the compliance state of your
+You're now ready to identify non-compliant resources to understand the compliance state of your
 environment.
 
 ## Identify non-compliant resources

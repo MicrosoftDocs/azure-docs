@@ -1,9 +1,10 @@
 ---
 title: "Immersive Reader SDK Reference"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reference for the Immersive Reader SDK
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
@@ -18,22 +19,22 @@ The Immersive Reader SDK is a JavaScript library that allows you to integrate th
 
 ## Functions
 
-The SDK exposes a single function, `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
+The SDK exposes a single function, `ImmersiveReader.launchAsync(token, subdomain, content, options)`.
 
 ### launchAsync
 
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The access token acquired from the call to the `issueToken` endpoint. |
-| `resourceName` | string | Reserved. Must be set to `null`. |
+| `token` | string | The Azure AD authentication token. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
@@ -68,6 +69,7 @@ Contains the content to be shown in the Immersive Reader.
 | --------- | ----------- |
 | text/plain | Plain text. |
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### Options
 
@@ -99,7 +101,8 @@ Contains information about the error.
 | ---- | ----------- |
 | BadArgument | Supplied argument is invalid, see `message` for details. |
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
-| TokenExpired| The supplied token is expired. |
+| TokenExpired | The supplied token is expired. |
+| Throttled | The call rate limit has been exceeded. |
 
 ## Launching the Immersive Reader
 
@@ -131,5 +134,5 @@ Use the most recent versions of the following browsers for the best experience w
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK on GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstart.md)

@@ -5,15 +5,12 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/12/2019
+ms.date: 09/20/2019
 ms.author: victorh
 ---
 # Azure Private DNS FAQ
 
-> [!IMPORTANT]
-> Azure Private DNS is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## Does Azure DNS support private domains?
 
@@ -23,11 +20,11 @@ For information on other internal DNS options in Azure, see [Name resolution for
 
 ## Will Azure DNS Private Zones work across Azure regions?
 
-Yes. Private Zones is supported for DNS resolution between virtual networks across Azure regions. Private Zones works even without explicitly peering the virtual networks. All the virtual networks must be specified as Resolution virtual networks for the private zone. Customers might need the virtual networks to be peered for TCP/HTTP traffic to flow from one region to another.
+Yes. Private Zones is supported for DNS resolution between virtual networks across Azure regions. Private Zones works even without explicitly peering the virtual networks. All the virtual networks must be specified as Resolution virtual networks for the private zone. You might need the virtual networks to be peered for TCP/HTTP traffic to flow from one region to another.
 
 ## Is connectivity to the Internet from virtual networks required for private zones?
 
-No. Private zones work along with virtual networks. Customers use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution.
+No. Private zones work along with virtual networks. You use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution.
 
 ## Can the same private zone be used for several virtual networks for resolution?
 

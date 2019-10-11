@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/13/2019
 ---
 # Migrate to the new Elastic Database jobs

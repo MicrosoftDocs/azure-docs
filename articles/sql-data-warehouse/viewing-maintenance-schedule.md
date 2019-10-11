@@ -22,7 +22,7 @@ To view the maintenance schedule that has been applied to your data warehouse, c
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 2.	Select the data warehouse that you want to view. 
-3.	The selected data warehouse opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule (preview)**.
+3.	The selected data warehouse opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
 
 ![Overview blade](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

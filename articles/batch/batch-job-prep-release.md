@@ -4,12 +4,11 @@ description: Use job-level preparation tasks to minimize data transfer to Azure 
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
@@ -69,6 +68,8 @@ Once a job is marked as completed, the job release task is executed on each node
 
 > [!NOTE]
 > Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
+
+Jobs release tasks can run for a maximum of 15 minutes before being terminated by the Batch service. For more information, see the [REST API reference documentation](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 

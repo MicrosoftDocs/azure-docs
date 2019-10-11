@@ -31,6 +31,8 @@ over more details on how to create and implement policies with Azure Policy.
 > regardless of pricing tier. If your assignments do not show the compliance data, please ensure that
 > the subscription is registered with the Microsoft.PolicyInsights resource provider.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How is it different from RBAC?
 
 There are a few key differences between Azure Policy and role-based access control (RBAC). RBAC
@@ -162,7 +164,7 @@ In this scenario, when defining the initiative parameters for **initiativeC**, y
 options:
 
 - Use the parameters of the policy definitions within this initiative: In this example, *allowedLocations* and *allowedSingleLocation* become initiative parameters for **initiativeC**.
-- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA’s parameter – allowedLocations** and **policyB’s parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
+- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA's parameter – allowedLocations** and **policyB's parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
 - Provide a list of *value* options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
 
 When creating value options in an initiative definition, you're unable to input a different value

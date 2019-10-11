@@ -3,7 +3,7 @@ title: "Azure Status Monitor v2 API reference: Enable monitoring | Microsoft Doc
 description: Status Monitor v2 API reference. Enable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,14 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
@@ -87,9 +82,9 @@ You can create a single installation script for several computers by setting `Ma
 - **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
 	- 'ComputerName' will match only computers with the exact name specified.
-- **AppFilter** is a required C# regex of the computer or VM name.
+- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
 	- '.*' will match all
-	- 'ApplicationName' will match only IIS apps with the exact name specified.
+	- 'SiteName' will match only the IIS Site with the exact name specified.
 - **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
 	- Leave this value null if you want to define rules to exclude monitoring.
 

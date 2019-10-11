@@ -1,6 +1,6 @@
 ---
-title: Get intent, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: Get intent, Java - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this Java quickstart, use an available public LUIS app to determine a user's intention from conversational text.    
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: diberry
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Java. 
 ---

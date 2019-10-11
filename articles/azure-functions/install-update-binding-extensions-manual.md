@@ -8,7 +8,6 @@ manager: jeconnoc
 keywords: azure functions, functions, binding extensions, NuGet, updates
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga

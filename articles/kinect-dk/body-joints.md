@@ -2,7 +2,8 @@
 title:  Azure Kinect body tracking joints
 description: Using body frame and joints
 author: qm13
-ms.author: cedmonds, abalan, quentinm
+ms.author: quentinm
+ms.reviewer: cedmonds, abalan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -15,7 +16,7 @@ Azure Kinect body tracking can track multiple human bodies at the same time. Eac
 
 ## Joints
 
-Joint position and orientation are estimates relative to the depth sensor frame of reference. The position is specified in millimeters. The orientation is expressed as a normalized quaternion and is the local orientation of the connection (bone) with child joints.
+Joint position and orientation are estimates relative to the global depth sensor frame of reference. The position is specified in millimeters. The orientation is expressed as a normalized quaternion.
 
 ## Joint coordinates
 

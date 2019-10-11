@@ -2,7 +2,7 @@
 title: Upgrading to the Azure Search .NET Management SDK version 2 - Azure Search
 description: Upgrade to the Azure Search .NET Management SDK version 2 from previous versions. Learn what's new and what code changes are required.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search

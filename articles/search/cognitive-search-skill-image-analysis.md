@@ -2,23 +2,22 @@
 title: Image Analysis cognitive search skill - Azure Search
 description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/28/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 #	Image Analysis cognitive skill
 
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> Small volumes (under 20 transactions) can be executed for free in Azure Search, but larger workloads require [attaching a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -33,9 +32,8 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | defaultLanguageCode	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *zh* - Simplified Chinese|
-|visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li><li>*description* - describes the image content with a complete English sentence.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender, and age.</li><li>	*imageType* - detects if image is clip art or a line drawing.</li><li>	*color* - determines the accent color, dominant color, and whether an image is black&white.</li><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.</li></ul> Names of visual features are case-sensitive.|
-| details	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image.</li></ul>
- |
+|visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li> *tags* - tags the image with a detailed list of words related to the image content.</li><li>*description* - describes the image content with a complete English sentence.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender, and age.</li><li>	*imageType* - detects if image is clip art or a line drawing.</li><li>	*color* - determines the accent color, dominant color, and whether an image is black&white.</li><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.</li></ul> Names of visual features are case-sensitive.|
+| details	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
 
@@ -45,7 +43,8 @@ Parameters are case-sensitive.
 
 
 
-##	Sample definition
+##	Sample skill definition
+
 ```json
         {
             "description": "Extract image analysis.",
@@ -312,7 +311,17 @@ Parameters are case-sensitive.
             "targetFieldName": "faces"
         }
 ```
+### Variation on output field mappings (nested properties)
 
+You can define output field mappings to lower-level properties, such as just landmarks or celebrities. In this case, make sure your index schema has a field to contain landmarks specifically.
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
+            "targetFieldName": "landmarks"
+        }
+```
 ##	Sample input
 
 ```json
@@ -328,7 +337,8 @@ Parameters are case-sensitive.
                     "originalWidth": 5000,
                     "originalHeight": 3000,
                     "rotationFromOriginal": 90,
-                    "contentOffset": 500
+                    "contentOffset": 500,
+                    "pageNumber": 2
                 }
             }
         }
@@ -488,6 +498,22 @@ In the following error cases, no elements are extracted.
 | NotSupportedVisualFeature  | Specified feature type is not valid. |
 | NotSupportedImage | Unsupported image, for example, child pornography. |
 | InvalidDetails | Unsupported domain-specific model. |
+
+If you get the error similar to `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, check the path. Both celebrities and landmarks are properties under `detail`.
+
+```json
+"categories":[  
+      {  
+         "name":"building_",
+         "score":0.97265625,
+         "detail":{  
+            "landmarks":[  
+               {  
+                  "name":"Forbidden City",
+                  "confidence":0.92013400793075562
+               }
+            ]
+```
 
 ## See also
 

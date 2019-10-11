@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
 ---
 
@@ -18,14 +18,21 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 In this tutorial, you learn how to:
 
-* Create an Azure Time Series Insights Preview environment.
-* Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
-* Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
-* Perform basic analysis on the data.
-* Define a Time Series Model type and hierarchy, and associate it with your instances.
+> [!div class="checklist"]
+> * Create an Azure Time Series Insights Preview environment.
+> * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
+> * Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
+> * Perform basic analysis on the data.
+> * Define a Time Series Model type and hierarchy, and associate it with your instances.
 
 >[!TIP]
 > [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
+
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+
+## Prerequisites
+
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
 
@@ -50,7 +57,7 @@ In this section, you create three simulated devices that send data to an Azure I
 
     [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## Create a Time Series Insights Preview PAYG environment
+## Create a Preview PAYG environment
 
 This section describes how to create an Azure Time Series Insights Preview environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
@@ -118,7 +125,9 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    If your credentials aren't listed, you must grant yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
-## Stream data into your environment
+## Stream data
+
+Now that you've deployed your Time Series Insights environment, stream data into it for analysis.
 
 1. Navigate back to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Locate your solution in your solution accelerator dashboard. Then, select **Launch**:
 
@@ -146,7 +155,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## Analyze data in your environment
+## Analyze data
 
 In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
@@ -316,6 +325,14 @@ In this section, you apply a model to structure your data. To complete the model
 1. To see event details, select a region, and then right-click the chart:
 
    [![Detailed list of events](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

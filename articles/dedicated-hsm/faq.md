@@ -3,7 +3,7 @@ title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
 author: johncdawson
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 5/8/2019
-ms.author: barclayn
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---

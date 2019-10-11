@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 06/20/2019
+ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -18,8 +18,6 @@ Azure SQL Data Warehouse provides a rich monitoring experience within the Azure 
 ## Resource utilization 
 The following metrics are available in the Azure portal for SQL Data Warehouse. These metrics are surfaced through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Currently node level CPU and IO metrics do not properly reflect data warehouse usage. These metrics will be removed in the near future as the team improves the monitoring and troubleshooting experience for SQL Data Warehouse. 
 
 | Metric Name             | Description                                                  | Aggregation Type |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -36,6 +34,10 @@ The following metrics are available in the Azure portal for SQL Data Warehouse. 
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Maximum          |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Maximum          |
 
+> Things to consider when viewing metrics and setting alerts:
+>
+> - Failed and successful connections are reported for a particular data warehouse - not for the logical server
+
 ## Query activity
 For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
@@ -49,4 +51,3 @@ Both metrics and logs can be exported to Azure Monitor, specifically the [Azure 
 The following How-to guides describe common scenarios and use cases when monitoring and managing your data warehouse:
 
 - [Monitor your data warehouse workload with DMVs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
-

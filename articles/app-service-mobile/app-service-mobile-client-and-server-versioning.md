@@ -26,8 +26,6 @@ enforced through a special header value used by the client and server SDKs, `ZUM
 
 Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions.
 
-To learn more about migrating to App Service without any code changes, see the article [Migrate a Mobile Service to Azure App Service].
-
 ## Header specification
 The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the query string. The value is a version string in the form **x.y.z**.
 

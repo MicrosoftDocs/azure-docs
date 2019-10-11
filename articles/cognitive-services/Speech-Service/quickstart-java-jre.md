@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Services'
+title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services

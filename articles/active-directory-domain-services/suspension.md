@@ -18,7 +18,8 @@ ms.date: 05/20/2019
 ms.author: iainfou
 
 ---
-# Suspended domains
+# Understand the suspended states for an Azure Active Directory Domain Services managed domain
+
 When Azure Active Directory Domain Services (Azure AD DS) is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
 
 

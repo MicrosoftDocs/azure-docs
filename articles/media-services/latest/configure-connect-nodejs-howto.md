@@ -25,6 +25,9 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 - Install [Node.js](https://nodejs.org/en/download/).
 - [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
+
 ## Create package.json
 
 1. Create a package.json file using your favorite editor.

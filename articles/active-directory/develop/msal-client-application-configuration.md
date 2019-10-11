@@ -3,7 +3,7 @@ title: Client application configuration (Microsoft Authentication Library) | Azu
 description: Learn about the configuration options for public client and confidential client applications in the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
-ms.author: ryanwi
+ms.date: 07/16/2019
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the types of client applications so I can decide if this platform meets my app development needs.
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Application configuration options
 
-In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens. You can set a number of configuration options when you initialize the client app in Microsoft Authentication Library (MSAL). These options fall into two groups:
+In your code, you initialize a new public or confidential client application (or user-agent for MSAL.js) to authenticate and acquire tokens. You can set a number of configuration options when you initialize the client app in Microsoft Authentication Library (MSAL). These options fall into two groups:
 
 - Registration options, including:
     - [Authority](#authority) (composed of the identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the app, and possibly the tenant ID).
@@ -35,10 +35,10 @@ In your code, you initialize a new public or confidential client (or user-agent 
 ## Authority
 The authority is a URL that indicates a directory that MSAL can request tokens from. Common authorities are:
 
-- https://login.microsoftonline.com/&lt;tenant&gt;/, where &lt;tenant&gt; is the tenant ID of the Azure Active Directory (Azure AD) tenant or a domain associated with this Azure AD tenant. Used only to sign in users of a specific organization.
-- https://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or personal Microsoft accounts.
-- https://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
-- https://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft accounts (formerly known as Windows Live ID accounts).
+- https\://login.microsoftonline.com/\<tenant\>/, where &lt;tenant&gt; is the tenant ID of the Azure Active Directory (Azure AD) tenant or a domain associated with this Azure AD tenant. Used only to sign in users of a specific organization.
+- https\://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or personal Microsoft accounts.
+- https\://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
+- https\://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft accounts (formerly known as Windows Live ID accounts).
 
 The authority setting needs to be consistent with what's declared in the application registration portal.
 
@@ -47,7 +47,7 @@ The authority URL is composed of the instance and the audience.
 The authority can be:
 - An Azure AD cloud authority.
 - An Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- An Active Directory Federation Services (ADFS) authority. See [ADFS support](https://aka.ms/msal-net-adfs-support).
+- An Active Directory Federation Services (AD FS) authority. See [AD FS support](https://aka.ms/msal-net-adfs-support).
 
 Azure AD cloud authorities have two parts:
 - The identity provider *instance*
@@ -100,11 +100,19 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 ### Redirect URI for public client apps
 If you're a public client app developer who's using MSAL:
-- You don't need to pass `RedirectUri` because it's automatically computed by MSAL. This redirect URI is set to one of these values, depending on the platform:
-   - `urn:ietf:wg:oauth:2.0:oob` for all Windows platforms
-   - `msal{ClientId}://auth` for Xamarin Android and iOS
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's 
+  redirect uri property to the default recommended redirect uri for public client applications. 
 
-- You do need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
+  Platform  | Redirect URI  
+  ---------  | --------------
+  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register
+  .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.
+
+- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support broker (the
+  redirect URI is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS
+
+- You need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
    ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -116,7 +124,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 For details, see the [documentation for Android and iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 
 ### Redirect URI for confidential client apps
-For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
+For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 

@@ -3,7 +3,7 @@ title: Azure Resource Manager resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
 ---
@@ -97,9 +97,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Management Groups](/azure/governance/management-groups/) |

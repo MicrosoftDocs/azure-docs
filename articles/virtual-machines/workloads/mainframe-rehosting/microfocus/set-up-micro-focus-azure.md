@@ -4,10 +4,14 @@ description: Rehost your IBM z/OS mainframe workloads using the Micro Focus deve
 services: virtual-machines-linux
 documentationcenter:
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags:
 keywords:
+ms.service: multiple
 ---
 
 # Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure

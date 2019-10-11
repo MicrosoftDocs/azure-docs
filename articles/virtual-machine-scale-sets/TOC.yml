@@ -66,10 +66,17 @@
   - name: Azure Resource Manager
     href: ../azure-resource-manager/resource-group-overview.md
     maintainContext: true
-  - name: Regions and availability
-    href: ../virtual-machines/windows/regions-and-availability.md
+  - name: Regions
+    href: ../virtual-machines/windows/regions.md
+  - name: Availability and performance
     maintainContext: true
     items:
+    - name: Availability
+      href: availability.md
+    - name: Co-location
+      href: co-location.md
+    - name: Network performance
+      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: VM types and sizes
@@ -156,6 +163,8 @@
       maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
+  - name: Built-in security controls
+    href: virtual-machine-scale-sets-security-controls.md
 - name: How To
   items:
   - name: Plan and design
@@ -231,6 +240,8 @@
       href: virtual-machine-scale-sets-automatic-upgrade.md
     - name: Instance protection (Preview)
       href: virtual-machine-scale-sets-instance-protection.md
+    - name: Terminate notification on delete (Preview)
+      href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries
       items:
       - name: Overview
@@ -243,6 +254,8 @@
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Using DSC and scale sets

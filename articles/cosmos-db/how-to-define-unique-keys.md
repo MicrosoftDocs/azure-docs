@@ -3,8 +3,8 @@ title: Define unique keys for an Azure Cosmos container
 description: Learn how to define unique keys for an Azure Cosmos container
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 09/17/2019
 ms.author: thweiss
 ---
 
@@ -38,15 +38,33 @@ When creating a new container using the [.NET SDK v2](https://www.nuget.org/pack
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
 {
     Id = "container",
+    PartitionKey = new PartitionKeyDefinition { Paths = new Collection<string>(new List<string> { "/myPartitionKey" }) },
     UniqueKeyPolicy = new UniqueKeyPolicy
     {
         UniqueKeys = new Collection<UniqueKey>(new List<UniqueKey>
         {
-            new UniqueKey { Paths = new Collection<string>(new List<string> { "/firstName", "/lastName", "emailAddress" }) },
+            new UniqueKey { Paths = new Collection<string>(new List<string> { "/firstName", "/lastName", "/emailAddress" }) },
             new UniqueKey { Paths = new Collection<string>(new List<string> { "/address/zipCode" }) }
         })
     }
 });
+```
+
+## Use the .NET SDK V3
+
+When creating a new container using the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use the SDK's fluent API to declare unique keys in a concise and readable way.
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithUniqueKey()
+        .Path("/firstName")
+        .Path("/lastName")
+        .Path("/emailAddress")
+    .Attach()
+    .WithUniqueKey()
+        .Path("/address/zipCode")
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## Use the Java SDK
@@ -106,8 +124,8 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
     'id': 'container',
     'uniqueKeyPolicy': {
         'uniqueKeys': [
-            { 'paths': ['/firstName', '/lastName', '/emailAddress'] },
-            { 'paths': ['/address/zipCode'] }
+            {'paths': ['/firstName', '/lastName', '/emailAddress']},
+            {'paths': ['/address/zipCode']}
         ]
     }
 })

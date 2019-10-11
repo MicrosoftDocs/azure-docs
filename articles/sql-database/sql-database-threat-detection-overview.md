@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/31/2019
 ---
 # Advanced Threat Protection for Azure SQL Database

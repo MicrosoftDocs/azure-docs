@@ -3,28 +3,32 @@ title: Project Acoustics Overview
 titlesuffix: Azure Cognitive Services
 description: Project Acoustics is an acoustics engine for 3D interactive experiences, integrating baked wave physics simulation with interactive design controls.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 # Customer intent: As a sound designer, I want an occlusion, reverb, and portaling system to manage the mix and anchor sounds in a virtual world.
 ---
 
 # What is Project Acoustics?
-Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like diffraction, portaling and reverb effects in complex scenes without requiring manual zone markup. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals.
+Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like occlusion, obstruction, portaling and reverberation effects in complex scenes without requiring manual zone markup or CPU intensive raytracing. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals for the acoustics of your virtual world.
 
 ![Screenshot from Gears of War 4 showing acoustics voxels](media/gears-with-voxels.jpg)
 
 ## Using wave physics for interactive acoustics
-Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The result is more predictable and reliable.
+Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The acoustics are more predictable, accurate and seamless.
 
-Project Acoustics' key innovation is to couple acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
+Project Acoustics' key innovation is to couple real sound wave based acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animation showing a horizontal 2D slice of wave propagation through a scene](media/wave-simulation.gif)
+
+## Video Presentation from GDC 2019 (~30 min)
+[![Project Acoustics Video](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Click to play video")
 
 ## Setup
 [Project Acoustics Unity integration](unity-integration.md) is drag-and-drop and includes a Unity audio engine plugin. Augment the Unity audio source controls by attaching a Project Acoustics C# controls component to each audio object.
@@ -36,11 +40,17 @@ Project Acoustics' key innovation is to couple acoustic simulation with traditio
 * **Bake:** An analysis step is run locally, which does voxelization and other geometric analysis on the scene based on selections above. Results are visualized in editor to verify scene setup. On bake submission, voxel data is sent off to Azure and you get back an acoustics game asset.
 * **Runtime:** Load the asset into your level, and you're ready to listen to acoustics in your level. Design the acoustics live in editor using granular per-source controls. The controls can also be driven from level scripting.
 
-## Platforms
+## Runtime platforms
 The Project Acoustics runtime plugins can currently be deployed to the following platforms:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## Editor platforms
+The Project Acoustics editor plugin is available for the following platforms:
+* Windows
+* MacOS (Unity only)
 
 ## Download
 * [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

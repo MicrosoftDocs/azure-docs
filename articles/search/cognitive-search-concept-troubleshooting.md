@@ -2,16 +2,15 @@
 title: Troubleshooting tips for cognitive search - Azure Search
 description: Tips and troubleshooting for setting up cognitive search pipelines in Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.custom: seodec2018
 ---
 # Troubleshooting tips for cognitive search
 

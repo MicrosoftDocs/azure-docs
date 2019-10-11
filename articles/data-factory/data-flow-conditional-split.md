@@ -26,4 +26,4 @@ To add additional conditions, select "Add Stream" in the bottom configuration pa
 
 ## Next steps
 
-Common data flow transformations used with conditional split: [Join transformation](data-flow-join.md), [Loopup transformation](data-flow-lookup.md), [Select transformation](data-flow-select.md)
+Common data flow transformations used with conditional split: [Join transformation](data-flow-join.md), [Lookup transformation](data-flow-lookup.md), [Select transformation](data-flow-select.md)

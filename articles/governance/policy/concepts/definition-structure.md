@@ -3,11 +3,10 @@ title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -18,7 +17,7 @@ you can specify that only certain types of virtual machines are allowed. Or, you
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
 applied to a resource group, it's applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+The schema used by Azure Policy can be found here: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -66,11 +65,9 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Mode
 
-**Mode** is configured depending if the policy is targeting an Azure Resource Manager property or a
+**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
 Resource Provider property.
 
 ### Resource Manager modes
@@ -122,7 +119,7 @@ A parameter has the following properties that are used in the policy definition:
 
 - **name**: The name of your parameter. Used by the `parameters` deployment function within the
   policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string** or an **array**.
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
@@ -473,6 +470,7 @@ Azure Policy supports the following types of effect:
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
 - **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
   Service (preview)
+- **Modify**: adds, updates, or removes the defined tags from a resource
 
 For **append**, you must provide the following details:
 
@@ -504,6 +502,10 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
     ]
 }
 ```
+
+Similarly, **Modify** requires **roleDefinitionId** property in the **details** portion of the
+policy rule for the [remediation task](../how-to/remediate-resources.md). **Modify** also requires
+an **operations** array to define what actions to take on the resources tags.
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
@@ -578,8 +580,8 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
+  (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
 - Azure CLI
@@ -590,8 +592,8 @@ Policy, use one of the following methods:
   # List namespaces
   az provider list --query [*].namespace
 
-  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
-  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Compute -- Microsoft.Compute)
+  az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
 - REST API / ARMClient

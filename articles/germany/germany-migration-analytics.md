@@ -37,7 +37,7 @@ The following metadata elements are re-created when you export an Event Hubs tem
 For more information:
 
 - Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
-- Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs).
 - Check the migration steps for [Azure Service Bus](./germany-migration-integration.md#service-bus).
 - Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -54,7 +54,7 @@ For more specialized, long-running clusters (Kafka, Spark streaming, Storm, or H
 For more information:
 
 - Review the [Azure HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/).
-- Refresh your knowledge by completing the [HDInsight tutorials](https://docs.microsoft.com/azure/hdinsight/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [HDInsight tutorials](https://docs.microsoft.com/azure/hdinsight).
 - For help with [scaling HDInsight clusters](../hdinsight/hdinsight-administer-use-powershell.md#scale-clusters), see [Administer HDInsight by using PowerShell](../hdinsight/hdinsight-administer-use-powershell.md).
 - Learn how to use [AzCopy](../storage/common/storage-use-azcopy.md).
 

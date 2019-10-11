@@ -9,12 +9,10 @@
   items:
   - name: Using the client SDK
     items:
-    - name: Detect faces in an image
-      items:
-      - name: C#
-        href: QuickStarts/csharp-detect-sdk.md
-      - name: Python
-        href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: .NET SDK
+      href: Quickstarts/csharp-sdk.md
+    - name: Python SDK
+      href: QuickStarts/python-sdk.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -77,6 +75,8 @@
       href: face-how-to-install-containers.md
     - name: Configure containers
       href: face-resource-container-config.md
+    - name: Use container instances
+      href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
   - name: Use the Face API Connected Service
     href: vs-face-connected-service.md
 - name: Reference
@@ -86,7 +86,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
     - name: Python

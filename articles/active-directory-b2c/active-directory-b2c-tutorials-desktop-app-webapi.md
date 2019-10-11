@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Grant access to a Node.js web API from a desktop app using Azure Active Directory B2C
 
-This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected Node.js web API resource from a Windows Presentation Foundation (WPF) desktop app.
+This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C) protected Node.js web API resource from a Windows Presentation Foundation (WPF) desktop app.
 
 In this tutorial, you learn how to:
 
@@ -33,10 +33,10 @@ Complete the steps and prerequisites in [Tutorial: Enable desktop app authentica
 
 ## Add a web API application
 
-Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token. 
+Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application. For example, *webapi1*.
@@ -72,14 +72,14 @@ A user authenticates with Azure AD B2C to use the WPF desktop application. The d
 
 ## Configure the sample
 
-Now that the web API is registered and you have scopes defined, you configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample Node.js web application you can download from GitHub. 
+Now that the web API is registered and you have scopes defined, you configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample Node.js web application you can download from GitHub.
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web app from GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
-The Node.js web API sample uses the Passport.js library to enable Azure AD B2C to protect calls to the API. 
+The Node.js web API sample uses the Passport.js library to enable Azure AD B2C to protect calls to the API.
 
 1. Open the `index.js` file.
 2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
@@ -107,7 +107,7 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 1. Open the **active-directory-b2c-wpf** solution in Visual Studio.
 2. Press **F5** to run the desktop app.
 3. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
-4. Click the **Call API** button. 
+4. Click the **Call API** button.
 
 The desktop application makes a request to the web API to and gets a response with the logged-in user's display name. You're protected desktop application is calling the protected web API in your Azure AD B2C tenant.
 

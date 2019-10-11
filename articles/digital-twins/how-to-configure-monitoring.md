@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---
@@ -52,7 +52,7 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](../azure-monitor/platform/resource-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
@@ -118,12 +118,12 @@ Azure Monitor logs also provide powerful error and alert notification services, 
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit.md) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/fundamentals/log-audit.md) article.
 
 ## Next steps
 
 - Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
 
-- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
 
 - Read more about [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md).

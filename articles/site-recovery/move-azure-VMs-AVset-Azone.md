@@ -63,8 +63,8 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
      The following documents tell how to create the most commonly used network resources that are relevant to you, based on the source VM configuration.
 
     - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

@@ -46,7 +46,7 @@ The evaluation of the activity timestamp is triggered by an authentication attem
 - Windows 10 devices that are either Azure AD joined or hybrid Azure AD joined are active on the network. 
 - Intune managed devices have checked in to the service.
 
-If the delta between the existing value of the activity timestamp and the current value is more than 14 days, the existing value is replaced with the new value.
+If the delta between the existing value of the activity timestamp and the current value is more than 14 days (+/-5 day variance), the existing value is replaced with the new value.
 
 ## How do I get the activity timestamp?
 
@@ -69,14 +69,14 @@ To efficiently clean up stale devices in your environment, you should define a r
 To update a device in Azure AD, you need an account that has one of the following roles assigned:
 
 - Global Administrator
-- Cloud Device Administrator (New role available now!)
+- Cloud Device Administrator
 - Intune Service Administrator
 
 In your cleanup policy, select accounts that have the required roles assigned. 
 
 ### Timeframe
 
-Define a timeframe that is your indicator for a stale device. When defining your timeframe, factor the 14 days window for updating the activity timestamp into your value. For example, you shouldn't consider a timestamp that is younger than 14 days an indicator for a stale device. There are scenarios that can make a device look like stale while it isn't. For example, the owner of the affected device can be on vacation or on a sick leave.  that exceeds your timeframe for stale devices.
+Define a timeframe that is your indicator for a stale device. When defining your timeframe, factor the window noted for updating the activity timestamp into your value. For example, you shouldn't consider a timestamp that is younger than 21 days (includes variance) as an indicator for a stale device. There are scenarios that can make a device look like stale while it isn't. For example, the owner of the affected device can be on vacation or on a sick leave.  that exceeds your timeframe for stale devices.
 
 ### Disable devices
 
@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices  can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -97,15 +97,30 @@ Your hybrid Azure AD joined devices should follow your policies for on-premises 
 To cleanup Azure AD:
 
 - **Windows 10 devices** - Disable or delete Windows 10 devices in your on-premises AD, and let Azure AD Connect synchronize the changed device status to Azure AD.
-- **Windows 7/8** - Disable or delete Windows 7/8 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
+- **Windows 7/8** - Disable or delete Windows 7/8 devices in your on-premises AD first. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD. Instead, when you make the change in your on-premises, you must disable/delete in Azure AD.
+
+> [!NOTE]
+>* Deleting devices in your on-premises AD or Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. conditional access). Read additional information on how to [remove registration on the client](faq.md#hybrid-azure-ad-join-faq).
+>* Deleting a Windows 10 device only in Azure AD will re-synchronize the device from your on-premises using Azure AD connect but as a new object in "Pending" state. A re-registration is required on the device.
+>* Removing the device from sync scope for Windows 10/Server 2016 devices will delete the Azure AD device. Adding it back to sync scope will place a new object in "Pending" state. A re-registration of the device is required.
+>* If you not using Azure AD Connect for Windows 10 devices to synchronize (e.g. ONLY using AD FS for registration), you must manage lifecycle similar to Windows 7/8 devices.
+
 
 ### Azure AD joined devices
 
 Disable or delete Azure AD joined devices in the Azure AD.
 
+> [!NOTE]
+>* Deleting an Azure AD device does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g conditional access). 
+>* Read more on [how to unjoin on Azure AD](faq.md#azure-ad-join-faq) 
+
 ### Azure AD registered devices
 
 Disable or delete Azure AD registered devices in the Azure AD.
+
+> [!NOTE]
+>* Deleting an Azure AD registered device in Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. conditional access).
+>* Read more on [how to remove a registration on the client](faq.md#azure-ad-register-faq)
 
 ## Clean up stale devices in the Azure portal  
 
@@ -144,6 +159,13 @@ The timestamp is updated to support device lifecycle scenarios. This is not an a
 ### Why should I worry about my BitLocker keys?
 
 When configured, BitLocker keys for Windows 10 devices are stored on the device object in Azure AD. If you delete a stale device, you also delete the BitLocker keys that are stored on the device. You should determine whether your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device. 
+
+### Why should I worry about Windows Autopilot devices?
+
+When a Azure AD device was associated with a Windows Autopilot object the following three scenarios can occur if the device will be repurposed in future:
+- With Windows Autopilot user-driven deployments without using white glove, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
+- With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
+- With Windows Autopilot white glove deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, white glove deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
 
 ### How do I know all the type of devices joined?
 

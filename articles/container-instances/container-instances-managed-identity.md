@@ -3,6 +3,7 @@ title: Use a managed identity with Azure Container Instances
 description: Learn how to use a managed identity to authenticate with other Azure services from Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

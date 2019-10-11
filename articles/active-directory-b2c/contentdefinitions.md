@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can customize the look and feel of any [self-asserted technical profile](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). 
+You can customize the look and feel of any [self-asserted technical profile](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS).
 
 To customize the user interface, you specify a URL in the **ContentDefinition** element with customized HTML content. In the self-asserted technical profile or **OrchestrationStep**, you point to that content definition identifier. The content definition may contain a **LocalizedResourcesReferences** element that specifies a list of localized resources to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user.
 
@@ -66,9 +66,9 @@ The **ContentDefinition** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | A string that contains the URL of the HTML5 page for the content definition. |
-| RecoveryUri | 0:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. | 
-| DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |  
-| Metadata | 1:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. | 
+| RecoveryUri | 0:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. |
+| DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |
+| Metadata | 1:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
 
 ### DataUri
@@ -78,11 +78,11 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | Value |	Description |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Displays an error page when an exception or an error is encountered. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` |	Lists the identity providers that users can choose from during sign-in. | 
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0`	| Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. | 
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` |	Lists the identity providers that users can choose from during sign-in. |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0`	| Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Displays a form for signing in with a local account that's based on an email address or a user name. |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` |	Displays a form that enables users to create or update their profile. | 
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` |	Displays a form that enables users to create or update their profile. |
 
 
 ### LocalizedResourcesReferences
@@ -91,7 +91,7 @@ The **LocalizedResourcesReferences** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | A list of localized resource references for the content definition. | 
+| LocalizedResourcesReference | 1:n | A list of localized resource references for the content definition. |
 
 The **LocalizedResourcesReferences** element contains the following attributes:
 
@@ -137,7 +137,7 @@ To learn how to add localization support to your content definitions, see [Local
 
 The ID attribute of the **ContentDefinition** element specifies the type of page that relates to the content definition. The element defines the context that a custom HTML5/CSS template is going to apply. The following table describes the set of content definition IDs that is recognized by the Identity Experience Framework, and the page types that relate to them. You can create your own content definitions with an arbitrary ID.
 
-| ID | Default template | Description | 
+| ID | Default template | Description |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page** - Displays an error page when an exception or an error is encountered. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identity provider selection page** - Lists identity providers that users can choose from during sign-in. The options are usually enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
@@ -149,4 +149,4 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign up page, except for the password entry fields. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
- 
+

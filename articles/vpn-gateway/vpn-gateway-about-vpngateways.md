@@ -47,7 +47,7 @@ The following table can help you decide the best connectivity option for your so
 
 ## <a name="gwsku"></a>Gateway SKUs
 
-When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article. For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 

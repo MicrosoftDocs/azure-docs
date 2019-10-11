@@ -20,10 +20,19 @@
       displayName: RBAC
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
+    - name: Automate onboarding of Automation Services
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
+    - name: Supported Regions for Log Analytics Workspace Mappings
+      href: how-to/region-mappings.md
+    - name: Manage Azure Automation data
+      href: automation-managing-data.md
+      displayName: backup
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
     href: automation-hybrid-runbook-worker.md
+  - name: Runbook gallery
+    href: automation-runbook-gallery.md
   - name: Concepts
     items:
     - name: Runbook types
@@ -35,16 +44,10 @@
     items:
     - name: Create a runbook
       href: automation-quickstart-create-runbook.md
-  - name: Onboarding
-    items:
-    - name: Onboard multiple VMs from the portal
-      href: automation-onboard-solutions-from-browse.md
-    - name: Onboard from an Azure VM
-      href: automation-onboard-solutions-from-vm.md
-    - name: Onboard from Automation account
-      href: automation-onboard-solutions-from-automation-account.md
   - name: How-to Guides
     items:
+    - name: Start/stop VMs during off-hours
+      href: automation-solution-vm-management.md
     - name: Manage runbooks
       href: manage-runbooks.md
     - name: Create runbooks
@@ -82,8 +85,6 @@
         href: automation-child-runbooks.md
       - name: Pass a JSON object to an Azure Automation runbook
         href: automation-pass-json-string.md
-      - name: Start/stop VMs during off-hours
-        href: automation-solution-vm-management.md
     - name: Monitor runbooks
       items:
       - name: Runbook output
@@ -94,15 +95,6 @@
         displayName: fair share, activity log
       - name: Error handling in graphical runbooks
         href: automation-runbook-graphical-error-handling.md
-      - name: Source control integration
-        href: source-control-integration.md
-        displayName: github, vsts, azure devops, personal access token
-      - name: Source control integration - legacy
-        href: automation-source-control-integration-legacy.md
-        displayname: github
-      - name: Manage Azure Automation data
-        href: automation-managing-data.md
-        displayName: backup
     - name: Hybrid Runbook Worker
       items:
       - name: Deploy Windows Hybrid Runbook Worker
@@ -116,6 +108,19 @@
       - name: Track updated files with watcher tasks
         href: automation-watchers-tutorial.md
         displayName: hybrid runbook worker, hybrid worker, trigger
+    - name: Source Control Integration
+      items:
+      - name: Source control integration
+        href: source-control-integration.md
+        displayName: github, vsts, azure devops, personal access token
+      - name: Source control integration - legacy
+        href: automation-source-control-integration-legacy.md
+        displayname: github
+      - name: Source control integration with GitHub Enterprise
+        href: automation-scenario-source-control-integration-with-github-ent.md
+        displayName: CI, runbooks
+      - name: Source control integration with Azure DevOps
+        href: automation-scenario-source-control-integration-with-VSTS.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Hybrid Runbook Worker
@@ -212,9 +217,6 @@
     - name: Troubleshoot changes on a VM
       href: automation-tutorial-troubleshoot-changes.md
       displayName: inventory
-    - name: Manage a VM with inventory collection
-      href: automation-vm-inventory.md
-      displayName: inventory
   - name: Troubleshoot
     items:
     - name: Onboarding
@@ -234,7 +236,7 @@
     - name: Getting Started
       href: automation-dsc-getting-started.md
       displayName: DSC
-    - name: Create a DSC configuration
+    - name: Manage the configuration of a machine
       href: automation-quickstart-dsc-configuration.md
       displayName: DSC, state configuration, config, node configuration, node
   - name: Onboarding
@@ -253,6 +255,9 @@
     - name: Compiling DSC configurations
       href: automation-dsc-compile.md
       displayName: state configuration, composite resources, configurationData
+    - name: Remediate non-compliant DSC servers
+      href: automation-dsc-remediate.md
+      displayName: state configuration, DSC, remediate
     - name: Composing DSC Configurations using Composite Resources
       href: compose-configurationwithcompositeresources.md
     - name: Continuous deployment using Chocolatey
@@ -269,6 +274,22 @@
     - name: Troubleshoot State Configuration (DSC)
       href: troubleshoot/desired-state-configuration.md
       displayName: Desired State Configuration, troubleshoot
+  - name: Reference
+    items:
+    - name: Community Solutions
+      items:
+      - name: Configuration data at scale
+        href: automation-dsc-config-data-at-scale.md
+        displayName: DSC, Configuration Data, ConfigData
+      - name: Create configurations from servers
+        href: automation-dsc-config-from-server.md
+        displayName: DSC, ReverseDSC
+      - name: Configuration based on STIG
+        href: automation-dsc-configuration-based-on-stig.md
+        displayName: DSC, Configuration
+      - name: Convert configurations to composite resources
+        href: automation-dsc-create-composite.md
+        displayName: DSC, composite
 - name: Manage Shared Resources
   items:
     - name: Certificates
@@ -277,7 +298,7 @@
       href: automation-connections.md
     - name: Credentials
       href: automation-credentials.md
-    - name: Integration modules
+    - name: Modules
       href: automation-integration-modules.md
     - name: Schedules
       href: automation-schedules.md
@@ -292,8 +313,8 @@
       displayName: module, import
 - name: Cross-Component Scenarios
   items:
-    - name: Runbook gallery
-      href: automation-runbook-gallery.md
+    - name: Send an email from a Runbook using SendGrid
+      href: automation-send-email.md
     - name: Monitor runbooks with metric alerts
       href: automation-alert-metric.md
     - name: Start a runbook from Azure alerts
@@ -301,16 +322,13 @@
       displayName: Monitor, Azure Monitor
     - name: Create Amazon Web Service VM
       href: automation-scenario-aws-deployment.md
-    - name: Source control integration with GitHub Enterprise
-      href: automation-scenario-source-control-integration-with-github-ent.md
-      displayName: CI, runbooks
-    - name: Source control integration with Azure DevOps
-      href: automation-scenario-source-control-integration-with-VSTS.md
       displayName: VSTS, CI, runbooks
     - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
       href: automation-deploy-template-runbook.md
     - name: Integrate Azure Automation with Event Grid and Microsoft Teams
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Create and schedule Azure Automation runbook that starts/stops Azure-SSIS IR
+      href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Monitor
   items:
   - name: Forward Azure Automation job data to Log Analytics
@@ -326,14 +344,10 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.automation
-  - name: Azure PowerShell (Classic)
-    href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST
     href: /rest/api/automation
-  - name: REST (Classic)
-    href: https://msdn.microsoft.com/library/azure/mt163781
 - name: Resources
   items:
   - name: Automation introduction video

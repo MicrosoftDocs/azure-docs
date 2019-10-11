@@ -20,15 +20,11 @@ ms.custom: mvc
 
 # Quickstart: Route Azure App Configuration events to a web endpoint with Azure CLI
 
-Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers). In this article you will learn how to use the Azure CLI to subscribe to Azure App Configuration events.
+In this quickstart, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
-Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+## Prerequisites
 
-When you complete the steps described in this article, you see that the event data has been sent to the web app.
-
-![View subscription event](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/). You can optionally use the Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -142,3 +138,4 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [Reacting to Key-Value Events](concept-app-configuration-event.md)
 - [About Event Grid](../event-grid/overview.md)
+- [Azure Event Grid handlers](../event-grid/event-handlers.md)

@@ -1,5 +1,5 @@
 ---
-title: Applying content tags to images - Computer Vision
+title: Content tags - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to the images tagging feature of the Computer Vision API.
 services: cognitive-services

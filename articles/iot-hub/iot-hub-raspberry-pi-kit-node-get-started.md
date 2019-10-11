@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 07/17/2019
 ms.author: wesmc
 ---
 
@@ -77,10 +77,6 @@ The following items are optional:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -93,10 +89,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
 
-   a. [Download Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
-
-   > [!WARNING]
-   > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
 
    b. Extract the Raspbian image to a folder on your computer.
 
@@ -194,10 +187,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    node -v
    ```
 
-   If the version is lower than 10.x, or if there is no Node.js on your Pi, install the latest version.
+   If the version is lower than 11.x, or if there is no Node.js on your Pi, install the latest version.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

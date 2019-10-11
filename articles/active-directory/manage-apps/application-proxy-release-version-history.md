@@ -19,7 +19,9 @@ ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Application Proxy: Version release history
-This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released.
+This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released. 
+
+We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft provides direct support for the lastest connector version and one version before.
 
 Here is a list of related resources:
 

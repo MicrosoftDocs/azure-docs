@@ -1,159 +1,720 @@
 ---
-title: Troubleshooting Azure Data Factory | Microsoft Docs
-description: Troubleshooting Azure Data Factory. Common document for all external, control activities. 
+title: Troubleshoot Azure Data Factory | Microsoft Docs
+description: Learn how to troubleshoot external control activities in Azure Data Factory. 
 services: data-factory
-author: abnarain
-manager: craigg
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 6/26/2019
+ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
 ---
 
-# Troubleshooting Azure Data Factory
-This article lists common troubleshooting questions.
+# Troubleshoot Azure Data Factory
 
-- [Azure Databricks (notebook, jars, python)](#azure-databricks)
-- [Azure Data Lake Analytics (U-SQL)](#azure-data-lake-analytics-u-sql)
-- [Azure Functions](#azure-functions)
-- [Custom (Azure Batch)](#custom-azure-batch)
-- [HDInsight (Spark, Hive, MapReduce, Pig, Hadoop Streaming)](#hdinsight-spark-hive-mapreduce-pig-hadoop-streaming)
-- [Web Activity](#web-activity)
+This article explores common troubleshooting methods for external control activities in Azure Data Factory.
 
+## Connector and copy activity
 
+For connector issues e.g. encounter error using copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
 
 ## Azure Databricks
-| Error Code | Error Message                                          | Problem Description                             | Possible Fix/ Recommended Action                            |
-| -------------- | ----------------------------------------------------- | --------------------------------------------------------------| :----------------------------------------------------------- |
-| 3200           | Error 403                                                    | Databricks access token has expired.                         | By default, Databricks access token is valid for 90 days.  Please create a new token and update linked service. |
-| 3201           | Missing   required field: settings.task.notebook_task.notebook_path | Bad authoring: Notebook path not specified correctly. | Please specify notebook path in Databricks activity. |
-| 3201           | Cluster   ... does not exist                                 | Authoring   error: Databricks cluster does not exist or has been deleted. | Please verify that the Databricks cluster exists. |
-| 3201           | Invalid   python file URI: .... Please visit Databricks user guide for supported URI   schemes. | Bad authoring                                                | Specify either absolute paths for workspace addressing schemes, or   "dbfs:/folder/subfolder/foo.py" for DBFS-stored files. |
-| 3201           | {0}   LinkedService should have domain and accessToken as required properties | Bad authoring                                                | Please verify [linked service definition](compute-linked-services.md#azure-databricks-linked-service). |
-| 3201           | {0}   LinkedService should specify either existing cluster Id or new cluster   information for creation | Bad authoring                                                | Please verify [linked service definition](compute-linked-services.md#azure-databricks-linked-service). |
-| 3201           | Node   type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2 | Bad authoring                                                | Refer error message                                          |
-| 3201           | Invalid notebook_path: .... Only absolute paths are currently supported. Paths must   begin with '/'. | Bad authoring                                                | Refer error message                                          |
-| 3202           | There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds. | Too many Databricks runs in an hour.                         | Check all pipelines that use this Databricks workspace for job   creation rate.  If pipelines launched   too many Databricks runs in aggregate, migrate some pipelines to a new   workspace. |
-| 3202           | Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead. | Authoring error: No value provided for the parameter         | Inspect pipeline json and ensure all parameters in Notebook baseParameters have a non-empty value specified. |
-| 3202           | User: SimpleUserContext{userId=..., name=user@company.com, orgId=…} is not   authorized to access cluster | User that generated the access token is not allowed to access the   Databricks cluster specified in the linked service. | Ensure user has the required permissions in the workspace.   |
-| 3203           | The cluster is in Terminated state, not available to receive jobs. Please fix the   cluster or retry later. | Cluster has been terminated.    For interactive cluster, this might be a race condition. | Best way to avoid this is to use job clusters.             |
-| 3204           | Job execution failed. There can be any   number of error messages, from unexpected cluster state to activity-specific   message.  Most common is no error   message at all. | N/A                                                          | N/A                                                          |
+
+### Error code:  3200
+
+- **Message**: Error 403.
+
+- **Cause**: `The Databricks access token has expired.`
+
+- **Recommendation**: By default, the Azure Databricks access token is valid for 90 days. Create a new token and update the linked service.
+
+
+### Error code:  3201
+
+- **Message**: `Missing required field: settings.task.notebook_task.notebook_path.`
+
+- **Cause**: `Bad authoring: Notebook path not specified correctly.`
+
+- **Recommendation**: Specify the notebook path in the Databricks activity.
+
+<br/>
+
+- **Message**: `Cluster   ... does not exist.`
+
+- **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
+
+- **Recommendation**: Verify that the Databricks cluster exists.
+
+<br/>
+
+- **Message**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+
+- **Cause**: `Bad authoring.`
+
+- **Recommendation**: Specify either absolute paths for workspace-addressing schemes, or `dbfs:/folder/subfolder/foo.py` for files stored in Databricks File System.
+
+<br/>
+
+- **Message**: `{0} LinkedService should have domain and accessToken as required properties.`
+
+- **Cause**: `Bad authoring.`
+
+- **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/>
+
+- **Message**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+
+- **Cause**:  `Bad authoring.`
+
+- **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/>
+
+- **Message**: `Node type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.`
+
+- **Cause**: `Bad authoring.`
+
+- **Recommendation**: Refer to the error message. 
+
+<br/>
+
+### Error code:  3202
+
+- **Message**: `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds.`
+
+- **Cause**: `Too many Databricks runs in an hour.`
+
+- **Recommendation**: Check all pipelines that use this Databricks workspace for their job   creation rate.  If pipelines launched   too many Databricks runs in aggregate, migrate some pipelines to a new   workspace.
+
+<br/>
+
+- **Message**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
+
+- **Cause**: `Authoring error: No value provided for the parameter.`
+
+- **Recommendation**: Inspect the pipeline JSON and ensure all parameters in the baseParameters notebook specify a nonempty value.
+
+<br/>
+
+- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not   authorized to access cluster.`
+
+- **Cause**: The user who generated the access token isn't allowed to access the   Databricks cluster specified in the linked service.
+
+- **Recommendation**: Ensure the user has the required permissions in the workspace.
+
+
+### Error code:  3203
+
+- **Message**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+
+- **Cause**: The cluster was terminated. For interactive clusters, this might be a race condition.
+
+- **Recommendation**: The best way to avoid this error is to use job clusters.
+
+
+### Error code:  3204
+
+- **Message**: `Job execution failed.`
+
+- **Cause**:  Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Most often no error   message appears at all. 
+
+- **Recommendation**: N/A
+
+
+## Azure Data Lake Analytics
+
+The following table applies to U-SQL.
+
+
+### Error code:  2709
+
+- **Message**: `The access token is from the wrong tenant.`
+
+- **Cause**:  Incorrect Azure Active Directory (Azure AD) tenant.
+
+- **Recommendation**: Incorrect Azure Active Directory (Azure AD) tenant.
+
+<br/>
+
+- **Message**: `We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. `
+
+- **Cause**:  This error is caused by throttling on Data Lake Analytics.
+
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics.
+
+<br/>
+
+- **Message**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
+
+- **Cause**:  This error is caused by throttling on Data Lake Analytics. 
+
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics.
+
+
+### Error code:  2705
+
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+
+- **Cause**:  The service principal or certificate doesn't have access to the file in storage.
+
+- **Recommendation**: Make sure the service principal or certificate the user provides for Data Lake Analytics jobs has access to the Data Lake Analytics account and the default Data Lake Storage instance from the root folder.
+
+
+### Error code:  2711
+
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+
+- **Cause**:  The service principal or certificate doesn't have access to the file in storage.
+
+- **Recommendation**: Make sure the service principal or certificate the user provides for Data Lake Analytics jobs has access to the Data Lake Analytics account and the default Data Lake Storage instance from the root folder.
+
+<br/>
+
+- **Message**: `Cannot find the 'Azure Data Lake Store' file or folder.`
+
+- **Cause**:  The   path to the U-SQL file is wrong, or the linked service credentials don't have access.
+
+- **Recommendation**: Verify the path and credentials provided in the linked service.
+
+
+### Error code:  2704
+
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics.`
+
+- **Cause**:  The service principal or certificate doesn't have access to the file in storage.
+
+- **Recommendation**: Make sure the service principal or certificate the user provides for Data Lake Analytics jobs has access to the Data Lake Analytics account and the default Data Lake Storage instance from the root folder.
+
+
+### Error code:  2707
+
+- **Message**: `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'.`
+
+- **Cause**:  The Data Lake Analytics account in the linked service is wrong.
+
+- **Recommendation**: Verify that the right account is provided.
+
+
+### Error code:  2703
+
+- **Message**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").`
+
+- **Cause**:  The error is from Data Lake Analytics. 
+
+- **Recommendation**: An error like the example means the job was submitted to Data Lake Analytics, and the   script there failed. Investigate in Data Lake Analytics. In the portal, go to the Data Lake Analytics account, and look for the job by using the Data Factory activity run ID (not the pipeline run ID). The job there provides more   information about the error and will help you troubleshoot. If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job URL, which   includes your account name and the job ID.
 
 
 
-## Azure Data Lake Analytics (U-SQL)
+## Azure functions
 
-| Error   Code         | Error Message                                                | Problem Description                                          | Possible Fix/ Recommended Action                             |
-| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2709                 | The access token is from the wrong tenant                    | Incorrect AAD tenant                                         | The Service Principal used to access the ADLA belongs to another AAD tenant. Please create new Service Principal in the same tenant as ADLA account. |
-| 2711,   2705,   2704 | Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation<br/><br/>User is   not able to access to datalake store  <br/><br/>User is  not authorized to data lake analytics | The Service Principal or certificate provided doesn't have access to the file in storage | Please make sure the Service Principal or certificate they provide for ADLA jobs has access to both ADLA account and the default ADLS storage for it from   root folder. |
-| 2711                 | Cannot find the 'Azure Data Lake Store' file or folder       | The   path to USQL file is either wrong or the linked service credentials don't have access | Please verify the path, and the credentials provided in linked service |
-| 2707                 | Cannot resolve the account of   AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'. | The ADLA account in linked service is wrong                  | Please verify that the right account is provided             |
-| 2703                 | Error Id: E_CQO_SYSTEM_INTERNAL_ERROR or any error the starts with "Error   Id:" | Error is coming from ADLA                                    | Any   error that looks like the example means the job was submitted to ADLA and the   script there failed. The investigation must be done on ADLA. If you open the   portal and navigate to the ADLA account, look for the job by using ADF   activity run Id (not pipeline run Id). The job there will have more   information about the error and will help to troubleshoot. If resolution is not clear, please contact ADLA support team and provide the job URL, which   includes your account name and the job ID. |
-| 2709                 | We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. | Throttling on ADLA                                           | Reduce the number of submitted jobs to ADLA by changing ADF triggers and concurrency settings on activities, or increase the limits on ADLA |
-| 2709                 | This job was rejected because it requires 24 AUs and this account has an administrator-defined policy that prevents a job from using more than 5 AUs. | Throttling on ADLA                                           | Reduce the number of submitted jobs to ADLA by changing ADF triggers and concurrency settings on activities, or increase the limits on ADLA |
+### Error code:  3602
+
+- **Message**: `Invalid HttpMethod: {method}.`
+
+- **Cause**: Http method specified in the activity payload is not supported by Azure Function Activity. 
+
+- **Recommendation**: The Http methods that are supported are PUT, POST, GET, DELETE, OPTIONS, HEAD, and TRACE.
 
 
+### Error code:  3603
 
-## Azure Functions
+- **Message**: `Response content is not a valid JObject.`
 
-| Error   Code | Error Message                           | Description                                                  | Possible Fix/   Recommended Action                           |
-| ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 3600         | Response Content is not a valid JObject | This means that the Azure function that got called did not return a JSON Payload in the response. ADF Azure function activity only supports JSON response content. | Update Azure function to return a valid JSON Payload e.g. a C# function can return (ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}"); |
-| 3600         | Invalid HttpMethod: ‘..’.               | This means that Http method specified in the   activity payload is not supported by Azure Function Activity. | The Http methods that are supported are:  <br/>PUT, POST,GET, DELETE, OPTIONS, HEAD, TRACE |
+- **Cause**: The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. 
 
+- **Recommendation**: Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`.
 
 
-## Custom (Azure Batch)
-| Error   Code | Error Message                                                | Description                                                  | Possible Fix/   Recommended Action                           |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2500         | Hit   unexpected exception and execution failed.             | Cannot launch command, or the program returned an error code. | Check that the executable exists. If program launched, check the stdout.txt and stderr.txt uploaded to the storage account. It is a good practice to emit copious logs in your code for debugging. |
-| 2501         | Can not   access user batch account, please check batch account settings. | Incorrect Batch access key or pool name provided.            | Need to verify pool name and Batch access key in the linked   service. |
-| 2502         | Can not   access user storage account, please check storage account settings. | Incorrect storage account name or access key provided.       | Need to verify storage account name and access key in linked service. |
-| 2504         | Operation   returned an invalid status code 'BadRequest'     | Too many files in folderPath if the custom activity.  (Total   size of resourceFiles cannot be more than 32768 characters.) | Remove unnecessary files, or zip them and add an unzip command to extract, for example: powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe |
-| 2505         | Cannot   create Shared Access Signature unless Account Key credentials are used. | Custom activities only support storage accounts that use an access   key. | Refer description                                            |
-| 2507         | The   folder path does not exist or is empty: ...            | No files in the storage account at the specified path.       | The folderPath must contain the executables that you want to run. |
-| 2508         | There’re   duplicate files in resource folder.               | There are multiple files of the same name in different subfolders   of folderPath. | Custom activities flatten folder structure under folderPath.  If folder structure needs to be preserved,   zip the files and extract them on Azure Batch with an unzip command, for   example:   powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe |
-| 2509         | Batch   url ...is invalid, it must be in Uri format.         | Batch URLs must be similar to https://mybatchaccount.eastus.batch.azure.com | Refer description                                            |
-| 2510         | An   error occurred while sending the request.               | Batch URL is invalid                                         | Verify batch URL.                                            |
+### Error code:  3606
 
-## HDInsight (Spark, Hive, MapReduce, Pig, Hadoop Streaming)
+- **Message**: `Azure function activity missing function key.`
 
-| Error   Code | Error Message                                                | Description                                                  | Possible Fix/   Recommended Action                           |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300,   2310 | Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster not found. | Provided cluster URI is invalid                              | Please make sure the cluster has not been deleted, and the provided URI is correct. You can open the URI in any browser, and you   should see the Ambari UI. If the cluster is in a vNet, then the URI should be   the private URI, and you should try to open it from a VM that is part of the same vNet. More info for [Virtual Network in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
-| 2300         | Hadoop   job submission failed. Job: …, Cluster: …/. Error: A task was canceled. | The submission of the job timed out.                         | This could be either general HDInsight connectivity issue or network   connectivity issue. First confirm that HDInsight Ambari UI is available via any   browser and your credentials are still valid. Make sure to do this from the   VM/machine where self-hosted IR is installed if using self-hosted IR. Then   try submitting the job from ADF again. If it still fails, contact ADF team   for support. |
-| 2300         | Unauthorized:   Ambari user name or password is incorrect  <br/><br/>Unauthorized:   User admin is locked out in Ambari   <br/><br/>403 -   Forbidden: Access is denied | Provided credentials for the HDInsight are incorrect or are expired | Please correct them and redeploy the linked service. Make sure the   credentials work on HDInsight first by opening the cluster URI on any browser and   trying to login. If they don't work, you can reset them from Azure Portal. |
-| 2300,   2310 | 502 - Web server received an invalid response while acting as a gateway or proxy server       <br/>Bad Gateway | Error is coming from HDInsight                               | This error is coming from HDInsight cluster. Refer [HDInsight troubleshooter](https://hdinsight.github.io/ambari/ambari-ui-502-error.html) with common errors .    <br/>For Spark clusters it could be also caused due to [this](https://hdinsight.github.io/spark/spark-thriftserver-errors.html). <br/><br/>[Additional link](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502) |
-| 2300         | Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for   some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests.\  <br/><br/>Hadoop   job submission failed. Job: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher   already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\ | Too many jobs are being submitted to HDInsight at the same time | Consider limiting the number of concurrent jobs being   submitted to the HDI. Please refer to ADF activity concurrency if they are   being submitted by the same activity. Change the triggers so the concurrent   pipeline runs are spread out over time. Also refer to HDInsight docs in order to   tweak the "templeton.parallellism.job.submit" as error suggests. |
-| 2303,   2347 | Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr'   for more details.  <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out'   for more details | The job was submitted to HDInsight, and it failed on HDInsight | The job has been submitted to HDInsight successfully. It failed on the   cluster. Please either open the job on HDInsight Ambari UI, and open the logs   there, or open the file from storage as the error message points out. The details of the error will be in that file. |
-| 2328         | Internal server error occurred while processing the request. Please retry the request   or contact support | Happens on HDInsight on Demand.                              | This error is coming from HDInsight service when the HDInsight provisioning fails. Please contact the HDInsight team and provide them the on demand cluster name. |
-| 2310         | java.lang.NullPointerException                               | Error happened when submitting the job to Spark cluster      | This exception is coming from HDInsight and is hiding the actual issue.   Please contact the HDInsight team for support, and provide them with cluster name,   and the activity run time range. |
-|              | All other errors                                             |                                                              | Please refer to [HDInsight  troubleshooter](../hdinsight/hdinsight-troubleshoot-guide.md) and [HDInsight FAQ](https://hdinsight.github.io/) |
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionKey'.
+
+
+### Error code:  3607
+
+- **Message**: `Azure function activity missing function name.`
+
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionName'.
+
+
+### Error code:  3608
+
+- **Message**: `Call to provided Azure function '{FunctionName}' failed with status-'{statusCode}' and message - '{message}'.` 
+
+- **Cause**: Azure function details in activity definition may be incorrect. 
+
+- **Recommendation**: Fix the azure function details and retry again.
+
+
+### Error code:  3609
+
+- **Message**: `Azure function activity missing functionAppUrl.` 
+
+- **Cause**: Azure function activity definition is not complete. 
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'functionAppUrl'.
+
+
+### Error code:  3610
+
+- **Message**: `There was an error while calling endpoint.`
+
+- **Cause**: Function URL may be incorrect.
+
+- **Recommendation**: Please make sure the value for 'functionAppUrl' in the activity JSON is correct and try again.
+
+
+### Error code:  3611
+
+- **Message**: `Azure function activity missing Method in JSON.` 
+
+- **Cause**: Azure function activity definition is not complete.
+
+- **Recommendation**: Check if the input AzureFunction activity JSON definition has property named 'method'.
+
+
+### Error code:  3612
+
+- **Message**: `Azure function activity missing LinkedService definition in JSON.`
+
+- **Cause**: Azure function activity definition may not be complete.
+
+- **Recommendation**: Please check the input AzureFunction activity JSON definition has linked service details.
+
+
+## Azure Machine Learning
+
+
+### Error code:  4101
+
+- **Message**: `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of a property.
+
+- **Recommendation**:  Please check if the activity is defined with the correct data.
+
+
+### Error code:  4110
+
+- **Message**: AzureMLExecutePipeline activity missing LinkedService definition in JSON.
+
+- **Cause**: AzureMLExecutePipeline activity definition is not complete.
+
+- **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has linked service details.
+
+
+### Error code:  4111
+
+- **Message**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **Cause**: Incorrect activity definition.
+
+- **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has correct linked service details.
+
+
+### Error code:  4112
+
+- **Message**: `AzureMLService linked service has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of a property.
+
+- **Recommendation**:  Please check if the linked service definition has correct data.
+
+
+### Error code:  4121
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Credential used to access Azure ML Service has expired.
+
+- **Recommendation**:  Please verify credential is valid and retry
+
+
+### Error code:  4122
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Credential provided in AzureML Service Linked Service is invalid or does not have permission for the operation.
+
+- **Recommendation**:  Please verify credential in Linked Service is valid and has permission to access AzureML Service.
+
+
+### Error code:  4123
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+
+- **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure ML pipeline specified in Linked Service.
+
+
+### Error code:  4124
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: The published Azure ML pipeline endpoint does not exist.
+
+- **Recommendation**:  Please verify the published Azure ML pipeline endpoint specified in Linked Service exists in Azure ML Service.
+
+
+### Error code:  4125
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Server error on Azure ML Service.
+
+- **Recommendation**:  Please retry later. Contact Azure ML Service team for help if issue remains.
+
+
+### Error code:  4126
+
+- **Message**: `AzureML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in AzureMLService for more error loggings.`
+
+- **Cause**: AzureML pipeline run failed.
+
+- **Recommendation**:  Please check in AzureMLService for more error loggings and fix the ML pipeline
+
+
+## Custom
+
+The following table applies to Azure Batch.
+
+
+### Error code:  2500
+
+- **Message**: `Hit unexpected exception and execution failed.`
+
+- **Cause**: `Can't launch command, or the program returned an error code.`
+
+- **Recommendation**:  Ensure that the executable file exists. If the program started, make sure *stdout.txt* and *stderr.txt* were uploaded to the storage account. It's a good practice to emit copious logs in your code for debugging.
+
+
+### Error code:  2501
+
+- **Message**: `Cannot access user batch account; please check batch account settings.`
+
+- **Cause**: Incorrect Batch access key or pool name.
+
+- **Recommendation**: Verify the pool name and the Batch access key in the linked service.
+
+
+### Error code:  2502
+
+- **Message**: `Cannot access user storage account; please check storage account settings.`
+
+- **Cause**: Incorrect storage account name or access key.
+
+- **Recommendation**: Verify the storage account name and the access key in the linked service.
+
+
+### Error code:  2504
+
+- **Message**:  `Operation returned an invalid status code 'BadRequest'.` 
+
+- **Cause**: Too many files in the folderPath of the custom activity. The total   size of resourceFiles can't be more than 32,768 characters.
+
+- **Recommendation**: Remove unnecessary files. Or zip them and add an unzip command to extract them. For example, use  `powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe`
+
+
+### Error code:  2505
+
+- **Message**: `Cannot create Shared Access Signature unless Account Key credentials are used.`
+
+- **Cause**: Custom activities support only storage accounts that use an access key.
+
+- **Recommendation**: Refer to the error description.
+
+
+### Error code:  2507
+
+- **Message**: `The folder path does not exist or is empty: ....`
+
+- **Cause**: No files are in the storage account at the specified path.
+
+- **Recommendation**: The folder path must contain the executable files you want to run.
+
+
+### Error code:  2508
+
+- **Message**:  `There are duplicate files in the resource folder.`
+
+- **Cause**: Multiple files of the same name are in different subfolders   of folderPath.
+
+- **Recommendation**: Custom activities flatten folder structure under folderPath.  If you need to preserve the folder structure, zip the files and extract them in Azure Batch by using an unzip command. For   example, use `powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe`
+
+
+### Error code:  2509
+
+- **Message**: `Batch   url ... is invalid; it must be in Uri format.` 
+
+- **Cause**: Batch URLs must be similar to `https://mybatchaccount.eastus.batch.azure.com`
+
+- **Recommendation**: Refer to the error description.
+
+
+### Error code:  2510
+
+- **Message**: `An   error occurred while sending the request.`
+
+- **Cause**: The batch URL is invalid. 
+
+- **Recommendation**: Verify the batch URL.
+
+
+## HDInsight
+
+The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming.
+
+
+### Error code:  2300
+
+- **Message**: `Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.`
+
+- **Cause**: The provided cluster URI is invalid. 
+
+- **Recommendation**:  Make sure that the cluster hasn't been deleted and that the provided URI is correct. When you open the URI in a browser, you   should see the Ambari UI. If the cluster is in a virtual network, the URI should be   the private URI. To open it, use a VM that's part of the same virtual network. For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services).
+
+<br/>
+
+- **Message**: `Hadoop job submission failed. Job: …, Cluster: …/. Error: A task was canceled.`
+
+- **Cause**: The job submission timed out. 
+
+- **Recommendation**: The problem could be either general HDInsight connectivity or network   connectivity. First confirm that the HDInsight Ambari UI is available from any   browser. Confirm that your credentials are still valid. If you're using self-hosted integrated runtime (IR), make sure to do this from the   VM or machine where the self-hosted IR is installed. Then   try submitting the job from Data Factory again. If it still fails, contact the Data Factory team   for support.
+
+
+- **Message**: `Unauthorized: Ambari user name or password is incorrect  <br/><br/>Unauthorized: User admin is locked out in Ambari.   <br/><br/>403 - Forbidden: Access is denied.`
+
+- **Cause**: The credentials for HDInsight are incorrect or expired.
+
+- **Recommendation**: Correct the credentials and redeploy the linked service. First make sure the   credentials work on HDInsight by opening the cluster URI on any browser and   trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
+
+<br/>
+
+- **Message**: `502 - Web server received an invalid response while acting as a gateway or proxy server. <br/>Bad gateway.`
+
+- **Cause**: This error is from HDInsight.
+
+- **Recommendation**: This error is from the HDInsight cluster. For more information, see [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502 errors connecting to Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [502 errors connecting to Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), and [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+
+<br/>
+
+- **Message**: `Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests. <br/><br/>Hadoop job submission failed. Job: xx, Cluster: name.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\`
+
+- **Cause**: Too many jobs are being submitted to HDInsight at the same time.
+
+- **Recommendation**: Consider limiting the number of concurrent jobs  submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are   being submitted by the same activity. Change the triggers so the concurrent   pipeline runs are spread out over time. Refer to HDInsight documentation to adjust `templeton.parallellism.job.submit` as the error suggests.
+
+
+### Error code:  2303
+
+- **Message**: `Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@xx.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' for more details. <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@xx.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' for more details.`
+
+- **Cause**: The job was submitted to HDInsight, and it failed on HDInsight.
+
+- **Recommendation**: The job was submitted to HDInsight successfully. It failed on the cluster. Either open the job and the logs in the HDInsight Ambari UI, or open the file from storage as the error message suggests. The file shows the error details.
+
+
+### Error code:  2310
+
+- **Message**: `Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found.`
+
+- **Cause**: The provided cluster URI is invalid. 
+
+- **Recommendation**:  Make sure that the cluster hasn't been deleted and that the provided URI is correct. When you open the URI in a browser, you   should see the Ambari UI. If the cluster is in a virtual network, the URI should be   the private URI. To open it, use a VM that's part of the same virtual network. For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services).
+
+<br/>
+
+- **Message**: `502 - Web server received an invalid response while acting as a gateway or proxy server. <br/>Bad gateway.`
+
+- **Cause**: This error is from HDInsight.
+
+- **Recommendation**: This error is from the HDInsight cluster. For more information, see [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502 errors connecting to Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [502 errors connecting to Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), and [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+
+<br/>
+
+- **Message**: `java.lang.NullPointerException`
+
+- **Cause**: This error happens when the job is submitted to a Spark cluster. 
+
+- **Recommendation**: This exception comes from HDInsight. It hides the actual issue. Contact the HDInsight team for support. Provide them with the cluster name and the activity run time range.
+
+
+### Error code:  2347
+
+- **Message**: `Hadoop job failed with exit code '5'. See 'wasbs://adfjobs@xx.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' for more details. <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@xx.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' for more details.`
+
+- **Cause**: The job was submitted to HDInsight, and it failed on HDInsight.
+
+- **Recommendation**: The job was submitted to HDInsight successfully. It failed on the cluster. Either open the job and the logs in the HDInsight Ambari UI, or open the file from storage as the error message suggests. The file shows the error details.
+
+
+### Error code:  2328
+
+- **Message**: `Internal server error occurred while processing the request. Please retry the request or contact support. `
+
+- **Cause**: This error happens in HDInsight on-demand.
+
+- **Recommendation**: This error comes from the HDInsight service when the HDInsight provisioning fails. Contact the HDInsight team and provide the on-demand cluster name.
 
 
 
 ## Web Activity
 
-| Error   Code | Error Message                                                | Description                                                  | Possible Fix/   Recommended Action                           |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2108         | Invalid HttpMethod: ‘..’.                                    | This means that Http method specified in the activity payload is   not supported by Web Activity. | The Http methods that are supported are: <br/>PUT, POST, GET, DELETE |
-| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Unauthorized 401                                             | Missing valid authentication on request                      | Provide valid authentication method (token may have expired).   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Forbidden 403                                                | Missing required permissions                                 | Check user permissions on the accessed resource.   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Bad Request 400                                              | Invalid Http request                                         | Check the URL, verb and body of the request.   <br/><br/>Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Not found 404                                                | Resource was not found                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Service unavailable                                          | Service is unavailable                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Unsupported Media Type                                       | Mismatched Content-Type with the Web activity body           | Specify the correct Content-Type that matches the payload format   Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. | The resource is not available                                | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP   verb) is being used. | Incorrect Web activity method was specified in the request   | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | invalid_payload                                              | The body for Web activity is incorrect                       | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+### Error code:  2108
 
-#### How to use Fiddler to create an HTTP session of the monitored web application
+- **Message**:  `Invalid HttpMethod: '...'.`
 
-1. Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+- **Cause**: Web Activity doesn't support the HTTP method specified in the activity payload.
 
-2. If your web application uses HTTPS:
+- **Recommendation**:  The supported HTTP methods are PUT, POST, GET, and DELETE.
 
-   1. Open Fiddler
+<br/>
 
-   2. Go to **Tools > Fiddler Options** and select as in below screenshot. 
+- **Message**: `Invalid Server Error 500.`
 
-      ![fiddler-options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+- **Cause**: Internal error on the endpoint.
 
-3. If your application uses SSL certificates, you must also add the Fiddler certificate to your device.
+- **Recommendation**:  Use Fiddler or Postman to check the functionality on the URL.
 
-4. To add the Fiddler certificate to your device, go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** to obtain the Fiddler certificate.
+<br/>
 
-5. Turn off capturing so that the browser's cache can be cleared in order to start a fresh trace.
+- **Message**: `Unauthorized 401.`
 
-6. 1. Go to **File** > **Capture Traffic** or press **F12**.
-   2. Clear your browser's cache so that all cached items are removed and must be re-downloaded.
+- **Cause**: Missing valid authentication on the request.
 
-7. Create request : 
+- **Recommendation**:  The token might have expired. Provide a valid authentication method. Use Fiddler or Postman to check the functionality on the URL.
 
-8. 1. Click on the Composer tab
-   2. Set the Http method and URL
-   3. Add headers and request body if required
-   4. Click Execute
+<br/>
 
-9. Start capturing traffic again and complete the problematic transaction on your page.
+- **Message**: `Forbidden 403.`
 
-10. Once completed, go to **File** > **Save** > **All Sessions**.
+- **Cause**: Missing required permissions.
 
-More information on Fiddler [here](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
+- **Recommendation**:  Check user permissions on the accessed resource. Use Fiddler or Postman to check the functionality on the URL.
+
+<br/>
+
+- **Message**: `Bad Request 400.`
+
+- **Cause**: Invalid HTTP request.
+
+- **Recommendation**:   Check the URL, verb, and body of the request. Use Fiddler or Postman to validate the request.
+
+<br/>
+
+- **Message**: `Not found 404.` 
+
+- **Cause**: The resource wasn't found.   
+
+- **Recommendation**:  Use Fiddler or Postman to validate the request.
+
+<br/>
+
+- **Message**: `Service unavailable.`
+
+- **Cause**: The service is unavailable.
+
+- **Recommendation**:  Use Fiddler or Postman to validate the request.
+
+<br/>
+
+- **Message**: `Unsupported Media Type.`
+
+- **Cause**: The content type is mismatched with the Web Activity body.
+
+- **Recommendation**:  Specify the content type that matches the payload format. Use Fiddler or Postman to validate the request.
+
+<br/>
+
+- **Message**: `The resource you are looking for has been removed, has had its name changed, or is temporarily unavailable.`
+
+- **Cause**: The resource isn't available. 
+
+- **Recommendation**:  Use Fiddler or Postman to check the endpoint.
+
+<br/>
+
+- **Message**: `The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used.`
+
+- **Cause**: An incorrect Web Activity method was specified in the request.
+
+- **Recommendation**:  Use Fiddler or Postman to check the endpoint.
+
+<br/>
+
+- **Message**: `invalid_payload`
+
+- **Cause**: The Web Activity body is incorrect.
+
+- **Recommendation**:  Use Fiddler or Postman to check the endpoint.
+
+
+### Error code:  2208
+
+- **Message**:  `Invoking Web Activity failed with HttpStatusCode - {0}.`
+
+- **Cause**: The target service returned failure status.
+
+- **Recommendation**:  Use Fiddler/Postman to validate the request.
+
+
+### Error code:  2308
+
+- **Message**:  `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+
+- **Cause**: There can be multiple reasons for this error like network connectivity, DNS failure, server certificate validation or timeout.
+
+- **Recommendation**:  Use Fiddler/Postman to validate the request.
+
+
+To use Fiddler to create an HTTP session of the monitored web application:
+
+1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
+
+1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**. Select **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**. 
+   
+   ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+
+1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+
+1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
+
+1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
+
+1. Create a request: 
+
+   a. Select the **Composer** tab.
+
+   b. Set the HTTP method and URL.
+
+   c. Add headers and a request body if you need to.
+
+   d. Select **Execute**.
+
+9. Turn on traffic capturing again, and complete the problematic transaction on your page.
+
+10. Go to **File** > **Save** > **All Sessions**.
+
+For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## Next steps
 
-For more help in finding solution to your issue, here are some other resources you can try.
+For more troubleshooting help, try these resources:
 
-*  [Blogs](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
-*  [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter](https://twitter.com/hashtag/DataFactory)
+*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 
 
 

@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a native client application using Azure Active Directory B2C
 
-This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in an Windows Presentation Foundation (WPF) desktop application. Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign in and sign up users in an Windows Presentation Foundation (WPF) desktop application. Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -28,13 +28,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
+- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
 - Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with **.NET desktop development** and **ASP.NET and web development** workloads.
 
 ## Add the native client application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application. For example, *nativeapp1*.
@@ -61,14 +61,14 @@ To change the app settings, replace the `<your-tenant-name>` with your tenant na
 1. Open the `active-directory-b2c-wpf` solution in Visual Studio.
 2. In the `active-directory-b2c-wpf` project, open the **App.xaml.cs** file and make the following updates:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. Update the **PolicySignUpSignIn** variable with the name of the user flow that you created.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
@@ -79,12 +79,12 @@ Press **F5** to build and run the sample.
 ### Sign up using an email address
 
 1. Click **Sign In** to sign up as a user. This uses the **B2C_1_signupsignin1** user flow.
-2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link. 
+2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link.
 3. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
-    Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes. 
+    Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Sign-up page shown as part of sign-in/sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 

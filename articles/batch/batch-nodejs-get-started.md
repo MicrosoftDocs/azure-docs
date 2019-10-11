@@ -3,7 +3,7 @@ title: Tutorial - Use the Azure Batch client library for Node.js | Microsoft Doc
 description: Learn the basic concepts of Azure Batch and build a simple solution using Node.js.
 services: batch
 author: shwetams
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shwetams
+ms.author: shg
 ---
 
 # Get started with Batch SDK for Node.js

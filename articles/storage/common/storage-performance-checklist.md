@@ -168,7 +168,7 @@ Both of these technologies can help you avoid unnecessary load (and bottlenecks)
 
 #### Useful resources
 
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1.md).  
+For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -182,7 +182,7 @@ In some cases, you may decide that your application can assume that the blob rem
 
 Configuration, lookup, and other data that are always used by the application are great candidates for caching.  
 
-For an example of how to get a blob's properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md). For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+For more information about conditional downloads, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
 #### <a name="subheading8"></a>Uploading data in batches
 
@@ -289,8 +289,6 @@ For large volumes of data (more than 1 TB), the Azure Storage offers the Import/
 ### <a name="subheading20"></a>Use metadata
 
 The Blob service supports head requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob's metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth, and the processing time needed to extract the EXIF data each time the blob is read. This would be useful in scenarios where you only need the metadata, and not the full content of a blob.  Only 8 KB of metadata can be stored per blob (the service will not accept a request to store more than that), so if the data does not fit in that size, you may not be able to use this approach.  
-
-For an example of how to get a blob's metadata using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md).  
 
 ### Rapid uploading
 

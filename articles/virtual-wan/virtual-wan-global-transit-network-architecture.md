@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ---
@@ -44,7 +44,7 @@ Figure 2 shows the logical view of the global network where geographically distr
 
 ## <a name="crossregion"></a>Cross-region connectivity
 
-For an enterprise, a cloud footprint typically follows the physical footprint. Most enterprises access the cloud from a region closest to their physical site and users. One of the key principals of global network architecture is to enable cross-region connectivity between network entities and endpoints. A cloud footprint can span multiple regions. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity which is currently in preview.
+For an enterprise, a cloud footprint typically follows the physical footprint. Most enterprises access the cloud from a region closest to their physical site and users. One of the key principals of global network architecture is to enable cross-region connectivity between network entities and endpoints. A cloud footprint can span multiple regions. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity, which is currently on our roadmap.
 
 ## <a name="any"></a>Any-to-any connectivity
 
@@ -102,5 +102,4 @@ The virtual network hub interconnects and potentially sees all transit traffic. 
 Create a connection using Virtual WAN.
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
-* [Point-to-site connections using Virtual WAN](virtual-wan-point-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)

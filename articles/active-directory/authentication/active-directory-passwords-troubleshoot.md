@@ -38,7 +38,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 
 | Error | Solution |
 | --- | --- |
-| I don't see the **Password reset** section under Azure AD in the Azure portal. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> Assign a license to the administrator account in question. You can follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
+| I don't see the **Password reset** section under Azure AD in the Azure portal. | This can happen if you don't have an Azure AD license assigned to the administrator performing the operation. <br> <br> Assign a license to the administrator account in question. You can follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
 | I don't see a particular configuration option. | Many elements of the UI are hidden until they are needed. Try enabling all the options you want to see. |
 | I don't see the **On-premises integration** tab. | This option only becomes visible if you have downloaded Azure AD Connect and have configured password writeback. For more information, see [Getting started with Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md). |
 
@@ -46,7 +46,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 
 | Error | Solution |
 | --- | --- |
-| I don’t see any password management activity types in the **Self-Service Password Management** audit event category. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
+| I don’t see any password management activity types in the **Self-Service Password Management** audit event category. | This can happen if you don't have an Azure AD license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
 | User registrations show multiple times. | Currently, when a user registers, we log each individual piece of data that's registered as a separate event. <br> <br> If you want to aggregate this data and have greater flexibility in how you can view it, you can download the report and open the data as a pivot table in Excel.
 
 ## Troubleshoot the password reset registration portal
@@ -54,7 +54,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | Error | Solution |
 | --- | --- |
 | The directory is not enabled for password reset. **Your administrator has not enabled you to use this feature.** | Switch the **Self-service password reset enabled** flag to **Selected** or **All** and then select **Save**. |
-| The user does not have an Azure AD Premium or Basic license assigned. **Your administrator has not enabled you to use this feature.** | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
+| The user does not have an Azure AD license assigned. **Your administrator has not enabled you to use this feature.** | This can happen if you don't have an Azure AD license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
 | There is an error processing the request. | This can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you see this error and it affects your business, contact Microsoft support for additional assistance. |
 
 ## Troubleshoot the password reset portal
@@ -62,7 +62,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | Error | Solution |
 | --- | --- |
 | The directory is not enabled for password reset. | Switch the **Self-service password reset enabled** flag to **Selected** or **All** and then select **Save**. |
-| The user does not have an Azure AD Premium or Basic license assigned. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem if you assign a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
+| The user does not have an Azure AD license assigned. | This can happen if you don't have an Azure AD license assigned to the administrator performing the operation. <br> <br> You can resolve this problem if you assign a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
 | The directory is enabled for password reset, but the user has missing or malformed authentication information. | Before proceeding, ensure that user has properly formed contact data on file in the directory. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md). |
 | The directory is enabled for password reset, but the user has only one piece of contact data on file when the policy is set to require two verification methods. | Before proceeding, ensure that the user has at least two properly configured contact methods. An example is having both a mobile phone number *and* an office phone number. |
 | The directory is enabled for password reset and the user is properly configured, but the user is unable to be contacted. | This can be the result of a temporary service error or if there is incorrect contact data that we can't properly detect. <br> <br> If the user waits 10 seconds, "try again" and "contact your administrator” links appear. If the user selects "try again," it retries the call. If the user selects “contact your administrator,” it sends a form email to their administrators requesting a password reset to be performed for that user account. |
@@ -273,7 +273,7 @@ To properly assist you, we ask that you provide as much detail as possible when 
    * Is this a pass-through authentication user?
    * Is this a password-hash-synchronized user?
    * Is this a cloud-only user?
-* **Licensing**: Does the user have an Azure AD Premium or Azure AD Basic license assigned?
+* **Licensing**: Does the user have an Azure AD license assigned?
 * **Application event log**: If you're using password writeback and the error is in your on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server.
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"

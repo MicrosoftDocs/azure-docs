@@ -1,6 +1,6 @@
 ---
-title: Connect to HTTP or HTTPS endpoints from Azure Logic Apps
-description: Monitor HTTP or HTTPS endpoints in automated tasks, processes, and workflows by using Azure Logic Apps
+title: Call HTTP and HTTPS endpoints - Azure Logic Apps
+description: Send outgoing requests to HTTP and HTTPS endpoints by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,9 +12,11 @@ ms.date: 07/05/2019
 tags: connectors
 ---
 
-# Call HTTP or HTTPS endpoints by using Azure Logic Apps
+# Send outgoing calls to HTTP or HTTPS endpoints by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP connector, you can automate workflows that regularly call any HTTP or HTTPS endpoint by building logic apps. For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that regularly send requests to any HTTP or HTTPS endpoint. To receive and respond to incoming HTTP or HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
+
+For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
 
 To check or *poll* an endpoint on a regular schedule, you can use the HTTP trigger as the first step in your workflow. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
 
@@ -83,6 +85,52 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
+
+## Content with multipart/form-data type
+
+To handle content that has `multipart/form-data` type in HTTP requests, you can add a JSON object that includes the `$content-type` and `$multipart` attributes to the HTTP request's body by using this format.
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+For example, suppose you have a logic app that sends an HTTP POST request for an Excel file to a website by using that site's API, which supports the `multipart/form-data` type. Here's how this action might look:
+
+![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
+
+Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
 
 ## Connector reference
 

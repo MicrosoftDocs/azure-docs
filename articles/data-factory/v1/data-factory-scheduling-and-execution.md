@@ -3,21 +3,16 @@ title: Scheduling and Execution with Data Factory | Microsoft Docs
 description: Learn scheduling and execution aspects of Azure Data Factory application model.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Data Factory scheduling and execution
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [pipeline execution and triggers](../concepts-pipeline-execution-triggers.md) article.

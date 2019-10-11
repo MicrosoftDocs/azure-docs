@@ -3,7 +3,7 @@ title: Usage and insights report in the Azure Active Directory portal | Microsof
 description: Introduction to usage and insights report in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ---
 

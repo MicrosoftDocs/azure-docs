@@ -114,7 +114,7 @@ Use the procedure below that matches your backend project type&mdash;either [.NE
 4. Republish the server project.
 
 ### <a name="nodejs"></a>Node.js backend project
-1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Set up your backend project.
 2. Replace the existing code in the todoitem.js file with the following:
 
     ```javascript

@@ -35,6 +35,8 @@
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Basics
@@ -58,7 +60,7 @@
     - name: Rewrite HTTP headers
       href: rewrite-http-headers.md
     - name: Custom error pages
-      href: custom-error.md      
+      href: custom-error.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -76,11 +78,13 @@
     - name: Custom rules
       href: custom-waf-rules-overview.md
   - name: Health monitoring
-    items: 
+    items:
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostics
-      href: application-gateway-diagnostics.md 
+    - name: Diagnostic logs and backend health
+      href: application-gateway-diagnostics.md
+    - name: Metrics
+      href: application-gateway-metrics.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
@@ -90,20 +94,17 @@
 - name: How-to guides
   items:
   - name: Host single site
-    items:   
+    items:
     - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
     - name: Azure CLI
-      href: tutorial-manage-web-traffic-cli.md       
-    - name: Template
-      displayName: ARM, Resource Manager, template
-      href: create-vmss-template.md
+      href: tutorial-manage-web-traffic-cli.md
   - name: Configure internal load balancer
     items:
     - name: Azure portal
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md      
+      href: application-gateway-ilb-arm.md
   - name: Configure SSL
     items:
     - name: SSL termination
@@ -115,19 +116,21 @@
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
     - name: End-to-end SSL
-      items:        
+      items:
       - name: End-to-end SSL - Portal
-        href: end-to-end-ssl-portal.md      
+        href: end-to-end-ssl-portal.md
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Manage certificates
       items:             
-      - name: Create certificates for whitelisting backend
-        href: certificates-for-backend-authentication.md        
+      - name: Certificates for the backend
+        href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
+      - name: Generate self-signed certificates
+        href: self-signed-certificates.md
     - name: SSL policy
-      items:           
+      items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
@@ -135,7 +138,7 @@
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md      
+      href: tutorial-restrict-web-traffic-cli.md
   - name: Configure WAF rule sets
     items:
     - name: Azure portal
@@ -149,7 +152,7 @@
     - name: Custom rule examples
       href: create-custom-waf-rules.md
     - name: Configure WAF with custom rules
-      href: configure-waf-custom-rules.md 
+      href: configure-waf-custom-rules.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -159,7 +162,7 @@
   - name: Host multiple sites
     items:
     - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md    
+      href: tutorial-multiple-sites-powershell.md
     - name: Azure CLI
       href: tutorial-multiple-sites-cli.md
   - name: Redirect traffic
@@ -179,7 +182,7 @@
       - name: Azure CLI
         href: redirect-http-to-https-cli.md
     - name: Redirect internal traffic
-      items: 
+      items:
       - name: Azure PowerShell
         href: redirect-internal-site-powershell.md
       - name: Azure CLI
@@ -189,7 +192,7 @@
   - name: Rewrite HTTP headers
     items:
     - name: Azure portal
-      href: rewrite-http-headers-portal.md    
+      href: rewrite-http-headers-portal.md
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
     - name: Create and rewrite HTTP headers
@@ -197,7 +200,7 @@
   - name: Configure App service webapp and multi-tenant service
     items:
     - name: Portal
-      href: configure-web-app-portal.md    
+      href: configure-web-app-portal.md
     - name: Azure PowerShell
       href: create-web-app.md
   - name: Configure custom probes
@@ -212,14 +215,20 @@
     items:
       - name: ILB with an App Service Environment
         href: create-gateway-internal-load-balancer-app-service-environment.md
-      - name: Redirection to App Service’s URL
+      - name: App service issues
         href: troubleshoot-app-service-redirection-app-service-url.md
       - name: Session affinity issues
-        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
+        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
       - name: Web Application Firewall (WAF)
         href: web-application-firewall-troubleshoot.md
+      - name: Resource Health
+        href: resource-health-overview.md
+      - name: Use Log Analytics
+        href: log-analytics.md
+      - name: Backend health issues
+        href: application-gateway-backend-health-troubleshooting.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
@@ -241,16 +250,20 @@
   - name: REST
     href: /rest/api/applicationgateway
   - name: Azure Resource Manager
+    displayName: ARM
     href: ../azure-resource-manager/resource-group-overview.md
   - name: Resource Manager template
-    href: https://docs.microsoft.com/azure/templates/microsoft.network/allversions
+    displayName: ARM
+    href: https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways
 - name: Resources
   items:
   - name: Author templates
+    displayName: ARM
     href: ../azure-resource-manager/resource-group-authoring-templates.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates
+    displayName: ARM
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

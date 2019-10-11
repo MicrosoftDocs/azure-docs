@@ -1,5 +1,5 @@
 ---
-title: Problem configuring password single sign-on for an Azure AD Gallery application | Microsoft Docs
+title: Problems configuring password single sign-on for Azure AD Gallery app | Microsoft Docs
 description: Understand the common problems people face when configuring Password Single Sign-on for applications that are already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''

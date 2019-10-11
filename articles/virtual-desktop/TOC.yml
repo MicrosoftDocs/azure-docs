@@ -32,8 +32,12 @@
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell
     href: create-host-pools-powershell.md
-  - name: Set up a user profile share for a host pool
+  - name: Apply Windows license to Windows Virtual Desktop session hosts
+    href: apply-windows-license.md
+  - name: Create a profile container for a host pool using a file share
     href: create-host-pools-user-profile.md
+  - name: Create a profile container for a host pool using Azure NetApp Files
+    href: create-fslogix-profile-container.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
   - name: Prepare and customize a master VHD image
@@ -48,6 +52,8 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Customize RDP Properties
     href: customize-rdp-properties.md
+  - name: Deploy the diagnostics tool
+    href: deploy-diagnostics.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
@@ -58,6 +64,10 @@
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
     href: fslogix-containers-azure-files.md
+  - name: Partner integrations
+    href: partners.md
+  - name: Windows 10 Enterprise multi-session FAQ
+    href: windows-10-multisession-faq.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -78,7 +88,11 @@
   items:
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
+  - name: REST API
+    href: /rest/api/virtual-desktop/
 - name: Resources
   items:
   - name: Tech Community support group 
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
+  - name: UserVoice forum 
+    href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general

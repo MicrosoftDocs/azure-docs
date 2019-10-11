@@ -2,7 +2,7 @@
 title: How to model complex data types - Azure Search
 description: Nested or hierarchical data structures can be modeled in an Azure Search index using ComplexType and Collections data types.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 services: search
@@ -44,12 +44,12 @@ The following JSON document is composed of simple fields and complex fields. Com
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
       "Type": "Budget Room",
-      "BaseRate": 96.99,
+      "BaseRate": 96.99
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99,
+      "BaseRate": 150.99
     },
   ]
 }

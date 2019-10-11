@@ -5,15 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 09/04/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure portal
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure portal.
-
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 ## Prerequisites
 
@@ -40,9 +37,12 @@ A read replica server can be created using the following steps:
 
     ![Azure Database for MySQL - Replica name](./media/howto-read-replica-portal/replica-name.png)
 
-6. Select the location for the replica server. You can create a replica in any Azure region. The default location is the same as the master server
+6. Select the location for the replica server. The default location is the same as the master server's.
 
     ![Azure Database for MySQL - Replica location](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 7. Select **OK** to confirm creation of the replica.
 

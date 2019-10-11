@@ -1,5 +1,5 @@
 ---
-title: Control a device from Azure IoT Hub quickstart (Node.js) | Microsoft Docs
+title: 'Quickstart: Control a device from Azure IoT (Node.js)'
 description: In this quickstart, you run two sample Node.js applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 author: wesmc7777
 manager: philmea
@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
@@ -106,7 +106,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Listen for direct method calls
 
-The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
+The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
 1. In a local terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
@@ -127,7 +127,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Call the direct method
 
-The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
+The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub back-end application typically runs in the cloud.
 
 1. In another local terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
@@ -142,7 +142,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     node BackEndApplication.js
     ```
 
-    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgement:
+    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
     ![Run the back-end application](./media/quickstart-control-device-node/BackEndApplication.png)
 

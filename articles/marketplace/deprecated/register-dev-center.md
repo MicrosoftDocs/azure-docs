@@ -148,7 +148,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 * **How do I get started with Dev Center registration?**
   > To prevent duplication, verify that your company does not already have a Dev Center account registered. 
-  > You must be signed in with the Microsoft account that you want to associate with your developer account. If you don’t already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > You must be signed in with the Microsoft account that you want to associate with your developer account. If you don’t already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/registration?accountProgram=Azure
   > <br>To learn more on registration process click [here.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 * **Should I choose 'Individual' or 'Company' account type?**

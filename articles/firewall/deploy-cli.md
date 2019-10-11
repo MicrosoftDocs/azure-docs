@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -16,7 +16,7 @@ Controlling outbound network access is an important part of an overall network s
 
 One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
 
-* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
+* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet. The FQDN can also [include SQL instances](sql-fqdn-filtering.md).
 * Network rules that define source address, protocol, destination port, and destination address.
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
@@ -51,6 +51,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, run Azure CLI version 2.0.4 or later. To find the version, run **az --version**. For information about installing or upgrading, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+Install the Azure Firewall extension:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
+
 ## Set up the network
 
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
@@ -68,7 +75,7 @@ az group create --name Test-FW-RG --location eastus
 This virtual network has three subnets.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /26.
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -77,7 +84,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.0.1.0/26
 az network vnet subnet create \
   --name Workload-SN \
   --resource-group Test-FW-RG \

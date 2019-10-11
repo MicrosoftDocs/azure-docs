@@ -11,7 +11,7 @@ ms.date: 06/11/2019
 ms.custom: seodec18
 ---
 
-# Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning Studio (Preview)
+# Perform sentiment analysis with Azure Stream Analytics and Azure Machine Learning Studio (Preview)
 This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio. You use a Machine Learning sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score in real time. Using the Cortana Intelligence Suite lets you accomplish this task without worrying about the intricacies of building a sentiment analytics model.
 
 You can apply what you learn from this article to scenarios such as these:
@@ -247,7 +247,7 @@ You also can view Azure Machine Learning function-related metrics. The following
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrate REST API and Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

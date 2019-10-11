@@ -9,7 +9,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -108,8 +108,7 @@ To use BYOL with a SQL Server VM, you must have a license for SQL Server Standar
 
 | BYOL benefit | Description |
 |-----|-----|
-| **Cost savings** | Bringing your own SQL Server license is more cost effective than paying it per usage if a workload runs continuously SQL Server Standard or Enterprise for *more than 10 months*. |
-| **Long-term savings** | On average, it is *30% cheaper per year* to buy or renew a SQL Server license for the first 3 years. Furthermore, after 3 years, you don’t need to renew the license anymore, just pay for Software Assurance. At that point, it is *200% cheaper*. |
+| **Cost savings** | The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) offers up to 55% savings. For more information, see [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
 | **Free passive secondary replica** | Another benefit of bringing your own license is the [free licensing for one passive secondary replica](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server for high availability purposes. This cuts in half the licensing cost of a highly available SQL Server deployment (for example, using Always On Availability Groups). The rights to run the passive secondary are provided through the Fail-Over Servers Software Assurance benefit. |
 
 To create a SQL Server 2017 Azure VM with one of these bring-your-own-license images, see the VMs prefixed with "{BYOL}":

@@ -16,7 +16,7 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 >
 >
 
-1. Sign in to the [Azure portal](http://portal.azure.com) and select **Create a resource**. The **New** page opens.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. The **New** page opens.
 
 2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
 

@@ -37,7 +37,7 @@ Office 365, Survey Monkey, Twitter, and an
 The workflow that you create monitors a hashtag on Twitter.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
-and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
+and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
 [watch this Channel 9 video](https://aka.ms/logicappsdemo). 
 
@@ -170,7 +170,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment) 
+[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
@@ -178,7 +178,7 @@ integrating your solution into Azure Pipelines.
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 
-[how to create logic app deployment templates](../logic-apps/logic-apps-create-deploy-template.md).
+how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
 check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).

@@ -1,5 +1,5 @@
 ---
-title: Customize claims issued in the SAML token for enterprise applications in Azure AD | Microsoft Docs
+title: Customize SAML token claims for enterprise apps in Azure AD | Microsoft Docs
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes

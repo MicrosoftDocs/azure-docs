@@ -7,7 +7,6 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
 
@@ -25,8 +24,6 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 > - Remove a blueprint that has been assigned to a subscription
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Getting started with REST API
 
@@ -489,7 +486,7 @@ To remove the blueprint itself, use the following REST API operation:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](./concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).

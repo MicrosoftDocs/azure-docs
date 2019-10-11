@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 09/24/2018
 ---
 # Learn how to provision new tenants and register them in the catalog

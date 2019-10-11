@@ -4,8 +4,8 @@ description: Learn how to push notifications to Swift iOS apps that use Azure No
 services: notification-hubs
 documentationcenter: ios
 author: mikeparker104
-manager: patniko
-editor: spelluru
+manager: femila
+editor: jwargo
 
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
@@ -15,6 +15,8 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
+ms.reviewer: jowargo
+ms.lastreviewed: 05/21/2019
 ---
 
 # Tutorial: Push notifications to Swift iOS apps that use the Notification Hubs REST API

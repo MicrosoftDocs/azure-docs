@@ -17,7 +17,7 @@ above subscriptions. You organize subscriptions into containers called "manageme
 apply your governance conditions to the management groups. All subscriptions within a management
 group automatically inherit the conditions applied to the management group. Management groups give
 you enterprise-grade management at a large scale no matter what type of subscriptions you might
-have.
+have. All subscriptions within a single management group must trust the same Azure Active Directory tenant.
 
 For example, you can apply policies to a management group that limits the regions available for
 virtual machine (VM) creation. This policy would be applied to all management groups,
@@ -32,12 +32,12 @@ example of creating a hierarchy for governance using management groups.
 
 ![Example of a management group hierarchy tree](./media/tree.png)
 
-Create a hierarchy so you can apply a policy, for example, limit VM locations
-to US West Region on the group "Production". This policy will inherit onto both EA subscriptions under that management
+You can create a hierarchy that applies a policy, for example, which limits VM locations
+to the US West Region in the group called "Production". This policy will inherit onto both EA subscriptions under that management
 group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
-Another scenario where you would use management groups is to provide user access to multi
+Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one [role-based access control](../../role-based-access-control/overview.md) (RBAC)
 assignment on the management group, which will inherit that access to all the subscriptions.
 One assignment on the management group can enable users to have access to everything they need instead of scripting RBAC over different subscriptions.
@@ -70,7 +70,7 @@ root group initially. After elevating access, the administrator can assign any R
   - New subscriptions are automatically defaulted to the root management group when created.
 - All Azure customers can see the root management group, but not all customers have access to manage that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
-  - No one is given default access to the root management group. Azure AD Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the global administrators can assign any RBAC role to other users to manage.  
+  - No one is given default access to the root management group. Azure AD Global Administrators are the only users that can elevate themselves to gain access.  Once they have access to the root management group, the global administrators can assign any RBAC role to other users to manage it.  
 
 > [!IMPORTANT]
 > Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**.
@@ -123,7 +123,7 @@ The following chart shows the list of roles and the supported actions on managem
 |Reader                      |        |        |        |        |               |               | X     |
 |MG Reader*                  |        |        |        |        |               |               | X     |
 |Resource Policy Contributor |        |        |        |        |               | X             |       |
-|User Access Administrator   |        |        |        |        | X             |               |       |
+|User Access Administrator   |        |        |        |        | X             | X             |       |
 
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.

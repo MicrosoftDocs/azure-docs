@@ -40,7 +40,7 @@ If you choose to secure your storage account with the **Firewalls and virtual ne
 ## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
 
-![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop clusters use HDFS API to access and store data in Blob storage](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight Storage Architecture")
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
@@ -68,6 +68,7 @@ Multiple WebHCat jobs, including Apache Hive, MapReduce, Apache Hadoop streaming
 Blobs can be used for structured and unstructured data. Blob containers store data as key/value pairs, and there is no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
 
 ## <a id="benefits"></a>Benefits of Azure Storage
+
 The implied performance cost of not colocating compute clusters and storage resources is mitigated by the way the compute clusters are created close to the storage account resources inside the Azure region, where the high-speed network makes it efficient for the compute nodes to access the data inside Azure storage.
 
 There are several benefits associated with storing the data in Azure storage instead of HDFS:
@@ -88,6 +89,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 > Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
 ## Address files in Azure storage
+
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
 ```config
@@ -120,6 +122,7 @@ example/jars/hadoop-mapreduce-examples.jar
 > When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
 ##  Blob containers
+
 To use blobs, you first create an [Azure Storage account](../storage/common/storage-create-storage-account.md). As part of this, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must also be located in the same region.
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.

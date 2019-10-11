@@ -3,17 +3,14 @@ title: Create schedule triggers in Azure Data Factory | Microsoft Docs
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor:
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: shlo
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -251,9 +248,7 @@ Azure Data Factory version 1 supports reading or writing partitioned data by usi
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-For more information, see the instructions in [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+```
 
 ## JSON schema
 The following JSON definition shows you how to create a schedule trigger with scheduling and recurrence:

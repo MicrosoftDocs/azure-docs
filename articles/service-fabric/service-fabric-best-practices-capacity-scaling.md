@@ -76,15 +76,6 @@ With the node properties and placement constraints declared, do the following st
 5. Once all VMs are gone (represented as "Down") the fabric:/System/InfrastructureService/[node name] will show an Error state. Then, you can update the cluster resource to remove the node type. You can either use the ARM template deployment, or edit the cluster resource through the [Azure resource manager](https://resources.azure.com). This will start a cluster upgrade which will remove the fabric:/System/InfrastructureService/[node type] service that is in error state.
  6. After that you can optionally delete the VMScaleSet, you will still see the nodes as “Down” from Service Fabric Explorer view though. The last step would be to clean them up with `Remove-ServiceFabricNodeState` command.
 
-### Example scenario
-A supported scenario for when to perform a vertical scaling operation is: you want to migrate your Service Fabric cluster and application from an unmanaged disk to managed disks without application downtime. 
-
-You can provision a new virtual machine scale set with managed disks, and perform an application upgrade with placement constraints that target provisioned capacity. Your Service Fabric cluster can then schedule your workload on provisioned cluster node capacity that's rolled out by upgrade domain without application downtime. 
-
-Back-end pool endpoints for the [Azure Load Balancer Basic SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) can be virtual machines in a single availability set or a virtual machine scale set. This means you can't use a Basic SKU load balancer if you move your Service Fabric systems application between scale sets, without causing temporary inaccessibility of your Service Fabric cluster management endpoint. This is true even though the cluster and its application are still running.
-
-Users commonly provision a Standard SKU load balancer when performing a virtual IP address (VIP) swap between Basic SKU load balancer and Standard SKU load balancer resources. This technique limits any future inaccessibility to about 30 seconds required for VIP swapping.
-
 ## Horizontal scaling
 
 You can do horizontal scaling either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
@@ -96,7 +87,7 @@ You can do horizontal scaling either [manually](https://docs.microsoft.com/azure
 
 Scale out a Service Fabric cluster by increasing the instance count for a particular virtual machine scale set. You can scale out programmatically by using `AzureClient` and the ID for the desired scale set to increase the capacity.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -138,7 +129,7 @@ To scale in manually, update the capacity in the SKU property of the desired [vi
 
 You must prepare the node for shutdown to scale in programmatically. Find the node to be removed (the highest-instance node). For example:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -155,7 +146,7 @@ using (var client = new FabricClient())
 
 Deactivate and remove the node by using the same `FabricClient` instance (`client` in this case) and node instance (`instanceIdString` in this case) that you used in the previous code:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

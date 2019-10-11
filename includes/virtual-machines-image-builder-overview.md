@@ -43,6 +43,7 @@ AIB will support Azure Marketplace base OS images:
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
+- Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
 - Windows 2016
 - Windows 2019
 
@@ -51,7 +52,7 @@ AIB will support RHEL ISO's, as a source for:
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6 is not supported, but being tested.
+RHEL 7.6 ISOs are not supported, but are being tested.
 
 ## How it works
 
@@ -68,7 +69,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 
 1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distribution. There are multiple examples in the [Azure Image Builder GitHub repository](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. Once the Image Template is created, you can then build the image. In the background Image Builder uses the template and source files to create a VM, network, and storage in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group.
+1. Once the Image Template is created, you can then build the image. In the background Image Builder uses the template and source files to create a VM (D1v2), network, public IP and storage in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group.
 1. As part of the image creation, Image builder distributes the image it according to the template, then deletes the additional resources in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group that was created for the process.
 
 

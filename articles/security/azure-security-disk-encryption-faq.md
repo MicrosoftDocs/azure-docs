@@ -29,6 +29,10 @@ There's no charge for encrypting VM disks with Azure Disk Encryption but there a
 
 To get started, read the [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
 
+## What VM sizes and operating systems support Azure Disk Encryption?
+
+The [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) article lists the [VM sizes](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) and [VM operating systems](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) that support Azure Disk Encryption.
+
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
 Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported. For Linux VMs in a scale set, only the data volume can be encrypted.
@@ -132,4 +136,4 @@ In this document, you learned more about the most frequent questions related to 
 
 - [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md)
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure data encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

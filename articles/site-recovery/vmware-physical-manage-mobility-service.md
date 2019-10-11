@@ -56,11 +56,12 @@ Uninstall from the UI or from a command prompt.
 
 ### On a Linux machine
 1. On the Linux machine, sign in as a **root** user.
-2. In a terminal, go to /user/local/ASR.
+2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
     ```
     uninstall.sh -Y
-
+   ```
+   
 ## Install Site Recovery VSS provider on source machine
 
 Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.

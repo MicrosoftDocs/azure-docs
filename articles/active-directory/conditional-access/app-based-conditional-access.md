@@ -77,23 +77,12 @@ Any Intune app protection policies are activated at the time the access corporat
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/01.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**.
-
-   ![Conditional Access](./media/app-based-conditional-access/07.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
    1. As **Device platforms**, select **Android** and **iOS**.
-
-      ![Conditional Access](./media/app-based-conditional-access/03.png)
-
    1. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/91.png)
-
 1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
    ![Conditional Access](./media/app-based-conditional-access/05.png)
@@ -102,26 +91,16 @@ For the Conditional Access policy in this step, you need to configure the follow
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/06.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**.
-
-   ![Conditional Access](./media/app-based-conditional-access/07.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)**. 
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/92.png)
-
    1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
       ![Conditional Access](./media/app-based-conditional-access/05.png)
 
 **Step 3 - Configure Intune app protection policy for iOS and Android client applications**
-
-![Conditional Access](./media/app-based-conditional-access/09.png)
 
 See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune) for more information.
 
@@ -143,23 +122,12 @@ This scenario assumes that a user:
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/71.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-
-   ![Conditional Access](./media/app-based-conditional-access/02.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
    1. As **Device platforms**, select **Android** and **iOS**.
-
-      ![Conditional Access](./media/app-based-conditional-access/03.png)
-
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/91.png)
-
 1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
    ![Conditional Access](./media/app-based-conditional-access/05.png)
@@ -168,19 +136,11 @@ For the Conditional Access policy in this step, you need to configure the follow
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/06.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. Online 
-
-   ![Conditional Access](./media/app-based-conditional-access/07.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Client apps**:
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/92.png)
-
    1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
       ![Conditional Access](./media/app-based-conditional-access/05.png)
@@ -209,23 +169,12 @@ This scenario assumes that:
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/62.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-
-     ![Conditional Access](./media/app-based-conditional-access/02.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
    1. As **Device platforms**, select **Android** and **iOS**.
-
-      ![Conditional Access](./media/app-based-conditional-access/03.png)
-
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/91.png)
-
 1. As **Access controls**, you need to have the following selected:
    - **Require device to be marked as compliant**
    - **Require approved client app (preview)**
@@ -237,20 +186,11 @@ For the Conditional Access policy in this step, you need to configure the follow
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/61.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. 
-
-   ![Conditional Access](./media/app-based-conditional-access/07.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Client apps**. 
-
-   As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-
-   ![Conditional Access](./media/app-based-conditional-access/91.png)
-
+   1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
  
    ![Conditional Access](./media/app-based-conditional-access/11.png)
@@ -285,23 +225,12 @@ Any Intune app protection policies are activated at the time of access to the co
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/62.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online** and **Office 365 SharePoint Online**. 
-
-   ![Conditional Access](./media/app-based-conditional-access/02.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
    1. As **Device platforms**, select **Android** and **iOS**.
-
-      ![Conditional Access](./media/app-based-conditional-access/03.png)
-
    1. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
-
-      ![Conditional Access](./media/app-based-conditional-access/91.png)
-
 1. As **Access controls**, you need to have the following selected:
    - **Require device to be marked as compliant**
    - **Require approved client app (preview)**
@@ -309,23 +238,15 @@ For the Conditional Access policy in this step, you need to configure the follow
  
       ![Conditional Access](./media/app-based-conditional-access/13.png)
 
-
-
 **Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
 For the Conditional Access policy in this step, you need to configure the following components:
 
-![Conditional Access](./media/app-based-conditional-access/61.png)
-
 1. The **Name** of your Conditional Access policy.
 1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **Cloud apps:** As cloud apps, you need to select **Office 365 Exchange Online**. 
-
-   ![Conditional Access](./media/app-based-conditional-access/07.png)
-
 1. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)**. 
-
-   As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
+   1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
    ![Conditional Access](./media/app-based-conditional-access/92.png)
 
@@ -333,8 +254,6 @@ For the Conditional Access policy in this step, you need to configure the follow
    - **Require device to be marked as compliant**
    - **Require approved client app (preview)**
    - **Require all the selected controls**   
- 
-      ![Conditional Access](./media/app-based-conditional-access/64.png)
 
 **Step 3 - Configure Intune app protection policy for iOS and Android client applications**
 

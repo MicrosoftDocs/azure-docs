@@ -8,8 +8,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
 ---
 # Templates
@@ -44,11 +44,13 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)
 
+    -   [Move files](solution-template-move-files.md)
+
     -   [Delta copy from Database](solution-template-delta-copy-with-control-table.md)
 
     -   Copy from \<source\> to \<destination\>
 
-        -   From Amazon S3 to Azure Data Lake Store Gen 2
+        -   [From Amazon S3 to Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
         -   From Google Big Query to Azure Data Lake Store Gen 2
 

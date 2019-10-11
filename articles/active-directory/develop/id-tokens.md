@@ -12,10 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 ## Using the id_token
 
-ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it shouldn't be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application.
+ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it shouldn't be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, as keys in a database, and providing access to the client application.  When creating keys for a database, `idp` should not be used because it messes up guest scenarios.  Keying should be done on `sub` alone (which is always unique), with `tid` used for routing if need be.  If you need to share data across services, `oid`+`sub`+`tid` will work since multiple services all get the same `oid`.
 
 ## Claims in an id_token
 

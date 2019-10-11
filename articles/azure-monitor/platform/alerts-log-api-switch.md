@@ -38,7 +38,7 @@ The impacts of the switch of preference to scheduledQueryRules API are compiled 
 
 - All interactions done for managing log alerts via programmatic interfaces must now be done using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead. For more information, see, [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Any new log alert rule created in Azure portal, will be created using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) only and allow users to use the [additional functionality of new API](#benefits-of-switching-to-new-azure-api) via Azure portal as well
-- Severity for log alert rules will shift from: *Critical, Warning & Informational*, to *Severity values of 0, 1 & 2*. Along with the option to create/update alert rules with severity 4 as well.
+- Severity for log alert rules will shift from: *Critical, Warning & Informational*, to *Severity values of 0, 1 & 2*. Along with the option to create/update alert rules with severity 3 and 4 as well.
 
 The process of moving alert rules from [legacy Log Analytics Alert API](api-alerts.md) does not involve changing your alert definition, query, or configuration in any way. Your alert rules and monitoring are unaffected and the alerts will not stop or be stalled, during or after the switch. The only change is a change in API preference and access to your rules via a new API.
 

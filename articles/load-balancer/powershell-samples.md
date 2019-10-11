@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure PowerShell Samples
 services: virtual-network
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 12/10/2018
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Azure PowerShell Samples for Load Balancer

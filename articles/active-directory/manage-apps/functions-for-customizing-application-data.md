@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 07/31/2019
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
@@ -138,29 +138,32 @@ Replaces values within a string. It works differently depending on the parameter
 
 * When **oldValue** and **replacementValue** are provided:
   
-  * Replaces all occurrences of oldValue in the source  with replacementValue
+  * Replaces all occurrences of **oldValue** in the **source**  with **replacementValue**
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
+* When **regexPattern** and **replacementValue** are provided:
+
+  * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
-  * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
-* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
+  * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
+* When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
   * If **source** has no value, **source** is returned
-  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
 
 **Parameters:**<br> 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
+| **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when replacementPropertyName is used, pattern to extract value from replacement property. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  replacementPropertyName is used, we will extract value of this group as replacementValue from replacement property. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
-| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value, when source has no value. |
-| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
+| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
+| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 ---
 ### SelectUniqueValue
@@ -171,8 +174,10 @@ SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
 
 > [!NOTE]
->1. This is a top-level function, it cannot be nested.
->2. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+> - This is a top-level function, it cannot be nested.
+> - This function cannot be applied to attributes that have a matching precedence. 	
+> - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+> - This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:**<br> 
@@ -202,7 +207,7 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 Split(source, delimiter)
 
 **Description:**<br> 
-Splits a string into a mulit-valued array, using the specified delimiter character.
+Splits a string into a multi-valued array, using the specified delimiter character.
 
 **Parameters:**<br> 
 
@@ -386,7 +391,7 @@ Based on the user's first name, middle name and last name, you need to generate 
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 

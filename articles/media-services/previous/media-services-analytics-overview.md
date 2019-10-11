@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: milanga;juliako;johndeu
-
+ms.author: juliako
+ms.reviewer: milanga; johndeu
 ---
 # Media Analytics on the Media Services platform 
 

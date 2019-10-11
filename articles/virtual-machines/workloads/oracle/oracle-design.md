@@ -4,12 +4,12 @@ description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -47,7 +47,7 @@ The following table lists some of the differences between an on-premises impleme
 > | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
 > | **Planned maintenance** |Patching/upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
 > | **Resource** |Dedicated  |Shared with other clients|
-> | **Regions** |Datacenters |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Regions** |Datacenters |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Scale** |Vertical scale |Horizontal scale|
 

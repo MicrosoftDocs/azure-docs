@@ -10,10 +10,10 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
-ms.author: cephalin;sisirap
+ms.date: 08/12/2019
+ms.author: cephalin
+ms.reviewer: sisirap
 ms.custom: seodec18
 
 ---
@@ -63,6 +63,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 
@@ -98,23 +99,18 @@ For the HTTP BASIC authentication, you need your App Service deployment credenti
 
 ### With cURL
 
-The following example uses the cURL tool to deploy a .war file. Replace the placeholders `<username>`, `<war_file_path>`, and `<app_name>`. When prompted by cURL, type in the password.
+The following example uses the cURL tool to deploy a .war file. Replace the placeholders `<username>`, `<war-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### With PowerShell
 
-The following example uses [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send a request that contains the .war file. Replace the placeholders `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, and `<app_name>`.
+The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) upload the .war file. Replace the placeholders `<group-name>`, `<app-name>`, and `<war-file-path>`.
 
 ```powershell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<war_file_path>"
-$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

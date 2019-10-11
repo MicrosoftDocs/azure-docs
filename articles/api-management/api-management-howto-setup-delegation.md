@@ -11,7 +11,6 @@ ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
@@ -34,7 +33,7 @@ The final workflow will be as follows:
 3. Delegation endpoint in return redirects to or presents UI asking user to sign in or sign up
 4. On success, the user is redirected back to the API Management developer portal page they started from
 
-To begin, let's first set-up API Management to route requests via your delegation endpoint. In the API Management publisher portal, click on **Security** and then click the **Delegation** tab. Click the checkbox to enable 'Delegate sign in & sign up'.
+To begin, let's first set-up API Management to route requests via your delegation endpoint. In the Azure portal, search for **Security** in your API Management resource and then click the **Delegation** item. Click the checkbox to enable 'Delegate sign in & sign up'.
 
 ![Delegation page][api-management-delegation-signin-up]
 

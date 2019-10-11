@@ -6,8 +6,9 @@ author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
 ms.date: 06/29/2019
-ms.topic: article
+ms.topic: conceptual
 ms.subservice: develop
+ms.custom: aaddev 
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management

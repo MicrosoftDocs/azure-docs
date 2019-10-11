@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Scale Azure Cosmos DB container throughput | Microsoft Docs
-description: Azure CLI Script Sample - Scale Azure Cosmos DB container throughput
+title: Azure CLI Script-Scale Azure Cosmos container throughput | Microsoft Docs
+description: Azure CLI Script Sample - Scale Azure Cosmos container throughput
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,9 +10,9 @@ ms.author: mjbrown
 ms.reviewer: sngun
 ---
 
-# Scale Azure Cosmos DB container throughput using the Azure CLI
+# Scale Azure Cosmos container throughput using the Azure CLI
 
-This sample scales container throughput for any kind of Azure Cosmos DB container.  
+This sample scales container throughput for any kind of Azure Cosmos container.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -38,9 +38,9 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Creates an Azure Cosmos DB database. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Creates an Azure Cosmos DB container. |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Updates an Azure Cosmos DB container. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Creates an Azure Cosmos database. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Creates an Azure Cosmos container. |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Updates an Azure Cosmos container. |
 | [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

@@ -23,8 +23,6 @@ The first management group created in the directory could take up to 15 minutes 
 are processes that run the first time to set up the management groups service within Azure for your
 directory. You receive a notification when the process is complete.
 
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
-
 ## Create a management group
 
 You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you

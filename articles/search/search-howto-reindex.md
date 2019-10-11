@@ -3,7 +3,7 @@ title: Rebuild an Azure Search index or refresh searchable content - Azure Searc
 description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Search index.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: search
 ms.topic: conceptual

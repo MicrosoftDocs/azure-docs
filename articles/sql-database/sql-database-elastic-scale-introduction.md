@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database

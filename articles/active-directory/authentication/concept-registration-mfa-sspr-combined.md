@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -131,6 +131,8 @@ A user who has previously set up at least one method navigates to [https://aka.m
 A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
 
 ## Next steps
+
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.date: 12/5/2018
 ms.topic: article
 tags: azure-service-management
-ms.devlang: na
+
 ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server

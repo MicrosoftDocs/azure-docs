@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
 ---
 # Configure public endpoint in Azure SQL Database managed instance

@@ -3,7 +3,7 @@ title: Networking patterns for Azure Service Fabric | Microsoft Docs
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Service Fabric networking patterns
@@ -600,6 +600,10 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
     ```
 
 After deployment, you can see two load balancers in the resource group. If you browse the load balancers, you can see the public IP address and management endpoints (ports 19000 and 19080) assigned to the public IP address. You also can see the static internal IP address and application endpoint (port 80) assigned to the internal load balancer. Both load balancers use the same virtual machine scale set back-end pool.
+
+## Notes for production workloads
+
+The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU. This SLB has no SLA, so for production workloads the Standard SKU should be used. For more on this, see the [Azure Standard Load Balancer overview](/azure/load-balancer/load-balancer-standard-overview). Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail. In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)

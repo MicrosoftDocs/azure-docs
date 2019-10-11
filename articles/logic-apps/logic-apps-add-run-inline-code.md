@@ -21,11 +21,12 @@ to run code that fits this scenario:
 * Runs in JavaScript. More languages coming soon.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
+* Doesn't require working with the [**Variables** actions](../logic-apps/logic-apps-create-variables-store-values.md), which are not yet supported.
 * Uses Node.js version 8.11.1. For more information, see 
 [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > The require() function isn't supported by the **Inline Code** action for running JavaScript.
+  > The `require()` function isn't supported by the **Inline Code** action for running JavaScript.
 
 This action runs the code snippet and returns the output from 
 that snippet as a token named **Result**, which you can use in 
@@ -55,6 +56,16 @@ including a trigger. If you don't have a logic app, see
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 that's linked to your logic app
+
+  > [!NOTE]
+  > Make sure that you use an integration account that's appropriate for your use case or scenario. 
+  > For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration 
+  > accounts are meant only for exploratory scenarios and workloads, not production scenarios, 
+  > are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). 
+  > Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. 
+  > Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), 
+  > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), 
+  > and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Add inline code
 

@@ -19,7 +19,7 @@ The request has the following authentication header values:
 | Header name | Description | Example value |
 | ----------- | ----------- | ------------ |
 | Authorization | Primary token | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Auxiliary tokens | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
+| x-ms-authorization-auxiliary | Auxiliary tokens | Bearer &lt;auxiliary-token1&gt;, EncryptedBearer &lt;auxiliary-token2&gt;, Bearer &lt;auxiliary-token3&gt; |
 
 The auxiliary header can hold up to three auxiliary tokens. 
 

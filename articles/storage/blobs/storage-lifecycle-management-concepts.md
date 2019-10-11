@@ -1,15 +1,14 @@
 ---
 title: Managing the Azure Storage lifecycle
 description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
+ms.topic: conceptual
+ms.reviewer: yzheng
 ---
 
 # Manage the Azure Blob storage lifecycle
@@ -25,9 +24,11 @@ The lifecycle management policy lets you:
 
 Consider a scenario where data gets frequent access during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policy rules are available to move aging data to cooler tiers.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## Storage account support
 
-The lifecycle management policy is available with both General Purpose v2 (GPv2) accounts and Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
+The lifecycle management policy is available with General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
 
 ## Pricing
 
@@ -35,7 +36,7 @@ The lifecycle management feature is free of charge. Customers are charged the re
 
 ## Regional availability
 
-The lifecycle management feature is available in all global Azure regions.
+The lifecycle management feature is available in all Azure regions.
 
 ## Add or remove a policy
 
@@ -49,17 +50,45 @@ You can add, edit, or remove a policy by using any of the following methods:
 This article shows how to manage policy by using the portal and PowerShell methods.  
 
 > [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. The required bypass are: `Logging,  Metrics,  AzureServices`. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### Azure portal
 
+There are two ways to add a policy through the Azure portal. 
+
+* [Azure portal List view](#azure-portal-list-view)
+* [Azure portal Code view](#azure-portal-code-view)
+
+#### Azure portal List view
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Select **All resources** and then select your storage account.
+
+3. Under **Blob Service**, select **Lifecycle management** to view or change your rules.
+
+4. Select the **List view** tab.
+
+5. Select **Add rule** and then fill out the **Action set** form fields. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
+
+   ![Lifecycle management action set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+
+6. Select **Filter set** to add an optional filter. Then, select **Browse** to specify a container and folder by which to filter.
+
+   ![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+
+8. Select **Review + add** to review the policy settings.
+
+9. Select **Add** to add the new policy.
+
+#### Azure portal Code view
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All resources** and then select your storage account.
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
 
-4. The following JSON is an example of a rule  that can be pasted into the **Lifecycle management** portal page.
+4. The following JSON is an example of a policy that can be pasted into the **Code view** tab.
 
    ```json
    {
@@ -89,7 +118,9 @@ This article shows how to manage policy by using the portal and PowerShell metho
    }
    ```
 
-5. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
+5. Select **Save**.
+
+6. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
 
 ### PowerShell
 
@@ -196,7 +227,7 @@ Each rule within the policy has several parameters:
 | Parameter name | Parameter type | Notes | Required |
 |----------------|----------------|-------|----------|
 | `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
-| `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it is not set. | False | 
+| `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False | 
 | `type`         | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
@@ -392,8 +423,8 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 **I created a new policy, why do the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
 
-**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
-When a blob is moved from one access tier to another access tier, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by lifecycle management engine. You can prevent it by disabling the rule which affects this blob temporarily. You can copy the blob to another location if it needs to stay in hot tier permanently. You can re-enable the rule when the blob can be safely moved back to archive tier. 
+**I manually rehydrate an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
+When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Copy the blob to another location if it needs to stay in hot tier permanently. Re-enable the rule when the blob can be safely moved back to archive tier. 
 
 
 ## Next steps

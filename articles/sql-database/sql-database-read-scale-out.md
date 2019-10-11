@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
 ms.date: 06/03/2019
 ---
 # Use read-only replicas to load-balance read-only query workloads
@@ -85,7 +84,7 @@ You can disable and re-enable Read Scale-Out on single databases and elastic poo
 
 ### Azure portal
 
-You can manage the Read Sacle-out setting on the **Configure** database blade. 
+You can manage the Read Scale-out setting on the **Configure** database blade. 
 
 ### PowerShell
 

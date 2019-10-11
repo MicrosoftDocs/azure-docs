@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Azure Standard Load Balancer overview

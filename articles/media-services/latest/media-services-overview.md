@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/13/2019
+ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -66,6 +66,10 @@ The tutorials show scenario-based procedures for some of the top Media Services 
 * [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
 * [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
     
+### Samples
+
+Use [this samples browser](https://docs.microsoft.com/samples/browse/?products=azure-media-services) to browse Azure Media Services code samples.
+
 ### How-to guides
 
 Articles contain code samples that demonstrate how to complete a task. In this section, you will find many examples, here are just a few of them:

@@ -5,8 +5,8 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 05/06/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Create a host pool with PowerShell
@@ -20,7 +20,7 @@ First, [download and import the Windows Virtual Desktop PowerShell module](https
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
@@ -59,6 +59,8 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license. 
+
 ## Prepare the virtual machines for Windows Virtual Desktop Preview agent installations
 
 You need to do the following things to prepare your virtual machines before you can install the Windows Virtual Desktop agents and register the virtual machines to your Windows Virtual Desktop host pool:
@@ -75,7 +77,7 @@ To successfully domain-join, do the following things on each virtual machine:
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Windows Virtual Desktop Preview host pool
 

@@ -39,9 +39,6 @@ Identifying a workspace can be accomplished one of several ways:
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >Identifying a workspace by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
 * Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
@@ -70,6 +67,9 @@ Identifying an application in Application Insights can be accomplished with the 
 * Resource name - is a human readable name of the app, sometimes referred to as the *component name*.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >Identifying an application by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
 * Qualified name - is the “full name” of the app, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
@@ -129,6 +129,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>This method can’t be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn’t supported. If you prefer to use function for resource scoping in log alerts, you need to edit the alert rule in the portal or with a Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+
+
 ![Timechart](media/cross-workspace-query/chart.png)
 
 ## Next steps

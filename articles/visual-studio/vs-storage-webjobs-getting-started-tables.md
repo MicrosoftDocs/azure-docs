@@ -3,7 +3,7 @@ title: Getting Started with Azure storage and Visual Studio connected services (
 description: How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -24,7 +24,7 @@ The Azure Table storage service enables you to store large amounts of structured
 Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
 ## How to add entities to a table
-To add entities to a table, use the **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
+To add entities to a table, use the **Table** attribute with an **ICollector\<T>** or **IAsyncCollector\<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
 
 The following code sample adds **Person** entities to a table named *Ingress*.
 
@@ -73,7 +73,7 @@ When the function finishes, the **Invocation Details** page reports the number o
 ![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## How to read multiple entities from a table
-To read a table, use the **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
+To read a table, use the **Table** attribute with an **IQueryable\<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
 
 The following code sample reads and logs all rows from the **Ingress** table:
 

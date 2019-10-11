@@ -21,7 +21,7 @@ ms.service: security
 
 U.S. Department of Defense (DoD) customers who deploy workloads to Azure have asked for guidance to set up secure virtual networks and configure the security tools and services that are stipulated by DoD standards and practice. 
 
-The Defense Information System Agency (DISA) published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and commercial cloud provider connection points. SCCA also describes how mission owners secure cloud applications at the connection boundary. Every DoD entity that connects to the commercial cloud must follow the guidelines set forth in the SCCA FRD.
+The Defense Information System Agency (DISA) published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and commercial cloud provider connection points. SCCA also describes how mission owners secure cloud applications at the connection boundary. Every DoD entity that connects to the commercial cloud must follow the guidelines set forth in the SCCA FRD.
  
 The SCCA has four components:
  
@@ -122,7 +122,7 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
     - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview )
     - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 
     - [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 
-    - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) 
+    - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 
     - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
     - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
     - [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) 

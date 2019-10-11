@@ -103,8 +103,8 @@ To install the SDK and associated runtime package via the apt-get command-line t
 7. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. Refresh your package lists based on the newly added repositories.

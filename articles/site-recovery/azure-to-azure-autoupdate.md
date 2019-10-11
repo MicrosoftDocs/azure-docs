@@ -59,7 +59,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 
 
 > [!Note]
-> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent enable replications in the same vault use the previously created one.
+> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent enable replications in the same vault use the previously created one. Currently the drop-down will only list Automation accounts that are in the same Resource Group as the vault.  
 
 For a custom automation account, use the following script:
 

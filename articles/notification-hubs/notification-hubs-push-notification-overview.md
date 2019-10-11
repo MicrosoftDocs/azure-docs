@@ -1,9 +1,9 @@
 ---
 title: What is Azure Notification Hubs?
 description: Learn how to add push notification capabilities with Azure Notification Hubs.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: ''
 
@@ -15,7 +15,9 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 ms.date: 04/30/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/30/2019
 ---
 
 # What is Azure Notification Hubs?
@@ -82,7 +84,7 @@ Notification hubs is your ready-to-use push engine with the following advantages
   - Device handle management in one place.
 - **Cross backends**
   - Cloud or on-premises
-  - .NET, Node.js, Java, etc.
+  - .NET, Node.js, Java, Python, etc.
 - **Rich set of delivery patterns**
   - Broadcast to one or multiple platforms: You can instantly broadcast to millions of devices across platforms with a single API call.
   - Push to device: You can target notifications to individual devices.

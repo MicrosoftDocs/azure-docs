@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;juliako;
-
+ms.author: juliako
+ms.reviewer: milanga
 ---
 # Use Azure Media Video Thumbnails to Create a Video Summarization  
 ## Overview

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Services'
+title: 'Quickstart: Recognize speech, C++ (macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services

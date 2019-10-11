@@ -9,8 +9,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-manager: craigg
-ms.date: 07/05/2019
+ms.date: 09/03/2019
 ---
 # Time zones in Azure SQL Database Managed Instance
 
@@ -39,7 +38,7 @@ A time zone of a managed instance can be set during instance creation only. The 
 
 ### Set the time zone through the Azure portal
 
-When you enter parameters for a new instance, select a time zone from the list of supported time zones. 
+When you enter parameters for a new instance, select a time zone from the list of supported time zones.
   
 ![Setting a time zone during instance creation](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -78,26 +77,19 @@ You can restore a backup file or import data to a managed instance from an insta
 
 ### Point-in-time restore
 
-<del>When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.<del>
-
- >[!WARNING]
-  > Current behavior is not in line with the statement above, and time to restore to is interpreted as in time zone of the source managed instance where automatic database backups are taken from. This will be corrected soon and point in time will be interpreted as UTC time.
+When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This way any ambiguities due to daylight saving time and its potential changes are avoided.
 
 ### Auto-failover groups
 
 Using the same time zone across a primary and secondary instance in a failover group isn't enforced, but we strongly recommend it.
 
   >[!WARNING]
-  > We strongly recommend that you use the same time zone for the primary and secondary instance in a failover group. Because of some rare scenarios, keeping the same time zone across primary and secondary instances isn't enforced. It's important to understand that in the case of manual or automatic failover, the secondary instance will retain its original time zone.
+  > We strongly recommend that you use the same time zone for the primary and secondary instance in a failover group. Because of certain rare use cases keeping the same time zone across primary and secondary instances isn't enforced. It's important to understand that in the case of manual or automatic failover, the secondary instance will retain its original time zone.
 
 ## Limitations
 
 - The time zone of the existing managed instance can't be changed.
 - External processes launched from the SQL Server Agent jobs don't observe the time zone of the instance.
-
-## Known issues
-
-- When point-in-time restore (PITR) operation is performed, the time to restore to is interpreted as per time zone set on the managed instance where automatic database backups are taken from, even though portal page for PITR suggests that the time is interpreted as UTC.
 
 ## List of supported time zones
 

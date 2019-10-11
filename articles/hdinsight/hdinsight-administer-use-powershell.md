@@ -1,14 +1,14 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight with PowerShell - Azure 
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using Azure PowerShell.
-ms.reviewer: tyfox
+ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
+ms.author: tyfox
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
@@ -85,7 +85,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 

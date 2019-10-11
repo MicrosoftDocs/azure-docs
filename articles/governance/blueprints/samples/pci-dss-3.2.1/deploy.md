@@ -26,8 +26,7 @@ before you begin.
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -56,8 +55,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move
 it away from the PCI-DSS v3.2.1 standard.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -73,8 +71,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are
 provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -126,7 +123,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|[Preview]: Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
+|\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
 |Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
 |Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
 |Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data rentention in number of days. Default value is 180 but PCI requires 365.| 
@@ -143,7 +140,7 @@ following articles to learn about the overview and control mapping:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

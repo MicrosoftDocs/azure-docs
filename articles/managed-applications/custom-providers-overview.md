@@ -120,6 +120,7 @@ If you have questions for Azure Custom Resource Provider development, try asking
 
 In this article, you learned about custom providers. Go to the next article to create a custom provider.
 
-- [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

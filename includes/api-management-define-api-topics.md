@@ -7,6 +7,7 @@ ms.author: vlvinogr
 ---
 ## Related topics
 
+* [API import limitations](../articles/api-management/api-management-api-import-restrictions.md)
 * [Import an OpenAPI Specification](../articles/api-management/import-api-from-oas.md)
 * [Import a SOAP API](../articles/api-management/import-soap-api.md)
 * [Import a SOAP API and convert to REST](../articles/api-management/restify-soap-api.md)

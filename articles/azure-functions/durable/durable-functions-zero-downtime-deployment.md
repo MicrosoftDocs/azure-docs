@@ -154,11 +154,9 @@ When you deploy a new version of your app with a breaking change, you can increm
 
 The router monitors the status of orchestrations on the 1.0.1 version, and removes apps after all orchestrations have been finished.  
 
-Here is a [sample project](https://github.com/TsuyoshiUshio/FunctionAppController) with a migration script.
-
 ### Tracking store settings
 
-Each function app should use separate scheduling queues, possibly in separate storage accounts. However, if you want to be able to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. Do this by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` in the [host.json settings] file(durable-functions-bindings.md#host-json) so that they all share the same values.
+Each function app should use separate scheduling queues, possibly in separate storage accounts. However, if you want to be able to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. Do this by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` in the [host.json settings](durable-functions-bindings.md#host-json) file so that they all share the same values.
 
 For more details, [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
 
@@ -167,6 +165,5 @@ For more details, [Manage instances in Durable Functions in Azure](durable-funct
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Versioning in Durable Functions - Azure](durable-functions-versioning.md)
+> [Versioning Durable Functions](durable-functions-versioning.md)
 
-[host.json settings]:

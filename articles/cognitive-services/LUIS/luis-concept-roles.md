@@ -1,5 +1,5 @@
 ---
-title: Roles for entities
+title: Roles for entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: Roles are named, contextual subtypes of an entity used only in patterns. For example, in the utterance `buy a ticket from New York to London`, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city.
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 # Entity roles for contextual subtypes
@@ -49,7 +49,7 @@ Schedule the meeting from 8 to 9
 
 ## Are multiple entities in an utterance the same thing as roles? 
 
-Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates with version of the entity has a value, then a role should be used. 
+Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates which version of the entity has a value, then a role should be used. 
 
 ### Don't use roles for duplicates without meaning
 
@@ -87,7 +87,7 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 ## Entity roles versus collaborator roles
 
-Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-collaborator.md) roles apply to levels of authoring access. 
+Entity roles apply to the data model of the LUIS app. [Collaborator or contributor](luis-concept-keys.md#contributions-from-other-authors) roles apply to levels of authoring access. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
