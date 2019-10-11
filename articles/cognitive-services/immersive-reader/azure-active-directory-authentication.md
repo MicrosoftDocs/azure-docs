@@ -15,10 +15,7 @@ ms.author: rwaller
 
 # Use Azure Active Directory (Azure AD) authentication with the Immersive Reader service
 
-In the following sections, you will use either the Azure Cloud Shell environment or Azure Powershell to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. After completing that initial configuration, you will call Azure AD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure Powershell commands.
-
-   >[!NOTE]
-   > When using the 'Try It' button to interactively run the Azure Powershell commands in the browser, it will initially open in Bash mode. Run '**pwsh**' at the command line to switch into Powershell mode before running any of the commands.
+In the following sections, you will use either the Azure Cloud Shell environment or Azure PowerShell to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. After completing that initial configuration, you will call Azure AD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure PowerShell commands.
 
 ## Create an Immersive Reader resource with a custom subdomain
 
