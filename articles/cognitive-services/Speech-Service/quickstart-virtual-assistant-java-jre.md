@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Custom voice-first virtual assistant (preview), Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Cognitive Services Speech Software Development Kit (SDK) in a Java console application. You will learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice-first virtual assistant experience.
+description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice-first virtual assistant experience.
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -14,42 +14,42 @@ ms.author: bidishac
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, Java
 
-Quickstarts are also available for [speech-to-text](quickstart-java-jre.md), [text-to-speech](quickstart-text-to-speech-java-jre.md), and [speech-translation](quickstart-translate-speech-java-jre.md).
+Quickstarts are also available for [speech to text](quickstart-java-jre.md), [text to speech](quickstart-text-to-speech-java-jre.md), and [speech translation](quickstart-translate-speech-java-jre.md).
 
-In this article, you create a Java console application by using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the Direct Line Speech channel, send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Ubuntu Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Azure Cognitive Services Speech SDK](speech-sdk.md). The application connects to a previously authored bot configured to use the Direct Line Speech channel, sends a voice request, and returns a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Ubuntu Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 ## Prerequisites
 
 This quickstart requires:
 
-* Operating System: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
-* A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
+* Operating system: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later.
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/).
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it in the [Azure portal](https://portal.azure.com).
+* A preconfigured bot created by using Bot Framework version 4.2 or above. The bot needs to subscribe to the new Direct Line Speech channel to receive voice inputs.
 
     > [!NOTE]
-    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
+    > Direct Line Speech Preview is currently available in a subset of Speech Services regions. See [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants), and ensure your resources are deployed in one of those regions.
 
-If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse:
+If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before you start Eclipse:
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-If you're running Windows (64-bit), ensure you have installed the Microsoft Visual C++ Redistributable for your platform:
+If you're running Windows (64-bit), make sure you installed the Microsoft Visual C++ Redistributable for your platform:
 * [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## Optional: Get started fast
 
-This quickstart will describe, step by step, how to make a simple client application to connect to your speech-enabled bot. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+This quickstart describes, step by step, how to make a simple client application to connect to your speech-enabled bot. If you want to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
 
 ## Create and configure project
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Additionally, to enable logging, update the **pom.xml** file to include the following dependency.
+Additionally, to enable logging, update the *pom.xml* file to include the following dependency:
 
    ```xml
     <dependency>
@@ -63,11 +63,11 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
 1. To add a new empty class to your Java project, select **File** > **New** > **Class**.
 
-1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
+1. In the **New Java Class** window, enter *speechsdk.quickstart* in the **Package** field and *Main* in the **Name** field.
 
    ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Open the newly created **Main** class and replace the contents of the `Main.java` file with the following starting code.
+1. Open the newly created **Main** class, and replace the contents of the `Main.java` file with the following starting code:
 
     ```java
     package speechsdk.quickstart;
@@ -134,58 +134,58 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     }
     ```
 
-1. In the **main** method, you will first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This will connect to the Direct line speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
+1. In the **main** method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [here](get-started.md).
+    * Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](get-started.md).
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
-    * Replace the string `YourChannelSecret` with your direct line speech channel secret.
+    * Replace the string `YourChannelSecret` with your Direct Line Speech channel secret.
 
     > [!NOTE]
-    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+    > Direct Line Speech Preview is currently available in a subset of Speech Services regions. See [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: Only a subset of regions are currently supported.
     final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
-    // Configure audio input from microphone.
+    // Configure audio input from a microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a DialogServiceConnector instance
+    // Create a DialogServiceConnector instance.
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
 1. `DialogServiceConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add these event listeners next.
 
     ```java
-    // Recognizing will provide the intermediate recognized text while an audio stream is being processed
+    // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
     connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // Recognized will provide the final recognized text once audio capture is completed
+    // Recognized will provide the final recognized text once audio capture is completed.
     connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
-    // SessionStarted will notify when audio begins flowing to the service for a turn
+    // SessionStarted will notify when audio begins flowing to the service for a turn.
     connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
-    // SessionStopped will notify when a turn is complete and it's safe to begin listening again
+    // SessionStopped will notify when a turn is complete and it's safe to begin listening again.
     connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
-    // Canceled will be signaled when a turn is aborted or experiences an error condition
+    // Canceled will be signaled when a turn is aborted or experiences an error condition.
     connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
         connector.disconnectAsync();
     });
 
-    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
+    // ActivityReceived is the main way your bot will communicate with the client and uses Bot Framework activities.
     connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
@@ -195,7 +195,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
         });
     ```
 
-1. Connect the `DialogServiceConnector` to Direct Line Speech by invoking the `connectAsync()` method. To test your bot, you can invoke the `listenOnceAsync` method to send audio input from your microphone. Additionally, you can also use the `sendActivityAsync` method to send a custom activity as a serialized string. These custom activities can provide additional data that your bot will use in the conversation.
+1. Connect the `DialogServiceConnector` to Direct Line Speech by invoking the `connectAsync()` method. To test your bot, you can invoke the `listenOnceAsync` method to send audio input from your microphone. Additionally, you can also use the `sendActivityAsync` method to send a custom activity as a serialized string. These custom activities can provide additional data that your bot uses in the conversation.
 
     ```java
     connector.connectAsync();
@@ -208,11 +208,11 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
 1. Save changes to the `Main` file.
 
-1. For supporting response playback, you will add an additional class that will transform the PullAudioOutputStream object returned from the getAudio() API to a java InputStream for ease of handling. This ActivityAudioStream is a specialized class which will handle audio response from the "Direct Line Speech channel". It will provide accessors to fetch audio format information required for handling playback: For that select **File** > **New** > **Class**.
+1. To support response playback, add an additional class that transforms the PullAudioOutputStream object returned from the getAudio() API to a Java InputStream for ease of handling. This ActivityAudioStream is a specialized class that handles audio response from the Direct Line Speech channel. It provides accessors to fetch audio format information that's required for handling playback. For that, select **File** > **New** > **Class**.
 
-1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **ActivityAudioStream** into the **Name** field.
+1. In the **New Java Class** window, enter *speechsdk.quickstart* in the **Package** field and *ActivityAudioStream* in the **Name** field.
 
-1. Open the newly created **ActivityAudioStream** class and replace with code provided below.
+1. Open the newly created **ActivityAudioStream** class, and replace it with the following code:
 
     ```java
     package com.speechsdk.quickstart;
@@ -225,11 +225,11 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
     public final class ActivityAudioStream extends InputStream {
         /**
-         * The number of samples played per second. (16 kHz)
+         * The number of samples played per second (16 kHz).
          */
         public static final long SAMPLE_RATE = 16000;
         /**
-         * The number of bits in each sample of a sound that has this format. (16 bits)
+         * The number of bits in each sample of a sound that has this format (16 bits).
          */
         public static final int BITS_PER_SECOND = 16;
         /**
@@ -289,7 +289,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
         }
 
         /**
-         * Reads up to a specified maximum number of bytes of data from the activity audio stream
+         * Reads up to a specified maximum number of bytes of data from the activity audio stream,
          * putting them into the given byte array.
          *
          * @param b the buffer into which the data is read
@@ -343,7 +343,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
         }
 
         /**
-         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample and the # channels
+         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample, and the # channels.
          *
          * @return instance of the ActivityAudioFormat associated with the stream
          */
@@ -356,7 +356,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
          * audio input stream without blocking.
          *
          * @return the number of bytes that can be read from this audio input stream without blocking.
-         * As this implementation does not buffer this will be defaulted to 0
+         * As this implementation does not buffer, this will be defaulted to 0
          */
         @Override
         public int available() {
@@ -439,7 +439,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
         }
 
         /**
-         * Enum defining the types of audio encoding supported by this stream
+         * Enum defining the types of audio encoding supported by this stream.
          */
         public enum AudioEncoding {
             PCM_SIGNED("PCM_SIGNED");
@@ -458,9 +458,9 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
 ## Build and run the app
 
-Press F11, or select **Run** > **Debug**.
-The console will display a message "Say something"
-At this point, you may speak an English phrase or sentence that your bot will understand. Your speech will be transmitted to your bot through the Direct Line Speech channel where it will be recognized, processed by your bot and the response will be returned as an activity. If your bot returns speech as response, the audio will be played back using the `AudioPlayer` class.
+Select F11, or select **Run** > **Debug**.
+The console displays the message "Say something."
+At this point, speak an English phrase or sentence that your bot can understand. Your speech is transmitted to your bot through the Direct Line Speech channel where it's recognized and processed by your bot. The response is returned as an activity. If your bot returns speech as a response, the audio is played back by using the `AudioPlayer` class.
 
 ![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-08-console-output.png)
 
