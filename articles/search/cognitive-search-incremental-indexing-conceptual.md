@@ -7,11 +7,11 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 10/11/2019
 ms.author: vikurpad
-ms.reviewer: laobri
 
 ---
+
 # What is incremental indexing in Azure Search?
 
 > [!Note]
@@ -32,6 +32,7 @@ Indexers now track and respond to changes across your enrichment pipeline by det
 By only configuring incremental indexing, you will be able to ensure that all documents in your index are always processed with the most current version of your enrichment pipeline while performing the least amount of work when responding to changes. Incremental indexing also gives you the granular controls to deal with scenarios where you want full control over determining how a change is handled.
 
 ## Indexer cache
+
 Incremental indexing is made possible with the addition of an indexer cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skills for every document. When a data source needs to be re-indexed due to a skillset update (new or updated skill), each of the previously enriched documents is read from the cache and only the affected skills, changed, or downstream of the changes are re-run. The updated results are written to the cache, the document is updated in the index, and the knowledge store.
 Physically, the cache is a storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique cache id that is immutable.
 
@@ -50,7 +51,7 @@ The lifecycle of the cache is managed by the indexer. If the cache property in t
     "dataSourceName": "myDatasource",
     "skillsetName": "mySkillset",
     "cache" : {
-    	"storageConnectionString" : "Your storage account connection string",
+        "storageConnectionString" : "Your storage account connection string",
         "enableReprocessing": true,
         "id" : "Auto generated Id you do not need to set"
     },
@@ -72,7 +73,7 @@ To ensure that that the indexer only performs enrichments you explicitly require
 
 ## Cache invalidation
 
-The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipleine changes, but you need a specific skill invalidated and all affected documents re-processed to reflect the benefits of an updated model. In such instances you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation (tk)[tk].
+The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipleine changes, but you need a specific skill invalidated and all affected documents re-processed to reflect the benefits of an updated model. In such instances you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation [tk](tk).
 
 ## Change detection
 

@@ -45,6 +45,7 @@ This implies that you can have the same data shaped differently, yet repeated in
 Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
 
 ## Input shaping
+
 Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
 
 Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
@@ -80,7 +81,6 @@ Here is an example of table projections.
     "name": "your-skillset",
     "skills": [
       …your skills
-      
     ],
 "cognitiveServices": {
 … your cognitive services key info
@@ -106,6 +106,7 @@ Here is an example of table projections.
     }
 }
 ```
+
 As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
 The following illustration is a reference to the Caselaw exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
@@ -118,7 +119,6 @@ Object projections are JSON representations of the enrichment tree that can be s
 
 ```json
 {
- 
     "name": "your-skillset",
     "skills": [
       …your skills
@@ -192,8 +192,6 @@ File projections are very similar to object projections and only act on the `nor
     }
 }
 ```
-
-
 
 ## Projection lifecycle
 

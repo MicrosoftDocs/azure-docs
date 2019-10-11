@@ -6,7 +6,6 @@ ms.date: 10/07/2019
 author: vkurpad 
 manager: eladz
 ms.author: vikurpad
-ms.reviewer: laobri
 
 services: search
 ms.service: search
