@@ -24,7 +24,7 @@ This article organizes the proven practices into a checklist you can follow whil
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
 | &nbsp; | All Azure Storage services |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
-| &nbsp; | All Azure Storage services |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-or-transaction-targets) |
+| &nbsp; | All Azure Storage services |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
 | &nbsp; | Blobs |Scalability targets |[Are a large number of clients accessing a single blob concurrently?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; | Blobs |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
 | &nbsp; | Blobs |Partitioning |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
@@ -41,7 +41,6 @@ This article organizes the proven practices into a checklist you can follow whil
 | &nbsp; | All Azure Storage services |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; | All Azure Storage services |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
 | &nbsp; | All Azure Storage services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; | Azure Storage |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
 | &nbsp; | Blobs |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
 | &nbsp; | Blobs |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
 | &nbsp; | Blobs |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
@@ -50,7 +49,9 @@ This article organizes the proven practices into a checklist you can follow whil
 
 ## Scalability targets
 
-If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
+
+For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
 ### Maximum number of storage accounts
 
@@ -60,7 +61,7 @@ If you're approaching the maximum number of storage accounts permitted for a par
 - Are you using one storage account per customer, for the purpose of data isolation? For this scenario, Microsoft recommends using a blob container for each customer, instead of an entire storage account. Azure Storage now allows you to assign role-based access control (RBAC) roles on a per-container basis. For more information, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](../common/storage-auth-aad-rbac-portal.md).
 - Are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for standard storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-### Capacity or transaction targets
+### Capacity and transaction targets
 
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
@@ -265,4 +266,6 @@ For more information, see [Understanding block blobs, append blobs, and page blo
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist-queues.md)
+- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist-tables.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

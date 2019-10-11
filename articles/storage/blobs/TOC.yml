@@ -149,12 +149,8 @@
       items:
       - name: Scalability and performance targets
         href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Performance and scalability checklists
-        items:
-        - name: Performance checklist for Azure Storage  
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Performance checklist for Blob storage  
-          href: ../blobs/storage-performance-checklist-blobs.md
+      - name: Performance and scalability checklist
+        href: storage-performance-checklist-blobs.md
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
     - name: Concurrency
