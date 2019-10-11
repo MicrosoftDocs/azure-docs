@@ -176,7 +176,7 @@ from azureml.datadrift import DataDriftDetector
 from datetime import datetime
 
 # get the workspace object
-ws = workspace.from_config()
+ws = Workspace.from_config()
 # get the target dataset
 dset = Dataset.get_by_name(ws, 'target')
 # set the baseline dataset
