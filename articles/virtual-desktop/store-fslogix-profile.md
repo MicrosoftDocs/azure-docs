@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/11/2019
 ms.author: helohr
 ---
 # Storage options for FSLogix profile containers in Windows Virtual Desktop
@@ -43,7 +43,7 @@ Once you've chosen your storage method, check out [Windows Virtual Desktop prici
 
 ## Next steps
 
-To learn more about FSLogix profile containers, user profile disks and other previous user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-file.md)
+To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-file.md).
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
