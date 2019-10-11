@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Databricks in your virtual network (Preview)
+title: Deploy Azure Databricks in your virtual network
 description: This article describes how to deploy Azure Databricks to your virtual network, also known as VNet injection.
 services: azure-databricks
 author: mamccrea
@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/10/2019
 ---
 
-# Deploy Azure Databricks in your virtual network (Preview)
+# Deploy Azure Databricks in your virtual network
 
 The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a virtual network (VNet), are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks resources in your own virtual network (also called VNet injection), when enables you to:
 

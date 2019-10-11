@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev 
 ---
@@ -34,9 +34,8 @@ When you've completed the guide, your application will accept sign-ins of person
 To run this sample, you will need:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://2.python-requests.org/en/master/)
-- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [how to get an Azure AD tenant.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org//en/master/)
+- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
 >
@@ -98,49 +97,35 @@ To run this sample, you will need:
 1. Open the **app_config.py** file, which can be found in the root folder and replace with the following code snippet:
 
 ```python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
 > Where:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is one of the options below:
->   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.onmicrosoft.com)
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **All Microsoft account users**, replace this value with `common`
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets**  for the application you registered.
 
 #### Step 4: Run the code sample
 
-- You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
+1. You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
 
-```Shell
-pip install msal
-pip install flask
-pip install Flask-Session
-pip install requests
-```
+   ```Shell
+   pip install -r requirements.txt
+   ```
 
-- If the environment variable for Flask is already set:
-Run app.py from shell or command line:
+2. Run app.py from shell or command line:
 
-```Shell
-python app.py
-```
+   ```Shell
+   python app.py
+   ```
 
-- If the environment variable for Flask is not set:
+## Next steps
 
-    1. Type the following commands on shell or command line by navigating to the project directory:
+Learn more about web apps that sign in users, and then that calls web APIs:
 
-```Shell
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-flask run
-```
+> [!div class="nextstepaction"]
+> [Scenario: Web apps that sign in users](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

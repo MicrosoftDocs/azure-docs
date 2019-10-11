@@ -39,7 +39,7 @@ You can use any of these tools to upload content to the **$web** container:
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Visual Studio Code extension](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## Viewing content
 

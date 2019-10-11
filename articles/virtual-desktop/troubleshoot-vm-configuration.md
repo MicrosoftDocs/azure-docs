@@ -1,21 +1,21 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
-description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
+title: Session host virtual machine configuration - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Tenant and host pool creation
+# Session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## VMs are not joined to the domain
 
@@ -291,13 +291,13 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
-## Remote Licensing model isn't configured
+## Remote Desktop licensing mode isn't configured
 
 If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means you need to open the Group Policy editor and manually configure the licensing mode to **Per user**. The manual configuration process is different depending on which version of Windows 10 Enterprise multi-session you're using. The following sections explain how to check your version number and what to do for each.
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode to **Per User**. Remove any configuration that is setting this policy, then follow the steps to identify the version of Windows 10 Enterprise multi-session and install the corresponding update.  
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
@@ -317,50 +317,11 @@ Now that you know your version number, skip ahead to the relevant section.
 
 ### Version 1809
 
-If your version number says "1809," you can either upgrade to Windows 10 Enterprise multi-session, version 1903 or redeploy the host pool with the latest image.
-
-To upgrade to Windows 10, version 1903:
-
-1. If you haven't already, download and install the [Windows 10 May 2019 Update](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
-2. Sign in to your computer with your admin account.
-3. Run **gpedit.msc** to open the Group Policy editor.
-4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-5. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
-    
-    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
-
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
-
-To redeploy the host pool with the latest image:
-
-1. Follow the instructions in [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) until you're prompted to choose an Image OS version. You can choose either Windows 10 Enterprise multi-session with or without Office365 ProPlus.
-2. Sign in to your computer with your admin account.
-3. Run **gpedit.msc** to open the Group Policy editor.
-4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-5. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**.
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
+If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
 
 ### Version 1903
 
-If your version number says "1903," follow these instructions:
-
-1. Sign in to your computer with your admin account.
-2. Run **gpedit.msc** to open the Group Policy editor.
-3. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-4. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
-    
-    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
-
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
+If your version number says "1903," install [the KB4517211 update](https://support.microsoft.com/help/4517211).
 
 ## Next steps
 
@@ -369,7 +330,7 @@ If your version number says "1903," follow these instructions:
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Virtual Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

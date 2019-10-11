@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # How to create Guest Configuration policies
 

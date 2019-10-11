@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ The following diagram shows the high-level process to create a new access packag
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -77,7 +77,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 On the **Resource roles** tab, you select the resources to include in the access package.  Users who request and receive the access package will receive all the resource roles in the access package.
 
-1. Click the resource type you want to add (**Groups**, **Applications**, or **SharePoint sites**).
+1. Click the resource type you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
 1. In the Select pane that appears, select one or more resources from the list.
 
@@ -124,5 +124,3 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
-- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [Create and manage a catalog](entitlement-management-catalog-create.md)

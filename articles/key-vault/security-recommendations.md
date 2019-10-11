@@ -6,7 +6,7 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 
@@ -21,16 +21,31 @@ Some of the recommendations included in this article can be automatically monito
 - For more information on Azure Security Center recommendations, see [Security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
 - For information on Azure Security Center see the [What is Azure Security Center?](../security-center/security-center-intro.md)
 
-## Recommendations
+## Data protection
 
-| Category | Recommendation | Comments | Security Center |
-|-|-|----|--|
-| Data protection |Enable soft delete | [Soft delete](key-vault-ovw-soft-delete.md) allows you to recover deleted vaults and vault objects |  - |
-| Data protection | Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
-| Identity and access management | Limit the number of users with contributor access | If a user has Contributor permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has Contributor role access to your key vaults. Ensure that only those with a need for access authorized persons can access and manage your vaults. You can read [Secure access to a key vault](key-vault-secure-your-key-vault.md) | - |
-| Monitoring | Diagnostics logs in Key Vault should be enabled | Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | [Yes](../security-center/security-center-identity-access.md) |
-| Monitoring | Restrict who can access your Azure Key vault logs | [Key Vault logs](key-vault-logging.md) save information about the activities performed on your vault such as creation or deletion of vaults, keys, secrets and may be used during an investigation |  - |
-| Networking |Limit network exposure | Network access should be limited to the virtual networks used by solutions requiring vault access. Review information on [Virtual network service endpoints for Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
+| Recommendation | Comments | Security Center |
+|-|----|--|
+|Enable soft delete | [Soft delete](key-vault-ovw-soft-delete.md) allows you to recover deleted vaults and vault objects |  - |
+| Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
+
+## Identity and access management
+
+| Recommendation | Comments | Security Center |
+|-|----|--|
+| Limit the number of users with contributor access | If a user has Contributor permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has Contributor role access to your key vaults. Ensure that only those with a need for access authorized persons can access and manage your vaults. You can read [Secure access to a key vault](key-vault-secure-your-key-vault.md) | - |
+
+## Monitoring
+
+| Recommendation | Comments | Security Center |
+|-|----|--|
+ Diagnostics logs in Key Vault should be enabled | Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | [Yes](../security-center/security-center-identity-access.md) |
+| Restrict who can access your Azure Key vault logs | [Key Vault logs](key-vault-logging.md) save information about the activities performed on your vault such as creation or deletion of vaults, keys, secrets and may be used during an investigation |  - |
+
+## Networking
+
+| Recommendation | Comments | Security Center |
+|-|----|--|
+|Limit network exposure | Network access should be limited to the virtual networks used by solutions requiring vault access. Review information on [Virtual network service endpoints for Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
 
 ## Next steps
 

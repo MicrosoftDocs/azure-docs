@@ -35,7 +35,7 @@ This extension supports the following OSs:
 |---|---|
 | Windows 10 | Core |
 | Windows Server 2016 | Core |
-| Windows Server 2012R2 | Core |
+| Windows Server 2012 R2 | Core |
 
 ### Internet connectivity
 
