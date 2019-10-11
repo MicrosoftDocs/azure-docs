@@ -6,13 +6,11 @@ localization_priority: Priority
 
 # Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 
-**
+**This article takes you through how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. For your customers, your add-in will be free to download, but will require a license to your service.**
 
-We’re making it easier for customers to discover bundled solutions and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
+When you're ready to begin selling your service in Commercial Marketplace, our recommendation is to submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions. You'll be able to reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team.
 
-You can submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions and reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team. 
-
-Monetize your add-in by using Partner Center to submit your service for purchase as a SaaS offer; for example, you can offer your service for a set price per user per month. For your customers, your add-in will be free to download, but will require a license to your service.
+We’re making it easier for customers to discover these solutions, known as Microsoft 365 apps, and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 
 In this monetization model, your add-in is authenticated by your SaaS offering, which verifies its subscription status with the Microsoft SaaS service. Your responses from this service are used to update your user database. The following diagram shows this model.
 
@@ -21,6 +19,8 @@ In this monetization model, your add-in is authenticated by your SaaS offering, 
 ![New monetization model](images/new-monetization-model-diagram.png)
 
 <!--Write out steps for accessibility-->
+
+You are also free to monetize using your own payment model.
 
 > [!NOTE] 
 > Transactable SaaS are only purchasable using a work or school account. If you wish to sell your add-in to MSA-based users, you should consider implementing your own billing model.
@@ -43,7 +43,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 [Follow the steps to register an Azure AD-secured app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#register-an-azure-ad-secured-app)
 
 ### Create your licensing database
-Whilst monetizing through SaaS hands off billing and transactions to Microsoft AppSource, you’ll still be handling licensing for your own service. Your SaaS should have a licensing database to keep track of all tenant purchases, and the users who have access.
+When monetizing through Commercial Marketplace SaaS, billing and transactions will be handled by Microsoft AppSource.  It is your responsiblity to handle license records and logic. Your SaaS should have a licensing database to keep track of all tenant purchases, and the users who have access.
 
 Your metadata might include:
 - Tenant ID
@@ -58,7 +58,7 @@ Your metadata might include:
 - Assigned user emails
 
 ### Implement licensing management
-Your service must allow the admin who has made the purchase to sign in and manage the account. In the case where they have bought multiple seat-based licenses, they should be able to assign these to users within their organisation. 
+Your service (website) must allow the admin who has made the purchase to sign in and manage the account. In the case where they have bought multiple seat-based licenses, they should be able to assign these to users within their organisation. 
 Types of licensing you may wish to consider:
 - Open licensing/first-come first-served: any end-user who discovers your service can sign into your service, be recognised as belonging to a tenant, and ‘reserve’ one of the licenses purchased.
 - Assigned licensing: the admin for the purchase must assign licenses to users.
@@ -68,7 +68,7 @@ Other considerations:
 - Multiple tenant purchases: you should consider whether to allow numerous purchases from the same tenant, and how to treat these in your database. For example, the Contoso Corporation sales team might purchase 50 licenses for their team, and the marketing team purchase 20 licenses for their team and wish to keep the account separate.
 
 #### Connecting to AppSource
-In order to monetize through Microsoft, your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
+At this point, you will have built a website and services capable of authenticating customers and handling their licensing state. In order to monetize through Microsoft (and receive confirmation of valid purchases), your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
 
 #### Provisioning (customer purchase on AppSource)
 When a customer initiates a purchase, your service receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API. When a SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.
@@ -101,7 +101,6 @@ Your add-in should have three states:
 3.	User signed in, license associated
 
 For documentation on programming authentication with AAD, see [Authorise to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
-
 
 ## Piloting your SaaS offer
 
