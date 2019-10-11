@@ -1216,10 +1216,10 @@ This action runs code in a logic app that triggers when
 a new email arrives in an Office 365 Outlook account. 
 The logic app also uses a send approval email action that 
 forwards the content from the received email along with a 
-request for approval. 
+request for approval.
 
-The code extracts email addresses from the trigger's `Body` 
-property and returns those email addresses along with the 
+The code extracts the email addresses from the trigger's `Body` 
+property and returns these email addresses along with the 
 `SelectedOption` property value from the approval action. 
 The action explicitly includes the send approval email action 
 as a dependency in the `explicitDependencies` > `actions` attribute.

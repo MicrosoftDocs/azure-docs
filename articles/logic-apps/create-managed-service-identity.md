@@ -112,7 +112,7 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
 
-1. From the resource's menu, select **Access control (IAM)** > **Role assignments**, which lists the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
+1. From the resource's menu, select **Access control (IAM)** > **Role assignments** where you can review the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
 
    ![Add role assignment](./media/create-managed-service-identity/add-role-to-resource.png)
 
@@ -121,7 +121,9 @@ After you set up a managed identity for your logic app, you can [give that ident
    > For more information about the permissions that let you manage roles for resources, see 
    > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-1. Under **Add role assignment**, select the **Role** for the identity. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+1. Under **Add role assignment**, select your identity's **Role** based on your logic app's needs.
+
+   The role that you select is based on the role that's necessary for the trigger or action that uses that identity in your logic app. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
    ![Assign role](./media/create-managed-service-identity/assign-role.png)
 
@@ -175,7 +177,7 @@ These steps show how select the managed identity for trigger or action in Azure 
 
    `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2016-06-01`
 
-    For a specific resource, the URI syntax uses a fully-qualified resource ID:
+    For a specific resource, the URI syntax uses a fully qualified resource ID:
 
    `https://{service-resource-ID}/{fully-qualified-resource-ID}?api-version={REST-API-version}`
 

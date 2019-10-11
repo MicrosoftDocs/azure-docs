@@ -329,7 +329,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
-* In an action where you secure inputs or that explicitly uses secured outputs, and this action returns a response with outputs that include this secured data, you have to manually turn on **Secure Outputs** in this action to secure these outputs.
+* To secure outputs from an action that secures inputs or explicitly uses secured outputs, you have to manually turn on **Secure Outputs** in this action.
 
 * Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to secure that data.
 
@@ -721,7 +721,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Raw authentication
 
-If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that aren't the [OAuth 2.0 protocol](https://oauth.net/2/). You manually create the authorization header value that you send with the request and include that value in your trigger or action.
+If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that aren't the [OAuth 2.0 protocol](https://oauth.net/2/). With this type, you manually create the authorization header value that you send with the outgoing request, and specify that header value in your trigger or action.
 
 For example, here is a sample header for an HTTPS request that follows the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849):
 
@@ -768,7 +768,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. For an Azure function to use the system-assigned identity, follow these additional setup steps:
+1. Before an Azure function can use the system-assigned identity, follow these additional steps to enable authentication for that function:
 
    * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
    * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)

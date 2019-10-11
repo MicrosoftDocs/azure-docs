@@ -309,7 +309,7 @@ Now you're ready to set up Azure AD authentication for your function app.
 
 1. When you're done, select **OK**.
 
-1. Return to the Logic App Designer, so that you can [steps to authenticate access with the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+1. Return to the Logic App Designer and follow the [steps to authenticate access with the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 ## Next steps
 
