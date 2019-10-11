@@ -16,7 +16,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
+In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ In Azure IoT Central, you create rules to run actions when a condition is met. R
 
 ## Create action groups
 
-You can [create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md) or with an [Azure Resource Manager template](../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+You can [create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) or with an [Azure Resource Manager template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 An action group can:
 

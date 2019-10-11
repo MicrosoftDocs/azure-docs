@@ -127,7 +127,7 @@ To learn more, see the [Define a new device type in your Azure IoT Central appli
 
 ![Continuous Data Export page](media/overview-iot-central-tour/export.png)
 
-The continuous data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md) article.
+The continuous data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data-blob-storage.md) article.
 
 ## Administration
 

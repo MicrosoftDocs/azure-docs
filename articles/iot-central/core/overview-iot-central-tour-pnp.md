@@ -136,7 +136,7 @@ To learn more, see the [Define a new device type in your Azure IoT Central appli
 
 ![Data export page](media/overview-iot-central-tour-pnp/export.png)
 
-The data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data-blob-storage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ## Administration
 

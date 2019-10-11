@@ -24,7 +24,7 @@ Use the Power BI Solution for Azure IoT Central to create a powerful Power BI da
 - Observe historical trends of device measurements
 - Identify problematic devices that send lots of critical events
 
-This solution sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous Data Export](howto-export-data.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs.
+This solution sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous Data Export](howto-export-data-blob-storage.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
 > [!Note] 
 > The Power BI Solution for Azure IoT Central works with IoT Central apps that don't support IoT Plug and Play (Preview apps today)

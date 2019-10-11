@@ -17,7 +17,7 @@ Microsoft Azure IoT Central and Azure IoT offer several options for building an 
 
 * [Azure IoT Central](overview-iot-central.md) is a software as a service (SaaS) solution that uses a model-based approach to help you to build enterprise-grade IoT solutions without requiring expertise in cloud-solution development.
 
-* [Azure IoT solution accelerators](https://docs.microsoft.com/azure/iot-accelerators/) are an enterprise-grade collection of [solution accelerators](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) built on Azure platform as a service (PaaS) that help you accelerate the development of custom IoT solutions.
+* [Azure IoT solution accelerators](https://docs.microsoft.com/azure/iot-accelerators/) are an enterprise-grade collection of [solution accelerators](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) built on Azure platform as a service (PaaS) that help you accelerate the development of custom IoT solutions.
 
 ## Azure IoT Hub
 
@@ -54,5 +54,5 @@ Which product to use to build your IoT solution depends on:
 Based on your chosen product and approach, the suggested next steps are:
 
 * **Azure IoT Central**: [What is Azure IoT Central?](overview-iot-central.md)
-* **IoT solution accelerators**: [What are Azure IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+* **IoT solution accelerators**: [What are Azure IoT solution accelerators?](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **IoT Hub**: [What is Azure IoT Hub?](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub)

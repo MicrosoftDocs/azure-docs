@@ -60,7 +60,7 @@ Use the connection information from the export file in your device code to enabl
 
 ## Connect devices using X.509 certificates
 
-In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../iot-hub/iot-hub-x509ca-overview.md).
+In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../../iot-hub/iot-hub-x509ca-overview.md).
 
 The following steps describe how to connect devices to IoT Central using X.509 certificates:
 
@@ -166,8 +166,8 @@ The Azure Device SDKs offer the easiest way for you implement your device code. 
 
 All device communication with IoT Hub uses the following IoT Hub connectivity options:
 
-- [Device-to-cloud messaging](../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Device twins](../iot-hub/iot-hub-devguide-device-twins.md)
+- [Device-to-cloud messaging](../../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Device twins](../../iot-hub/iot-hub-devguide-device-twins.md)
 
 The following table summarizes how Azure IoT Central device features map on to IoT Hub features:
 
@@ -191,13 +191,13 @@ The Device SDKs support the following network protocols for connecting to an IoT
 - AMQP
 - HTTPS
 
-For information about these difference protocols and guidance on choosing one, see [Choose a communication protocol](../iot-hub/iot-hub-devguide-protocols.md).
+For information about these difference protocols and guidance on choosing one, see [Choose a communication protocol](../../iot-hub/iot-hub-devguide-protocols.md).
 
 If your device can't use any of the supported protocols, you can use Azure IoT Edge to do protocol conversion. IoT Edge supports other intelligence-on-the-edge scenarios to offload processing to the edge from the Azure IoT Central application.
 
 ## Security
 
-All data exchanged between devices and your Azure IoT Central is encrypted. IoT Hub authenticates every request from a device that connects to any of the device-facing IoT Hub endpoints. To avoid exchanging credentials over the wire, a device uses signed tokens to authenticate. For more information, see, [Control access to IoT Hub](../iot-hub/iot-hub-devguide-security.md).
+All data exchanged between devices and your Azure IoT Central is encrypted. IoT Hub authenticates every request from a device that connects to any of the device-facing IoT Hub endpoints. To avoid exchanging credentials over the wire, a device uses signed tokens to authenticate. For more information, see, [Control access to IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
 ## Next steps
 
