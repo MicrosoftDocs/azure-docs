@@ -19,38 +19,38 @@ Microsoft has developed a number of proven practices for developing high-perform
 
 This article organizes the proven practices into a checklist you can follow while developing your Table storage application.
 
-| Done | Area | Category | Question |
-| --- | --- | --- | --- |
-| &nbsp; | All Azure Storage services |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
-| &nbsp; | All Azure Storage services |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
-| &nbsp; | All Azure Storage services |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
-| &nbsp; | All Azure Storage services |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
-| &nbsp; | All Azure Storage services |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; | All Azure Storage services |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
-| &nbsp; | All Azure Storage services |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
-| &nbsp; | All Azure Storage services |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; | All Azure Storage services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
-| &nbsp; | All Azure Storage services |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
-| &nbsp; | All Azure Storage services |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
-| &nbsp; | All Azure Storage services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; | Tables |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#table-specific-scalability-targets) |
-| &nbsp; | Tables |Configuration |[Are you using JSON for your table requests?](#use-json) |
-| &nbsp; | Tables |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
-| &nbsp; | Tables |Tables and Partitions |[Have you properly partitioned your data?](#schema) |
-| &nbsp; | Tables |Hot Partitions |[Are you avoiding append-only and prepend-only patterns?](#append-only-and-prepend-only-patterns) |
-| &nbsp; | Tables |Hot Partitions |[Are your inserts/updates spread across many partitions?](#high-traffic-data) |
-| &nbsp; | Tables |Query Scope |[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#query-scope) |
-| &nbsp; | Tables |Query Density |[Do your queries typically only scan and return rows that your application will use?](#query-density) |
-| &nbsp; | Tables |Limiting Returned Data |[Are you using filtering to avoid returning entities that are not needed?](#limiting-the-amount-of-data-returned) |
-| &nbsp; | Tables |Limiting Returned Data |[Are you using projection to avoid returning properties that are not needed?](#limiting-the-amount-of-data-returned) |
-| &nbsp; | Tables |Denormalization |[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#denormalization) |
-| &nbsp; | Tables |Insert/Update/Delete |[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#batching) |
-| &nbsp; | Tables |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#upsert) |
-| &nbsp; | Tables |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#storing-data-series-in-a-single-entity) |
-| &nbsp; | Tables |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (for example, time series data), have you considered using blobs instead of tables?](#storing-structured-data-in-blobs) |
+| Done | Category | Question |
+| --- | --- | --- |
+| &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
+| &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
+| &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
+| &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
+| &nbsp; |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
+| &nbsp; |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
+| &nbsp; |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
+| &nbsp; |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
+| &nbsp; |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
+| &nbsp; |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
+| &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#table-specific-scalability-targets) |
+| &nbsp; |Configuration |[Are you using JSON for your table requests?](#use-json) |
+| &nbsp; |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
+| &nbsp; |Tables and Partitions |[Have you properly partitioned your data?](#schema) |
+| &nbsp; |Hot Partitions |[Are you avoiding append-only and prepend-only patterns?](#append-only-and-prepend-only-patterns) |
+| &nbsp; |Hot Partitions |[Are your inserts/updates spread across many partitions?](#high-traffic-data) |
+| &nbsp; |Query Scope |[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#query-scope) |
+| &nbsp; |Query Density |[Do your queries typically only scan and return rows that your application will use?](#query-density) |
+| &nbsp; |Limiting Returned Data |[Are you using filtering to avoid returning entities that are not needed?](#limiting-the-amount-of-data-returned) |
+| &nbsp; |Limiting Returned Data |[Are you using projection to avoid returning properties that are not needed?](#limiting-the-amount-of-data-returned) |
+| &nbsp; |Denormalization |[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#denormalization) |
+| &nbsp; |Insert/Update/Delete |[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#batching) |
+| &nbsp; |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#upsert) |
+| &nbsp; |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#storing-data-series-in-a-single-entity) |
+| &nbsp; |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (for example, time series data), have you considered using blobs instead of tables?](#storing-structured-data-in-blobs) |
 
 ## Scalability targets
 
@@ -118,21 +118,9 @@ Typically, a browser will not allow JavaScript in a page hosted by a website on 
   
 Both SAS and CORS can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
-## Caching
+## Uploading data in batches
 
-Caching plays an important role in performance. The following sections discuss caching best practices.
-
-### Reading data
-
-In general, reading data once is preferable to reading it twice. Consider the example of a web application that has retrieved a 50 MiB blob from the Azure Storage to serve as content to a user. Ideally, the application caches the blob locally to disk and then retrieves the cached version for subsequent user requests.
-
-One way to avoid retrieving a blob if it hasn't been modified since it was cached is to qualify the GET operation with a conditional header for modification time. If the last modified time is after the time that the blob was cached, then the blob is retrieved and re-cached. Otherwise, the cached blob is retrieved for optimal performance.
-
-You may also decide to design your application to assume that the blob remains valid for a short period after retrieving it. In this case, the application does not need to check whether the blob was modified during that interval.
-
-Configuration data, lookup data, and other data that is frequently used by the application are good candidates for caching.  
-
-For more information about using conditional headers, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+In some scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, suppose a web application keeps a log file of activities. The application can either upload details of every activity as it happens to a table (which requires many storage operations), or it can save activity details to a local log file and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1 KB in size, you can upload thousands of entries in a single transaction. A single transaction supports uploading a blob of up to 64 MiB in size. The application developer must design for the possibility of client device or upload failures. If the activity data needs to be downloaded for an interval of time rather than for a single activity, then using Blob storage is recommended over Table storage.
 
 ## .NET configuration
 

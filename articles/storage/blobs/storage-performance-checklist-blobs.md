@@ -21,31 +21,31 @@ Azure Storage has scalability and performance targets for capacity, transaction 
 
 This article organizes the proven practices into a checklist you can follow while developing your Blob storage application.
 
-| Done | Area | Category | Question |
-| --- | --- | --- | --- |
-| &nbsp; | All Azure Storage services |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
-| &nbsp; | All Azure Storage services |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
-| &nbsp; | Blobs |Scalability targets |[Are a large number of clients accessing a single blob concurrently?](#multiple-clients-accessing-a-single-blob-concurrently) |
-| &nbsp; | Blobs |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
-| &nbsp; | Blobs |Partitioning |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
-| &nbsp; | All Azure Storage services |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
-| &nbsp; | All Azure Storage services |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
-| &nbsp; | All Azure Storage services |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; | All Azure Storage services |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
-| &nbsp; | All Azure Storage services |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
-| &nbsp; | All Azure Storage services |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; | All Azure Storage services |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
-| &nbsp; | All Azure Storage services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
-| &nbsp; | All Azure Storage services |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
-| &nbsp; | All Azure Storage services |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
-| &nbsp; | All Azure Storage services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; | Blobs |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
-| &nbsp; | Blobs |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
-| &nbsp; | Blobs |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
-| &nbsp; | Blobs |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
-| &nbsp; | Blobs |Blob type |[Are you using page blobs or block blobs when appropriate?](#choose-the-correct-type-of-blob) |
+| Done | Category | Question |
+| --- | --- | --- |
+| &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
+| &nbsp; |Scalability targets |[Are a large number of clients accessing a single blob concurrently?](#multiple-clients-accessing-a-single-blob-concurrently) |
+| &nbsp; |Scalability targets |[Is your application staying within the scalability targets for a single blob?](#bandwidth-and-operations-per-blob) |
+| &nbsp; |Partitioning |[Is your naming convention designed to enable better load-balancing?](#partitioning) |
+| &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
+| &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
+| &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
+| &nbsp; |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
+| &nbsp; |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
+| &nbsp; |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
+| &nbsp; |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; |.NET Configuration |[For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
+| &nbsp; |Tools |[Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
+| &nbsp; |Retries |[Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
+| &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; |Content distribution |[Are you using a CDN for content distribution?](#content-distribution) |
+| &nbsp; |Use metadata |[Are you storing frequently used metadata about blobs in their metadata?](#use-metadata) |
+| &nbsp; |Uploading quickly |[When trying to upload one blob quickly, are you uploading blocks in parallel?](#upload-one-large-blob-quickly) |
+| &nbsp; |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
+| &nbsp; |Blob type |[Are you using page blobs or block blobs when appropriate?](#choose-the-correct-type-of-blob) |
 
 ## Scalability targets
 
