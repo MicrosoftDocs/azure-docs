@@ -203,7 +203,7 @@ These predefined **functions** are available for you to use in defining an autom
 | lg(double) |double |Returns the log base 2 of the double. |
 | lg(doubleVecList) |doubleVec |Returns the component-wise log base 2 of the doubleVecList. A vec(double) must be explicitly passed for the parameter. Otherwise, the double lg(double) version is assumed. |
 | ln(double) |double |Returns the natural log of the double. |
-| ln(doubleVecList) |doubleVec |Returns the component-wise log base 2 of the doubleVecList. A vec(double) must be explicitly passed for the parameter. Otherwise, the double lg(double) version is assumed. |
+| ln(doubleVecList) |doubleVec |Returns the natural log of the double. |
 | log(double) |double |Returns the log base 10 of the double. |
 | log(doubleVecList) |doubleVec |Returns the component-wise log base 10 of the doubleVecList. A vec(double) must be explicitly passed for the single double parameter. Otherwise, the double log(double) version is assumed. |
 | max(doubleVecList) |double |Returns the maximum value in the doubleVecList. |
