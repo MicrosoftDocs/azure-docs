@@ -80,7 +80,9 @@ Press **F5** to build and run the sample.
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 
-The user can now use their email address to sign in and use the desktop application.
+The user can now use their email address to sign in and use the desktop application. After a successful sign-up or sign-in, the token details are displayed in the lower pane of the WPF app.
+
+:::image type="content" source="media/active-directory-b2c-tutorials-desktop-app/desktop-app-01-post-signin.png" alt-text="Token details shown in bottom pane of WPF desktop application":::
 
 If you click the **Call API** button, an **error message** is displayed. You encounter the error because, in its current state, the application is attempting to access an API protected by the demo tenant, `fabrikamb2c.onmicrosoft.com`. Since your access token is valid only for your Azure AD B2C tenant, the API call is therefore unauthorized.
 

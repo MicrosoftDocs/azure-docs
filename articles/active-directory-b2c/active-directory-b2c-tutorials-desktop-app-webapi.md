@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -75,8 +75,8 @@ In a prerequisite for this article, you modified a [WPF desktop application](htt
     Here's an example
 
     ```csharp
-        public static string[] ApiScopes = { "https://contosob2c.onmicrosoft.com/api/demo.read" };
-        public static string ApiEndpoint = "http://localhost:5000";
+    public static string[] ApiScopes = { "https://contosob2c.onmicrosoft.com/api/demo.read" };
+    public static string ApiEndpoint = "http://localhost:5000";
     ```
 
 ### Get and update the Node.js API sample
@@ -85,7 +85,7 @@ Next, get the Node.js web API code sample from GitHub and configure it to run
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web app from GitHub.
 
-```
+```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
 
@@ -127,11 +127,9 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 3. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md).
 4. Select the **Call API** button.
 
-The desktop application makes a request to the web API to and gets a response with the logged-in user's display name, for example:
+The desktop application makes a request to the locally running web API, and upon verification of a valid access token, displays signed-in user's display name.
 
-```output
-{"name":"Lisa Andrews"}
-```
+:::image type="content" source="media/active-directory-b2c-tutorials-desktop-app-webapi/desktop-app-01-post-api-call.png" alt-text="Display name shown in the top pane of the WPF desktop application":::
 
 Your desktop application protected by Azure AD B2C is calling the locally running web API, also protected by Azure AD B2C.
 
