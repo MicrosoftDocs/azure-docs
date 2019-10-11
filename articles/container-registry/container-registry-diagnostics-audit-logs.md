@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: 
-ms.date: 08/12/2019
+ms.date: 10/10/2019
 ms.author: danlep
 
 ---
@@ -25,9 +25,10 @@ This article explains how to monitor an Azure container registry using features 
 
 * Provide a complete activity trail on registry artifacts such as pull, push, and delete events so you can diagnose any issues with operation of your registry. 
 
-> [!NOTE]
-> You may incur additional costs to store or process diagnostic log data. 
->
+You may incur additional costs to store or process diagnostic log data.
+
+> [!IMPORTANT]
+> This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Registry diagnostic logs
 
@@ -42,6 +43,8 @@ Diagnostic logs contain information emitted by Azure resources that describe the
 Custom views prefixed with **ACR** show data scoped to subsets of registry events. For example, the **ACRDelete** view shows events related to deleting tags, manifests, or repositories. 
 
 ## Enable collection of diagnostic logs
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings 
 
 Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. To view log information in near real-time in Azure Monitor, enable *streaming* of diagnostic logs to a Log Analytics workspace. 
 
@@ -68,3 +71,6 @@ You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/
 ## Next steps
 
 * Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
