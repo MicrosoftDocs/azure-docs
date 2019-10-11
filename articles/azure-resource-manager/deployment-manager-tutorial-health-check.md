@@ -45,8 +45,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
-* Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally.
-* Run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial#prepare-the-artifacts.md).  The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
+
+## Install the artifacts
+
+Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally if you haven't done so. And then run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial#prepare-the-artifacts.md). The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
+
+Make a copy of the URL with SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
 
 ## Create a health check service simulator
 
@@ -59,16 +63,11 @@ The following two files are used for deploying the Azure Function. You don't nee
 
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**.
 
-> [!IMPORTANT]
-> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Use the same **namePrefix** value that you used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md) for projectName.  Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
-> Save a copy of the project name. You use the same projectName through the tutorial.
-
-```azurepowershell-interactive
+```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name that is used in preparing the artifacts."
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 

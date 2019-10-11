@@ -134,6 +134,10 @@ Template artifacts are used by the service topology template, and binary artifac
 
 The following PowerShell script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token. To run the script, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window. To paste the code, right-click the shell window and then select Paste.
 
+> [!IMPORTANT]
+> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
+> Save a copy of the project name. You use the same projectName through the tutorial.
+
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -172,7 +176,7 @@ $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 Write-Host $url
 ```
 
-Make a copy of the URL. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
+Make a copy of the URL with the SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
 
 ## Create the user-assigned managed identity
 
