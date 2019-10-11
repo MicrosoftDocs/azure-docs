@@ -36,5 +36,3 @@ Site-to-site based VPN connectivity and Virtual WAN architecture is available fo
 | US Government cloud | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East |
 | China East | China East, China East2|
 | China North | China North, China North2 |
-
-ExpressRoute and User VPN (point to site) is not available in Virtual WAN for these clouds.
