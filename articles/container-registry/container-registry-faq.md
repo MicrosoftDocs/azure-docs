@@ -417,7 +417,7 @@ The browser might not be able to send the request for fetching repositories or t
 * Ad blockers
 * DNS errors
 
-Please contact your network administrator or check your network configuration and connectivity. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
+Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### How do I collect http traces on Windows?
 
