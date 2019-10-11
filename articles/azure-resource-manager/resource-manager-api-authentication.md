@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory authentication and Resource Manager | Microsoft Docs
 description: A developer's guide to authentication with the Azure Resource Manager API and Azure Active Directory for integrating an app with other Azure subscriptions.
-author: dushyantgill
+author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: dugill
+ms.author: tomfitz
 
 ---
 # Use Resource Manager authentication API to access subscriptions
@@ -126,7 +126,7 @@ The following example shows a request for code grant token with password credent
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. Building this token is shown in the [client credential flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. Building this token is shown in the [client credential flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with-a-certificate).
 
 See the [Open ID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
 
