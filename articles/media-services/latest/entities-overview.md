@@ -132,7 +132,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-### Using logical operators to combine query options
+## Using logical operators to combine query options
 
 Media Services v3  supports ‘or’ and ‘and’ logical operators. 
 
@@ -155,7 +155,7 @@ The following table shows how the filtering and ordering options may be applied 
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|
-|Asset|name|`eq`, `gt`, `lt`|`asc` and `desc`|
+|Asset|name|`eq`|`asc` and `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
@@ -177,16 +177,6 @@ The following table shows how the filtering and ordering options may be applied 
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
-## Paging sizes
-
-|Entity name|Entities per page|
-|---|---|
-|Asset|1000|
-|Content Key Policies|10|
-|Jobs|500|
-|Streaming Locators|10|
-|Transforms|1000|
-    
 ## Next steps
 
 * [List Assets](https://docs.microsoft.com/rest/api/media/assets/list)
