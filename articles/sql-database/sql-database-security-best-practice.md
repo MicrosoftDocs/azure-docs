@@ -58,8 +58,6 @@ Azure offers advanced security and compliance products and services that fall in
 
 - [**Compliance**](https://azure.microsoft.com/overview/trusted-cloud/compliance/): Azure has the most comprehensive compliance coverage in the industry, covering more than 70 global regulations and laws, such as FedRAMP, PCI, SOC, and GDPR to name a few. The Azure Trust Center provides a [comprehensive list of offerings from compliance standards to certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings) for all Azure services including Azure SQL Database. Note that there is no difference between Azure SQL Database and Azure SQL Database managed instance as far as compliance certifications are concerned. In fact, the Azure Trust Center only lists Azure SQL Database since that is the common service name for all SQL offer types incl. singletons, managed instance, and hyperscale.
 
-## Implementation Guidelines by Security Area
-
 ## Authentication
 
 ### Central management for identities
