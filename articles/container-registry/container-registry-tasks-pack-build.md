@@ -26,7 +26,7 @@ At a minimum, specify the following when you run `az acr pack build`:
 
 * An Azure container registry where you run the command
 * An image name and tag for the resulting image
-* One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
+* One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
 * The name of a Buildpack builder image, such as `cloudfoundry/cnb:0.0.12-bionic`.  
 
 `az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
