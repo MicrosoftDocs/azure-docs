@@ -24,9 +24,7 @@ AGIC is configured via the Kubernetes [Ingress resource](http://kubernetes.io/do
   - Support for public, private, and hybrid web sites
   - Integrated web application firewall
 
-## General
-
-### Next Steps
+## Next Steps
 
 - [**Greenfield Deployment**](docs/setup/install-new.md): Instructions on installing AGIC, AKS and App Gateway on
 blank-slate infrastructure.
