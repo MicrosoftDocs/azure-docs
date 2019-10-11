@@ -63,7 +63,7 @@ An external table points to data located in Azure Storage blob or Azure Data Lak
 SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](development-tables-data-types.md).
 
 ## Distributed tables
-A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse supports three methods for distributing data, round-robin (default), hash and replicated.
+A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse supports three methods for distributing data, round-robin (default), hash and replicated.
 
 ### Hash-distributed tables
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 

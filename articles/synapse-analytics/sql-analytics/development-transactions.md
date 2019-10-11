@@ -31,7 +31,7 @@ In the table below the following assumptions have been made:
 
 ## Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -52,7 +52,7 @@ In the table below the following assumptions have been made:
 
 ## Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -69,7 +69,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
 
-To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) article.
+To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](development-transactions-best-practices.md) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
@@ -172,7 +172,7 @@ The expected behavior is now observed. The error in the transaction is managed a
 All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATCH block.
 
 ## Error_Line() function
-It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](sql-data-warehouse-develop-label.md) article.
+It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](development-label.md) article.
 
 ## Using THROW and RAISERROR
 THROW is the more modern implementation for raising exceptions in SQL Data Warehouse but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
@@ -194,5 +194,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](development-transactions-best-practices.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](best-practices.md).
 

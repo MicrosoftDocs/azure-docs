@@ -61,7 +61,7 @@ EXEC prc_nesting
 Note, SQL Data Warehouse does not currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). You need to track the nest level. It is unlikely for you to exceed the eight nest level limit, but if you do, you need to rework your code to fit the nesting levels within this limit.
 
 ## INSERT..EXECUTE
-SQL Data Warehouse does not permit you to consume the result set of a stored procedure with an INSERT statement. However, there is an alternative approach you can use. For an example, see the article on [temporary tables](../../sql-data-warehouse/ql-data-warehouse-tables-temporary.md). 
+SQL Data Warehouse does not permit you to consume the result set of a stored procedure with an INSERT statement. However, there is an alternative approach you can use. For an example, see the article on [temporary tables](development-tables-temporary.md). 
 
 ## Limitations
 There are some aspects of Transact-SQL stored procedures that are not implemented in SQL Data Warehouse.
@@ -81,5 +81,5 @@ They are:
 * return statement
 
 ## Next steps
-For more development tips, see [development overview](developmentoverview.md).
+For more development tips, see [development overview](development-overview.md).
 
