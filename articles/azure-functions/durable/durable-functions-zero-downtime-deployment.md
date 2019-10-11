@@ -162,8 +162,6 @@ When you deploy a new version of your app with a breaking change, you can increm
 
 The application router monitoring the status of orchestrations on the 1.0.1 version and removing apps once all orchestrations have been finished.  
 
-Here is a [sample project](https://github.com/TsuyoshiUshio/FunctionAppController) with a migration script.
-
 ## Tracking store settings
 
 Each function app should use separate scheduling queues, possibly in separate storage accounts. However, if you want to be able to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. Do this by configuring your apps' trackingStoreConnectionStringName and trackingStoreNamePrefix [host.json settings](durable-functions-bindings.md#host-json) so that they all share the same values.
