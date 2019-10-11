@@ -70,9 +70,9 @@ Throughput provisioned on a database can be shared by the containers within that
 
 * When you provision 26th container, a new partition set is created and the throughput is split equally between both the partition sets. So at any point of time, if you are using only one container from the database it can use a maximum of 5K RU/s (D/2). Because there are two partition sets, the throughput shareability factor is split into D/2.
 
-The following image demonstrates the previous example graphically:
+   The following image demonstrates the previous example graphically:
 
-![Shareability factor in database level throughput](./media/set-throughput/database-level-throughput-shareability-factor.png)
+   ![Shareability factor in database level throughput](./media/set-throughput/database-level-throughput-shareability-factor.png)
 
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
