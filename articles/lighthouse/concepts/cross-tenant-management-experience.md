@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -53,6 +53,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - View alerts for delegated subscriptions in the Azure portal or programmatically through REST API calls, with the ability to view alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
+- Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
