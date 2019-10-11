@@ -1,86 +1,70 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
+title: SQL Server FCI with premium file share - Azure Virtual Machines 
+description: "This article explains how to create a SQL Server Failover Cluster Instance using a premium file share on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
-
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
-
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/11/2018
-ms.author: mikeray
+ms.date: 10/09/2019
+ms.author: mathoma
 ---
 
-# Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
+# Configure SQL Server Failover Cluster Instance with premium file share on Azure Virtual Machines
 
-This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure virtual machines in Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows Cluster. S2D is new in Windows Server 2016.
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md). 
 
-The following diagram shows the complete solution on Azure virtual machines:
+Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance for SQL Server 2012 and newer on Windows Server 2012 and newer. Premium file shares give you greater flexibility, allowing you to resize and scale the file share without any downtime. 
 
-![Availability Group](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
-
-The preceding diagram shows:
-
-- Two Azure virtual machines in a Windows Failover Cluster. When a virtual machine is in a failover cluster it is also called a *cluster node*, or *nodes*.
-- Each virtual machine has two or more data disks.
-- S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool.
-- The storage pool presents a cluster shared volume (CSV) to the failover cluster.
-- The SQL Server FCI cluster role uses the CSV for the data drives.
-- An Azure load balancer to hold the IP address for the SQL Server FCI.
-- An Azure availability set holds all the resources.
-
-   >[!NOTE]
-   >All Azure resources are in the diagram are in the same resource group.
-
-For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
-
-S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
-
-## Licensing and pricing
-
-On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
-
-With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
-
-Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
-
-To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
-
-For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
-
-### Example Azure template
-
-You can create the entire solution in Azure from a template. An example of a template is available in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can run the template to create a SQL Server FCI with S2D storage connected to your domain. You can evaluate the template, and modify it for your purposes.
 
 ## Before you begin
 
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
-### What to know
 You should have an operational understanding of the following technologies:
 
-- [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
+- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-One important difference is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
 
 Additionally, you should have a general understanding of the following technologies:
 
-- [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Azure premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md)
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
-### What to have
+### Workload consideration
+
+Premium file shares provide IOPS and throughout capacity that will meet the needs of many workloads. However, for IO intensive workloads, consider [SQL Server FCI with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) based on managed premium disks or ultra-disks.  
+
+Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
+
+### Licensing and pricing
+
+On Azure Virtual Machines, you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
+
+With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
+
+To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
+
+### Limitations
+
+- Filestream is not supported for a failover cluster with a premium file share. To use filestream, deploy your cluster using [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+
+## Prerequisites 
 
 Before following the instructions in this article, you should already have:
 
@@ -92,6 +76,8 @@ Before following the instructions in this article, you should already have:
    - The failover cluster IP address.
    - An IP address for each FCI.
 - DNS configured on the Azure Network, pointing to the domain controllers.
+- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files. 
+- A file share for backups that is different than the premium file share used for your data files. This file share can either be standard or premium. 
 
 With these prerequisites in place, you can proceed with building your failover cluster. The first step is to create the virtual machines.
 
@@ -135,22 +121,10 @@ With these prerequisites in place, you can proceed with building your failover c
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key.
 
-   Choose the right image according to how you want to pay for the SQL Server license:
-
-   - **Pay per usage licensing**: The per-second cost of these images includes the SQL Server licensing:
-      - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
-      - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
-      - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
-
-   - **Bring-your-own-license (BYOL)**
-
-      - **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
-      - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016**
-
    >[!IMPORTANT]
-   >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and S2D.
+   > After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and premium file share as storage. 
 
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
+   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the failover cluster and premium file share as storage. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
 
 1. After Azure creates your virtual machines, connect to each virtual machine with RDP.
 
@@ -158,7 +132,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. If you are using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
 
-   - In **Programs and Features**, right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**.
+   - In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and click **Uninstall/Change**.
    - Click **Remove**.
    - Select the default instance.
    - Remove all features under **Database Engine Services**. Do not remove **Shared Features**. See the following picture:
@@ -174,35 +148,56 @@ With these prerequisites in place, you can proceed with building your failover c
    | Purpose | TCP Port | Notes
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
-   | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
-
-1. Add storage to the virtual machine. For detailed information, see [add storage](../disks-types.md).
-
-   Both virtual machines need at least two data disks.
-
-   Attach raw disks - not NTFS formatted disks.
-      >[!NOTE]
-      >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
-
-   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
-
-   Set host caching to **Read-only**.
-
-   The storage capacity you use in production environments depends on your workload. The values described in this article are for demonstration and testing.
+   | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.   
+   | File share | 445 | Port used by the file share service. 
 
 1. [Add the virtual machines to your pre-existing domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-After the virtual machines are created and configured, you can configure the failover cluster.
+After the virtual machines are created and configured, you can configure the premium file share.
 
-## Step 2: Configure the Windows Failover Cluster with S2D
+## Step 2: Mount premium file share
 
-The next step is to configure the failover cluster with S2D. In this step, you will do the following substeps:
+1. Sign into the [Azure portal](https://portal.azure.com) and go to your storage account.
+1. Go to **File Shares** under **File service** and select the premium file share you want to use for your SQL storage. 
+1. Select **Connect** to bring up the connection string for your file share. 
+1. Select the drive letter you want to use from the drop-down and then copy the two PowerShell commands from the two PowerShell command blocks.  Paste them to a text editor, such as notepad. 
+
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
+
+1. RDP into the SQL Server VM using the account that your SQL Server FCI will use for the service account. 
+1. Launch an administrative PowerShell command console. 
+1. Run the `Test-NetConnection` command to test connectivity to the storage account. Do not run the `cmdkey` command from the first code block. 
+
+   ```console
+   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
+   ```
+
+1. Run the `cmdkey` command from the *second* code block to mount the file share as a drive, and persist it. 
+
+   ```console
+   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
+   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
+   ```
+
+1. Open **File Explorer** and navigate to **This PC**. The file share is visible under network locations: 
+
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="File share visible as storage in file explorer":::
+
+1. Open the newly-mapped drive and create at least one folder here to place your SQL Data files into. 
+1. Repeat these steps on each SQL Server VM that will participate in the cluster. 
+
+  > [!IMPORTANT]
+  > Do not use the same file share for both data files and back ups. Use the same steps to configure a secondary file share for backups if you want to back up your databases to a file share. 
+
+## Step 3: Configure failover cluster with file share 
+
+The next step is to configure the failover cluster. In this step, you will do the following substeps:
 
 1. Add Windows Failover Clustering feature
 1. Validate the cluster
 1. Create the failover cluster
 1. Create the cloud witness
-1. Add storage
+
 
 ### Add Windows Failover Clustering feature
 
@@ -223,8 +218,6 @@ The next step is to configure the failover cluster with S2D. In this step, you w
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-For reference, the next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
-
 ### Validate the cluster
 
 This guide refers to instructions under [validate cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
@@ -238,9 +231,9 @@ To validate the cluster with the UI, do the following steps from one of the virt
 1. Click **Next**.
 1. On **Select Servers or a Cluster**, type the name of both virtual machines.
 1. On **Testing options**, choose **Run only tests I select**. Click **Next**.
-1. On **Test selection**, include all tests except **Storage**. See the following picture:
+1. On **Test selection**, include all tests except **Storage** and **Storage Spaces Direct**. See the following picture:
 
-   ![Validate Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/cluster-validation.png" alt-text="Cluster validation tests":::
 
 1. Click **Next**.
 1. On **Confirmation**, click **Next**.
@@ -250,23 +243,22 @@ The **Validate a Configuration Wizard** runs the validation tests.
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
    ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 After you validate the cluster, create the failover cluster.
 
 ### Create the failover cluster
 
-This guide refers to [Create the failover cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 To create the failover cluster, you need:
 - The names of the virtual machines that become the cluster nodes.
 - A name for the failover cluster
 - An IP address for the failover cluster. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes.
 
-#### Windows Server 2008-2016
+#### Windows Server 2012-2016
 
-The following PowerShell creates a failover cluster for **Windows Server 2008-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
+The following PowerShell creates a failover cluster for **Windows Server 2012-2016**. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
@@ -283,7 +275,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ### Create a cloud witness
 
-Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage Blob. This removes the need of a separate VM hosting a witness share.
+Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage Blob. This removes the need for a separate VM hosting a witness share.
 
 1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -293,41 +285,16 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 
 1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
-### Add storage
 
-The disks for S2D need to be empty and without partitions or other data. To clean disks follow [the steps in this guide](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+## Step 4: Test cluster failover
 
-1. [Enable Store Spaces Direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+Test failover of  your cluster. In Failover Cluster Manager, right-click your cluster > **More Actions** > **Move Core Cluster Resource** > **Select node** and select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you're able to successfully move the cluster to each node, then you are ready to install SQL Server.  
 
-   The following PowerShell enables storage spaces direct.  
+:::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
-   ```powershell
-   Enable-ClusterS2D
-   ```
+## Step 5: Create SQL Server FCI
 
-   In **Failover Cluster Manager**, you can now see the storage pool.
-
-1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
-
-   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV.
-
-   ```powershell
-   New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
-   ```   
-
-   After this command completes, an 800 GB volume is mounted as a cluster resource. The volume is at `C:\ClusterStorage\Volume1\`.
-
-   The following diagram shows a cluster shared volume with S2D:
-
-   ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
-
-## Step 3: Test failover cluster failover
-
-In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI.
-
-## Step 4: Create SQL Server FCI
-
-After you have configured the failover cluster and all cluster components including storage, you can create the SQL Server FCI.
+After you have configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine with RDP.
 
@@ -339,9 +306,9 @@ After you have configured the failover cluster and all cluster components includ
 
 1. Click **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on clustered storage. With S2D, it's not a shared disk, but a mount point to a volume on each server. S2D synchronizes the volume between both nodes. The volume is presented to the cluster as a cluster shared volume. Use the CSV mount point for the data directories.
+   The FCI data directories need to be on the premium file share. Type in the full path of the share, in the form of `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, notifying you that you have specified a file server as the data directory. This is expected. Ensure that the same account you persisted the file share with is the same account that the SQL Server service uses to avoid possible failures. 
 
-   ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
 1. After you complete the wizard, Setup will install a SQL Server FCI on the first node.
 
@@ -354,7 +321,7 @@ After you have configured the failover cluster and all cluster components includ
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 5: Create Azure load balancer
+## Step 6: Create Azure load balancer
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
@@ -382,6 +349,8 @@ To create the load balancer:
    - **IP address assignment**: The IP address assignment should be static. 
    - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
    See the following picture:
+
+   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
@@ -413,15 +382,15 @@ To create the load balancer:
 
 1. Click OK.
 
-### Set load balancing rules
+### Set load-balancing rules
 
-1. On the load balancer blade, click **Load balancing rules**.
+1. On the load balancer blade, click **Load-balancing rules**.
 
 1. Click **+ Add**.
 
-1. Set the load balancing rules parameters:
+1. Set the load-balancing rules parameters:
 
-   - **Name**: A name for the load balancing rules.
+   - **Name**: A name for the load-balancing rules.
    - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource.
    - **Port**: Set for the SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: This value uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
@@ -433,7 +402,7 @@ To create the load balancer:
 
 1. Click **OK**.
 
-## Step 6: Configure cluster for probe
+## Step 7: Configure cluster for probe
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -454,7 +423,7 @@ In the preceding script, set the values for your environment. The following list
 
    - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
@@ -463,13 +432,13 @@ In the preceding script, set the values for your environment. The following list
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
-After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+After you set the cluster probe, you can see all of the cluster parameters in PowerShell. Run the following script:
 
    ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## Step 7: Test FCI failover
+## Step 8: Test FCI failover
 
 Test failover of the FCI to validate cluster functionality. Do the following steps:
 
@@ -501,10 +470,5 @@ On Azure virtual machines, MSDTC is not supported on Windows Server 2016 and ear
 
 ## See Also
 
-[Setup S2D with remote desktop (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
-
-[Hyper-converged solution with storage spaces direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
-
-[Storage Space Direct Overview](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
-
-[SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
+- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
