@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11-10-2019
+ms.date: 10/11/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,11 +41,11 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-
 * Dynatrace supports **SP and IDP** initiated SSO
 * Dynatrace supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Dynatrace from the gallery
 
@@ -57,7 +57,6 @@ To configure the integration of Dynatrace into Azure AD, you need to add Dynatra
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Dynatrace** in the search box.
 1. Select **Dynatrace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Dynatrace
 
@@ -82,19 +81,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
-
-    ![Dynatrace Domain and URLs single sign-on information](common/preintegrated.png)
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
     `https://sso.dynatrace.com/`
-
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Dynatrace Client support team](https://www.dynatrace.com/services-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. Click **Save**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -104,9 +96,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-## Configure Dynatrace SSO
-
-To configure single sign-on on **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Dynatrace support team](https://www.dynatrace.com/services-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -137,6 +126,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure Dynatrace SSO
+
+To configure single sign-on on **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Dynatrace support team](https://www.dynatrace.com/services-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+
 ### Create Dynatrace test user
 
 In this section, a user called Britta Simon is created in Dynatrace. Dynatrace supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dynatrace, a new one is created after authentication.
@@ -155,5 +148,5 @@ When you click the Dynatrace tile in the Access Panel, you should be automatical
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Slack with Azure AD](https://aad.portal.azure.com/)
+- [Try Dynatrace with Azure AD](https://aad.portal.azure.com/)
 
