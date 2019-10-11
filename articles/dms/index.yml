@@ -56,7 +56,7 @@ landingContent:
             url: tutorial-sql-server-managed-instance-online.md
           - text: Migrate to SQL Database managed instance offline
             url: tutorial-sql-server-to-managed-instance.md
-          - text: Migrate RDS SQL Server to SQL Database online
+          - text: Migrate RDS SQL Server to SQL Database single database or managed instance online
             url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
       - linkListType: reference
         links:
