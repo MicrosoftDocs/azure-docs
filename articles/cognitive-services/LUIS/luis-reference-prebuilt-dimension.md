@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Re
 
 ## Resolution for dimension entity
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.dimension** entity.
 
@@ -55,7 +55,8 @@ The following example shows the resolution of the **builtin.dimension** entity.
 }
 ```
 
-### Preview API version 3.x
+
+#### [V3 prediction endpoint response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -119,6 +120,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities. 

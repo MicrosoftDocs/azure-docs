@@ -455,6 +455,10 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 * Make sure that the SDK version is 2.0 or above.
 * Check that you set the same sampling percentage in both the client and server.
 
+### Sampling in Azure Functions
+
+Follow instructions from [this](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) to configure sampling for apps running in Azure Functions.
+
 ## Frequently Asked Questions
 
 *What is the default sampling behavior in ASP.NET and ASP.NET Core SDK?*
@@ -514,13 +518,19 @@ apply sampling to those items already sampled in the SDK itself.'
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
-* The best way to achieve this is to write a custom [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. This ensures that all sampling techniques will ignore this item from any sampling considerations.
+* The best way to achieve this is to write a custom [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. As initializers are guaranteed to be run before telemetry processors (including sampling), this ensures that all sampling techniques will ignore this item from any sampling considerations.
 
 ```csharp
-    if(somecondition)
-    {
-        ((ISupportSampling)item).SamplingPercentage = 100;
-    }
+     public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+         public void Initialize(ITelemetry telemetry)
+        {
+            if(somecondition)
+            {
+                ((ISupportSampling)item).SamplingPercentage = 100;
+            }
+        }
+      }
 ```
 
 ## Next steps

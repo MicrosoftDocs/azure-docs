@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Table API
@@ -105,7 +105,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     Copy the first portion of the URI value.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-java/keys.png)
+    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Open the src/remote.yaml file and paste the unique ID value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
     Line 1 of remote.yaml should now look similar to 
@@ -214,15 +214,15 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 12. Now you can connect rakesh, and ashley. Ensure **ashley** is selected in the **Results** list, then select ![Change the target of a vertex in a graph](./media/create-graph-java/edit-pencil-button.png)  next to **Targets** on lower right side. You may need to widen your window to see the button.
 
-    ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Change the target of a vertex in a graph - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. In the **Target** box enter *rakesh*, and in the **Edge label** box enter *knows*, and then select the check box.
 
-    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Add a connection in Data Explorer - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-    ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Two vertices connected in Data Explorer - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 

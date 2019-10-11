@@ -1,6 +1,6 @@
 ---
 title: Azure portal overview | Microsoft Docs 
-description: Use a guided experience to get started with Azure
+description: Use the Azure Quickstart Center guided experience to get started with Azure
 services: azure-portal
 keywords: 
 author: kfollis

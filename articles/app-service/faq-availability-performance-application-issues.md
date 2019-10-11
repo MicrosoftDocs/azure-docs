@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about availability, perfo
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 

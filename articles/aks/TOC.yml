@@ -21,17 +21,17 @@
     items:
     - name: Use Draft
       href: kubernetes-draft.md
-    - name: Use Java (VS Code & CLI)
-      href: ../dev-spaces/quickstart-java.md
-      maintainContext: true
-    - name: Use .NET Core (VS Code & CLI)
+    - name: Use Visual Studio Code and Azure Dev Spaces
       href: ../dev-spaces/quickstart-netcore.md
       maintainContext: true
-    - name: Use .NET Core (Visual Studio 2017)
+    - name: Use Visual Studio and Azure Dev Spaces
       href: ../dev-spaces/quickstart-netcore-visualstudio.md
       maintainContext: true
-    - name: Use Node.js (VS Code & CLI)
-      href: ../dev-spaces/quickstart-nodejs.md
+    - name: Use the CLI and Azure Dev Spaces
+      href: ../dev-spaces/quickstart-cli.md
+      maintainContext: true
+    - name: Use Azure Dev Spaces for team development 
+      href: ../dev-spaces/quickstart-team-development.md 
       maintainContext: true
 - name: Tutorials
   items:
@@ -100,6 +100,8 @@
     href: acs-aks-migration.md
   - name: Supported Kubernetes version
     href: supported-kubernetes-versions.md
+  - name: Security Hardening in host OS
+    href: security-hardened-vm-host-image.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -116,7 +118,7 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Create an ACR with an AKS cluster (preview)
+    - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
@@ -149,6 +151,8 @@
       href: azure-files-volume.md
     - name: NFS Server - Static
       href: azure-nfs-volume.md
+    - name: Azure NetApp Files
+      href: azure-netapp-files.md      
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -187,6 +191,8 @@
     items:
     - name: Create service principal
       href: kubernetes-service-principal.md
+    - name: Use managed identities (preview)
+      href: use-managed-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
@@ -209,8 +215,6 @@
           href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
-    - name: Authenticate with ACR
-      href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
   - name: Monitoring and logging
     items:

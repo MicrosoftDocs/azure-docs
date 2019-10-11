@@ -5,6 +5,7 @@ description: Learn how to create an internal load balancer using the Azure class
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

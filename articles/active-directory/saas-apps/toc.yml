@@ -47,6 +47,8 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
+      - name: Adobe Identity Management
+        href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
       - name: Adoddle cSaas Platform
@@ -173,6 +175,8 @@
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
         href: birst-tutorial.md
+      - name: BIS
+        href: bis-tutorial.md
       - name: BitaBIZ
         href: bitabiz-tutorial.md
       - name: Blackboard Learn
@@ -219,6 +223,8 @@
       items:
       - name: CA PPM
         href: cappm-tutorial.md
+      - name: CakeHR
+        href: cakehr-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -363,6 +369,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: directions-microsoft-tutorial.md
+      - name: Discovery Benefits SSO
+        href: discovery-benefits-sso-tutorial.md
       - name: Displayr
         href: displayr-tutorial.md
       - name: dmarcian
@@ -447,6 +455,8 @@
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
         href: expiration-reminder-tutorial.md
+      - name: ExponentHR
+        href: exponenthr-tutorial.md
     - name: F - G
       items:
       - name: F5
@@ -567,6 +577,8 @@
         href: hornbill-tutorial.md
       - name: Hosted Graphite
         href: hostedgraphite-tutorial.md
+      - name: Hosted Heritage Online SSO
+        href: hosted-heritage-online-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -591,6 +603,8 @@
         href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
+      - name: IDC
+        href: idc-tutorial.md
       - name: IdeaScale
         href: ideascale-tutorial.md
       - name: iDiD Manager
@@ -609,6 +623,8 @@
         href: imagineerwebVision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
+      - name: In Case of Crisis - Mobile
+        href: in-case-of-crisis-mobile-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
@@ -691,6 +707,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Juno Journey
+        href: juno-journey-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
@@ -757,6 +775,8 @@
         href: lifesize-cloud-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: Learnster
+        href: learnster-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
@@ -985,6 +1005,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
@@ -1035,6 +1057,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RENRAKU
+        href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
       - name: Reviewsnap
@@ -1207,6 +1231,8 @@
         href: softeon-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
+      - name: Sonarqube
+        href: sonarqube-tutorial.md
       - name: Soonr Workplace
         href: soonr-tutorial.md
       - name: SpaceIQ
@@ -1371,6 +1397,8 @@
         href: weekdone-tutorial.md
       - name: Whatfix
         href: whatfix-tutorial.md
+      - name: Whitesource
+        href: whitesource-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
@@ -1472,6 +1500,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Blink
+        href: blink-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1556,6 +1586,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: Robin
+        href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
       - name: Salesforce
@@ -1564,6 +1596,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Cloud Platform Identity Authentication
+        href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Slack

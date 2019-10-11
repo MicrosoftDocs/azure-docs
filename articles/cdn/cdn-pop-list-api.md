@@ -18,14 +18,15 @@ ms.author: magattus
 ms.custom: 
 
 ---
+# Retrieve the current POP IP list for Azure CDN
 
-# Retrieve the current Verizon POP IP list for Azure CDN
+## Retrieve the current Verizon POP IP list for Azure CDN
 
 You can use the REST API to retrieve the set of IPs for Verizon’s point of presence (POP) servers. These POP servers  make requests to origin servers that are associated with Azure Content Delivery Network (CDN) endpoints on a Verizon profile (**Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon**). Note that this set of IPs is different from the IPs that a client would see when making requests to the POPs. 
 
 For the syntax of the REST API operation for retrieving the POP list, see [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
 
-# Retrieve the current Microsoft POP IP list for Azure CDN
+## Retrieve the current Microsoft POP IP list for Azure CDN
 
 To lock down your application to accept traffic only from Azure CDN from Microsoft, you will need to set up IP ACLs for your backend. You may also restrict the set of accepted values for the header 'X-Forwarded-Host' sent by Azure CDN from Microsoft. These steps are detailed out as below:
 

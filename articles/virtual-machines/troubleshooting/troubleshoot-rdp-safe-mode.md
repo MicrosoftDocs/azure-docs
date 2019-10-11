@@ -4,7 +4,7 @@ description: Learn how to troubleshoot a problem in which cannot RDP to a VM bec
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows

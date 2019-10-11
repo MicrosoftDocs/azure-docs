@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -63,7 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Azure public peering
 
 > [!NOTE]
-> Azure public peering is not avialable for new circuits.
+> Azure public peering is not available for new circuits.
 > 
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
@@ -80,7 +80,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 You can choose to use public or private IPv4 addresses for private peering. We provide end-to-end isolation of your traffic, so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
 
 ### Microsoft peering
-The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, Microsoft Teams and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
+The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Microsoft Teams. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
 
@@ -211,15 +211,16 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| Skype For Business Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
+| Exchange Online** | 12076:5010 |
+| SharePoint Online** | 12076:5020 |
+| Skype For Business Online** | 12076:5030 |
+| CRM Online |12076:5040 |
 | Azure Global Services* | 12076:5050 |
-| Other Office 365 Online services | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| Other Office 365 Online services** | 12076:5100 |
 
 *Azure Global Services includes only Azure DevOps at this time.
-
+** Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
@@ -245,7 +246,6 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Other Office 365 Online services |12076:5200 |
 
 ## Next steps

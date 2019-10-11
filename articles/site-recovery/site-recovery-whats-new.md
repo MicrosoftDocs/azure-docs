@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -67,7 +67,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.
+Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.<br/><br/> This is supported for Hyper-V VMs with or without System Center VMM.
 
 
 ## Updates (August 2019)
@@ -105,7 +105,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 
 ### General
 
-Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+Site Recovery now supports the use of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
 
 ### VMware to Azure disaster recovery
 

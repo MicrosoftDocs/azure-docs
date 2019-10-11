@@ -17,7 +17,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
+* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
 
 ## Launch an Apache Zeppelin notebook
 
@@ -95,7 +95,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
     select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}"
     ```
 
-    Paste this snippet in a new paragraph and press **SHIFT + ENTER**. Then select **65** from the **Temp** drop-down ist. 
+    Paste this snippet in a new paragraph and press **SHIFT + ENTER**. Then select **65** from the **Temp** drop-down list. 
 
 8. Select the **Bar Chart** icon to change the display.  Then select **settings** and make the following changes:
 
@@ -112,7 +112,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 10. Scroll to **livy**, and then select **restart**.  Select **OK** at the prompt.
 
-    ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
+    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
 
 ## How do I use external packages with the notebook?
 You can configure the Zeppelin notebook in Apache Spark cluster on HDInsight to use external, community-contributed packages that are not included out-of-the-box in the cluster. You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
@@ -163,7 +163,7 @@ In such a case, you must perform the following steps before you can start runnin
 
 2. Scroll to **livy**, then select **restart**.
 
-    ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
+    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
 
 3. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
 

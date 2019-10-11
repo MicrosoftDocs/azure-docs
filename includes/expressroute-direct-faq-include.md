@@ -5,7 +5,7 @@
  author: jaredr80
  ms.service: expressroute
  ms.topic: include
- ms.date: 07/09/2019
+ ms.date: 10/07/2019
  ms.author: jaredro
  ms.custom: include file
 ---
@@ -29,6 +29,7 @@ The available ports will be dynamic and will be available by PowerShell to view 
 * Dublin
 * Hong Kong SAR
 * London
+* London2
 * Melbourne
 * New York City
 * Perth

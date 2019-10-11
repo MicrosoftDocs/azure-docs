@@ -1,21 +1,21 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
-description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
+title: Session host virtual machine configuration - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Tenant and host pool creation
+# Session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## VMs are not joined to the domain
 
@@ -291,17 +291,37 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
-## Remote Licensing model is not configured
+## Remote Desktop licensing mode isn't configured
 
-If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode." If you see this message, that means you need to manually configure the licensing mode to **Per user**.
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
-To manually configure the licensing mode:  
+If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-1. Go to your **Start menu** search box, then find and open **gpedit.msc** to access the local Group Policy editor. 
-2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**. 
-3. Select **Set the Remote Desktop licensing mode** and change it to **Per user**.
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode to **Per User**. Remove any configuration that is setting this policy, then follow the steps to identify the version of Windows 10 Enterprise multi-session and install the corresponding update.  
 
-We're currently looking into the notification and grace period timeout issues and plan to address them in a future update. 
+>[!NOTE]
+>Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### Identify which version of Windows 10 Enterprise multi-session you're using
+
+To check which version of Windows 10 Enterprise multi-session you have:
+
+1. Sign in with your admin account.
+2. Enter "About" into the search bar next to the Start menu.
+3. Select **About your PC**.
+4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
+   
+    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
+
+Now that you know your version number, skip ahead to the relevant section.
+
+### Version 1809
+
+If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
+
+### Version 1903
+
+If your version number says "1903," install [the KB4517211 update](https://support.microsoft.com/help/4517211).
 
 ## Next steps
 
@@ -310,7 +330,7 @@ We're currently looking into the notification and grace period timeout issues an
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Virtual Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

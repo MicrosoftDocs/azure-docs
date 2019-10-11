@@ -8,7 +8,7 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service with Jenkins continuous integration and deployment
@@ -22,7 +22,7 @@ and republishes your app to Azure App Service. The sample
 app in this tutorial was developed by using the 
 [Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
-![Overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![GitHub to Azure App Service deployment overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 In this tutorial, you'll complete these tasks:
 
@@ -119,22 +119,22 @@ in Jenkins.
 1. From the **Manage Jenkins** page, 
 select **Configure System**. 
 
-   ![Configure system](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Configure system in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. In **GitHub** section, provide details for your GitHub server. 
 From the **Add GitHub Server** list, select **GitHub Server**. 
 
-   ![Add GitHub server](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Add GitHub server in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. If the **Manage hooks** property isn't selected, select this property. 
 Select **Advanced** so you can specify other settings. 
 
-   ![Choose "Advanced" for more settings](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Specify advanced Jenkins settings for GitHub Server](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. From the **Manage additional GitHub actions** list, 
 select **Convert login and password to token**.
 
-   ![Choose "Manage additional GitHub actions"](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Convert the login and password to token for GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. Select **From login and password** so you 
 can enter your GitHub username and password. 
@@ -229,13 +229,13 @@ In Jenkins, create the pipeline job for building and deploying your app.
 
 1. Return to your Jenkins home page, and select **New Item**. 
 
-   ![Select "New Item"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Create a Jenkins pipeline](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Provide a name for your pipeline job, for example, 
 "My-Java-Web-App", and select **Pipeline**. 
 At the bottom, select **OK**.  
 
-   ![Select "Pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Name the Jenkins pipeline job](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Set up Jenkins with your service principal so Jenkins 
 can deploy to Azure without using your own credentials.
@@ -252,7 +252,7 @@ can deploy to Azure without using your own credentials.
       WEB_APP=yourWebAppName
       ```
 
-      ![Select "Prepare an environment for the run" and set environment variables](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Prepare an environment for the run and set the environment variables](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. When you're done, select **Save**.
 
@@ -312,7 +312,7 @@ Now specify the build and deployment script you want Jenkins to use.
 
 1. In Jenkins, select your previously created pipeline job. 
 
-   ![Select pipeline job for your web app](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Select the Jenkins pipeline job for your web app](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. On the left menu, select **Configure**.
 
@@ -336,7 +336,7 @@ select **Pipeline script from SCM**.
    When you're done, your pipeline definition 
    looks like this example: 
 
-   ![Point pipeline at script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Point your Jenkins pipeline at the script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. When you're done, select **Save**.
 

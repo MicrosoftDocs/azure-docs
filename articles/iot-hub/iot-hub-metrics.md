@@ -76,7 +76,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |c2d<br>.methods<br>.failure|Failed direct method invocations|Count|Total|The count of all failed direct method calls.|No Dimensions|
 |c2d<br>.methods<br>.requestSize|Request size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method requests.|No Dimensions|
 |c2d<br>.methods<br>.responseSize|Response size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method responses.|No Dimensions|
-|c2d<br>.twin<br>.read<br>.success|Successful twin reads from back end|Count|Total|The count of all successful back-end-initiated twin reads.|No Dimensions|
+|c2d<br>.twin<br>.read<br>.success|Successful twin reads from back end|Count|Total|The count of all successful back-end-initiated twin reads. This count doesn't include twin reads initiated from twin queries.|No Dimensions|
 |c2d<br>.twin<br>.read<br>.failure|Failed twin reads from back end|Count|Total|The count of all failed back-end-initiated twin reads.|No Dimensions|
 |c2d<br>.twin<br>.read<br>.size|Response size of twin reads from back end|Bytes|Average|The average, min, and max of all successful back-end-initiated twin reads.|No Dimensions|
 |c2d<br>.twin<br>.update<br>.success|Successful twin updates from back end|Count|Total|The count of all successful back-end-initiated twin updates.|No Dimensions|

@@ -8,7 +8,7 @@ manager: gwallace
 
 ms.service: azure-functions
 ms.topic: reference
-ms.date: 01/14/2019
+ms.date: 09/12/2019
 ms.author: cshoe
 ---
 
@@ -16,4 +16,4 @@ ms.author: cshoe
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-For links to all relevant error topics for the various services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Azure Functions error handling](functions-bindings-error-pages.md) overview topic.  
+For information on errors returned by services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Azure Functions error handling](functions-bindings-error-pages.md) overview article.  

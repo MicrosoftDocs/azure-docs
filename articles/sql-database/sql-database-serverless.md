@@ -154,12 +154,18 @@ Creating a new database or moving an existing database into a serverless compute
    |GP_S_Gen5_1|General Purpose|Gen5|1|
    |GP_S_Gen5_2|General Purpose|Gen5|2|
    |GP_S_Gen5_4|General Purpose|Gen5|4|
+   |GP_S_Gen5_6|General Purpose|Gen5|6|
+   |GP_S_Gen5_8|General Purpose|Gen5|8|
+   |GP_S_Gen5_10|General Purpose|Gen5|10|
+   |GP_S_Gen5_12|General Purpose|Gen5|12|
+   |GP_S_Gen5_14|General Purpose|Gen5|14|
+   |GP_S_Gen5_16|General Purpose|Gen5|16|
 
 2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
    |Parameter|Value choices|Default value|
    |---|---|---|---|
-   |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
+   |Min vCores|Depends on max vCores configured - see [resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0.5 vCores|
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
@@ -276,7 +282,7 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+For resource limits, see [serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## Billing
 
@@ -314,7 +320,7 @@ Suppose the compute unit price is $0.000073/vCore/second.  Then the compute bill
 
 ## Available regions
 
-The serverless compute tier is available worldwide except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US.
+The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
 
 ## Next steps
 

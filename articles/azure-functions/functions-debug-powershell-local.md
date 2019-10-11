@@ -131,6 +131,9 @@ The start debugging operation does the following tasks:
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
 
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
+
 With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 
 In this case, the PowerShell console is the client. The `Invoke-RestMethod` is used to trigger the function.
