@@ -147,10 +147,14 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 ## Authenticate access with managed identity
 
-After you [set up your logic app with a managed identity](#azure-portal-system-logic-app) and [set up that identity with access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). For an Azure function where you want to use the system-assigned identity, complete these tasks first:
+After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). 
+
+
+If you have an Azure function where you want to use the system-assigned identity, complete these tasks first:
 
 * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
 * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)
+
 
 These steps show how select the managed identity for trigger or action in Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 

@@ -1219,7 +1219,7 @@ forwards the content from the received email along with a
 request for approval.
 
 The code extracts the email addresses from the trigger's `Body` 
-property and returns these email addresses along with the 
+property and returns the addresses along with the 
 `SelectedOption` property value from the approval action. 
 The action explicitly includes the send approval email action 
 as a dependency in the `explicitDependencies` > `actions` attribute.

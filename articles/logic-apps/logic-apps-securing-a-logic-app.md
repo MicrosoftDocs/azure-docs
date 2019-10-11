@@ -25,12 +25,12 @@ To control access and protect data in Azure Logic Apps, you can set up security 
 
 ## Access to HTTP request triggers
 
-When your logic app uses an HTTP-based trigger that receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol.
+If your logic app uses an HTTP-based trigger that receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol.
 
 Here are the ways that you can secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
-* [Restrict incoming IP addresses](#restrict-incoming-ip-addresses)
+* [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
 * [Add Azure Active Directory, OAuth, or other security](#add-authentication)
 
 <a name="sas"></a>
@@ -118,7 +118,7 @@ If you want your logic app to trigger only as a nested logic app, from the **All
 > However, this scenario still requires authentication against the Azure REST API. 
 > All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
-#### Restrict incoming IP ranges in Azure Resource Manager template
+#### Restrict inbound IP ranges in Azure Resource Manager template
 
 If you automate logic app deployments by using an [Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md), you can specify the IP ranges by using the `accessControl` section with the `triggers` section in your logic app's resource definition, for example:
 
@@ -163,27 +163,27 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 ### Add Azure Active Directory, OAuth, or other security
 
-To add more authorization protocols to your logic app, consider using [Azure API Management](../api-management/api-management-key-concepts.md). This service gives you the capability to expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app, which can then use Azure Active Directory, OAuth, certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's incoming IP range settings.
+To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. You can then use Azure Active Directory, OAuth, certificate, or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
 
 <a name="secure-operations"></a>
 
 ## Access to logic app operations
 
-You can permit only specific users or groups to run specific operations, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) to assign customized or built-in roles to members in your Azure subscription:
+You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) so that you can assign customized or built-in roles to the members in your Azure subscription:
 
 * [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
 
 * [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md), which prevents others from changing or deleting production resources.
+To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md). This capability prevents others from changing or deleting production resources.
 
 <a name="secure-run-history"></a>
 
 ## Access to run history data
 
-During a logic app run, all the data is encrypted during transit by using [Transit Layer Security (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) and at [rest](../security/fundamentals/encryption-atrest.md). When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
+During a logic app run, all the data is encrypted during transit by using [Transit Layer Security (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) and at [rest](../security/fundamentals/encryption-atrest.md). When your logic app finishes running, you can view the history for that run. This history shows the actions that ran and each action's status, duration, inputs, and outputs. This rich information provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
-When you access your logic app's run history, Logic Apps authenticates your access and provides links to the inputs and outputs from the requests and responses in your logic app's run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-overview.md) to use when authenticating an HTTP action, you want to hide that secret from view.
+When you view your logic app's run history, Logic Apps authenticates your access and then provides links to the inputs and outputs for the requests and responses for each run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-overview.md) to use when authenticating an HTTP action, you want to hide that secret from view.
 
 To control access to the inputs and outputs in your logic app's run history, you have these options:
 
@@ -329,7 +329,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
-* To secure outputs from an action that secures inputs or explicitly uses secured outputs, you have to manually turn on **Secure Outputs** in this action.
+* To secure outputs from an action that secures inputs or explicitly uses secured outputs, manually turn on **Secure Outputs** in that action.
 
 * Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to secure that data.
 
@@ -594,10 +594,6 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
 HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests that access these endpoints, you can select from varying ranges of authentication types. To make sure that you protect any sensitive information that your logic app handles, use secured parameters and encode data as necessary. For more information about using and securing parameters, see [Access to parameter inputs](#secure-action-parameters).
 
-> [!NOTE]
-> In the Logic App Designer, the **Authentication** property might be hidden on some triggers and actions 
-> where you can specify the authentication type. To make the property appear in these cases, on the trigger or action, open the **Add new parameter** list, and select **Authentication**.
-
 | Authentication type | Supported by |
 |---------------------|--------------|
 | [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure API Management |
@@ -606,6 +602,12 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 | [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 | [Managed identity](#managed-identity-authentication) (system-assigned only) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
 |||
+
+> [!NOTE]
+> In the Logic App Designer, the **Authentication** property might be hidden on some triggers and actions 
+> where you can specify the authentication type. To make the property appear in these cases, on the trigger or action, 
+> open the **Add new parameter** list, and select **Authentication**. For more information, see 
+> [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 <a name="basic-authentication"></a>
 
