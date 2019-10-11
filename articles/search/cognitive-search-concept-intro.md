@@ -6,7 +6,7 @@ description: Content extraction, natural language processing (NLP) and image pro
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/04/2019
 ---

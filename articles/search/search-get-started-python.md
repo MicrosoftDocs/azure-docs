@@ -6,7 +6,7 @@ description: Explains how to create an index, load data, and run queries using P
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 10/04/2019

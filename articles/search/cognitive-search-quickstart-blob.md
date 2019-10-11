@@ -6,7 +6,7 @@ description: Learn data extraction, natural language and image processing skills
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/04/2019
 ---

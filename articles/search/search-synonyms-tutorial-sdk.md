@@ -6,7 +6,7 @@ description: In this C# example, learn how to add the synonyms feature to an ind
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.

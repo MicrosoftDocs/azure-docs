@@ -6,7 +6,7 @@ description: 'Azure Cognitive Search can be provisioned in these SKUs: Free, Bas
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

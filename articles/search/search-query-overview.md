@@ -6,7 +6,7 @@ description: Basics for building a search query in Azure Cognitive Search, using
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

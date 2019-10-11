@@ -7,7 +7,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.devlang: dotnet
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

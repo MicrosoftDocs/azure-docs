@@ -6,7 +6,7 @@ description: Explains the annotation syntax and how to reference an annotation i
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

@@ -6,7 +6,7 @@ description: Add facet navigation to applications that integrate with Azure Cogn
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

@@ -6,7 +6,7 @@ description: Tips and troubleshooting for setting up AI enrichment pipelines in 
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

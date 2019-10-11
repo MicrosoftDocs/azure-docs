@@ -6,7 +6,7 @@ description: Azure Cognitive Search is compliant with SOC 2, HIPAA, and other ce
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

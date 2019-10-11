@@ -6,7 +6,7 @@ description: Create and configure an Azure Cognitive Search service with PowerSh
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/04/2019

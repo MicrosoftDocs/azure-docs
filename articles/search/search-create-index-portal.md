@@ -6,7 +6,7 @@ description: Learn how to create an index for Azure Cognitive Search using a bui
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

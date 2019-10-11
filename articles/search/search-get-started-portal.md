@@ -6,7 +6,7 @@ description: Use the Import Data wizard in Azure portal to create, load, and que
 author: lobrien
 manager: nitinme
 ms.author: laobri
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/04/2019
 

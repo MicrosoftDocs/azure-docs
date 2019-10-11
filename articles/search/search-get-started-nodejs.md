@@ -7,7 +7,7 @@ author: lobrien
 manager: nitinme
 ms.author: laobri
 ms.devlang: nodejs
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/04/2019
 ---

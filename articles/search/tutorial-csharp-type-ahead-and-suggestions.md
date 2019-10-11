@@ -6,7 +6,7 @@ description:  This tutorial builds on the "Search results pagination - Azure Cog
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 ---

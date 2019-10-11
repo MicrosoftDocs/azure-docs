@@ -6,7 +6,7 @@ description: Learn how to use the Import Data wizard in the Azure portal to craw
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

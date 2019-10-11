@@ -6,7 +6,7 @@ description: Adjust partition and replica computer resources in Azure Cognitive 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

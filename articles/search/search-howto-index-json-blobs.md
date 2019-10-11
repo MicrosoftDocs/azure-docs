@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.devlang: rest-api
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

@@ -6,7 +6,7 @@ description: Migrate code to the Azure Search .NET SDK version 9 from older vers
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/04/2019

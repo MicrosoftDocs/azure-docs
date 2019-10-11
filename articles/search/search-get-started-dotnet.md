@@ -6,7 +6,7 @@ description: Explains how to create an index, load data, and run queries using C
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/04/2019
