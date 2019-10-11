@@ -11,7 +11,7 @@ ms.author: normesta
 ---
 # Integrate Azure Data Lake Storage with Azure services
 
-You can use Azure services to ingest data into your account, perform analytics, and create visual representations of the data in your data lake. The following table lists Azure services that support Azure Data Lake Storage Gen2. This table also provides links to articles that help you use those services with your hierarchical namespace-enabled storage account.  
+You can use Azure services to ingest data, perform analytics, and create visual representations of the data in your data lake. The following table lists Azure services that support Azure Data Lake Storage Gen2. This table also provides links to articles that help you use those services with your hierarchical namespace-enabled storage account.  
 
 | Azure service |  Related articles |
 |---------------|-------------------|

@@ -79,7 +79,7 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 
 ## Supported Azure services
 
-Data Lake Storage gen2 supports several Azure services that you can use to ingest data into your account, perform analytics, and create visual representations of your data. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Integrate Azure Data Lake Storage with Azure services](data-lake-store-integrate-with-azure-services.md).
 
 ## Next steps
 
