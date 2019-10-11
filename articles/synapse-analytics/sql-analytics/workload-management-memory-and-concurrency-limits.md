@@ -14,10 +14,10 @@ ms.reviewer: igorstan
 
 
 # Memory and concurrency limits for Azure SQL Data Warehouse
-View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](workload-management-resource-classes.md). 
 
 ## Data warehouse capacity settings
-The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
+The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](../../sql-data-warehouse/quickstart-scale-compute-portal.md).
 
 ### Service Levels
 
@@ -45,11 +45,11 @@ The service levels range from DW100c to DW30000c.
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](workload-management-importance,md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](../../sql-data-warehouse/analyze-your-workload.md)
 
 **Static resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](workload-management-resource-classes.md).  
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
@@ -72,7 +72,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 **Dynamic resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](workload-management-resource-classes.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -99,5 +99,5 @@ When there are not enough concurrency slots free to start query execution, queri
 ## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
-* [Resource classes for workload management](resource-classes-for-workload-management.md)
-* [Analyzing your workload](analyze-your-workload.md)
+* [Resource classes for workload management](workload-management-resource-classes.md)
+* [Analyzing your workload](../../sql-data-warehouse/analyze-your-workload.md)

@@ -57,7 +57,7 @@ Because Q5 is mediumrc, it requires two concurrency slots.  Q5 needs to wait for
 ## Next steps
 
 - For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- For more information about SQL Data Warehouse workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).  
-- See the Quickstart [Create workload classifier](quickstart-create-a-workload-classifier-tsql.md) for how to create a workload classifier.
-- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- For more information about SQL Data Warehouse workload classification, see [Workload Classification](workload-management-classification.md).  
+- See the Quickstart [Create workload classifier](../../sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md) for how to create a workload classifier.
+- See the how-to articles to [Configure Workload Importance](../../sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

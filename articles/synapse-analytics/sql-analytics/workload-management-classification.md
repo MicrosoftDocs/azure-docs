@@ -20,7 +20,7 @@ This article explains the SQL Data Warehouse workload classification process of 
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Workload management classification allows workload policies to be applied to requests through assigning [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](sql-data-warehouse-workload-importance.md).
+Workload management classification allows workload policies to be applied to requests through assigning [resource classes](workload-management-resource-classes.md#what-are-resource-classes) and [importance](workload-management-importance.md).
 
 While there are many ways to classify data warehousing workloads, the simplest and most common classification is load and query. You load data with insert, update, and delete statements.  You query the data using selects. A data warehousing solution will often have a workload policy for load activity, such as assigning a higher resource class with more resources. A different workload policy could apply to queries, such as lower importance compared to load activities.
 
@@ -77,6 +77,6 @@ sp_droprolemember ‘[Resource Class]’, membername
 ## Next steps
 
 - For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md).
-- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- See the Quickstart on how to create a workload classifier [Create a workload classifier](../../sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md).
+- See the how-to articles to [Configure Workload Importance](../../sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

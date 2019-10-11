@@ -30,12 +30,12 @@ There are two types of resource classes:
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](workload-management-memory-and-concurrency-limits.md#concurrency-maximums).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
 
-Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](resource-consumption-models.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](../../sql-data-warehouse/quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
 
 The static resource classes are implemented with these pre-defined database roles:
 
@@ -179,7 +179,7 @@ We recommend creating a user that is dedicated to running a specific type of que
 
 `CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Memory pressure can lead to needing a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
 
-The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 Once you have determined the memory requirement, choose whether to assign the load user to a static or dynamic resource class.
 
@@ -577,14 +577,14 @@ GO
 
 ## Next step
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md
+[Rebuilding indexes to improve segment quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Secure a database in SQL Data Warehouse]: ../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
