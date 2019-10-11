@@ -1,6 +1,6 @@
 ---
-title: Samples - UK OFFICIAL and UK NHS blueprint - Overview
-description: Overview and architecture of the UK OFFICIAL and UK NHS blueprint samples.
+title: Sample - UK OFFICIAL and UK NHS blueprint - Overview
+description: Overview and architecture of the UK OFFICIAL and UK NHS blueprint samples. This blueprint sample helps customers asses specific controls.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
