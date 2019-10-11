@@ -280,6 +280,9 @@
         - name: Multi-step tests
           displayname: availability, GSM, visual studio web test, web test
           href: app/availability-multistep.md
+        - name: Availability + Azure Functions
+          href: app/availability-azure-functions.md
+          displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayname: alerts, global, alerting
           href: app/availability-alerts.md

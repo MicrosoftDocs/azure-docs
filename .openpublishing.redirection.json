@@ -3997,7 +3997,12 @@
     },
     {
       "source_path": "articles/resource-manager-api-authentication.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-api-authentication",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-api-authentication.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
@@ -33299,11 +33304,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-language-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
-      "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
     {
