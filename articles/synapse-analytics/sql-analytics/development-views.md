@@ -67,6 +67,6 @@ Views in SQL Data Warehouse are stored as metadata only. Consequently, the follo
 * There are no indexed views in SQL Data Warehouse
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [SQL Data Warehouse development overview](development-overview.md).
 
 

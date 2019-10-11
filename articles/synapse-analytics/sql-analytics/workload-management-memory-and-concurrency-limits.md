@@ -45,7 +45,7 @@ The service levels range from DW100c to DW30000c.
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](workload-management-importance,md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](../../sql-data-warehouse/analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](workload-management-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](../../sql-data-warehouse/analyze-your-workload.md)
 
 **Static resource classes**
 
