@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/04/2019
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -16,6 +16,9 @@ This topic explains how to create a new Dynamics 365 Business Central offer. [Mi
 To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
 ## Create a new offer
 
@@ -77,7 +80,7 @@ Select from the following options:
 
 ## Connect lead management
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 

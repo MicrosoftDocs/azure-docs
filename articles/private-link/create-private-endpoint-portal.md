@@ -1,4 +1,4 @@
----
+﻿---
 
 title: 'Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal
@@ -134,7 +134,7 @@ In this section, you will create a SQL database server in Azure.
 In this section, you will create a SQL server and add a private endpoint to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
-2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
 
     | Setting | Value |
