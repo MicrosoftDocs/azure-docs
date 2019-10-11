@@ -48,7 +48,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) that you want to include in the call to the target endpoint. Set up the recurrence for how often you want the trigger to check the target endpoint.
 
-   If you select an authentication type, your options differ based on your selection. For more information, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
+   If you select an authentication type, your options differ based on your selection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 

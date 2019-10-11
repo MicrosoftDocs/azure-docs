@@ -123,7 +123,7 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 1. Under **Add role assignment**, select your identity's **Role** based on your logic app's needs.
 
-   The role that you select is based on the role that's necessary for the trigger or action that uses that identity in your logic app. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+   The role that you select is based on the permissions required by the trigger or action that uses that identity. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
    ![Assign role](./media/create-managed-service-identity/assign-role.png)
 
