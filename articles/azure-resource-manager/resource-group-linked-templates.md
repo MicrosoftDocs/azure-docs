@@ -518,7 +518,7 @@ In PowerShell, you get a token for the container and deploy the templates with t
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token)
 ```
 
 For Azure CLI in a Bash shell, you get a token for the container and deploy the templates with the following code:
