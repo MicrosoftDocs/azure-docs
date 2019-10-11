@@ -56,7 +56,7 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 Next, create a Node.js application that can be deployed to the Cloud. This quickstart uses an application generator to quickly scaffold out the application from a terminal.
 
 > [!TIP]
-> If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy the website](#deploy-the-website).
+> If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy to Azure](#deploy-to-azure).
 
 ### Scaffold a new application with the Express Generator
 
@@ -90,9 +90,9 @@ Now, open your browser and navigate to [http://localhost:3000](http://localhost:
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-## Deploy the website
+## Deploy to Azure
 
-In this section, you deploy your Node.js website using VS Code and the Azure App Service extension. This quickstart uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
+In this section, you deploy your Node.js app using VS Code and the Azure App Service extension. This quickstart uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
 
 ### Deploy using Azure App Service
 
@@ -130,9 +130,9 @@ In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy y
 > [!TIP]
 > Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
-### Browse the website
+### Browse the app in Azure
 
-Once the deployment completes, select **Browse Website** in the prompt to view your freshly deployed website.
+Once the deployment completes, select **Browse Website** in the prompt to view your freshly deployed web app.
 
 ### Troubleshooting
 
@@ -141,13 +141,13 @@ If you see the error **"You do not have permission to view this directory or pag
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-### Updating the website
+### Update the app
 
 You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
 
 ## Viewing Logs
 
-In this section, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the output window in Visual Studio Code.
+In this section, you learn how to view (or "tail") the logs from the running App Service app. Any calls to `console.log` in the app are displayed in the output window in Visual Studio Code.
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
