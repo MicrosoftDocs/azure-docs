@@ -98,9 +98,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   This API reference describes the APIs you can use to manage your storage account programmatically.
-* [Use Resource Manager authentication API to access subscriptions](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  This article shows how to authenticate using the Resource Manager APIs.
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
