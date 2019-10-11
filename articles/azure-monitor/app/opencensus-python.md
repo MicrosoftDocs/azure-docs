@@ -56,7 +56,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     > [!NOTE]
     > `python -m pip install opencensus-ext-azure` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in a command like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics and logs. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
+2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. Take a look at [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
 
 ### Trace
 
@@ -313,7 +313,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
 ## View your data with queries
 
-1. You can view the telemetry data that was sent from your application through the Logs(Analytics) blade. 
+1. You can view the telemetry data that was sent from your application through the Logs(Analytics) tab.
 
     ![Screenshot of overview pane with Logs(Analytics) selected in red box](./media/opencensus-python/0010-logs-query.png)
 
@@ -323,7 +323,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
 4. For telemetry sent with the Azure Monitor logs exporter, logs will show up under `traces` and exceptions will show up under `exceptions`.
 
-5. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) for more detailed information about how to use queries and logs. 
+5. Take a look at [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) for more detailed information about how to use queries and logs.
 
 ## OpenCensus for Python
 
