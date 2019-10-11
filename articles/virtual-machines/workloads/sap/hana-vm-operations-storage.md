@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/03/2019
+ms.date: 10/11/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -26,7 +26,8 @@ Azure provides different types of storage that are suitable for Azure VMs that a
 
 - Standard SSD disk drives (SSD)
 - Premium solid state drives (SSD)
-- [Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) 
+- [Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 To learn about these disk types, see the article [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 
@@ -34,7 +35,13 @@ Azure offers two deployment methods for VHDs on Azure Standard and Premium Stora
 
 For a list of storage types and their SLAs in IOPS and storage throughput, review the [Azure documentation for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-**Recommendation: Use Azure Premium Storage in conjunction with Azure Write Accelerator and use Azure Managed Disks for deployment**
+For the usage with HANA, these three types of storage are certified with SAP:
+
+- Azure Premium Storage - /hana/log needs to be cached with Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+- Azure Ultra disk
+- NFS v4.1 volumes on top of Azure NetApp Files for /hana/log and /hana/data
+
+Some of the storage types can be combined. E.g. it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, it is not recommended to mix NFS volumes for e.g. /hana/data and use one of the other certified storage types for /hana/log
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those requirements. Some of the minimum throughput characteristics that are asked are resulting in the need to:
 
@@ -54,6 +61,18 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an IOPS and storage throughput side. So, if you put a RAID 0  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
 
+Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+
+## Linux I/O Scheduler mode
+Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **cfq** mode to the **noop** mode. Details are referenced in [SAP Note #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+
+
+## Solutions with Premium Storage and Azure Write Accelerator for Azure M-Series virtual machines
+Azure Write Accelerator is a functionality that is available for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
+
+> [!IMPORTANT]
+> When using Azure Premium Storage, the usage of Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) or the /hana/log volume is mandatory. Write Accelerator is available for premium Storage and M-Series and Mv2-Series VMs only.
+
 The caching recommendations below are assuming the I/O characteristics for SAP HANA that list like:
 
 - There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly does not make sense since in most of the cases, all data file volumes need to be read completely.
@@ -65,18 +84,8 @@ The caching recommendations below are assuming the I/O characteristics for SAP H
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure Premium Storage should be set like:**
 
 - **/hana/data** - no caching
-- **/hana/log** - no caching - exception for M-Series (see later in this document)
+- **/hana/log** - no caching - exception for M- and Mv2-Series where Write Accelerator is enabled as caching functionality
 - **/hana/shared** - read caching
-
-
-Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
-
-## Linux I/O Scheduler mode
-Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **cfq** mode to the **noop** mode. Details are referenced in [SAP Note #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
-
-
-## Solutions with Premium Storage and Azure Write Accelerator for Azure M-Series virtual machines
-Azure Write Accelerator is a functionality that is getting rolled out for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 ### Production recommended storage solution
 
@@ -85,6 +94,8 @@ Azure Write Accelerator is a functionality that is getting rolled out for Azure 
 
 > [!NOTE]
 > For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+
 
 **Recommendation: The recommended configurations for production scenarios look like:**
 
@@ -217,9 +228,22 @@ In this configuration, you the /hana/data and /hana/log volumes on the same disk
 
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
-## Mixture between Azure Premium Storage and Ultra disk
-It is also possible to have the /hana/data volume on Premium Storage and the /hana/log volume onto Ultra disk storage. Recommendation in sizing out of the different sections of this document apply accordingly. 
+## NFS v4.1 volumes on Azure NetApp Files
+Azure NetApp Files provides native NFS shares that can be used for /hana/shared, /hana/data and /hana/log volumes. Using ANF based NFS shares for these volumes requires the usage of the v4.1 NFS protocol. the NFS protocol v3 is not supported for the usage of HANA related volumes when basing the shares on ANF. 
 
+> [!IMPORTANT]
+> the NFS v3 protocol implemented on Azure NetApp Files is not supported to be used for /hana/shared, /hana/data and /hana/log
+
+In order to fulfill the requirements for storage latency, it is essential that the VMs that use those NFS volumes for SAP HANA are in proximity to the ANF infrastructure. In order to achieve this, the VMs need to be placed with the help of Microsoft in the vicinity of the ANF infrastructure. In order to enable Microsoft to perform such a proximity placement, Microsoft is going to publish a form that will ask you for some data and an empty Azure availability set. Microsoft will then place the availability set close to the ANF infrastructure where necessary. 
+
+ANF infrastructure provides different performance categories. These categories are documented in [Service levels for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+
+> [!NOTE]
+> It is recommended to use the ANF Ultra storage category for /hana/data and /hana/log. For /hana/shared, the standard or premium category is sufficient
+
+Recommendations for recommended throughput of ANF based NFS volumes are going to be published soon.
+
+Documentation that describes how to create n+m HANA scale-out configurations are going to be published soon.
 
 
 ## Next steps
