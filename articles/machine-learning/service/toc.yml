@@ -69,7 +69,7 @@
   items:
   - name: Workspace
     href: concept-workspace.md
- - name: Compute instance
+  - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
   - name: Compute target
