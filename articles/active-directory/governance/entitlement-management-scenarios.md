@@ -46,7 +46,7 @@ There are several ways that you can configure entitlement management for your or
 > | --- | --- |
 > | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Add resource roles to access package](entitlement-management-access-package-resources.md#add-resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Add a policy](entitlement-management-access-package-policy.md#for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
+> | **3.** [Add a policy](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
 
 ### I want to allow users from my business partners directory (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
 
@@ -55,7 +55,7 @@ There are several ways that you can configure entitlement management for your or
 > | --- | --- |
 > | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Add resource roles to access package](entitlement-management-access-package-resources.md#add-resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Add a policy for external users](entitlement-management-access-package-policy.md#for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy for external users](./media/entitlement-management-scenarios/policy-external.png) |
+> | **3.** [Add a policy for external users](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy for external users](./media/entitlement-management-scenarios/policy-external.png) |
 > | **4.** [Send the link to request an access package to your business partner](entitlement-management-access-package-settings.md)<ul><li>Business partner can share link with their users</li></ul> |  |
 
 ### I want to change the groups, applications, or SharePoint sites in an access package

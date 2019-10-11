@@ -80,5 +80,5 @@ You can only cancel a pending request that has not yet been delivered.
 
 ## Next steps
 
-- [Change user, request, and expiration settings for an access package](entitlement-management-access-package-policy.md)
+- [Change user and approval settings for an access package](entitlement-management-access-package-request-policy.md)
 - [View and change assignments for an access package](entitlement-management-access-package-assignments.md)

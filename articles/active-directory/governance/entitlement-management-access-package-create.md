@@ -118,7 +118,9 @@ On the **Policy** tab, you create the first policy to specify who can request th
 
 1. If you select **Now**, perform the steps in one of the following policy sections.
 
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
+
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## Review + create
 

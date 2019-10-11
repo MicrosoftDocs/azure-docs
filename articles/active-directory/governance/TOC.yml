@@ -60,8 +60,10 @@
         href: entitlement-management-access-package-settings.md
       - name: Change resource roles
         href: entitlement-management-access-package-resources.md
-      - name: Change user, request, and expiration settings
-        href: entitlement-management-access-package-policy.md
+      - name: Change user and approval settings
+        href: entitlement-management-access-package-request-policy.md
+      - name: Change expiration settings
+        href: entitlement-management-access-package-lifecycle-policy.md
       - name: View requests
         href: entitlement-management-access-package-requests.md
       - name: View and change assignments

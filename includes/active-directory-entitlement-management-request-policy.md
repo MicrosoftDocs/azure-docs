@@ -22,7 +22,7 @@ Follow these steps if you want your policy to be for users in your directory tha
 
 1. In the Select users and groups pane, select the users and groups you want to add.
 
-    ![Access package - Policy- Select users and groups](./media/active-directory-entitlement-management-policy/policy-select-users-groups.png)
+    ![Access package - Policy- Select users and groups](./media/active-directory-entitlement-management-request-policy/policy-select-users-groups.png)
 
 1. Click **Select** to add the users and groups.
 
@@ -46,7 +46,7 @@ Follow these steps if you want your policy to be for users not in your directory
     > [!NOTE]
     > All users from the directory will be able to request this access package. This includes users from all subdomains associated with the directory, not just the domain used in the search.
 
-    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
+    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-request-policy/policy-select-directories.png)
 
 1. Click **Add** to add the directory.
 
@@ -78,13 +78,13 @@ In the Request section, you specify approval settings when users request the acc
 
     Only one of the selected approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
 
-    ![Access package - Policy- Select approvers](./media/active-directory-entitlement-management-policy/policy-select-approvers.png)
+    ![Access package - Policy- Select approvers](./media/active-directory-entitlement-management-request-policy/policy-select-approvers.png)
 
 1. Click **Select** to add the approvers.
 
 1. Click **Show advanced request settings** to show additional settings.
 
-    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-advanced-request.png)
+    ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-request-policy/policy-advanced-request.png)
 
 1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
@@ -92,32 +92,12 @@ In the Request section, you specify approval settings when users request the acc
 
 1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this number of days, the request expires and the user will have to submit another request for the access package.
 
-## Expiration
-
-In the Expiration section, you specify when a user's assignment to the access package expires.
-
-1. In the **Expiration** section, set **Access package expires** to **On date**, **Number of days**, or **Never**.
-
-    For **On date**, select an expiration date in the future.
-
-    For **Number of days**, specify a number between 0 and 3660 days.
-
-    Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
-
-1. Click **Show advanced expiration settings** to show additional settings.
-
-1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
-
-    If extensions are allowed in the policy, the user will receive an email 14 days and also 1 day before their access package assignment is set to expire prompting them to extend the assignment.
-
-    ![Access package - Policy- Expiration settings](./media/active-directory-entitlement-management-policy/policy-expiration.png)
-
 ## Enable policy
 
 1. If you want the access package to be made immediately available to the users in the policy, click **Yes** to enable the policy.
 
     You can always enable it in the future after you have finished creating the access package.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-policy/policy-enable.png)
+    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/policy-enable.png)
 
 1. Click **Next** or **Create**.
