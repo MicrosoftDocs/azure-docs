@@ -422,7 +422,7 @@ You create an Azure Machine Learning Service linked service to connect an Azure 
 | Property               | Description                              | Required                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
-| subscriptionId         | Azure subscription id              | Yes                                      |
+| subscriptionId         | Azure subscription ID              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
 | mlWorkspaceName        | Azure Machine Learning Service workspace name | Yes  |
 | servicePrincipalId     | Specify the application's client ID.     | No |
@@ -467,7 +467,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription id                    | No                                       |
+| subscriptionId       | Azure subscription ID                    | No                                       |
 | resourceGroupName    | Azure resource group name                | No                                       |
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
