@@ -62,7 +62,7 @@ For code-free training, try:
 + The [drag-n-drop experimenting in the designer](ui-tutorial-automobile-price-train-score.md).
   ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
 
-### Operationalization (MLOps)
+### Deploy & operationalize (MLOps)
 
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
@@ -108,15 +108,14 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- [Create a Machine Learning service workspace](how-to-manage-workspace.md) to get started.
+- Create your first experiment with your preferred method:
+  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+  + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
 
-- Follow the full-length tutorials:
-  + [Create a workspace and train your first ML model](tutorial-1st-experiment-sdk-setup.md)
-  + [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md)
 
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.
-
-- For more information, see [other machine learning products from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).
