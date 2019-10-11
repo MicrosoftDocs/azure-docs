@@ -25,12 +25,10 @@ This article shows you how to install Istio. The Istio `istioctl` client binary 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Download Istio
-> * Install the Istio istioctl client binary
-> * Install the Istio CRDs on AKS
-> * Install the Istio components on AKS
+> * Download and install the Istio istioctl client binary
+> * Install Istio on AKS
 > * Validate the Istio installation
-> * Accessing the add-ons
+> * Access the add-ons
 > * Uninstall Istio from AKS
 
 ## Before you begin
@@ -253,81 +251,53 @@ prometheus-846f9849bd-br8kp              1/1     Running     0          87s
 
 There should be three `istio-init-crd-*` pods with a `Completed` status. These pods were responsible for running the jobs that created the CRDs in an earlier step. All of the other pods should show a status of `Running`. If your pods don't have these statuses, wait a minute or two until they do. If any pods report an issue, use the [kubectl describe pod][kubectl-describe] command to review their output and status.
 
-## >> CONTINUE EDITING FROM HERE << 
-
 ## Accessing the add-ons
 
-A number of add-ons were installed Istio in our setup above that provide additional functionality. The user interfaces for the add-ons are not exposed publicly via an external ip address. To access the add-on user interfaces, use the [kubectl port-forward][kubectl-port-forward] command. This command creates a secure connection between your client machine and the relevant pod in your AKS cluster.
+A number of add-ons were installed by Istio in our setup above that provide additional functionality. The web applications for the add-ons are **not** exposed publicly via an external ip address. 
+
+To access the add-on user interfaces, use the `istioctl dashboard` command. This command leverages [kubectl port-forward][kubectl-port-forward] and a random port to create a secure connection between your client machine and the relevant pod in your AKS cluster. It will then automatically open the add-on web application in your default browser.
 
 We added an additional layer of security for Grafana and Kiali by specifying credentials for them earlier in this article.
 
 ### Grafana
 
-The analytics and monitoring dashboards for Istio are provided by [Grafana][grafana]. Forward the local port `3000` on your client machine to port `3000` on the pod that is running Grafana in your AKS cluster:
+The analytics and monitoring dashboards for Istio are provided by [Grafana][grafana]. Remember to use the credentials you created via the Grafana secret earlier when prompted. Open the Grafana dashboard securely as follows:
 
 ```console
-kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000
+istioctl dashboard grafana
 ```
-
-The following example output shows the port-forward being configured for Grafana:
-
-```console
-Forwarding from 127.0.0.1:3000 -> 3000
-Forwarding from [::1]:3000 -> 3000
-```
-
-You can now reach Grafana at the following URL on your client machine - [http://localhost:3000](http://localhost:3000). Remember to use the credentials you created via the Grafana secret earlier when prompted.
 
 ### Prometheus
 
-Metrics for Istio are provided by [Prometheus][prometheus]. Forward the local port `9090` on your client machine to port `9090` on the pod that is running Prometheus in your AKS cluster:
+Metrics for Istio are provided by [Prometheus][prometheus]. Open the Prometheus dashboard securely as follows:
 
 ```console
-kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090
+istioctl dashboard prometheus
 ```
-
-The following example output shows the port-forward being configured for Prometheus:
-
-```console
-Forwarding from 127.0.0.1:9090 -> 9090
-Forwarding from [::1]:9090 -> 9090
-```
-
-You can now reach the Prometheus expression browser at the following URL on your client machine - [http://localhost:9090](http://localhost:9090).
 
 ### Jaeger
 
-Tracing within Istio is provided by [Jaeger][jaeger]. Forward the local port `16686` on your client machine to port `16686` on the pod that is running Jaeger in your AKS cluster:
+Tracing within Istio is provided by [Jaeger][jaeger]. Open the Jaeger dashboard securely as follows:
 
 ```console
-kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=jaeger -o jsonpath='{.items[0].metadata.name}') 16686:16686
+istioctl dashboard jaeger
 ```
-
-The following example output shows the port-forward being configured for Jaeger:
-
-```console
-Forwarding from 127.0.0.1:16686 -> 16686
-Forwarding from [::1]:16686 -> 16686
-```
-
-You can now reach the Jaeger tracing user interface at the following URL on your client machine - [http://localhost:16686](http://localhost:16686).
 
 ### Kiali
 
-A service mesh observability dashboard is provided by [Kiali][kiali]. Forward the local port `20001` on your client machine to port `20001` on the pod that is running Kiali in your AKS cluster:
+A service mesh observability dashboard is provided by [Kiali][kiali]. Remember to use the credentials you created via the Kiali secret earlier when prompted. Open the Kiali dashboard securely as follows:
 
 ```console
-kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
+istioctl dashboard kiali
 ```
 
-The following example output shows the port-forward being configured for Kiali:
+### Envoy
+
+A simple interface to the [Envoy][envoy] proxies is available. It provides configuration information and metrics for an Envoy proxy running in a specified pod. Open the Envoy interface securely as follows:
 
 ```console
-Forwarding from 127.0.0.1:20001 -> 20001
-Forwarding from [::1]:20001 -> 20001
+istioctl dashboard envoy <pod-name>.<namespace>
 ```
-
-You can now reach the Kiali service mesh observability dashboard at the following URL on your client machine - [http://localhost:20001/kiali/console/](http://localhost:20001/kiali/console/). Remember to use the credentials you created via the Kiali secret earlier when prompted.
 
 ## Uninstall Istio from AKS
 
@@ -336,35 +306,35 @@ You can now reach the Kiali service mesh observability dashboard at the followin
 
 ### Remove Istio components and namespace
 
-To remove Istio from your AKS cluster, use the following commands. The `helm delete` commands will remove the `istio` and `istio-init` charts, and the `kubectl delete ns` command will remove the `istio-system` namespace.
+To remove Istio from your AKS cluster, use the following commands. The `helm delete` commands will remove the `istio` and `istio-init` charts, and the `kubectl delete namespace` command will remove the `istio-system` namespace.
 
 ```azurecli
 helm delete --purge istio
 helm delete --purge istio-init
-kubectl delete ns istio-system
+kubectl delete namespace istio-system
 ```
 
-### Remove Istio CRDs
+### Remove Istio CRDs and Secrets
 
-The above commands delete all the Istio components and namespace, but we are still left with the Istio CRDs. To delete the CRDs, you can use one the following approaches.
+The above commands delete all the Istio components and namespace, but we are still left with the Istio CRDs and secrets. 
 
-Approach #1 - This command assumes that you are running this step from the top-level folder of the downloaded and extracted release of Istio that you used to install Istio with.
+::: zone pivot="client-operating-system-linux"
 
-```azure-cli
-kubectl delete -f install/kubernetes/helm/istio-init/files
-```
+[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-bash.md)]
 
-Approach #2 - Use one of these commands if you no longer have access to the downloaded and extracted release of Istio that you used to install Istio with. This command will take a little longer - expect it to take a few minutes to complete.
+::: zone-end
 
-Bash
-```bash
-kubectl get crds -o name | grep 'istio.io' | xargs -n1 kubectl delete
-```
+::: zone pivot="client-operating-system-macos"
 
-Powershell
-```powershell
-kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete $_ }
-```
+[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-bash.md)]
+
+::: zone-end
+
+::: zone pivot="client-operating-system-windows"
+
+[!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-powershell.md)]
+
+::: zone-end
 
 ## Next steps
 
@@ -396,7 +366,7 @@ To learn how to monitor your AKS application using Application Insights and Isti
 [istio-github-releases]: https://github.com/istio/istio/releases
 [istio-release-notes]: https://istio.io/news/
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
-[istio-install-helm]: https://istio.io/docs/setup/kubernetes/install/helm/
+[istio-install-helm]: https://istio.io/docs/setup/install/helm/
 [istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
 
@@ -419,6 +389,7 @@ To learn how to monitor your AKS application using Application Insights and Isti
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+[envoy]: https://www.envoyproxy.io/
 
 [app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
