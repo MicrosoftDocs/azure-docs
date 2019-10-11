@@ -21,10 +21,10 @@ ms.custom: seodec18
 
 This topic discusses the OData query options and pagination support available when listing of Azure Media Services v3 entities.
 
-> [!NOTE]
-> Properties of entities that are of the Datetime type are always in UTC format.
->
-> Spaces are not valid in URLs.
+## Considerations
+
+* Properties of entities that are of the Datetime type are always in UTC format.
+* Spaces are not valid in URLs.
 
 ## Comparison operators
 
