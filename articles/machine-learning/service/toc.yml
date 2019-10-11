@@ -79,7 +79,7 @@
     displayName: studio
     href: ui-concept-visual-interface.md
   - name: Algorithm cheat sheet
-    href: azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context   
+    href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context   
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
