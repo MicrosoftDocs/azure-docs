@@ -241,10 +241,10 @@
         - name: Kubernetes applications
           displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
           href: app/kubernetes.md
-        - name: Status Monitor (Legacy)
+        - name: Status Monitor (legacy)
           displayname: IIS monitoring, on premises monitoring, on prem, 
           href: app/monitor-performance-live-website-now.md
-        - name: On-Premises Servers
+        - name: On-Premises servers
           items:
           - name: Overview
             displayname: IIS monitoring, on premises monitoring, on prem, 
