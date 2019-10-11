@@ -24,68 +24,69 @@ While you might need just one of these AI capabilities, it’s common to combine
 
 AI enrichment creates new information, captured as text, stored in fields. Post-enrichment, you can access this information from a search index through full text search, or send enriched documents back to Azure storage to power new application experiences that include exploring data for discovery or analytics scenarios. 
 
-In this article, we walk you through AI enrichment to give you a wide angle view over the entire process, from  transforming raw data in blobs, to queryable information in either a search index or a knowledge store.
+In this article, we view AI enrichment through a wide angle perspective so that you can quickly grasp the entire process, from transforming raw data in blobs, to queryable information in either a search index or a knowledge store.
 
-## What is AI enrichment
+## Enriching blob data
 
-AI enrichment is a capability of an indexing pipeline in Azure Search that integrates built-in AI from Cognitive Services or custom AI functions that you provide. Broadly, AI enrichment helps you implement end-to-end scenarios where you need to process blobs (both existing ones and new ones as they come in or are updated), crack open all file formats to extract images and/or text, add extract the desired information using various AI capabilities.
+*AI enrichment* is part of the indexing architecture of Azure Search that integrates built-in AI from Microsoft or custom AI that you provide. It helps you implement end-to-end scenarios where you need to process blobs (both existing ones and new ones as they come in or are updated), crack open all file formats to extract images and text, extract the desired information using various AI capabilities, and index them in an Azure Search index for fast search, retrieval and exploration. 
 
-Inputs are your blobs, in one container, in Azure Blob storage. Blobs can be almost any kind of data. The content you have, plus the end goal you are trying to achieve, will inform your decisions about which skills to apply and in what order.
+Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text or image data. 
 
-The pipeline architecture itself is based on the *indexer* feature, to which you can assign a *skillset*, which is a composition of one or more *skills* providing the AI. 
+Output is always an Azure Search index, used for fast text search, retrieval, and exploration in client applications. Additionally, output can also be a *knowledge store* that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
 
-Output is always an Azure Search index, used for fast text search, retrieval, and exploration in client applications. Alternatively, for indexers that include a skillset, output can also be a *knowledge store* that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
+In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as blobs but pick up additional structure and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures.
 
 ## How to get started
 
 You can start directly in your storage account portal page. Click **Add Azure Search** and create a new Azure Search service or select an existing one. If you already have an existing search service in the same subscription, clicking **Add Azure Search** opens the Import data wizard so that you can immediately step through indexing, enrichment, and index definition.
 
-Once you add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source, described step-by-step in [Create an AI enrichment pipeline using REST APIs](cognitive-search-tutorial-blob.md). 
+Once you add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source, summarized as described step-by-step in [Create an AI enrichment pipeline using REST APIs](cognitive-search-tutorial-blob.md). 
 
 In the following sections, we'll explore components and concepts, enrichment design, and key decisions you will make along the way.
 
-## Use the Blob indexer
 
-AI enrichment is an indexing pipeline process, and in Azure Search, those pipelines are built on top of the *indexer* feature. An indexer is a data-source-aware subservice equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. Indexers are often used by themselve for import, separate from AI, but if you want to build an  AI enrichment pipeline, you will need an indexer and a skillset to go with it. In this section, we'll focus on the indexer itself.
+## Inputs to blob indexing
 
-Blobs in Azure Storage are indexed using the Azure Search Blob storage indexer. You invoke this indexer by setting the type, and by providing connection information that includes a Azure Storage account and specifies a blob container. The blob indexer pulls from the entire container, unless you've previously organized blobs into a virtual directory that you then pass as a parameter.
+AI enrichment is an add-on to an indexing pipeline, and in Azure Search, those pipelines are built on top of an *indexer*. An indexer is a data-source-aware subservice equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. Indexers are often used by themselves for import, separate from AI, but if you want to build an AI enrichment pipeline, you will need an indexer and a skillset to go with it. In this section, we'll focus on the indexer itself.
 
-An indexer does "document cracking", and after connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the pricing page.
+Blobs in Azure Storage are indexed using the [Azure Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md). You invoke this indexer by setting the type, and by providing connection information that includes an Azure Storage account along with a blob container. Unless you've previously organized blobs into a virtual directory, which you can then pass as a parameter, the Blob indexer pulls from the entire container.
+
+An indexer does the "document cracking", and after connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the Azure Search pricing page.
 
 Although all documents will be cracked, enrichment only occurs if you explicitly provide the skills to do so. For example, if your pipeline consists exclusively of text analytics, any images in your container or documents will be ignored.
 
 The Blob indexer comes with configuration parameters. You can learn more about them in [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md).
 
-## Choose which AI processes to use
+## Adding AI
 
 *Skills* are the individual components of AI processing that you can use standalone or in combination with other skills for sequential processing. Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. Custom skills are custom code, wrapped in an interface definition that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
 
-A skillset is a invoked after the document cracking phase makes content available to the pipeline. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
+A *skillset* is the collection of skills, and its invoked after the document cracking phase makes content available to the pipeline. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
 
-Custom skills are more straight forward than they sound. If you have existing packages that provide pattern matching or classifcation models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include Azure Functions or Containers.
+Custom skills are more straight forward than they sound. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include Azure Functions or Containers.
 
 Built-in skills backed by Cognitive Services require an attached Cognitive Services all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Search and require no additional service or key. Text shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 
-## Set the order of operations
+## Ordering operations
 
 Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
-A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipline, producing dependency graphs, where output from one skill becomes input to another. 
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
 
 For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
 
 1. Use Text Splitter to break the blob into smaller parts.
 1. Use Language Detection to determine if content is English or another language.
-1. Use Text Translator to get all text into a common lnguage.
-1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentinment.
+1. Use Text Translator to get all text into a common language.
+1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks..
 
 
-## Output definition and use cases
+## Outputs and use cases
 
-An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new infomration that was extracted or generated during enrichment. As such, you can work with a combination of original and created values in several ways.
+An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created values in several ways.
 
 The output formations are a search index on Azure Search, or a knowledge store in Azure Storage.
 
