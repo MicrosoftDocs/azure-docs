@@ -200,7 +200,7 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/securing-a-logic-app.md#authenticate-access-outbound).
+If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
 
 To set up and use the system-assigned identity, follow these steps:
 
@@ -249,7 +249,7 @@ Before you start this task, find and put these values aside for later use:
 
 * The object ID that's generated for the system-assigned identity that represents your logic app
 
-  * To generate this object ID, [enable your logic app's system-assigned identity](#azure-portal-system-logic-app).
+  * To generate this object ID, [enable your logic app's system-assigned identity](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app).
 
   * Otherwise, to find this object ID, open your logic app in the Logic App Designer. On your logic app menu, under **Settings**, select **Identity** > **System assigned**.
 

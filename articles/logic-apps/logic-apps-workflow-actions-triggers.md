@@ -2999,7 +2999,7 @@ This setting puts your logic app into "high throughput" mode.
 
 ## Authenticate triggers and actions
 
-HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from varying ranges of authentication types. For more information, see [Authenticate access on outbound requests](../logic-apps/securing-a-logic-app.md#authenticate-access-outbound).
+HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from varying ranges of authentication types. For more information, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
 
 ## Next steps
 
