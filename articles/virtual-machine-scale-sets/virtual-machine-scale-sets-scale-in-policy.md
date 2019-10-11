@@ -47,13 +47,13 @@ Note that balancing across AZs or FDs does not move instances across AZs or FDs.
 
 In addition to the ‘Default’ policy above, users can better control the order of scaling in through 2 additional policies:
 
-1. NewestVM – With this policy, VMSS will delete the newest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the VMSS model.
+1. NewestVM – This policy will delete the newest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
-2. OldestVM – With this policy, VMSS will delete the oldest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the VMSS model.
+2. OldestVM – This policy will delete the oldest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
 ## Enabling scale-in policy
 
-A scale-in policy is defined on the VMSS model. As noted in the sections above, a scale-in policy definition is needed when using the ‘NewestVM’ and ‘OldestVM’ policies. VMSS will automatically use the ‘Default’ scale-in policy if there is no scale-in policy definition found on the scale set model. 
+A scale-in policy is defined in the virtual machine scale set model. As noted in the sections above, a scale-in policy definition is needed when using the ‘NewestVM’ and ‘OldestVM’ policies. Virtual machine scale set will automatically use the ‘Default’ scale-in policy if there is no scale-in policy definition found on the scale set model. 
 
 A scale-in policy can be defined on the VMSS model in the following ways:
 
@@ -84,9 +84,9 @@ In your template, under “properties”, add the following:
 }
 ```
 
-The above block (in both a. and b.) specifies that VMSS will delete the Oldest VM in a zone-balanced scale set, when a scale-in is triggered (through Autoscale or manual delete).
+The above blocks specify that the virtual machine scale set will delete the Oldest VM in a zone-balanced scale set, when a scale-in is triggered (through Autoscale or manual delete).
 
-When a virtual machine scale set is not zone balanced, VMSS will first delete VMs across the imbalanced zone(s). Within the imbalanced zones, VMSS will use the scale-in policy specified above to determine which VM to scale in. In this case, within an imbalanced zone, VMSS will select the Oldest VM in that zone to be deleted.
+When a virtual machine scale set is not zone balanced, the scale set will first delete VMs across the imbalanced zone(s). Within the imbalanced zones, the scale set will use the scale-in policy specified above to determine which VM to scale in. In this case, within an imbalanced zone, VMSS will select the Oldest VM in that zone to be deleted.
 
 For non-zonal virtual machine scale set, the policy selects the oldest VM across the scale set for deletion.
 
@@ -174,5 +174,5 @@ For non-zonal virtual machine scale sets, the policy selects the newest VM acros
     If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. VMSS API version 2019-03-01 or higher is required for this preview.
 
 2. Wrong selection of VMs for scale-in
-    Refer to the examples above. If your virtual machine scale set is a Zonal deployment, scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the VMSS team for troubleshooting.
+    Refer to the examples above. If your virtual machine scale set is a Zonal deployment, scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the virtual machine scale set team for troubleshooting.
 
