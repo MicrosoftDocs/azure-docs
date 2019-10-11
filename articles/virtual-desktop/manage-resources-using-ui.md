@@ -22,6 +22,12 @@ Since the app requires consent to interact with Windows Virtual Desktop, this to
 
 This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
 
+To connect to and use the management after initial deployment, you must use one of the following supported browsers:
+- Google Chrome 68+
+- Microsoft Edge 40.15063 +
+- Mozilla Firefox 52.0+
+- Safari  10+ (macOS only)
+
 ## What you need to run the Azure Resource Manager template
 
 Before deploying the Azure Resource Manager template, you'll need an Azure Active Directory user to deploy the management UI. This user must:
