@@ -27,7 +27,7 @@ However, saving data to the dataset format is recommended if you have performed 
 
 We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepare the dataset before using [Convert to Dataset](convert-to-dataset.md).  You can add or change column names, adjust data types, and so forth.
 
-1.  Add the [Convert to Dataset](convert-to-dataset.md) module to your experiment. You can find this module in the [Data Format Conversions](data-format-conversions.md) category in Azure Machine Learning designer. 
+1.  Add the [Convert to Dataset](convert-to-dataset.md) module to your experiment. You can find this module in the **Data transformation** category in Azure Machine Learning designer. 
 
 2. Connect it to any module that outputs a dataset.   
 
