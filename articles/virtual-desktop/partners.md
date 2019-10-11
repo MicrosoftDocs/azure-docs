@@ -122,9 +122,9 @@ The top use cases for PolicyPak are to remove local admin rights and overcome UA
 
 ![PrinterLogic Logo](./media/partners/printerlogic.png)
 
-PrinterLogic is a Windows Virtual Desktop value-added service provider platform which empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure.  PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to centrally manage and deploy printer objects to any printer or endpoint OS.   
+PrinterLogic is a Windows Virtual Desktop value-added service provider platform which empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PPrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to centrally manage and deploy printer objects to any printer or endpoint OS.   
 
-Available as SaaS or as a Web Stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based upon user ID, device name or location.  This functionality is complemented by a full suite of enterprise print management features such as Print tracking and Reporting, Mobile Printing and Secure Badge Release Printing. 
+Available as SaaS or as a Web Stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name or location. This functionality is complemented by a full suite of enterprise print management features such as Print tracking and Reporting, Mobile Printing, and Secure Badge Release Printing. 
 
 - [Go to partner website](https://www.printerlogic.com).
 
