@@ -24,7 +24,7 @@ The module takes an untrained clustering model that you have already configured 
   
 ## How to use Train Clustering Model  
   
-1.  Add the **Train Clustering Model** module to your experiment in Studio. You can find the module under **Machine Learning Modules**, in the **Train** category.  
+1.  Add the **Train Clustering Model** module to your experiment in the designer. You can find the module under **Machine Learning Modules**, in the **Train** category.  
   
 2. Add the [K-Means Clustering](k-means-clustering.md) module, or another custom module that creates a compatible clustering model, and set the parameters of the clustering model.  
     
