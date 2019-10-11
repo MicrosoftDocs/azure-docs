@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a Custom Speech Command with Parameters (Preview)'
 titleSuffix: Azure Cognitive Services
-description: In this article, you will add parameters to a Custom Speech Commands application.
+description: In this article, you'll add parameters to a Custom Speech Commands application.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -14,15 +14,15 @@ ms.author: donkim
 
 # Quickstart: Create a Custom Speech Command with Parameters (Preview)
 
-In the previous quickstart, we created a new Speech Commands application and created a Command that handled an utterance
-"turn on the tv" and responded with a message "Ok, turning on the tv"
+In the previous article, we created a new Custom Speech Commands application to respond to utterances without parameters.
 
-In this quickstart, we will extend this application with parameters so that it can handle turning on and turning off multiple different
-types of devices.
+In this article, we will extend this application with parameters so that it can handle turning on and turning off multiple devices.
 
 ## Create Parameters
 
 Open the application we created previously.
+
+Since the Command will now handle on and off, rename the Command to "TurnOnOff".
 
 Select the Parameters section and create a new parameter to represent whether the user wants to turn the device on or off.
 
@@ -35,27 +35,28 @@ Parameter Type|String List|The type of parameter, such as Number, String List, o
 Possible Values|on, off|For a String List parameter, the normalized set values for this parameter
 Synonyms|on, off|For a String List parameter, the normalized set values for this parameter
 Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
-Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it is not known
+Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
 
-Next add a second parameter to represent the name of the device to turn on or off.  For this example, imagine that there is a fan that you want to turn on and off in addition to the tv
+Next add a second parameter to represent the name of the devices.  For this example, a tv and a fan.
 
 Setting|Suggested value|Description
 ---|---|---
 Name | SubjectDevice |Choose a descriptive name for your parameter
-Parameter Type|String List|The type of parameter, such as Number, String List, or Date Time
-Possible Values|tv, fan|For a String List parameter, the normalized set values for this parameter
-Synonyms (tv)|television, telly|Optional synoyms for each normalized value of a String List Parameter
+Parameter Type|String|The type of parameter, such as Number, String, or Date Time
+Parameter Configuration|String List|For Strings, a String List limits inputs to a set of possible values
+Possible Values|tv, fan|For a String List, the possible set values for this parameter
+Synonyms (tv)|television, telly|Optional synonyms for each possible value of a String List Parameter
 Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
-Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it is not known
+Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
 
 ## Add Sample Sentences
 
-When using parameters it is helpful to add sample sentences with:
+With parameters, it's helpful to add sample sentences with:
 - Full parameter information
 - Partial parameter information
 - No parameter information
 
-This will allow the Speech Commands application to resolve both one shot resolutions, as well as multi-turn resolutions with partial information.
+Varied examples allow the Speech Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
 
 Select Sample Sentences to access the sample sentences editor.
 
@@ -92,7 +93,7 @@ turn off the television
 
 turn it off
 - Which device?
-the television
+the tv
 - Ok, turning off the tv
 
 ## Next steps

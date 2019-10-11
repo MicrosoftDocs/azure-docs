@@ -13,16 +13,15 @@ ms.author: donkim
 ---
 
 # Quickstart: Create a Custom Speech Command (Preview)
-In this Quickstart, you'll create and test a hosted Custom Speech Commands application.
-You'll add example sentences the application can respond to such as "turn on the tv".
-You'll add a Completion rule so the application can respond with a simple message "Ok, turning on the tv".
+In this article, you'll learn how to create and test a hosted Custom Speech Commands application.
+The application will recognize an utterance like "turn on the tv" and respond with a simple message "Ok, turning on the tv".
 
 > [!TIP]
 > In the previous quickstart you created a Speech subscription key and a LUIS authoring key
 > 
-> [Quickstart: Create a Custom Speech Command with Parameters (Preview)](./quickstart-custom-speech-commands-resources.md)
+> [Quickstart: Create Resources for Custom Speech Commands (Preview)](./quickstart-custom-speech-commands-resources.md)
 
-## Log in to the Custom Speech portal
+## Sign in to the Custom Speech portal
 Open your web browser, and navigate to the [Custom Speech portal](https://speech.microsoft.com/)
 Enter your credentials to sign in to the portal. The default view is your list of Speech subscriptions.
 
@@ -58,7 +57,7 @@ Because we have no parameters, invoking this command should always run the Compl
 
 Now add a Completion rule to respond to the user indicating that an action is being taken.
 
-![Create completion response rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 Setting|Suggested value|Description
 ---|---|---

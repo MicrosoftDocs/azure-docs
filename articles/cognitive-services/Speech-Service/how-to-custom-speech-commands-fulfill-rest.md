@@ -14,8 +14,7 @@ ms.author: donkim
 
 # How To: Fulfill Commands with a REST backend (Preview)
 
-In this article
-A sample REST backend will be created using an Azure function.
+In this article, a sample REST backend will be created using an Azure function.
 
 ## Create REST backend with an Azure function
 

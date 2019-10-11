@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Resources for Custom Speech Command (Preview)'
+title: 'Quickstart: Create Resources for Custom Speech Commands (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a Speech subscription key and a LUIS authoring key
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# Quickstart: Create Resources for Custom Speech Command (Preview)
+# Quickstart: Create Resources for Custom Speech Commands (Preview)
 
 In this quickstart you will create the resources required to author and deploy a Custom Speech Commands application.
 
