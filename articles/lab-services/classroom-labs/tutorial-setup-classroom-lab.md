@@ -53,7 +53,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
             ![Create a classroom lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 		> [!IMPORTANT]
 		> Make a note of user name and password. They won't be shown again.
-    3. On the **Lab policies** page, enter the number of hours alloted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
+    3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
             ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
@@ -81,7 +81,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-    You do the following tasks on this page (don't do these steps for the tutorial. These are for your information only.): 
+    You do the following tasks on this page (don't do these steps for the tutorial. These steps are for your information only.): 
     
     1. To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar.
     2. To start all the VMs at once, select **Start all** on the toolbar. 
@@ -115,7 +115,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     3. Specify the **start date**.
     4. Specify the **start time** at which you want the VMs to be started.
     5. Specify the **stop time** on which the VMs are to be shut down. 
-    6. Specify the **time zone** for the start and stop times you specified.. 
+    6. Specify the **time zone** for the start and stop times you specified. 
     2. Select the days on which you want the schedule to take effect. In the following example, Monday-Thursday is selected. 
     8. Select **Save**. 
 
