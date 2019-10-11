@@ -21,7 +21,7 @@ This article covers image processing in more detail and provides guidance for wo
 
 ## Get normalized images
 
-As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
+As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image.
 
 You cannot turn off image normalization. Skills that iterate over images expect normalized images. Enabling image normalization on an indexer requires that a skillset be attached to that indexer.
 
@@ -209,10 +209,16 @@ As a helper, if you need to transform normalized coordinates to the original coo
         }
 ```
 
+## Saving images
+
+Knowledge store projections allow you to save the normalized images extracted as part of document cracking as blobs in storage. To save your images, you will need to add a knowledge store to your skillset and use the file projection group.
+
 ## See also
+
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analyze image skill](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)
++ [How to save extracted images](knowledge-store-projection-overview.md)
