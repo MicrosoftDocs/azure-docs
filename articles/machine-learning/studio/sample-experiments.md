@@ -43,11 +43,6 @@ To browse all experiments:
 
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > When you open an experiment in Machine Learning Studio for the first time, you can try it for free or buy an Azure subscription. [Learn about the Machine Learning Studio free trial vs. paid service](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## Create a new experiment using an example as a template
 You also can create a new experiment in Machine Learning Studio using a Gallery example as a template.
 
