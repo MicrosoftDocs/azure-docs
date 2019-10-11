@@ -40,7 +40,7 @@ Azure Machine Learning offers two SKUs tailored for your machine learning needs:
 + Basic SKU (generally available)
 + Enterprise SKU (preview)
 
-These SKUs make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. 
+These SKUs make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. When creating a workspace, you assign it a SKU. The SKU determines the functionality to which you have access. 
 
 Learn more about what's in each SKU on the [SKUs pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 Customers are responsible for costs incurred on underlying compute during this time. 
