@@ -77,7 +77,7 @@ workspace = Workspace.from_config()
 datastore = Datastore.get(workspace, datastore_name)
 ```
 
-### Create TabularDatasets
+### Create a TabularDataset
 
 TabularDatasets can be created via the SDK or by using Azure Machine Learning studio. A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a time series trait, which allows for easy and efficient filtering by time.
 
@@ -137,12 +137,12 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### On the web in the Azure Machine Learning studio
+#### On the web 
+The following animation shows how to create a dataset in the studio.
+![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 >[!Important]
 > The functionality accessed online through the Azure Machine Learning studio (the studio page, https://ml.azure.com) is **accessible from Enterprise SKU workspaces only**. [Learn more about SKUs and upgrading](overview-what-is-azure-ml.md#sku). 
-
-The following animation shows how to create a dataset in the studio.
 
 1. Sign in to the studio page, https://ml.azure.com, to create a dataset.
 1. Select **Datasets** in the **Assets** section of the left pane. 
@@ -150,7 +150,7 @@ The following animation shows how to create a dataset in the studio.
    The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. 
 1. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
 
-### Create FileDatasets
+### Create a FileDataset
 
 Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
 
