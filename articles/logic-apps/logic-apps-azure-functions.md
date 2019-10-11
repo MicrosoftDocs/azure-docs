@@ -267,7 +267,9 @@ Before you start this task, find and put these values aside for later use:
 
      ![Find and copy Azure AD tenant's directory ID](./media/logic-apps-azure-functions/azure-active-directory-tenant-id.png)
 
-* The resource ID for the target resource that you want to access. To find these resource IDs, review the [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+* The resource ID for the target resource that you want to access
+
+  * To find these resource IDs, review the [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
   > [!IMPORTANT]
   > This resource ID must exactly match the value that Azure AD expects, 

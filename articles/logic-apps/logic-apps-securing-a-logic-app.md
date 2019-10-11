@@ -627,7 +627,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "@parameters(`targetResourceURIParam`)",
+      "uri": "@parameters('endpointUrlParam')",
       "authentication": {
          "type": "Basic",
          "username": "@parameters('userNameParam')",
@@ -658,7 +658,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "@parameters(`targetResourceURIParam`)",
+      "uri": "@parameters('endpointUrlParam')",
       "authentication": {
          "type": "ClientCertificate",
          "pfx": "@parameters('pfxParam')",
@@ -703,7 +703,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "@parameters(`targetResourceURIParam`)",
+      "uri": "@parameters('endpointUrlParam')",
       "authentication": {
          "type": "ActiveDirectoryOAuth",
          "tenant": "@parameters('tenantIdParam')",
@@ -721,13 +721,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 ### Raw authentication
 
-If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that aren't the [OAuth 2.0 protocol](https://oauth.net/2/). You manually create the authentication header that you send with the request and include that value in your trigger or action.
+If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that aren't the [OAuth 2.0 protocol](https://oauth.net/2/). You manually create the authorization header value that you send with the request and include that value in your trigger or action.
 
-Here is an example for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849):
+For example, here is a sample header for an HTTPS request that follows the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849):
 
 ```text
-POST /initiate HTTP/1.1
-Host: photos.example.net
 Authorization: OAuth realm="Photos",
    oauth_consumer_key="dpf43f3p2l4k3l03",
    oauth_signature_method="HMAC-SHA1",
@@ -737,12 +735,12 @@ Authorization: OAuth realm="Photos",
    oauth_signature="74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D"
 ```
 
-In the trigger or action that supports Raw authentication, specify these property values:
+In the trigger or action that supports raw authentication, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | `Raw` | The authentication type to use |
-| **Value** | `value` | Yes | <*authorization-header-value*> | The authorization header value or content to use for authentication |
+| **Value** | `value` | Yes | <*authorization-header-value*> | The authorization header value to use for authentication |
 ||||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `Raw`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
@@ -752,7 +750,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "@parameters(`targetResourceURIParam`)",
+      "uri": "@parameters('endpointUrlParam')",
       "authentication": {
          "type": "Raw",
          "value": "@parameters('authHeaderParam')"
@@ -790,7 +788,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
       "type": "Http",
       "inputs": {
          "method": "GET",
-         "uri": "@parameters(`targetResourceURIParam`)",
+         "uri": "@parameters('endpointUrlParam')",
          "authentication": {
             "type": "ManagedServiceIdentity",
             "audience": "https://management.azure.com/"

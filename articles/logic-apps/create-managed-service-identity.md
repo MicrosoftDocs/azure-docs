@@ -139,20 +139,18 @@ After you set up a managed identity for your logic app, you can [give that ident
 
    ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
 
-1. Now follow the [steps to use the identity](#authenticate-access-with-identity) in a trigger or action that supports managed identities.
+1. Now follow the [steps to authenticate access with the identity](#authenticate-access-with-identity) in a trigger or action that supports managed identities.
 
 <a name="authenticate-access-with-identity"></a>
 
 ## Authenticate access with managed identity
 
-After you [set up your logic app with a managed identity](#azure-portal-system-logic-app) and [set up that identity with access to the target resource](#access-other-resources), you can use that identity for authentication in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). However, if you want an Azure function to use the system-assigned identity, follow these additional steps:
+After you [set up your logic app with a managed identity](#azure-portal-system-logic-app) and [set up that identity with access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). For an Azure function where you want to use the system-assigned identity, complete these tasks first:
 
 * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
 * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)
 
-### Select managed identity
-
-These steps show how to select the managed identity in the Azure portal. To set up the managed identity in the the trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+These steps show how select the managed identity for trigger or action in Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -165,11 +163,27 @@ These steps show how to select the managed identity in the Azure portal. To set 
    > To make the Authentication property visible in the trigger or action, open the **Add new parameter** list, 
    > and select **Authentication**.
 
-   For example, suppose you want to call an [Azure service that supports managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) by using an HTTP action. You want your logic app to use the system-assigned identity when authenticating outbound requests to the target service. The **URI** property specifies the resource ID for the target service, your Azure subscription ID, and the API version to use. In this case, the resource ID is for Azure Resource Manager in the Azure Global environment.
+   For example, suppose you want to call an [Azure service that supports managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager, by using an [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action). You want your logic app to use the system-assigned identity when authenticating outbound requests to the target service.
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. After you select **Managed Identity**, the **Audience** property appears. By default, the property value is `https://management.azure.com/`. If necessary, change this value to the target resource ID that you want.
+   The **URI** property specifies the HTTP or HTTPS endpoint URL for the target service that you want to call. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the Logic Apps REST API version for the HTTP operation.
+
+   `https://{service-resource-ID}/subscriptions/{subscription-ID}?api-version={REST-API-version}`
+
+   This example uses the resource ID for Azure Resource Manager in the Azure Global environment.
+
+   `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2016-06-01`
+
+    For a specific resource, the URI syntax uses a fully-qualified resource ID:
+
+   `https://{service-resource-ID}/{fully-qualified-resource-ID}?api-version={REST-API-version}`
+
+   For example, to access an Azure virtual machine resource:
+
+   `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/Fabrikam-RG/providers/Microsoft.Compute/virtualMachines/FabVM0001?api-version=2016-06-01`
+
+1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. By default, the property value is set to the `https://management.azure.com/` resource ID. If necessary, change this value to the target resource ID that you want.
 
    > [!NOTE]
    > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
