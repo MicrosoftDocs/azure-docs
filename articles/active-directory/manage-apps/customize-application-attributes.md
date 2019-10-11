@@ -122,51 +122,48 @@ When editing the list of supported attributes, the following properties are prov
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
 ## Provisioning a role to a SCIM app
-Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, we have pre-defined the attribute mapping for roles in the format the application expects it in. The bullets below describe how to transform the role attribute to the format your application expects. You can learn more about building expressions [here](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applicaitons. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the role attribute to the format your application expects. You can learn more about building expressions [here](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
 
 - Mapping an appRoleAsisgnment in Azure AD to a role in your application requires that you transform the attribute. The appRoleAssignment attribute **should not be mapped directly** in the attribute mappings without being transformed. Do not do the below:
 <image>
 
-- If your application expects a single app role name, you can use the [SingleAppRoleAssignment function](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#singleapproleassignment) function. 
+- If your application expects a single app role name, you can use the [SingleAppRoleAssignment function](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#singleapproleassignment) function. When using this function, ensure that users are only assigned one role per app. 
 <image - how to use the function>
 
-- roles[primary eq "True"].display  ||
+- The function described below allows you to provisionin two roles for a user and control what is sent as the display, type, and value. This gives you flexibility to mapp and transform attributes on a user to the display, type, and value properties of the role. 
+roles[primary eq "True"].display  ||
 roles[primary eq "True"].type ||
 roles[primary eq "True"].value
 
-Pro: allows customization of type, value, and display. You can do a transformation and put in whatever you want. 
-Con: This option would send two roles 
+- If you need to provision more than two roles per user, you can add a custom role attribute to your configuration. Note that with this option, we do not specify the primary role value. 
 
-<get JSON for what it will look like when roles are sent out>
+<need JSON for what it will look like when roles are sent out>
 
 - multipleEntitlementGrantsComplex
 
-
-- Create a new custom attribute with name Roles and type String and Mult-valu (need confirmation)
-Pro: Can send more than 2 roles
-Con: Cannot cusotmize the type / display and all roles will be sent as primary = false
-
-## Provisioning a multi-variable attribute
-The section below describes how to provision a multi-variable attribute using the advanced. Do you need to set it as multi-attribute?
+## Provisioning a multi-value attribute
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value.  Do you need to set it as multi-attribute?
 
 * phoneNumbers[type eq "work"].value
 * phoneNumbers[type eq "mobile"].value
 * phoneNumbers[type eq "fax"].value
 
+```json
   "phoneNumbers": [
     {
       "value": "555-555-5555",
       "type": "work"
     },
     {
-      "value": "555-555-4444",
+      "value": "555-555-5555",
       "type": "mobile"
     },
     {
-      "value": "555-555-4444",
+      "value": "555-555-5555",
       "type": "fax"
     }
   ]
+```
 
 ## Restoring the default attributes and attribute-mappings
 
