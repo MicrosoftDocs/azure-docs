@@ -17,18 +17,23 @@ ms.date: 11/28/2018
 ms.author: banders
 
 ---
-# Create an additional subscription in the Azure portal
+# Create an additional subscription
 
-You can create an additional subscriptions for your Enterprise Agreement or Microsoft Customer Agreement billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
+You can create an additional subscriptions for your Enterprise Agreement (EA), Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
 
-To create additional subscriptions for your organization's Enterprise Agreement, you must have the Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md)
+## Permission required to create Azure subscriptions
 
-To create additional subscriptions for your Microsoft Customer Agreement billing account, you must have permission on the invoice section which is billed for the subscription or the billing profile or billing account of the invoice section. To view the list of roles that can create additional subscriptions, see [Subscription billing roles and tasks](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission).
+You need the following permission to create an additional subscription:
 
+|Billing account  |Permission  |
+|---------|---------|
+|Enterprise Agreement (EA) |  Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md)       |
+|Microsoft Customer Agreement (MCA) |  Owner or contributor role on the invoice section, billing profile or billing account. Azure subscription creator role on the invoice section.  For more information, see [Subscription billing roles and task](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+|Microsoft Partner Agreement (MPA) |   Part of Admin agent group in the partner organization.      |
 
-If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
+If you have a billing account for a Microsoft Online Service Program (MOSP) billing account, you can create a new subscription in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
 
-## Create an additional Azure subscription 
+## Create an additional Azure subscription in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Subscriptions**.
@@ -59,7 +64,16 @@ If you don't already have an Azure subscription, create a [free account](https:/
 |Plan     | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out.  |
 |Name     | The name helps you to easily identify the subscription in the Azure portal.  |
 
+**Microsoft Partner Agreement**
+|Field  |Definition  |
+|---------|---------|
+|Billing profile     | The charges for your subscription will be billed to the selected billing profile. If you have access to only one billing profile, the selection will be greyed out.     |
+|Customer    | The subscription is created for the selected customer. If you have only one customer, the selection will be greyed out.  |
+|Reseller    | The reseller that will provide services for the customer. This is an optional field which only applies to CSP Indirect providers. |
+|Name     | The name helps you to easily identify the subscription in the Azure portal.  |
 
+
+## Create an additional Azure subscription programmatically
 
 You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure Enterprise subscriptions](../azure-resource-manager/programmatically-create-subscription.md).
 

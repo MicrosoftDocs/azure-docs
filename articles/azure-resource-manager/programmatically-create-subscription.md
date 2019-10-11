@@ -10,15 +10,18 @@ ms.date: 04/10/2019
 ms.author: jureid
 ---
 
-# Programmatically create Azure Enterprise subscriptions (preview)
+# Programmatically create Azure subscriptions (preview)
 
-As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+Azure customers with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), Microsoft Customer Agreement or Microsoft Partner Agreement billing account can create subscriptions programmatically. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
 When you create an Azure subscription from this API, that subscription is governed by the agreement under which you obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Prerequisites
+
+## Create subscriptions for an Enterprise Agreement (EA) billing account
+
+### Prerequisites
 
 You must have an Owner role on the Enrollment Account you wish to create subscriptions under. There are two ways to get these roles:
 
@@ -26,13 +29,13 @@ You must have an Owner role on the Enrollment Account you wish to create subscri
 
 * An existing Owner of the Enrollment Account can [grant you access](grant-access-to-create-subscription.md). Similarly, if you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
 
-## Find accounts you have access to
+### Find accounts you have access to
 
 After you're added to an Azure EA enrollment as an Account Owner, Azure uses the account-to-enrollment relationship to determine where to bill the subscription charges. All subscriptions created under the account are billed towards the EA enrollment that the account is in. To create subscriptions, you must pass in values about the enrollment account and the user principals to own the subscription. 
 
 To run the following commands, you must be logged in to the Account Owner's *home directory*, which is the directory that subscriptions are created in by default.
 
-## [REST](#tab/rest)
+### [REST](#tab/rest)
 
 Request to list all enrollment accounts you have access to:
 
@@ -67,7 +70,7 @@ Azure responds with a list of all enrollment accounts you have access to:
 
 Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `name` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This identifier is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Open [Azure Cloud Shell](https://shell.azure.com/) and select PowerShell.
 
@@ -86,7 +89,7 @@ ObjectId                               | PrincipalName
 ```
 Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `ObjectId` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Paste this object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
 
-## [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
 
@@ -117,11 +120,11 @@ Use the `principalName` property to identify the account that you want subscript
 
 ---
 
-## Create subscriptions under a specific enrollment account
+### Create subscriptions under a specific enrollment account
 
 The following example creates a subscription named *Dev Team Subscription* in the enrollment account selected in the previous step. The subscription offer is *MS-AZR-0017P* (regular Microsoft Enterprise Agreement). It also optionally adds two users as RBAC Owners for the subscription.
 
-# [REST](#tab/rest)
+### [REST](#tab/rest)
 
 Make the following request, replacing `<enrollmentAccountObjectId>` with the `name` copied from the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
@@ -150,7 +153,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object, which has the subscription ID.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
 
@@ -171,7 +174,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription).
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 First, install this preview extension by running `az extension add --name subscription`.
 
@@ -194,12 +197,152 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 
 ---
 
-## Limitations of Azure Enterprise subscription creation API
+### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
-- There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created through the Account Center. If you want to create more subscriptions through the API, create another enrollment account.
-- Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions using the Account Center.
+- There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
+- Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+
+
+## Create subscriptions for an Microsoft Customer Agreement (MCA) billing account
+
+### Prerequisites
+
+You must have an owner, contributor or Azure subscription creator role on the invoice section or owner or contributor role on the billing profile or the billing account for the invoice section. For more information, see [Understand Microsoft Customer Agreement administrative roles in Azure](../billing/billing-understand-mca-roles.md).
+
+### Find the invoice sections that you have access to
+
+Your subscription appears on the invoice section that you pass to the API and billed to the billing profile of the invoice section.
+
+### REST
+
+Request to list all invoice sections on which you have permission to create Azure subscriptions. The following example has two invoice sections **Section 1** and **Section 2** both belong to **Contoso finance** billing profile. 
+
+```json
+GET https://management.azure.com/providers//providers/Microsoft.Billing/billingAccounts/{billingAccountName}/listInvoiceSectionsWithCreateSubscriptionPermission?api-version=2018-03-01-preview
+```
+Azure responds with a list of all the invoice sections on which you have access to create subscriptions:
+
+```json
+{
+	"value": [{
+		"billingProfileDisplayName": "Contoso finance",
+		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX",
+		"enabledAzurePlans": [{
+			"productId": "DZH318Z0BPS6",
+			"skuId": "0001",
+			"skuDescription": "Microsoft Azure Plan"
+		}, {
+			"productId": "DZH318Z0BPS6",
+			"skuId": "0002",
+			"skuDescription": "Microsoft Azure Plan for DevTest"
+		}],
+		"invoiceSectionDisplayName": "Section 1",
+		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJ77-XXXX-XXX-XXX"
+	}, {
+		"billingProfileDisplayName": "Contoso finance",
+		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-GUO5-BG7-TGB",
+		"enabledAzurePlans": [{
+			"productId": "DZH318Z0BPS6",
+			"skuId": "0001",
+			"skuDescription": "Microsoft Azure Plan"
+		}, {
+			"productId": "DZH318Z0BPS6",
+			"skuId": "0002",
+			"skuDescription": "Microsoft Azure Plan for DevTest"
+		}],
+		"invoiceSectionDisplayName": "Section 2",
+		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
+	
+```
+
+Copy the **invoiceSectionId**, **billingProfileId** and **skuId**. For example, if you want to create a subscription of type **Microsoft Azure plan** for **Section 2** invoice section, you'd copy **/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX**, **/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-GUO5-BG7-TGB** and **0001**. Paste these values somewhere so that you can use them in the next step.
+
+Powershell and Azure CLI support for listing invoice sections is coming soon.
+
+### Create subscriptions for an invoice section
+
+The following example creates a subscription named *Dev Team subscription* of type **Microsoft Azure Plan** for **Section 1** invoice section. The subscription will be billed to **Contoso finance** billing profile and appears on **Section 1** of **Contoso finance's** invoice. 
+
+### [REST](#tab/rest)
+
+Make the following request, replacing `<invoiceSectionId>` with the `invoiceSectionId` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). You'd need to the **billingProfileId** and **skuId** copied from the first step in the request parameters of the API. If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+
+```json
+POST https://management.azure.com/providers/Microsoft.Billing/<invoiceSectionId>/createSubscription?api-version=2018-11-01-preview
+
+'{"displayName": "Dev Team subscription",
+  "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-GUO5-BG7-TGB",
+  "skuId": "001",
+  "owners": [
+      {
+        "objectId": "<userObjectId>"
+      },
+      {
+        "objectId": "<servicePrincipalObjectId>"
+      }
+    ],
+  "costCenter": "35683",
+  "managementGroupId": "1326638",
+}'
+
+```
+
+| Element Name  | Required | Type   | Description                                                                                               |
+|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
+| `displayName` | No      | String | The display name of the subscription.|
+| `billingProfileId`   | Yes      | GUID | The ID of the billing profile that will be billed for the subscription's usage.  |
+| `skuId` | Yes      | String | The sku ID of the Azure plan. Use 0001 to create subscriptions of type Microsoft Azure plan or 0002 for subscriptions of type [Microsoft Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+| `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
+| `costCenter` | No      | String | The cost center associated with the subscription. It shows up in the usage and charges csv file. |
+| `managementGroupId` | No      | String | The management group to which the subscription will be added.|
+
+In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object, which has the subscription ID.
+
+### [PowerShell](#tab/azure-powershell)
+
+First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
+
+Run the following command replacing `<invoiceSectionId>` with the `invoiceSectionId` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). You'd need to the **billingProfileId** and **skuId** copied from the first step in the request parameters. If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+
+```azurepowershell-interactive
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
+```
+
+| Element Name  | Required | Type   | Description                                                                                               |
+|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
+| `Name` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
+| `OfferType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `Get-AzEnrollmentAccount`. |
+| `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
+| `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
+| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
+
+To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription).
+
+### [Azure CLI](#tab/azure-cli)
+
+First, install this preview extension by running `az extension add --name subscription`.
+
+Run the [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) command below, replacing `<enrollmentAccountObjectId>` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+
+```azurecli-interactive 
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+```
+
+| Element Name  | Required | Type   | Description                                                                                               |
+|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
+| `display-name` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
+| `offer-type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `az billing enrollment-account list`. |
+| `owner-object-id`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
+| `owner-upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
+| `owner-spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
+
+To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
+
+---
 
 ## Next steps
 
