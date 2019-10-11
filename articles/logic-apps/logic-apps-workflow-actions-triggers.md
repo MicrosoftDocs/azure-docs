@@ -287,21 +287,21 @@ endpoint to respond when a new email arrives.
 
 ### HTTP trigger
 
-This trigger checks or polls the specified endpoint 
-based on the specified recurrence schedule. 
-The endpoint's response determines whether the workflow runs.
+This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-type>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -319,27 +319,27 @@ The endpoint's response determines whether the workflow runs.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The HTTP method to use for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | String | The HTTP or HTTPS URL for the endpoint to poll <p>Maximum string size: 2 KB | 
-| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service, this URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the operation. |
+| `frequency` | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| `interval` | <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | The headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | String | The message content to send as payload with the request | 
-| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
-| <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
-| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). |
+| `operationOptions` | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
+|||||
 
 *Outputs*
 
@@ -1328,15 +1328,21 @@ created "GetProductID" function:
 
 ### HTTP action
 
-This action sends a request to the specified endpoint and 
-checks the response to determine whether the workflow should run. 
+This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1344,28 +1350,28 @@ checks the response to determine whether the workflow should run.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The method to use for sending the request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint to call. Maximum string size: 2 KB | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service, this URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the operation. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
-| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*other-action-specific-input-properties*> | <*input-property*> | JSON Object | Any other input properties that apply to this specific action |
+| <*other-action-specific-properties*> | <*property-value*> | JSON Object | Any other properties that apply to this specific action |
+|||||
 
 *Example*
 
-This action definition gets the latest news 
-by sending a request to the specified endpoint:
+This action definition gets the latest news by sending a request to the specified endpoint:
 
 ```json
 "HTTP": {

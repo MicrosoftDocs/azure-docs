@@ -154,32 +154,25 @@ If you have an Azure function where you want to use the system-assigned identity
 * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
 * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)
 
-These steps show how use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
 1. If you haven't done so yet, add the trigger or action [that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-1. From the **Authentication** list, select **Managed Identity**.
+   For this example, suppose you want to call an [Azure service that supports managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager, by using an [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action). To authenticate the requests that the HTTP action sends to the Azure service, the HTTP action can use the system-assigned identity that's enabled for your logic app.
 
-   > [!NOTE]
-   > The Authentication property is hidden in some triggers and actions where you can select an authentication type. 
-   > To make the Authentication property visible in the trigger or action, open the **Add new parameter** list, 
-   > and select **Authentication**.
+   ![Add HTTP action to call an Azure service](./media/create-managed-service-identity/http-action-example.png)
 
-   For example, suppose you want to call an [Azure service that supports managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager, by using an [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action). You want your logic app to use the system-assigned identity when authenticating outbound requests to the target service.
-
-   ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
-
-   The **URI** property specifies the HTTP or HTTPS endpoint URL for the target service that you want to call. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the HTTP operation.
+   In an HTTP trigger or action, the **URI** property specifies the HTTP or HTTPS endpoint URL that you use to call the target service. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the HTTP operation.
 
    `https://{service-resource-ID}/subscriptions/{subscription-ID}?api-version={REST-API-version}`
 
-   For example, this URI uses the resource ID for Azure Resource Manager in the Azure Global environment.
+   For example, this URI specifies the resource ID for Azure Resource Manager in the Azure Global (public) environment.
 
    `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2016-06-01`
 
-    For a specific resource, the URI syntax uses a fully qualified resource ID:
+   To access a specific resource, the URI syntax uses a fully qualified resource ID:
 
    `https://{service-resource-ID}/{fully-qualified-resource-ID}?api-version={REST-API-version}`
 
@@ -187,7 +180,16 @@ These steps show how use the managed identity with a trigger or action through t
 
    `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/Fabrikam-RG/providers/Microsoft.Compute/virtualMachines/FabVM0001?api-version=2016-06-01`
 
-1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. By default, the property value is set to the `https://management.azure.com/` resource ID. If necessary, change this value to the target resource ID that you want.
+1. From the **Authentication** list, select **Managed Identity**.
+
+   > [!NOTE]
+   > The Authentication property is hidden in some triggers and actions that support selecting an authentication type. 
+   > To make the Authentication property visible in the trigger or action, open the **Add new parameter** list, 
+   > and select **Authentication**.
+
+   ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+
+1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. If you don't specify a value, the property value is set to the `https://management.azure.com/` resource ID. If necessary, change this value to the target resource ID that you want.
 
    > [!NOTE]
    > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
