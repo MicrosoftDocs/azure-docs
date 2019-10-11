@@ -509,7 +509,7 @@ It is not possible to keep a db_owner from viewing user data with permissions on
 - Check cipher suites available on the client per [Cipher Suites in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel) and specifically disable 3DES per [Configuring TLS Cipher Suite Order](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order). 
 
 - If using Azure SQL Database managed instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently does not support encryption enforcement and is only available on private IP connections. 
-  - For more information, see [Azure SQL Connectivity Architecture - Connection policy](sql-database-connectivity-architecture#connection-policy.md#connection-policy).
+  - For more information, see [Azure SQL Connectivity Architecture - Connection policy](sql-database-connectivity-architecture.md#connection-policy).
   - There are future plans to have encryption enforced for both **Proxy** and **Redirect** connection types. 
 
 ### Minimize Attack Surface
@@ -622,7 +622,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 
 **How to implement**:
 
-- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview#advanced-threat-protection-alerts.md) to detect unusual and potentially harmful attempts to access or exploit databases, including:
+- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts) to detect unusual and potentially harmful attempts to access or exploit databases, including:
   - SQL injection attack.
   - Credentials theft/leak.
   - Privilege abuse.
