@@ -58,7 +58,7 @@
         href: entitlement-management-access-package-create.md
       - name: Share access package link
         href: entitlement-management-access-package-settings.md
-      - name: Change resources and resource roles
+      - name: Change resource roles
         href: entitlement-management-access-package-resources.md
       - name: Change user, request, and expiration settings
         href: entitlement-management-access-package-policy.md

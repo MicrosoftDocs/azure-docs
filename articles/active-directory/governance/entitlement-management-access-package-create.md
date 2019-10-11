@@ -135,4 +135,4 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Share link to request an access package](entitlement-management-access-package-settings.md)
-- [Change resources and resource roles](entitlement-management-access-package-resources.md)
+- [Change resource roles for an access package](entitlement-management-access-package-resources.md)

@@ -82,5 +82,5 @@ Follow these steps to start editing a policy in an existing access package.
 
 ## Next steps
 
-- [Change resources and resource roles for an access package](entitlement-management-access-package-resources.md)
+- [Change resource roles for an access package](entitlement-management-access-package-resources.md)
 - [View requests for an access package](entitlement-management-access-package-requests.md)
