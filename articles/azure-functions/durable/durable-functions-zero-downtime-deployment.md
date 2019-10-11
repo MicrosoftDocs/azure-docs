@@ -42,7 +42,7 @@ While the current version of your function app is running in your production slo
 
 You can use the following procedure to set up this scenario:
 
-1. [Add deployment slots](../deploy-staging-slots.md#add-a-slot) to your function app for staging and production.
+1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
 
 1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This will be used by the Azure Functions runtime. This account will be used by the Azure Functions runtime and manages the function's keys.
 
