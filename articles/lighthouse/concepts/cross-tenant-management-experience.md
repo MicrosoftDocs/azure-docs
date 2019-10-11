@@ -60,7 +60,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - Create and edit policy definitions within a delegated subscription
 - Assign customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
-- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation)
+- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
