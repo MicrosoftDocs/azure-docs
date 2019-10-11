@@ -61,7 +61,7 @@ Use these tools for Azure Machine Learning:
 + [Estimators](#estimators)
 + <a href="#experiments">Experiments</a>
 + <a href="#github-tracking-and-integration">Git tracking</a>
-+ <a href="#iot-module-deployments">IoT modules</a>
++ <a href="#iot-module-endpoints">IoT modules</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#models">Models</a>
@@ -69,7 +69,7 @@ Use these tools for Azure Machine Learning:
 + <a href="#run-configurations">Run Configuration</a>
 + <a href="#snapshots">Snapshot</a>
 + <a href="#training-scripts">Training script</a>
-+ <a href="#web-service-deployments">Web services</a>
++ <a href="#web-service-endpoint">Web services</a>
 + <a href="#workspaces">Workspace</a>
 
 ### Activities
@@ -157,7 +157,6 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
-
 ### Logging
 
 When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
@@ -193,7 +192,6 @@ You can't delete a registered model that is being used by an active deployment.
 
 For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### Runs
 
 A run is a single execution of a training script. Azure Machine Learning records all runs and stores the following information:
@@ -228,7 +226,6 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 ### Workspaces
 
 [The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
-
 
 ### Next steps
 

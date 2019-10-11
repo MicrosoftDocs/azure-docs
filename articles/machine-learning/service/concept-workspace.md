@@ -37,7 +37,7 @@ The diagram shows the following components of a workspace:
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
-+ Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#deployment).
++ Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
 
 ## Tools for workspace interaction
 
