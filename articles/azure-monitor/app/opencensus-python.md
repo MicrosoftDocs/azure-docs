@@ -1,6 +1,6 @@
 ---
-title: Monitor Python applications with Azure Application Insights | Microsoft Docs
-description: Provides instructions to wire up OpenCensus Python with Application Insights
+title: Monitor Python applications with Azure Monitor | Microsoft Docs
+description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 services: application-insights
 keywords:
 author: reyang
@@ -12,9 +12,9 @@ ms.reviewer: mbullwin
 manager: carmonm
 ---
 
-# Set up Application Insights for your Python application
+# Set up Azure Monitor for your Python application
 
-Application Insights supports distributed tracing, metric collection and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your monitoring data to Application Insights.
+Azure Monitor supports distributed tracing, metric collection and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your monitoring data to Azure Monitor.
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create Application Insights resource
+## Create Application Insights resource in Azure Monitor
 
-First you have to create an Application Insights resource, which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Application Insights.
+First you have to create an Application Insights resource in Azure Monitor, which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Azure Monitor.
 
 1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
 
@@ -56,7 +56,7 @@ First you have to create an Application Insights resource, which will generate a
     > [!NOTE]
     > `python -m pip install opencensus-ext-azure` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in a command like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Application Insights: trace, metrics and logs. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
+2. The SDK utilizes three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics and logs. Take a look at [this page](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) for more details on these different types. Follow the instructions below to see how to send these different types via the three exporters.
 
 ### Trace
 
@@ -95,7 +95,7 @@ First you have to create an Application Insights resource, which will generate a
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the `SpanData` to Application Insights. Modify your code from the previous step based on the following code sample:
+3. While helpful for demonstration purposes, ultimately we want to emit the `SpanData` to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -123,7 +123,7 @@ First you have to create an Application Insights resource, which will generate a
         main()
     ```
 
-4. Now when you run the Python script, you should still be prompted to enter values, but now only the value is being printed in the shell. The `SpanData` created will be sent to Application Insights. You can find the emitted span data under `dependencies`.
+4. Now when you run the Python script, you should still be prompted to enter values, but now only the value is being printed in the shell. The `SpanData` created will be sent to Azure Monitor. You can find the emitted span data under `dependencies`.
 
 ### Metrics
 
@@ -178,7 +178,7 @@ First you have to create an Application Insights resource, which will generate a
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Application Insights. Modify your code from the previous step based on the following code sample:
+3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     from datetime import datetime
@@ -226,7 +226,7 @@ First you have to create an Application Insights resource, which will generate a
         main()
     ```
 
-4. The exporter will send metric data to Application Insights at a fixed interval, the default being every 15 seconds. We are tracking a single metric so this metric data, with whatever value and timestamp it contains, will be sent every interval. You can find the data under `customMetrics`.
+4. The exporter will send metric data to Azure Monitor at a fixed interval, the default being every 15 seconds. We are tracking a single metric so this metric data, with whatever value and timestamp it contains, will be sent every interval. You can find the data under `customMetrics`.
 
 ### Logs
 
@@ -262,7 +262,7 @@ First you have to create an Application Insights resource, which will generate a
     90
     ```
 
-3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Application Insights. Modify your code from the previous step based on the following code sample:
+3. While helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Modify your code from the previous step based on the following code sample:
 
     ```python
     import logging
@@ -287,7 +287,7 @@ First you have to create an Application Insights resource, which will generate a
         main()
     ```
 
-4. The exporter will send log data to Application Insights. You can find the data under `traces`.
+4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
 
 ## Start monitoring in the Azure portal
 
