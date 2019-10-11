@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/22/2019
+ms.date: 10/15/2019
 
 ---
 
@@ -138,13 +138,15 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
 #### On the web 
-The following animation shows how to create a dataset in the studio.
+The following steps and animation shows how to create a dataset in the Azure Machine Learning studio, https://ml.azure.com.
+
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 >[!Important]
-> The functionality accessed online through the Azure Machine Learning studio (the studio page, https://ml.azure.com) is **accessible from Enterprise SKU workspaces only**. [Learn more about SKUs and upgrading](overview-what-is-azure-ml.md#sku). 
+> The functionality in this studio, https://ml.azure.com, is **accessible from Enterprise SKU workspaces only**. [Learn more about SKUs and upgrading](overview-what-is-azure-ml.md#sku). 
 
-1. Sign in to the studio page, https://ml.azure.com, to create a dataset.
+To create a TabularDataset in the studio:
+1. Sign in at https://ml.azure.com.
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. 
    The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. 
