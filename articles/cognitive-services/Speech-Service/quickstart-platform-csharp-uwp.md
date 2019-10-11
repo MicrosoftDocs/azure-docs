@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech Service
