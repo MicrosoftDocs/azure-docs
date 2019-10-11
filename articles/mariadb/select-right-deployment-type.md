@@ -14,13 +14,13 @@ With Azure, your MariaDB server workloads can run in a hosted virtual machine in
 
 When making your decision, consider the following two options:
 
-- **Azure Database for MariaDB**. This option is a fully managed MariaDB database engine based on the stable version of MariaDB community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS.
+- **Azure Database for MariaDB:** This option is a fully managed MariaDB database engine based on the stable version of MariaDB community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS.
 
   With a managed instance of MariaDB on Azure, you can use built-in features that otherwise require extensive configuration when MariaDB Server is either on-premises or in an Azure VM.
 
   When using MariaDB as a service, you pay as you go with options to scale up or scale out for greater control with no interruption. And unlike standalone MariaDB Server, Azure Database for MariaDB has additional features like built-in high availability, intelligence, and management.
 
-- **MariaDB on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MariaDB Server inside a fully managed virtual machine on the Azure cloud platform. All recent versions and editions of MariaDB can be installed on an IaaS virtual machine.
+- **MariaDB on Azure VMs:** This option falls into the industry category of IaaS. With this service, you can run MariaDB Server inside a fully managed virtual machine on the Azure cloud platform. All recent versions and editions of MariaDB can be installed on an IaaS virtual machine.
 
   In the most significant difference from Azure Database for MariaDB, MariaDB on Azure VMs offers control over the database engine. However, this control comes at the cost of responsibility to manage the VMs and many database administration (DBA) tasks. These tasks include maintaining and patching database servers, database recovery, and high-availability design.
 
