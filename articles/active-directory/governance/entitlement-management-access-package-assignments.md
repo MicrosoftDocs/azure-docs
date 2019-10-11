@@ -1,6 +1,6 @@
 ---
-title: View and change assignments for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to view and change assignments for an access package in Azure Active Directory entitlement management (Preview).
+title: View, add, and remove assignments for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# View and change assignments for an access package in Azure AD entitlement management (Preview)
+# View, add, and remove assignments for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -84,5 +84,5 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## Next steps
 
-- [Change user and settings for an access package](entitlement-management-access-package-request-policy.md)
+- [Change request and settings for an access package](entitlement-management-access-package-request-policy.md)
 - [View reports and logs](entitlement-management-reports.md)
