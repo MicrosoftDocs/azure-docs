@@ -6,7 +6,7 @@ author: tsushi
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: azfuncdf
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
 --- 
