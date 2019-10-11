@@ -1,17 +1,17 @@
 ---
-title: Integrate Azure Data Lake Storage Gen2 with other services | Microsoft Docs
-description: Understand how Azure Data Lake Storage Gen1 integrates with other Azure services.
+title: Integrate Azure Data Lake Storage with Azure services | Microsoft Docs
+description: Learn about which Azure services integrate with Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/11/2019
 ms.author: normesta
 
 ---
-# Integrate Azure Data Lake Storage Gen2 with other services
+# Integrate Azure Data Lake Storage with Azure services
 
-This table describes which services are supported
+You can use Azure services to ingest data into your account, perform analytics, and create visual representations of the data in your data lake. The following table lists Azure services that support Azure Data Lake Storage Gen2. This table also provides links to articles that help you use those services with your hierarchical namespace-enabled storage account.  
 
 | Azure service |  Related articles |
 |---------------|-------------------|
@@ -28,3 +28,8 @@ This table describes which services are supported
 |Azure Logic Apps | [Overview - What is Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
 |Azure Data Factory | [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
+## Next steps
+
+- Learn more about which tools you can use to process data in your data lake. See [Using Azure Data Lake Storage Gen2 for big data requirements](data-lake-storage-data-scenarios.md).
+
+- Learn more about Data Lake Storage Gen2, and how to get started with it. See [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
