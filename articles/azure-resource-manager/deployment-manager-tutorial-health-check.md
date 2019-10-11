@@ -35,8 +35,8 @@ This tutorial covers the following tasks:
 
 Additional resources:
 
-- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
+* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -48,9 +48,13 @@ To complete this article, you need:
 
 ## Install the artifacts
 
-Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally if you haven't done so. And then run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial#prepare-the-artifacts.md). The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
+Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally if you haven't done so. And then run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial.md#prepare-the-artifacts). The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
 
 Make a copy of the URL with SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
+
+Open CreateADMServiceTopology.Parameters.json, and update the values of **projectName** and **artifactSourceSASLocation**.
+
+Open CreateADMRollout.Parameters.json, and update the values of **projectName** and **artifactSourceSASLocation**.
 
 ## Create a health check service simulator
 
@@ -58,16 +62,12 @@ In production, you typically use one or more monitoring providers. In order to m
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
-* A Resource Manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
+* A Resource Manager template located at [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
 * A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
 
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used in preparing the artifacts."
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 

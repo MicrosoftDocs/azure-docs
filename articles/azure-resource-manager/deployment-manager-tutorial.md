@@ -59,8 +59,6 @@ To complete this article, you need:
     Install-Module -Name Az.DeploymentManager
     ```
 
-* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is not required, but it makes things easier.
-
 ## Understand the scenario
 
 The service topology template describes the Azure resources the make up your service and where to deploy them. The service topology definition has the following hierarchy:
@@ -132,20 +130,22 @@ The two versions (1.0.0.0 and 1.0.0.1) are for the [revision deployment](#deploy
 
 Template artifacts are used by the service topology template, and binary artifacts are used by the rollout template. Both the topology template and the rollout template define an artifact source Azure resource, which is a resource used to point Resource Manager to the template and binary artifacts that are used in the deployment. To simplify the tutorial, one storage account is used to store both the template artifacts and the binary artifacts. Both artifact sources point to the same storage account.
 
-The following PowerShell script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token. To run the script, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window. To paste the code, right-click the shell window and then select Paste.
+Run the following PowerShell script to create a resource group, create a storage container, create a blob container, upload the downloaded files, and then create a SAS token.
 
 > [!IMPORTANT]
 > **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
 > Save a copy of the project name. You use the same projectName through the tutorial.
 
-```azurepowershell-interactive
+```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $filePath = Read-Host -Prompt "Enter the folder that contains the downloaded files"
 
+
 $resourceGroupName = "${projectName}rg"
 $storageAccountName = "${projectName}store"
 $containerName = "admfiles"
+$filePathArtifacts = "${filePath}\ArtifactStore"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
@@ -160,16 +160,16 @@ $storageContext = $storageAccount.Context
 $storageContainer = New-AzStorageContainer -Name $containerName -Context $storageContext -Permission Off
 
 
-$filesToUpload = Get-ChildItem $filePath -Recurse -File
+$filesToUpload = Get-ChildItem $filePathArtifacts -Recurse -File
 
 foreach ($x in $filesToUpload) {
-    $targetPath = ($x.fullname.Substring($filePath.Length + 1)).Replace("\", "/")
+    $targetPath = ($x.fullname.Substring($filePathArtifacts.Length + 1)).Replace("\", "/")
 
-    Write-Verbose "Uploading $("\" + $x.fullname.Substring($filePath.Length + 1)) to $($storageContainer.CloudBlobContainer.Uri.AbsoluteUri + "/" + $targetPath)"
+    Write-Verbose "Uploading $("\" + $x.fullname.Substring($filePathArtifacts.Length + 1)) to $($storageContainer.CloudBlobContainer.Uri.AbsoluteUri + "/" + $targetPath)"
     Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
 }
 
-$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
 
 $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 
@@ -177,6 +177,8 @@ Write-Host $url
 ```
 
 Make a copy of the URL with the SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
+
+Open the container from the Azure portal and verify that both the **binaries** and the **templates** folders and the files are uploaded.
 
 ## Create the user-assigned managed identity
 
@@ -325,14 +327,14 @@ Azure PowerShell can be used to deploy the templates.
 1. Run the script to deploy the service topology.
 
     ```azurepowershell
-    $filePath = Read-Host -Prompt "Enter the folder that contains the downloaded files"
-
     # Create the service topology
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
+
+    If you run this script from a different PowerShell session from the one you ran the [Prepare the artifacts](#prepare-the-artifacts) script, you need to repopulate the variables first, which include **$resourceGroupName** and **$filePath**.
 
     > [!NOTE]
     > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
