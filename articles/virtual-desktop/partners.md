@@ -93,7 +93,7 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 
 ![Login VSI Logo](./media/partners/loginvsi.png)
 
-Login VSI is a Windows Virtual Desktop value-added services provider and Microsoft partner delivering software for application performance testing in Windows Virtual Desktop environments. Customers moving their on-premises business services to Windows Virtual Desktop use Login VSI Enterprise Edition to evaluate and maintain optimal performance, scalability, and availability of Windows 10  Enterprise multi-session, Windows 10 desktop, and Windows 7 enabled with their business critical applications.
+Login VSI is a Windows Virtual Desktop value-added services provider and Microsoft partner delivering software for application performance testing in Windows Virtual Desktop environments. Customers moving their on-premises business services to Windows Virtual Desktop use Login VSI Enterprise Edition to evaluate and maintain optimal performance, scalability, and availability of Windows 10  Enterprise multi-session, Windows 10 Enterprise, and Windows 7 enabled with their business critical applications.
 
 - [Go to the partner website](https://www.loginvsi.com).
 
