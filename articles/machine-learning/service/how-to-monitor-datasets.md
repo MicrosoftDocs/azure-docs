@@ -206,7 +206,7 @@ For a full example of setting up a `timeseries` dataset and data drift detector,
 
 ## Understanding data drift results
 
-The data monitor produces two groups of results: [**Drift overview**](#Drift-overview) and [**Feature details**](#Feature-details). The following animation shows the available drift monitor charts based on the selected  feature and metric. 
+The data monitor produces two groups of results: Drift overview and Feature details. The following animation shows the available drift monitor charts based on the selected feature and metric. 
 
 ![Demo video](media/how-to-monitor-datasets/video.gif)
 
@@ -268,5 +268,5 @@ Limitations and known issues:
 
 ## Next steps
 
-* Head to the [Azure Machine Learniing studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
+* Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
 * [Data drift for models](how-to-monitor-data-drift.md).
