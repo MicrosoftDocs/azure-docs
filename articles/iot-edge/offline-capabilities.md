@@ -133,7 +133,7 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 
 ### Host storage for system modules
 
-Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device. For more information, see [Use your IoT Edge device's local storage from a module](how-to-access-host-storage-from-module.md)
+Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device. For more information, see [Give modules access to an IoT Edge device's local storage](how-to-access-host-storage-from-module.md)
 
 ## Next steps
 
