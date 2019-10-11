@@ -14,11 +14,19 @@ ms.author: donkim
 
 # How To: Prompt for confirmation in a Command (Preview)
 
+In this article, you'll learn how to add a yes/no confirmation prompt before completing a Command.
+
+## Prerequisites
+
+This article assumes that you've completed the previous quickstart.
+> [Quickstart: Create a Custom Speech Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+
 ## Add a rule to prompt for Confirmation
 
 Change the CompletionStrategy of the "TurnOnOff" Command from OnRequiredParameters to OnRuleDefinition.
 
-Go to the Advanced Rules section and create a new Rule
+Go to the Advanced Rules section and create a new Rule.
+
 Setting|Suggested value|Description
 ---|---|---
 Rule Name | Exit confirmation prompt |A name describing the purpose of the rule
@@ -30,6 +38,7 @@ Expectations|ExpectConfirmation - true|Expectations on the user's next input.  "
 To handle the positive and negative cases for the confirmation prompt, we'll add rules with the Confirmation and Confirmation denied conditions.
 
 Add a new Rule to handle a positive response.
+
 Setting|Suggested value|Description
 ---|---|---
 Rule Name | Handle confirmation success |A name describing the purpose of the rule
@@ -38,6 +47,7 @@ Actions|None|The action to take when the rule condition is true.
 RulePostExecutionState|Ready For Completion|Behavior after the rule, such as waiting for user input, or completing the Command
 
 Add a new Rule to handle a negative response.
+
 Setting|Suggested value|Description
 ---|---|---
 Rule Name | Handle confirmation failure |A name describing the purpose of the rule
