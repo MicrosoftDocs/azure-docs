@@ -339,15 +339,18 @@ To create the load balancer:
 
 1. Configure the load balancer with:
 
-   - **Name**: A name that identifies the load balancer.
-   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
-   - **Virtual Network**: The same network as the virtual machines.
-   - **Subnet**: The same subnet as the virtual machines.
-   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
-   - **subscription**: Your Azure subscription.
+   - **Subscription**: Your Azure subscription.
    - **Resource Group**: Use the same resource group as your virtual machines.
-   - **Location**: Use the same Azure location as your virtual machines.
+   - **Name**: A name that identifies the load balancer.
+   - **Region**: Use the same Azure location as your virtual machines.
+   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
+   - **SKU**: The SKU for the your load balancer should be standard. 
+   - **Virtual Network**: The same network as the virtual machines.
+   - **IP address assignment**: The IP address assignment should be static. 
+   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
    See the following picture:
+
+   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
