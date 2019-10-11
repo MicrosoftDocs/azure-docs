@@ -24,7 +24,7 @@ This topic discusses the OData query options and pagination support available wh
 ## Considerations
 
 * Properties of entities that are of the Datetime type are always in UTC format.
-* Spaces are not valid in URLs.
+* White space in the query string should be URL-encoded before sending a request.
 
 ## Comparison operators
 
