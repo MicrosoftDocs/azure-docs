@@ -1,6 +1,6 @@
 ---
 title: 'Connect to different data sources from Azure Databricks '
-description: Learn how to connect to different data sources from Azure Databricks.
+description: Learn how to connect to Azure SQL Database, Azure Data Lake Store, blob storage, Cosmos DB, Event Hubs, and Azure SQL Data Warehouse from Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
