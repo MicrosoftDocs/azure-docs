@@ -8,8 +8,7 @@ ms.author: erhopf
 
 To create a Visual Studio project for cross-platform mobile app .NET development with Xamarin, you need to:
 - Set up Visual Studio development options.
-- Create the project. 
-- Select the target architecture. 
+- Create the project and select the target architecture. 
 - Install the Speech SDK.
 
 ### Set up Visual Studio development options
@@ -24,7 +23,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. On the **Workloads** tab, under **Windows**, find the **Mobile development with .NET** workload. If the check box next to that workload is already selected, close the **Modifying** dialog box, and go to step 5.
 
-1. Select the **Mobile development with .NET** check box, select **Modify**, and then in the **Before we get started** dialog box, select **Continue** to install the mobile development with .NET workload. Installation of the new feature might take a while.
+1. Select the **Mobile development with .NET** check box, and select **Modify**. In the **Before we get started** dialog box, select **Continue** to install the mobile development with .NET workload. Installation of the new feature might take a while.
 
 1. Close Visual Studio Installer.
 
@@ -40,7 +39,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
    ![Configure your new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
-1. In **Project name**, enter `helloworld`.
+1. In **Project name**, enter *helloworld*.
 
 1. In **Location**, go to and select or create the folder to save your project in.
 
@@ -56,7 +55,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
    ![The helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-helloworld.png)
 
-Now select your target platform architecture and startup project. On the Visual Studio toolbar, find the **Solution Platforms** drop-down box. (If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**.) If you're running 64-bit Windows, select **x64** in the drop-down box. You can select **x86** if you prefer because 64-bit Windows also can run 32-bit applications. In the **Start-up Projects** drop-down box, set **helloworld.UWP (Universal Windows)**.
+Now select your target platform architecture and startup project. On the Visual Studio toolbar, find the **Solution Platforms** drop-down box. (If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**.) If you're running 64-bit Windows, select **x64** in the drop-down box. You can select **x86** if you want because 64-bit Windows also can run 32-bit applications. In the **Start-up Projects** drop-down box, set **helloworld.UWP (Universal Windows)**.
 
 ### Install the Speech SDK
 
@@ -70,11 +69,11 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. In **Package source**, select nuget.org.
 
-1. In the **Search** box, enter `Microsoft.CognitiveServices.Speech`. Then select that package after it appears in the search results.
+1. In the **Search** box, enter *Microsoft.CognitiveServices.Speech*. Then select that package after it appears in the search results.
 
    ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
-   > [!NOTE] The iOS library inside Microsoft.CognitiveServices.Speech nuget doesn't have bitcode enabled. If you need the bitcode library enabled for your application, use Microsoft.CognitiveServices.Speech.Xamarin.iOS nuget for the iOS project specifically.
+   > [!NOTE] The iOS library inside `Microsoft.CognitiveServices.Speech` NuGet doesn't have bitcode enabled. If you need the bitcode library enabled for your application, use `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet for the iOS project specifically.
 
 1. In the package status pane next to the search results, select all projects: **helloworld**, **helloworld.Android**, **helloworld.iOS**, and **helloworld.UWP**.
 
