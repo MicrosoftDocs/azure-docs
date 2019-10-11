@@ -213,7 +213,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 | Min value | Minimum value of the feature. |
 | Max value | Maximum value of the feature. |
 
-![Feature details](media/how-to-monitor-datasets/feature-details.png)
+![Feature details numeric](media/how-to-monitor-datasets/feature-details.png)
 
 #### Categorical features 
 
@@ -225,7 +225,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 | Unique values | Number of unique values (cardinality) of the feature. |
 
 
-![Feature details](media/how-to-monitor-datasets/feature-details2.png)
+![Feature details categorical](media/how-to-monitor-datasets/feature-details2.png)
 
 ## Troubleshooting
 
