@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -34,15 +34,19 @@ For detailed information to better understand these settings, review [Understand
 
 1. Locate your existing Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
-1. Under the **SETTINGS** heading, select **Configure**.
+1. Under the **Settings** heading, select **Configure**.
 
-1. Select the **Data retention time** to configure the retention using the slider bar or type a number in text box.
+    [![Select Settings, then Configure](media/data-retention/1-configure-data-retention.png)](media/scale-your-environment/1-configure-data-retention.png#lightbox)
+
+1. Select the **Data retention time (in days)** to configure the retention using the slider bar or type a number in text box.
 
 1. Note the **Capacity** setting, since this configuration impacts the maximum amount of data events and total storage capacity for storing data.
 
 1. Toggle the **Storage limit exceeded behavior** setting. Select **Purge old data** or **Pause ingress** behavior.
 
-1. Select **Save** to configure the changes.
+    [![Data retention accept and save.](media/data-retention/2-accept-and-save.png)](media/scale-your-environment/2-accept-and-save.png#lightbox)
+
+1. Accept the check box indicating that you've reviewed the documentation and understand the potential risks of data loss. Select **Save** to configure the changes.
 
 ## Next steps
 
