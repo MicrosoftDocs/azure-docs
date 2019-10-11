@@ -514,7 +514,7 @@
       href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
-    - name: Add to a failover group to Elastic pool
+    - name: Add an Elastic pool to a failover group
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
