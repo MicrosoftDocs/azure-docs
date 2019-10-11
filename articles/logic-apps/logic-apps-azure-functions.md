@@ -152,7 +152,7 @@ Before you can create an Azure function starting from inside your logic app by u
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. To specify other details such as the method to use, request headers, or query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound requests](#authenticate-functions).
+1. To specify other details such as the method to use, request headers, or query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound calls](#authenticate-functions).
 
 <a name="add-function-logic-app"></a>
 
@@ -186,7 +186,7 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound requests](#authenticate-functions).
+1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Add new parameter** list, and select the options that you want. For authentication, your options differ based on your selected function. See [Authenticate outbound calls](#authenticate-functions).
 
 <a name="call-logic-app"></a>
 
@@ -196,15 +196,15 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 <a name="authenticate-functions"></a>
 
-## Authenticate outbound requests
+## Authenticate outbound calls
 
 To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
+If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 To set up and use the system-assigned identity, follow these steps:
 
-1. Enable the system-assigned identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Enable the system-assigned identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Set up your Azure function app and functions to support authentication by following these steps:
 

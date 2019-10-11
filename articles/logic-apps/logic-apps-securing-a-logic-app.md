@@ -574,7 +574,7 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
 * Add authentication to outbound requests.
 
-  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use basic authentication, client certificate authentication, [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication, or a managed identity. For more information, see [Authenticate access on outbound requests](#authenticate-access-outbound) later in this topic.
+  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use basic authentication, client certificate authentication, [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication, or a managed identity. For more information, see [Add authentication to outbound calls](#add-authentication-outbound) later in this topic.
 
 * Restrict access from logic app IP addresses.
 
@@ -592,9 +592,9 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
     [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and ExpressRoute integration for secured proxy and communication to on-premises systems. From your logic app's workflow in the Logic App Designer, you can select an API that's exposed by API Management, which provides quick access to on-premises systems.
 
-<a name="authenticate-access-outbound"></a>
+<a name="add-authentication-outbound"></a>
 
-## Authenticate access for outbound requests
+## Add authentication to outbound calls
 
 HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests that access these endpoints, you can select from varying ranges of authentication types. To make sure that you protect any sensitive information that your logic app handles, use secured parameters and encode data as necessary. For more information about using and securing parameters, see [Access to parameter inputs](#secure-action-parameters).
 
@@ -772,7 +772,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and prote
 
 If the [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) option is available, your logic app can use the system-assigned identity for authenticating access to resources in other Azure Active Directory (Azure AD) tenants without signing in. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
+1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
 1. Before an Azure function can use the system-assigned identity, follow these additional steps to enable authentication for that function:
 

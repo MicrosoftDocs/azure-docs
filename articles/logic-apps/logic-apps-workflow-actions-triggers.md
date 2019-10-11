@@ -299,7 +299,7 @@ The endpoint's response determines whether the workflow runs.
       "uri": "<endpoint-URL>",
       "headers": { "<header-content>" },
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
+      "authentication": { "<authentication-type>" },
       "retryPolicy": { "<retry-behavior>" },
       "queries": "<query-parameters>"
    },
@@ -333,7 +333,7 @@ The endpoint's response determines whether the workflow runs.
 |-------|------|-------------| 
 | <*header-content*> | JSON Object | The headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | String | The message content to send as payload with the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
 | <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
@@ -398,7 +398,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -407,7 +407,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -438,7 +438,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*method-type*> | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | String | The endpoint URL where to send the cancellation request | 
 | <*body-content*> | String | Any message content to send in the subscription or cancellation request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | By default, workflow instances all run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
@@ -1040,7 +1040,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -1050,7 +1050,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -1077,7 +1077,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*api-unsubscribe-URL*> | String | The URI to use for unsubscribing from the API | 
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
@@ -2995,11 +2995,11 @@ This setting puts your logic app into "high throughput" mode.
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
 ## Authenticate triggers and actions
 
-HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from varying ranges of authentication types. For more information, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
+HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from varying ranges of authentication types. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## Next steps
 
