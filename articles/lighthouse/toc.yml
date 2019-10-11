@@ -44,6 +44,8 @@
   - name: View and manage service providers 
     displayName: managed services offer, azure marketplace, publish
     href: ./how-to/view-manage-service-providers.md
+  - name: Deploy a policy that can be remediated
+    href: ./how-to/deploy-policy-remediation.md
 - name: Reference
   items:
   - name: Azure CLI
