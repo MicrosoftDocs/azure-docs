@@ -1,13 +1,13 @@
 ---
-title: #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: #Required; article description that is displayed in search results. Include the word "tutorial".
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: #Required; your GitHub user alias, with correct capitalization.
-
-ms.service: #Required; service per approved list.
-ms.topic: tutorial #Required
-ms.date: #Required; mm/dd/yyyy format.
-ms.author: #Required; microsoft alias of author; optional team alias.
+title: Create Create a water quality monitoring app with IoT Central | Microsoft Docs
+description: Learn to build Create a water quality monitoring application using Azure IoT Central application templates.
+author: philmea
+ms.author: philmea
+ms.date: 09/24/2019
+ms.topic: tutorial
+ms.service: iot-central
+services: iot-central
+manager: eliotgra
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
