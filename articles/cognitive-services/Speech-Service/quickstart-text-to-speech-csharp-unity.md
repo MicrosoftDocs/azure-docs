@@ -55,18 +55,18 @@ To complete this project, you'll need:
 We add a minimal UI to our scene that consists of an input field to enter the text for synthesis, a button to trigger speech synthesis, and a text field to display the result.
 
 * In the [Hierarchy window](https://docs.unity3d.com/Manual/Hierarchy.html) (by default on the left), a sample scene is shown that Unity created with the new project.
-* Select the **Create** button at the top of the Hierarchy window, and select **UI** > **Input Field**.
-* This option creates three game objects that you can see in the Hierarchy window: an **Input Field** object nested within a **Canvas** object, and an **EventSystem** object.
+* Select the **Create** button at the top of the **Hierarchy** window, and select **UI** > **Input Field**.
+* This option creates three game objects that you can see in the **Hierarchy** window: an **Input Field** object nested within a **Canvas** object, and an **EventSystem** object.
 * [Navigate the Scene view](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so that you have a good view of the canvas and the input field in the [Scene view](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
-* Select the **Input Field** object in the Hierarchy window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+* Select the **Input Field** object in the **Hierarchy** window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0** so that the input field is centered in the middle of the canvas.
-* Select the **Create** button at the top of the Hierarchy window again. Select **UI** > **Button** to create a button.
-* Select the **Button** object in the Hierarchy window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+* Select the **Create** button at the top of the **Hierarchy** window again. Select **UI** > **Button** to create a button.
+* Select the **Button** object in the **Hierarchy** window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0** and **-48**. Set the **Width** and **Height** properties to **160** and **30** to ensure that the button and the input field don't overlap.
-* Select the **Create** button at the top of the Hierarchy window again. Select **UI** > **Text** to create a text field.
-* Select the **Text** object in the Hierarchy window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+* Select the **Create** button at the top of the **Hierarchy** window again. Select **UI** > **Text** to create a text field.
+* Select the **Text** object in the **Hierarchy** window to display its settings in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0** and **80**. Set the **Width** and **Height** properties to **320** and **80** to ensure that the text field and the input field don't overlap.
-* Select the **Create** button at the top of the Hierarchy window again. Select **Audio** > **Audio Source** to create an audio source.
+* Select the **Create** button at the top of the **Hierarchy** window again. Select **Audio** > **Audio Source** to create an audio source.
 
 When you're finished, the UI should look similar to this screenshot:
 
@@ -83,7 +83,7 @@ When you're finished, the UI should look similar to this screenshot:
 
 1. Replace all code with the following:
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
@@ -93,18 +93,18 @@ When you're finished, the UI should look similar to this screenshot:
 
 1. Back in the Unity Editor, add the script as a component to one of your game objects.
 
-   * Select the **Canvas** object in the Hierarchy window to open the setting in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-   * Select the **Add Component** button in the Inspector window. Then search for the HelloWorld script we previously created and add it.
+   * Select the **Canvas** object in the **Hierarchy** window to open the setting in the [Inspector window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+   * Select the **Add Component** button in the **Inspector** window. Then search for the `HelloWorld` script we previously created and add it.
    * The HelloWorld component has four uninitialized properties, **Output Text**, **Input Field**, **Speak Button** and **Audio Source**, that match public properties of the `HelloWorld` class.
      To wire them up, select the Object Picker (the small circle icon to the right of the property). Select the text and button objects you created earlier.
 
      > [!NOTE]
-     > The input field and button also have a nested text object. Make sure you don't accidentally pick it for text output. Or, you can rename the text objects that use the **Name** field in the Inspector window to avoid that confusion.
+     > The input field and button also have a nested text object. Make sure you don't accidentally pick it for text output. Or, you can rename the text objects that use the **Name** field in the **Inspector** window to avoid that confusion.
 
 ## Run the application in the Unity Editor
 
 * Select the **Play** button in the Unity Editor toolbar that's underneath the menu bar.
-* After the app launches, enter some text in the input field and select the button. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+* After the app launches, enter some text in the input field and select the button. Your text is transmitted to Speech Service and synthesized to speech, which plays on your speaker.
 
   [![Screenshot of the running quickstart in the Unity Game window](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 

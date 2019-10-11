@@ -12,7 +12,7 @@ ms.author: erhopf
 
    ![Screenshot of Eclipse Launcher](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. In a moment, the main window of the Eclipse IDE appears. Close the Welcome screen if one is present.
+1. In a moment, the main window of the Eclipse IDE appears. Close the **Welcome** screen if one is present.
 
 1. From the Eclipse menu bar, create a new project by choosing **File** > **New** > **Project**.
 
@@ -20,7 +20,7 @@ ms.author: erhopf
 
    ![Screenshot of New Project dialog box, with Java Project highlighted](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. The New Java Project wizard starts. In the **Project name** field, enter **quickstart**, and choose **JavaSE-1.8** as the execution environment. Select **Finish**.
+1. The **New Java Project** wizard starts. In the **Project name** field, enter **quickstart**, and choose **JavaSE-1.8** as the execution environment. Select **Finish**.
 
    ![Screenshot of New Java Project wizard](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 

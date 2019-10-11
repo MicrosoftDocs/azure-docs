@@ -67,7 +67,7 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
 
    ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Open the newly created **Main** class, and replace the contents of the `Main.java` file with the following starting code:
+1. Open the newly created `Main` class, and replace the contents of the `Main.java` file with the following starting code:
 
     ```java
     package speechsdk.quickstart;
@@ -134,7 +134,7 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
     }
     ```
 
-1. In the **main** method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
+1. In the `main` method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
     * Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](get-started.md).
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
@@ -156,7 +156,7 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add these event listeners next.
+1. The connector `DialogServiceConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add these event listeners next.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
@@ -195,7 +195,7 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
         });
     ```
 
-1. Connect the `DialogServiceConnector` to Direct Line Speech by invoking the `connectAsync()` method. To test your bot, you can invoke the `listenOnceAsync` method to send audio input from your microphone. Additionally, you can also use the `sendActivityAsync` method to send a custom activity as a serialized string. These custom activities can provide additional data that your bot uses in the conversation.
+1. Connect `DialogServiceConnector` to Direct Line Speech by invoking the `connectAsync()` method. To test your bot, you can invoke the `listenOnceAsync` method to send audio input from your microphone. Additionally, you can also use the `sendActivityAsync` method to send a custom activity as a serialized string. These custom activities can provide additional data that your bot uses in the conversation.
 
     ```java
     connector.connectAsync();
@@ -208,11 +208,11 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
 
 1. Save changes to the `Main` file.
 
-1. To support response playback, add an additional class that transforms the PullAudioOutputStream object returned from the getAudio() API to a Java InputStream for ease of handling. This ActivityAudioStream is a specialized class that handles audio response from the Direct Line Speech channel. It provides accessors to fetch audio format information that's required for handling playback. For that, select **File** > **New** > **Class**.
+1. To support response playback, add an additional class that transforms the PullAudioOutputStream object returned from the getAudio() API to a Java InputStream for ease of handling. This `ActivityAudioStream` is a specialized class that handles audio response from the Direct Line Speech channel. It provides accessors to fetch audio format information that's required for handling playback. For that, select **File** > **New** > **Class**.
 
 1. In the **New Java Class** window, enter *speechsdk.quickstart* in the **Package** field and *ActivityAudioStream* in the **Name** field.
 
-1. Open the newly created **ActivityAudioStream** class, and replace it with the following code:
+1. Open the newly created `ActivityAudioStream` class, and replace it with the following code:
 
     ```java
     package com.speechsdk.quickstart;
