@@ -19,7 +19,7 @@ This article describes how to configure **Data retention time** and **Storage li
 
 ## Summary
 
-Each Time Series Insights (TSI) environment has a setting to configure **Data retention time**. The value spans from 1 to 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
+Each Azure Time Series Insights environment has a setting to configure **Data retention time**. The value spans from 1 to 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
 Each TSI environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
 
