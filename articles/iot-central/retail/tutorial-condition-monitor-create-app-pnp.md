@@ -12,7 +12,7 @@ ms.date: 10/03/2019
 
 # Tutorial: Create a condition monitoring retail application in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you, as a builder, how to create an Azure IoT Central application to monitor environmental conditions in a retail store. This application is a solution to the common business need to monitor and adapt to environmental conditions in a store or facility.
 
