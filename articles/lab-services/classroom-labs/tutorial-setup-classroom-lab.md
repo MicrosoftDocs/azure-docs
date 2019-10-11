@@ -44,18 +44,18 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 4. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab, and select **Next**.  
 
-            ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
-            If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+        If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
 
     2. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
 
-            ![Create a classroom lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+        ![Create a classroom lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 		> [!IMPORTANT]
 		> Make a note of user name and password. They won't be shown again.
     3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
-            ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -67,10 +67,10 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     1. Enter a **description** for the template
 10. On **Template** page, select **Publish** on the toolbar. 
 
-            ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+        ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-            > [!WARNING]
-            > Once you publish, you can't unpublish. 
+        > [!WARNING]
+        > Once you publish, you can't unpublish. 
 8. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
 
         ![Publish template - number of VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
@@ -119,7 +119,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     2. Select the days on which you want the schedule to take effect. In the following example, Monday-Thursday is selected. 
     8. Select **Save**. 
 
-            ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
+        ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
 
 3. Now, on the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule. 
 4. On the **Add scheduled event** page, select **Save**. 
