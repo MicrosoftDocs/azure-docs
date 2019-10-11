@@ -50,7 +50,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
-    ```cli
+    ```CLI
         dotnet new mvc --no-https
     ```
 
@@ -82,12 +82,12 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-    ```cli
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
     ```
 2. Run the following command to restore packages for your project:
 
-    ```cli
+    ```CLI
         dotnet restore
     ```
 3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
@@ -96,7 +96,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     This command must be executed in the same directory as the *.csproj* file.
 
-    ```cli
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
@@ -147,7 +147,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -166,7 +166,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -195,13 +195,13 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-    ```csharp
-        dotnet build
-    ```csharp
+    ```CLI
+       dotnet build
+    ```
 
 2. After the build successfully completes, run the following command to run the web app locally:
 
-    ```csharp
+    ```CLI
         dotnet run
     ```
 
