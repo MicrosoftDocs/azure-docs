@@ -218,6 +218,5 @@ You may get the following errors when creating a service principal:
 ## Next steps
 
 * To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-* For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md).
 * For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
 * For more information about Azure AD authentication, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
