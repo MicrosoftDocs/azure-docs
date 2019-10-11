@@ -14,7 +14,7 @@ ms.tgt_pltfrm:
 ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,fasttrack-edit
 
 ---
 # Create an automatic formula for scaling compute nodes in a Batch pool
@@ -103,6 +103,11 @@ You can get and set the values of these service-defined variables to manage the 
 | $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
 | $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**-- The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reach as quickly as possible, but may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
+
+> [!NOTE]
+> The `$TargetDedicatedNodes` variable can also be specified using the alias `$TargetDedicated`. Similarly, the `$TargetLowPriorityNodes` variable can be specified using the alias `$TargetLowPriority`. If both the fully named variable and its alias are set by the formula, the value assigned to the fully named variable will take precedence.
+>
+>
 
 You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
