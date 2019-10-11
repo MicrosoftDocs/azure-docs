@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
 ---
 
@@ -90,7 +90,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
-| Shared image gallery              | :heavy_check_mark: | :x:                |
+| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure disk encryption             | :heavy_check_mark: | :x:                |
 
 ## Creating a generation 2 VM
