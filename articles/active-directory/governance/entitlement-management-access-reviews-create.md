@@ -82,5 +82,5 @@ If you have assigned guests as reviewers who have not accepted their Azure AD gu
 
 Advance to one of the following article to learn about how to use entitlement management access reviews:
 
-- [Review access of access](entitlement-management-access-reviews-review-access.md) 
-- 
+- [Review access of access packages](entitlement-management-access-reviews-review-access.md) 
+- [Complete an access review of access packages](entitlement-management-access-reviews-complete.md)

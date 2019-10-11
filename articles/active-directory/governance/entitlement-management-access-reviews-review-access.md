@@ -1,6 +1,6 @@
 ---
 title: Review access of access packages using Azure AD access reviews (Preview) - Azure Active Directory
-description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to review user access of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
