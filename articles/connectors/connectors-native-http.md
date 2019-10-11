@@ -78,7 +78,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) that you want to include in the call to the target endpoint.
 
-   If you select an authentication type, your options differ based on your selection. For more information, see [Authenticate access on outbound requests](../logic-apps/logic-apps-securing-a-logic-app.md#authenticate-access-outbound).
+   If you select an authentication type, your options differ based on your selection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
    ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
 
