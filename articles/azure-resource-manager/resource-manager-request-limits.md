@@ -4,25 +4,67 @@ description: Describes how to use throttling with Azure Resource Manager request
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
 # Throttling Resource Manager requests
 
-For each Azure subscription and tenant, Resource Manager allows up to 12,000 read requests per hour and 1,200 write requests per hour. These limits are scoped to the security principal (user or application) making the requests and the subscription ID or tenant ID. If your requests come from more than one security principal, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.
+This article helps you understand how Azure Resource Manager throttles requests. It shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you've reached the limit.
 
-Requests are applied to either your subscription or your tenant. Subscription requests are ones that involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations.
+Throttling happens at many different levels. The following image shows where throttling can happen.
 
-These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than these limits, as user requests are usually serviced by many different instances.
+![Request throttling](./media/resource-manager-request-limits/request-throttling.svg)
 
-If your application or script reaches these limits, you need to throttle your requests. This article shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you've reached the limit.
+## Subscription and tenant limits
 
-When you reach the limit, you receive the HTTP status code **429 Too many requests**.
+Every subscription-level and tenant-level operation is subject to throttling limits. Subscription requests are ones that involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations.
+
+The default throttling limits per hour are shown in the following table.
+
+| Scope | Operations | Limit |
+| ----- | ---------- | ------- |
+| Subscription | reads | 12000 |
+| Subscription | deletes | 15000 |
+| Subscription | writes | 1200 |
+| Tenant | reads | 12000 |
+| Tenant | writes | 1200 |
+
+These limits are scoped to the security principal (user or application) making the requests and the subscription ID or tenant ID. If your requests come from more than one security principal, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.
+
+These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than these limits, as user requests are usually serviced by many different instances. A resource provider might receive more requests than the stated default limits. This condition is important when assessing [resource provider limits](#resource-provider-limits).
+
+These limits can be raised per operation through a support request. For the request to be accepted, the resource provider for the operation must support a higher limit. The limit can be either global or per subscription.  
+
+## Resource provider limits
+
+Resource providers apply their own throttling limits. This section discusses the throttling limits of some widely-used resource providers.
+
+### Storage throttling
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### Network throttling
+
+The Microsoft.Network resource provider applies the following throttle limits:
+
+| Operation | Limit |
+| --------- | ----- |
+| write / delete (PUT) | 1000 per 5 minutes |
+| read (GET) | 10000 per 5 minutes |
+
+These limits can be increased.
+
+### Compute throttling
+
+For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+
+### Azure Resource Graph throttling
 
 Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## Remaining requests
+
 You can determine the number of remaining requests by examining response headers. Read requests return a value in the header for the number of remaining read requests. Write requests include a value for the number of remaining write requests. The following table describes the response headers you can examine for those values:
 
 | Response header | Description |
@@ -36,7 +78,16 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
+## Error code
+
+When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
+
+Typically, you get the 429 response when you have exceeded one of the default limits for Azure Resource Manager. However, some resource providers return 429 to report a temporary problem. The problem could be an overload problem that isn't directly related to the your request. Or, it could represent a temporary error about the state of the target resource or dependent resource. For example, the network resource provider may return 429 with **RetryableErrorDueToAnotherOperation** error code in the response body when the target resource is locked by another ongoing operation. The error details in the response body identity the nature of the error.
+
+For details about throttling errors with compute resources, see [Throttling error details](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#throttling-error-details).
+
 ## Retrieving the header values
+
 Retrieving these header values in your code or script is no different than retrieving any header value. 
 
 For example, in **C#**, you retrieve the header value from an **HttpWebResponse** object named **response** with the following code:
@@ -132,7 +183,8 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## Waiting before sending next request
-When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
+
+When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. 
 
 ## Next steps
 
