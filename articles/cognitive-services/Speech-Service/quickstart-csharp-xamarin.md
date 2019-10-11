@@ -102,7 +102,8 @@ Now add the C# code that defines the iOS-specific part of the application. Also 
    <key>NSMicrophoneUsageDescription</key>
    <string>This sample app requires microphone access</string>
 
-   > [!NOTE] If you're building for an iPhone device, ensure that `Bundle Identifier` matches your device's provisioning profile app ID. Otherwise, the build will fail. With iPhoneSimulator, you can leave it as is.
+   > [!NOTE] 
+   > If you're building for an iPhone device, ensure that `Bundle Identifier` matches your device's provisioning profile app ID. Otherwise, the build will fail. With iPhoneSimulator, you can leave it as is.
 
 1. If you're building on a Windows PC, establish a connection to the Mac device for building via **Tools** > **iOS** > **Pair to Mac**. Follow the instruction wizard provided by Visual Studio to enable the connection to the Mac device.
 
@@ -122,7 +123,8 @@ Now add the C# code that defines the UWP-specific part of the application.
 
 1. Next, double-click the `Package.appxmanifest` file under the helloworld.UWP project inside Visual Studio. Under **Capabilities**, make sure that **Microphone** is selected, and save the file.
 
-   > [!NOTE] If you see the warning "Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx," check the [speech-to-text](quickstart-csharp-uwp.md) sample for more information.
+   > [!NOTE] 
+   > If you see the warning "Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx," check the [speech-to-text](quickstart-csharp-uwp.md) sample for more information.
 
 1. From the menu bar, select **File** > **Save All** to save your changes.
 
