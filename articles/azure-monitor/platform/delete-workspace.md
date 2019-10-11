@@ -63,5 +63,6 @@ You can recover a workspace by re-creating the workspace using the workspace cre
 4. Region
 
 > [!NOTE]
-> * Workspace recovery isn’t supported in the [Azure portal](https://portal.azure.com). Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use.
+> * Workspace recovery isn’t supported in the [Azure portal](https://portal.azure.com). 
+> * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use.
 > 
