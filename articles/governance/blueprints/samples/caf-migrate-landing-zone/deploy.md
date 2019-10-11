@@ -1,12 +1,11 @@
 ---
 title: Sample - CAF migrate landing zone blueprint - Deploy steps
-description: Deploy steps of the CAF migrate landing zone blueprint sample.
+description: Deploy steps for the CAF migrate landing zone blueprint sample including blueprint artifact parameter details.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure migrate landing zone blueprint sample

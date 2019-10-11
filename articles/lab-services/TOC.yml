@@ -78,6 +78,8 @@
       href: classroom-labs/class-type-deep-learning-natural-processing.md
     - name: Shell scripting on Linux
       href: classroom-labs/class-type-shell-scripting-linux.md
+    - name: Ethical hacking
+      href: classroom-labs/class-type-ethical-hacking.md
   - name: Classroom labs
     items: 
     - name: Create and configure lab accounts (lab account owner)
@@ -108,6 +110,8 @@
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
       - name: Set or reset passwords for virtual machines 
         href: classroom-labs/how-to-set-virtual-machine-passwords.md
+      - name: Enable nested virtualization on a template VM
+        href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
     - name: Connect to VMs in classroom labs (student)
       items:        
       - name: Access classroom labs

@@ -76,8 +76,6 @@ If your Service Fabric applications are running on a Service Fabric cluster in A
 <!-- -->
 > [!WARNING]
 > Remote debugging is meant for dev/test scenarios and not to be used in production environments, because of the impact on the running applications.
->
-> Remote debugging is not supported for services using private IP addresses. For more on this, see [Virtual Network IP addresses overview](/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).
 
 1. Navigate to your cluster in **Cloud Explorer**. Right-click and choose **Enable Debugging**
    

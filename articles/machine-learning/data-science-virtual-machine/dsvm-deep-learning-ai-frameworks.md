@@ -80,6 +80,33 @@ Deep learning frameworks on the DSVM are listed below.
 | How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
 | How to run it      | Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
 
+## [MXNet](https://mxnet.apache.org/)
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.3.0 |
+| Supported DSVM editions      | Windows and Linux   |
+| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Ubuntu. Python bindings are installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) R bindings are also included in the Ubuntu DSVM. |
+| How to run it      | Terminal: Activate the correct conda environment, then run `import mxnet`. <br/>Jupyter: Connect to [Jupyter](provision-vm.md#access-the-dsvm) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the `mxnet` directory for samples. |
+
+## [MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.0.1 |
+| Supported DSVM editions      | Windows and Linux   |
+| How is it configured / installed on the DSVM?  | MXNet Model Server is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
+| How to run it      | Terminal: Run `sudo systemctl stop jupyterhub` to stop the JupyterHub service first, because both listen on the same port. Then activate the correct conda environment and run `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar` |
+
+## [NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported |  |
+| Supported DSVM editions      | Windows and Linux   |
+| What is it for? | NVIDIA tool for querying GPU activity |
+| How is it configured / installed on the DSVM?  | `nvidia-smi` is on the system path. |
+| How to run it      | On a virtual machine **with GPU's**, open a command prompt (on Windows) or a terminal (on Linux), and then run `nvidia-smi`. |
+
 ## [PyTorch](https://pytorch.org/)
 
 |    |           |
