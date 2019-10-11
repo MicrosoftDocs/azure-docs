@@ -44,12 +44,6 @@ Media Services recommends using one of following live encoders that have RTMP as
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
-
-  The items that the Media Services team tested:
-
-  - RTMP SCTE35 insertion successful 
-  - Multi-bitrate content for the Passthrough live event  
-  - Single bitrate stream for the Live Encoding live event
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
