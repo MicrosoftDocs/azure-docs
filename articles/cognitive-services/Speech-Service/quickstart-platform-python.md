@@ -14,16 +14,16 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for Python platform setup - Speech service
 
-This article shows how to install the [Speech SDK](speech-sdk.md) for Python.
+This guide shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems
 
 * The Python Speech SDK package is available for these operating systems:
-    * Windows: x64 and x86.
-    * Mac: macOS X version 10.12 or later.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64.
+    * Windows: x64 and x86
+    * Mac: macOS X version 10.12 or later
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64
 
 ## Prerequisites
 
@@ -47,7 +47,8 @@ This article shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
 ##  Install the Speech SDK using Visual Studio Code
 
-1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 or later. Make sure to select "Add Python to your PATH" during the installation process (Windows only).
+1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.5 or later.
+    * Windows users make sure to select "Add Python to your PATH" during the installation process.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python** and click **Install**.
 
@@ -57,7 +58,7 @@ This article shows how to install the [Speech SDK](speech-sdk.md) for Python.
     1. Open a terminal (from the drop-down menus, **Terminal** > **New Terminal**)
     1. In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech`
 
-That's it, you're ready to start coding to the Speech SDK in Python, you can move on to [Next steps](#next-steps) below. If you are new to Visual Studio Code, refer to the more extensive [Visual Studio Code Documentation](https://code.visualstudio.com/docs). For more information about Visual Studio Code and Python, see [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+That's it, you're ready to start coding to the Speech SDK in Python, and can move on to [Next steps](#next-steps) below. If you are new to Visual Studio Code, refer to the more extensive [Visual Studio Code Documentation](https://code.visualstudio.com/docs). For more information about Visual Studio Code and Python, see [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ##  Install the Speech SDK using the command line
 

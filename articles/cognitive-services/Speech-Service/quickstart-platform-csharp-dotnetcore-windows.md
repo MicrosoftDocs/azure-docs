@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Speech SDK for C# (.NET Core) platform setup - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C# under .NET Core on Windows or macOS by using the Speech SDK
+description: Use this guide to set up your platform for C# under .NET Core on Windows or macOS with the Speech Services SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for C# (.NET Core) platform setup - Speech Service
 
-This article shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.
+This guide shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.
 
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
