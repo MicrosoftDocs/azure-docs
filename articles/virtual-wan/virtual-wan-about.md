@@ -50,7 +50,7 @@ To configure an end-to-end Virtual WAN, you create the following resources:
 
   A hub gateway is not the same as a virtual network gateway that you use for ExpressRoute and VPN Gateway. For example, when using Virtual WAN, you don't create a site-to-site connection from your on-premises site directly to your VNet. Instead, you create a site-to-site connection to the hub. The traffic always goes through the hub gateway. This means that your VNets do not need their own virtual network gateway. Virtual WAN lets your VNets take advantage of scaling easily through the virtual hub and the virtual hub gateway.
 
-  **(Hub Preview Feature)** - Hubs are all connected to each other in a Virtual WAN. This implies a branch or user or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connected VNets within a hub transiting through the Virtual Hub as well as VNETs across hub using the Hub to hub connected framework.
+  **Hub-to-hub (Preview)** - Hubs are all connected to each other in a Virtual WAN. This implies a branch or user or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connected VNets within a hub transiting through the Virtual Hub as well as VNets across hub using the hub-to-hub connected framework.
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
