@@ -51,7 +51,6 @@ Create a new H2 for each task you list.
 ## Next steps
 
 <!---Some context for the following links goes here--->
-- [link to next logical step for the customer](quickstart-view-occupancy.md)
 
 <!--- Required:
 In Overview articles, provide at least one next step and no more than three.
