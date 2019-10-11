@@ -6,6 +6,7 @@ ms.date: 10/07/2019
 author: vkurpad 
 manager: eladz
 ms.author: vikurpad
+ms.reviewer: laobri
 
 services: search
 ms.service: search
@@ -14,21 +15,23 @@ ms.topic: conceptual
 ms.custom: seonov2019
 ---
 
-# Incrementally Indexing Documents with Azure Search
+# Incrementally indexing documents with Azure Search
+
 This article shows how to use Azure Search to incrementally index documents from any of the supported data sources. 
 If you are not familiar with setting up indexers in Azure search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md)
 First, it explains the basics of setting up and configuring incremental indexing. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Setting up incremental indexing
+
 Incremental indexing can be configured using:
 
 * Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 
 > [!NOTE]
-> this feature is not yet available in the portal, and has to be used programmatically.
+> This feature is not yet available in the portal and has to be used programmatically.
 >
 
-Here, we demonstrate the flow to adding incremental indexing to an existing indexer
+Here, we demonstrate the flow to adding incremental indexing to an existing indexer.
 
 ### Step 1: Get the indexer
 
@@ -54,7 +57,7 @@ Edit the response from the GET request to add the `cache` property to the indexe
 > This will result in all documents in your datasource being processed again. All cognitive enrichments will be re-run on all documents.
 >
 
-A reset of the indexer is required when setting up incremental indexing for existing indexers to ensure that all documents are in a consistent state. Reset the indexer, via the portal or using the REST API
+A reset of the indexer is required when setting up incremental indexing for existing indexers to ensure that all documents are in a consistent state. Reset the indexer via the portal or using the REST API.
 To create a data source:
 
     POST https://[service name].search.windows.net/indexers/[your indexer name]/reset?api-version=2019-05-06-preview
@@ -85,15 +88,15 @@ Setting up incremental indexing for a new indexer, simply include the cache prop
 
 ## Overriding incremental indexing
 
-When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases you will need to override this behavior to ensure that the indexer does not perform additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you do not want the change to result in any updates to existing documents.  Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made, for instance, if you redeploy a custom skill with a new model and want the skill rerun on all your documents.
+When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases you will need to override this behavior to ensure that the indexer does not perform additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you do not want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made, for instance, if you redeploy a custom skill with a new model and want the skill rerun on all your documents.
 
 ### Override reset requirement
 
-When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires a indexer reset. If you are making a change to the indexer pipeline and do not want the change tracking to invalidate the cache, you will need to set the `ignoreResetRequirement` querystring parameter to true for operations on the indexer or datasource.
+When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires a indexer reset. If you are making a change to the indexer pipeline and do not want the change tracking to invalidate the cache, you will need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or datasource.
 
 ### Override change detection
 
-When making updates to the skillset that would result in documents being flagged as incosistent, for example updating a custom skill URL when the skill is redeployed, set the `disableCacheReprocessingChangeDetection` query string parameter to true on skillset updates.
+When making updates to the skillset that would result in documents being flagged as inconsistent, for example updating a custom skill URL when the skill is redeployed, set the `disableCacheReprocessingChangeDetection` query string parameter to `true` on skillset updates.
 
 ### Force change detection
 
