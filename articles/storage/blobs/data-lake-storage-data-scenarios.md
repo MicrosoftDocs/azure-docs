@@ -21,6 +21,8 @@ There are four key stages in big data processing:
 
 Begin by creating a storage account and a container. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
 
+For a complete list of Azure services that you can use with Azure Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-store-integrate-with-azure-services.md)
+
 ## Create a Data Lake Storage Gen2 account
 
 A Data Lake Storage Gen2 account is a storage account that has a hierarchical namespace. 
