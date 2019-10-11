@@ -65,6 +65,19 @@ landingContent:
             url: tutorial-autoscale-ps.md
 
 # Card
+  - title: Ingress Controller
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Application Gateway Ingress Controller
+            url: application-gateway-ingress-controller-overview.md
+      # - linkListType: tutorial
+      #   links:
+      #     - text: Create an application gateway that improves web application access
+      #       url: tutorial-autoscale-ps.md
+
+
+# Card
   - title: Troubleshoot Application Gateway
     linkLists:
       - linkListType: overview

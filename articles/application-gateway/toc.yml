@@ -39,6 +39,8 @@
     href: resource-manager-template-samples.md
 - name: Concepts
   items:
+  - name: Ingress Controller 
+    href: application-gateway-ingress-controller-overview.md
   - name: Basics
     items:
     - name: How Application Gateway works
