@@ -263,6 +263,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 Limitations and known issues:
 
 * Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting 
+* Limitation of 200 features, unless a feature list is not specified 
 * Compute size must be large enough to handle the data 
 
 ## Next steps
