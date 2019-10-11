@@ -204,7 +204,7 @@ These metrics can also be retrieved in the Python SDK through the `get_metrics()
 
 #### Numeric features 
 
-Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio.
+Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio. Probability density is shown for the distribution.
 
 | Metric | Description |  
 | ------ | ----------- |  
@@ -217,7 +217,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 #### Categorical features 
 
-Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio.
+Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio. A histogram is shown for the distribution.
 
 | Metric | Description |  
 | ------ | ----------- |  
