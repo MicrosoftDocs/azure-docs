@@ -12,7 +12,7 @@ manager: philmea
 
 # Configure role-based access controls
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 By default, you can assign users in your IoT Central application to one of three built-in *roles*:
 

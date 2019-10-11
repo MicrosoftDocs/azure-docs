@@ -12,7 +12,7 @@ manager: philmea
 
 # Azure IoT Central architecture
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 This article provides an overview of the Microsoft Azure IoT Central architecture.
 

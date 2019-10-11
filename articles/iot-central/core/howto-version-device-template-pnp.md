@@ -12,7 +12,7 @@ manager: peterpr
 
 # Create a new device template version (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting device capabilities, views, and customizations. Once you have published your device template, the device capability model shows as **Published** with lock icons next to the model. In order to make changes to the device capability model, you will need to create a new version of the device template. Meanwhile the cloud properties, customizations, and views can all be edited at any time without needing to version the device template. Once you have saved any of these changes, you can publish the device template to make the latest changes available for the operator to view in Device Explorer.
 

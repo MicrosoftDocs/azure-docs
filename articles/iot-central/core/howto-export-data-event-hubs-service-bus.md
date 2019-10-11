@@ -12,7 +12,7 @@ manager: peterpr
 
 # Export your data in Azure IoT Central
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 *This topic applies to administrators.*
 

@@ -12,7 +12,7 @@ manager: peterpr
 
 # Manage your IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This article describes how, as an administrator, you can manage application by changing application name and URL, uploading image, also you can learn how to copy, and delete an application in your Azure IoT Central application.
 

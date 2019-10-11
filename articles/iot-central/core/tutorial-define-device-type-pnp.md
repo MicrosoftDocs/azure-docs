@@ -13,7 +13,7 @@ manager: philmea
 
 # Tutorial: Define a new device type in your Azure IoT Central application (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the capabilities of your device. Capabilities include telemetry the device sends, device properties, and the commands a device responds to.
 

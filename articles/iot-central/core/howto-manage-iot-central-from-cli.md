@@ -12,7 +12,7 @@ manager: philmea
 
 # Manage IoT Central from Azure CLI
 
-[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
+[!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
 Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) to manage your applications.
 
@@ -20,7 +20,7 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI](/cli/azure/install-azure-cli). When you run Azure CLI locally, use the **az login** command to sign in to Azure before you try the commands in this article.
 

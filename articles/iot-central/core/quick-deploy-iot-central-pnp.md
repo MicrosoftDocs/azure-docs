@@ -13,7 +13,7 @@ manager: peterpr
 
 # Create an Azure IoT Central application (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This quickstart shows you how to create an Azure IoT Central application that uses preview features such as IoT Plug and Play.
 

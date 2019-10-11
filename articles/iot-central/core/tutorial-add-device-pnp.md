@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Add a simulated device to your Azure IoT Central application (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you how to add and configure a simulated device to your Microsoft Azure IoT Central application.
 

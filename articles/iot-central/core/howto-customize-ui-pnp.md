@@ -17,7 +17,7 @@ manager: philmea
 
 This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 The following screenshot shows a page using the standard theme:
 

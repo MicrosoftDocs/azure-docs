@@ -12,7 +12,7 @@ manager: peterpfr
 
 # Use device groups in your Azure IoT Central application (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This article describes how, as an operator, to use device groups in your Azure IoT Central application.
 

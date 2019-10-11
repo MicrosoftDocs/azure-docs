@@ -12,7 +12,7 @@ manager: philmea
 
 # Device connectivity in Azure IoT Central
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 

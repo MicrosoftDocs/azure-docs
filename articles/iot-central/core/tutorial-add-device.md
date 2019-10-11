@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Add a real device to your Azure IoT Central application
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 This tutorial shows you how to add and configure a *real device* to your Microsoft Azure IoT Central application. In this tutorial, you code the real device using Node.js and run the code on a desktop machine. You don't need a separate IoT device such as a Raspberry Pi or MXChip IoT DevKit device to complete this tutorial.
 

@@ -12,7 +12,7 @@ manager: corywink
 
 # Export your data to Azure Blob Storage
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *This topic applies to administrators.*
 
