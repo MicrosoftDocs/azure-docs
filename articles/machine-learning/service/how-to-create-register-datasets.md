@@ -81,7 +81,7 @@ datastore = Datastore.get(workspace, datastore_name)
 
 TabularDatasets can be created via the SDK or by using Azure Machine Learning studio. A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a time series trait, which allows for easy and efficient filtering by time.
 
-#### Using the SDK
+#### With the Python SDK
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -137,17 +137,18 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Using the Azure Machine Learning studio
+#### On the web in the Azure Machine Learning studio
 
-[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
-
-Sign in to [Azure Machine Learning studio](https://ml.azure.com) to create a dataset via the web experience.
+>[!Important]
+> The functionality accessed online through the Azure Machine Learning studio (the studio page, https://ml.azure.com) is **accessible from Enterprise SKU workspaces only**. [Learn more about SKUs and upgrading](overview-what-is-azure-ml.md#sku). 
 
 The following animation shows how to create a dataset in the studio.
 
-First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
-
-![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
+1. Sign in to the studio page, https://ml.azure.com, to create a dataset.
+1. Select **Datasets** in the **Assets** section of the left pane. 
+1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. 
+   The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. 
+1. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
 
 ### Create FileDatasets
 
