@@ -200,9 +200,32 @@ The target dataset is also profiled over time. The statistical distance between 
 
 In the Azure Machine Learning studio, if you click on a data point in the graph the distribution of the feature being shown will adjust accordingly. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature. 
 
+These metrics can also be retrieved in the Python SDK through the `get_metrics()` method on a `DataDriftDetector` object. 
+
+#### Numeric features 
+
+Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio.
+
+| Metric | Description |  
+| ------ | ----------- |  
+| Wasserstein distance | Minimum amount of work to transform baseline distribution into the target distribution. |
+| Mean value | Average value of the feature. |
+| Min value | Minimum value of the feature. |
+| Max value | Maximum value of the feature. |
+
 ![Feature details](media/how-to-monitor-datasets/feature-details.png)
 
-These metrics can also be retrieved in the Python SDK through the `get_metrics()` method on a `DataDriftDetector` object. 
+#### Categorical features 
+
+Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio.
+
+| Metric | Description |  
+| ------ | ----------- |  
+| Euclidian distance | Geometric distance between baseline and target distributions. |
+| Unique values | Number of unique values (cardinality) of the feature. |
+
+
+![Feature details](media/how-to-monitor-datasets/feature-details2.png)
 
 ## Troubleshooting
 
