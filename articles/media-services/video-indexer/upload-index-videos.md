@@ -27,7 +27,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 
 ## Uploading considerations and limitations
  
-- The name of the video must be no greater than 80 characters.
+- A name of the video must be no greater than 80 characters.
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher).
 - The upload size with the URL option is limited to 30GB.
 - The request URL length is limited to 6144 characters where the query string URL length is limited to 4096 characters .
