@@ -16,7 +16,7 @@ Site-to-site based VPN connectivity and Virtual WAN architecture is available fo
 
 |Geopolitical region | Azure regions|
 |---|---|
-|North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |
+| North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |
 |South America |Brazil South |
 | Europe | France Central, France South, North Europe, West Europe, UK West, UK South |
 | Asia | East Asia, Southeast Asia |
