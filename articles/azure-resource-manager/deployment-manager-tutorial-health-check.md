@@ -366,9 +366,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Use the **Filter by name** field to narrow down the resource groups created in this tutorial. There shall be 3-4:
 
-    * **&lt;namePrefix>rg**: contains the Deployment Manager resources.
-    * **&lt;namePrefix>ServiceWUSrg**: contains the resources defined by ServiceWUS.
-    * **&lt;namePrefix>ServiceEUSrg**: contains the resources defined by ServiceEUS.
+    * **&lt;projectName>rg**: contains the Deployment Manager resources.
+    * **&lt;projectName>ServiceWUSrg**: contains the resources defined by ServiceWUS.
+    * **&lt;projectName>ServiceEUSrg**: contains the resources defined by ServiceEUS.
     * The resource group for the user-defined managed identity.
 3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
