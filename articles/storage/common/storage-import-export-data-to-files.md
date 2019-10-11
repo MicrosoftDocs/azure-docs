@@ -85,7 +85,7 @@ Perform the following steps to prepare the drives.
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Multiple entries can be made in the same file corresponding to multiple drives. Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Multiple entries can be made in the same file corresponding to multiple drives. Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md). 
 
 5. Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
