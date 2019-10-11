@@ -17,7 +17,7 @@ ms.custom: mvc
 
 This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API. The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
  
-![Quickstart app workflow](./media/quick-run-python/sampleapp.png)
+![Overview of the Azure Batch workflow](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
