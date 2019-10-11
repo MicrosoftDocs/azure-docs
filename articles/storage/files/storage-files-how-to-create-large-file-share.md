@@ -82,7 +82,7 @@ Creating a large file share is almost identical to creating a standard file shar
 Once your storage account has enabled large file shares, you can expand existing shares to the higher quota capacities.
 
 1. From your storage account, select **File shares**.
-1. Right click your file share and select **Quota**.
+1. Right-click your file share and select **Quota**.
 1. Enter the new size that you desire, then select **OK**.
 
 ![update-large-file-share-quota.png](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
