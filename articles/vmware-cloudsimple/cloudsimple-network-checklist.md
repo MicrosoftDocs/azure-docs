@@ -53,6 +53,7 @@ A point-to-site VPN connection enables access to the CloudSimple network from a 
 
 ## Next steps
 
+* [On-premises firewall setup for accessing your private cloud](on-premises-firewall-configuration.md)
 * [Quickstart - Create a CloudSimple service](quickstart-create-cloudsimple-service.md)
 * [Quickstart- Configure a private cloud](quickstart-create-private-cloud.md)
 * Learn more about [Azure network connections](cloudsimple-azure-network-connection.md)
