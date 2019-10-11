@@ -147,20 +147,18 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 ## Authenticate access with managed identity
 
-After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). 
-
+After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 If you have an Azure function where you want to use the system-assigned identity, complete these tasks first:
 
 * [Set up anonymous authentication in your function](../logic-apps/logic-apps-azure-functions.md#set-authentication-function-app)
 * [Set up Azure AD authentication in your function app](../logic-apps/logic-apps-azure-functions.md#set-azure-ad-authentication)
 
-
-These steps show how select the managed identity for trigger or action in Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+These steps show how use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. If you haven't done so yet, add the trigger or action that supports managed identities.
+1. If you haven't done so yet, add the trigger or action [that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 1. From the **Authentication** list, select **Managed Identity**.
 
