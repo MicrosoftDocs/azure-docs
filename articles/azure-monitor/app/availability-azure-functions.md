@@ -18,7 +18,7 @@ ms.author: mogrobin
 This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
 
 
-## Create Timer triggered function
+## Create timer triggered function
 
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
@@ -36,7 +36,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
     - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
     - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
 
-## Sample Code
+## Sample code
 
 Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure Functions application and select your timer trigger function on the left.
 
@@ -195,7 +195,7 @@ On the right under view files, select **Add**. Call the new file **function.proj
 
 ![On the right select, add. Name the file function.proj](media/availability-azure-functions/addfile.png)
 
-## Check Availability
+## Check availability
 
 To make sure everything is working, you can look at the graph in the Availability tab of your Application Insights resource.
 
@@ -209,7 +209,7 @@ To see the end-to-end transaction details, select **Successful** or **Failed** u
 
 ![End-to-end transaction details](media/availability-azure-functions/end-to-end.png)
 
-## Query in Logs(Analytics)
+## Query in Logs (Analytics)
 
 You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
 
@@ -217,7 +217,7 @@ You can use Logs(analytics) to view you availability results, dependencies, and 
 
 ![Dependencies](media/availability-azure-functions/dependencies.png)
 
-## Next Steps
+## Next steps
 
 - [Application Map](../../azure-monitor/app/app-map.md)
 - [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
