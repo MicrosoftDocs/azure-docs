@@ -16,8 +16,6 @@ ms.date: 10/08/2019
 
 An Azure Machine Learning compute instance is a fully managed cloud-based workstation.  It's easy to get started with Azure Machine Learning using the management and enterprise readiness capabilities of this compute resource. Use a compute instance as your fully configured and managed development environment in the cloud.
 
-Add video link here.
-
 ## Why use a compute instance?
 
 A compute instance is a single managed VM, optimized to be your development environment in the cloud.  
@@ -34,7 +32,7 @@ A compute instance is a single managed VM, optimized to be your development envi
 
 ## Tools and environments
 
-AzureML compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace. 
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace. 
 
 Use these pre-configured tools on the AzureML compute instance:
 
