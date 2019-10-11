@@ -23,6 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
+0.9.4 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100415) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.4)
 0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
 0.9.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100128) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.2)
 0.9.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100063) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.1)
@@ -44,9 +45,14 @@ The basic tutorials require the `libk4abt<major>.<minor>-dev` package. To instal
 If the command succeeds, the SDK is ready for use.
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.2". You will find the samples referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.4". You will find the samples referenced in articles in this path.
 
 ## Change log
+
+### v0.9.4
+* [Feature] Add hand joints support. The SDK will provide information for three additional joints for each hand: HAND, HANDTIP, THUMB.
+* [Feature] Add prediction confidence level for each detected joints.
+* [Feature] Add CPU mode support. By changing the `cpu_only_mode` value in `k4abt_tracker_configuration_t`, now the SDK can run on CPU mode which doesn't require the user to have a powerful graphics card.
 
 ### v0.9.3
 * [Feature] Publish a new DNN model dnn_model_2_0.onnx, which largely improves the robustness of the body tracking.
@@ -54,6 +60,7 @@ If the command succeeds, the SDK is ready for use.
 * [Feature] Improve the accuracy of the body index map.
 * [Bug Fix] Fix bug that the sensor orientation setting is not effective.
 * [Bug Fix] Change the body_index_map type from K4A_IMAGE_FORMAT_CUSTOM to K4A_IMAGE_FORMAT_CUSTOM8.
+* [Known Issue] Two close bodies may merge to single instance segment.
 
 ### v0.9.2
 * [Breaking Change] Update to depend on the latest Azure Kinect Sensor SDK 1.2.0.

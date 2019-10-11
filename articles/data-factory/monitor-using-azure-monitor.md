@@ -466,7 +466,7 @@ After a few moments, the new setting appears in your list of settings for this d
 * In _Azure-Diagnostics_ mode, diagnostic logs flow into _AzureDiagnostics_ table
 
 > [!NOTE]
-> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 

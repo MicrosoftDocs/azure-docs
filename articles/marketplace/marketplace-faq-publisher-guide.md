@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
 ---
 
@@ -150,7 +150,7 @@ These are the most common options per offer type:
 
 **What kinds of trials are supported?**
 
-Free trial offers are listings with a call to action to initiate a trial. These lead the customer to a website defined by the publisher to set up the trial experience. Trials can also be added to paid offerings where the first month is free. 
+Publishers can add one free month for paid SaaS offers and one or three free months of consumption for VM images. Free trial offers are listings with a call to action to initiate a trial. These lead the customer to a website defined by the publisher to set up the trial experience. Trials can also be added to paid offerings where the first month is free. 
 
 **Do I need to have a payment instrument (for example, credit card) on file to deploy Free Tier or bring your own license (BYOL) offerings?**
 
@@ -164,6 +164,10 @@ Enterprise Agreement (EA) indirect customers must contact their Licensing Soluti
 
 Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may turn off purchase privileges for all accounts on the enrollment and turn it back on long enough to make a purchase. Additionally, all customers can use Azure Policy to restrict deployment options for their Azure subscriptions, including management of Azure Marketplace resources.
 
+**What payment methods are supported for commercial marketplace purchases?**
+
+Customers can purchase offerings from Azure Marketplace and Microsoft AppSource using credit cards. If you have an existing Azure subscription, purchases from Azure Marketplace will use the payment method configured on the account and appear on the same invoice as a separate line item. Some offers consume Azure monetary commitment, but most commercial marketplace purchases do not draw down Enterprise Agreement commitments although Azure infrastructure consumption will.
+
 **Can I apply Azure subscription credits or monetary commitment funds in my account towards Azure Marketplace offers?**
 
 Specific Azure Marketplace offers can use Azure subscription credits or monetary commitment funds. See [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) for a complete list of products participating in this program. These offers do not include BYOL or BYOS options. All other Azure Marketplace offers cannot use Azure subscription credits or monetary commitment: such as the free one-month trial credit, monthly MSDN credits, credits from Azure promotions, monetary commitment balances, and any other free credits provided from Azure.
@@ -171,12 +175,6 @@ Specific Azure Marketplace offers can use Azure subscription credits or monetary
 **Do Volume License discounts apply to Azure Marketplace purchases?**
 
 No. The publisher that owns solutions in Azure Marketplace can set pricing.  Standard Microsoft volume license discounts do not apply towards Azure Marketplace purchases.
-
-**How do I pay for these subscriptions? Do my Azure Marketplace purchases appear on the Azure bill, or is there another bill?**
-
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (such as web-direct) customers are charged against the same credit card that is on file for their Azure subscription profile. If you do not have a credit card on file, then you cannot purchase from the Azure Marketplace. In this case, you received a special waiver to have your Azure charges invoiced to you instead.
-
-Enterprise Agreement (EA) customers are charged against their EA. Specific Azure Marketplace offers listed here are first deducted from any available monetary commitment, then billed as an overage on a single quarterly invoice. EA indirect, education, and government customers are billed by their Licensing Solution Provider (LSP).
 
 **Where can I view my Azure Marketplace subscription details and billing information?**
 
@@ -192,7 +190,7 @@ Since the add-on is associated to the Azure Virtual Machine (VM), to cancel the 
 
 **How often am I billed for my Azure Marketplace purchases?**
 
-Enterprise Agreement customers, for the specific services outlined, first have available monetary commitment funds reduced by the total cost for these services in the month they are consumed. All Azure Marketplace offers that do not deduct from monetary commitment, are billed monthly in arrears. Annual SaaS subscriptions are billed once for a full year's services.
+All Azure Marketplace offers that do not deduct from monetary commitment, are billed monthly in arrears. Annual SaaS subscriptions are billed once for a full year's services.
 
 MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/) (web direct) customers are charged monthly against the same credit card that is on file for their Azure subscription profile. Annual SaaS subscriptions are billed once for a full year's services.
 
@@ -205,10 +203,6 @@ To migrate other services purchased from the Azure Marketplace to an EA subscrip
 **What is the difference between *price*, *software price*, and *total price* in the cost structure for Virtual Machine offers in the Azure Marketplace?**
 
 *Price* refers to the cost of the Azure Virtual Machine to run the software. *Software price* refers to the cost of the Marketplace publisher's software running on an Azure Virtual Machine. *Total price* refers to the combined total cost of the Azure Virtual Machine and the Marketplace publisher's software running on an Azure Virtual Machine.
-
-**Can I apply Azure subscription credits or monetary funds on my account towards Azure products and services required to run Azure Marketplace offers?**
-
-Yes. Azure subscription credits or monetary commitment funds on the account can be used toward Azure products and Azure Marketplace offers. For example, Azure monetary commitment funds can be applied towards the *price* component of a Virtual Machine offer in the Azure Marketplace. However, Azure subscription credits and monetary commitment funds can only be applied towards certain Marketplace publishers' software (*software price*) running on an Azure Virtual Machine.
 
 **How do I find out how much of my Azure Marketplace purchase I have used?**
 
@@ -382,9 +376,9 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-*Power BI Apps:*
+**Why aren’t my changes reflected in the offer?**
 
-Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
 ### Benefits and Go-To-Market (GTM) Resources
 
@@ -464,6 +458,16 @@ Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF
 **What is the difference between Free Tier and Free Software Trial?**
 
 A Free Tier subscription offering is perpetually free.  A Free Software Trial (Try It Now) offering is a paid subscription, only free for a limited period of time.
+
+**What is the process to validate the end to end purchase and provisioning flow?**
+
+During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer’s configuration.
+
+To complete a purchase at a very low price, Microsoft suggests publishing a private Plan to yourself set at a price you can accept as the cost of testing. Zero is supported but will not reflect the full experience like a paid subscription.
+
+**Will Microsoft provide a refund outside standard policies?**
+
+Yes, upon your request via support ticket, Microsoft will process credits to your customer if you deem it appropriate.
 
 ## Next steps
 

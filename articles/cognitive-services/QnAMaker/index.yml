@@ -25,6 +25,10 @@ landingContent:
             url: overview/overview.md
           - text: QnA Maker portal
             url: https://www.qnamaker.ai
+      - linkListType: whats-new
+        links:      
+          - text: What's new
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: Development lifecycle
@@ -44,7 +48,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
-            url: how-to/create-knowledge-base.md
+            url: quickstarts/create-publish-knowledge-base.md
           - text: "Quickstart: Add questions and answer"
             url: quickstarts/add-question-metadata-portal.md
       - linkListType: how-to-guide

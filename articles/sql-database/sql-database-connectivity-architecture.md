@@ -64,7 +64,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canada Central       | 40.85.224.249      |
 | Canada East          | 40.86.226.166      |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
 | China North          | 139.219.15.17      |

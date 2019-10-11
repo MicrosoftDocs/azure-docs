@@ -24,9 +24,9 @@ For an Azure Functions workflow, the file has three sections:
 
 | Section | Tasks |
 | ------- | ----- |
-| **Authentication** | <ol><li>Define a service principal.</li><li>Create a GitHub secret.</li></ol>|  
+| **Authentication** | <ol><li>Define a service principal.</li><li>Download publishing profile.</li><li>Create a GitHub secret.</li></ol>|
 | **Build** | <ol><li>Set up the environment.</li><li>Build the function app.</li></ol> |
-| **Deploy** | <ol><li>Deploy the function app.</li></ol>| 
+| **Deploy** | <ol><li>Deploy the function app.</li></ol>|
 
 ## Create a service principal
 
@@ -38,16 +38,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provides access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
 
+> [!NOTE]
+> You do not need to create a service principal if you decide to use publishing profile for authentication.
+
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific function app and not the entire resource group.
+
+## Download the publishing profile
+
+You can download the publishing profile of your functionapp, by going to the **Overview** page of your app and clicking **Get publish profile**.
+
+   ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
+
+Copy the content of the file.
 
 ## Configure the GitHub secret
 
 1. In [GitHub](https://github.com), browse your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
-    ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
+   ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` for the **Name** and the copied command output for **Value**, then select **Add secret**. 
+1. Use `AZURE_CREDENTIALS` for the **Name** and the copied command output for **Value**, if you then select **Add secret**. If you are using publishing profile, use `SCM_CREDENTIALS` for the **Name** and the file content for **Value**.
 
 GitHub can now authenticate to your function app in Azure.
 
