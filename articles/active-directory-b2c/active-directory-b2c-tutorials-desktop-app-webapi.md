@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the steps and prerequisites in [Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
+Complete the steps and prerequisites in [Tutorial: Authenticate users in a native desktop client](active-directory-b2c-tutorials-desktop-app.md).
 
 ## Add a web API application
 
@@ -72,7 +72,7 @@ In a prerequisite for this article, you modified a [WPF desktop application](htt
     1. Replace the value of the `ApiScopes` variable with the value you recorded earlier when you defined the **demo.read** scope.
     1. Replace the value of the `ApiEndpoint` variable with the **Redirect URI** you recorded earlier when you registered the web API (for example, *webapi1*) in your tenant.
 
-    Here's an example
+    Here's an example:
 
     ```csharp
     public static string[] ApiScopes = { "https://contosob2c.onmicrosoft.com/api/demo.read" };
@@ -81,7 +81,7 @@ In a prerequisite for this article, you modified a [WPF desktop application](htt
 
 ### Get and update the Node.js API sample
 
-Next, get the Node.js web API code sample from GitHub and configure it to run
+Next, get the Node.js web API code sample from GitHub and configure it to use the web API you registered in your Azure AD B2C tenant.
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web app from GitHub.
 
@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 The Node.js web API sample uses the Passport.js library to enable Azure AD B2C to protect calls to the API.
 
 1. Open the `index.js` file.
-1. Update the values in the following variable definitions with with these values. Change `<web-API-application-ID>` to the **Application (client) ID** of the web API you registered earlier (*webapi1*). Change `<your-b2c-tenant>` to the name of your Azure AD B2C tenant.
+1. Update these variable definitions with the following values. Change `<web-API-application-ID>` to the **Application (client) ID** of the web API you registered earlier (*webapi1*). Change `<your-b2c-tenant>` to the name of your Azure AD B2C tenant.
 
     ```nodejs
     var clientID = "<web-API-application-ID>";
