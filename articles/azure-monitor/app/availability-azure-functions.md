@@ -1,6 +1,6 @@
 ---
 title: Create and run custom availability tests using Azure Functions
-description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insights resource, where you will be able to query for the alert on the availability results data. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
+description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
 services: application-insights
 documentationcenter: ''
 author: morgangrobin
@@ -15,7 +15,7 @@ ms.author: mogrobin
 
 # Create and run custom availability tests using Azure Functions
 
-This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insights resource, where you will be able to query for the alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test if it's not available in your region.
+This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger function. The results of this test will be sent to your Application Insights resource, where you will be able to query for and alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal. Customized tests will allow you to write more complex availability tests than is possible using the portal UI, monitor an app inside of your Azure VNET, change the endpoint address, or create an availability test even if this feature is not available in your region.
 
 
 ## Create Timer triggered function
@@ -38,7 +38,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 ## Sample Code
 
-Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure functions application and select your timer trigger function on the left.
+Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure Functions application and select your timer trigger function on the left.
 
 ![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
 
@@ -61,7 +61,7 @@ using Microsoft.Extensions.Logging;
 // [CONFIGURATION_REQUIRED] configure test timeout accordingly for which your request should run
 private static readonly HttpClient HttpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
 
-// The Application Insights Instrumentation Key can be change by going the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
+// The Application Insights Instrumentation Key can be changed by going to the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting. DO NOT replace the code below with your instrumentation key, the key's value is pulled from the environment variable/application setting key/value pair.
 private static readonly string InstrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
 
 // [CONFIGURATION_REQUIRED] Configure EndpointAddress
@@ -165,7 +165,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
         availability.Duration = stopwatch.Elapsed;
         availability.Timestamp = DateTimeOffset.UtcNow;
 
-        // do not make assumption for the state of web app when is monitoring failure
+        // do not make an assumption as to the state of the web app when monitoring failures occur
         if (!isMonitoringFailure)
         {
             TelemetryClient.TrackAvailability(availability);
