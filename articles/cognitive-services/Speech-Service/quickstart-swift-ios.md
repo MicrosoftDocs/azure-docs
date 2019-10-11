@@ -22,10 +22,10 @@ In this article, you learn how to create an iOS app in Swift by using the Azure 
 
 ## Prerequisites
 
-Before you get started, here's a list of prerequisites:
+Before you get started, you'll need:
 
-* A [subscription key](get-started.md) for the Speech Service
-* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and [CocoaPods](https://cocoapods.org/) installed
+* A [subscription key](get-started.md) for the Speech Service.
+* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and [CocoaPods](https://cocoapods.org/) installed.
 
 ## Get the Speech SDK for iOS
 
@@ -49,7 +49,7 @@ In the dialog boxes that follow, make the following selections.
     1. Disable the check boxes to use storyboards and to create a document-based application. The simple UI for the sample app is created programmatically.
     1. Clear all the check boxes for tests and core data.
 1. Select a project directory:
-    1. Choose a directory to put the project in. This step creates a `helloworld` directory in the chosen directory that contains all the files for the Xcode project.
+    1. Choose a directory to put the project in. This step creates a helloworld directory in the chosen directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
 1. The app also needs to declare use of the microphone in the `Info.plist` file. Select the file in the overview, and add the **Privacy - Microphone Usage Description** key with a value like *Microphone is needed for speech recognition*.
 
@@ -59,7 +59,7 @@ In the dialog boxes that follow, make the following selections.
 
 ## Add the sample code
 
-1. Place a new header file with the name `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` into the `helloworld` directory inside the helloworld project. Paste the following code into it:
+1. Place a new header file with the name `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` into the helloworld directory inside the helloworld project. Paste the following code into it:
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 
@@ -79,14 +79,14 @@ In the dialog boxes that follow, make the following selections.
 ## Install the SDK as a CocoaPod
 
 1. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
-1. Go to the directory of your sample app, which is `helloworld`. Place a text file with the name `Podfile` and the following content in that directory:
+1. Go to the directory of your sample app, which is helloworld. Place a text file with the name *Podfile* and the following content in that directory:
 
    [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
-1. Go to the `helloworld` directory in a terminal, and run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace that contains both the sample app and the Speech SDK as a dependency. This workspace is used in the following steps.
+1. Go to the helloworld directory in a terminal, and run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace that contains both the sample app and the Speech SDK as a dependency. This workspace is used in the following steps.
 
 ## Build and run the sample
 
-1. Open the `helloworld.xcworkspace` workspace in Xcode.
+1. Open the workspace `helloworld.xcworkspace` in Xcode.
 1. Make the debug output visible by selecting **View** > **Debug Area** > **Activate Console**.
 1. Choose either the iOS simulator or an iOS device connected to your development machine as the destination for the app from the list in the **Product** > **Destination** menu.
 1. Build and run the example code in the iOS simulator by selecting **Product** > **Run** from the menu. You also can select the **Play** button.

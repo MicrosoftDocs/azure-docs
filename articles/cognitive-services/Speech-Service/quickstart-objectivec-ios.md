@@ -22,11 +22,11 @@ In this article, you learn how to create an iOS app in Objective-C by using the 
 
 ## Prerequisites
 
-Before you get started, here's a list of prerequisites:
+Before you get started, you'll need:
 
-* A [subscription key](get-started.md) for the Speech Service
-* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
-* The target set to iOS version 9.3 or later
+* A [subscription key](get-started.md) for the Speech Service.
+* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later.
+* The target set to iOS version 9.3 or later.
 
 ## Get the Speech SDK for iOS
 
@@ -51,7 +51,7 @@ In the dialog boxes that follow, make the following selections.
     ![Project settings](media/sdk/qs-objectivec-project-settings.png)
 
 1. Select a project directory:
-    1. Choose your home directory to put the project in. This step creates a `helloworld` directory in your home directory that contains all the files for the Xcode project.
+    1. Choose your home directory to put the project in. This step creates a helloworld directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK on the project settings screen.
             1. On the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework by selecting **Add embedded binaries** > **Add other**. Go to your home directory and select the file `MicrosoftCognitiveServicesSpeech.framework`. This action adds the SDK library to the header **Linked Framework and Libraries** automatically.
@@ -59,7 +59,7 @@ In the dialog boxes that follow, make the following selections.
             ![Added framework](media/sdk/qs-objectivec-framework.png)
 
             1. Go to the **Build Settings** tab, and select the **All** setting.
-            1. Add the directory `$(SRCROOT)/..` to **Framework Search Paths** under the **Search Paths** heading.
+            1. Add the directory $(SRCROOT)/.. to **Framework Search Paths** under the **Search Paths** heading.
 
            ![Framework Search Paths setting](media/sdk/qs-objectivec-framework-search-paths.png)
 
