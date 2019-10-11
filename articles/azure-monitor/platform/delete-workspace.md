@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 09/26/2019
 ms.author: magoedte
 ---
 
@@ -36,7 +36,7 @@ The workspace delete operation removes the workspace Resource Manager resource, 
 > [!NOTE] 
 > Installed solutions and linked services like Automation account are permanently removed from the workspace at deletion time and can’t be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previous functionality. 
 
-You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in [Azure portal](https://portal.azure.com).
+You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in [Azure portal](https://portal.azure.com).
 
 ### Delete workspace in Azure portal
 1. To sign in, go to the [Azure portal](https://portal.azure.com). 
@@ -49,11 +49,12 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 ## Recover workspace
 If you have Contributor permissions to the subscription and resource group to where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion.
 
-You can recover a workspace by re-creating the workspace using any of the supported create methods: PowerShell, Azure CLI, or from the Azure portal as long as these properties are populated with the deleted workspace’s details including:
+You can recover a workspace by re-creating the workspace using [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) workspace create methods as long as these properties are populated with the deleted workspace’s details including:
 1.	Subscription ID
 2.	Resource Group name
 3.	Workspace name
 4.	Region
 
 > [!NOTE]
-> Names of deleted workspaces are kept preserved for the soft-delete period and they can't be used when creating a new workspace. The workspace names are *released* and available for use for new workspace creation after the soft-delete period has expired.
+> * Workspace recovery isn’t supported in the [Azure portal](https://portal.azure.com). Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use.
+> * Names of deleted workspaces are preserved for the soft-delete period and they can't be used when creating a new workspace.
