@@ -110,16 +110,19 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
 ### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. This input is optional and is needed to enable application discovery and agentless dependency visualization.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
+
+> [!NOTE]
+> This input is optional and is needed to enable application discovery and agentless dependency visualization.
 
 1. In **Discover applications and dependencies on VMs**, click **Add credentials**.
 2. Select the **Operating System**.
 3. Provide a friendly name for the credential.
-4. In **Username** and **Password**, specify an account that has administrator access on the VMs.
+4. In **Username** and **Password**, specify an account that has at least guest access on the VMs.
 5. Click **Add**.
 
 Once you have specified the vCenter Server and VM credentials (optional), click **Save and start discovery** to start discovery of the on-premises environment.

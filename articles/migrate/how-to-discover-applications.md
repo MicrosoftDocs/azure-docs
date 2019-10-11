@@ -58,7 +58,7 @@ Download and install the agents on each on-premises machine that you want to vis
 > [!NOTE]
 > The count will only show up if you have provided guest credentials in the appliance and have waited for few hours for the discovery to complete.
 
-5. To export the application inventory across all the servers, click the gesture **Export App Inventory** on the page. This will download the application inventory in an excel format. The first sheet in the excel report, **Application Inventory** lists all the applications discovered across all virtual machines. The roles and features available  
+5. To export the application inventory across all the servers, click the gesture **Export application inventory** on the page. This will download the application inventory in an excel format. The first sheet in the excel report, **Application Inventory** lists all the applications discovered across all virtual machines. The roles and features available  
 
 ## Next steps
 

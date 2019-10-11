@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
 ---
 
@@ -99,7 +99,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For version 2.19.07.30, the generated hash should match these values. 
+3. For version 2.19.07.30, the generated hash should match these values.
 
   **Algorithm** | **Hash value**
   --- | ---
@@ -162,17 +162,30 @@ Set up the appliance using the following steps.
 3. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
 4. Click **Register**.
 
-
 ## Start continuous discovery
 
-Now, connect from the appliance to vCenter Server, and start VM discovery.
+The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
+### Specify vCenter Server details
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
 2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
-4. After the connection is established, click **Save and start discovery**.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal.
+### Specify VM credentials
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed.
+
+> [!NOTE]
+> This input is optional and is needed to enable application discovery and agentless dependency visualization.
+
+1. In **Discover applications and dependencies on VMs**, click **Add credentials**.
+2. Select the **Operating System**.
+3. Provide a friendly name for the credential.
+4. In **Username** and **Password**, specify an account that has at least guest access on the VMs.
+5. Click **Add**.
+
+Once you have specified the vCenter Server and VM credentials (optional), click **Save and start discovery** to start discovery of the on-premises environment.
+
+It takes around 15 minutes for metadata of discovered VMs to appear in the portal. Discovery of installed applications, roles, and features takes some time, the duration depends on the number of VMs being discovered. For 500 VMs, it takes approximately 1 hour for the application inventory to appear in the Azure Migrate portal.
 
 ### Scoping discovery
 
@@ -201,18 +214,18 @@ To set the scope, you need to perform the following steps:
 **Assign permissions on vCenter objects**
 
 There are 2 approaches to assign permissions on inventory objects in vCenter to the vCenter user account with a role assigned to it.
-- For Server Assessment, **Read-only** role must be applied to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters in the hierarchy up to the data center are to be included. These permissions are to be propagated to child objects in the hierarchy. 
+- For Server Assessment, **Read-only** role must be applied to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters in the hierarchy up to the data center are to be included. These permissions are to be propagated to child objects in the hierarchy.
 
     Similarly for Server Migration, a user-defined role (can be named <em> Azure _Migrate</em>) with these [privileges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assigned must be applied to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
 
 ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 
 - The alternative approach is to assign the user account and role at the datacenter level and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs) that you don’t want to discover/migrate. This configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
- 
+
 > [!NOTE]
 > Today, Server Assessment is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level.  Following are instructions on how you can do this:
 >
-> 1. Assign read-only permissions on all the VMs in the VM folders to which you want to scope the discovery. 
+> 1. Assign read-only permissions on all the VMs in the VM folders to which you want to scope the discovery.
 > 2. Grant read-only access to all the parent objects where the VMs are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters - in the hierarchy up to the data center are to be included. You do not need to propagate the permissions to all child objects.
 > 3. Use the credentials for discovery selecting datacenter as *Collection Scope*. The RBAC set up ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
 >
