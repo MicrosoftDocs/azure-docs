@@ -54,7 +54,7 @@
     href: install-office-on-wvd-master-image.md
   - name: Configure GPU for Windows Virtual Desktop
     href: configure-vm-gpu.md
-  - name: Automatically scale session hosts
+  - name: Scale session hosts dynamically
     href: set-up-scaling-script.md
   - name: Customize feed for Windows Virtual Desktop users
     href: customize-feed-for-virtual-desktop-users.md
@@ -74,6 +74,8 @@
     href: host-pool-load-balancing.md
   - name: FSLogix profile containers and Azure files
     href: fslogix-containers-azure-files.md
+  - name: Storage options for FSLogix profile containers
+    href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
   - name: Windows 10 Enterprise multi-session FAQ
@@ -84,7 +86,7 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify issues with the diagnostics feature
+  - name: Identify and diagnose issues
     href: diagnostics-role-service.md
   - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md

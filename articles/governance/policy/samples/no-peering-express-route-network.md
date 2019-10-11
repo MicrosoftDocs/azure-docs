@@ -1,8 +1,7 @@
 ---
-title: Sample - No network peering to Express Route network
+title: Sample - No network peering to Express Route
 description: This sample policy definition prohibits a network peering from being associated to a network in a specified resource group.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019

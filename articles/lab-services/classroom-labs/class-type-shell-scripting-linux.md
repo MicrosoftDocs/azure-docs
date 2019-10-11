@@ -80,9 +80,11 @@ This section shows you how to install a couple of text editors. Gedit is the def
 ## Cost 
 If you would like to estimate the cost of this lab, you can use the following example:
  
-For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 25 students * (20 + 10) hours * 20 Lab Units * 0.01 USD per hour = 150 USD
+For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 
 
-For more details on the pricing can be found in the following document: [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+25 students * (20 + 10) hours * 20 Lab Units * 0.01 USD per hour = 150 USD
+
+For more information on the pricing can be found in the following document: [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 This article walked you through the steps to create a lab for scripting classes. While this article focused on setting up Ruby scripting tools on Linux machine, same setup can be used for other scripting classes like Python on Linux.

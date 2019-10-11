@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 10/3/2019
 
 ---
 
@@ -20,7 +20,7 @@ With a Data Science Virtual Machine (DSVM), you can build your analytics against
 
 The following data platform tools are supported on the DSVM.
 
-## SQL Server 2016 Developer Edition
+## SQL Server 2017 Developer Edition
 
 | | |
 | ------------- | ------------- |
