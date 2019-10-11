@@ -214,6 +214,8 @@
     items:
     - name: Overview
       items:
+      - name: Apache Spark Overview
+        href: ../spark/spark-overview.md
       # - name: Runtime language and library support
       #   href: article-template.md
       # - name: Apache Spark Pools sizes
