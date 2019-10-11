@@ -1,5 +1,5 @@
 ---
-title: Cross-tenant management experiences with Azure Lighthouse
+title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
 author: JnHs
 ms.service: lighthouse
