@@ -177,6 +177,8 @@
     href: how-to-configure-proxy-support.md
   - name: Store data at the edge
     items:
+    - name: Use your IoT Edge device's local storage from a module
+      href: how-to-access-host-storage-from-module.md
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
     - name: Deploy blob storage modules
