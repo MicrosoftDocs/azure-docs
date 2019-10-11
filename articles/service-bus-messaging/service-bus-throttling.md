@@ -75,7 +75,7 @@ On migration, you can allocate dedicated resources to your Service Bus namespace
 
 The [Azure Service Bus Premium](service-bus-premium-messaging.md) tier allocates dedicated resources, in terms of messaging units, to each namespace setup by the customer. These dedicated resources provide predictable throughput and latency and are recommended for high throughput or sensitive production grade systems.
 
-Additionally, it also enables customers to scale up their throughput capacity when they experience spikes in the workload.
+Additionally, the Premium tier also enables customers to scale up their throughput capacity when they experience spikes in the workload.
 
 ### How does throttling work in Service Bus Premium?
 
