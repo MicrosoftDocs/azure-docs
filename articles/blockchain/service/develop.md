@@ -54,7 +54,7 @@ See [Tutorial: Send a transaction using Azure Blockchain Service](send-transacti
 
 Block explorers are online blockchain browsers that display individual block content, transaction address data, and history. Basic block information is available through Azure Monitor in Azure Blockchain Service, however, if you need more detail information during development, block explorers can be useful.  There are popular open-source block explorers you can use. The following is a list of block explorers that work with Azure Blockchain Service:
 
-* [Azure Blockchain Service Explorer](https://web3labs.com/azure-offer) from Web3 Labs
+* [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) from Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## TPS measurement
