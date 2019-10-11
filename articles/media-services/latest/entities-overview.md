@@ -155,7 +155,7 @@ The following table shows how the filtering and ordering options may be applied 
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|
-|Asset|name|`eq`|`asc` and `desc`|
+|Asset|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
