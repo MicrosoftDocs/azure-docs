@@ -50,7 +50,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
-    ```csharp
+    ```cli
         dotnet new mvc --no-https
     ```
 
@@ -82,12 +82,12 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-    ```csharp
+    ```cli
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
     ```
 2. Run the following command to restore packages for your project:
 
-    ```csharp
+    ```cli
         dotnet restore
     ```
 3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
@@ -96,7 +96,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     This command must be executed in the same directory as the *.csproj* file.
 
-    ```csharp
+    ```cli
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
@@ -116,7 +116,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
     
     > [!IMPORTANT]
-    > `HostBuilder` replaces `WebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
     ### Update `CreateWebHostBuilder` for .NET Core 2.x
 
@@ -134,14 +134,15 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ### Update `CreateWebHostBuilder` for .NET Core 3.x
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
-            })
-            .UseStartup<Startup>();
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
     ```
 
 6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
