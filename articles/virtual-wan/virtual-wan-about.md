@@ -11,7 +11,7 @@ ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
-# What is Azure Virtual WAN?
+# About Azure Virtual WAN
 
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. We have a list of partners that support connectivity automation with Azure Virtual WAN VPN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
@@ -29,19 +29,16 @@ This article provides a quick view into the network connectivity in Azure Virtua
 
 There are two types of Virtual WANs: Virtual WAN Basic and Virtual WAN Standard. To change a Basic hub to a Standard hub, go to WAN ->Configuration and edit the WAN settings in the portal.
 
->[!NOTE] You can change a Basic hub to Standard, but cannot revert a Standard hub back to Basic.
+>[!NOTE]
+>You can change a Basic hub to Standard, but cannot revert a Standard hub back to Basic.
 >
->
-
 
 | **Virtual WAN type** | **Hub type** | **Available configurations** |
 |---|---|---|
 |Virtual WAN Basic | Basic | site-to-site VPN only |
 | Virtual WAN Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through virtual hub |
 
-
 ## <a name="resources"></a>Virtual WAN resources
-
 
 To configure an end-to-end Virtual WAN, you create the following resources:
 
