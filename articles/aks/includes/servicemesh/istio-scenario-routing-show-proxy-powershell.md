@@ -6,7 +6,7 @@ ms.date: 10/9/2019
 ms.author: pabouwer
 ---
 
-```bash
+```powershell
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | Select-String -Pattern "istio-proxy:|voting-analytics:" -Context 0,2
 ```
 
