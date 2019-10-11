@@ -3997,7 +3997,12 @@
     },
     {
       "source_path": "articles/resource-manager-api-authentication.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-api-authentication",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-api-authentication.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
