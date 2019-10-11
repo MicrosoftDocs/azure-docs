@@ -27,7 +27,7 @@ This step by step guide explains how to integrate an on-premises SharePoint farm
 
 To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
-- An Azure Active Directory tenant with a plan that includes Application Proxy. Learn more about the [Azure Active Directory plans and pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+- An Azure Active Directory tenant with a plan that includes Application Proxy. Learn more about the [Azure Active Directory plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 - A [custom verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
 - On-premises Active Directory synchronized with Azure AD Connect with users able to [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
@@ -163,7 +163,7 @@ You can now access the SharePoint site externally via Azure AD Application Proxy
 
 ## Step 3: Configure Kerberos Constrained Delegation (KCD)
 
-Users will initially authenticate in Azure Active Directory, then to SharePoint using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure Active Directory user, it is required to configure Kerberos Constrained Delegation with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Users will initially authenticate in Azure Active Directory, then to SharePoint using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure Active Directory user, it is required to configure Kerberos Constrained Delegation with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### Set the service principal name for the SharePoint service account
 
@@ -173,7 +173,7 @@ To register SPN `HTTP/sharepoint` for the SharePoint application pool account `C
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
 The Setspn command searches for the SPN before it adds it. If it already exists, you will see a **Duplicate SPN Value** error. In this case, consider removing the existing SPN if it's not set under the correct application pool account.  
-You can verify that the SPN was added successfully by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+You can verify that the SPN was added successfully by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### Ensure that the connector is trusted for delegation to the SPN added to the SharePoint application pool account
 
