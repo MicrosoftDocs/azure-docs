@@ -38,7 +38,7 @@ ms.author: ramkris
 
 ## Release notes
 
-### <a name="2.4.0-preview"/>2.4.1-preview
+### <a name="2.4.1-preview"/>2.4.1-preview
 
 * Fixed TotalElapsedTime in the response of BulkDelete to correctly measure the total time including any retries.
 
