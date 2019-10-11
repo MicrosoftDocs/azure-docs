@@ -222,7 +222,7 @@ After you've created **myVm*, connect to it from the internet as follows:
     | ------- | ----- |
     | Server type| Select **Database Engine**.|
     | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
+    | User name | Enter username as username@servername which is provided during the SQL server creation. |
     |Password |Enter a password provided during the SQL server creation. |
     |Remember password|Select **Yes**.|
     |||
