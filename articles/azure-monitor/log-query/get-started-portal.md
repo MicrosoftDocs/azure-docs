@@ -181,7 +181,7 @@ You can save either the entire query page, or a single query as a function. Func
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
-The Query Explorer icon is at the top-right area. This lists all saved queries by category. It also enables you to mark specific queries as Favorites to quickly find them in the future. Double-click a saved query to add it to the current window.
+The Query Explorer icon is at the top-right area. This lists all saved queries by category. It also enables you to mark specific queries as Favourites to quickly find them in the future. Double-click a saved query to add it to the current window.
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
