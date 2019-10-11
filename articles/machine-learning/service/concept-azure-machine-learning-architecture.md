@@ -53,14 +53,15 @@ Use these tools for Azure Machine Learning:
 
 ## Glossary
 + <a href="#activities">Activity</a>
++ <a href="#compute-instance">Compute instance</a>
 + <a href="#compute-targets">Compute targets</a>
 + <a href="#datasets-and-datastores">Dataset & datastores</a>
-+ <a href="#deployment">Deployment</a>
++ <a href="#endpoints">Endpoints</a>
 + <a href="#environments">Environments</a>
 + [Estimators](#estimators)
 + <a href="#experiments">Experiments</a>
 + <a href="#github-tracking-and-integration">Git tracking</a>
-+ <a href="#iot-module-deployments">IoT modules</a>
++ <a href="#iot-module-endpoints">IoT modules</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#models">Models</a>
@@ -68,7 +69,7 @@ Use these tools for Azure Machine Learning:
 + <a href="#run-configurations">Run Configuration</a>
 + <a href="#snapshots">Snapshot</a>
 + <a href="#training-scripts">Training script</a>
-+ <a href="#web-service-deployments">Web services</a>
++ <a href="#web-service-endpoint">Web services</a>
 + <a href="#workspaces">Workspace</a>
 
 ### Activities
@@ -80,9 +81,15 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
+### Compute instance
+
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+
+Learn more about compute instances.
+
 ### Compute targets
 
-A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
+A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
 
 Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
 
@@ -96,23 +103,23 @@ For more information, see [Create and register Azure Machine Learning Datasets](
 
 A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
 
-### Deployment
+### Endpoints
 
-A deployment is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
+An endpoint is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
 
-#### Web service deployments
+#### Web service endpoint
 
-A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are encapsulated in an image, which provides the run time environment for the web service. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+When deploying a model as a web service the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
-Azure helps you monitor your web service deployment by collecting Application Insights telemetry or model telemetry, if you've chosen to enable this feature. The telemetry data is accessible only to you, and it's stored in your Application Insights and storage account instances.
+Azure helps you monitor your web service by collecting Application Insights telemetry or model telemetry, if you've chosen to enable this feature. The telemetry data is accessible only to you, and it's stored in your Application Insights and storage account instances.
 
 If you've enabled automatic scaling, Azure automatically scales your deployment.
 
-For an example of deploying a model as a web service, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
-#### IoT module deployments
+#### IoT module endpoints
 
-A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
+A deployed IoT module endpoint is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
 
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
@@ -150,7 +157,6 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
-
 ### Logging
 
 When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
@@ -186,7 +192,6 @@ You can't delete a registered model that is being used by an active deployment.
 
 For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### Runs
 
 A run is a single execution of a training script. Azure Machine Learning records all runs and stores the following information:
@@ -221,7 +226,6 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 ### Workspaces
 
 [The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
-
 
 ### Next steps
 
