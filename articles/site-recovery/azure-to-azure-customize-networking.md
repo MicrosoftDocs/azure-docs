@@ -12,7 +12,7 @@ ms.author: rajanaki
 ---
 # Customize networking configurations of the target Azure VM
 
-This article provides guidance on customizing networking configurations on the target Azure Virtual Machine (VM) when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
+This article provides guidance on customizing networking configurations on the target Azure virtual machine (VM) when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Before you start
 
@@ -56,7 +56,7 @@ Site Recovery will now honor these settings and ensure that the VM on failover i
 
 If you can't select or view a networking resource, go through the following checks and conditions:
 
-- The target field for a networking resource is enabled only if the source VM had a corresponding input. This is based on the principle that for a disaster recovery scenario, you would want either the exact or a scaled down version of your source.
+- The target field for a networking resource is enabled only if the source VM had a corresponding input. This is based on the principle that for a disaster recovery scenario, you would want either the exact or a scaled-down version of your source.
 - For each networking resource, some filters are applied in the drop-down list to ensure that the failover VM can attach itself to the resource selected and the failover reliability is maintained. These filters are based on the same networking conditions that would have been verified when you configured the source VM.
 
 Internal load balancer validations:
@@ -78,4 +78,4 @@ Network security group:
 
 
 > [!WARNING]
-> If the target VM is associated with an availability set, then you need to associate the public IP and internal load balancer of the same SKU with that of the other VM's public IP and internal load balancer in the availability set. If you don't, failure might not succeed.
+> If the target VM is associated with an availability set, then you need to associate the public IP and internal load balancer of the same SKU with that of the other VM's public IP and internal load balancer in the availability set. If you don't, failover might not succeed.
