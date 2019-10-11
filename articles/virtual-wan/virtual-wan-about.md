@@ -32,7 +32,7 @@ There are two types of Virtual WANs: Virtual WAN Basic and Virtual WAN Standard.
 | **Virtual WAN type** | **Hub type** | **Available configurations** |
 |---|---|---|
 |Virtual WAN Basic | Basic | Site-to-site VPN only |
-| Virtual WAN Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through virtual hub |
+| Virtual WAN Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
 
 To change a Basic hub to a Standard hub in the portal, navigate to **WAN ->Configuration** and edit the WAN settings.
 
@@ -44,13 +44,13 @@ To change a Basic hub to a Standard hub in the portal, navigate to **WAN ->Confi
 
 To configure an end-to-end Virtual WAN, you create the following resources:
 
-* **virtualWAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and cannot contain a common hub. Virtual Hubs across Virtual WAN do not communicate with each other.
+* **virtualWAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and cannot contain a common hub. Virtual hubs across Virtual WAN do not communicate with each other.
 
-* **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN Gateway inside the Virtual Hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a Point-to-site gateway in the virtual hub. The hub is the core of your network in a region. There can only be one hub per Azure region.
+* **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN Gateway inside the virtual hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a Point-to-site gateway in the virtual hub. The hub is the core of your network in a region. There can only be one hub per Azure region.
 
   A hub gateway is not the same as a virtual network gateway that you use for ExpressRoute and VPN Gateway. For example, when using Virtual WAN, you don't create a site-to-site connection from your on-premises site directly to your VNet. Instead, you create a site-to-site connection to the hub. The traffic always goes through the hub gateway. This means that your VNets do not need their own virtual network gateway. Virtual WAN lets your VNets take advantage of scaling easily through the virtual hub and the virtual hub gateway.
 
-  **Hub-to-hub (Preview)** - Hubs are all connected to each other in a Virtual WAN. This implies a branch or user or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connected VNets within a hub transiting through the Virtual Hub as well as VNets across hub using the hub-to-hub connected framework.
+  **Hub-to-hub (Preview)** - Hubs are all connected to each other in a Virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
