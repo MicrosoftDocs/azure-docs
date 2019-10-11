@@ -39,12 +39,9 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
     - **SetMissingValue**: Set a specific value to missing value in the dataset. The default placeholder is the question mark character (?), but you can use the  **Custom missing value** option to type a different value. For example, if you type "Taxi" for **Custom missing value**, then all "Taxi" in the dataset will be changed to missing value.
   
-    - **ReplaceValues**: Use this option to specify a single exact value to be replaced with any other exact value. For example, assuming your data contains the string `obs` used as a placeholder for missing values, you could specify a custom replacement operation using these options:
-    
-        1. Set **Replace** to **Custom**  
-  
-        2. For **Custom value**, type the value you want to find. In this case, you would type `obs`. 
-        3. For **New value**, type the new value to replace the original string with. In this case, you might type `?`  
+    - **ReplaceValues**: Use this option to specify a single exact value to be replaced with any other exact value.  You could replace missing values or custom values by setting **Replace** method:
+            - **Missing**: Choose this option to replace missing values in the input dataset. For **New Value**, type the value to replace the missing values with.
+            - **Custom**: Choose this option to replace custom values in the input dataset. For **Custom value**, type the value you want to find. For example, assuming your data contains the string `obs` used as a placeholder for missing values, you would type `obs`. For **New value**, type the new value to replace the original string with.
   
     Note that the **ReplaceValues** operation applies only to exact matches. For example, these strings would not be affected: `obs.`, `obsolete`.  
  
