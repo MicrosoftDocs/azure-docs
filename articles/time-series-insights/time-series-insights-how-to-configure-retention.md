@@ -51,3 +51,7 @@ For detailed information to better understand these settings, review [Understand
 ## Next steps
 
 - For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+
+- Learn about [planning out your environment](time-series-insights-environment-planning.md).

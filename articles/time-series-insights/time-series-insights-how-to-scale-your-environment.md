@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -54,6 +54,12 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 
 1. Select **Save** to scale the environment. The progress indicator is displayed until the change is committed, momentarily.
 
+1. Verify that the new capacity is [sufficient to prevent throttling](time-series-insights-diagnose-and-solve-problems.md).
+
 ## Next steps
 
-- Verify that the new capacity is [sufficient to prevent throttling](time-series-insights-diagnose-and-solve-problems.md).
+- For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+
+- Learn about [planning out your environment](time-series-insights-environment-planning.md).
