@@ -439,7 +439,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 > [!NOTE]
 > The function entry point method with the `[FunctionName]` attribute *must* be declared `static` when using entity classes. Non-static entry point methods may result in multiple object initialization and potentially other undefined behaviors.
 
-Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see the [Entity Construction](durable-functions-dotnet-entities.md#entity-construction) article.
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see [Entity construction](durable-functions-dotnet-entities.md#entity-construction).
 
 ## Entity client
 
@@ -499,7 +499,7 @@ public static Task Run(
 
 ### Example: client signals entity via interface
 
-Where possible, we recommend [Accessing Entities via Interfaces](durable-functions-dotnet-entities.md#accessing-entities-via-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
+Where possible, we recommend [accessing entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
 
 ```csharp
 public interface ICounter
