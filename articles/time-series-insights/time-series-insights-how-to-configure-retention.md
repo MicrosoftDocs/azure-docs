@@ -44,7 +44,7 @@ For detailed information to better understand these settings, review [Understand
 
 1. Toggle the **Storage limit exceeded behavior** setting. Select **Purge old data** or **Pause ingress** behavior.
 
-    [![Data retention accept and save.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![Data retention - accept and save.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Accept the check box indicating that you've reviewed the documentation and understand the potential risks of data loss. Select **Save** to configure the changes.
 
