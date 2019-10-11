@@ -117,7 +117,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Service and tools available for data migration scenarios
+          - text: Service and tools by data migration scenario
             url: dms-tools-matrix.md
           - text: Database Migration Guide
             url: https://datamigration.microsoft.com/
