@@ -43,7 +43,7 @@ In this walkthrough, you:
 ## Create an Azure Blob storage account and container
 
 1. Sign in to the [Azure portal][Azure portal].
-2. In the left pane, select **Storage accounts**, and on the **Storage accounts** screen, select **Add**.
+2. In the left navigation, select **Storage accounts**, and on the **Storage accounts** screen, select **Add**.
 3. On the storage account creation screen, select a subscription and resource group, and give the storage account a name. You can leave the other selections at default. Select **Review + create**, review the settings, and then select **Create**. 
    
    ![Create storage account][1]
@@ -55,7 +55,7 @@ In this walkthrough, you:
  
 ## Enable Event Hubs Capture
 
-1. In the Azure portal, navigate to your event hub by selecting its Event Hubs Namespace from **All resources**, selecting **Event hubs** under **Entities** in the left navigation, and then selecting your event hub. 
+1. In the Azure portal, navigate to your event hub by selecting its Event Hubs Namespace from **All resources**, selecting **Event hubs** in the left navigation, and then selecting your event hub. 
 2. On the event hub **Overview** screen, select **Capture events**.
 3. On the **Capture** screen, select **On**. Then, under **Azure Storage Container**, select **Select Container**. 
 4. On the **Containers** screen, select the storage container you created in the previous section, and then select **Select**. 
