@@ -20,7 +20,7 @@ The following chart compares the three main strategies to achieve a zero downtim
 
 | Strategy |  When to use | Pros | Cons |
 | -------- | ------------ | ---- | ---- |
-| **[Versioning](#versioning-strategy)** |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
+| **[Versioning](#versioning)** |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
 | **[Status check with slot](#status-check-with-slot)** | A system that doesn't have long-running orchestrations lasting more than 24-hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
 | **[Application routing](#application-routing)** | A system that doesn't have periods of time when orchestrations aren't running, such as those with orchestrations lasting more than 24-hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max-out the number of function apps allowed by your subscription (default 100). |
 
