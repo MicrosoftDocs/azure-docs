@@ -66,9 +66,9 @@ Performing analysis on past data for data drift. | This can be used to understan
 
 Using Azure Machine Learning, data drift is monitored through datasets. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A target dataset - usually model input data - is compared over time to your baseline dataset. This means that your target dataset must have a timestamp column specified.
 
-### Setting the timeseries trait in the target dataset
+### Setting the `timeseries` trait in the target dataset
 
-The target dataset needs to have the time series trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. This can be done through the Python SDK or Azure Machine Learning studio. A column representing a "fine grain" timestamp must be specified to add "timeseries" trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', you can create a virtual column through the path pattern setting and set it as the "coarse grain" timestamp to improve the importance of timeseries functionality. 
+The target dataset needs to have the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. This can be done through the Python SDK or Azure Machine Learning studio. A column representing a "fine grain" timestamp must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', you can create a virtual column through the path pattern setting and set it as the "coarse grain" timestamp to improve the importance of time series functionality. 
 
 #### Python SDK
 
@@ -93,7 +93,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-For a full example of using the timeseries trait of datasets, see the [example notebook](http://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
+For a full example of using the `timeseries` trait of datasets, see the [example notebook](http://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
 
 #### Azure Machine Learning studio
 
@@ -144,7 +144,7 @@ These settings are for running a backfill on past data for data drift metrics.
 | Setting | Description | Tips |
 | ------- | ----------- | ---- |
 | Start date | Start date of the backfill job. | | 
-| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. On an existing dataset monitor, metrics can be backfilled to anlayze historical data or replace metrics with updated settings. |
+| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. On an existing dataset monitor, metrics can be backfilled to analyze historical data or replace metrics with updated settings. |
 
 ## Create dataset monitors 
 
@@ -204,7 +204,7 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
-For a full example of setting up a timeseries dataset and data drift detector, see our [example notebook](https://aka.ms/datadrift-notebook).
+For a full example of setting up a `timeseries` dataset and data drift detector, see our [example notebook](https://aka.ms/datadrift-notebook).
 
 ## Understanding data drift results
 
