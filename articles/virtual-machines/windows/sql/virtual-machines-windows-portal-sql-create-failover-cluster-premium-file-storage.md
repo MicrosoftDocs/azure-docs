@@ -32,7 +32,7 @@ You should have an operational understanding of the following technologies:
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-One important difference is that on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
 
 Additionally, you should have a general understanding of the following technologies:
 
@@ -191,7 +191,7 @@ After the virtual machines are created and configured, you can configure the pre
 
 ## Step 3: Configure failover cluster with file share 
 
-The next step is to configure the failover cluster with S2D. In this step, you will do the following substeps:
+The next step is to configure the failover cluster. In this step, you will do the following substeps:
 
 1. Add Windows Failover Clustering feature
 1. Validate the cluster
@@ -217,8 +217,6 @@ The next step is to configure the failover cluster with S2D. In this step, you w
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
-
-For reference, the next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### Validate the cluster
 
@@ -252,7 +250,6 @@ After you validate the cluster, create the failover cluster.
 
 ### Create the failover cluster
 
-This guide refers to [Create the failover cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 To create the failover cluster, you need:
 - The names of the virtual machines that become the cluster nodes.
@@ -289,13 +286,15 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 
-## Step 4: Test failover cluster failover
+## Step 4: Test cluster failover
 
-In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI.
+Test failover of  your cluster. In Failover Cluster Manager, right-click your cluster > **More Actions** > **Move Core Cluster Resource** > **Select node** and select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you're able to successfully move the cluster to each node, then you are ready to install SQL Server.  
+
+:::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
 ## Step 5: Create SQL Server FCI
 
-After you have configured the failover cluster and all cluster components including storage, you can create the SQL Server FCI.
+After you have configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine with RDP.
 
