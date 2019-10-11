@@ -48,8 +48,8 @@ Media Services recommends using one of following live encoders that have RTMP as
   The items that the Media Services team tested:
 
   - RTMP SCTE35 insertion successful 
-  - Multi-bitrate content for the passthrough channel  
-  - Single bitrate stream for the live encoding
+  - Multi-bitrate content for the Passthrough live event  
+  - Single bitrate stream for the Live Encoding live event
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
