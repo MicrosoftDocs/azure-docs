@@ -183,7 +183,7 @@ The following example shows **delegatedResourceManagement.parameters.json** file
     }
 }
 ```
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to managed identities. Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
 
 ## Deploy the Azure Resource Manager templates
 

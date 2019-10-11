@@ -55,6 +55,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
 
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
 1. Select **Azure Spring Cloud** to go to the overview page. Then select the **Create** button to get started.
 
 1. Fill out the form, considering the following guidelines:
@@ -70,6 +72,8 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Go to the service **Overview** page and select **Config Server**.
 
 1. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## Build and deploy microservice applications
 
@@ -126,10 +130,15 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 ## Assign a public endpoint to gateway
 
-1. Open the **Application Dashboard** page.
-2. Select the `gateway` application to show the **Application Details** page.
-3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes. 
-4. Enter the assigned public IP into your browser to view your running application.
+1. Open the **Apps** tab in the menu on the left.
+2. Select the `gateway` application to show the **Overview** page.
+3. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. Enter the assigned public endpoint (labeled **URL**) into your browser to view your running application.
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## Next steps
