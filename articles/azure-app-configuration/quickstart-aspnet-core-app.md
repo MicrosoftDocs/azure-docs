@@ -131,7 +131,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
             .UseStartup<Startup>();
     ```
 
-    ### Update `CreateWebHostBuilder` for .NET Core 3.x
+    ### Update `CreateHostBuilder` for .NET Core 3.x
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
