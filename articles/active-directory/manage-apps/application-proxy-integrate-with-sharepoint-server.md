@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 
 # Enable remote access to SharePoint with Azure AD Application Proxy
 
-This step by step guide explains how to integrate an on-premises SharePoint farm with Azure Active Directory (Azure AD) Application Proxy.
+This step-by-step guide explains how to integrate an on-premises SharePoint farm with Azure Active Directory (Azure AD) Application Proxy.
 
 ## Prerequisites
 
 To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
-- An Azure Active Directory tenant with a plan that includes Application Proxy. Learn more about the [Azure Active Directory plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 - A [custom verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
 - On-premises Active Directory synchronized with Azure AD Connect with users able to [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
@@ -37,12 +37,12 @@ Configuring SharePoint with Application Proxy requires two URLs:
 - An internal URL, known only within the corporate domain and never used directly.
 
 > [!IMPORTANT]
-> To ensure that the links are mapped correctly, follow these recommendations for the internal URL:
-> - Use HTTPS
-> - Do not use custom ports
-> - In the corporate DNS, create a Host (A) to point to the SharePoint WFE (or load balancer), and not an Alias (CName)
+> To make sure that the links are mapped correctly, follow these recommendations for the internal URL:
+> - Use HTTPS.
+> - Don't use custom ports.
+> - In the corporate DNS, create a Host (A) to point to the SharePoint WFE (or load balancer), and not an alias (CName).
 
-In this article, the following values will be used:
+In this article, the following values are used:
 - Internal URL: `https://sharepoint`
 - External URL: `https://spsites-demo1984.msappproxy.net/`
 - Application pool account for the SharePoint web application: `Contoso\spapppool`
