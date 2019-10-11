@@ -32,11 +32,19 @@ As an access package manager, you can change the users who can request an access
 
 This article describes how to change the user and approval settings for an existing access package.
 
-## Choose between adding or editing a policy
+## Choose between one or multiple polices
 
-The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval settings. A single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
+The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval settings. A single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
 ![Multiple policies in an access package](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
+
+| Scenario | Number of policies |
+| --- | --- |
+| I want all users in my directory to have the same request and approval settings for an access package | One |
+| I want all users in certain connected organizations to be able to request an access package | One |
+| I want to allow users in my directory and also users outside my directory to request an access package | Multiple |
+| I want to specify different approval settings for some users | Multiple |
+| I want some users access package assignments to expire while other users can extend their access | Multiple |
 
 ### Add a new policy
 
@@ -53,6 +61,8 @@ Follow these steps to start adding a new policy to an existing access package.
 1. Type a name and a description for the policy.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
+
+1. Click **Next**.
 
 1. Perform the steps in one of the following policy sections.
 
@@ -76,9 +86,13 @@ Follow these steps to start editing a policy in an existing access package.
 
     ![Access package - Edit policy](./media/entitlement-management-access-package-request-policy/policy-edit.png)
 
+1. Click **Next**.
+
 1. Perform the steps in one of the following policy sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
+
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## Next steps
 
