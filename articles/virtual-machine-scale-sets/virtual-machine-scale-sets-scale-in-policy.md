@@ -21,27 +21,27 @@ ms.author: avverma
 
 # Use custom scale-in policies with Azure virtual machine scale sets (Preview)
 
-A VMSS deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new VMs based off the VMSS model, a scale-in affects running VMs that may have different configurations and/or functions as the VMSS workload evolves. 
+A virtual machine scale set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new Virtual Machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the VMSS workload evolves. 
 
-The scale-in policy feature provides users a way to configure the order in which VMs are scaled-in. The Preview introduces three scale-in configurations: 
+The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in. The Preview introduces three scale-in configurations: 
 
 1. NewestVM
 2. OldestVM
 3. Default
 
-***This feature previe is under Microsoft NDA nad no SLA is provided for the trial. Please do not use this preview feature on any production and/or critical environments.***
+***This feature preview is under Microsoft NDA and no SLA is provided for the trial. Please do not use this preview feature on any production and/or critical environments.***
 
 ## Default scale-in policy
 
-By default, VMSS applies a ‘Default’ scale-in policy to determine which instance(s) will be scaled in. Under the ‘Default’ policy, VMs are selected for scale-in in the following order:
+By default, virtual machine scale set applies a ‘Default’ scale-in policy to determine which instance(s) will be scaled in. Under the ‘Default’ policy, VMs are selected for scale-in in the following order:
 
-1. Balance VMs across Availability Zones (if the VMSS is deployed in zonal configuration)
-2. Balance VMs across Fault Domains (best effort)
-3. Delete VM with the highest instance ID
+1. Balance virtual machines across Availability Zones (if the scale set is deployed in zonal configuration)
+2. Balance virtual machines across Fault Domains (best effort)
+3. Delete virtual machine with the highest instance ID
 
 Users do not need to specify a scale-in policy if they just want the default ordering to be followed.
 
-Note that balancing across AZs or FDs does not move instances across AZs or FDs. The balancing is achieved through deletion of VMs from the unbalanced AZs/FDs till all AZs/FDs have an equal distribution of VMs.
+Note that balancing across AZs or FDs does not move instances across AZs or FDs. The balancing is achieved through deletion of virtual machines from the unbalanced AZs/FDs till all AZs/FDs have an equal distribution of VMs.
 
 ## Other scale-in policies
 
@@ -59,7 +59,7 @@ A scale-in policy can be defined on the VMSS model in the following ways:
 
 ### Through API
 
-Execute a PUT on the VMSS using VMSS API 2019-03-01:
+Execute a PUT on the virtual machine scale set using VMSS API 2019-03-01:
 
 ```put
 https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVMSS>?api-version=2019-03-01
@@ -86,9 +86,9 @@ In your template, under “properties”, add the following:
 
 The above block (in both a. and b.) specifies that VMSS will delete the Oldest VM in a zone-balanced scale set, when a scale-in is triggered (through Autoscale or manual delete).
 
-When a VMSS is not zone balanced, VMSS will first delete VMs across the imbalanced zone(s). Within the imbalanced zones, VMSS will use the scale-in policy specified above to determine which VM to scale in. In this case, within an imbalanced zone, VMSS will select the Oldest VM in that zone to be deleted.
+When a virtual machine scale set is not zone balanced, VMSS will first delete VMs across the imbalanced zone(s). Within the imbalanced zones, VMSS will use the scale-in policy specified above to determine which VM to scale in. In this case, within an imbalanced zone, VMSS will select the Oldest VM in that zone to be deleted.
 
-For non-zonal VMSS, the policy selects the oldest VM across the scale set for deletion.
+For non-zonal virtual machine scale set, the policy selects the oldest VM across the scale set for deletion.
 
 The same process applies when using ‘NewestVM’ in the above scale-in policy.
 
@@ -98,7 +98,7 @@ Modifying the scale-in policy follows the same process as applying the scale-in 
 
 ### Through API
 
-Execute a PUT on the VMSS using VMSS API 2019-03-01:
+Execute a PUT on the virtual machine scale set using VMSS API 2019-03-01:
 
 ```put
 https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVMSS>?api-version=2019-03-01 
@@ -127,18 +127,18 @@ The same process will apply if you decide to change ‘NewestVM’ to ‘Default
 
 ## Instance protection and scale-in policy
 
-VMSS provides to types of [instance protection](../virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
+Virtual machine scale sets provide two types of [instance protection](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
 
 1. Protect from scale-in
 2. Protect from scale-set actions
 
-A protected VM is not deleted through a scale-in action, regardless of the scale-in policy applied. For example, if VM_0 (oldest VM in the scale set) is protected from scale-in, and VMSS has ‘OldestVM’ scale-in policy enabled, VM_0 will not be considered for being scaled in, even though it is the oldest VM in the scale set. 
+A protected virtual machine is not deleted through a scale-in action, regardless of the scale-in policy applied. For example, if VM_0 (oldest VM in the scale set) is protected from scale-in, and VMSS has ‘OldestVM’ scale-in policy enabled, VM_0 will not be considered for being scaled in, even though it is the oldest VM in the scale set. 
 
-A protected VM can be manually deleted by the user at any time, regardless of the scale-in policy enabled on the scale set. 
+A protected virtual machine can be manually deleted by the user at any time, regardless of the scale-in policy enabled on the scale set. 
 
 ## Usage examples 
 
-The below examples demonstrate how VMSS will select VMs to be deleted when a scale-in event is triggered. VMs with the highest instance IDs are assumed to be the newest VMs in the scale set and the VMs with the smallest instance IDs are assumed to be the oldest VMs in the scale set. 
+The below examples demonstrate how a virtual machine scale set will select VMs to be deleted when a scale-in event is triggered. Virtual machines with the highest instance IDs are assumed to be the newest VMs in the scale set and the VMs with the smallest instance IDs are assumed to be the oldest VMs in the scale set. 
 
 ### OldestVM
 
@@ -152,7 +152,7 @@ The below examples demonstrate how VMSS will select VMs to be deleted when a sca
 | Scale-in | 5, 10                  | **6**, 9, 11           | 7, 8                   | Choose Zone 2 even though Zone 1 has the oldest VM. Delete VM6 in Zone 1 as it is the oldest VM in that zone.                    |
 | Scale-in | **5**, 10              | 9, 11                  | 7, 8                   | Zones are balanced. Delete VM5 in Zone 1 as it is the oldest VM in the scale set.                                                |
 
-For non-zonal VMSS, the policy selects the oldest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion.
+For non-zonal virtual machine scale sets, the policy selects the oldest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion.
 
 ### NewestVM
 
@@ -166,13 +166,13 @@ For non-zonal VMSS, the policy selects the oldest VM across the scale set for de
 | Scale-in | 3, 4, **5**            | 2, 6                   | 1, 7                   | Choose Zone 1 even though Zone 3 has the newest VM. Delete VM5 in Zone 1 as it is the newest VM in that Zone.                    |
 | Scale-in | 3, 4                   | 2, 6                   | 1, 7                   | Zones are balanced. Delete VM7 in Zone 3 as it is the newest VM in the scale set.                                                |
 
-For non-zonal VMSS, the policy selects the newest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion. 
+For non-zonal virtual machine scale sets, the policy selects the newest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion. 
 
 ## Troubleshoot
 
 1. Failure to enable scaleInPolicy
-    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for VMSS. VMSS API version 2019-03-01 or higher is required for this preview.
+    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. VMSS API version 2019-03-01 or higher is required for this preview.
 
 2. Wrong selection of VMs for scale-in
-    Refer to the examples above. If your VMSS is a Zonal deployment, Scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the VMSS team for troubleshooting.
+    Refer to the examples above. If your virtual machine scale set is a Zonal deployment, scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the VMSS team for troubleshooting.
 
