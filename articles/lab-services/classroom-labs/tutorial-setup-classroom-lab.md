@@ -60,6 +60,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
+
     2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     1. Select **Reset password** to reset the password for the VM. 
     1. Install and configure software on your template VM. 
@@ -67,13 +68,13 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     1. Enter a **description** for the template
 10. On **Template** page, select **Publish** on the toolbar. 
 
-        ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-        > [!WARNING]
-        > Once you publish, you can't unpublish. 
+    > [!WARNING]
+    > Once you publish, you can't unpublish. 
 8. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
 
-        ![Publish template - number of VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+    ![Publish template - number of VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. You see the **status of publishing** the template on page. This process can take up to an hour. 
 
     ![Publish template - progress](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
