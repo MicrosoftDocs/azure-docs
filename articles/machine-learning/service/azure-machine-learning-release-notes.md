@@ -33,7 +33,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Deprecated iterations concept within AutoMLConfig & AutoMLRun, replaced it with <trials>.
     + Limiting model explanations to best run rather than computing explanations for every run. Making this behavior change for local, remote and ADB.
     + Add support for on-demand model explanations for UI
     + Adding psutil as a dependency of automl and included psutil as a conda dependency in amlcompute.
