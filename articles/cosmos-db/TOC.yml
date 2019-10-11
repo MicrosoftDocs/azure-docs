@@ -142,7 +142,7 @@
           displayName: order by, order by clause
           href: sql-query-order-by.md
         - name: GROUP BY 
-          displayName: group by
+          displayName: group by clause
           href: sql-query-group-by.md
         - name: OFFSET LIMIT
           displayName: offset limit

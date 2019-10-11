@@ -4,45 +4,47 @@ description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/11/2019
 ms.author: tisande
 
 ---
-# GROUP BY clause
+# GROUP BY clause in Azure Cosmos DB
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
 
 > [!NOTE]
-> Azure Cosmos DB currently supports GROUP BY in [.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) or later. Support in additional SDK's 
-> and the Azure Portal is not yet available but is planned.
+> Azure Cosmos DB currently supports GROUP BY in [.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) or later.
+> Support for other language SDK's and the Azure Portal is not currently available but is planned.
 
 ## Syntax
 
 ```sql  
-GROUP BY <group_by_specification>  
+<group_by_clause> ::= GROUP BY <scalar_expression_list>
 
-<group_by_specification> ::= {<group_by_expression>} [ ,...n ]
+<scalar_expression_list> ::=
+          <scalar_expression>
+        | <scalar_expression_list>, <scalar_expression>
 ```  
 
 ## Arguments
 
-- `<group_by_specification>`
+- `<scalar_expression_list>`
 
    Specifies the expressions that will be used to divide query results.
 
-- `<group_by_expression>`
+- `<scalar_expression>`
   
-   Specifies an item's property or a non-aggregate system function on a property. The property can be an array. The property may appear in the SELECT clause but is not required.  There is no limit to the number of individual expressions or the cardinality of each expression.
+   Specifies an item's property or a non-aggregate system function on a property. The property may appear in the SELECT clause but is not required.  There is no limit to the number of individual expressions or the cardinality of each expression.
 
 ## Remarks
   
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is aggregate system functions, which can appear in the SELECT clause without being included in the GROUP BY clause.
+  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate system functions](sql-query-aggregates.md), which can appear in the SELECT clause without being included in the GROUP BY clause.
 
   The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You cannot use GROUP BY with an ORDER BY clause.
 
   The GROUP BY clause does not allow any of the following:
   
-- Aliasing properties or system functions
+- Aliasing properties or aliasing system functions (aliasing is still allowed within the SELECT clause)
 - Subqueries
 - Aggregate system functions (these are only allowed in the SELECT clause)
 
