@@ -28,6 +28,37 @@ You need to [request cores](https://docs.microsoft.com/azure/azure-supportabilit
 The maximum pods-per-node setting is 30 by default if you deploy an AKS cluster in the Azure portal.
 The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster in the Azure CLI. (Make sure you're using the latest version of the Azure CLI). This default setting can be changed by using the `–-max-pods` flag in the `az aks create` command.
 
+## Is it safe if the IP address ranges overlap with one another or with on-premise networks?
+
+Overlapping subnets and IP ranges could cost several days of lost productivity if issues come up because of deviation from recommended practices.
+ 
+This could help shed some light on some of the issues one could encounter as a result of such overlaps: 
+ 
+In advanced networking scenarios, the IP address plan for an AKS cluster consists of the following partitions:
+ 
+1.	virtual network
+2.	at least one subnet (for nodes, pods Kubernetes and Azure resources)
+3.	a Kubernetes service address range.
+4.	Range of ips for a docker bridge
+
+The subnet(s) in (2) are partitions from the virtual network (1) and is used to allocate addresses to nodes, pods, and internal ingress or load balancer ips. Advanced planning is necessary to ensure that it will accommodate or fit in all the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your AKS cluster.
+ 
+The service address range in (3) is where ip for services will be allocated from. The Kubernetes DNS IP address used by cluster service discovery (kube-dns) will also come from (3).
+ 
+If you do not specify a non-conflicting CIDR for (4), Docker can make this decision for you and it could end up with conflicts that cause routing problems for apps or other resources in the cluster. You should select a CIDR for the Docker bridge network address. It also has to be an address space that does not collide with the rest of the CIDRs on your networks including the partitions for (1), (2) and (3).
+ 
+You might wonder if you can use a different subnet within your cluster virtual network for (3) the Kubernetes service address range, on-prem ip address range, or vnet peers, this practice is not recommended, although this configuration is possible. The overlap can cause issues.
+ 
+According to the AKS documentation, the service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your k8s cluster. AKS does not have visibility into what resources are already allocated in your on-prem network when it makes decisions to assign service ip addresses. Also, Azure Networking has no visibility into the service IP range of the Kubernetes cluster when allocating future network partitions to other resources. 
+ 
+Consequently, because of the lack of visibility into the cluster's service address range, it is possible to later create a new subnet via the portal or CLI within the cluster virtual network (on-prem network or a peer network) that overlaps with the service address range of your AKS cluster. 
+ 
+If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior, routing issues, unreachable resources or sporadic failures which we do not want especially in PROD environments. By ensuring you use an address range outside the cluster's virtual network, on-prem, or a peered virtual network, you can avoid this overlap risk and prevent issues that are difficult to debug.
+ 
+It may not be obvious right away why this preferred practice needs to be in place, but with advanced planning, one could avoid a lot of issues down the line due to conflicts that could arise from network resources having collisions.
+ 
+Our recommendation is to follow best practices to avoid issues and stressful situations that would lead to significant loss of productivity.
+
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
 If Azure CNI (advanced networking) is used, AKS preallocates IP addressed based on the "max-pods" per node configured. The number of nodes in an AKS cluster can be anywhere between 1 and 110. Based upon the configured max pods per node, the subnet size should be greater than the "product of the number of nodes and the max pod per node". The following basic equation outlines this:
