@@ -1,5 +1,5 @@
 ---
-title: Key Vault VM Extension for Windows | Microsoft Docs
+title: Azure Key Vault VM Extension for Windows | Microsoft Docs
 description: Deploy an agent performing automatic refresh of Key Vault secrets on virtual machines using a virtual machine extension.
 services: virtual-machines-windows
 author: msmbaldwin
@@ -11,8 +11,6 @@ ms.author: mbaldwin
 
 ---
 # Key Vault virtual machine extension for Windows
-
-## Overview
 
 The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Windows. 
 
@@ -57,7 +55,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 ```
 
 > [!NOTE]
-> Your observed certificates urls should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`
+> Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
@@ -79,9 +77,9 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or VM scale sets. The schema and configuration are common to both template types. 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or virtual machine scale sets. The schema and configuration are common to both template types. 
 
-The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and in case of VM scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
+The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and in case of virtual machine scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
 ```json
     {
@@ -132,7 +130,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-* To deploy the extension on a VM scale set :
+* To deploy the extension on a virtual machine scale set :
 
     ```powershell
     
@@ -170,7 +168,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-* To deploy the extension on a VM scale set :
+* To deploy the extension on a virtual machine scale set :
 
    ```azurecli
         # Start the deployment
