@@ -55,18 +55,17 @@ You can follow below steps to create a self-hosted IR using Azure Data Factory U
    ![Integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 3. In the **Integration runtime setup** window, select *Perform data movement and dispatch activities to external computes*, and click **Continue**.
 4. Enter a name for your IR, and select **Create**.
-5. You can use **Option 1** to launch the express setup in your computer. Alternatively, use **Option 2** to set up manually. 
+5. You can use **Option 1** to launch the express setup in your computer. Alternatively, use **Option 2** to set up manually. The following instructions are based on **Manual setup**:
    ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
- The following instructions are based on **Manual setup**:
 
-    a. Copy and paste the Authentication key. Select *Download and install integration runtime*.  
-	
+    a. Copy and paste the Authentication key. Select **Download and install integration runtime**.
+        
     b. Download the self-hosted integration runtime on a local Windows machine. Run the installation.
-
-	c. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**  
-
-   ![Register the integration runtime](media\create-self-hosted-integration-runtime/register-integration-runtime.png)
-
+        
+    c. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**
+	
+	![Register the integration runtime](media\create-self-hosted-integration-runtime/register-integration-runtime.png)
+            
     d. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**. 
 
 6. When the self-hosted integration runtime is registered successfully, you see the following message:
@@ -152,7 +151,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
-- For automating self-hosted IR setup operations, please refer [below section](#automation-support-for-self-hosted-ir-function).  
+- For automating self-hosted IR setup operations, please refer [this section](#Set-up-an-existing-self-hosted-IR-via-PowerShell).  
 
 ## Install and register self-hosted IR from the Download Center
 
