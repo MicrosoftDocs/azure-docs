@@ -26,7 +26,7 @@
   - name: Stream data using Event Hubs
     href: databricks-stream-from-eventhubs.md
   - name: Sentiment analysis using Cognitive Services
-  href: databricks-sentiment-analysis-cognitive-services.md
+    href: databricks-sentiment-analysis-cognitive-services.md
 - name: How-to guides
   items:
   - name: Getting started 
@@ -60,7 +60,7 @@
       - name: Machine learning
         href: /azure/databricks/getting-started/spark/machine-learning
         maintainContext: true
-      - name: Structured streaming
+      - name: Structured Streaming
         href: /azure/databricks/getting-started/spark/streaming
         maintainContext: true
       - name: What's next
@@ -543,7 +543,7 @@
     - name: Introduction to Delta Lake
       href: /azure/databricks/delta/delta-intro
       maintainContext: true
-    - name: Get started with Delta
+    - name: Get started with Delta Lake
       href: /azure/databricks/delta/quick-start 
       maintainContext: true
     - name: Introductory notebooks
@@ -618,6 +618,9 @@
     - name: Frequently asked questions
       href: /azure/databricks/delta/delta-faq
       maintainContext: true
+    - name: Additional Delta resources
+      href: /azure/databricks/delta/delta-resources
+      maintainContext: true
   - name: DataFrames and Datasets
     items:
     - name: DataFrames and Datasets overview
@@ -638,12 +641,12 @@
     - name: Aggregators
       href: /azure/databricks/spark/latest/dataframes-datasets/aggregators 
       maintainContext: true
-  - name: Structured streaming
+  - name: Structured Streaming
     items:
     - name: Structured Streaming overview
       href: /azure/databricks/spark/latest/structured-streaming/index
       maintainContext: true
-    - name: Introductory Notebooks
+    - name: Introductory notebooks
       href: /azure/databricks/spark/latest/structured-streaming/demo-notebooks
       maintainContext: true
     - name: Streaming data sources and sinks
@@ -699,7 +702,7 @@
       - name: Decision trees example
         href: /azure/databricks/applications/machine-learning/mllib/decision-trees 
         maintainContext: true
-      - name: MLib pipelines and structured streaming
+      - name: MLib pipelines and Structured Streaming
         href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
         maintainContext: true
       - name: Advanced MLib example
@@ -771,9 +774,6 @@
         maintainContext: true
       - name: PyTorch
         href: /azure/databricks/applications/deep-learning/single-node-training/pytorch
-        maintainContext: true
-      - name: JCuda
-        href: /azure/databricks/applications/deep-learning/single-node-training/jcuda
         maintainContext: true
       - name: Single node PyTorch to distributed DL
         href: /azure/databricks/applications/deep-learning/distributed-training/mnist-pytorch 
@@ -852,42 +852,35 @@
       maintainContext: true
   - name: Graph analysis
     items:
-    - name: Graph Analysis tutorial with GraphFrames
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-      maintainContext: true
-    - name: GraphFrames - Python
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-      maintainContext: true
-    - name: GraphFrames - Scala
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
-      maintainContext: true
-    - name: Graph Analysis with GraphX (Legacy)
-      href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial 
-      maintainContext: true
     - name: Graph analysis overview
-      href: /azure/databricks/spark/latest/graph-analysis/index 
+      href: /azure/databricks/spark/latest/graph-analysis/index
       maintainContext: true
-    - name: Graph analysis tutorial
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial 
-      maintainContext: true
-    - name: GraphFrames overview
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/index 
-      maintainContext: true
-    - name: GraphFrames - Python
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python 
-      maintainContext: true
-    - name: GraphFrames - Scala
-      href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala 
+    - name: GraphFrames
+      items:
+      - name: Graph Analysis  tutorial with GraphFrames
+        href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
+        maintainContext: true
+      - name: GraphFrames - Python
+        href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
+        maintainContext: true
+      - name: GraphFrames - Scala
+        href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+        maintainContext: true
+    - name: Graph Analysis with GraphX (Legacy)
+      href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
       maintainContext: true
   - name: Genomics
     items:
+    - name: Genomics overview
+      href: /azure/databricks/applications/genomics/index
+      maintainContext: true
     - name: Genomics ETL overview
-      href: /azure/databricks/applications/genomics/etl/index 
+      href: /azure/databricks/applications/genomics/etl/index
       maintainContext: true
     - name: Secondary analysis
       items:
       - name: Secondary analysis overview
-        href: /azure/databricks/applications/genomics/secondary/index 
+        href: /azure/databricks/applications/genomics/secondary/index
         maintainContext: true
       - name: DNASeq pipeline
         href: /azure/databricks/applications/genomics/secondary/dnaseq-pipeline
@@ -912,7 +905,7 @@
       - name: Variant IO with Apache Spark SQL
         href: /azure/databricks/applications/genomics/etl/variant-data 
         maintainContext: true
-      - name: Create Genomics Delta Lake
+      - name: Create Geomics Delta Lake
         href: /azure/databricks/applications/genomics/etl/vcf2delta
         maintainContext: true
       - name: Variant quality control
@@ -920,6 +913,9 @@
         maintainContext: true
       - name: Sample quality control
         href: /azure/databricks/applications/genomics/etl/sample-qc
+        maintainContext: true
+      - name: Lift over
+        href: /azure/databricks/applications/genomics/etl/lift-over
         maintainContext: true
     - name: Tertiary analysis
       items:
@@ -937,9 +933,6 @@
         maintainContext: true
       - name: Regression tests
         href: /azure/databricks/applications/genomics/tertiary/regression-tests
-        maintainContext: true
-      - name: SAIGE and SAIGE-GENE
-        href: /azure/databricks/applications/genomics/tertiary/saige
         maintainContext: true
       - name: Python statistics libraries
         href: /azure/databricks/applications/genomics/tertiary/pandas-udf
@@ -1072,6 +1065,9 @@
         maintainContext: true
       - name: Peer virtual networks
         href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
+        maintainContext: true
+      - name: Upgrade your preview workspace to GA
+        href: administration-guide/cloud-configurations/azure/vnet-inject-upgrade
         maintainContext: true
       - name: Deploy Azure Databricks in your VNet
         href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
@@ -1283,6 +1279,9 @@
       - name: Spark job hags due to custom UDF
         href: /azure/databricks/kb/jobs/spark-udf-performance 
         maintainContext: true
+      - name: Job fails maxresultsize
+        href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+        maintainContext: true
     - name: Libraries
       items:
       - name: Can't uninstall library from UI
@@ -1426,7 +1425,7 @@
       - name: Recovery after checkpoint or output directory   change
         href: /azure/databricks/kb/streaming/file-sink-streaming 
         maintainContext: true
-      - name: Restart a structured streaming query from last written offset
+      - name: Restart a Structured Streaming query from last written offset
         href: /azure/databricks/kb/streaming/ss-read-from-last-offset 
         maintainContext: true
     - name: Visualizations 
@@ -1587,8 +1586,17 @@
         - name: Supported runtime releases
           href: /azure/databricks/release-notes/runtime/supported
           maintainContext: true
+        - name: Databricks Runtime 6.1
+          href: /azure/databricks/release-notes/runtime/6.1
+          maintainContext: true
+        - name: Databricks Runtime 6.1 ML
+          href: /azure/databricks/release-notes/runtime/6.1ml
+          maintainContext: true
         - name: Databricks Runtime 6.0
           href: /azure/databricks/release-notes/runtime/6.0
+          maintainContext: true
+        - name: Databricks Runtime 6.0 with Conda
+          href: /azure/databricks/release-notes/runtime/6.0conda
           maintainContext: true
         - name: Databricks Runtime 6.0 ML
           href: /azure/databricks/release-notes/runtime/6.0ml
