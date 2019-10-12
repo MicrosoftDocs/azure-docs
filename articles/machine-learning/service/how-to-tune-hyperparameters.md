@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Tune hyperparameters for your model with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
