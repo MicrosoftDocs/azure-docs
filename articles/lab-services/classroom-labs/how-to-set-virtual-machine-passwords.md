@@ -23,7 +23,7 @@ This article shows you how to do the following tasks:
 - Start all VMs or selected VMs 
 - Reset VMs
 
-## Increase or decrease lab capacity
+## Update the lab capacity
 To increase or decrease the lab capacity (number of virtual machines in a lab), do the following steps:
 
 1. On the **Virtual machine pool** page, select **Lab capacity: &lt;number&gt; machines**.
@@ -64,7 +64,7 @@ On the **Reset virtual machine(s)** dialog box, select **Reset**.
 
 
 
-## Set password for VMs in the lab
+## Set password for VMs
 A lab owner (teacher) can set/reset the password for VMs at the time of creating the lab (lab creation wizard) or after creating the lab on the **Template** page. 
 
 ### Set password at the time of lab creation
