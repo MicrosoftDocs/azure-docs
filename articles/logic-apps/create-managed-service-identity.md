@@ -189,7 +189,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. If you don't specify a value, the property value is set to the `https://management.azure.com/` resource ID. If necessary, change this value to the target resource ID that you want.
+1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. If you don't specify a value, then by default, the property uses the `https://management.azure.com/` resource ID. As necessary, change this value to the target resource ID that you want.
 
    > [!NOTE]
    > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
