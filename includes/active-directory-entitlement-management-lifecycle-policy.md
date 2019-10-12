@@ -24,6 +24,8 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
 1. Click **Show advanced expiration settings** to show additional settings.
 
+    ![Access package - Lifecycle Expiration settings](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+
 1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
 
     If extensions are allowed in the policy, the user will receive an email 14 days and also 1 day before their access package assignment is set to expire prompting them to extend the assignment.
@@ -33,7 +35,5 @@ In the Expiration section, you specify when a user's assignment to the access pa
 1. To require approval to grant an extension, set **Require approval to grant extension** to **Yes**.
 
     The same approval settings that were specified on the **Requests** tab will be used.
-
-    ![Access package - Lifecycle Expiration settings](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
 
 1. Click **Next**.
