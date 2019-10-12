@@ -16,7 +16,7 @@ ms.author: banders
 
 A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
 
-This article applies to a billing account for a Microsoft Partner Agreement which is created for Cloud Solutions Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Partner Agreement that is created for Cloud Solutions Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Your billing account
 
@@ -36,7 +36,7 @@ You can view the invoice and download the related documents like usage and charg
 
 > [!IMPORTANT]
 >
-The invoice contains charges for customers with an Azure Plan as well as SaaS, Azure marketplace and reservation purchases for customers who haven't accepted Microsoft Customer Agreement or don't have an Azure plan.
+The invoice contains charges for customers with an Azure Plan as well as SaaS, Azure marketplace, and reservation purchases for customers who haven't accepted Microsoft Customer Agreement or don't have an Azure plan.
 
 ## Customers
 
@@ -81,4 +81,4 @@ See the following articles to learn about your billing account:
 
 - [Create an additional Azure subscription for Microsoft Partner Agreement](billing-mca-create-subscription.md)
 - [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
-- [Azure Cost Management quick start guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)
+- [Azure Cost Management quickstart guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)
