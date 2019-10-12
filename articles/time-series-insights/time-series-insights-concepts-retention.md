@@ -93,3 +93,5 @@ If you need to scale your environment up to accommodate additional capacity or t
 ## Next steps
 
 - For information on configuring or changing data retention settings, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Learn about [Mitigating latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
