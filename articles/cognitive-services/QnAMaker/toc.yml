@@ -4,10 +4,12 @@
   items:
   - name: What is QnA Maker?
     href: Overview/overview.md
+  - name: What's new
+    href: whats-new.md   
 - name: Quickstarts
   items:
   - name: Create a new knowledge base
-    href: How-To/create-knowledge-base.md
+    href: quickstarts/create-publish-knowledge-base.md
   - name: Add questions with metadata
     href: quickstarts/add-question-metadata-portal.md
   - name: Get answer
@@ -81,6 +83,7 @@
     href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
   - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
+    displayName: version control, test, index, publish, monitor usage, create
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
@@ -137,18 +140,6 @@
       href: Tutorials/choosing-capacity-qnamaker-deployment.md
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md      
-  - name: Use REST API
-    items:
-    - name: C#
-      href: Quickstarts/csharp.md
-    - name: Java
-      href: Quickstarts/java.md
-    - name: Node.js
-      href: Quickstarts/nodejs.md
-    - name: Python
-      href: Quickstarts/python.md
-    - name: Go
-      href: Quickstarts/go.md
 - name: Reference
   items:
   - name: REST API Reference
@@ -221,7 +212,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker
   - name: UserVoice
-    href: https://aka.ms/qnamaker-uservoice
+    href: https://cognitive.uservoice.com/forums/578689-qna-maker-api
   - name: Search
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog

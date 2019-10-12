@@ -20,16 +20,19 @@ This article shows how you can access and manage files stored as blobs in your A
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
 > [!NOTE]
-> Logic Apps doesn't support directly connecting to Azure storage 
-> accounts through firewalls. To access these storage accounts, 
-> use either option here:
+>
+> Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) 
+> and exist in the same region. However, logic apps can access Azure storage accounts that exist in a different region because a 
+> public IP address is used for communicating across regions. Just make sure that you permit the 
+> [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Or, you can use either more advanced options here:
 >
 > * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
 > which can connect to resources in an Azure virtual network.
 >
-> * If you already use API Management, you can use 
-> this service for this scenario. For more info, see 
-> [Simple enterprise integration architecture](https://aka.ms/aisarch).
+> * If you use a dedicated tier for API Management, you can front the Storage API by using API Management and permitting the latter's IP 
+> addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's 
+> firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, 
+> if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
 

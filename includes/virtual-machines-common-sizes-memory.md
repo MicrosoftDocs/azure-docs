@@ -14,7 +14,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * The Ev3-series features the E5-2673 v4 2.3 GHz  (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
-* The Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+* The Preview sizes of Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
 * The Mv2-Series offers the highest vCPU count (up to 208 vCPUs) and largest memory (up to 5.7 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
@@ -56,13 +56,15 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
-## Easv3-series
+## Easv3-series (Preview)
 
 Premium Storage: Supported
 
 Premium Storage caching: Supported
 
-Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
+Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
+
+[Click here to signup for the preview](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
@@ -105,23 +107,25 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
-## Eav3-series
+## Eav3-series (Preview)
 
 Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
 
-Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
+Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
-|---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   |
-| Standard_E4a_v3  | 4  | 32  | 100  |
-| Standard_E8a_v3  | 8  | 64  | 200  |
-| Standard_E16a_v3 | 16 | 128 | 400  |
-| Standard_E32a_v3 | 32 | 256 | 800  |
-| Standard_E48a_v3 | 48 | 384 | 1200 |
-| Standard_E64a_v3 | 64 | 432 | 1600 |
+[Click here to signup for the preview](http://aka.ms/azureamdpreview).
+
+| Size             | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|------------------|------|-------------|-------------------------|
+| Standard_E2a_v3  | 2    | 16          | 50                      |
+| Standard_E4a_v3  | 4    | 32          | 100                     |
+| Standard_E8a_v3  | 8    | 64          | 200                     |
+| Standard_E16a_v3 | 16   | 128         | 400                     |
+| Standard_E32a_v3 | 32   | 256         | 800                     |
+| Standard_E48a_v3 | 48   | 384         | 1200                    |
+| Standard_E64a_v3 | 64   | 432         | 1600                    |
 
 ## Mv2-series
 
@@ -191,6 +195,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+M-series sizes are based on the Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz	
+
 Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -230,6 +236,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+DSv2-series sizes are based on the Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000 / 64 (72) |6400 / 96 |2 / 1500 |
@@ -252,6 +260,8 @@ ACU: 210 - 250
 Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
+
+DSv2-series sizes are based on the Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
 
 | Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

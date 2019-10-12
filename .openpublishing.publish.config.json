@@ -272,6 +272,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cognitive-services-rest-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
       "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
       "branch": "master"

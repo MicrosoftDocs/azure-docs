@@ -109,7 +109,7 @@ from azureml.core.model import Model
 def init():
     global X, output, sess
     tf.reset_default_graph()
-    model_root = Model.get_model_path('tf-dnn-mnist')
+    model_root = os.getenv('AZUREML_MODEL_DIR')
     saver = tf.train.import_meta_graph(
         os.path.join(model_root, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")

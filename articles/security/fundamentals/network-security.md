@@ -4,18 +4,18 @@ title: Azure Network Security | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/07/2019
 ms.author: TomSh
 
 ---
@@ -59,7 +59,7 @@ The [Azure network infrastructure](../../virtual-machines/windows/infrastructure
 Azure supports dedicated WAN link connectivity to your on-premises network and an Azure Virtual Network with [ExpressRoute](../../expressroute/expressroute-introduction.md). The link between Azure and your site uses a dedicated connection that does not go over the public Internet. If your Azure application is running in multiple datacenters, you can use [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) to route requests from users intelligently across instances of the application. You can also route traffic to services not running in Azure if they are accessible from the Internet.
 
 ## Enterprise view of Azure networking components
-Azure has many networking components that are relevant to network security discussions. 
+Azure has many networking components that are relevant to network security discussions.
 we describe these networking components and focus on the security issues related to them.
 
 > [!Note]

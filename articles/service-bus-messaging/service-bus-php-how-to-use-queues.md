@@ -31,10 +31,10 @@ In this tutorial, you learn how to create PHP applications to send messages to a
 
         > [!NOTE]
         > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
-3. [Azure SDK for PHP](../php-download-sdk.md)
+3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.

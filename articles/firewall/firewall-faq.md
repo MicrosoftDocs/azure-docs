@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
 ---
 
@@ -158,3 +158,7 @@ Azure Firewall must provision more virtual machine instances as it scales. A /26
 ## Does the firewall subnet size need to change as the service scales?
 
 No. Azure Firewall does not need a subnet bigger than /26.
+
+## Does Azure Firewall allow access to Active Directory by default?
+
+No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).

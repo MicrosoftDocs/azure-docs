@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc, seo-javascript-2019
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: quickstart
 manager: carmonm
 ---
 
-# Start Monitoring Your Node.js Web Application
+# Quickstart: Start monitoring your Node.js Web application with Azure Application Insights
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySQL, and Redis.
 

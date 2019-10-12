@@ -18,14 +18,17 @@ ms.collection: M365-identity-device-management
 
 # Bulk delete users (preview) in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Using Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
 ## To bulk delete users
 
 1. Sign in to your Azure AD organization with an account that is a User administrator in the organization.
 1. In Azure AD, select **Users** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties, and then add the users you want to delete.
-1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
+
+   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
+
+1. When you finish editing the CSV file, select the file under **Upload your CSV file** to be validated.
 
    ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/bulk-delete.png)
 

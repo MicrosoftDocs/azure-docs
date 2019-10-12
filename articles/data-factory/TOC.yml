@@ -80,6 +80,8 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+  - name: Transform data using Mapping Data Flow
+    href: tutorial-data-flow.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -143,7 +145,7 @@
     href: concepts-integration-runtime.md
   - name: Mapping Data Flows
     items:
-    - name: Mapping data flow concepts
+    - name: Mapping data flow overview
       href: concepts-data-flow-overview.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
@@ -151,8 +153,6 @@
       href: concepts-data-flow-json.md
     - name: Schema drift
       href: concepts-data-flow-schema-drift.md
-    - name: Inspect pane
-      href: concepts-data-flow-inspect-pane.md
     - name: Column patterns
       href: concepts-data-flow-column-pattern.md
     - name: Data flow monitoring
@@ -161,12 +161,8 @@
       href: concepts-data-flow-performance.md
     - name: Move nodes
       href: concepts-data-flow-move-nodes.md
-    - name: Optimize tab
-      href: concepts-data-flow-optimize-tab.md
     - name: Expression builder
       href: concepts-data-flow-expression-builder.md
-    - name: Reference nodes
-      href: concepts-data-flow-reference-node.md
     - name: Expression language
       href: data-flow-expression-functions.md
   - name: Roles and permissions
@@ -390,6 +386,8 @@
   - name: Transform data
     href: transform-data.md
     items:
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
     - name: Custom Activity
@@ -424,8 +422,6 @@
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
-    - name: Execute Data Flow Activity
-      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
@@ -538,6 +534,8 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure-enabled dtexec
+      href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity

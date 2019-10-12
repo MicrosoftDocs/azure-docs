@@ -3,7 +3,7 @@ title: Azure security overview | Microsoft Docs
 description: The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions.
 services: security
 documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 10/07/2019
 ms.author: terrylan
 
 ---

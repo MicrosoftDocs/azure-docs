@@ -11,13 +11,13 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 09/21/2019
 ms.author: juliako
 ---
 
 # Analyzing video and audio files
 
-Azure Media Services v3 enables you to extract insights from your video and audio files with Video Indexer through AMS v3 analyzer presets (described in this article). If you want more detailed insights, use Video Indexer directly. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 enables you to extract insights from your video and audio files with Video Indexer through  Media Services v3 analyzer presets (described in this article). If you want more detailed insights, use Video Indexer directly. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 

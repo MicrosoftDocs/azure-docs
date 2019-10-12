@@ -39,7 +39,7 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
     If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   
-5.  Run the experiment.  
+5.  Run the pipeline.  
   
 ### Results
 

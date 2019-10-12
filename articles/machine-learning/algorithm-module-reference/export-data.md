@@ -1,7 +1,7 @@
 ---
 title:  "Export Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Export Data module in Azure Machine Learning service to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
+description: Learn how to use the Export Data module in Azure Machine Learning service to save results, intermediate data, and working data from your pipelines into cloud storage destinations outside Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.date: 05/02/2019
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-Use this module to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
+Use this module to save results, intermediate data, and working data from your pipelines into cloud storage destinations outside Azure Machine Learning.
 
 This module supports exporting or saving your data to the following cloud data services:
 
@@ -25,7 +25,7 @@ This module supports exporting or saving your data to the following cloud data s
   
 ## How to configure Export Data
 
-1. Add the **Export Data** module to your experiment in the interface. You can find this module in the **Input and Output** category.
+1. Add the **Export Data** module to your pipeline in the interface. You can find this module in the **Input and Output** category.
 
 2. Connect **Export Data** to the module that contains the data you want to export.
 
@@ -46,13 +46,13 @@ This module supports exporting or saving your data to the following cloud data s
 
         For file format, CSV and TSV are supported.
 
-    3. For private accounts, choose **Account**, and provide the account name and the account key, so that the experiment can write to the storage account.
+    3. For private accounts, choose **Account**, and provide the account name and the account key, so that the pipeline can write to the storage account.
 
          - **Account name**: Type or paste the name of the account where you want to save the data. For example, if the full URL of the storage account is `http://myshared.blob.core.windows.net`, you would type `myshared`.
 
         - **Account key**: Paste the storage access key that is associated with the account.
 
-        -  **Path to container, directory, or blob**: Type the name of the blob where the exported data will be stored. For example, to save the results of your experiment to a new blob named **results01.csv** in the container **predictions** in an account named **mymldata**, the full URL for the blob would be `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
+        -  **Path to container, directory, or blob**: Type the name of the blob where the exported data will be stored. For example, to save the results of your pipeline to a new blob named **results01.csv** in the container **predictions** in an account named **mymldata**, the full URL for the blob would be `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
 
             Therefore, in the field  **Path to container, directory, or blob**, you would specify the container and blob name as follows: `predictions/results01.csv`
 
@@ -68,9 +68,9 @@ This module supports exporting or saving your data to the following cloud data s
         - **TSV**: Tab-separated values (TSV) format is compatible with many machine learning tools. To export column headings together with the data, select the option, **Write blob header row**.  
 
  
-    5. **Use cached results**: Select this option if you want to avoid rewriting the results to the blob file each time you run the experiment. If there are no other changes to module parameters, the experiment writes the results only the first time the module is run, or when there are changes to the data.
+    5. **Use cached results**: Select this option if you want to avoid rewriting the results to the blob file each time you run the pipeline. If there are no other changes to module parameters, the pipeline writes the results only the first time the module is run, or when there are changes to the data.
 
-    6. Run the experiment.
+    6. Run the pipeline.
 
 ## Next steps
 

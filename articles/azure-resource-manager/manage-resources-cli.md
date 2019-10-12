@@ -56,7 +56,7 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## Deploy resources to multiple subscriptions or resource groups
 

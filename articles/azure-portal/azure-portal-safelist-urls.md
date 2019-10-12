@@ -1,8 +1,8 @@
 ---
-title: Safelist the Azure portal URLs | Microsoft Docs 
+title: Safelist the Azure portal URLs | Microsoft Docs
 description: Add these URLs to proxy server bypass to communicate with the Azure portal and its services
 services: azure-portal
-keywords: 
+keywords:
 author: kfollis
 ms.author: kfollis
 ms.date: 09/13/2019
@@ -75,8 +75,8 @@ The URL endpoints to safelist for the Azure portal are specific to the Azure clo
 Need to safelist IP addresses? Download the list of Microsoft Azure datacenter IP ranges for your cloud:
 
 * [Worldwide](https://www.microsoft.com/download/details.aspx?id=56519)
-* [U.S. Government](http://www.microsoft.com/download/details.aspx?id=57063)
-* [Germany](http://www.microsoft.com/download/details.aspx?id=57064)
-* [China](http://www.microsoft.com/download/details.aspx?id=57062)
+* [U.S. Government](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Germany](https://www.microsoft.com/download/details.aspx?id=57064)
+* [China](https://www.microsoft.com/download/details.aspx?id=57062)
 
 Other Microsoft services use additional URLs and IP addresses for connectivity. To optimize network connectivity for Microsoft 365 services, see [Set up your network for Office 365](/office365/enterprise/set-up-network-for-office-365).

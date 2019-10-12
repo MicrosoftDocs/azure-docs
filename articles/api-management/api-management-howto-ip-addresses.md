@@ -57,7 +57,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
 
-Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). Additionally, when a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
+Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNET configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
 
 Private virtual IP (VIP) addresses are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 

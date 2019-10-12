@@ -1,36 +1,25 @@
 ---
-title: Azure CLI Samples for Azure Cosmos DB
-description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, databases, containers, regions, and firewalls. 
+title: Azure CLI Samples for Azure Cosmos DB SQL (Core) API
+description: Azure CLI Samples for Azure Cosmos DB SQL (Core) API 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 9/25/2019
 ms.author: mjbrown
-ms.reviewer: sngun
 ---
 
-# Azure CLI samples for Azure Cosmos DB
+# Azure CLI samples for Azure Cosmos DB SQL (Core) API
 
-The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb).
+The following table includes links to sample Azure CLI scripts for Azure Cosmos DB SQL (Core) API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). For Azure CLI samples for other Azure Cosmos DB APIs see, [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md), and [Table API](cli-samples-table.md). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 | |  |
 |---|---|
-|**Create Azure Cosmos DB account, database, and containers**||
-| [Create an Azure Cosmos DB account using SQL API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a single Azure Cosmos DB account, database, and container. |
-| [Create an Azure Cosmos DB account using Cosmos DB's API for MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB account, a database, and a collection. |
-| [Create an Azure Cosmos DB account using Gremlin API](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB account, database, and graph. |
-| [Create an Azure Cosmos DB account using Cassandra API](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB account and database. |
-| [Create an Azure Cosmos DB account using Table API](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a single Azure Cosmos DB account, database, and table. |
-|**Scale Azure Cosmos DB**||
-| [Scale container throughput](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Changes the provisioned throughput on a container.|
-| [Replicate Azure Cosmos database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Globally replicates account data into multiple regions with a specified failover priority.|
-|**Secure Azure Cosmos DB**||
-| [Get account keys](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
-| [Get the connection string for Cosmos account configured with Azure Cosmos DB's API for MongoDB](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Gets the connection string to connect MongoDB app to your Azure Cosmos DB account.|
-| [Regenerate account keys](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Regenerate the keys for the account.|
-| [Create a firewall](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Create an inbound IP access control policy to limit access to the account from an approved set of machines and/or cloud services.|
-|**High availability, disaster recovery, backup and restore**||
-| [Configure failover policy](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
-|**Connect Azure Cosmos DB to resources**||
-| [Connect a web app to Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos database and an Azure web app.|
+| [Create an Azure Cosmos account, database and container](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container for SQL (Core) API. |
+| [Change throughput](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and container.|
+| [Add or failover regions](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Add a region, change failover priority, trigger a manual failover.|
+| [Account keys and connection strings](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | List account keys, read-only keys, regenerate keys and list connection strings.|
+| [Secure with IP firewall](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account with IP firewall configured.|
+| [Secure new account with service endpoints](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account and secure with service-endpoints.|
+| [Secure existing account with service endpoints](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
 |||

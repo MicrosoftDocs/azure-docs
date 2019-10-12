@@ -3,17 +3,16 @@ title: Supported features available in Azure Security Center | Microsoft Docs
 description: This document provides a list of services supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
-ms.author: "v-mohabe"
+ms.date: 09/24/2019
+ms.author: memildin
 ---
 # Supported features available in Azure Security Center
 
@@ -34,20 +33,21 @@ The following sections show Security Center features that are available for thei
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|Virtual Machine Behavioral Analytics threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
 |Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
-|Windows Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|Microsoft Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
 |Missing patches|✔|✔|✔|✔|✔|✔|Free|
 |Security configurations|✔|✔|✔|✔|✔|✔|Free|
 |Endpoint protection assessment|✔|✔|✔|X|X|X|Free|
-|JIT VM access|✔|X|X|✔|X|X|Standard|
+|Just-In-Time VM access|✔|X|X|✔|X|X|Standard|
 |Adaptive application controls|✔|X|✔|✔|X|✔|Standard|
-|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|File Integrity Monitoring|✔|✔|✔|✔|✔|✔|Standard|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
 |NSG assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
+|Adaptive network hardening|✔|X|X|✔|X|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
 |Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
 |Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|

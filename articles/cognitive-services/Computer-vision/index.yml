@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/04/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/01/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -43,7 +43,11 @@ landingContent:
             url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-
+          - text: Using the Java SDK
+            url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
+            
 
   - title: Detect objects in images
     linkLists:
@@ -59,6 +63,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
 
   # Card 
   - title: Apply content tags to images
@@ -75,6 +81,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
 
   - title: Use containers
     linkLists:
@@ -107,6 +115,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
   
 #  - title: Get image descriptions
 #    linkLists:
@@ -155,7 +165,7 @@ landingContent:
 #    linkLists:
 #      - linkListType: concept
 #        links:
-#          - text: Adult and racy content detection
+#          - text: Adult, racy, and gory content detection
 #            url: concept-detecting-adult-content.md
 #      - linkListType: quickstart
 #        links:

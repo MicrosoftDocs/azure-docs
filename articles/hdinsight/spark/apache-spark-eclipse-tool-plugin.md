@@ -2,12 +2,12 @@
 title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark '
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.author: hrasheed
 ---
 
 # Use Azure Toolkit for Eclipse to create Apache Spark applications for an HDInsight cluster
@@ -45,11 +45,12 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
 
-   ![Show View dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+   ![Apache Spark Eclispse show view](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+
 1. Right-click the **Azure** node, and then select **Sign in**.
 1. In the **Azure Sign In** dialog box, choose the authentication method, select **Sign in**, and enter your Azure credentials.
 
-   ![Azure Sign In dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
+   ![Apache Spark Eclispse Azure Sign](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
 
 1. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
@@ -69,23 +70,23 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
 
 1. Select **Link a cluster** from **Azure Explorer**.
 
-   ![link cluster context menu](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
+   ![Azure Explorer link cluster menu](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
 
 1. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
 
-   ![link cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
+   ![Link New HDInsight cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
 
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
-   > ![storage explorer in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![Azure Explorer storage accounts](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
 
-   ![linked cluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
+   ![Azure Explorer hdi linked cluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
 
 1. You also can unlink a cluster from **Azure Explorer**.
 
-   ![unlinked cluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
+   ![Azure Explorer unlinked cluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 ## Set up a Spark Scala project for an HDInsight Spark cluster
 
@@ -97,7 +98,7 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
 
 1. The Scala project creation wizard automatically detects whether you installed the Scala plug-in. Select **OK** to continue downloading the Scala plug-in, and then follow the instructions to restart Eclipse.
 
-   ![Scala check](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
+   ![Install missing plugin Scala check](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
 
 1. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
    * Enter a name for the project.
@@ -114,10 +115,10 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
 
 1. In the **Select a wizard** dialog box, expand **Scala Wizards**, select **Scala Object**, and then select **Next**.
 
-   ![Select a wizard dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
+   ![Select a wizard Create a Scala Object](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 1. In the **Create New File** dialog box, enter a name for the object, and then select **Finish**.
 
-   ![Create New File dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
+   ![New File Wizard Create New File](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
 1. Paste the following code in the text editor:
 
     ```scala
@@ -150,11 +151,11 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    * In the **Main class name** drop-down list, the submission wizard displays all object names from your project. Select or enter one that you want to run. If you selected an artifact from a hard drive, you must enter the main class name manually. 
    * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
 
-     ![Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
+     ![Apache Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
 
 1. The **Spark Submission** tab should start displaying the progress. You can stop the application by selecting the red button in the **Spark Submission** window. You can also view the logs for this specific application run by selecting the globe icon (denoted by the blue box in the image).
 
-   ![Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
+   ![Apache Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
 
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
 
@@ -164,25 +165,25 @@ You can perform various operations by using HDInsight Tools, including accessing
 
 1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then select **Jobs**.
 
-   ![Job view node](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
+   ![Azure Explorer Eclipse job view node](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
 
-1. Select the **Jobs** node. If Java version is lower than **1.8**, HDInsight Tools automatically reminder you install the **E(fx)clipse** plug-in. Select **OK** to continue, and then follow the wizard to install it from the Eclipse Marketplace and restart Eclipse. 
+1. Select the **Jobs** node. If Java version is lower than **1.8**, HDInsight Tools automatically reminder you install the **E(fx)clipse** plug-in. Select **OK** to continue, and then follow the wizard to install it from the Eclipse Marketplace and restart Eclipse.
 
-   ![Install E(fx)clipse](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   ![Install missing plugin E(fx)clipse](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 1. Open the Job View from the **Jobs** node. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
 
-   ![Application details](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
+   ![Apache Eclipse view job logs details](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
 
    You can then take any of these actions:
 
    * Hover on the job graph. It displays basic info about the running job. Select the job graph, and you can see the stages and info that every job generates.
 
-     ![Job stage details](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
+     ![Apache Spark job graph stage info](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
 
    * Select the **Log** tab to view frequently used logs, including **Driver Stderr**, **Driver Stdout**, and **Directory Info**.
 
-     ![Log details](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
+     ![Apache Spark Eclipse job log info](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
 
    * Open the Spark history UI and the Apache Hadoop YARN UI (at the application level) by selecting the hyperlinks at the top of the window.
 
@@ -233,13 +234,13 @@ To resolve this error, you need [download the executable](https://public-repo-1.
    * In the left pane, select **HDInsight**.
    * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
 
-   ![New Project dialog box](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
+   ![New project select a wizard dialog](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
 1. To provide the project details, follow steps 3 through 6 from the earlier section [Setup a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 
 1. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
 
-   ![Location of LogQuery](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
+   ![Location of LogQuery local scala application](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
 1. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. Output like this appears on the **Console** tab:
 
@@ -302,7 +303,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 When link a cluster, I would suggest you to provide credential of storage.
 
-![Interactive sign-in](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+![link cluster with storage credential eclipse](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
 There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
 

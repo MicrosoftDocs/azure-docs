@@ -3,17 +3,14 @@ title: Threat detection for data services in Azure Security Center | Microsoft D
 description: This topic presents the data services alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
+
 ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/24/2019
-ms.author: "v-mohabe"
+ms.date: 07/24/2019
+ms.author: memildin
 ---
 # Threat detection for data services in Azure Security Center
 

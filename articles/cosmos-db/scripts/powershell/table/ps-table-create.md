@@ -3,6 +3,7 @@ title: Azure PowerShell script - Azure Cosmos DB create Table API table
 description:  Azure PowerShell script - Azure Cosmos DB create Table API table
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown

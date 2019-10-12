@@ -33,9 +33,9 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## What can I do with Azure Machine Learning?
+## What can I do with Azure Machine Learning service?
 
-Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
+Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -49,7 +49,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ### UI-based, low-code experience
 
-For code-free training, try:
+For code-free training and deployment, try:
 
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
 + The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).

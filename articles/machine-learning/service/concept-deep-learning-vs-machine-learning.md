@@ -32,7 +32,7 @@ Consider the following definitions to understand deep learning vs. machine learn
 
 - **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning. 
  
-It's important to understand the relationship among AI, machine learning, and deep learning. Machine learning is a way to achieve artificial intelligence. By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include visual perception, speech recognition, decision-making, and language translation.
+It's important to understand the relationship among AI, machine learning, and deep learning. Machine learning is a way to achieve artificial intelligence. By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
 
 ## Techniques of deep learning vs. machine learning 
 
@@ -42,12 +42,12 @@ The following table compares the two techniques in more detail:
 
 | |All machine learning |Only deep learning|
 |---|---|---|
-|  **Number of data points** | Can use small data amounts provided by users. | Requires a large amount of training data to make concise conclusions. |
+|  **Number of data points** | Can use small amounts of data to make predictions. | Needs to use large amounts of training data to make predictions. |
 |  **Hardware dependencies** | Can work on low-end machines. It doesn't need a large amount of computational power. | Depends on high-end machines. It inherently does a large number of matrix multiplication operations. A GPU can efficiently optimize these operations. |
 |  **Featurization process** | Requires features to be accurately identified and created by users. | Learns high-level features from data and creates new features by itself. |
-|  **Learning approach** | Divides tasks into small pieces and then combines received results into one conclusion. | Solves the problem on an end-to-end basis. |
-|  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Takes an unusually long time to train because a deep learning algorithm involves many parameters. |
-|  **Output** | The output is usually a numerical value, like a score or a classification. | The output can be text, a score, an element, or a sound. |
+|  **Learning approach** | Divides the learning process into smaller steps. It then combines the results from each step into one output. | Moves through the learning process by resolving the problem on an end-to-end basis. |
+|  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
+|  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
 
 ## Deep learning use cases
 
@@ -57,7 +57,7 @@ Some of the most common applications for deep learning are described in the foll
 
 ### Named-entity recognition
 
-One use of deep-learning networks is named-entity recognition, which is a way to extract certain types of information from unstructured and unlabeled data. This information could be people, places, companies, or things. The information can then be stored in a structured schema to build a list of addresses or serve as a benchmark for an identity validation engine.
+Named-entity recognition is a deep learning method that takes a piece of text as input and transforms it into a pre-specified class. This new information could be a postal code, a date, a product ID. The information can then be stored in a structured schema to build a list of addresses or serve as a benchmark for an identity validation engine.
 
 ### Object detection
 
@@ -67,17 +67,21 @@ Object detection is already used in industries such as gaming, retail, tourism, 
 
 ### Image caption generation
 
-Like image recognition, in image captioning, for a given image, the system must generate a caption that describes the contents of the image. When you can detect and label objects in photographs, the next step is to turn those labels into descriptive, coherent sentences. Generally, image captioning systems use very large convolutional neural networks to detect objects in the photographs and then use a recurrent neural network (RNN) to turn the labels into coherent sentences.
+Like image recognition, in image captioning, for a given image, the system must generate a caption that describes the contents of the image. When you can detect and label objects in photographs, the next step is to turn those labels into descriptive sentences. 
+
+Usually, image captioning applications use convolutional neural networks to identify objects in an image and then use a recurrent neural network to turn the labels into consistent sentences.
 
 ### Machine translation
 
-Machine translation takes words, phrases, or sentences from one language and automatically translates them into another language. Automatic machine translation has been around for a long time, but deep learning achieves impressive results in two specific areas: automatic translation of text (and translation of speech to text) and automatic translation of images. 
+Machine translation takes words or sentences from one language and automatically translates them into another language. Machine translation has been around for a long time, but deep learning achieves impressive results in two specific areas: automatic translation of text (and translation of speech to text) and automatic translation of images.
 
-With the proper data transformation, a deep network can understand text, audio, and visual signals. Machine translation can be used to identify snippets of sound in larger audio files and transcribe the spoken word or image as text.
+With the appropriate data transformation, a neural network can understand text, audio, and visual signals. Machine translation can be used to identify snippets of sound in larger audio files and transcribe the spoken word or image as text.
 
 ### Text analytics
 
-One important task of deep learning is e-discovery. Companies use text analytics that are based on deep learning to detect insider trading and compliance with government regulations. Hedge funds use text analytics to drill down into massive document repositories to get insights into future investment performance and market sentiment. The use case for text analytics based on deep learning revolves around its ability to parse massive amounts of text data and perform analytics or yield aggregations.
+Text analytics based on deep learning methods involves analyzing large quantities of text data (for example, medical documents or expenses receipts), recognizing patterns, and creating organized and concise information out of it.
+
+Companies use deep learning to perform text analysis to detect insider trading and compliance with government regulations. Another common example is insurance fraud: text analytics has often been used to analyze large amounts of documents to recognize the chances of an insurance claim being fraud. 
 
 ## Artificial neural networks
 
@@ -87,17 +91,17 @@ The following sections explore most popular artificial neural network typologies
 
 ### Feedforward neural network
 
-The feedforward neural network is the most basic type of artificial neural network. In a feedforward network, information travels in only one direction from input layer to output layer. Feedforward neural networks transform an input by putting it through a series of hidden layers. Every layer is made up of a set of neurons, and each layer is fully connected to all neurons in the layer before. The last fully connected layer (the output layer) represents the generated predictions.
+The feedforward neural network is the most basic type of artificial neural network. In a feedforward network, information moves in only one direction from input layer to output layer. Feedforward neural networks transform an input by putting it through a series of hidden layers. Every layer is made up of a set of neurons, and each layer is fully connected to all neurons in the layer before. The last fully connected layer (the output layer) represents the generated predictions.
 
 ### Recurrent neural network
 
-Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as learning handwriting and recognizing language.
+Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as time series forecasting, learning handwriting and recognizing language.
 
 ### Convolutional neural networks
 
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
-Convolutional neural networks have been used in areas such as image recognition and classification.
+Convolutional neural networks have been used in areas such as video recognition, image recognition and recommender systems.
 
 ## Next steps
 

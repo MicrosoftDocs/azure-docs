@@ -23,6 +23,12 @@ landingContent:
         links:
           - text: What is QnA Maker
             url: overview/overview.md
+          - text: QnA Maker portal
+            url: https://www.qnamaker.ai
+      - linkListType: whats-new
+        links:      
+          - text: What's new
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: Development lifecycle
@@ -42,7 +48,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
-            url: how-to/create-knowledge-base.md
+            url: quickstarts/create-publish-knowledge-base.md
           - text: "Quickstart: Add questions and answer"
             url: quickstarts/add-question-metadata-portal.md
       - linkListType: how-to-guide
@@ -53,16 +59,6 @@ landingContent:
             url: how-to/chit-chat-knowledge-base.md     
           - text: Add a secured SharePoint data source
             url: how-to/add-sharepoint-datasources.md  
-
-  - title: Test and publish
-    linkLists:  
-      - linkListType: how-to-guide
-        links: 
-          - text: Test your knowledge base interactively
-            url: how-to/test-knowledge-base.md
-          - text: Publish a knowledge base
-            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
-
 
   - title: Get answer from knowledge base
     linkLists:
@@ -80,6 +76,18 @@ landingContent:
         links:              
           - text: Get an answer with metadata
             url: how-to/metadata-generateanswer-usage.md
+
+  - title: Test and publish
+    linkLists:  
+      - linkListType: how-to-guide
+        links: 
+          - text: Test your knowledge base interactively
+            url: how-to/test-knowledge-base.md
+          - text: Publish a knowledge base
+            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+
+
+
 
 
   - title: Improve knowledge base
@@ -119,3 +127,14 @@ landingContent:
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
+
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: Troubleshooting
+            url: troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/QnAMaker
+          - text: Influence service with UserVoice
+            url: https://cognitive.uservoice.com/forums/578689-qna-maker-api

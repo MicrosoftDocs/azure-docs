@@ -1,11 +1,11 @@
 ---
 title: Overview of Azure Database for MySQL relational database service
-description: Overview of the Azure Database for MySQL relational database service.
-ms.service: mysql
+description: Learn about the Azure Database for MySQL service, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: ajlam
+ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/13/2019
 ---
 
@@ -50,7 +50,7 @@ The Azure Database for MySQL service uses storage encryption for data at-rest an
 By default, the Azure Database for MySQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps to protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
 
 ## Contacts
-For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Note that this is not a technical support alias.
+For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
@@ -59,7 +59,7 @@ In addition, consider the following points of contact as appropriate:
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## Next steps
-Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?," you're ready to:
+Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?" you're ready to:
 
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 - Get started by creating your first server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)

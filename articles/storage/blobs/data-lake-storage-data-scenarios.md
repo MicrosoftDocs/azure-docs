@@ -71,7 +71,7 @@ This table shows how to grant access for each Azure service or tool.
 
 To grant access to specific file and folders, see these articles.
 
-* [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+* [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
 * [Access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 

@@ -3,7 +3,7 @@ title: Integrate security into your Azure architectural designs | Microsoft Docs
 description: " This article will help you understand the application and services architecture on Azure to make it easier to integrate security into design and implementation. "
 services: security
 documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomSh
 

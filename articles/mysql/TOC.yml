@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
+  - name: Which MySQL option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -85,7 +87,8 @@
       href: concepts-connectivity-architecture.md      
   - name: Business continuity
     items:
-    - name: Overview
+    - name: Business continuity intro
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
@@ -229,8 +232,8 @@
     href: /rest/api/mysql
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformysql/allversions
-  - name: Data-in replication stored procedures
-    href: reference-data-in-stored-procedures.md
+  - name: Management stored procedures
+    href: reference-stored-procedures.md
 - name: Resources
   items:
   - name: Deployment templates

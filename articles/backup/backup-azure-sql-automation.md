@@ -42,8 +42,6 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 ### Set up and install
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Set up PowerShell as follows:
 
 1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.5.0.

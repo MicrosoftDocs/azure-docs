@@ -40,7 +40,7 @@ A stencil set for modeling medical devices has been contributed by the open-sour
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 

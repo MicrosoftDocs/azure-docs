@@ -1,4 +1,4 @@
----
+﻿---
 
 title: 'Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal
@@ -18,6 +18,10 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using Azure PowerShell. Then, you can securely access the  SQL Database Server from the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
+> [!NOTE]
+> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
 
 ## Sign in to Azure
 
@@ -130,7 +134,7 @@ In this section, you will create a SQL database server in Azure.
 In this section, you will create a SQL server and add a private endpoint to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
-2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
 
     | Setting | Value |
@@ -198,6 +202,7 @@ After you've created **myVm*, connect to it from the internet as follows:
 ## Access the SQL database server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
+
 2. Enter `nslookup myserver.database.windows.net`. 
 
     You'll receive a message similar to this:
@@ -208,6 +213,7 @@ After you've created **myVm*, connect to it from the internet as follows:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
+    ```
 3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 4. In **Connect to server**, enter or select this information:

@@ -86,7 +86,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3

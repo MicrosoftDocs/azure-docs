@@ -3,9 +3,9 @@ title: Adaptive Network Hardening in Azure Security Center | Microsoft Docs
 description: " Learn how to enable Adaptive Network Hardening in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
+
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
@@ -126,9 +126,9 @@ You can add an “allow” rule that was not recommended by Security Center.
 
 ### Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
 
-*To delete an Adaptive Network Hardening rule:*
+*To delete an Adaptive Network Hardening rule for your current session:*
 
 1. In the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Delete**.  
 

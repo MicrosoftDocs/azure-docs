@@ -5,9 +5,7 @@ author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: rimman
 ms.author: sngun
-ms.author: v-mohabe
 ms.custom: seodec18
 ---
 

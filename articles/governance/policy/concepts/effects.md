@@ -1,12 +1,11 @@
 ---
 title: Understand how effects work
-description: Azure Policy definition have various effects that determine how compliance is managed and reported.
+description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy effects
 
@@ -23,6 +22,7 @@ These effects are currently supported in a policy definition:
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) (preview)
+- [Modify](#modify)
 
 ## Order of evaluation
 
@@ -33,8 +33,8 @@ the request to the appropriate Resource Provider. Doing so prevents unnecessary 
 Resource Provider when a resource doesn't meet the designed governance controls of Azure Policy.
 
 - **Disabled** is checked first to determine if the policy rule should be evaluated.
-- **Append** is then evaluated. Since append could alter the request, a change made by append may
-  prevent an audit or deny effect from triggering.
+- **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
+  may prevent an audit or deny effect from triggering.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
 - **Audit** is then evaluated before the request going to the Resource Provider.
@@ -53,8 +53,11 @@ of that policy's assignments.
 ## Append
 
 Append is used to add additional fields to the requested resource during creation or update. A
-common example is adding tags on resources such as costCenter or specifying allowed IPs for a
-storage resource.
+common example is specifying allowed IPs for a storage resource.
+
+> [!IMPORTANT]
+> Append is intended for use with non-tag properties. While Append can add tags to a resource during
+> a create or update request, it's recommended to use the [Modify](#modify) effect for tags instead.
 
 ### Append evaluation
 
@@ -76,36 +79,7 @@ for the list of acceptable fields.
 
 ### Append examples
 
-Example 1: Single **field/value** pair to append a tag.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-Example 2: Two **field/value** pairs to append a set of tags.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-Example 3: Single **field/value** pair using a non-**[\*]** [alias](definition-structure.md#aliases)
+Example 1: Single **field/value** pair using a non-**[\*]** [alias](definition-structure.md#aliases)
 with an array **value** to set IP rules on a storage account. When the non-**[\*]** alias is an
 array, the effect appends the **value** as the entire array. If the array already exists, a deny
 event occurs from the conflict.
@@ -123,10 +97,10 @@ event occurs from the conflict.
 }
 ```
 
-Example 4: Single **field/value** pair using an **[\*]** [alias](definition-structure.md#aliases)
+Example 2: Single **field/value** pair using an **[\*]** [alias](definition-structure.md#aliases)
 with an array **value** to set IP rules on a storage account. By using the **[\*]** alias, the
-effect appends the **value** to a potentially pre-existing array. If the array doesn't yet exists,
-it will be created.
+effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet, it
+will be created.
 
 ```json
 "then": {
@@ -138,6 +112,142 @@ it will be created.
             "action": "Allow"
         }
     }]
+}
+```
+
+## Modify
+
+Modify is used to add, update, or remove tags on a resource during creation or update. A common
+example is updating tags on resources such as costCenter. A Modify policy should always have `mode`
+set to _Indexed_. Existing non-compliant resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
+A single Modify rule can have any number of operations.
+
+> [!IMPORTANT]
+> Modify is currently only for use with tags. If you are managing tags, it's recommended to use
+> Modify instead of Append as Modify provides additional operation types and the ability to
+> remediate existing resources. However, Append is recommended if you aren't able to create a
+> managed identity.
+
+### Modify evaluation
+
+Modify evaluates before the request gets processed by a Resource Provider during the creation or
+updating of a resource. Modify adds or updates tags on a resource when the **if** condition of the
+policy rule is met.
+
+When a policy definition using the Modify effect is run as part of an evaluation cycle, it doesn't
+make changes to resources that already exist. Instead, it marks any resource that meets the **if**
+condition as non-compliant.
+
+### Modify properties
+
+The **details** property of the Modify effect has all the subproperties that define the permissions
+needed for remediation and the **operations** used to add, update, or remove tag values.
+
+- **roleDefinitionIds** [required]
+  - This property must include an array of strings that match role-based access control role ID
+    accessible by the subscription. For more information, see
+    [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - The role defined must include all operations granted to the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor)
+    role.
+- **operations** [required]
+  - An array of all tag operations to be completed on matching resources.
+  - Properties:
+    - **operation** [required]
+      - Defines what action to take on a matching resource. Options are: _addOrReplace_, _Add_,
+        _Remove_. _Add_ behaves similar to the [Append](#append) effect.
+    - **field** [required]
+      - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for
+        other [fields](./definition-structure.md#fields).
+    - **value** (optional)
+      - The value to set the tag to.
+      - This property is required if **operation** is _addOrReplace_ or _Add_.
+
+### Modify operations
+
+The **operations** property array makes it possible to alter several tags in different ways from a
+single policy definition. Each operation is made up of **operation**, **field**, and **value**
+properties. Operation determines what the remediation task does to the tags, field determines which
+tag is altered, and value defines the new setting for that tag. The example below makes the
+following tag changes:
+
+- Sets the `environment` tag to "Test", even if it already exists with a different value.
+- Removes the tag `TempResource`.
+- Sets the `Dept` tag to the policy parameter _DeptName_ configured on the policy assignment.
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+The **operation** property has the following options:
+
+|Operation |Description |
+|-|-|
+|addOrReplace |Adds the defined tag and value to the resource, even if the tag already exists with a different value. |
+|Add |Adds the defined tag and value to the resource. |
+|Remove |Removes the defined tag from the resource. |
+
+### Modify examples
+
+Example 1: Add the `environment` tag and replace existing `environment` tags with "Test":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+Example 2: Remove the `env` tag and add the `environment` tag or replace existing
+`environment` tags with a parameterized value:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -283,8 +393,8 @@ when missing.
 
 ## DeployIfNotExists
 
-Similar to AuditIfNotExists, DeployIfNotExists executes a template deployment when the condition
-is met.
+Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
+when the condition is met.
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
@@ -301,7 +411,7 @@ are marked as non-compliant, but no action is taken on that resource.
 
 ### DeployIfNotExists properties
 
-The **details** property of the DeployIfNotExists effects has all the subproperties that define the
+The **details** property of the DeployIfNotExists effect has all the subproperties that define the
 related resources to match and the template deployment to execute.
 
 - **Type** [required]
@@ -423,7 +533,7 @@ to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on [Azure Kuberne
 
 ### EnforceRegoPolicy evaluation
 
-The Open Policy Agent admission controller evaluates any new request on the cluster in real-time.
+The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
 Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### EnforceRegoPolicy properties

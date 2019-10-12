@@ -1,5 +1,5 @@
 ---
-title: Programming guide - Azure Event Hubs | Microsoft Docs
+title: .NET Programming guide - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -8,11 +8,11 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
 
 ---
-# Programming guide for Azure Event Hubs
+# .NET Programming guide for Azure Event Hubs
 This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers

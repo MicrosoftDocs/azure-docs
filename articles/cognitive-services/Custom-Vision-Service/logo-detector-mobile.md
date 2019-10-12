@@ -52,7 +52,7 @@ After you upload the training images, select the first one on the display. The t
 
 The app is configured to work with specific tag strings. You'll find the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 After you tag an image, go to the right to tag the next one. Close the tagging window when you finish.
 
@@ -68,19 +68,19 @@ After your model is trained, you're ready to integrate it into your app. You'll 
 
 ![The Custom Vision website, showing a Prediction API window that displays a URL address and API key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copy the image file URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
+Copy the endpoint URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## Examine Custom Vision usage
 
 Open the *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* file to see how the app uses your Custom Vision key and endpoint URL. The **PredictImageContentsAsync** method takes a byte stream of an image file along with a cancellation token (for asynchronous task management), calls the Custom Vision prediction API, and returns the result of the prediction. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 This result takes the form of a **PredictionResult** instance, which itself contains a list of **Prediction** instances. A **Prediction** contains a detected tag and its bounding box location in the image.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
@@ -94,7 +94,7 @@ Subscribe to the Computer Vision service to get a key and endpoint URL. For help
 
 Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## Create a service principal
 
@@ -128,7 +128,7 @@ Upon successful completion, you should see the following JSON output, including 
 
 Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## Run the app
 
