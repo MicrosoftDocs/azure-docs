@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -45,7 +45,7 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic (traffic from the NFSv3 or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic (traffic from the NFSv3, NFSv4.1, or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -119,7 +119,7 @@ The volume size reported in DF is the maximum size the Azure NetApp Files volume
 Azure NetApp Files supports NFSv3 and NFSv4.1. You can create a volume using either NFS version. 
 
 > [!IMPORTANT] 
-> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, please submit a request to <anffeedback@microsoft.com>. 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
 
 
 ### How do I enable root squashing?
