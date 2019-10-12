@@ -34,28 +34,33 @@ You may incur additional costs to store or process diagnostic log data.
 
 Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For an Azure container registry, the logs include the following kinds of events and data. Log data is stored in the **RegistryEvents** table.
 
-* **User operations** on registry artifacts or ACR tasks. Examples include push, pull, delete, untag, quarantine, content trust, and related operations for container images. For these operations, log data includes:
+* Container registry repository events - Examples include push, pull, delete, untag, quarantine, content trust, and related operations for container images and other supported artifacts
+* Container registry login events - Registry login account and account type, including assignment of roles and permissions
+* Container registry metrics
+
+For these operations, log data includes:
   * Success and failure events
   * Start and end time stamps
-  * Registry login account and account type, including assignment of roles and permissions
-* **Registry network configuration** 
-
+  
 Custom views prefixed with **ACR** show data scoped to subsets of registry events. For example, the **ACRDelete** view shows events related to deleting tags, manifests, or repositories. 
 
 ## Enable collection of diagnostic logs
 
-https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings 
+Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options and steps to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
 
-Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. To view log information in near real-time in Azure Monitor, enable *streaming* of diagnostic logs to a Log Analytics workspace. 
+For example, to view logs and metrics for a container registry in near real-time in Azure Monitor, enable *streaming* of diagnostic logs to a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
 
-To stream to Log Analytics, first create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md) or other Azure tools. Then, set up log streaming programmatically, via the portal, or using the Azure Monitor REST APIs. In each method, you create a diagnostic setting in which you specify a Log Analytics workspace and the log categories and metrics you want to send in to that workspace. For details, see [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+1. If you don't already have a workspace, first create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
+1. In the portal, select the registry, and select **Monitoring > Diagnostic settings > Add diagnostic setting**.
+1. Enter a name for the setting, and select **Send to Log Analytics**.
+1. Select the workspace for the registry diagnostic logs.
+1. Select the log data you want to stream, and click **Save**.
 
-The following screenshot shows creation of a diagnostic setting for a registry using the portal.
+The following image shows creation of a diagnostic setting for a registry using the portal.
 
-// screenshot
+:::image type="content" source="media/container-registry-diagnostics-audit-logs/diagnostic-settings.png" alt-text="Enable diagnostic settings":::
 
-
-After enabling this diagnostic setting, view and analyze diagnostic logs in Azure Monitor. After you enable streaming of diagnostic logs to Log Analytics, view the logs in Azure Monitor under the **Logs** tab.
+After you enable streaming of diagnostic logs to Log Analytics, view the logs in Azure Monitor under the **Logs** tab.
 
 //add screenshot
 
