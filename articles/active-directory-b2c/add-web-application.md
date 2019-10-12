@@ -38,7 +38,7 @@ ms.subservice: B2C
 1. Select **Applications (Preview)**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapi1*.
 1. Under **Redirect URI**, select **Web**, and then enter an endpoint where Azure AD B2C should return any tokens that your application requests. In a production application, you might set the redirect URI an endpoint like `https://localhost:5000`. During development or testing, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs in your registered applications at any time.
-1. Select **Register**
+1. Select **Register**.
 1. Record the **Application (client) ID** for use in your web API's code.
 
 Next, enable the implicit grant flow:
