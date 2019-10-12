@@ -180,12 +180,12 @@ public class HttpEntity
 {
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }
 
-    public Task<int> GetAsync(string url)
+    public async Task<int> GetAsync(string url)
     {
         using (var response = await this.client.GetAsync(url))
         {
