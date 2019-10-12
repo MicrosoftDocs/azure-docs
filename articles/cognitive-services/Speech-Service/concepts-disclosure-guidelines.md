@@ -44,11 +44,11 @@ This guide helps you determine which disclosure patterns are best fit for your s
 
 Considering the vast body of design guidance on voice experiences, we focus here specifically on:
 
-1. [**Disclosure Assessment**](#disclosure-assessment) : A process to determine the type of disclosure recommended for your synthetic voice experience
+1. [**Disclosure Assessment**](#disclosure-assessment): A process to determine the type of disclosure recommended for your synthetic voice experience
 
-2. [**How to Disclose**](concepts-disclosure-patterns.md#disclosure-patterns) : Examples of disclosure patterns that can be applied to your synthetic voice experience
+2. [**How to Disclose**](concepts-disclosure-patterns.md#disclosure-patterns): Examples of disclosure patterns that can be applied to your synthetic voice experience
 
-3. [**When to Disclose**](concepts-disclosure-patterns.md) :  Optimal moments to disclose throughout the user journey
+3. [**When to Disclose**](concepts-disclosure-patterns.md): Optimal moments to disclose throughout the user journey
 
 ## Disclosure assessment
 
@@ -70,7 +70,7 @@ Use the following flowchart to determine whether your synthetic voice experience
 
 ## Reference docs
 
-* [Transparency Note](concepts-transparency-note.md)
+* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
 * [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
 * [Gating Overview](concepts-gating-overview.md)
 

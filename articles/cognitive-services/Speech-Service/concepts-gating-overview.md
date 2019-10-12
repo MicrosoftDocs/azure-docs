@@ -37,9 +37,9 @@ To get started with Custom Neural Voice, begin your application [here](https://s
 
 ## Reference docs
 
-* [Transparency Note](concepts-transparency-note.md)
+* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
 * [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
-* [Refer to Disclosure Design Patterns](concepts-disclosure-patterns.md)
+* [Disclosure Design Patterns](concepts-disclosure-patterns.md)
 
 ## Next steps
 
