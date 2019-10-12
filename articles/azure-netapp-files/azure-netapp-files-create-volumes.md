@@ -46,7 +46,7 @@ A subnet must be delegated to Azure NetApp Files.
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
-* You should ensure that the NFS client is up to date and running the latest updates for the operating system.
+* You should ensure that the NFS client is up-to-date and running the latest updates for the operating system.
 
 ## Create an NFS volume
 
