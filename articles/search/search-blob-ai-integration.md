@@ -24,9 +24,9 @@ While you might need just one of these AI capabilities, it’s common to combine
 
 AI enrichment creates new information, captured as text, stored in fields. Post-enrichment, you can access this information from a search index through full text search, or send enriched documents back to Azure storage to power new application experiences that include exploring data for discovery or analytics scenarios. 
 
-In this article, we view AI enrichment through a wide angle perspective so that you can quickly grasp the entire process, from transforming raw data in blobs, to queryable information in either a search index or a knowledge store.
+In this article, we view AI enrichment through a wide lens so that you can quickly grasp the entire process, from transforming raw data in blobs, to queryable information in either a search index or a knowledge store.
 
-## Enriching blob data
+## What it means to "enrich" blob data
 
 *AI enrichment* is part of the indexing architecture of Azure Search that integrates built-in AI from Microsoft or custom AI that you provide. It helps you implement end-to-end scenarios where you need to process blobs (both existing ones and new ones as they come in or are updated), crack open all file formats to extract images and text, extract the desired information using various AI capabilities, and index them in an Azure Search index for fast search, retrieval and exploration. 
 
@@ -34,16 +34,15 @@ Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can b
 
 Output is always an Azure Search index, used for fast text search, retrieval, and exploration in client applications. Additionally, output can also be a *knowledge store* that projects enriched documents into Azure blobs or Azure tables for downstream analysis in tools like Power BI or in data science workloads.
 
-In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as blobs but pick up additional structure and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures.
+In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as raw content but pick up additional structure, context, and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures used in full text search or exploration and analytics.
 
 ## How to get started
 
 You can start directly in your storage account portal page. Click **Add Azure Search** and create a new Azure Search service or select an existing one. If you already have an existing search service in the same subscription, clicking **Add Azure Search** opens the Import data wizard so that you can immediately step through indexing, enrichment, and index definition.
 
-Once you add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source, summarized as described step-by-step in [Create an AI enrichment pipeline using REST APIs](cognitive-search-tutorial-blob.md). 
+Once you add Azure Search to your storage account, you can follow the standard process to enrich data in any Azure data source. Assuming you already have blob content, you can use the Import data wizard in Azure Search for an easy initial introduction to AI enrichment. This quickstart explains the steps: [Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md). 
 
-In the following sections, we'll explore components and concepts, enrichment design, and key decisions you will make along the way.
-
+In the following sections, we'll explore more components and concepts.
 
 ## Inputs to blob indexing
 
@@ -59,13 +58,17 @@ The Blob indexer comes with configuration parameters. You can learn more about t
 
 ## Adding AI
 
-*Skills* are the individual components of AI processing that you can use standalone or in combination with other skills for sequential processing. Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. Custom skills are custom code, wrapped in an interface definition that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
+*Skills* are the individual components of AI processing that you can use standalone or in combination with other skills for sequential processing. 
 
-A *skillset* is the collection of skills, and its invoked after the document cracking phase makes content available to the pipeline. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
++ Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. A few examples are [OCR](cognitive-search-skill-ocr.md), [Entity Recognition](cognitive-search-skill-entity-recognition.md), and [Image Analysis](cognitive-search-skill-image-analysis.md). You can review the full list of built-in skills in [Predefined skills for content enrichment](cognitive-search-predefined-skills.md).
 
-Custom skills are more straight forward than they sound. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include Azure Functions or Containers.
++ Custom skills are custom code, wrapped in an interface definition that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
 
-Built-in skills backed by Cognitive Services require an attached Cognitive Services all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Search and require no additional service or key. Text shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
+A *skillset* is the collection of skills used in a pipeline, and its invoked after the document cracking phase makes content available. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
+
+Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include using [Azure Functions](cognitive-search-create-custom-skill-example.md) or [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+
+Built-in skills backed by Cognitive Services require an [attached Cognitive Services](cognitive-search-attach-cognitive-services.md) all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Search and require no additional service or key. Text shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 
