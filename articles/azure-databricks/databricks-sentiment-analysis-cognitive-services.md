@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks'
+title: Use Azure Databricks for sentiment analysis
 description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real time.
 services: azure-databricks
 author: lenadroid

@@ -9,7 +9,12 @@
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
-    },
+    },    
+    {
+      "source_path": "articles/container-registry/container-registry-auth-aks.md",
+      "redirect_url": "/azure/aks/cluster-container-registry-integration",
+      "redirect_document_id": true
+    },    
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
@@ -3992,7 +3997,12 @@
     },
     {
       "source_path": "articles/resource-manager-api-authentication.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-api-authentication",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-api-authentication.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
@@ -22921,7 +22931,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/howto-power-bi-content-pack",
+      "redirect_url": "azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
@@ -22984,6 +22994,23 @@
       "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/howto-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+
+
     {
       "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
@@ -33280,11 +33307,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
-      "redirect_url": "/azure/key-vault/key-vault-overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/virtual-machines/windows/mount-azure-file-storage.md",
       "redirect_url": "/azure/storage/files/storage-files-quick-create-use-windows",
       "redirect_document_id": false
@@ -42203,7 +42225,7 @@
     },
     {
       "source_path": "articles/security/fundamentals/network-security.md",
-      "redirect_url": "/azure/security/fundamentals/network-security",
+      "redirect_url": "/azure/security/fundamentals/network-overview",
       "redirect_document_id": false
     },
     {
