@@ -32,11 +32,11 @@ For more information about capacity and retention for both Time Series Insights 
 
 To best plan your Time Series Insights environment for long-term success, consider the following attributes:
 
-- <a href="#storage-capacity">Storage capacity</a>
-- <a href="#data-retention">Data retention period</a>
-- <a href="#ingress-capacity">Ingress capacity</a>
-- <a href="#shape-your-events">Shaping your events</a>
-- <a href="#ensure-that-you-have-reference-data">Ensuring that you have reference data in place</a>
+- [Storage capacity]("#storage-capacity")
+- [Data retention period]("#data-retention")
+- [Ingress capacity]("#ingress-capacity")
+- [Shaping your event]("#shape-your-events")
+- [Ensuring that you have reference data in place]("#ensure-that-you-have-reference-data")Ensuring that you have reference data in place
 
 ## Storage capacity
 
