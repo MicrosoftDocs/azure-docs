@@ -58,4 +58,4 @@ To change the expiration settings for an access package, you need to open the co
 
 ## Next steps
 
-- [Change user and approval settings for an access package](entitlement-management-access-package-request-policy.md)
+- [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md)

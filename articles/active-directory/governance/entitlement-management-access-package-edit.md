@@ -68,5 +68,5 @@ An access package can only be deleted if it has no active user assignments. Foll
 
 ## Next steps
 
-- [View and change assignments](entitlement-management-access-package-assignments.md)
+- [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md)
 - [View reports and logs](entitlement-management-reports.md)

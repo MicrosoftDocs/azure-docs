@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 As an access package manager, you can change the users who can request an access package at any time by adding a new policy or editing an existing policy. You can also change the approval settings.
 
-This article describes how to change the user and approval settings for an existing access package.
+This article describes how to change the request and approval settings for an existing access package.
 
 ## Choose between one or multiple polices
 
