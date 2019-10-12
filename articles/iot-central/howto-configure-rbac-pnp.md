@@ -18,7 +18,7 @@ By default, you can assign users in your IoT Central application to one of three
 
 - **Application administrator**: Users in this role have access to all functionality in an Azure IoT Central application.
 - **Application builder**: Users in this role can do everything in an Azure IoT Central application except access the administration and data export sections.
-- **Application operator**: Users in this role are able to monitor devices and system health. They can't administer or configure the application.
+- **Application operator**: Users in this role can monitor devices and system health. They can't administer or configure the application.
 
 If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. 
 
@@ -30,7 +30,7 @@ You can [add users to your custom role](./howto-manage-users-roles-pnp.md?toc=/a
 
 ## Custom role options
 
-When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update application dashboards** permission to a role, the **View application dashboards** permission is automatically added. The following tables summarizes the available permissions, and their dependencies, you can use when creating custom roles:
+When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update application dashboards** permission to a role, the **View application dashboards** permission is automatically added. The following tables summarize the available permissions, and their dependencies, you can use when creating custom roles:
 
 ### Customizing the app
 
