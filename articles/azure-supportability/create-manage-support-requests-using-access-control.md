@@ -13,7 +13,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 # Azure Role-Based Access Control (RBAC) to control access rights to create and manage support requests
 
 > [!IMPORTANT]
-> This manual approach to control access rights to support request in Azure has been replaced by a new built-in role. For more information, see [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor). 
+> This manual approach to control access rights to support request in Azure has been replaced by a built-in role. For more information, see [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor). 
 
 [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) enables fine-grained access management for Azure.
 Support request creation in the Azure portal, [portal.azure.com](https://portal.azure.com), uses Azure’s RBAC model to define who can create and manage support requests.
