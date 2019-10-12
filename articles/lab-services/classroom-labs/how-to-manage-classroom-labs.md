@@ -53,7 +53,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     4. Then, select **Next** on the **Virtual machine credentials** page. 
 5. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
-        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -85,37 +85,6 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     1. To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar.
     2. To start all the VMs at once, select **Start all** on the toolbar. 
     3. To start a specific VM, select the down arrow in the **Status**, and then select **Start**. You can also start a VM by selecting a VM in the first column, and then by selecting **Start** on the toolbar.                
-4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **medium (virtualization)**, **large**, and **GPU** sizes are allowed. For details, see the [VM sizes](#vm-sizes) section.
-    1. Select the **region** in which you want the VMs to be created. 
-    1. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
-    1. Select **Next**.
-
-        ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
-5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
-    1. Specify the **name of the user** for all VMs in the lab.
-    2. Specify the **password** for the user. 
-
-        > [!IMPORTANT]
-        > Make a note of user name and password. They won't be shown again.
-    3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**. 
-
-        A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.
-    1. Select **Create**. 
-
-        ![Set credentials](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. On the **Configure template** page, you see the status of lab creation process. The creation of the template in the lab takes up to 20 minutes. A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users.  
-
-    ![Configure template](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. After the configuration of the template is complete, you see the following page: 
-
-    ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. You can do the following tasks on this page: 
-    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    1. Select **Reset password** to reset the password for the VM. 
-    1. Install and configure software on your template VM. 
-    1. **Stop** the VM.  
-    1. Enter a **description** for the template
 
 ### VM sizes  
 
