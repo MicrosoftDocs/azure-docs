@@ -13,6 +13,7 @@ ms.date: 07/12/2019
 ms.custom: seoapril2019
 ---
 # Monitor your Azure Machine Learning models with Application Insights
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to set up Azure Application Insights for Azure Machine Learning. Application Insights gives you the opportunity to monitor:
 * Request rates, response times, and failure rates.

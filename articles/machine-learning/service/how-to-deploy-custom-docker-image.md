@@ -13,6 +13,7 @@ ms.date: 08/22/2019
 ---
 
 # Deploy a model using a custom Docker base image
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use a custom Docker base image when deploying trained models with Azure Machine Learning.
 

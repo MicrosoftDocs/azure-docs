@@ -13,6 +13,7 @@ ms.date: 08/08/2019
 ---
 
 # Deploy a model to Notebook VMs
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Notebook VM. Use Notebook VMs if one of the following conditions is true:
 

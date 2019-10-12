@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Manage and request quotas for Azure resources
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 As with other Azure services, there are limits on certain resources associated with Azure Machine Learning. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for model training or inference/scoring. 
 
