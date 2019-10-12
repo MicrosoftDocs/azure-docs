@@ -195,8 +195,12 @@
     items:
     - name: Gating Overview
       href: concepts-gating-overview.md
+    - name: Responsible Deployment Guidelines
+      href: concepts-deployment-guidelines.md
     - name: Disclosure Design Guidelines
       href: concepts-disclosure-guidelines.md
+    - name: Disclosure Design Patterns
+      href: concepts-disclosure-patterns.md
 - name: How-to guides
   items:
   - name: Sign up for the Speech Services
