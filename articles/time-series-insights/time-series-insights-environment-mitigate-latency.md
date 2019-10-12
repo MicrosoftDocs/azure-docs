@@ -89,6 +89,6 @@ You can avoid latency and throttling by properly configuring your environment fo
 
 ## Next steps
 
-- For additional troubleshooting steps, [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md).
+- Read about [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md).
 
-- For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). You can also contact [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
+- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
