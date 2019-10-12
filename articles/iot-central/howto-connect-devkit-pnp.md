@@ -81,7 +81,7 @@ In your IoT Central application, select **Devices** tab, select the device you a
 
 ## Review the code
 
-To review the code or modify and compile it, go to the [Code Samples](https://docs.microsoft.com/en-us/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
+To review the code or modify and compile it, go to the [Code Samples](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## Next steps
 
