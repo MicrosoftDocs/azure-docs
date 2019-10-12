@@ -64,7 +64,7 @@ You can follow below steps to create a self-hosted IR using Azure Data Factory U
     1. Download the self-hosted integration runtime on a local Windows machine. Run the installation.
         
     1. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**
-   ![Register the integration runtime](media\create-self-hosted-integration-runtime/register-integration-runtime.png)
+   ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
     1. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**. 
 
 6. When the self-hosted integration runtime is registered successfully, you see the following message:
@@ -150,7 +150,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
-- For automating self-hosted IR setup operations, please refer [this section](###Set-up-an-existing-self-hosted-IR-via-PowerShell).  
+- For automating self-hosted IR setup operations, please refer **Set up an existing self hosted IR via PowerShell** in [this section](#Setting-up-a-self-hosted-Integration-Runtime).  
 
 ## Install and register self-hosted IR from the Download Center
 
