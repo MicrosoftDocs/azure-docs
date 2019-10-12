@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for Python platform setup - Speech service
+# Quickstart: Speech SDK for Python platform setup
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
@@ -27,7 +27,8 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
 ## Prerequisites
 
-* Supported Linux platforms will require certain libraries, `libssl` for secure sockets layer support and `libasound2` for sound support. Refer to the commands for your distribution below.
+* Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
+
     * On Ubuntu, run the following commands to install the required packages:
     
           ```sh

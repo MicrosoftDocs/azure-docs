@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for C# (Xamarin) platform setup - Speech Service
+# Quickstart: Speech SDK for C# (Xamarin) platform setup
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for [Xamarin](https://docs.microsoft.com/en-us/xamarin/get-started/what-is-xamarin), an open-source platform for building modern and performant applications for iOS, Android, and Windows with .NET. 
 

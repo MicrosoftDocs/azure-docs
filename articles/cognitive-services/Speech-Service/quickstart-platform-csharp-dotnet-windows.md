@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
+# Quickstart: Speech SDK for .NET Framework (Windows) platform setup
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for .NET Framework (Windows).
 

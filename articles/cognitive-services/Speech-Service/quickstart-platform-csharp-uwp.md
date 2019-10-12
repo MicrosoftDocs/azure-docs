@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech Service
+# Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for C# Universal Windows Platform (UWP).
 
