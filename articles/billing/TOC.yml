@@ -29,6 +29,8 @@
     href: billing-how-to-pay-bill.md
   - name: Billing accounts for Microsoft Customer Agreement
     href: billing-mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: billing-mpa-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -173,6 +175,8 @@
     href: billing-subscription-transfer.md
   - name: Request ownership - Microsoft Customer Agreement
     href: billing-mca-request-billing-ownership.md
+  - name: Request ownership - Microsoft Partner Agreement
+    href: billing-mpa-request-billing-ownership.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
   - name: Change credit card
