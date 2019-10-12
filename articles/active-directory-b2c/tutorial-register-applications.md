@@ -59,9 +59,9 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
-    Azure AD B2C returns any tokens that your application requests to the URL you specify here. In a production application, this might be a publicly accessible endpoint, like `https://contoso.com/authentication`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned JavaScript web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs for your registered applications at any time.
+    Also called a "reply URL," Azure AD B2C returns any tokens that your application requests to the redirect URI. In a production application, this might be a publicly accessible endpoint where your app is running, like `https://contoso.com/authentication`. During development or testing, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs in your registered applications at any time.
 
-    The following restrictions apply to reply URLs:
+    The following restrictions apply to redirect URIs:
 
     * The reply URL must begin with the scheme `https`.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
@@ -75,6 +75,8 @@ Once the application registration is complete, enable the implicit grant flow:
 1. Select **Try out the new experience** (if shown).
 1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
+
+* * *
 
 ## Create a client secret
 
