@@ -1,0 +1,84 @@
+---
+title: Get started with your Microsoft Partner Agreement billing account - Azure CSP
+description: Understand your Microsoft Partner Agreement billing account (CSP)
+author: bandersmsft
+manager: amberbhargava
+ms.service: billing
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/22/2019
+ms.author: banders
+---
+
+# Get started with your Microsoft Partner Agreement billing account
+
+A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
+
+This article applies to a billing account for a Microsoft Partner Agreement which is created for Cloud Solutions Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-customer-agreement).
+
+## Your billing account
+
+Your billing account for the Microsoft Partner Agreement contains a billing profile for each currency that you do business in. The billing profile lets you manage you invoices in its currency. Each billing profile has customers for whom the usage and purchases are billed in the currency of the billing profile.
+
+The following diagram shows the relationship between a billing account, billing profiles, customers, and resellers.
+
+![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/billing-mpa-overview/mpa-billing-hierarchy.png)
+
+Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview)
+
+## Billing profiles
+
+Use a billing profile to manage your invoices. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month. 
+You can view the invoice and download the related documents like usage and charges file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-mca-understand-your-bill.md).
+<!--Todo: Link needs to be updated -->
+
+> [!IMPORTANT]
+>
+The invoice contains charges for customers with an Azure Plan as well as SaaS, Azure marketplace and reservation purchases for customers who haven't accepted Microsoft Customer Agreement or don't have an Azure plan.
+
+## Customers
+
+You can view and manage customers who have accepted a Microsoft Customer Agreement and have an Azure Plan in the Azure portal. You can view charges and transactions as well as create and manage Azure subscriptions for these customers. 
+
+### Enable policy to give visibility into cost
+
+Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go prices for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) access on a subscription can view and analyze the cost for the subscription. 
+
+To turn on the policy:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search on **Cost Management + Billing**.
+
+   ![Screenshot that shows Azure portal search](./media/billing-mpa-overview/billing-search-cost-management-billing.png)
+
+1. Select **Customers** from the left-hand side and then select a customer from the list.
+   
+   ![Screenshot that shows selecting customer](./media/billing-mpa-overview/billing-mpa-customers.png)
+
+1. Select **Policies** from the left-hand side.
+
+   ![Screenshot that shows policies](./media/billing-mpa-overview/billing-mpa-change-policy.png)
+
+1. Select **Yes**.
+
+## Resellers
+
+Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) can select a reseller  while creating additional subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
+
+## Check access to a Microsoft Customer Agreement
+[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
+
+## Need help? Contact support
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+## Next steps
+
+See the following articles to learn about your billing account:
+
+- [Create an additional Azure subscription for Microsoft Partner Agreement](billing-mca-create-subscription.md)
+- [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
+- [Azure Cost Management quick start guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)
