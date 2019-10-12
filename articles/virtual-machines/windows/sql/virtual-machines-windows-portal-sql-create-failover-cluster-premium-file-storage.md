@@ -173,7 +173,7 @@ After the virtual machines are created and configured, you can configure the pre
 1. Repeat these steps on each SQL Server VM that will participate in the cluster. 
 
   > [!IMPORTANT]
-  > Consider using a separate file share for backup files to save the IOPS and size capacity of this share for Data and Log file. You can sue either a Premium or Standard File Share for backup files
+  > Consider using a separate file share for backup files to save the IOPS and size capacity of this share for Data and Log file. You can use either a Premium or Standard File Share for backup files
 
 ## Step 3: Configure failover cluster with file share 
 
