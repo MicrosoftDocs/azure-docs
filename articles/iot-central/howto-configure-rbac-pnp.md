@@ -1,7 +1,7 @@
 ---
 title: Configure role-based access controls in Azure IoT Central | Microsoft Docs
 description: As an administrator, learn how to configure role-based access controls in your Azure IoT Central application.
-author: dominicbetts; lmasieri
+author: dominicbetts
 ms.author: dobett
 ms.date: 10/11/2019
 ms.topic: conceptual
