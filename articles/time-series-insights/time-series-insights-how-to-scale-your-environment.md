@@ -60,6 +60,6 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 
 - For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Learn about [planning out your environment](time-series-insights-environment-planning.md).
