@@ -1,6 +1,6 @@
 ---
 title: Performance and scalability checklist for Blob storage - Azure Storage
-description: A checklist of proven practices for use with Azure Storage in developing high-performance applications.
+description: A checklist of proven practices for use with Blob storage in developing high-performance applications.
 services: storage
 author: tamram
 
@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
-ms.subservice: common
+ms.subservice: blobs
 ---
 
 # Performance and scalability checklist for Blob storage
@@ -205,7 +205,7 @@ While parallelism can be great for performance, be careful about using unbounded
 
 ## Client libraries and tools
 
-For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up to date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
 
 ## Handle service errors
 

@@ -1,12 +1,12 @@
 ---
 title: Performance and scalability checklist for Table storage - Azure Storage
-description: 
+description: A checklist of proven practices for use with Table storage in developing high-performance applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
 ---
@@ -60,7 +60,7 @@ If your application approaches or exceeds any of the scalability targets, it may
 For more information about scalability targets for the Table service, see [Azure Storage scalability and performance targets](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
 
 
-[Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+[Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 
 ### Maximum number of storage accounts
 
@@ -101,8 +101,6 @@ As with any network usage, keep in mind that network conditions resulting in err
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure web app that uses Azure Storage, then locate them both within a single region, such as US West or Asia Southeast. Co-locating resources reduces the latency and the cost, as bandwidth usage within a single region is free.  
 
 If client applications will access Azure Storage but are not hosted within Azure, such as mobile device apps or on premises enterprise services, then locating the storage account in a region near to those clients may reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then consider using one storage account per region. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.
-
-For broad distribution of blob content, use a content deliver network such as Azure CDN. For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).  
 
 ## SAS and CORS
 
@@ -163,7 +161,7 @@ While parallelism can be great for performance, be careful about using unbounded
 
 ## Client libraries and tools
 
-For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up to date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
 
 ## Handle service errors
 
@@ -187,7 +185,7 @@ This section lists several quick configuration settings that you can use to make
 
 ### Use JSON
 
-Beginning with storage service version 2013-08-15, the Table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
+Beginning with storage service version 2013-08-15, the Table service supports using JSON instead of the XML-based AtomPub format for transferring table data. Using JSON can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
 
 For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
@@ -212,8 +210,8 @@ Tables are divided into partitions. Every entity stored in a partition shares th
 
 Because of these characteristics of tables and partitions, you should adopt the following design principles:
 
-- Data that your client application frequently updated or queried in the same logical unit of work should be located in the same partition. This may be because your application is aggregating writes, or because you want to take advantage of atomic batch operations. Also, data in a single partition can be more efficiently queried in a single query than data across partitions.
-- Data that your client application does not insert/update or query in the same logical unit of work (single query or batch update) should be located in separate partitions. One important note is that there is no limit to the number of partition keys in a single table, so having millions of partition keys is not a problem and will not impact performance. For example, if your application is a popular website with user login, using the User ID as the partition key could be a good choice.
+- Locate data that your client application frequently updates or queries in the same logical unit of work in the same partition. For example, locate data in the same partition if your application is aggregating writes or you are performing atomic batch operations. Also, data in a single partition can be more efficiently queried in a single query than data across partitions.
+- Locate data that your client application does not insert, update, or query in the same logical unit of work (that is, in a single query or batch update) in separate partitions. Keep in mind that there is no limit to the number of partition keys in a single table, so having millions of partition keys is not a problem and will not impact performance. For example, if your application is a popular website with user login, using the User ID as the partition key could be a good choice.
 
 #### Hot partitions
 
@@ -221,7 +219,7 @@ A hot partition is one that is receiving a disproportionate percentage of the tr
 
 #### Append Only and Prepend Only patterns
 
-The "Append Only" pattern is one where all (or nearly all) of the traffic to a given PK increases and decreases according to the current time. An example is if your application used the current date as a partition key for log data. This results in all of the inserts going to the last partition in your table, and the system cannot load balance because all of the writes are going to the end of your table. If the volume of traffic to that partition exceeds the partition-level scalability target, then it will result in throttling. It's better to ensure that traffic is sent to multiple partitions, to enable load balance the requests across your table.
+The "Append Only" pattern is one where all (or nearly all) of the traffic to a given partition key increases and decreases according to the current time. For example, suppose that your application uses the current date as a partition key for log data. This design results in all of the inserts going to the last partition in your table, and the system cannot load balance properly. If the volume of traffic to that partition exceeds the partition-level scalability target, then it will result in throttling. It's better to ensure that traffic is sent to multiple partitions, to enable load balance the requests across your table.
 
 #### High-traffic data
 
@@ -235,8 +233,8 @@ This section describes proven practices for querying the Table service.
 
 There are several ways to specify the range of entities to query. The following list describes each option for query scope.
 
-- **Point queries:**- A point query retrieves exactly one entity. It does this by specifying both the partition key and row key of the entity to retrieve. These queries are efficient, and you should use them wherever possible.
-- **Partition queries:** A partition query is a query that retrieves a set of data that shares a common partition key. Typically, the query specifies a range of row key values or a range of values for some entity property in addition to a partition key. These are less efficient than point queries, and should be used sparingly.
+- **Point queries:**- A point query retrieves exactly one entity by specifying both the partition key and row key of the entity to retrieve. These queries are efficient, and you should use them wherever possible.
+- **Partition queries:** A partition query is a query that retrieves a set of data that shares a common partition key. Typically, the query specifies a range of row key values or a range of values for some entity property in addition to a partition key. These queries are less efficient than point queries, and should be used sparingly.
 - **Table queries:** A table query is a query that retrieves a set of entities that does not share a common partition key. These queries are not efficient and you should avoid them if possible.
 
 In general, avoid scans (queries larger than a single entity), but if you must scan, try to organize your data so that your scans retrieve the data you need without scanning or returning significant amounts of entities you don't need.
@@ -249,7 +247,7 @@ Another key factor in query efficiency is the number of entities returned as com
 
 When you know that a query will return entities that you don't need in the client application, consider using a filter to reduce the size of the returned set. While the entities not returned to the client still count toward the scalability limits, your application performance will improve because of the reduced network payload size and the reduced number of entities that your client application must process. Keep in mind that the scalability targets relate to the number of entities scanned, so a query that filters out many entities may still result in throttling, even if few entities are returned. For more information on making queries efficient, see the section titled [Query density](#query-density).
 
-If your client application needs only a limited set of properties from the entities in your table, you can use projection to limit the size of the returned data set. As with filtering, this helps to reduce network load and client processing.
+If your client application needs only a limited set of properties from the entities in your table, you can use projection to limit the size of the returned data set. As with filtering, projection helps to reduce network load and client processing.
 
 #### Denormalization
 
@@ -261,14 +259,14 @@ This section describes proven practices for modifying entities stored in the Tab
 
 #### Batching
 
-Batch transactions are known as Entity Group Transactions (ETG) in Azure Storage; all the operations within an ETG must be on a single partition in a single table. Where possible, use ETGs to perform inserts, updates, and deletes in batches. This reduces the number of round trips from your client application to the server, reduces the number of billable transactions (an ETG counts as a single transaction for billing purposes and can contain up to 100 storage operations), and enables atomic updates (all operations succeed or all fail within an ETG). Environments with high latencies such as mobile devices will benefit greatly from using ETGs.  
+Batch transactions are known as entity group transactions in Azure Storage. All operations within an entity group transaction must be on a single partition in a single table. Where possible, use entity group transactions to perform inserts, updates, and deletes in batches. Using entity group transactions reduces the number of round trips from your client application to the server, reduces the number of billable transactions (an entity group transaction counts as a single transaction for billing purposes and can contain up to 100 storage operations), and enables atomic updates (all operations succeed or all fail within an entity group transaction). Environments with high latencies such as mobile devices will benefit greatly from using entity group transactions.  
 
 #### Upsert
 
 Use table **Upsert** operations wherever possible. There are two types of **Upsert**, both of which can be more efficient than a traditional **Insert** and **Update** operations:  
 
-- **InsertOrMerge**: Use this when you want to upload a subset of the entity's properties, but aren't sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
-- **InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren't sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user's current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
+- **InsertOrMerge**: Use this operation when you want to upload a subset of the entity's properties, but aren't sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
+- **InsertOrReplace**: Use this operation when you want to upload an entirely new entity, but you aren't sure whether it already exists. Use this operation when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user's current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
 
 #### Storing data series in a single entity
 
@@ -278,7 +276,7 @@ Alternatively, your application could store the CPU usage for each hour as a sep
 
 #### Storing structured data in blobs
 
-Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted. A good example of this is a log file. In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well. In this case, for performance, it's better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
+If you are performing batch inserts and then retrieving ranges of entities together, consider using blobs instead of tables. A good example is a log file. You can batch several minutes of logs and insert them, and then retrieve several minutes of logs at a time. In this case, performance is better if you use blobs instead of tables, since you can significantly reduce the number of objects written to or read, and also possibly the number of requests that need made.  
 
 ## Next steps
 

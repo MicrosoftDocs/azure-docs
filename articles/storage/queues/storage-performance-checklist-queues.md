@@ -1,14 +1,14 @@
 ---
 title: Performance and scalability checklist for Queue storage - Azure Storage
-description: 
+description: A checklist of proven practices for use with Queue storage in developing high-performance applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 10/10/2019
 ms.author: tamram
-ms.subservice: tables
+ms.subservice: queues
 ---
 
 # Performance and scalability checklist for Queue storage
@@ -86,8 +86,6 @@ In any distributed environment, placing the client near to the server delivers i
 
 If client applications will access Azure Storage but are not hosted within Azure, such as mobile device apps or on premises enterprise services, then locating the storage account in a region near to those clients may reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then consider using one storage account per region. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.
 
-For broad distribution of blob content, use a content deliver network such as Azure CDN. For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).  
-
 ## SAS and CORS
 
 Suppose that you need to authorize code such as JavaScript that is running in a user's web browser or in a mobile phone app to access data in Azure Storage. One approach is to build a service application that acts as a proxy. The user's device authenticates with the service, which in turn authorizes access to Azure Storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this approach places a significant overhead on the service application, because all of the data transferred between the user's device and Azure Storage must pass through the service application.
@@ -143,7 +141,7 @@ While parallelism can be great for performance, be careful about using unbounded
 
 ## Client libraries and tools
 
-For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up to date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
+For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally. For more information, see the [Azure Storage reference documentation](/azure/storage/#reference).
 
 ## Handle service errors
 
@@ -161,21 +159,17 @@ The client libraries handle retries with an awareness of which errors can be ret
 
 For more information on Azure Storage error codes, see [Status and error codes](/rest/api/storageservices/status-and-error-codes2).
 
-## Transfer data
-
-For information about efficiently transferring data to and from Blob storage or between storage accounts, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
 ## Disable Nagle
 
 Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). Nagle's algorithm has a negative impact on the performance of requests to the Azure Table service, and you should disable it if possible.
 
 ## Message size
 
-Queue performance and scalability decrease as message size increases. You should place only the information the receiver needs in a message.  
+Queue performance and scalability decrease as message size increases. Put only the information the receiver needs in a message.  
 
 ## Batch retrieval
 
-You can retrieve up to 32 messages from a queue in a single operation. This can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
+You can retrieve up to 32 messages from a queue in a single operation. Batch retrieval can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
 
 ## Queue polling interval
 
