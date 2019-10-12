@@ -19,7 +19,7 @@ Azure Storage has scalability and performance targets for capacity, transaction 
 
 ## Checklist
 
-This article organizes the proven practices into a checklist you can follow while developing your Blob storage application.
+This article organizes proven practices for performance into a checklist you can follow while developing your Blob storage application.
 
 | Done | Category | Question |
 | --- | --- | --- |
@@ -134,13 +134,15 @@ For broad distribution of blob content, use a content deliver network such as Az
 
 ## SAS and CORS
 
-When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use a service application as a proxy. The user's device authenticates with the service, which in turn authorizes access to Azure Storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this approach places a significant overhead on the service application because all the data transferred between the user's device and Azure Storage must pass through the web role.
+Suppose that you need to authorize code such as JavaScript that is running in a user's web browser or in a mobile phone app to access data in Azure Storage. One approach is to build a service application that acts as a proxy. The user's device authenticates with the service, which in turn authorizes access to Azure Storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this approach places a significant overhead on the service application, because all of the data transferred between the user's device and Azure Storage must pass through the service application.
 
-You can avoid using a service application as a proxy for Azure Storage by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user's device to make requests directly to Azure Storage by means of a limited access token. For example, if a user wants to upload a photo to your application, then your service application can generate and send to the user's device a SAS token that grants permission to write to a specific blob or container for a specified interval (after which the SAS token expires). For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).  
+You can avoid using a service application as a proxy for Azure Storage by using shared access signatures (SAS). Using SAS, you can enable your user's device to make requests directly to Azure Storage by using a limited access token. For example, if a user wants to upload a photo to your application, then your service application can generate a SAS and send it to the user's device. The SAS token can grant permission to write to an Azure Storage resource for a specified interval of time, after which the SAS token expires. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).  
 
-Typically, a browser will not allow JavaScript in a page hosted by a website on one domain to perform certain operations, such as PUT operations, to another domain. Cross-origin resource sharing (CORS) is a browser feature that allows the target domain (in this case the storage account) to communicate to the browser that it trusts requests originating in the source domain (in this case the web role). For more information about CORS, see [Cross-origin resource sharing (CORS) support for Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
+Typically, a web browser will not allow JavaScript in a page that is hosted by a website on one domain to perform certain operations, such as write operations, to another domain. Known as the same-origin policy, this policy prevents a malicious script on one page from obtaining access to data on another web page. However, the same-origin policy can be a limitation when building a solution in the cloud. Cross-origin resource sharing (CORS) is a browser feature that enables the target domain to communicate to the browser that it trusts requests originating in the source domain.
+
+For example, suppose a web application running in Azure makes a request for a resource to an Azure Storage account. The web application is the source domain, and the storage account is the target domain. You can configure CORS for any of the Azure Storage services to communicate to the web browser that requests from the source domain are trusted by Azure Storage. For more information about CORS, see [Cross-origin resource sharing (CORS) support for Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
-Both SAS and CORS can help you avoid unnecessary load (and bottlenecks) on your web application.  
+Both SAS and CORS can help you avoid unnecessary load on your web application.  
 
 ## Caching
 
@@ -152,7 +154,7 @@ In general, reading data once is preferable to reading it twice. Consider the ex
 
 One way to avoid retrieving a blob if it hasn't been modified since it was cached is to qualify the GET operation with a conditional header for modification time. If the last modified time is after the time that the blob was cached, then the blob is retrieved and re-cached. Otherwise, the cached blob is retrieved for optimal performance.
 
-You may also decide to design your application to assume that the blob remains valid for a short period after retrieving it. In this case, the application does not need to check whether the blob was modified during that interval.
+You may also decide to design your application to assume that the blob remains unchanged for a short period after retrieving it. In this case, the application does not need to check whether the blob was modified during that interval.
 
 Configuration data, lookup data, and other data that is frequently used by the application are good candidates for caching.  
 
@@ -177,15 +179,13 @@ For more information on performance improvements in .NET Core, see the following
 
 ### Increase default connection limit
 
-In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
+In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application. Set the connection limit before opening any connections.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Set the connection limit before opening any connections.  
-
-For other programming languages, see that language's documentation to determine how to set the connection limit.  
+For other programming languages, see the documentation to determine how to set the connection limit.  
 
 For more information, see the blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 

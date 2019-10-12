@@ -26,7 +26,7 @@ This guide shows you how to perform common scenarios by using the Azure Queue st
 ## Create a PHP application
 The only requirement for creating a PHP application that accesses Azure Queue storage is the referencing of classes in the [Azure Storage Client Library for PHP][download] from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within a web application in Azure.
 
 ## Get the Azure Client Libraries
 ### Install via Composer
