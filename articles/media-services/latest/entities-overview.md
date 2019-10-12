@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -155,25 +155,25 @@ The following table shows how the filtering and ordering options may be applied 
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|
-|Asset|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
+|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
-|Content key policies|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.policyId|`eq`, `ne`||
-|Jobs| name                    | `eq`            | `asc` and `desc`|
+|[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
-|Streaming locators|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
 ||properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-| Streaming policies|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|Transforms| name                    | `eq`            | `asc` and `desc`|
+|[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
