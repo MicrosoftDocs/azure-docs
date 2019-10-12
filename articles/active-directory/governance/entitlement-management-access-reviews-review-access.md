@@ -35,6 +35,7 @@ Azure AD Entitlement Management simplifies how enterprises manage access to grou
 Use the following steps to find and open the access review:
 
 1. Look for an email from Microsoft that asks you to review access. Here is an example email to review access: 
+![Access Review Email](./media/entitlement-management-access-reviews-review-access/review-access-email.png)
 
 1. Click the Review access link to open the access review 
 
