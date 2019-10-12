@@ -10,9 +10,9 @@ ms.author: ajburnle
 ms.custom: include file
 ---
 
-## Expiration
+## Lifecycle
 
-In the Expiration section, you specify when a user's assignment to the access package expires.
+On the **Lifecycle** tab, you specify when a user's assignment to the access package expires.
 
 1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, or **Never**.
 
@@ -36,4 +36,4 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
     The same approval settings that were specified on the **Requests** tab will be used.
 
-1. Click **Next**.
+1. Click **Next** or **Update**.
