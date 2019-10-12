@@ -34,17 +34,17 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + Limiting model explanations to best run rather than computing explanations for every run. Making this behavior change for local, remote and ADB.
-    + Add support for on-demand model explanations for UI
-    + Adding psutil as a dependency of automl and included psutil as a conda dependency in amlcompute.
+    + Added support for on-demand model explanations for UI
+    + Added psutil as a dependency of automl and included psutil as a conda dependency in amlcompute.
     + Fixed the issue with heuristic lags and rolling window sizes on the forecasting data sets some series of which can cause linear algebra errors
       + Added print out for the heuristically determined parameters in the forecasting runs.
   + **azureml-contrib-datadrift**
-    + Add protection while creating output metrics if dataset level drift is not in the first section.
+    + Added protection while creating output metrics if dataset level drift is not in the first section.
   + **azureml-contrib-interpret**
     + azureml-contrib-explain-model package has been renamed to azureml-contrib-interpret
   + **azureml-core**
-    + Introduce API to unregister datasets. `dataset.unregister_all_versions()`
-    + Introduce Dataset API to check data changed time. `dataset.data_changed_time`.
+    + Added API to unregister datasets. `dataset.unregister_all_versions()`
+    + Added Dataset API to check data changed time. `dataset.data_changed_time`.
     + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in Azure Machine Learning Pipeline
     + Performance of `FileDataset.mount` has been improved for folders with a large number of files
     + Added URL to known error recommendations in run details.
