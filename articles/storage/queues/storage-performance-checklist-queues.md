@@ -38,9 +38,9 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
 | &nbsp; |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
 | &nbsp; |Message Size |[Are your messages compact to improve the performance of the queue?](#message-size) |
-| &nbsp; |Bulk Retrievak |[Are you retrieving multiple messages in a single GET operation?](#batch-retrieval) |
+| &nbsp; |Bulk Retrieval |[Are you retrieving multiple messages in a single GET operation?](#batch-retrieval) |
 | &nbsp; |Polling Frequency |[Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |
-| &nbsp; |Update Message |[Are you using the Update Message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#update-message) |
+| &nbsp; |Update Message |[Are you using the Update Message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#use-update-message) |
 | &nbsp; |Architecture |[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#application-architecture) |
 
 ## Scalability targets
@@ -185,9 +185,7 @@ For up-to-date cost information, see [Azure Storage Pricing](https://azure.micro
 
 ## Use Update Message
 
-You can use the **Update Message** operation to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **Update Message** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **Update Message** operation allows your application to save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes.  
-
-For more information, see the article [How to: Change the contents of a queued message](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+You can use the **Update Message** operation to increase the invisibility timeout or to update the state information of a message. Using **Update Message** can be a more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Your application can save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes. Keep in mind that each **Update Message** operation counts towards the scalability target.
 
 ## Application architecture
 
