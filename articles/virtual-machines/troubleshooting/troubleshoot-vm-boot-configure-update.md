@@ -169,8 +169,8 @@ To enable dump log and Serial Console, run the following script.
 
 3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](../windows/troubleshoot-recovery-disks-portal.md).
 4. Start the VM and access the Serial Console.
-5. Select **Non-Maskable Interrupt(NMI)** to trigger the memory dump.
-    ![the image about where to select Non-Maskable Interrupt](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+5. Select **Send Non-Maskable Interrupt(NMI)** to trigger the memory dump.
+    ![the image about where to send Non-Maskable Interrupt](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Attach the OS disk to a recovery VM again, collect dump file.
 
 ## Contact Microsoft support
