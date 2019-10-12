@@ -17,6 +17,6 @@
     - name: Connect devices
       items:
         - name: Connect a Rigado Cascade C500
-          href: ../howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          href: ../howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Related
 - name: Resources
