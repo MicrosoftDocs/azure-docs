@@ -46,9 +46,9 @@ Considering the vast body of design guidance on voice experiences, we focus here
 
 1. [**Disclosure Assessment**](#disclosure-assessment): A process to determine the type of disclosure recommended for your synthetic voice experience
 
-2. [**How to Disclose**](concepts-disclosure-patterns.md#disclosure-patterns): Examples of disclosure patterns that can be applied to your synthetic voice experience
+2. [**How to Disclose**](concepts-disclosure-patterns.md): Examples of disclosure patterns that can be applied to your synthetic voice experience
 
-3. [**When to Disclose**](concepts-disclosure-patterns.md): Optimal moments to disclose throughout the user journey
+3. [**When to Disclose**](concepts-disclosure-patterns.md#when-to-disclose): Optimal moments to disclose throughout the user journey
 
 ## Disclosure assessment
 

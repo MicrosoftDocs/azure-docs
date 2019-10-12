@@ -3,13 +3,13 @@ title: Custom Neural Voice Gating overview
 titleSuffix: Azure Cognitive Services
 description: Introduction to the gating process for custom neural voice.
 services: cognitive-services
-author: v-camsar
+author: shlo
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: v-camsar
+ms.author: shlo
 ---
 # Custom Neural Voice Gating Overview
 
@@ -20,7 +20,7 @@ As part of Microsoft's commitment to designing responsible AI, we have assembled
 ### Guidance for deploying Custom Neural Voice
 
 - [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md): our top recommendations based on our research
-- [Neural Text-to-Speech Transparency Note](concepts-transparency-note.md): what you need to know about the technology to use it responsibly
+- [Neural Text-to-Speech Transparency Note](https://aka.ms/neural-tts-transparency-note): what you need to know about the technology to use it responsibly
 - [Disclosure Design](concepts-disclosure-guidelines.md): how to design experiences so that users know when a synthetic voice is being used and trust your service
 
 ### Why Custom Neural Voice is a gated technology

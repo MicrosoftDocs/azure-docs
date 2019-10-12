@@ -14,13 +14,9 @@ ms.author: angle
 
 # Disclosure Design Patterns
 
-<br/>
+## Overview
 
 ![Spectrum of disclosure patterns](media/responsible-ai/disclosure-patterns/affordances.png)
-
-<br/>
-
-## Overview
 
 Now that you&#39;ve determined the right level of disclosure for your synthetic voice experience, it&#39;s a good time to explore potential design patterns. If the outcome of your disclosure assessment was 'High Disclosure', we recommend **explicit disclosure** , which means communicating the origins of the synthetic voice outright. **Implicit disclosure** includes cues and interaction patterns that benefit voice experiences whether or not required disclosure levels are high or low.
 
@@ -29,7 +25,7 @@ Now that you&#39;ve determined the right level of disclosure for your synthetic 
 
 | Explicit Disclosure                                                                                                                                                                                    | Implicit Disclosure                                                                 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-|[Transparent Introduction](#transparent-introduction)<br> [Verbal Transparent Introduction](#verbal-transparent-introduction)<br>  [Explicit Byline](#explicit-byline)<br>  [Customization and Calibration](#customization-and-calibration)<br> [Parental Disclosure](#parental-disclosure)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Capability Disclosure](#capability-disclosure)<br>[Implicit Cues and Feedback](#implicit-cues-and-feedback)<br> [Conversational Transparency](#conversational-transparency) |
+|[Transparent Introduction](#transparent-introduction)<br> [Verbal Transparent Introduction](#verbal-transparent-introduction)<br>  [Explicit Byline](#explicit-byline)<br>  [Customization and Calibration](#customization-and-calibration)<br> [Parental Disclosure](#parental-disclosure)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Capability Disclosure](#capability-disclosure)<br>[Implicit Cues and Feedback](#implicit-cues--feedback)<br> [Conversational Transparency](#conversational-transparency) |
 
 
 
@@ -43,8 +39,8 @@ Use the following chart to refer directly to the patterns that apply to your syn
 | Requires Low Disclosure | Disclosure may be minimal or unnecessary, but could benefit from some implicit patterns. | [Capability Disclosure](#capability-disclosure)<br>[Conversational Transparency](#conversational-transparency)  |
 | Has a high level of engagement | Build for the long term and offer multiple entry points to disclosure along the user journey. It is highly recommended to have an onboarding experience. | [Transparent Introduction](#transparent-introduction)<br>[Customization and Calibration](#customization-and-calibration)<br>[Capability Disclosure](#capability-disclosure) |
 | Includes children as the primary intended audience | Target parents as the primary disclosure audience and ensure that they can effectively communicate disclosure to children.  | [Parental Disclosure](#parental-disclosure)<br>[Verbal Transparent Introduction](#verbal-transparent-introduction)<br> [Implicit Disclosure](#implicit-disclosure)<br> [Conversational Transparency](#conversational-transparency)  |
-| Includes blind users or people with low vision as the primary intended audience  | Be inclusive of all users and ensure that any form of visual disclosure has associated alternative text or sound effects. Adhere to accessibility standards for contrast ratio and display size. Use auditory cues to communicate disclosure.  | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br>[Auditory Cues](#implicit-cues-and-feedback)<br>[Haptic Cues](#implicit-cues-and-feedback)<br>[Conversational Transparency](#conversational-transparency)<br>[Accessibility Standards](https://www.microsoft.com/en-us/accessibility) |
-| Is screen-less, device-less or uses voice as the primary or only mode of interaction | Use auditory cues to communicate disclosure. | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br> [Auditory Cues](#imiplicit-cues-and-feedback)  |
+| Includes blind users or people with low vision as the primary intended audience  | Be inclusive of all users and ensure that any form of visual disclosure has associated alternative text or sound effects. Adhere to accessibility standards for contrast ratio and display size. Use auditory cues to communicate disclosure.  | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br>[Auditory Cues](#implicit-cues--feedback)<br>[Haptic Cues](#implicit-cues--feedback)<br>[Conversational Transparency](#conversational-transparency)<br>[Accessibility Standards](https://www.microsoft.com/en-us/accessibility) |
+| Is screen-less, device-less or uses voice as the primary or only mode of interaction | Use auditory cues to communicate disclosure. | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br> [Auditory Cues](#implicit-cues--feedback)  |
 | Potentially includes multiple users/listeners (e.g., personal assistant in multiple household)  | Be mindful of various user contexts and levels of understanding and offer multiple opportunities for disclosure in the user journey.  | [Transparent Introduction (Return User)](#transparent-introduction)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)<br> [Conversational Transparency](#conversational-transparency)  |
 
 
@@ -60,8 +56,7 @@ Before the voice experience begins, introduce the digital assistant by being ful
 ![Transparent introduction during first run experience](media/responsible-ai/disclosure-patterns/transparent-intro-first.png)
 *The synthetic voice is introduced while onboarding a new user.*
 
-Recommendations:
-
+Recommendations
 - Describe that the voice is artificial (e.g. &quot;digital&quot;)
 - Describe what the agent is capable of doing
 - Explicitly state the voice&#39;s origins
@@ -96,7 +91,7 @@ Use this pattern if the user will be interacting with an audio player or interac
 ![Explicit byline in a news media scenario](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
 *An explicit byline is the attribution of where voice came from.*
 
-Recommendations:
+Recommendations
 
 - Offer entry point to learn more about the synthesized voice
 
@@ -226,7 +221,7 @@ The optimal moment for disclosure is the first time a person interacts with th
 
 - [Customization and Calibration](#customization-and-calibration)
 
-- [Implicit Cues](#implicit-cues)
+- [Implicit Cues](#implicit-cues--feedback)
 
 ### Upon Request
 
@@ -244,7 +239,7 @@ Use the implicit design patterns that enhance the user experience continuously.
 
 - [Capability Disclosure](#capability-disclosure)
 
-- [Implicit Cues](#implicit-cues)
+- [Implicit Cues](#implicit-cues--feedback)
 
 ### When the system fails
 
@@ -258,7 +253,7 @@ Use disclosure as an opportunity to fail gracefully.
 
 
 
-## Additional Resources
+## Additional resources
 - [Microsoft Bot Guidelines](https://www.microsoft.com/en-us/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Cortana Design Guidelines](https://docs.microsoft.com/en-us/cortana/voice-commands/voicecommand-design-guidelines)
 - [Microsoft Windows UWP Speech Design Guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/input/speech-interactions)

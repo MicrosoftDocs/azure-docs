@@ -25,7 +25,7 @@ Carefully consider the context of use and the potential harms associated with us
 Users are more likely to have higher expectations when interacting with high-fidelity synthetic voice agents. Consequently, when system capabilities do not meet those expectations, trust can suffer, and may result in unpleasant, or even harmful experiences.
 
 ### Provide optional human support
-In ambiguous, transactional scenarios (e.g., a call support center), users do not always trust a computer agent to appropriately respond to their requests. Human support may be necessary in these situations, regardless of the realistic quality of the voice or capability of the system.
+In ambiguous, transactional scenarios (for example, a call support center), users do not always trust a computer agent to appropriately respond to their requests. Human support may be necessary in these situations, regardless of the realistic quality of the voice or capability of the system.
 
 
 ## Considerations for voice talent
@@ -38,10 +38,10 @@ Voice talent expect to have control over their voice font (how and where it will
 Provide guidelines for establishing contracts with individuals who use synthetic voice for assistance in speaking. The contract should consider specifying the parties who own the voice, duration of use, ownership transfer criteria, procedures for deleting the voice font, and how to prevent unauthorized access. Additionally, enable the contractual transfer of voice font ownership after death to family members if that person has given permission.
 
 ### Account for inconsistencies in speech patterns
-For individuals with speech disorders who record their own voice fonts, inconsistencies in their speech pattern (slurring of words or inability to pronounce certain words) may complicate the recording process.  In these cases, synthetic voice technology and recording sessions should accommodate them (i.e., provide breaks and additional number of recording sessions).
+For individuals with speech disorders who record their own voice fonts, inconsistencies in their speech pattern (slurring of words or inability to pronounce certain words) may complicate the recording process.  In these cases, synthetic voice technology and recording sessions should accommodate them (that is, provide breaks and additional number of recording sessions).
 
 ### Allow modification over time
-Individuals with speech disorders desire to make updates to their synthetic voice to reflect aging (e.g., a child reaching puberty). Individuals may also have stylistic preferences that change over time, and may want to make changes to pitch, accent or other voice characteristics.
+Individuals with speech disorders desire to make updates to their synthetic voice to reflect aging (for example, a child reaching puberty). Individuals may also have stylistic preferences that change over time, and may want to make changes to pitch, accent, or other voice characteristics.
 
 
 ## Reference docs
