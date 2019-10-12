@@ -32,16 +32,15 @@ Additionally, your Azure Time Series Insights environment has a **Storage limit 
 
 > [!NOTE]
 > By default, when creating a new environment, the retention is configured to **Purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the Time Series Insights environment.
+> * For information on how to configure retention policies, read [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-For information on switching retention behaviors, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
-
-Compare the data retention behavior:
+Both data retention policies are described in greater detail below.
 
 ## Purge old data
 
-- This behavior is the default behavior for Time Series Insights environments.  
-- This behavior is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
-- This behavior *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
+- **Purge old data** is the default setting for Azure Time Series Insights environments.  
+- **Purge old data** is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
+- The **Purge old data** setting *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (the "First In First Out" approach).
 
 ### Example one
@@ -88,7 +87,7 @@ In the impacted Event Hubs, consider adjusting the **Message Retention** propert
 
 If no properties are configured on event source (`timeStampPropertyName`), Time Series Insights defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 
-If you need to scale your environment up to accommodate additional capacity or to increase the length of retention, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) for more information.  
+Read [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to scale your environment to accommodate additional capacity or increase the length of retention.
 
 ## Next steps
 
