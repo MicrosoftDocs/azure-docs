@@ -15,9 +15,9 @@ ms.author: banders
 ---
 # Track Microsoft Customer Agreement Azure credit balance
 
-You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for charges that are covered by the credits.
+You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for charges that are covered by the credits. You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits](#products-that-arent-covered-by-azure-credits).
 
-You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits](#products-that-arent-covered-by-azure-credits).
+You must have an owner, contributor, reader or invoice manager role on the billing profile or owner, contributor or reader role on the billing account to track Azure credit balance. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -84,11 +84,7 @@ Azure credits are one of the payment methods. You get credit from Microsoft like
 
 ## Check your credit balance through the API
 
-### Prerequisites
-
-You must have an owner, contributor, reader or invoice manager role on the billing profile for which you want to track Azure credit balance. To learn more about the roles for billing profiles, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-The examples shown below are for REST APIs. Support for powershell and CLIs is coming soon.
+The examples shown below are for REST APIs. Support for PowerShell and Azure CLI is coming soon.
 
 ### Find billing profiles you have access to
 
@@ -111,15 +107,15 @@ The API response returns all billing profiles you have access to.
         "agreementType": "MicrosoftCustomerAgreement",
         "billingProfiles": [
           {
-            "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/XXXX-XXXX-XXX-XXX",
-            "name": "XXXX-XXXX-XXX-XXX",
+            "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx",
+            "name": "xxxx-xxxx-xxx-xxx",
             "properties": {
               "address": {
                 "addressLine1": "AddressLine1",
                 "city": "City",
                 "companyName": "CompanyName",
                 "country": "Country",
-                "postalCode": "XXXXX",
+                "postalCode": "xxxxx",
                 "region": "Region"
               },
               "currency": "USD",
@@ -140,11 +136,11 @@ The API response returns all billing profiles you have access to.
 }
 ```
 
-Copy the `id` of the billing profile for which you want to check credit balance. For example, if you want to check credit balance for Contoso profile billing profile, you'd copy ```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/XXXX-XXXX-XXX-XXX```. Paste this value somewhere so that you can use it in the next step as `billingProfileId`.
+Copy the `id` of the billing profile for which you want to check credit balance. For example, if you want to check credit balance for Contoso profile billing profile, you'd copy ```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step as `billingProfileId`.
 
 ### Get your Azure credits balance 
 
-Make the following request, replacing `<billingProfileId>` with the `billingProfileId` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/XXXX-XXXX-XXX-XXX```). 
+Make the following request, replacing `<billingProfileId>` with the `billingProfileId` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx``). 
 
 ```json
 GET https://management.azure.com/<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -154,7 +150,7 @@ The API response returns estimated and current balance.
 
 ```json
 {
-  "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/XXXX-XXXX-XXX-XXX/providers/Microsoft.Consumption/credits/balanceSummary/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/XXXX-XXXX-XXX-XXX/providers/Microsoft.Consumption/credits/balanceSummary/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.Consumption/credits/balanceSummary",
   "eTag": null,
@@ -195,6 +191,67 @@ The API response returns estimated and current balance.
 
 ### Get list of credits
 
+Make the following request, replacing `<billingProfileId>` with the `billingProfileId` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx```). 
+
+```json
+GET https://management.azure.com/<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
+```
+The API response returns lists of Azure credits for your billing profile.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx/providers/Microsoft.Consumption/lots/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/lots",
+      "eTag": null,
+      "properties": {
+        "originalAmount": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "source": "Azure prepayment",
+        "startDate": "09/18/2019 21:47:31",
+        "expirationDate": "09/18/2020 21:47:30",
+        "poNumber": ""
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx/providers/Microsoft.Consumption/lots/4ea40eb5-7d05-4c61-8e77-04fdd3c29d72",
+      "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/lots",
+      "eTag": null,
+      "properties": {
+        "originalAmount": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 497.87
+        },
+        "source": "Azure Monetary Credit",
+        "startDate": "09/18/2019 21:47:31",
+        "expirationDate": "09/18/2020 21:47:30",
+        "poNumber": ""
+      }
+    }
+  ]
+}
+```
+| Element Name  | Description                                                                                               |
+|---------------|-----------------------------------------------------------------------------------------------------------|
+| `originalAmount` | The original amount of the credit. |
+| `closedBalance`   | The balance as of the last invoice.    |
+| `source`      | The source of the credit that defines who how acquired the credit. |
+| `startDate`      |  The date when the credit became active.  |
+| `expirationDate`  | The date when the credit expires.   |
+| `poNumber`  | The purchase order number of the invoice on which the credit was billed.   |
 
 ### Get transactions that affected your credit balance
 
@@ -203,7 +260,7 @@ Make the following request, replacing `<billingProfileId>` with the `billingProf
 ```json
 GET https://management.azure.com/<billingProfileId>/providers/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
 ```
-The API response returns all transactions that affected your credit balance.
+The API response returns all transactions that affected the credit balance for your billing profile.
 
 ```json
 {
