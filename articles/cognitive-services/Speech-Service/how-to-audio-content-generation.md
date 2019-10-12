@@ -1,7 +1,7 @@
 ---
-title: Audio Content Generation - Speech Service
+title: Audio Content Creation - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Audio Content Creation is an online tool that allow you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
+description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/4/2019
 ms.author: erhopf
 ---
 
-# Audio Content Generation
+# Audio Content Creation
 
-Audio Content Creation is an online tool that allow you to customize and fine-tune Microsoft's text-to-speech output for your apps and products. You can use this tool to fine-tune public and custom voices for more accurate natural expressions, and manage your output in the cloud.
+[Audio Content Creation](https://aka.ms/audiocontentcreation) is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products. You can use this tool to fine-tune public and custom voices for more accurate natural expressions, and manage your output in the cloud.
 
 The Audio Content Creation tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). To simplify customization and tuning, Audio Content Generation allows you to visually inspect your text-to-speech outputs in real time.
 
@@ -24,9 +24,9 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 ![](media/audio-content-generation/audio_content_generation_diagram.png)
 
-1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). Make sure that when you create your Speech resource, that you select the **S0** pricing tier, F0 resources aren't supported. Once you have a subscription key, you can use it to call the Speech service, and to access [Speech Studio](https://speech.microsoft.com).
+1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). Once you have a subscription key, you can use it to call the Speech service, and to access [Audio Content Creation](https://aka.ms/audiocontentcreation).
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML.
-3. Choose the voice and the language that you'd like to tune. Audio Content Generation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
+3. Choose the voice and the language that you'd like to tune. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
    >[!NOTE]
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](#link-to-ethics-content).
 
@@ -38,24 +38,24 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 Follow these steps to create a Speech resource and connect it with Speech Studio.
 
-1. Follow these instructions to [create a Speech resource](#create-a-speech-resource). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
-2. Sign into [Speech Studio](https://speech.microsoft.com/portal?projecttype=voicetuning).
+1. Follow these instructions to [sign up for an Azure account and create a Speech resource](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
+2. Sign into [Audio Content Creation](https://aka.ms/audiocontentcreation).
 3. Select an existing project, or click **Create New**.
 4. You can modify your subscription at any time with the **Settings** option, located in the top nav.
 
 ## Create an audio tuning file
 
-There are two ways to get your content into the Audio Content Generation tool.
+There are two ways to get your content into the Audio Content Creation tool.
 
 **Option 1:**
 
-1. After you sign into [Audio Content Generation](https://speech.microsoft.com/portal?projecttype=voicetuning), click **Audio Tuning** to create a new audio tuning file.
+1. After you sign into [Audio Content Creation](https://aka.ms/audiocontentcreation), click **Audio Tuning** to create a new audio tuning file.
 2. When the editing window appears, you can input up to 10,000 characters.
 3. Don't forget to save.
 
 **Option 2:**
 
-1. After you sign into [Audio Content Generation](https://speech.microsoft.com/portal?projecttype=voicetuning), click **Upload** to import one or more text files. Both plain text and SSML are supported.
+1. After you sign into [Audio Content Creation](https://aka.ms/audiocontentcreation), click **Upload** to import one or more text files. Both plain text and SSML are supported.
 2. When you upload your text files, make sure that the content meets these requirements.
 
    | Property | Value / Notes |
@@ -86,7 +86,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 After you've reviewed your audio output and are satisfied with your tuning and adjustment, you can export the audio.
 
-1. From the [Audio Content Generation](https://speech.microsoft.com/portal?projecttype=voicetuning) tool, click **Export** to create an audio generation task.
+1. From the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool, click **Export** to create an audio generation task.
 2. Choose the output format for your tuned audio. A list of supported formats and sample rates is available below.
 3. You can view the status of the task on the **Export task** tab. If the task fails, see the detailed information page for a full report.
 4. When the task is complete, your audio is available for download on the **Audio Library** tab.
