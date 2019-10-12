@@ -14,7 +14,7 @@ ms.author: banders
 
 # Create services included with Azure free account
 
-Your Azure free account includes a limited quantity of free services for 12 months. Within these limits, you've the flexibility to use the free services in various configurations to meet your needs.
+Your Azure free account includes a limited quantity of free services for 12 months. Within these limits, you have the flexibility to use the free services in various configurations to meet your needs.
 
 ## Create free services in the Azure portal
 We recommend you use the link to the [Free service page](https://go.microsoft.com/fwlink/?linkid=859151) to create free services. Or you can sign in to the [Azure portal](https://portal.azure.com), and search for **free services**. When you create services from the free services page, most of the fields are pre-selected for you to easily create services for free.

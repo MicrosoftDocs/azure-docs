@@ -26121,7 +26121,7 @@
     },
     {
       "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
-      "redirect_url": "articles/billing/billing-check-free-service-usage.md",
+      "redirect_url": "/azure/billing/billing-check-free-service-usage",
       "redirect_document_id": true
     },
     {
