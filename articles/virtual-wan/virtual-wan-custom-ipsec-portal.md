@@ -13,29 +13,23 @@ ms.author: cherylmc
 # Configure a custom IPsec policy for Virtual WAN using the portal
 
 You can configure custom IPsec policy for Virtual WAN in the Azure portal. Custom policies are helpful when you want to **Reshmi to add second part of sentence**.
+
+## Working with custom policies
+
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
 
-## 1. Locate the virtual hub
+## Configure a policy
 
-From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account. Locate the virtual hub for your site.
+1. **Locate the virtual hub**. From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account. Locate the virtual hub for your site.
+2. **Select the VPN site**. From the hub page, select the VPN Site for which you want to set up a custom policy.
 
-## 2. Select the VPN site
+   ![select](./media/virtual-wan-custom-ipsec-portal/locate.png)
+3. **Edit the VPN connection**. From the **Context menu** **...**, select **Edit VPN Connection**.
 
-From the hub page, select the VPN Site for which you want to set up a custom policy.
+   ![edit](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
+4. **Configure the settings**. On the **Edit VPN connection** page, configure the settings the settings. Select **Save** to save your settings.
 
-![](./media/virtual-wan-custom-ipsec-portal/locate.png)
-
-## 3. Edit the VPN connection
-
-From the **Context menu** **...**, select **Edit VPN Connection**.
-
-![](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-
-## 4. Configure the settings
-
-On the **Edit VPN connection** page, configure the settings the settings. Select **Save** to save your settings.
-
-![](./media/virtual-wan-custom-ipsec-portal/edit.png)
+   ![configure and save](./media/virtual-wan-custom-ipsec-portal/edit.png)
 
 ## Next steps
 
