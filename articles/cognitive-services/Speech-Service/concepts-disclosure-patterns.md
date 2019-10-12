@@ -18,12 +18,12 @@ ms.author: angle
 
 ![Spectrum of disclosure patterns](media/responsible-ai/disclosure-patterns/affordances.png)
 
-Now that you&#39;ve determined the right level of disclosure for your synthetic voice experience, it&#39;s a good time to explore potential design patterns. If the outcome of your disclosure assessment was 'High Disclosure', we recommend **explicit disclosure** , which means communicating the origins of the synthetic voice outright. **Implicit disclosure** includes cues and interaction patterns that benefit voice experiences whether or not required disclosure levels are high or low.
+Now that you&#39;ve determined the right [level of disclosure](concepts-disclosure-guidelines.md#disclosure-assessment) for your synthetic voice experience, it&#39;s a good time to explore potential design patterns. If the outcome of your disclosure assessment was 'High Disclosure', we recommend [**explicit disclosure**](#explicit-disclosure), which means communicating the origins of the synthetic voice outright. [**Implicit disclosure**](#implicit-disclosure) includes cues and interaction patterns that benefit voice experiences whether or not required disclosure levels are high or low.
 
 
 
 
-| Explicit Disclosure                                                                                                                                                                                    | Implicit Disclosure                                                                 |
+| Explicit Disclosure Patterns                                                                                                                                                                                    | Implicit Disclosure Ptterns                                                                 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 |[Transparent Introduction](#transparent-introduction)<br> [Verbal Transparent Introduction](#verbal-transparent-introduction)<br>  [Explicit Byline](#explicit-byline)<br>  [Customization and Calibration](#customization-and-calibration)<br> [Parental Disclosure](#parental-disclosure)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Capability Disclosure](#capability-disclosure)<br>[Implicit Cues and Feedback](#implicit-cues--feedback)<br> [Conversational Transparency](#conversational-transparency) |
 
@@ -205,22 +205,19 @@ Off-task or &quot;personal&quot; questions directed to the agent are a good time
 
 ## When to Disclose
 
-There are many opportunities for disclosure throughout the user journey. Design for the first use, second use, nth use … but also embrace moments of &quot;failure&quot; to highlight transparency—like when the system makes a mistake or when the user discovers a limitation of the agent&#39;s capabilities.
+There are many opportunities for disclosure throughout the user journey. Design for the first use, second use, nth use…, but also embrace moments of &quot;failure&quot; to highlight transparency—like when the system makes a mistake or when the user discovers a limitation of the agent&#39;s capabilities.
 
 ![Disclosure opportunities throughout a user journey](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 
 Example of a standard digital assistant user journey highlighting various disclosure opportunities.
 
-### Up Front/Onboarding
+### Upfront/Onboarding
 
 The optimal moment for disclosure is the first time a person interacts with the synthetic voice.  In a personal voice assistant scenario, this would be during onboarding, or the first time the user virtually unboxes the experience. In other scenarios, it could be the first time a synthetic voice reads content on a website or the first time a user interacts with a virtual character.
 
 - [Transparent Introduction](#transparent-introduction)
-
 - [Capability Disclosure](#capability-disclosure)
-
 - [Customization and Calibration](#customization-and-calibration)
-
 - [Implicit Cues](#implicit-cues--feedback)
 
 ### Upon Request
@@ -228,9 +225,7 @@ The optimal moment for disclosure is the first time a person interacts with th
 Users should be able to easily access additional information, control preferences, and receive transparent communication at any point during the user journey when requested.
 
 - [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
-
 - [Customization and Calibration](#customization-and-calibration)
-
 - [Conversational Transparency](#conversational-transparency)
 
 ### Continuously
@@ -238,7 +233,6 @@ Users should be able to easily access additional information, control preference
 Use the implicit design patterns that enhance the user experience continuously.
 
 - [Capability Disclosure](#capability-disclosure)
-
 - [Implicit Cues](#implicit-cues--feedback)
 
 ### When the system fails
@@ -246,9 +240,7 @@ Use the implicit design patterns that enhance the user experience continuously.
 Use disclosure as an opportunity to fail gracefully.
 
 - [Conversational Transparency](#conversational-transparency)
-
 - [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
-
 - [Handoff to human](#conversational-transparency)
 
 
@@ -264,7 +256,8 @@ Use disclosure as an opportunity to fail gracefully.
 * [Transparency Note](https://aka.ms/neural-tts-transparency-note)
 * [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
 * [Gating Overview](concepts-gating-overview.md)
+* [How to Disclose](concepts-disclosure-guidelines.md)
 
 ## Next steps
 
-* [Refer to Disclosure Design Patterns](concepts-disclosure-patterns.md)
+* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
