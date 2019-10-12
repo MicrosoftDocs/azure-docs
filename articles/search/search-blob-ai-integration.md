@@ -44,19 +44,19 @@ Once you add Azure Search to your storage account, you can follow the standard p
 
 In the following sections, we'll explore more components and concepts.
 
-## Inputs to blob indexing
+## Use Blob indexers
 
 AI enrichment is an add-on to an indexing pipeline, and in Azure Search, those pipelines are built on top of an *indexer*. An indexer is a data-source-aware subservice equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. Indexers are often used by themselves for import, separate from AI, but if you want to build an AI enrichment pipeline, you will need an indexer and a skillset to go with it. In this section, we'll focus on the indexer itself.
 
 Blobs in Azure Storage are indexed using the [Azure Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md). You invoke this indexer by setting the type, and by providing connection information that includes an Azure Storage account along with a blob container. Unless you've previously organized blobs into a virtual directory, which you can then pass as a parameter, the Blob indexer pulls from the entire container.
 
-An indexer does the "document cracking", and after connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the Azure Search pricing page.
+An indexer does the "document cracking", and after connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the Azure Search [pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 Although all documents will be cracked, enrichment only occurs if you explicitly provide the skills to do so. For example, if your pipeline consists exclusively of text analytics, any images in your container or documents will be ignored.
 
-The Blob indexer comes with configuration parameters. You can learn more about them in [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md).
+The Blob indexer comes with configuration parameters and supports change tracking if the underlying data provides sufficient information. You can learn more about the core functionality in [Azure Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md).
 
-## Adding AI
+## Add AI
 
 *Skills* are the individual components of AI processing that you can use standalone or in combination with other skills for sequential processing. 
 
@@ -64,7 +64,7 @@ The Blob indexer comes with configuration parameters. You can learn more about t
 
 + Custom skills are custom code, wrapped in an interface definition that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
 
-A *skillset* is the collection of skills used in a pipeline, and its invoked after the document cracking phase makes content available. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
+A *skillset* is the collection of skills used in a pipeline, and it's invoked after the document cracking phase makes content available. An indexer can consume exactly one skillset, but that skillset exists independently of an indexer so that you can reuse it in other scenarios.
 
 Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include using [Azure Functions](cognitive-search-create-custom-skill-example.md) or [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
@@ -72,7 +72,7 @@ Built-in skills backed by Cognitive Services require an [attached Cognitive Serv
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 
-## Ordering operations
+## Order of operations
 
 Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
