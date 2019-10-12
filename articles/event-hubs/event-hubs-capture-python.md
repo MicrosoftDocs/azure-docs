@@ -21,7 +21,7 @@ ms.author: shvija
 
 # Event Hubs Capture walkthrough: Python
 
-*Capture* is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
+*Capture* is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to do batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
 
 This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs, creates an append file for each of your devices, and writes the data to *.csv* files on each device.
 
@@ -51,7 +51,7 @@ In this walkthrough, you:
 4. When the deployment completes, select **Go to resource**, and on the storage account **Overview** screen, select **Containers**.
 5. On the **Containers** screen, select **+ Container**. 
 6. On the **New container** screen, give the container a name, and then select **OK**. Make a note of the container name to use later in the walkthrough. 
-7. In the left navigation of the **Containers** screen, select **Access keys**. Copy the **Storage account name** and the **Key** value under **key1** to use later in the walkthrough.
+7. In the left navigation of the **Containers** screen, select **Access keys**. Copy the **Storage account name**, and the **Key** value under **key1**, to use later in the walkthrough.
  
 ## Enable Event Hubs Capture
 
@@ -137,7 +137,7 @@ This script reads the captured files and creates a file for each of your devices
                processBlob(cleanName)
                os.remove(cleanName)
            block_blob_service.delete_blob(container, blob.name)
-   startProcessing('<storage account name>', '<storage acount access key value>', '<storage container name>')
+   startProcessing('<storage account name>', '<storage account access key value>', '<storage container name>')
    ```
 
 ## Run the Python scripts
@@ -152,7 +152,7 @@ This script reads the captured files and creates a file for each of your devices
    
    If you have an earlier version of `azure-storage` or `azure`, you might need to use the `--upgrade` option.
    
-   You might also need to run the following command. This command is not necessary on most systems. 
+   You might also need to run the following command. This command isn't necessary on most systems. 
    
    ```cmd
    pip install cryptography
