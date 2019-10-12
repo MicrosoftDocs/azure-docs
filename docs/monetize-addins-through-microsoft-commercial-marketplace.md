@@ -1,13 +1,12 @@
 ---
 title: Monetize your Office 365 add-in through Microsoft Commercial Marketplace
-description: We’re making it easier for customers to discover Microsoft 365 app solutions and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
+description: This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your add-in will be free for your customers to download, but will require a license to your service.
 localization_priority: Priority
 ---
 
 # Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 
->[!NOTE]
->This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. For your customers, your add-in will be free to download, but will require a license to your service.
+This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your add-in will be free for your customers to download, but will require a license to your service.
 
 When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions. You'll be able to reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team.
 
