@@ -19,7 +19,7 @@ You can check the Azure credit balance for your billing account for a Microsoft 
 
 You use credits to pay for charges that are eligible for credits. You are charged when you use products that aren't eligible for credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits](#products-that-arent-covered-by-azure-credits).
 
-In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits. You must have an owner, contributor, reader or invoice manager role on the billing profile or owner, contributor or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md).
+In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -326,7 +326,7 @@ The API response returns all transactions that affected the credit balance for y
 
 In a billing account for a Microsoft customer agreement, you use billing profiles to manage your invoices and payment methods. A monthly invoice is generated for each billing profile and you use the payment methods to pay the invoice.
 
-When you acquire new credits, you assign them to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
+you assign credits that you acquire to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
 
 ## Products that aren't covered by Azure credits
 
