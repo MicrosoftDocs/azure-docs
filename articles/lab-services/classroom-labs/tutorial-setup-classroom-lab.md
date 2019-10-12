@@ -47,12 +47,12 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
-
     2. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
 
-        ![Create a classroom lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-		> [!IMPORTANT]
-		> Make a note of user name and password. They won't be shown again.
+        ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+
+        > [!IMPORTANT]
+        > Make a note of user name and password. They won't be shown again.
     3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
         ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
