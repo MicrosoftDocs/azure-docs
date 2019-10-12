@@ -32,6 +32,28 @@ As an access package manager, you can change the expiration settings for an acce
 
 This article describes how to change the expiration settings for an existing access package.
 
+## Open expiration settings
+
+To change the expiration settings for an access package, you need to open the corresponding policy. Follow these steps to open the expiration settings for an access package.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Policies** and then click the policy that has the expiration settings you want to edit.
+
+    The Policy details pane opens at the bottom of the page.
+
+    ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
+
+1. Click **Edit** to edit the policy.
+
+    ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
+
+1. Click the **Lifecycle** tab to open the expiration settings.
+
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## Next steps

@@ -34,7 +34,7 @@ This article describes how to change the user and approval settings for an exist
 
 ## Choose between one or multiple polices
 
-The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval settings. A single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
+The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different request and approval settings. For example, a single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to. The following diagram shows an access package with two policies.
 
 ![Multiple policies in an access package](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
 
@@ -46,9 +46,9 @@ The way you specify who can request an access package is to create a policy. You
 | I want to specify different approval settings for some users | Multiple |
 | I want some users access package assignments to expire while other users can extend their access | Multiple |
 
-### Add a new policy
+### Add a new policy of request and approval settings
 
-Follow these steps to start adding a new policy to an existing access package.
+If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -62,13 +62,13 @@ Follow these steps to start adding a new policy to an existing access package.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Click **Next**.
+1. Click **Next** to open the **Requests** tab.
 
-1. Perform the steps in one of the following policy sections.
+1. Perform the steps in one of the following requests sections.
 
-### Edit an existing policy
+### Open an existing policy of request and approval settings
 
-Follow these steps to start editing a policy in an existing access package.
+To change the request and approval settings for an access package, you need to open the corresponding policy. Follow these steps to open the request and approval settings for an access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -78,17 +78,17 @@ Follow these steps to start editing a policy in an existing access package.
 
 1. Click **Policies** and then click the policy you want to edit.
 
-    The **Policy details** pane opens at the bottom of the page.
+    The Policy details pane opens at the bottom of the page.
 
-    ![Access package - Policy details pane](./media/entitlement-management-access-package-request-policy/policy-details.png)
+    ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
 
 1. Click **Edit** to edit the policy.
 
-    ![Access package - Edit policy](./media/entitlement-management-access-package-request-policy/policy-edit.png)
+    ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click **Next**.
+1. Click the **Requests** tab to open the request and approval settings.
 
-1. Perform the steps in one of the following policy sections.
+1. Perform the steps in one of the following request sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
