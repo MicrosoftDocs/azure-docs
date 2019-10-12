@@ -116,7 +116,11 @@ The volume size reported in DF is the maximum size the Azure NetApp Files volume
 
 ### What NFS version does Azure NetApp Files support?
 
-Azure NetApp Files currently supports NFSv3.
+Azure NetApp Files supports NFSv3 and NFSv4.1. You can create a volume using either NFS version. 
+
+> [!IMPORTANT] 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, please submit a request to **anffeedback@microsoft.com**. 
+
 
 ### How do I enable root squashing?
 

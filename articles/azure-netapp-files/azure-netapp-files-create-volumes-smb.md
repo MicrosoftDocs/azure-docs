@@ -107,7 +107,8 @@ A subnet must be delegated to Azure NetApp Files.
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
-    [!NOTE] You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the AD connection.
+> [!NOTE] 
+> You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the AD connection.
 
 ## Add an SMB volume
 

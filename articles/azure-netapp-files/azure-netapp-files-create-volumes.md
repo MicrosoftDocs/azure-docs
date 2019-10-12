@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 10/12/2019
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
 
-Azure NetApp Files supports NFS and SMBv3 volumes. A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. If you want to create an SMB volume, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
+Azure NetApp Files supports NFS (NFSv3 and NFSv4.1) and SMBv3 volumes. A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. If you want to create an SMB volume, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
 
 ## Before you begin 
 You must have already set up a capacity pool.   
@@ -66,14 +66,16 @@ A subnet must be delegated to Azure NetApp Files.
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
+4. Click **Protocol**, and then complete the following actions:  
+    * Select **NFS** as the protocol type for the volume.   
     * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
         The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length. 
 
         The file path must be unique within each subscription and each region. 
 
-    * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md)
+    * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
+    * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
