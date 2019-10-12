@@ -16,11 +16,11 @@ ms.author: banders
 
 A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
 
-This article applies to a billing account for a Microsoft Partner Agreement that is created for Cloud Solutions Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Partner Agreement. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Your billing account
 
-Your billing account for the Microsoft Partner Agreement contains a billing profile for each currency that you do business in. The billing profile lets you manage you invoices in its currency. Each billing profile has customers for whom the usage and purchases are billed in the currency of the billing profile.
+Your billing account for the Microsoft Partner Agreement contains a billing profile for each currency that you do business in. The billing profile lets you manage your invoices for a currency. When you establish a relationship with customers, depending on their currencies, Azure subscriptions and other purchases are billed to the respective billing profiles.
 
 The following diagram shows the relationship between a billing account, billing profiles, customers, and resellers.
 
@@ -30,13 +30,14 @@ Users with  **Global Admin** and **Admin Agents** role in your organization can 
 
 ## Billing profiles
 
-Use a billing profile to manage your invoices. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month. 
-You can view the invoice and download the related documents like usage and charges file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-mca-understand-your-bill.md).
+Use a billing profile to manage your invoices for a currency. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges in the billing profile's currency for all Azure subscriptions and other purchases from the previous month. 
+
+You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-mca-understand-your-bill.md).
 <!--Todo: Link needs to be updated -->
 
 > [!IMPORTANT]
 >
-The invoice contains charges for customers with an Azure Plan as well as SaaS, Azure marketplace, and reservation purchases for customers who haven't accepted Microsoft Customer Agreement or don't have an Azure plan.
+> The billing profile's invoice contains charges for customers with an Azure Plan as well as SaaS, Azure marketplace, and reservation purchases for customers who haven't accepted Microsoft Customer Agreement   and don't have an Azure plan.
 
 ## Customers
 
@@ -66,7 +67,7 @@ To turn on the policy:
 
 ## Resellers
 
-Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) can select a reseller  while creating additional subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
+Indirect providers in the CSP [two-tier model](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) can select a reseller while creating subscriptions for customers in the Azure portal. Post creation, they can view the list of subscriptions, filtered by a reseller and analyze cost for a customer by resellers in the Azure cost analysis.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
