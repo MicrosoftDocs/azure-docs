@@ -26,6 +26,28 @@ You must have already set up a capacity pool.
 A subnet must be delegated to Azure NetApp Files.  
 [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
+## Considerations 
+
+* Deciding which NFS version to use  
+  NFSv3 can handle a wide variety of use cases and is commonly deployed in most enterprise applications. You should validate what version (NFSv3 or NFSv4.1) your application requires and create your volume using the appropriate version. For example, if you use [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), file locking with NFSv4.1 is recommended over NFSv3. 
+
+  > [!IMPORTANT] 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, please submit a request to <anffeedback@microsoft.com>. 
+
+* Security  
+  Support for UNIX mode bits (read, write, and execute) is available for NFSv3 and NFSv4.1. Root-level access is required on the NFS client to mount NFS volumes.
+
+* Local user/group & LDAP support for NFSv4.1  
+  Currently NFSv4.1 supports root access to volumes only. 
+
+## Best practice
+
+* Ensure you’re using the mount instructions for the volume.  See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+
+* The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
+
+* You should ensure that the NFS client is up to date and running the latest updates for the operating system.
+
 ## Create an NFS volume
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. 
