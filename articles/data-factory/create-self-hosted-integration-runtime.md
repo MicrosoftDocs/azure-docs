@@ -23,7 +23,7 @@ This document describes how you can create and configure a self-hosted IR.
 
 ## Setting up a self-hosted Integration Runtime
 
-To create and setup a self-hosted integration runtime, you can use following methods:
+To create and set up a self-hosted integration runtime, you can use following methods:
 
 ### Create a self-hosted IR via Azure PowerShell 
 
@@ -45,10 +45,38 @@ To create and setup a self-hosted integration runtime, you can use following met
 
 ### Create a self-hosted IR via Azure Data Factory UI
 
-### Setup a self-hosted IR on Azure VM via Azure Resource Manager template 
+You can follow below steps to create a self-hosted IR using Azure Data Factory UI. 
+
+1. On the **Let's get started page** of Azure Data Factory UI, select the **Author** tab in the left pane.
+
+   ![Homepage Author button](media/doc-common-process/get-started-page-author-button.png)
+2. Click **Connections** at the bottom of the left pane, and switch to the **Integration runtimes** in the Connections window. Select **+New**.
+
+   ![Integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+3. In the **Integration runtime setup** window, select *Perform data movement and dispatch activities to external computes*, and click **Continue**.
+4. Enter a name for your IR, and select **Create**.
+5. You can use **Option 1** to launch the express setup in your computer. Alternatively, use **Option 2** to set up manually. 
+   ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
+ The following instructions are based on **Manual setup**:
+
+    a. Copy and paste the Authentication key. Select *Download and install integration runtime*.  
+	
+    b. Download the self-hosted integration runtime on a local Windows machine. Run the installation.
+
+	c. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**  
+
+   ![Register the integration runtime](media\create-self-hosted-integration-runtime/register-integration-runtime.png)
+
+    d. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**. 
+
+6. When the self-hosted integration runtime is registered successfully, you see the following message:
+
+    ![Registered successfully](media/create-self-hosted-integration-runtime/registered-successfully.png)
+
+### Set up a self-hosted IR on Azure VM via Azure Resource Manager template 
 You can automate self-hosted IR setup on an Azure virtual machine by using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This template provides an easy way to have a fully functioning self-hosted IR inside an Azure virtual network with high-availability and scalability features (as long as you set the node count to 2 or higher).
 
-### Setup an existing self-hosted IR via PowerShell
+### Set up an existing self-hosted IR via PowerShell
 
 You can use command line for setting up or managing an existing self-hosted IR. This can be used especially for automating installation, registration of self-hosted IR nodes. 
 
@@ -68,7 +96,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node for setting up a High Availability Cluster and/or enabling setting of credentials directly against the self-hosted IR (without going through ADF service) using **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in same network. | No       |
 | EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Enable remote access to current node when the node is running in Container | No       |
 | DisableRemoteAccess                                         | Disable remote access to current node. Remote access is needed for multi-node setup. The New-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled as long as it is executed on the same machine as the self-hosted IR node. | No       |
-| Key "`<AuthenticationKey>`"                                 | Overwrite/ update the previous Authentication Key. Please be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
+| Key "`<AuthenticationKey>`"                                 | Overwrite/ update the previous Authentication Key. Be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
 | GenerateBackupFile "`<filePath>`" "`<password>`"            | Generate backup file for current node, the backup file includes the node key and data store credentials | No       |
 | ImportBackupFile "`<filePath>`" "`<password>`"              | Restore the node from a backup file                          | No       |
 | Restart                                                     | Restart the Integration Runtime (Self-hosted) Host Service   | No       |
