@@ -1,6 +1,6 @@
 ---
-title: Change expiration settings for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to change expiration settings for an access package in Azure Active Directory entitlement management (Preview).
+title: Change lifecycle settings for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to change lifecycle settings for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,20 +21,20 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change expiration settings for an access package in Azure AD entitlement management (Preview)
+# Change lifecycle settings for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As an access package manager, you can change the expiration settings for an access package at any time by editing an existing policy. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
+As an access package manager, you can change the lifecycle settings for an access package at any time by editing an existing policy. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
 
-This article describes how to change the expiration settings for an existing access package.
+This article describes how to change the lifecycle settings for an existing access package.
 
-## Open expiration settings
+## Open lifecycle settings
 
-To change the expiration settings for an access package, you need to open the corresponding policy. Follow these steps to open the expiration settings for an access package.
+To change the lifecycle settings for an access package, you need to open the corresponding policy. Follow these steps to open the lifecycle settings for an access package.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -42,7 +42,7 @@ To change the expiration settings for an access package, you need to open the co
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Click **Policies** and then click the policy that has the expiration settings you want to edit.
+1. Click **Policies** and then click the policy that has the lifecycle settings you want to edit.
 
     The Policy details pane opens at the bottom of the page.
 
@@ -52,7 +52,7 @@ To change the expiration settings for an access package, you need to open the co
 
     ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click the **Lifecycle** tab to open the expiration settings.
+1. Click the **Lifecycle** tab to open the lifecycle settings.
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 

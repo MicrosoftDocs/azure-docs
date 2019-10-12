@@ -79,7 +79,7 @@ Follow these steps if you want to allow users not in your directory to be able t
 
 ## None (administrator direct assignments only)
 
-Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set expiration settings, but there are no request settings.
+Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
 1. In the **Users who can request access** list, select **None (administrator direct assignments only**.
 

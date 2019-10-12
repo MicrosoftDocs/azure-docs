@@ -74,7 +74,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
     If this access package does not have this type of policy, you can click **Create new policy** to add one.
 
-1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's expiration settings will be used.
+1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
 
 1. Optionally provide a justification for your direct assignment for record keeping.
 

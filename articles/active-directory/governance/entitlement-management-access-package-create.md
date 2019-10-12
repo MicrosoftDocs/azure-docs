@@ -36,7 +36,7 @@ All access packages must be put in a container called a catalog. A catalog defin
 
 If you are an access package manager, you cannot add resources you own to a catalog. You are restricted to using the resources available in the catalog. If you need to add resources to a catalog, you can ask the catalog owner.
 
-All access packages must have at least one policy. Policies specify who can request the access package and also approval and expiration settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
+All access packages must have at least one policy. Policies specify who can request the access package and also approval and lifecycle settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
 ![Create an access package](./media/entitlement-management-access-package-create/access-package-create.png)
 
@@ -54,7 +54,7 @@ Here are the high-level steps to create a new access package.
 
 1. Specify any approval settings.
 
-1. Specify expiration settings.
+1. Specify lifecycle settings.
 
 ## Start new access package
 

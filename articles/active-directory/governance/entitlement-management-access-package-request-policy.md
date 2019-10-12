@@ -96,5 +96,5 @@ If you are editing a policy click **Update**. If you are adding a new policy, cl
 
 ## Next steps
 
-- [Change expiration settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
+- [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
 - [View requests for an access package](entitlement-management-access-package-requests.md)
