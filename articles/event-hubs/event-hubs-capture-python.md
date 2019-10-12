@@ -21,9 +21,9 @@ ms.author: shvija
 
 # Event Hubs Capture walkthrough: Python
 
-*Capture* is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Event Hubs overview].
+*Capture* is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
 
-This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs and creates an append file for each of your devices. The app then writes the data into *.csv* files.
+This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs, creates an append file for each of your devices, and writes the data to *.csv* files on each device.
 
 In this walkthrough, you: 
 
@@ -37,8 +37,8 @@ In this walkthrough, you:
 
 - Python 3.4 or later.
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of the namespace and event hub names to use later in this walkthrough. 
-- The shared access key name and primary key value for your Event Hubs namespace. You can find or create it under **Shared access policies** on your Event Hubs page. The default key name is **RootManageSharedAccessKey**. Copy the key name and the primary key value to use later in this walkthrough. 
+- An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of your namespace and event hub names to use later in this walkthrough. 
+- Your Event Hubs shared access key name and primary key value. Find or create these values under **Shared access policies** on your Event Hubs page. The default access key name is **RootManageSharedAccessKey**. Copy the key name and the primary key value to use later in this walkthrough. 
 
 ## Create an Azure Blob storage account and container
 
@@ -61,12 +61,12 @@ In this walkthrough, you:
 4. On the **Containers** screen, select the storage container you created in the previous section, and then select **Select**. 
 5. On the **Capture** screen, select **Save changes**. 
 
-## Create a Python script to send events to your event hub
+## Create a Python script to send events to Event Hub
 This script sends 200 events to your event hub. The events are simple environmental readings sent in JSON.
 
 1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
 2. Create a new file called *sender.py*. 
-3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace name>, \<access key name>, \<primary key value>, and \<event hub name>:
+3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace name>, \<event hubs access key name>, \<primary key value>, and \<event hub name>:
    
    ```python
    import uuid
@@ -75,7 +75,7 @@ This script sends 200 events to your event hub. The events are simple environmen
    import json
    from azure.servicebus.control_client import ServiceBusService
    
-   sbs = ServiceBusService(service_namespace='<namespace name>', shared_access_key_name='<access key name>', shared_access_key_value='<primary key value>')
+   sbs = ServiceBusService(service_namespace='<namespace name>', shared_access_key_name='<event hubs access key name>', shared_access_key_value='<primary key value>')
    devices = []
    for x in range(0, 10):
        devices.append(str(uuid.uuid4()))
@@ -89,12 +89,12 @@ This script sends 200 events to your event hub. The events are simple environmen
    ```
 4. Save the file.
 
-## Create a Python script to read your Capture files
+## Create a Python script to read Capture files
 
 This script reads the captured files and creates a file for each of your devices to write the data only for that device.
 
 1. In your Python editor, create a new file called *capturereader.py*. 
-2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storage account name>, \<key1 access key value>, and \<container name>:
+2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storage account name>, \<storage account access key value>, and \<storage container name>:
    
    ```python
    import os
@@ -137,7 +137,7 @@ This script reads the captured files and creates a file for each of your devices
                processBlob(cleanName)
                os.remove(cleanName)
            block_blob_service.delete_blob(container, blob.name)
-   startProcessing('<storage account name>', '<key1 access key value>', '<container name>')
+   startProcessing('<storage account name>', '<storage acount access key value>', '<storage container name>')
    ```
 
 ## Run the Python scripts
@@ -172,7 +172,7 @@ This script reads the captured files and creates a file for each of your devices
    python capturereader.py
    ```
 
-   The capture processor downloads all the non-empty blobs from the storage account container, writes the results as *.csv* files into the local directory, and deletes the blobs from the storage container. 
+   The capture processor downloads all the non-empty blobs from the storage account container, writes the results as *.csv* files into the local directory, and then deletes the blobs from the storage container. 
 
 ## Next steps
 
