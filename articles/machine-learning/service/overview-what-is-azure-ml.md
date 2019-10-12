@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
 ---
 
@@ -36,17 +36,24 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 ## <a name="sku"></a>Basic vs Enterprise SKU
 
-Azure Machine Learning offers two SKUs that are tailored for your machine learning needs –  Enterprise SKU and Basic SKU. These SKUs make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic SKU is available in general availability (GA), while Enterprise SKU  is currently available in public preview. Customers are responsible for costs incurred on underlying compute during this time. See the [SKUs pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for up to date pricing details.
+Azure Machine Learning offers two SKUs tailored for your machine learning needs:
++ Basic SKU (generally available)
++ Enterprise SKU (preview)
 
-Learn how to [upgrade your workspace from Basic to Enterprise SKU](how-to-manage-workspace.md#upgrade). 
+These SKUs make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. When creating a workspace, you assign it a SKU. The SKU determines the functionality to which you have access. 
+
+Learn more about what's in each SKU on the [SKUs pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Customers are responsible for costs incurred on underlying compute during this time. 
+
+You can [upgrade existing workspaces from Basic to Enterprise SKU](how-to-manage-workspace.md#upgrade). 
 
 ## What can I do with Azure Machine Learning?
 
-Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
+Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
 
-You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
+Azure Machine Learning provides all the tools you need for your machine learning workflow such as Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> and <a href="https://github.com/Azure/azureml-sdk-for-r" target="_blank">SDK for R</a>. The service also interoperates with popular opensource tools, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, and <a href="https://pytorch.org" target="_blank">PyTorch</a>.  You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
-Whether you write code or use the designer, you can track multiple runs as you experiment to find the best solution as well as manage the deployed models.
+Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
 ### Code-first experience
 
@@ -59,10 +66,12 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 For code-free training, try:
 
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
+  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+  
 + The [drag-n-drop experimenting in the designer](ui-tutorial-automobile-price-train-score.md).
   ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
 
-### Operationalization (MLOps)
+### Deploy & operationalize (MLOps)
 
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
@@ -108,15 +117,14 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- [Create a Machine Learning service workspace](how-to-manage-workspace.md) to get started.
+- Create your first experiment with your preferred method:
+  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+  + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
 
-- Follow the full-length tutorials:
-  + [Create a workspace and train your first ML model](tutorial-1st-experiment-sdk-setup.md)
-  + [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md)
 
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.
-
-- For more information, see [other machine learning products from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).

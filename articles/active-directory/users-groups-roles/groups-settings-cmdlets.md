@@ -46,7 +46,8 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   
    ``` PowerShell
    Install-Module AzureADPreview
-
+   ```
+   
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 

@@ -455,6 +455,8 @@
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
         href: expiration-reminder-tutorial.md
+      - name: ExponentHR
+        href: exponenthr-tutorial.md
     - name: F - G
       items:
       - name: F5
@@ -621,6 +623,8 @@
         href: imagineerwebVision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
+      - name: In Case of Crisis - Mobile
+        href: in-case-of-crisis-mobile-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
       - name: Infogix Data3Sixty Govern
@@ -703,6 +707,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Juno Journey
+        href: juno-journey-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
