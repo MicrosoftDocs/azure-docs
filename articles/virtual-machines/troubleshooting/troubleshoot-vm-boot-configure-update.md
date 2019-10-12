@@ -44,7 +44,7 @@ If the issue does not resolve after waiting for the changes to process, you woul
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 2. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 3. Remote desktop to the recovery VM. 
-4. If the OS disk is encrypted, you must turn off the encryption before you move to the next step. For more information, see [Decrypt the encrypted OS disk in the VM that cannot boot](troubleshoot-bitlocker-boot-error#solution).
+4. If the OS disk is encrypted, you must turn off the encryption before you move to the next step. For more information, see [Decrypt the encrypted OS disk in the VM that cannot boot](troubleshoot-bitlocker-boot-error.md#solution).
 
 ### Locate dump file and submit a support ticket
 
