@@ -34,7 +34,7 @@ A compute instance is a single managed VM, optimized to be your development envi
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace. 
 
-Use these pre-configured tools on the AzureML compute instance:
+Use these pre-configured tools on the compute instance:
 
 * Jupyter
 * Jupyter Labs
