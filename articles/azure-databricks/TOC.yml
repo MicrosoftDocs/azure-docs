@@ -1067,7 +1067,7 @@
         href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
         maintainContext: true
       - name: Upgrade your preview workspace to GA
-        href: administration-guide/cloud-configurations/azure/vnet-inject-upgrade
+        href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject-upgrade
         maintainContext: true
       - name: Deploy Azure Databricks in your VNet
         href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
