@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -31,6 +31,8 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
+#### [Azure portal](#tab/portal-ga/)
+
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
@@ -46,6 +48,33 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
 1. Click **Create** to complete the application registration.
+
+#### [Azure portal (Preview)](#tab/portal-preview/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **Applications (Preview)**, and then select **New registration**.
+1. Enter a **Name** for the application. For example, *webapp1*.
+1. Select **Accounts in any organizational directory or any identity provider**.
+1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
+
+    Azure AD B2C returns any tokens that your application requests to the URL you specify here. In a production application, this might be a publicly accessible endpoint, like `https://contoso.com/authentication`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned JavaScript web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs for your registered applications at any time.
+
+    The following restrictions apply to reply URLs:
+
+    * The reply URL must begin with the scheme `https`.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+
+1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
+1. Select **Register**.
+
+Once the application registration is complete, enable the implicit grant flow:
+
+1. Under **Manage**, select **Authentication**.
+1. Select **Try out the new experience** (if shown).
+1. Under **IMPLICIT GRANT**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Select **Save**.
 
 ## Create a client secret
 
