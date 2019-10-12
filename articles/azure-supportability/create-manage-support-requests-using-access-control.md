@@ -7,7 +7,7 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Azure Role-Based Access Control (RBAC) to control access rights to create and manage support requests
