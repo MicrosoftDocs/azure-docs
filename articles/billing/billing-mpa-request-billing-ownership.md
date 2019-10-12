@@ -22,6 +22,8 @@ This feature is available only for CSP Direct Bill Partners certified as [Azure 
 
 To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
+This article applies to a billing account for a Microsoft Partner Agreement. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and have an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
+
 ## Prerequisites
 
 1. Establish [reseller relationship](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) with the customer. Check [CSP Regional Authorization Overview](https://docs.microsoft.com/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.  
@@ -165,6 +167,9 @@ SaaS products don't transfer with the subscriptions. Ask the user to [Contact Az
 ### Additional approval for certain customers
 
 Some of the customer transition requests may require an additional review process with Microsoft due to the nature of the current enterprise enrollment structure of the customer. Partner will be notified of such requirements when trying to send an invite to customers. Partners are requested to work with their Partner Development Manager and Customer’s account team to complete this review process.
+
+## Check access to a Microsoft Partner Agreement
+[!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
 
 ## Need help? Contact support
 
