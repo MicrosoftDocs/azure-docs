@@ -60,9 +60,9 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Check your credit balance programmatically
 
-You can use the [Azure Billing](https://docs.microsoft.com/rest/api/billing/) and the [Consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get the credit balance for a billing profile.
+You can use the [Azure Billing](https://docs.microsoft.com/rest/api/billing/) and the [Consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get the credit balance for your billing account.
 
-The examples shown below are using REST APIs. Support for PowerShell and Azure CLI is coming soon.
+The examples shown below use REST APIs. Support for PowerShell and Azure CLI is coming soon.
 
 ### Find billing profiles you have access to
 
@@ -115,7 +115,7 @@ The API response returns all billing accounts and billing profiles you have acce
 
 Copy the `id` of the billing profile for which you want to check credit balance. For example, if you want to check credit balance for **Development** billing profile, you'd copy ```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step.
 
-### Get your Azure credits balance 
+### Get Azure credit balance 
 
 Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx``). 
 
@@ -230,7 +230,7 @@ The API response returns lists of Azure credits for a billing profile.
 | `expirationDate`  | The date when the credit expires.   |
 | `poNumber`  | The purchase order number of the invoice on which the credit was billed.   |
 
-### Get transactions that affected your credit balance
+### Get transactions that affected credit balance
 
 Make the following request, replacing `<billingProfileId>` with the `billingProfileId` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). You would need to pass a **startDate** and an **endDate** to get transactions for your required duration.
 
