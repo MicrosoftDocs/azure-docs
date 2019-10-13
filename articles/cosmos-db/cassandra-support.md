@@ -125,7 +125,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB supports the following database commands on Cassandra API accounts.
 
-* CREATE KEYSPACE 
+* CREATE KEYSPACE (The replication settings for this command are ignored, the system uses underlying [Azure Cosmos DB’s replication model](global-dist-under-the-hood.md). If you need cross region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see [how to add or remove regions for you account](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article.
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
