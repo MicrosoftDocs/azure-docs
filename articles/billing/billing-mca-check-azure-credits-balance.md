@@ -62,7 +62,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 You can use the [Azure Billing](https://docs.microsoft.com/rest/api/billing/) and the [Consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get the credit balance for your billing account.
 
-The examples shown below use REST APIs. Support for PowerShell and Azure CLI is coming soon.
+The examples shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 
 ### Find billing profiles you have access to
 
@@ -117,7 +117,7 @@ Use the `displayName` property of the billing profile to identify the billing pr
 
 ### Get Azure credit balance 
 
-Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx``). 
+Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -158,7 +158,7 @@ The API response returns estimated and current balance for the billing profile.
 }
 ```
 
-| Element Name  | Description                                                                           |
+| Element name  | Description                                                                           |
 |---------------|---------------------------------------------------------------------------------------|
 | `estimatedBalance` | The estimated amount of credits you have after considering all billed and pending transactions. |
 | `currentBalance`   | The amount of credits as of your last invoice. It doesn't include any pending transactions.    |
@@ -221,7 +221,7 @@ The API response returns lists of Azure credits for a billing profile.
   ]
 }
 ```
-| Element Name  | Description                                                                                               |
+| Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `originalAmount` | The original amount of the credit. |
 | `closedBalance`   | The balance as of the last invoice.    |
@@ -309,7 +309,7 @@ The API response returns all transactions that affected the credit balance for y
   ]
 }
 ```
-| Element Name  | Description                                                                                               |
+| Element name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `transactionDate` | The date when the transaction took place. |
 | `description` | The description of the transaction. |
@@ -318,9 +318,7 @@ The API response returns all transactions that affected the credit balance for y
 | `charges`      |  The charges for the transaction.  |
 | `closedBalance`  | The balance after the transaction.   |
 | `eventType`  | The type of transaction.   |
-| `invoiceNumber`  | The invoice number of the invoice on which the transaction is billed. it will be empty for pending transaction.   |
-
-<!--Todo - Add link to the swagger  -->
+| `invoiceNumber`  | The invoice number of the invoice on which the transaction is billed. It will be empty for pending transaction.   |
 
 ## How credits are used
 
