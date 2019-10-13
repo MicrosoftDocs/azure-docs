@@ -4,13 +4,13 @@
   href: ../overview.md 
 - name: Tutorials
   items:
-  - name: Publish and subscribe locally
+  - name: Publish and subscribe to events locally
     href: pub-sub-events-webhook-local.md
-  - name: Publish and subscribe to the cloud
+  - name: Publish and subscribe to events in cloud
     href: pub-sub-events-webhook-cloud.md
-  - name: Forward to Azure Event Grid
+  - name: Forward events to Azure Event Grid
     href: forward-events-event-grid-cloud.md
-  - name: Forward to Azure IoT Edge Hub and Azure IoT Hub
+  - name: Forward events to Azure IoT Hub
     href: forward-events-iothub.md
 - name: Concepts
   items:
