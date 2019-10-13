@@ -43,7 +43,7 @@ The following procedure gives you the detailed steps:
 3. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 4. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decreate the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-set-virtual-machine-passwords.md#increase-or-decrease-lab-capacity
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decreate the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-set-virtual-machine-passwords.md##update-the-lab-capacity
 )
     6. Select **Save**.
 
