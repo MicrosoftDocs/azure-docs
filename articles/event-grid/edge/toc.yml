@@ -14,17 +14,17 @@
     href: forward-events-iothub.md
 - name: Concepts
   items:
-  - name: Event Grid Concepts
+  - name: Event Grid concepts
     href: concepts.md
-  - name: Security and Authentication
+  - name: Security and authentication
     href: security-authentication.md
-  - name: Event Schemas
+  - name: Event schemas
     href: event-schemas.md
-  - name: Delivery and Retry
+  - name: Delivery and retry
     href: delivery-retry.md
-  - name: Output Batching
+  - name: Output batching
     href: delivery-output-batching.md
-  - name: Advanced Filtering
+  - name: Advanced filtering
     href: advanced-filtering.md
 - name: How-to guides
   items:
@@ -44,11 +44,11 @@
     href: configure-identity-auth.md
   - name: Deploy modules
     items: 
-    - name: Deploy Event Grid IoT Edge
+    - name: Deploy Event Grid IoT Edge module
       href: deploy-event-grid-portal.md
-    - name: Deploy Azure Functions
+    - name: Deploy Azure Functions module
       href: deploy-func-webhook-module-portal.md
-    - name: Deploy Azure Blob Storage on IoT Edge
+    - name: Deploy Azure Blob Storage module
       href: deploy-blob-storage-module-portal.md
 - name: Reference
   items:
@@ -56,5 +56,5 @@
     href: api.md
   - name: Configure Event Grid
     href: configure-event-grid.md
-  - name: Module Twin Configuration Schema
+  - name: Module Twin configuration schema
     href: twin-json.md
