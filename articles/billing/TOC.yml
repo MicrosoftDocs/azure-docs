@@ -117,8 +117,6 @@
       href: billing-check-free-service-usage.md
     - name: Upgrade subscription
       href: billing-upgrade-azure-subscription.md
-    - name: Understand meter mapping
-      href: billing-understand-free-service-meter-mapping.md
   - name: Edit profile
     href: billing-how-to-change-azure-account-profile.md
   - name: Open banking and strong customer authentication

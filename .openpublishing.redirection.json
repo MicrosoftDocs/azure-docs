@@ -26142,6 +26142,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
+      "redirect_url": "/azure/billing/billing-check-free-service-usage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
       "redirect_document_id": false
