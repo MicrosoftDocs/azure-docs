@@ -176,8 +176,7 @@ You can enter a [NCRONTAB expression](../azure-functions/functions-bindings-time
 
 To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
-> [!NOTE]  
-> The default time zone used to run CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression run based on another time zone, create an app setting for your function app named WEBSITE_TIME_ZONE. To learn more, see [NCRONTAB time zones](../azure-functions/functions-bindings-timer.md#ncrontab-time-zones).
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a> View the job history
 
