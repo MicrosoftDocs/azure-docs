@@ -40,12 +40,12 @@ Azure Search can be configured to extract structured content found in blobs that
 
 JSON parsing is not currently configurable through the portal. [Learn more about JSON parsing in Azure Search.](https://aka.ms/azsjsonblobindexing)
 
-## Quick start
+## Quickstart
 Azure Search can be added to blobs directly from the Blob storage portal page.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
 Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service.
 
-## Next Steps
+## Next steps
 Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).
