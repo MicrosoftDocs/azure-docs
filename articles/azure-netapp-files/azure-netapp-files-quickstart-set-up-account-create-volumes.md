@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart 
-ms.date: 9/11/2019
+ms.date: 10/12/2019
 ms.author: b-juche
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -238,7 +238,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
        * Enter **myvnet1** as the Vnet name.
        * Specify an address space for your setting, for example, 10.7.0.0/16
        * Enter **myANFsubnet** as the subnet name.
-       * Specify the subnet address range, for example, 10.7.0.0/24. Note that you cannot share the dedicated subnet with other resources.
+       * Specify the subnet address range, for example, 10.7.0.0/24. You cannot share the dedicated subnet with other resources.
        * Select **Microsoft.NetApp/volumes** for subnet delegation.
        * Click **OK** to create the Vnet.
    5. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.
@@ -247,9 +247,12 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
       ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
-
-    Enter **myfilepath1** as the file path that will be used to create the export path for the volume. 
+4. Click **Protocol**, and then complete the following actions: 
+    * Select **NFS** as the protocol type for the volume.  
+    * Enter **myfilepath1** as the file path that will be used to create the export path for the volume.  
+    * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
+> [!IMPORTANT] 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
 
     ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
