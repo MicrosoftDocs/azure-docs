@@ -3,7 +3,7 @@ title: Delete an Azure AD directory - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD directory for deletion, including self-service directories
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: curtand, addimitu
 manager: mtillman
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: curtand
+ms.author: curtand, addimitu
 
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -62,21 +62,29 @@ Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if
 
 ## Delete a subscription
 
-You can put a subscription into the Deprovisioned state to be deleted in three days using the Microsoft 365 admin center.
+You can put a subscription into the **Deprovisioned** state to be deleted in three days using the Microsoft 365 admin center.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a global administrator in your organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign in with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Select **Billing** and select **Subscriptions**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
-  
+2. You need to cancel a subscription before you can delete it. Select **Billing** and select **Products & services**, then select **Cancel subscription** for the subscription you want to cancel. You will be brought to a feedback page.
+
+   ![Choose a subscription to cancel](./media/directory-delete-howto/cancel-choose-subscription.png)
+
+3. Complete the feedback form and select **Cancel subscription** to cancel the subscription.
+
+   ![Cancel command in the subscription preview](./media/directory-delete-howto/cancel-command.png)
+
+4. You can now delete the subscription. Select **Delete** for the subscription you want to delete. If you cannot find the subscription in the **Products & services** page, make sure you have **Subscription status** set to **All**.
+
    ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
-  
-3. Select **Delete** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can reactivate the subscription during the three-day period if you change your mind.
+
+5. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](https://docs.microsoft.com/en-us/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) during the three-day period if you change your mind.
   
    ![carefully read terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
-4. Now the subscription state has changed, the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
+6. Now the subscription state has changed—the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
-5. Once you have deleted a subscription in your directory, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
+7. Once you have deleted a subscription in your directory and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
 
