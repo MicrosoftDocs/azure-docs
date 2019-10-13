@@ -32,7 +32,7 @@ Most users in your directory can sign in to the My Access portal and automatical
 
 As long as the catalog for the access package is [enabled for external users](entitlement-management-catalog-create.md) and you have a [policy for the external user's directory](entitlement-management-access-package-request-policy.md), the external user can use the My Access portal link to request the access package.
 
-# Share link to request an access package
+## Share link to request an access package
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
