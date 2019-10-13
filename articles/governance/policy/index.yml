@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/17/2019
+  ms.date: 11/04/2019
 
 landingContent:
   - title: About Azure Policy
@@ -47,6 +47,8 @@ landingContent:
         links:
           - text: Create and manage policies
             url: ./tutorials/create-and-manage.md
+          - text: Use VSCode extension
+            url: ./how-to/extension-for-vscode.md
       - linkListType: deploy
         links:
           - text: Index of policy samples

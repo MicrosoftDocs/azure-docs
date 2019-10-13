@@ -271,6 +271,9 @@
     href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
+  - name: Azure Policy extension for VSCode
+    displayName: visual studio code
+    href: ./how-to/extension-for-vscode.md
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
