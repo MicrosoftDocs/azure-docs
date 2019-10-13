@@ -150,6 +150,16 @@ $dt = [datetime]’2017/01/01’
 Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
+## Clean up stale devices using PowerShell
+
+You can use [Azure AD Device Cleanup](https://gallery.technet.microsoft.com/Azure-AD-Device-Cleanup-5aacdec8) script to manage stale devices in Azure AD in an efficient way as it gives different options to deal with the stale devices in your Azure AD tenants. This PowerShell script is useful to:
+
+- Check the stale devices in Azure AD.
+- Generate a powerful Excel report with the stale/disabled/deleted devices.
+- Automate Azure AD device cleanup procedure by running it in a scheduled task.
+- Can be used to disable the stale devices for a period of time, then clean them safely.
+- Show the result on Grid View or/and Excel, so you can easily search in the result.
+
 ## What you should know
 
 ### Why is the timestamp not updated more frequently?
