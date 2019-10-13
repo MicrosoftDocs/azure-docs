@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/12/2019
 ms.author: spelluru
 
 ---
@@ -48,11 +48,7 @@ Currently, the remote desktop connection is supported for the following operatin
 ## Teachers connecting to the template VM using RDP
 Teachers must connect to the template VM using SSH first, and install RDP and GUI packages on it. Then, the teachers can use the following steps to connect to the Linux VMs using RDP: 
 
-You see the **Remote Desktop** option to connect to the template VM at the time of creating the lab. 
-
-![Connect to template via RDP at the time of creation](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
-
-You see the **Remote Desktop** option on the lab's home page after the lab is created and the template VM is started. Start the template VM if it's not started already. 
+Select **Connect template** on the toolbar to connect to the template VM. 
 
 ![Connect to template via RDP after the lab is created](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
