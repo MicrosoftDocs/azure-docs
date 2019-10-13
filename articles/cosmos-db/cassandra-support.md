@@ -135,7 +135,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 * BATCH - Only unlogged commands are supported 
 * DELETE
 
-All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed, activity ID. Delete and update commands need to be handled with resource governance in consideration, to avoid over use of provisioned resources. 
+All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed. Delete and update commands need to be handled with resource governance in consideration, to avoid right use of provisioned throughput. 
 * Note  gc_grace_seconds value must be zero if specified.
 
 ```csharp
@@ -156,14 +156,20 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not yet support users and roles for CRUD activities. 
+Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities. 
 
-## Planned support 
-* Region name in create keyspace command is ignored at present- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
+## Keyspace and Table options
 
+The options of region name, class, replication_factor, datacenter  in create keyspace command are ignored at present. The system uses underlying Azure Cosmos DB’s [global distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) if you add required regions. If you need cross region presence of data, you can enable it at the account level with PowerShell, CLI or portal, to learn more, see this doc: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account#addremove-regions-from-your-database-account. Durable_writes can't be disabled - as Cosmos DB ensures every write is durable. In every region Cosmos DB replicates data across the replicaset made up of 4 replicas and this replicaset [configuration](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) can't be modified. 
+All Table creation options are ignored,  except gc_grace_seconds which should be zero.
+Keyspace and table have extra option - cosmosdb_provisioned_throughput with minimum value of 400. Keyspace throughput allows sharing throughput across multiple tables and useful for scenarios when all tables are not utilizing the throughput. Alter Table allows changing the provisioned throughput across the regions. 
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
+## Usage of Cassandra retry connection policy
 
-
+Azure Cosmos DB is resource governed system. This implies you can do certain number of operations in a given second constrained by provisioned throughput based on request units consumed by operations. If application exceeds that limit in a given second - request rate limiting exceptions will be thrown. The Cosmos Db Cassandra API, translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure your application can intercept and do the retry for rate limitation a [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) helper are provided. If you use other SDKs to access Cassandra API of Cosmos DB please create connection policy for retrying on getting these exceptions. 
 
 ## Next steps
 
