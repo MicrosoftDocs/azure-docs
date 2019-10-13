@@ -60,14 +60,14 @@ Use the `task` parameter in the `AutoMLConfig` constructor to specify your exper
 from azureml.train.automl import AutoMLConfig
 
 # task can be one of classification, regression, forecasting
-automl_config = AutoMLConfig(task="classification")
+automl_config = AutoMLConfig(task = "classification")
 ```
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a Pandas DataFrame, or Azure's Dataset, DatsetDefinition, or TabularDataset formats. Below are some examples:
 
-* Numpy arrays X (features) and y (target variable, also known as label)
+* TabularDataset
 * Pandas dataframe
 
 >[!Important]
@@ -77,13 +77,14 @@ Automated machine learning supports data that resides on your local desktop or i
 
 Examples:
 
-*	Numpy arrays
+* TabularDataset
+```python
+    from azureml.core.dataset import Dataset
 
-    ```python
-    digits = datasets.load_digits()
-    X_digits = digits.data
-    y_digits = digits.target
-    ```
+    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+    label = "Label"
+```
 
 *	Pandas dataframe
 
@@ -92,9 +93,8 @@ Examples:
     from sklearn.model_selection import train_test_split
 
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    y_df = df["Label"]
-    x_df = df.drop(["Label"], axis=1)
-    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
+    train_data, test_data = train_test_split(df, test_size = 0.1, random_state = 42)
+    label = "Label"
     ```
 
 ## Fetch data for running experiment on remote compute
@@ -146,27 +146,27 @@ Some examples include:
 
     ```python
     automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
-        blacklist_models='XGBoostClassifier',
-        X=X,
-        y=y,
-        n_cross_validations=2)
+        task = 'classification',
+        primary_metric = 'AUC_weighted',
+        max_time_sec = 12000,
+        iterations = 50,
+        blacklist_models = 'XGBoostClassifier',
+        training_data = train_data,
+        label_column_name = label,
+        n_cross_validations = 2)
     ```
 2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
 
     ```python
     automl_regressor = AutoMLConfig(
-        task='regression',
-        max_time_sec=600,
-        iterations=100,
-        whitelist_models='kNN regressor'
-        primary_metric='r2_score',
-        X=X,
-        y=y,
-        n_cross_validations=5)
+        task = 'regression',
+        max_time_sec = 600,
+        iterations = 100,
+        whitelist_models = 'kNN regressor'
+        primary_metric = 'r2_score',
+        training_data = train_data,
+        label_column_name = label,
+        n_cross_validations = 5)
     ```
 
 The three different `task` parameter values (the third task-type is `forecasting`, and uses the same algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
@@ -222,15 +222,15 @@ time_series_settings = {
     'max_horizon': n_test_periods
 }
 
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
+automl_config = AutoMLConfig(task = 'forecasting',
+                             debug_log = 'automl_oj_sales_errors.log',
+                             primary_metric = 'normalized_root_mean_squared_error',
+                             iterations = 10,
+                             training_data = train_data,
+                             label_column_name = label,
+                             n_cross_validations = 5,
+                             path = project_folder,
+                             verbosity = logging.INFO,
                              **time_series_settings)
 ```
 
@@ -260,12 +260,12 @@ ensemble_settings = {
 }
 
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        iterations=20,
-        X=X_train,
-        y=y_train,
-        n_cross_validations=5,
+        task = 'classification',
+        primary_metric = 'AUC_weighted',
+        iterations = 20,
+        training_data = train_data,
+        label_column_name = label,
+        n_cross_validations = 5,
         **ensemble_settings
         )
 ```
@@ -274,14 +274,14 @@ Ensemble training is enabled by default, but it can be disabled by using the `en
 
 ```python
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        iterations=20,
-        X=X_train,
-        y=y_train,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
+        task = 'classification',
+        primary_metric = 'AUC_weighted',
+        iterations = 20,
+        training_data = data_train,
+        label_column_name = label,
+        n_cross_validations = 5,
+        enable_voting_ensemble = False,
+        enable_stack_ensemble = False
         )
 ```
 
@@ -469,7 +469,7 @@ LogisticRegression
 
 ## Explain the model (interpretability)
 
-Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
+Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (validation_data) to get feature importance.
 
 There are two ways to generate feature importance.
 
@@ -479,7 +479,7 @@ There are two ways to generate feature importance.
     from azureml.train.automl.automlexplainer import explain_model
 
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, X_train, X_test)
+        explain_model(fitted_model, train_data, test_data)
 
     #Overall feature importance
     print(overall_imp)
@@ -499,11 +499,10 @@ There are two ways to generate feature importance.
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train,
-                                 y = y_train,
-                                 X_valid = X_test,
-                                 y_valid = y_test,
-                                 model_explainability=True,
+                                 training_data = train_data,
+                                 label_column_name = y_train,
+                                 validation_data = test_data,
+                                 model_explainability = True,
                                  path=project_folder)
     ```
 
