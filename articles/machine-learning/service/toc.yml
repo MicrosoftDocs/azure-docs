@@ -248,7 +248,7 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
-    - name: Notebook VMs
+    - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md

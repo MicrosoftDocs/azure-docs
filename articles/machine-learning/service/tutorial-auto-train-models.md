@@ -1067,11 +1067,11 @@ The traditional machine learning model development process is highly resource-in
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
 If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
 
-1. In your workspace, select **Notebook VMs**.
+1. In your workspace, select **Compute**.
 1. From the list, select the VM.
 1. Select **Stop**.
 1. When you're ready to use the server again, select **Start**.

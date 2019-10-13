@@ -95,7 +95,7 @@ You can [upgrade your workspace from Basic SKU to Enterprise SKU](how-to-manage-
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
-+ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your notebook VMs are stored here as well.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instance are stored here as well.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 

@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md#azure) with the SDK already installed.
 
 Start by attaching your workspace:
 

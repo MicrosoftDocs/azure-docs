@@ -520,11 +520,11 @@ RunDetails(published_pipeline_run).show()
 
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
 If you used a cloud notebook server, to reduce costs, stop the VM when your'e not using it:
 
-1. In your workspace, select **Notebook VMs**.
+1. In your workspace, select **Compute**.
 1. In the list of VMs, select the VM you want to stop.
 1. Select **Stop**.
 1. When you're ready to use the server again, select **Start**.

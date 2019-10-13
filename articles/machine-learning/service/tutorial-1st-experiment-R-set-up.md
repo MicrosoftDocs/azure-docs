@@ -19,7 +19,7 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
-> * Create a cloud-based Jupyter notebook VM with Azure Machine Learning Python SDK installed and pre-configured.
+> * Create a cloud-based Jupyter compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
