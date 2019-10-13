@@ -34,7 +34,7 @@ landingContent:
           - text: Advanced filtering
             url: advanced-filtering.md
           - text: Delivery and retry
-            url: delivery-and-retry.md
+            url: delivery-retry.md
           - text: Security and authentication
             url: security-authentication.md
   # Card
