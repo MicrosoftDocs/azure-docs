@@ -211,7 +211,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-The example shown below use REST APIs. Support for PowerShell and Azure CLI is coming soon.
+The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 
 ### Find billing accounts that you have access to 
 
@@ -307,7 +307,7 @@ The API response lists all the invoice sections and their billing profiles on wh
 
 Use the `invoiceSectionDisplayName` property to identify the invoice section for which you want to create subscriptions. Copy the `invoiceSectionId`, `billingProfileId` and one of the `skuId` for the invoice section. For example, if you want to create a subscription of type `Microsoft Azure plan` for `Development` invoice section, you'd copy `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` , and `0001`. Paste these values somewhere so that you can use them in the next step.
 
-### Create a subscription for the invoice section
+### Create a subscription for an invoice section
 
 The following example creates a subscription named *Dev Team subscription* of type *Microsoft Azure Plan* for the *Development* invoice section. The subscription will be billed to the *Contoso finance's* billing profile and appear on the *Development* section of its invoice. 
 
@@ -352,7 +352,7 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
-The example shown below use REST APIs. Support for PowerShell and Azure CLI is coming soon.
+The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 
 ### Find the billing accounts that you have access to 
 
@@ -438,7 +438,7 @@ The API response lists the customers in the billing account with Azure plans. Yo
 
 Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste the values somewhere to use it in the subsequent steps.
 
-### Optional for Indirect providers: Get the resellers for the customers
+### Optional for Indirect providers: Get the resellers for a customer
 
 If you're an Indirect provider in the CSP two-tier model, you can specify a reseller while creating subscriptions for customers. 
 
@@ -483,7 +483,7 @@ The API response lists the resellers for the customer:
 ```
 Use the `description` property to identify the reseller who will be associated with the subscription. Copy the `resellerId` for the reseller. For example, if you want to associate `Wingtip`, you'd copy `3xxxxx`. Paste this value somewhere so that you can use it in the next step.
 
-### Create a subscription for the customer
+### Create a subscription for a customer
 
 The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. T
 
@@ -503,7 +503,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Yes      | String | The display name of the subscription.|
-| `skuId` | Yes      | String | The sku ID of the Azure plan. Use **0001** for subscriptions of type Microsoft Azure Plan |
+| `skuId` | Yes      | String | The sku ID of the Azure plan. Use *0001* for subscriptions of type Microsoft Azure Plan |
 | `resellerId`      | No       | String | The MPN ID of the reseller who will be associated with the subscription.  |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object would return a `subscriptionLink` object, which has the subscription ID.

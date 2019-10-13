@@ -85,7 +85,7 @@ Create an invoice section to organize your costs based on your needs, like depar
 
 ### Create a new account
 
-Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information, see [give others permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission).
+Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## Changes for department administrators
 
@@ -111,7 +111,7 @@ To learn how to provide, access to your invoice section, see [manage billing rol
 
 ### Create a new account in your department
 
-Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information, see [give others permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission).
+Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### View charges for accounts in your departments
 
