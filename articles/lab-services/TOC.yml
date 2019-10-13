@@ -104,14 +104,14 @@
         href: classroom-labs/how-to-configure-student-usage.md      
       - name: Create and manage schedules
         href: classroom-labs/how-to-create-schedules.md
-      - name: Create an environment with multiple VMs inside a template VM
-        href: classroom-labs/how-to-enable-multi-vm-environment.md
       - name: Use a shared image gallery
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
       - name: Enable nested virtualization on a template VM
         href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+      - name: Create an environment with multiple VMs inside a template VM
+        href: classroom-labs/how-to-enable-multi-vm-environment.md
     - name: Connect to VMs in classroom labs (student)
       items:        
       - name: Access classroom labs

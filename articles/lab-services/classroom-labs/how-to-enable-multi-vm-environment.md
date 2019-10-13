@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 10/13/2019
 ms.author: spelluru
 
 ---
@@ -39,60 +39,56 @@ The important steps are:
 The following procedure gives you the detailed steps: 
 
 1. Create a lab account if you don't have one already. For instructions, see [Tutorial: Set up a lab account with Azure Lab Services](tutorial-setup-lab-account.md).
-2. Navigate to [Azure Lab Services website](https://labs.azure.com). 
-3. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
+3. Select **New lab**. 
+    
+    ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decreate the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-set-virtual-machine-passwords.md##update-the-lab-capacity
-)
-    6. Select **Save**.
+    2. Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the **virtual machine size**.
+    6. Select a Windows **image** that you want to use. Nested virtualization is only available on Windows machines. 
+    4. Then, select **Next**. 
 
-        ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select **Large** for the size of virtual machines (VMs) to be created in the lab. Currently, only the large size supports nested virtualization.
-    2. Choose a virtual machine image that is a **Windows image**. Nested virtualization is only available on Windows machines. 
-    3. Select **Next**.
+        ![Create a classroom lab](../media/how-to-enable-multi-vm-environment/new-lab-window.png)
+    1. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
 
-        ![Specify VM specifications](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
-5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
-    1. Specify the **name of the user** for all VMs in the lab.
-    2. Specify the **password** for the user. 
+        ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Make a note of user name and password. They won't be shown again.
-    3. Select **Create**. 
+    3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
-        ![Set credentials](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. On the **Configure template** page, you see the status of lab creation process. The creation of the template in the lab takes up to 20 minutes. 
+        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
-    ![Configure template](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. After the configuration of the template is complete, you see the following page: 
+    ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+1. On the **Template** page, select **Customize template** on the toolbar. 
 
-    ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. On the **Configure template** page, select **Connect** to connect to the template VM to configure nested virtualization. You can also configure later after you complete the steps in this wizard. 
+    ![Customize template button](../media/how-to-create-manage-template/customize-template-button.png)
+2. On the **Customize template** dialog, select **Continue**. Once you start the template and make changes, it will no longer have the same setup as the virtual machines last published to your users. Template changes will not be reflected on your users' existing virtual machines until after you publish again.
+
+    ![Customize dialog box](../media/how-to-create-manage-template/customize-template-dialog.png)
+1. Select **Connect to template** button on the toolbar to connect to the template VM to configure nested virtualization., and follow instructions. If it's a Windows machine, you will see an option to download the RDP file. 
+
+    ![Connect to the template VM](../media/how-to-create-manage-template/connect-template-vm.png) 
 9. Inside the template virtual machine, set up nested virtualization and configure a virtual network with multiple virtual machines. For detailed step-by-step instructions, see [How to enable nested virtualization in an Azure VM](../../virtual-machines/windows/nested-virtualization.md). Here’s a quick summary of the steps: 
     1. Enable the Hyper-V feature in the template virtual machine.
     2. Set up an internal virtual network with internet connectivity for the nested virtual machines
     3. Create virtual machines through the Hyper-V Manager
     4. Assign an IP address to the virtual machines
-10. Select **Next** on the template page. 
-11. On **Publish the template** page, do the following actions. 
-    1. To publish the template immediately, and select **Publish**.  
+10. On **Template** page, select **Publish** on the toolbar. 
 
-        > [!WARNING]
-        > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-create-manage-template.md#publish-the-template-vm) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-        ![Publish template](../media/how-to-enable-multi-vm-environment/publish-template-page.png)
-11. You see the **progress of publishing** the template. This process can take up to an hour. 
+    > [!WARNING]
+    > Once you publish, you can't unpublish. 
+8. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
+
+    ![Publish template - number of VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. You see the **status of publishing** the template on page. This process can take up to an hour. 
 
     ![Publish template - progress](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. You see the following page when the template is published successfully. Select **Done**.
-
-    ![Publish template - success](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. You see the **dashboard** for the lab. 
-    
-    ![Classroom lab dashboard](../media/how-to-enable-multi-vm-environment/dashboard.png)
 
 
 ## Next steps
