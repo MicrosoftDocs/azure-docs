@@ -23,17 +23,17 @@ You develop the solution in three parts:
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Use the IoT Central **Store Analytics** template to create a condition monitoring application
+> * Use the Azure IoT Central **Store Analytics - Condition Monitoring** template to create a retail store application
 > * Customize the application settings
-> * Create and configure a set of IoT device templates
+> * Create and customize IoT device templates
+> * Connect real and simulated devices to your application
 > * Add rules and actions to monitor conditions
-> * Use the device templates to connect real and simulated sensors
 
 ## Prerequisites
 
 To complete this tutorial series, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
-* Access to a gateway device and condition monitoring sensors (you can optionally use simulated devices as described in the tutorial)
+* Access to a gateway device and environmental sensors (you can optionally use simulated devices as described in the tutorial)
 * Device templates for the devices you use (templates are provided for the real devices used in the tutorial)
 
 ## Create an application
@@ -178,21 +178,111 @@ Specify the following values to create a custom property to store the location o
 
 1. Select **Publish**. 
 
-    Publishing a device template makes it visible to application operators. After you have published a template, you can use it to generate simulated devices for testing, or to connect real devices to your application.
+    Publishing a device template makes it visible to application operators. After you have published a template, you can use it to generate simulated devices for testing, or to connect real devices to your application. If you already have devices connected to your application, publishing a customized template pushes the changes to the devices.
+
+## Add devices
+After you have created and customized device templates, you can add devices to your application. You can connect real devices, and you can use the device templates to generate simulated devices for testing. This section shows how to use your device templates to connect a Rigado gateway and RuuviTag sensors to the application.  It also shows how to generate a simulated gateway and sensors.
+
+> [!NOTE]
+> If you do not have real devices to use, you can still create simulated devices and complete the tutorial.
+
+To connect a Rigado C500 gateway and RuuviTag sensors, follow the steps in [Connect a Rigado Cascade 500 to your Azure IoT Central application](../howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+
+To create a simulated Rigado C500 gateway: 
+
+1. Select **Devices** on the primary navigation. 
+
+1. Select the **C500** gateway template on the secondary navigation.
+
+1. Select **+ New** to create a simulated gateway based on the template.
+
+   ![Azure IoT Central Create a Rigado C500 gateway](./media/tutorial-condition-monitor-create-app-pnp/create-c500-gateway.png)
+
+1. Enable the **Simulated** setting. Optionally, you can change the **Device Name** of the device to a more friendly or memorable name. 
+
+   ![Azure IoT Central Create a Rigado C500 gateway](./media/tutorial-condition-monitor-create-app-pnp/create-c500-gateway-simulated.png)
+
+1. Select **Create**. This generates a simulated instance of the gateway device in your Azure IoT Central application.
+
+To create a simulated RuuviTag sensor:
+
+1. Select the **RuuviTag** sensor template on the secondary navigation.
+
+1. Select **+ New** to create a simulated sensor based on the template.
+
+1. Enable the **Simulated** setting.
+
+1. Select **Create**.  
+
+1. Repeat the preceding steps twice, to create two more simulated RuuviTag sensors. The resulting device list for the RuuviTag device template shows your list of simulated sensors. 
+
+   ![Azure IoT Central RuuviTag device list](./media/tutorial-condition-monitor-create-app-pnp/ruuvitag-device-list.png)
+
+1. Select one of the real or simulated RuuviTag devices in your application whose device status is `Provisioned`. The **Overview** tab provides a view of the sensor telemetry.
+
+   ![Azure IoT Central RuuviTag device overview](./media/tutorial-condition-monitor-create-app-pnp/ruuvitag-device-overview.png)
 
 ## Add rules and actions
-Paragraph and Steps 
+As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met. A rule is associated with a device template and one or more devices, and contains conditions that must be met based on device telemetry or events. A rule also has one or more associated actions. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services. 
 
-## Add real sensors
-Paragraph and Steps 
+In this section you create a rule that checks the maximum relative humidity level based on the RuuviTag sensor telemetry. You add an action to the rule so that if the humidity exceeds the maximum, the application sends email. 
 
-## Add simulated sensors
-Paragraph and Steps 
+To create a rule: 
+
+1. Expand the primary navigation.
+
+1. Select **Rules** on the primary navigation.
+
+1. Select **+ New Rule**. 
+
+1. Choose **Telemetry**. This type of rule is based on the telemetry generated by your sensors. 
+
+   ![Azure IoT Central create a rule](./media/tutorial-condition-monitor-create-app-pnp/rules-create.png)
+
+1. Enter *Humidity level* as the name of the rule. 
+
+1. Choose the RuuviTag device template in **Scopes**. The rule you define will apply to all sensors based on that template. Optionally, you could create a filter that would apply the rule only to a defined subset of the sensors, such as sensors that have certain properties.
+
+1. Choose `Relative humidity` as the **Measurement**. This is the device capability that you customized in a previous step.
+
+1. Choose `Greater than` as the **Operator**. 
+
+1. Enter a typical indoor humidity level such as *50* as the **Value**. You have defined a condition for your rule that occurs when relative humidity in any RuuviTag sensor exceeds 50 percent. You may need to adjust this value up or down depending on the normal humidity range in your environment.  
+
+   ![Azure IoT Central add rule conditions](./media/tutorial-condition-monitor-create-app-pnp/rules-add-conditions.png)
+
+To add an action to a rule:
+
+1. Select **+ Actions**. 
+
+1. Choose **Email**. 
+
+1. Enter *Excess humidity notification* as the friendly **Display name** for the action. 
+
+1. Enter an email address in **To**. This email address must be for a user who has been added to the application and who has signed in and out of the application at least once.
+
+1. Optionally, enter a note to include in text of the email.
+
+   ![Azure IoT Central add actions to rules](./media/tutorial-condition-monitor-create-app-pnp/rules-add-action.png)
+
+1. Select **Done** to complete the action.
+
+1. Select **Save** to save and activate the new rule. 
+
+   ![Azure IoT Central save a rule](./media/tutorial-condition-monitor-create-app-pnp/rules-save.png)
+
+    Within a few minutes, the specified email account should begin to receive emails when the sensors identify humidity levels that exceed the value in your condition.
 
 ## Next Steps
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series (one link only here), or, if there are no other tutorials, to some other cool thing the customer can do with the service. Use the blue box format for tutorials and note that you can shorten the H1 in the boxes if the original one doesn’t fit.
+In this tutorial, you learned how to:
+
+* Use the Azure IoT Central **Store Analytics - Condition Monitoring** template to create a retail store application
+* Customize the application settings
+* Create and customize IoT device templates
+* Connect real and simulated devices to your application
+* Add rules and actions to monitor conditions
+
+Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-
-Do not link to troubleshooting content or FAQs. This implies the customer is going to run into known issues. Either fix these issues beforehand or create a different path to success for users that avoid these problems.
-********************
+> [Customize the operator dashboard](tutorial-condition-monitor-customize-dashboard-pnp.md)
