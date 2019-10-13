@@ -1,5 +1,5 @@
 ---
-title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement(CSP)
+title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
 description: Learn how to request billing ownership of Azure subscriptions from other users. 
 author: amberbhargava
 manager: amberb
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/13/2019
 ms.author: banders
 
 ---
@@ -144,7 +144,7 @@ Azure Reservations don't automatically move with subscriptions. [Contact Azure s
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] is not affected during the transition.The partner won’t get any new RBAC access to the subscriptions.  
+Access for existing users, groups, or service principals that was assigned using [Azure RBAC (role-based access control)](../role-based-access-control/overview.md) is not affected during the transition.The partner won’t get any new RBAC access to the subscriptions.  
 
 The partners should work with the customer to get access to  subscriptions.  The partners needs to get  either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
 
@@ -177,6 +177,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- The billing ownership of the Azure subscriptions is transferred to you.Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
+- The billing ownership of the Azure subscriptions is transferred to you. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
 
-- Work with the customer to get the appropriate access on transferred Azure subscriptions based on business needs. [Manage access to Azure resources using RBAC(https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- Work with the customer to get access to the transferred Azure subscriptions. [Manage access to Azure resources using RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

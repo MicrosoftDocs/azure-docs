@@ -24,16 +24,15 @@ Your billing account for the Microsoft Partner Agreement contains a billing prof
 
 The following diagram shows the relationship between a billing account, billing profiles, customers, and resellers.
 
-![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/billing-mpa-overview/mpa-billing-hierarchy.png)
+![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/billing-mpa-overview/mpa-billing-hierarchy.svg)
 
-Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview)
+Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
 ## Billing profiles
 
 Use a billing profile to manage your invoices for a currency. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges in the billing profile's currency for all Azure subscriptions and other purchases from the previous month. 
 
 You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-mca-understand-your-bill.md).
-<!--Todo: Link needs to be updated -->
 
 > [!IMPORTANT]
 >
