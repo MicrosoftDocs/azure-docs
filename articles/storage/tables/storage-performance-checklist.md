@@ -57,10 +57,7 @@ This article organizes proven practices for performance into a checklist you can
 
 If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Table service, see [Azure Storage scalability and performance targets](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
-
-
-[Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+For more information about scalability targets for the Table service, see [Azure Storage scalability and performance targets for storage accounts](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
 
 ### Maximum number of storage accounts
 

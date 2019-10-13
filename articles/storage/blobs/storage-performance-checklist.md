@@ -229,17 +229,17 @@ For information about efficiently transferring data to and from Blob storage or 
 
 ## Content distribution
 
-Sometimes, an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure CDN to distribute blob content geographically. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
+Sometimes an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure CDN to distribute blob content geographically. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
 
 For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).
 
 ## Use metadata
 
-The Blob service supports HEAD requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob's metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth, and the processing time needed to extract the EXIF data each time the blob is read. This approach is useful in scenarios where you only need the metadata, and not the full content of a blob. Only 8 KB of metadata can be stored per blob, so if your data exceeds that size, you may not be able to use this approach.  
+The Blob service supports HEAD requests, which can include blob properties or metadata. For example, if your application needs the Exif (exchangable image format) data from a photo, it can retrieve the photo and extract it. To save bandwidth and improve performance, your application can store the Exif data in the blob's metadata when the application uploads the photo. You can then retrieve the Exif data in metadata using only a HEAD request. Retrieving only metadata and not the full contents of the blob saves significant bandwidth and reduces the processing time required to extract the Exif data. Keep in mind that only 8 KB of metadata can be stored per blob.  
 
 ## Upload blobs quickly
 
-To upload blobs quickly, the first question to answer is: are you uploading one blob or many?  Use the below guidance to determine the correct method to use depending on your scenario.  
+To upload blobs quickly, first determine whether you will be uploading one blob or many. Use the below guidance to determine the correct method to use depending on your scenario.  
 
 ### Upload one large blob quickly
 
