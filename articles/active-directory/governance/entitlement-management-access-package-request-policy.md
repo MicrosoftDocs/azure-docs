@@ -88,7 +88,7 @@ If you have a set of users that should have different request and approval setti
 
 1. Click **Next** to open the **Requests** tab.
 
-1. Perform the steps in one of the following requests sections.
+1. Perform the steps in one of the following request sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

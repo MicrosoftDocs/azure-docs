@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Lifecycle
 
-On the **Lifecycle** tab, you specify when a user's assignment to the access package expires.
+On the **Lifecycle** tab, you specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
 1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, or **Never**.
 

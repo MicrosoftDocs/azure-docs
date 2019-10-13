@@ -91,7 +91,10 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 ## Approval
 
-In the Approval section, you specify approval settings when users request the access package.
+In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
+
+- Only one of the selected approvers or fallback approvers needs to approve a request. Approval from all approvers is not required.
+- The approval decision is based on whichever approver reviews the request first.
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. To have requests automatically approved, set the toggle to **No**.
 
@@ -111,8 +114,6 @@ In the Approval section, you specify approval settings when users request the ac
 
 1. If you selected Choose specific approvers, click **Add approvers** to select one or more users or groups in your directory to be approvers.
 
-    Only one of the selected fallback approvers or approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
-
 1. In **Decision must be made in how many days?**, specify the number of days that an approver has to review a request for this access package.
 
     If a request is not approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
@@ -120,7 +121,6 @@ In the Approval section, you specify approval settings when users request the ac
 1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
     A justification is visible to other approvers and the requestor.
-
 
 ## Enable requests
 
