@@ -179,7 +179,7 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 | Image | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Basic image for Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferecning |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
