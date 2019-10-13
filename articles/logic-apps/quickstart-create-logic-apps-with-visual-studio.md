@@ -70,6 +70,8 @@ looks like this high-level workflow:
     [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
 
+* To work with different Azure environments, such as Azure Government, you can install and use the [Azure Environment Selector](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector) extension, which helps you switch more easily between environments. For more information, see [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
+
 * Access to the web while using the embedded Logic App Designer
 
   The designer needs an internet connection to create resources in Azure 
