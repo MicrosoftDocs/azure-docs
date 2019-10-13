@@ -24582,6 +24582,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-performance-checklist.md",
+      "redirect_url": "/azure/storage/blobs/storage-performance-checklist",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-php-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/storage-php-how-to-use-blobs",
       "redirect_document_id": true
