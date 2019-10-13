@@ -360,7 +360,8 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
         >In Linux, install xclip to enable copy-table data.
         >
         >![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-    ## Additional features
+
+## Additional features
 
 Spark & Hive for Visual Studio Code also supports the following features:
 
