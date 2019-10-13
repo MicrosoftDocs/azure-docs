@@ -50,12 +50,14 @@ To learn more about billing accounts and identify the type of your billing accou
 1. Fill the form and click **Create**. The tables below lists the fields on the form for each type of billing account.
 
 **Enterprise Agreement**
+
 |Field  |Definition  |
 |---------|---------|
 |Name     | The display name that helps you to easily identify the subscription in the Azure portal.  |
 |Offer     | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions.|
 
 **Microsoft Customer Agreement**
+
 |Field  |Definition  |
 |---------|---------|
 |Billing profile     | The charges for your subscription will be billed to the selected billing profile. If you have access to only one billing profile, the selection will be greyed out.     |
@@ -64,6 +66,7 @@ To learn more about billing accounts and identify the type of your billing accou
 |Name     | The display name that helps you to easily identify the subscription in the Azure portal.  |
 
 **Microsoft Partner Agreement**
+
 |Field  |Definition  |
 |---------|---------|
 |Customer    | The subscription is created for the selected customer. If you have only one customer, the selection will be greyed out.  |
