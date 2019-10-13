@@ -1,5 +1,5 @@
 - name: Event Grid IoT Edge Documentation
-  href: 
+  href: index.yml
 - name: Switch to Azure Event Grid documentation
   href: ../overview.md 
 - name: Tutorials
