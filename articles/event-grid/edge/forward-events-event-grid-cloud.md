@@ -13,22 +13,17 @@ services: event-grid
 
 # Tutorial: Forward events to Event Grid cloud
 
-This article walks through all the steps needed to forward edge events to Event Grid in the Azure cloud. You might want to do this for the following reasons:
+This article walks through all the steps needed to forward edge events to Event Grid in the Azure cloud. You might want to do it for the following reasons:
 
 * React to edge events in the cloud.
 * Forward events to Event Grid in the cloud and use Azure Event Hubs or Azure Storage queues to buffer events before processing them in the cloud.
 
 To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md).
 
-## Prerequisites
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
+## Create event grid topic and subscription in cloud
 
-To complete this tutorial, you will need:
-
-**Azure Event Grid module on IoT Edge device** - Follow steps in described in [this article](deploy-event-grid-portal.md) to deploy the Event Grid module on an IoT Edge device if it isn't already deployed. 
-
-## Create Event Grid topic and subscription in cloud
-
-Create an Event Grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you will use later in the tutorial.
+Create an event grid topic and subscription in the cloud by following [this tutorial](../custom-event-quickstart-portal.md). Note down `topicURL`, `sasKey`, and `topicName` of the newly created topic that you'll use later in the tutorial.
 
 For example, if you created a topic named `testegcloudtopic` in West US, the values would look something like:
 
@@ -36,7 +31,7 @@ For example, if you created a topic named `testegcloudtopic` in West US, the val
 * **TopicName**: `testegcloudtopic`
 * **SasKey**: Available under **AccessKey** of your topic. Use **key1**.
 
-## Create Event Grid topic at the edge
+## Create event grid topic at the edge
 
 1. Create topic3.json with the following content. See our [API documentation](api.md) for details about the payload.
 

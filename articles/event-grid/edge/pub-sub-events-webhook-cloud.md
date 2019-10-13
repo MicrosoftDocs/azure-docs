@@ -17,9 +17,7 @@ This article walks through all the steps needed to publish and subscribe to even
 
 See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
 
-## Prerequisites
-
-To complete this tutorial, you will need the **Azure Event Grid module on an IoT Edge Device** - Follow steps in described in [this article](deploy-event-grid-portal.md) if the module isn't already deployed.
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
 ## Create an Azure function in the Azure portal
 

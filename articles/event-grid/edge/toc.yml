@@ -5,33 +5,13 @@
 - name: Tutorials
   items:
   - name: Publish and subscribe locally
-    items:
-    - name: Deploy Event Grid IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Deploy Azure Functions
-      href: deploy-func-webhook-module-portal.md
-    - name: Deploy Azure Blob Storage on IoT Edge
-      href: deploy-blob-storage-module-portal.md
-    - name: Publish and Subscribe
-      href: pub-sub-events-webhook-local.md
+    href: pub-sub-events-webhook-local.md
   - name: Publish and subscribe to the cloud
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: pub-sub-events-webhook-cloud.md
+    href: pub-sub-events-webhook-cloud.md
   - name: Forward to Azure Event Grid
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: forward-events-event-grid-cloud.md
+    href: forward-events-event-grid-cloud.md
   - name: Forward to Azure IoT Edge Hub and Azure IoT Hub
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: forward-events-iothub.md
+    href: forward-events-iothub.md
 - name: Concepts
   items:
   - name: Event Grid Concepts
@@ -62,6 +42,14 @@
     href: configure-webhook-subscriber-auth.md  
   - name: Configure identity authentication
     href: configure-identity-auth.md
+  - name: Deploy modules
+    items: 
+    - name: Deploy Event Grid IoT Edge
+      href: deploy-event-grid-portal.md
+    - name: Deploy Azure Functions
+      href: deploy-func-webhook-module-portal.md
+    - name: Deploy Azure Blob Storage on IoT Edge
+      href: deploy-blob-storage-module-portal.md
 - name: Reference
   items:
   - name: REST API

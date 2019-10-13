@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Forward events to IoTHub
 
-This article walks through all the steps needed to forward Event Grid events to other IoT Edge modules, IoTHub using routes. You might want to do this for the following reasons:
+This article walks through all the steps needed to forward Event Grid events to other IoT Edge modules, IoTHub using routes. You might want to do it for the following reasons:
 
 * Continue to use any existing investments already in place with edgeHub's routing
 * Prefer to route all events from a device only via IoT Hub
@@ -24,11 +24,7 @@ To complete this tutorial, you need to understand the following concepts:
 - [IoT Edge hub](../../iot-edge/module-composition.md) 
 
 
-## Prerequisites
-
-To complete this tutorial, you will need:-
-
-* **Azure Event Grid module on an IoT Edge Device** - Follow the steps in [this article](deploy-event-grid-portal.md) if the module isn't already deployed.
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
 ## Create topic
 
@@ -74,7 +70,7 @@ As a publisher of an event, you need to create an event grid topic. The topic re
 
 ## Create event subscription
 
-Subscribers can register for events published to a topic. To receive any event, they will need to create an Event grid subscription on a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, they'll need to create an Event grid subscription on a topic of interest.
 
 1. Create subscription4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -123,7 +119,7 @@ Subscribers can register for events published to a topic. To receive any event, 
         }
     ```
 
-## Setup an edge hub route
+## Set up an edge hub route
 
 Update the edge hub's route to forward event subscription's events to be forwarded to IoTHub as follows:
 
