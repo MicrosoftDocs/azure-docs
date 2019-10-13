@@ -115,9 +115,9 @@ Entities can be accessed using one-way or two-way communication. We use the foll
 
 Entities can be accessed from within client functions, from within orchestrator functions, or from within entity functions. Not all forms of communication are supported by all contexts:
 
-1. From within clients, you can *signal* entities, and you can *read* the entity state.
-1. From within orchestrations, you can *signal* entities, and you can *call* entities.
-1. From within entities, you can *signal* entities.
+* From within clients, you can *signal* entities, and you can *read* the entity state.
+* From within orchestrations, you can *signal* entities, and you can *call* entities.
+* From within entities, you can *signal* entities.
 
 Below we show some examples that illustrate these various ways of accessing entities.
 
@@ -207,7 +207,7 @@ For example, we can modify the counter entity example above so it sends a "miles
 
 There may be times when you need to coordinate operations across multiple entities. For example, in a banking application, you may have entities representing individual bank accounts. When transferring funds from one account to another, you must ensure that the _source_ account has sufficient funds, and that updates to both the _source_ and _destination_ accounts are done in a transactionally consistent way.
 
-### Example: Transfer Funds
+### Example: Transfer funds
 
 The following example code transfers funds between two _account_ entities using an orchestrator function. Coordinating entity updates requires using the `LockAsync` method to create a _critical section_ in the orchestration:
 
