@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2019
+ms.date: 10/13/2019
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ Your billing account for the Microsoft Partner Agreement contains a billing prof
 
 The following diagram shows the relationship between a billing account, billing profiles, customers, and resellers.
 
-![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/billing-mpa-overview/mpa-billing-hierarchy.svg)
+![Diagram showing the Microsoft Partner Agreement billing hierarchy](./media/mpa-overview/mpa-hierarchy.svg)
 
 Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -52,15 +52,15 @@ To turn on the policy:
 
 1. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mpa-overview/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search](./media/mpa-overview/search-cmb.png)
 
 1. Select **Customers** from the left-hand side and then select a customer from the list.
    
-   ![Screenshot that shows selecting customer](./media/billing-mpa-overview/billing-mpa-customers.png)
+   ![Screenshot that shows selecting customer](./media/mpa-overview/mpa-customers.png)
 
 1. Select **Policies** from the left-hand side.
 
-   ![Screenshot that shows policies](./media/billing-mpa-overview/billing-mpa-change-policy.png)
+   ![Screenshot that shows policies](./media/mpa-overview/mpa-change-policy.png)
 
 1. Select **Yes**.
 

@@ -38,27 +38,27 @@ This article applies to a billing account for a Microsoft Partner Agreement. The
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/search-cmb.png)
 
 3. Select **Customers** from the left-hand side and then select a customer from the list.
    
-   ![Screenshot that shows selecting customers](./media/billing-mpa-request-billing-ownership/mpa-select-customers.png)        
+   ![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)        
 
 4. Select **Transfer requests** from the lower-left side and then select **Add a new request**.
  
-   ![Screenshot that shows selecting transfer requests](./media/billing-mpa-request-billing-ownership/mpa-select-transfer-requests.png)
+   ![Screenshot that shows selecting transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests.png)
 
 5. Enter the email address of the user in the customer organization who will accept the transfer request. The user must be an account owner on an Enterprise Agreement. Select **Send transfer request**.
 
-   ![Screenshot that shows sending a transfer request](./media/billing-mpa-request-billing-ownership/mpa-send-transfer-requests.png)
+   ![Screenshot that shows sending a transfer request](./media/mpa-request-ownership/mpa-send-transfer-requests.png)
 
 6. The user gets an email with instructions to review your transfer request.
 
-   ![Screenshot that shows review transfer request email](./media/billing-mpa-request-billing-ownership/mpa-review-transfer-request-email.png)
+   ![Screenshot that shows review transfer request email](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 
 7. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
-    ![Screenshot that shows review transfer request email](./media/billing-mpa-request-billing-ownership/mpa-review-transfer-request.png)
+    ![Screenshot that shows review transfer request email](./media/mpa-request-ownership/mpa-review-transfer-request.png)
 
 ## Check the transfer request status
 
@@ -70,13 +70,13 @@ This article applies to a billing account for a Microsoft Partner Agreement. The
 
 3. Select **Customers** from the left-hand side.
 
-   ![Screenshot that shows selecting customers](./media/billing-mpa-request-billing-ownership/mpa-select-customers.png)
+   ![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)
 
 4. Select the customer from the list for which you sent the transfer request.
 
 5. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
 
-    ![Screenshot that shows list of transfer requests](./media/billing-mpa-request-billing-ownership/mpa-select-transfer-requests-for-status.png)
+    ![Screenshot that shows list of transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)
 
    |Column|Definition|
    |---------|---------|
@@ -98,7 +98,7 @@ This article applies to a billing account for a Microsoft Partner Agreement. The
    |Declined|The user declined the transfer request|
 
 6. Select a transfer request to view details. The transfer details page displays the following information:
-   ![Screenshot that shows list of transferred subscriptions](./media/billing-mpa-request-billing-ownership/mpa-transfer-completed.png)
+   ![Screenshot that shows list of transferred subscriptions](./media/mpa-request-ownership/mpa-transfer-completed.png)
 
    |Column  |Definition|
    |---------|---------|
