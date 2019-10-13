@@ -57,12 +57,12 @@ If you have Contributor permissions to the subscription and resource group where
 
 You can recover a workspace by re-creating the workspace using the workspace create methods [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) as long as these properties are populated with the deleted workspace details including:
 
-1. Subscription ID
-2. Resource Group name
-3. Workspace name
-4. Region
+* Subscription ID
+* Resource Group name
+* Workspace name
+* Region
 
 > [!NOTE]
-> * Workspace recovery isn’t supported in the [Azure portal](https://portal.azure.com). 
+> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
 > * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
 > 
