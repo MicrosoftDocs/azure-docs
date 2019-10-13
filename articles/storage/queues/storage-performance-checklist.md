@@ -21,7 +21,7 @@ Azure Storage has scalability and performance targets for capacity, transaction 
 
 This article organizes proven practices for performance into a checklist you can follow while developing your Queue storage application.
 
-| Done | Category | Question |
+| Done | Category | Design consideration |
 | --- | --- | --- |
 | &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
@@ -191,6 +191,6 @@ Use queues to make your application architecture scalable. The following lists s
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-- [Performance and scalability checklist for Blob storage](../blobs/storage-performance-checklist-blobs.md)
-- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist-tables.md)
+- [Performance and scalability checklist for Blob storage](../blobs/storage-performance-checklist.md)
+- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

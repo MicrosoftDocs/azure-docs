@@ -21,7 +21,7 @@ Azure Storage has scalability and performance targets for capacity, transaction 
 
 This article organizes proven practices for performance into a checklist you can follow while developing your Blob storage application.
 
-| Done | Category | Question |
+| Done | Category | Design consideration |
 | --- | --- | --- |
 | &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
@@ -260,12 +260,11 @@ Block blobs are appropriate when you want to upload large amounts of data effici
 
 Append blobs are similar to block blobs in that they are composed of blocks. When you modify an append blob, blocks are added to the end of the blob only. Append blobs are useful for scenarios such as logging, when an application needs to add data to an existing blob.
 
-Page blobs are appropriate if the application needs to perform random writes on the data. For example, Azure virtual machine disks are stored as page blobs.  
-For more information, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
+Page blobs are appropriate if the application needs to perform random writes on the data. For example, Azure virtual machine disks are stored as page blobs. For more information, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist-queues.md)
-- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist-tables.md)
+- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist.md)
+- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

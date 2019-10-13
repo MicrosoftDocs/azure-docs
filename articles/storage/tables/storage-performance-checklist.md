@@ -21,13 +21,13 @@ Azure Storage has scalability and performance targets for capacity, transaction 
 
 This article organizes proven practices for performance into a checklist you can follow while developing your Table storage application.
 
-| Done | Category | Question |
+| Done | Category | Design consideration |
 | --- | --- | --- |
 | &nbsp; |Scalability Targets |[Can you design your application to use no more than the maximum number of storage accounts?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Scalability Targets |[Are you avoiding approaching capacity and transaction limits?](#capacity-and-transaction-targets) |
 | &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
-| &nbsup; |Networking |[Is the client application in the same region as the storage account?](#location) |
+| &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
 | &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; |Batching |[Is your application batching updates by using entity group transactions?](#batch-transactions) |
 | &nbsp; |.NET Configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
@@ -281,6 +281,6 @@ If you are performing batch inserts and then retrieving ranges of entities toget
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
-- [Performance and scalability checklist for Blob storage](../blobs/storage-performance-checklist-blobs.md)
-- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist-queues.md)
+- [Performance and scalability checklist for Blob storage](../blobs/storage-performance-checklist.md)
+- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
