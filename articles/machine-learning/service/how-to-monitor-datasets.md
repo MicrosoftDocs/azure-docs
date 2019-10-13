@@ -15,6 +15,7 @@ ms.date: 10/14/2019
 ---
 
 # Detect data drift (preview) on datasets
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift in datasets, and setup alerts.
 

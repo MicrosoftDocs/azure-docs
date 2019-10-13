@@ -16,6 +16,7 @@ ms.custom: seodec18
 ---
 
 # Monitor Azure ML experiment runs and metrics
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning.
 

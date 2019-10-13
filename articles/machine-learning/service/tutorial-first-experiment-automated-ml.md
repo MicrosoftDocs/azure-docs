@@ -15,8 +15,9 @@ ms.date: 10/04/2019
 ---
 
 # Tutorial: Create your first classification model with automated machine learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create your first automated machine learning experiment throughAzure Machine Learning studio without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment through Azure Machine Learning studio without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 

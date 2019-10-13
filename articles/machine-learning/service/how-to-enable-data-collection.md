@@ -14,6 +14,7 @@ ms.custom: seodec18
 
 ---
 # Collect data for models in production
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > This SDK is retiring soon and will be replaced with simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
