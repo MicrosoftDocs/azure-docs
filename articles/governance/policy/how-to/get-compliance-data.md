@@ -184,12 +184,23 @@ resources for the current assignment. The tab defaults to **Non-compliant**, but
 Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
 the **Events** tab.
 
+> [!NOTE]
+> For an AKS Engine policy, the resource shown is the resource group.
+
 ![Example of Azure Policy Compliance events](../media/getting-compliance-data/compliance-events.png)
 
-Right-click on the row of the event you would like to gather more details on and select **Show
-activity logs**. The activity log page opens and is pre-filtered to the search showing details for
-the assignment and the events. The activity log provides additional context and information about
-those events.
+For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
+on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
+selecting **View compliance details** opens the component compliance details. This page also offers
+tabs to see the policies that are assigned to this resource, events, component events, and change
+history.
+
+![Example of Azure Policy Component compliance details](../media/getting-compliance-data/compliance-components.png)
+
+Back on the resource compliance page, right-click on the row of the event you would like to gather
+more details on and select **Show activity logs**. The activity log page opens and is pre-filtered
+to the search showing details for the assignment and the events. The activity log provides
+additional context and information about those events.
 
 ![Example of Azure Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
 
