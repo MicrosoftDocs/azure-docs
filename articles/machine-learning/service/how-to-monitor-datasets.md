@@ -132,7 +132,7 @@ These settings are for the scheduled dataset monitor pipeline which will be crea
 | Setting | Description | Tips | Mutable | 
 | ------- | ----------- | ---- | ------- |
 | Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created. | Yes | 
-| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | Yes | 
+| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | No | 
 | Email addresses | Email addresses for alerting based on breach of the data drift percentage threshold. | Emails are sent through Azure Monitor. | Yes | 
 | Threshold | Data drift percentage threshold for email alerting. | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource. | Yes | 
 
@@ -270,4 +270,4 @@ Limitations and known issues:
 ## Next steps
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
-* [Data drift for models](how-to-monitor-data-drift.md).
+* See how to setup data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
