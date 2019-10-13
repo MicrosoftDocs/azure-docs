@@ -111,10 +111,22 @@ You can set quotas per user by using the following steps:
 
     ![Quota per user - after](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
-
-
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
+
+## Set additional quota for a specific user
+You can set a separate quota for a user. To do so, follow these steps:
+
+1. Select a user(student) from the list of users on the **Users** page.
+2. Then, select **Adjust quota** from the toolbar. 
+
+    ![Adjust quota button](../media/how-to-configure-student-usage/adjust-quota-button.png)
+3. Enter the number of **additional hours** for the selected user or users, and then select **Apply**. 
+
+    ![Additional quota for a user](../media/how-to-configure-student-usage/additional-quota.png)
+4. You will see the updated usage for the user in the **Usage** column. 
+
+    ![New usage for the user](../media/how-to-configure-student-usage/new-usage-hours.png)
 
 
 ## Next steps
