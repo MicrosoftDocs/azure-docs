@@ -1,17 +1,17 @@
 ---
-title: Add full text search to Azure Blob Storage - Azure Search
-description: Crawl text content in Azure Blob storage for Azure Search indexing, in code using the HTTP REST API.
-services: search
+title: Add full text search to Azure Blob Storage
+titleSuffix: Azure Search
+description: Extract content and add structure to Azure blobs when building a full text search index in Azure Search.
+
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein 
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
+ms.date: 10/09/2019
 ---
 
-# Searching Blob storage with Azure Search
+# Add full text search to Azure blob data using Azure Search
 
 Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an Azure Search service. The various service limits and pricing tiers of Azure Search can be found on the [pricing page](https://aka.ms/azspricing).
 
@@ -40,12 +40,12 @@ Azure Search can be configured to extract structured content found in blobs that
 
 JSON parsing is not currently configurable through the portal. [Learn more about JSON parsing in Azure Search.](https://aka.ms/azsjsonblobindexing)
 
-## Quick start
+## Quickstart
 Azure Search can be added to blobs directly from the Blob storage portal page.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
 Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service.
 
-## Next Steps
+## Next steps
 Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).

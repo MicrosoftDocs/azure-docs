@@ -251,10 +251,12 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     * Select **NFS** as the protocol type for the volume.  
     * Enter **myfilepath1** as the file path that will be used to create the export path for the volume.  
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
+      See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions. 
+      
 > [!IMPORTANT] 
 > Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
 
-    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Click **Review + create**.
 
