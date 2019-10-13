@@ -69,7 +69,7 @@ The examples shown below use REST APIs. Support for PowerShell and Azure CLI is 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?$expand=billingProfiles&api-version=2019-10-01-preview
 ```
-The API response returns all billing accounts and billing profiles you have access to.
+The API response returns a list of billing accounts and their billing profiles.
 
 ```json
 {
@@ -113,14 +113,14 @@ The API response returns all billing accounts and billing profiles you have acce
 }
 ```
 
-Copy the `id` of the billing profile for which you want to check credit balance. For example, if you want to check credit balance for **Development** billing profile, you'd copy ```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step.
+Use the `displayName` property of the billing profile to identify the billing profile for which yo uwant to check the credit balance. Copy the `id` of the billing profile. For example, if you want to check credit balance for **Development** billing profile, you'd copy ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step.
 
 ### Get Azure credit balance 
 
-Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx``). 
+Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx``). 
 
 ```json
-GET https://management.azure.com/<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
+GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
 ```
 
 The API response returns estimated and current balance for the billing profile.
@@ -168,10 +168,10 @@ The API response returns estimated and current balance for the billing profile.
 
 ### Get list of credits
 
-Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
-GET https://management.azure.com/<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
+GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
 ```
 The API response returns lists of Azure credits for a billing profile.
 
@@ -192,7 +192,7 @@ The API response returns lists of Azure credits for a billing profile.
           "currency": "USD",
           "value": 500.0
         },
-        "source": "Azure promotional credit",
+        "source": "Azure Promotional Credit",
         "startDate": "09/18/2019 21:47:31",
         "expirationDate": "09/18/2020 21:47:30",
         "poNumber": ""
@@ -212,7 +212,7 @@ The API response returns lists of Azure credits for a billing profile.
           "currency": "USD",
           "value": 497.87
         },
-        "source": "Azure promotional credit",
+        "source": "Azure Promotional Credit",
         "startDate": "09/18/2019 21:47:31",
         "expirationDate": "09/18/2020 21:47:30",
         "poNumber": ""
@@ -225,17 +225,17 @@ The API response returns lists of Azure credits for a billing profile.
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `originalAmount` | The original amount of the credit. |
 | `closedBalance`   | The balance as of the last invoice.    |
-| `source`      | The source of the credit that defines who how acquired the credit. |
+| `source`      | The source that defines who how acquired the credit. |
 | `startDate`      |  The date when the credit became active.  |
 | `expirationDate`  | The date when the credit expires.   |
 | `poNumber`  | The purchase order number of the invoice on which the credit was billed.   |
 
 ### Get transactions that affected credit balance
 
-Make the following request, replacing `<billingProfileId>` with the `billingProfileId` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). You would need to pass a **startDate** and an **endDate** to get transactions for your required duration.
+Make the following request, replacing `<billingProfileId>` with the `id` copied from the first step (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). You would need to pass a **startDate** and an **endDate** to get transactions for your required duration.
 
 ```json
-GET https://management.azure.com/<billingProfileId>/providers/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
+GET https://management.azure.com<billingProfileId>/providers/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
 ```
 The API response returns all transactions that affected the credit balance for your billing profile.
 
@@ -312,8 +312,8 @@ The API response returns all transactions that affected the credit balance for y
 | Element Name  | Description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `transactionDate` | The date when the transaction took place. |
-| `description` | The date when the transaction took place. |
-| `adjustments`   | For refund or rebill transactions, the credit adjustments for the transaction.    |
+| `description` | The description of the transaction. |
+| `adjustments`   | The credit adjustments for the transaction.    |
 | `creditExpired`      | The amount of credit that expired. |
 | `charges`      |  The charges for the transaction.  |
 | `closedBalance`  | The balance after the transaction.   |
