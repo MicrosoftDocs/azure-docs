@@ -254,7 +254,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 > [!IMPORTANT] 
 > Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
 
-    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Click **Review + create**.
 
