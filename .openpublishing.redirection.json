@@ -27265,6 +27265,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/billing/billing-mca-create-subscription.md",
+      "redirect_url": "/azure/billing/billing-create-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
       "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
       "redirect_document_id": true
