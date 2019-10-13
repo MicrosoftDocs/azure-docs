@@ -69,6 +69,9 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
   - name: Compute target
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
