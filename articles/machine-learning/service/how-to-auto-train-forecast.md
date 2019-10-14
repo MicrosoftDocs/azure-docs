@@ -130,14 +130,14 @@ from azureml.core.experiment import Experiment
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automl_config = AutoMLConfig(task = 'forecasting',
-                             primary_metric = 'normalized_root_mean_squared_error',
-                             iterations = 10,
-                             training_data = train_data,
-                             label_column_name = label,
-                             n_cross_validations = 5,
-                             enable_ensembling = False,
-                             verbosity = logging.INFO,
+automl_config = AutoMLConfig(task='forecasting',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             training_data=train_data,
+                             label_column_name=label,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             verbosity=logging.INFO,
                              **time_series_settings)
 
 ws = Workspace.from_config()
