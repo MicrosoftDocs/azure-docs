@@ -7,6 +7,9 @@ localization_priority: Priority
 
 # License your Office and SharePoint Add-ins
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 The licensing framework for Office and SharePoint Add-ins gives you a way to include code in your add-ins to verify and enforce their legal use. You can restrict access to your add-ins to only those users who have a valid license, or specify which features are available, how the add-in behaves, or other logic, based on the properties of that license. If you plan to sell your add-in, you should build in logic that uses the licensing framework to determine whether a user has a valid license for the add-in, and give access to its features based on the license's properties.
 
 The add-in license framework itself does not enforce add-in licenses. It's a structure in which you can add code to your add-ins to retrieve and then act on license information.
@@ -118,7 +121,7 @@ Figure 2 shows the add-in license query and validation process for SharePoint Ad
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

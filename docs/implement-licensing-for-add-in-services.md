@@ -7,6 +7,9 @@ localization_priority: Normal
 
 # Implement licensing to upsell your Office Add-in services
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. It also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired.  
 
 
@@ -157,7 +160,7 @@ As group membership grows (or as users from the organization install the add-in 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)

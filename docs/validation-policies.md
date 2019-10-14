@@ -16,6 +16,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |1.1|Your app or add-in must offer unique value or utility within the app or add-in experience that extends Office or SharePoint functionality for AppSource customers.|
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
+|1.4|Effective July 29th 2019, new add-ins accepted for publication to AppSource must be free. Updates to existing paid add-ins will be supported until July 2020. For more information, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
 
 <a name="bk_2"> </a>
 ## 2. Apps or add-ins can display certain ads
@@ -55,7 +56,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |4.11|Your app or add-in UI should not look unfinished.|
 |4.12|Your app or add-in must be fully functional with the supported operating systems, browsers, and devices for Office 2013, Office 2016, SharePoint 2013, and Office 365. To download an Office 2013 trial, see [Office 2013 - Microsoft Office 365](https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365HomePremRetail&platform=X86&language=en-us&version=O15GA&source=O15OLSO365) or [Office 2013 - Microsoft Office 365 Business](https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365BusinessRetail&platform=X86&language=en-us&version=O15GA&source=O15OLSO365).<br/><br/>Your app or add-in's described features must work on a touch-only device without a physical keyboard or mouse.|
 |4.12.1<br/>**Office Add-ins**| General requirements:<br/><ul><li>Add-ins must be compatible with all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS).</li><li>Your add-in must work in all Office applications specified in the **Hosts** element in your add-in manifest. For details, see [Specify Office hosts and API requirements](/office/dev/add-ins/overview/specify-office-hosts-and-api-requirements).</li><li>Your add-in must work across all platforms that support the methods that you define in the **Requirements** element in your add-in manifest. For details about which platforms support which methods, see [Office Add-in host and platform availability](/office/dev/add-ins/overview/office-add-in-availability).</li></ul> |
-|| Platform-specific requirements:<br/><ul><li>Your add-in must support Office Online applications that are compatible with the APIs listed in the **Requirements** element. To test your add-in in Office Online, see [Debug add-ins in Office Online](/office/dev/add-ins/testing/debug-add-ins-in-office-online).</li><li>Add-ins that support iOS must be fully functional on the latest iPad device using the latest iOS operating system.</li></ul>|
+|| Platform-specific requirements:<br/><ul><li>Your add-in must support Office applications on the web that are compatible with the APIs listed in the **Requirements** element. To test your add-in in Office web clients, see [Debug add-ins in Office on the web](/office/dev/add-ins/testing/debug-add-ins-in-office-online).</li><li>Add-ins that support iOS must be fully functional on the latest iPad device using the latest iOS operating system.</li></ul>|
 || Outlook-specific requirements:<br/><ul><li>If your scenario requires showing an add-in on every message or appointment (whether in read or compose), it must support [add-in commands](/outlook/add-ins/add-in-commands-for-outlook).</li><li>Outlook add-ins must not include the CustomPane extension point in the VersionOverrides node.</li><li>If your add-in manifest includes the **SupportsPinning** element for read mode of a message and/or appointment, the content of the add-in, when pinned, must not be static and must clearly display data related to the message that is open or selected in the mailbox.</li><li>Outlook add-ins that support mobile must allow users to log on separately for each email account they have in the Outlook app.</li></ul>|
 || Word, Excel, and PowerPoint requirements:<br/><ul><li>Add-ins that use the taskpane manifest must support add-in commands.</li></ul>|
 |4.12.2<br/>**SharePoint Add-ins**|Add-ins must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
@@ -89,7 +90,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to AppSource can function only to install the full-control app.|
 |5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted. For more information, see *How can I avoid errors when submitting my app or add-in to AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
-|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#office-initialize) has been called. This ensures that content display will synchronize with presentations correctly.|
+|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#office-initialize-reason-) has been called. This ensures that content display will synchronize with presentations correctly.|
 
 <a name="bk_6"> </a>
 ## 6. Apps and add-ins are appropriate for a global audience
@@ -231,7 +232,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.7|You must submit a Terms of Service link.|
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
-|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.4.|
+|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.5.|
 |14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
@@ -239,7 +240,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.15|Microsoft Teams apps can fail validation for issues related to [Microsoft Teams app design guidelines](https://aka.ms/microsoftteamsdesignguidelines) or issues that impede the customer experience within Microsoft Teams. To pass validation, Microsoft Teams apps must meet the following requirements:<br/><ul><li>A tab experience must provide value beyond simply hosting an existing website.</li><li>Content in a channel tab must be contextually the same for all members of the channel and not scoped for individual use.</li><li>Content in a tab should not have excessive chrome or layered navigation.</li><li>A configurable tab should not allow users to navigate outside the core experience within the same tab.</li><li>The configuration screen of a configurable tab must clearly explain the value of the experience and how to configure it.</li><li>Tab configuration must happen in the configuration screen.</li><li>Bots must be responsive and fail gracefully.</li></ul>|
 |14.16|Microsoft Teams apps must focus on the Microsoft Teams experience and should not include names, icons, or imagery of other similar chat-based collaboration platforms or services unless the apps provide specific interoperability.|
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign-in/sign-out and sign-up experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented, and the documentation should be accessible from within the app.|
-|14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
+|14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest. **Exception:** If you're using OAuthcard,  `Token.botframework.com` must be in the valid domains list. Teams apps that require their own SharePoint URLs to function can include {teamsitedomain}.sharepoint.com in their valid domain list.
 |14.19| The policies outlined in [Section 2](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#2-apps-or-add-ins-can-display-certain-ads) do not apply to Microsoft Teams apps. Microsoft Teams apps may not display ads.
 
 ## 15. Add-ins with Excel custom functions
@@ -267,6 +268,10 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|September 23, 2019|Updated policy 14.18.|
+|2.2|August 24, 2019|Updated policy 14.18.|
+|2.2|July 12, 2019|Added policy 1.4.|
+|2.2|June 6, 2019|Updated policy 14.10.|
 |2.2|May 6, 2019|Added section 15.|
 |2.2|April 19, 2019|Updated policy 14.10.|
 |2.2|April 04, 2019|Added policy 14.19.|

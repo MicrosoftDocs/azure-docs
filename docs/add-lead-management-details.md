@@ -155,4 +155,6 @@ Make sure that any correspondence you send to customers includes an option to un
 
 - [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
+- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)

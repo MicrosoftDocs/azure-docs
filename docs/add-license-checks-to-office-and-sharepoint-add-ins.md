@@ -7,6 +7,9 @@ localization_priority: Normal
 
 # Add license checks to Office and SharePoint Add-ins
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the AppSource, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
 
 To create a test token:
@@ -31,7 +34,7 @@ For Outlook add-ins:
     <br/>
 
     > [!NOTE]
-    > If your add-in uses [getUserIdentityTokenAsync](/javascript/api/outlook_1_7/office.mailbox#getuseridentitytokenasync-callback--usercontext-), adding to the [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](/outlook/add-ins/validate-an-identity-token) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
+    > If your add-in uses [getUserIdentityTokenAsync](/javascript/api/outlook/office.mailbox?view=outlook-js-1.7#getuseridentitytokenasync-callback--usercontext-), adding to the [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](/outlook/add-ins/validate-an-identity-token) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
 
 <a name="bk_implement"> </a>
 ## Implement license checks in the Office Add-in code

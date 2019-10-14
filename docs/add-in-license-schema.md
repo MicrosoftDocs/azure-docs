@@ -7,6 +7,9 @@ localization_priority: Normal
 
 # Office and SharePoint Add-in license XML schema structure
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
 
 Use the [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the AppSource verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
@@ -228,7 +231,7 @@ The following example shows the add-in license for a user who is signed in with 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

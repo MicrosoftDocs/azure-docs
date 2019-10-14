@@ -55,7 +55,7 @@ Select **Add a new app**. On the **Listing type** page, select the type of solut
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Create your AppSource listing](office-store-listing.md).
+For more information, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
 
 ### Block access page
 
@@ -72,7 +72,7 @@ For more information, see [Regional availability](office-store-listing.md#region
 |Pricing|Required|
 |Trial support|By default, no trial support|
 
-For details, see [Decide on a pricing model](decide-on-a-pricing-model.md).
+For details, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
 
 
 ## Submit for approval
@@ -106,7 +106,7 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 - [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
+- [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
