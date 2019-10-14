@@ -14,7 +14,7 @@ You enter the AppSource listing information on the Details page in the Seller Da
 
 
 ## App name
-In the **App name** field, specify the title that will be displayed in AppSource. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
+In the **App name** field, specify the title that will be displayed in AppSource. For guidance for titles, see [Use a succinct and descriptive name](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-name).
 
 ## Short description and long description
 
