@@ -102,8 +102,8 @@ For information about authenticating with Azure AD, see [Authorize to Microsoft 
 
 ## Testing your SaaS offer
 
-To test your integration, you should submit an offer to a private audience for $0 as a test in order to ensure the end to end process is working. A private plan makes your offer visible only to a restricted audience of your choosing.
-Once you're happy with this, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+To test your integration, you should submit an offer to a private audience for $0 in order to ensure that the end to end process is working. A private plan makes your offer visible only to a restricted audience of your choosing.
+When you have verified that your solution is working, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
 ## Submission process for SaaS offer + add-in
 Firstly, you should submit your SaaS offer to Partner Center as a private plan (ensuring that a customer does not purchase your SaaS without the add-in available). Once this has been approved, it will be assigned a GUID. You should submit your add-in to Seller Dashboard with this GUID in the test notes, as well as test accounts (admin + non-admin). Once your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
