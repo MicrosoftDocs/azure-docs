@@ -21,39 +21,39 @@ The Switch activity provides the same functionality that a switch statement prov
 
 {
    "name": "<Name of the activity>",
-        "type": "Switch",
-        "typeProperties": {
-            "expression": {
-                "value": "<expression that evaluates to some string value>",
-                "type": "Expression"
+    "type": "Switch",
+    "typeProperties": {
+        "expression": {
+            "value": "<expression that evaluates to some string value>",
+            "type": "Expression"
+        },
+        "cases": [
+            {
+                "value": "<string value that matches expression evaluation>",
+                "activities": [
+                    {
+                        "<Activity 1 definition>"
+                    },
+                    {
+                        "<Activity 2 definition>"
+                    },
+                    {
+                        "<Activity N definition>"
+                    }
+                ]
+            }           
+        ],
+        "defaultActivities": [
+            {
+                "<Activity 1 definition>"
             },
-            "cases": [
-                {
-                    "value": "<string value that matches expression evaluation>",
-                    "activities": [
-                        {
-                            "<Activity 1 definition>"
-                        },
-                        {
-                            "<Activity 2 definition>"
-                        },
-                        {
-                            "<Activity N definition>"
-                        }
-                    ]
-                }           
-            ],
-            "defaultActivities": [
-                {
-                    "<Activity 1 definition>"
-                },
-                {
-                    "<Activity 2 definition>"
-                },
-                {
-                    "<Activity N definition>"
-                }
-            ]
+            {
+                "<Activity 2 definition>"
+            },
+            {
+                "<Activity N definition>"
+            }
+        ]
     }
 }
 ```
