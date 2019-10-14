@@ -1,5 +1,5 @@
 ---
-title: Tutorial Connect to Azure API for FHIR endpoint with application
+title: Tutorial - Connect to Azure API for FHIR endpoint with application
 description: This tutorial shows how to write application that connects to Azure API for FHIR endpoint using Azure AD OAuth2 token.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -200,9 +200,10 @@ The last step is to call the FHIR server and pass the token in the Authorization
 If you are using Node.js:
 
 1. To start the server, run the following command from the project directory:
+
 ```
-npm install
-node server.js
+    npm install
+    node server.js
 ```
 2. Open a web browser and go to http://localhost:30662/.
 3. Select Sign In to start the sign-in, and then call Azure API for FHIR.

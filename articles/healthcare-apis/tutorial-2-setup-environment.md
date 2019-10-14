@@ -1,6 +1,6 @@
 ---
-title: Tutorial Setup development environment
-description: This tutorial explains how to setup development environment for Azure API for FHIR (node.js/JS)
+title: Tutorial - Setup development environment
+description: This tutorial explains how to set up a development environment for Azure API for FHIR (node.js/JS)
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
