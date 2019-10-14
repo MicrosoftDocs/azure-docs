@@ -2,16 +2,16 @@
 title: Azure Disk Encryption and Azure virtual machine scale sets extension sequencing 
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machine-scale-sets
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/21/2019
+ms.date: 10/10/2019
 
 ---
 
 # Use Azure Disk Encryption with virtual machine scale set extension sequencing
 
-Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set in a specified order. To do so, use [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). 
+Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set in a specified order. To do so, use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). 
 
 In general, encryption should be applied to a disk:
 
@@ -147,11 +147,14 @@ Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSetting
 }
 ```
 
-For more in-depth templates, see:
+For a more in-depth template, see:
 * Apply the Azure Disk Encryption extension after a custom shell script that formats the disk (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
-* Apply the Azure Disk Encryption extension after a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
-* Apply the Azure Disk Encryption extension before a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
+
 
 ## Next steps
-- Learn more about extension sequencing: [Sequence extension provisioning in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
+- Learn more about extension sequencing: [Sequence extension provisioning in virtual machine scale sets](virtual-machine-scale-sets-extension-sequencing.md).
 - Learn more about the `provisionAfterExtensions` property: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
+- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md)
+- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Create and configure a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)

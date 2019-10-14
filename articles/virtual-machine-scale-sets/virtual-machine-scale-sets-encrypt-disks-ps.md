@@ -159,5 +159,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## Next steps
 
-- In this article, you used Azure PowerShell to encrypt a virtual machine scale set. You can also use the [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- In this article, you used Azure PowerShell to encrypt a virtual machine scale set. You can also use the [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
 - If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). You can use [these samples](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) to get started.
