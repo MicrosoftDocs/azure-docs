@@ -1,3 +1,4 @@
+
 ---
 title : Discover applications installed on on-premises servers using Azure Migrate: Server Assessment
 description : Describes how to discover applications installed, and roles and features enabled on on-premises servers
