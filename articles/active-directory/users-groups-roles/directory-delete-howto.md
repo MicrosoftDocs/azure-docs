@@ -3,7 +3,7 @@ title: Delete an Azure AD directory - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD directory for deletion, including self-service directories
 services: active-directory
 documentationcenter: ''
-author: curtand;adimitui
+author: curtand
 manager: mtillman
 
 ms.service: active-directory
@@ -11,9 +11,9 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: curtand;addimitu
+ms.author: curtand
 
-ms.reviewer: elkuzmen
+ms.reviewer: addimitu
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -78,11 +78,11 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
    ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
 
-5. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](https://docs.microsoft.com/en-us/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) during the three-day period if you change your mind.
+5. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) during the three-day period if you change your mind.
   
    ![carefully read terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
-6. Now the subscription state has changed—the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
+6. Now the subscription state has changed, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 7. Once you have deleted a subscription in your directory and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your directory deletion. You should be able to successfully delete your Azure AD directory.
   
