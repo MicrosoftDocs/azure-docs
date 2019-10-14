@@ -22,14 +22,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning visual interface (preview) refresh
 
-+ The Azure Machine Learning visual interface (preview) has been overhauled to take advantage of Azure Machine Learning pipelines. Pipelines authored in the visual interface are now fully integrated with the core Azure Machine Learning service experience.
-  + Revamped UI
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on Azure Machine Learning pipelines. Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning service experience.
   + Unified management experience with SDK assets
-  + Versioning and tracking for models, pipelines, and endpoints authored in the visual interface
+  + Versioning and tracking for visual interface models, pipelines, and endpoints 
+  + Redesigned UI
   + Added batch inferencing deployment
-  + Azure Kubernetes Service (AKS) support for training and inferencing
-  + New Python-step pipeline workflow
-  + New [Azure Machine Learning studio landing page](https://ml.azure.com) for Azure Machine Learning visual authoring tools
+  + Added Azure Kubernetes Service (AKS) support for training and inferencing compute targets
+  + New Python-step pipeline authoring workflow
+  + New [Azure Machine Learning studio landing page](https://ml.azure.com) for visual authoring tools
 
 + **New modules**
   + Apply math operation
