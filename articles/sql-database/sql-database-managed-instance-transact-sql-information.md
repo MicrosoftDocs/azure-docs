@@ -547,7 +547,7 @@ A managed instance places verbose information in error logs. There are many inte
 
 Business Critical tier in some cases will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space). Managed instance may enable workoad to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediatelly. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Workaround:** [Monitor usage for in-memory objects](https://docs.microsoft.com/esql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
+**Workaround:** [Monitor usage for in-memory objects](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
 
 ### Wrong error returned while trying to remove a file that is not empty
 
