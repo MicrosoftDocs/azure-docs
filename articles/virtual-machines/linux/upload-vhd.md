@@ -72,7 +72,7 @@ Also see the [Linux Installation Notes](create-upload-generic.md#general-linux-i
 
 ## Option 1: Upload a VHD
 
-You can now upload VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure CLI] (disks-upload-vhd-to-managed-disk-cli).
+You can now upload VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure CLI](disks-upload-vhd-to-managed-disk-cli.md).
 
 ## Option 2: Copy an existing VM
 
