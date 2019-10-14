@@ -50,7 +50,7 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Examples
 
-Below examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo):
+These examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
 For example, here's a query which returns the total count of items in each foodGroup:
 
