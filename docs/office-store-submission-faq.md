@@ -113,4 +113,3 @@ Two aspects of your submission relate to supported languages:
 
 - [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
-

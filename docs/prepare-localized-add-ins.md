@@ -1,11 +1,10 @@
 ---
-title: Prepare localized apps and add-ins
-description: Obtain localized metadata and create descriptions for each language beyond the primary language.
-ms.date: 1/11/2018
+title: Prepare localized add-ins
+description: To offer your Office Add-in or SharePoint Add-in in languages beyond the primary language, you need localized metadata for each additional language.
 localization_priority: Normal
 ---
 
-# Prepare localized apps and add-ins
+# Prepare localized add-ins
 
 To offer your Office Add-in or SharePoint Add-in in languages beyond the primary language, you need localized metadata for each additional language. The best customer experience is with add-ins that have web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see Table 2 later in this article.
 
@@ -117,4 +116,3 @@ The following table lists the submission languages that AppSource is available i
 - [Validation policies](validation-policies.md) 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)    
  
-

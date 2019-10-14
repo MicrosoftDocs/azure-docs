@@ -1,7 +1,6 @@
 ---
 title: Make your solutions available in AppSource and within Office 
 description: Upload Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps to AppSource and make them available in the Office Store within Office.
-ms.date: 01/29/2019
 localization_priority: Priority
 ---
 

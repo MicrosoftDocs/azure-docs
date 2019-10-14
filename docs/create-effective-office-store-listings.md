@@ -1,7 +1,6 @@
 ---
 title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
-ms.date: 12/04/2018
 localization_priority: Normal
 ---
 

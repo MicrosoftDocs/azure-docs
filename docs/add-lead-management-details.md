@@ -1,13 +1,12 @@
 ---
-title: Add lead management details for your Office Add-ins in the Seller Dashboard
-description: Use leads to get information about users who acquire your add-in, and follow up with customers directly to ensure they have a successful experience with your solution.
-ms.date: 1/11/2018
+title: Add lead management details for your Office solutions in Partner Center
+description: Use leads to get information about users who acquire your solution, and follow up with customers directly to ensure they have a successful experience with your solution.
 localization_priority: Normal
 ---
 
-# Add lead management details for your Office Add-ins in the Seller Dashboard
+# Add lead management details for your Office solution in Partner Center
 
-To get information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in the Seller Dashboard. 
+To get information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in Partner Center. 
 
 You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution. 
 
@@ -20,7 +19,7 @@ For customers who acquire your add-in via AppSource, the following details are s
 > [!NOTE]
 > Leads are currently supported for acquisitions made via AppSource, as well as Word, Excel, and PowerPoint stores.
 
-## Add lead management information to the Seller Dashboard
+## Add lead management information
 
 As part of the submission process, you will be prompted to submit lead configuration details so that you can receive lead information. On the **Lead Management** tab, select the **I want to receive lead information from users who acquire my add-in** check box, and provide the following information.
 
@@ -159,5 +158,3 @@ Make sure that any correspondence you send to customers includes an option to un
 - [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

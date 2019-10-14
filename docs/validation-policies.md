@@ -1,7 +1,6 @@
 ---
 title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
-ms.date: 09/23/2019
 localization_priority: Priority
 ---
 
@@ -61,7 +60,7 @@ This document describes the criteria that are used to validate that Office Add-i
 || Outlook-specific requirements:<br/><ul><li>If your scenario requires showing an add-in on every message or appointment (whether in read or compose), it must support [add-in commands](/outlook/add-ins/add-in-commands-for-outlook).</li><li>Outlook add-ins must not include the CustomPane extension point in the VersionOverrides node.</li><li>If your add-in manifest includes the **SupportsPinning** element for read mode of a message and/or appointment, the content of the add-in, when pinned, must not be static and must clearly display data related to the message that is open or selected in the mailbox.</li><li>Outlook add-ins that support mobile must allow users to log on separately for each email account they have in the Outlook app.</li></ul>|
 || Word, Excel, and PowerPoint requirements:<br/><ul><li>Add-ins that use the taskpane manifest must support add-in commands.</li></ul>|
 |4.12.2<br/>**SharePoint Add-ins**|Add-ins must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
-|4.12.3<br/>**Web apps using Azure AD**|Web apps using Azure AD will no longer be accepted for submission to AppSource via the Seller Dashboard. We recommend submitting Azure Web Apps via the [Cloud Partner Portal](https://appsource.microsoft.com/partners/signup).
+|4.12.3<br/>**Web apps using Azure AD**|Web apps using Azure AD will no longer be accepted for submission to AppSource. We recommend submitting Azure Web Apps via the [Cloud Partner Portal](https://appsource.microsoft.com/partners/signup).
 |4.13|Your SharePoint Add-in must not have remote debugging settings enabled.|
 |4.14|The manifest for your SharePoint Add-in must not include the **DebugInfo** element.|
 |4.15|Your SharePoint Add-in must not have any unauthenticated pages or APIs, with the exception of the error page. |
@@ -69,7 +68,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |4.17|Deleted.|
 |4.18|Your add-in may not alter, or promote the alteration of, SharePoint or Office except via the Office and SharePoint Add-ins model.|
 |4.19|Your app experience must not prompt a user to disclose the credentials of a Microsoft identity (for example, Office 365 or Microsoft Azure Organizational Account, Microsoft Account, or Windows Domain Account) except through Microsoft approved OAuth flow, where your app is authorized to act on behalf of the user.<br/><br/>For more information, see [Context Token OAuth flow for SharePoint Add-ins](/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins) and [Authorization Code OAuth flow for SharePoint Add-ins](/sharepoint/dev/sp-add-ins/authorization-code-oauth-flow-for-sharepoint-add-ins).|
-|4.20|If your app or add-in depends on additional services or accounts, this dependency must be clearly called out in the description you submit in the Seller Dashboard.|
+|4.20|If your app or add-in depends on additional services or accounts, this dependency must be clearly called out in the description you submit.|
 |4.21|Your app or add-in must not install or launch other executable code on the user's environment.|
 
 <a name="bk_5"> </a>
@@ -129,7 +128,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.4.4|You must specify language support for your add-in in your add-in's manifest. |
 |7.4.5|If your app or add-in targets a larger organization or enterprise, the title can use your brand or service. For more information, see [AppSource validation policy changes to support apps and add-ins that target larger organizations and enterprises](https://developer.microsoft.com/office/blogs/office-store-validation-policy-changes-to-support-apps-and-add-ins-that-target-larger-organizations-and-enterprises/). Microsoft Teams apps are not eligible to apply for this criteria.|
 |7.4.6|Your short and long description must not be the same. Additionally, your short description must not be repeated within the long description.|
-|7.5| Apps or add-ins listed in multiple languages must be easily identified and understood. AppSource supports merchandising of apps and add-ins in the following languages:<br/><br/>Arabic<br/>Bulgarian<br/>Chinese (Simplified)<br/>Chinese (Traditional)<br/>Croatian<br/>Czech<br/>Danish<br/>Dutch<br/>English<br/>Estonian<br/>Finnish<br/>French<br/>German<br/>Greek<br/>Hebrew<br/>Hindi<br/>Hungarian<br/>Indonesian<br/>Italian<br/>Japanese<br/>Kazakh<br/>Korean<br/>Latvian<br/>Lithuanian<br/>Malay (Latin)<br/>Norwegian (Bokmål)<br/>Polish<br/>Portuguese (Brazil)<br/>Portuguese (Portugal)<br/>Romanian<br/>Russian<br/>Serbian (Latin)<br/>Slovak<br/>Slovenian<br/>Spanish<br/>Swedish<br/>Thai<br/>Turkish<br/>Ukrainian<br/>Vietnamese<br/><br/>**Note:** English apps and add-ins are distributed to all Store-supported markets by default. Providers can block English apps and add-ins from distribution via Seller Dashboard. For more information, see *How do I declare language support for my add-in?* in [AppSource submission FAQ](office-store-submission-faq.md). |
+|7.5| Apps or add-ins listed in multiple languages must be easily identified and understood. AppSource supports merchandising of apps and add-ins in the following languages:<br/><br/>Arabic<br/>Bulgarian<br/>Chinese (Simplified)<br/>Chinese (Traditional)<br/>Croatian<br/>Czech<br/>Danish<br/>Dutch<br/>English<br/>Estonian<br/>Finnish<br/>French<br/>German<br/>Greek<br/>Hebrew<br/>Hindi<br/>Hungarian<br/>Indonesian<br/>Italian<br/>Japanese<br/>Kazakh<br/>Korean<br/>Latvian<br/>Lithuanian<br/>Malay (Latin)<br/>Norwegian (Bokmål)<br/>Polish<br/>Portuguese (Brazil)<br/>Portuguese (Portugal)<br/>Romanian<br/>Russian<br/>Serbian (Latin)<br/>Slovak<br/>Slovenian<br/>Spanish<br/>Swedish<br/>Thai<br/>Turkish<br/>Ukrainian<br/>Vietnamese<br/><br/>**Note:** English apps and add-ins are distributed to all Store-supported markets by default. Providers can block English add-ins from distribution. For more information, see *How do I declare language support for my add-in?* in [AppSource submission FAQ](office-store-submission-faq.md). |
 |7.6|Your app or add-in must not falsely declare language support.|
 |7.7|The capabilities you declare must relate to the core functions and description of your app or add-in.|
 |7.8|You must provide at least one screenshot of your app or add-in.|
@@ -179,7 +178,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |10.5|Paid Outlook add-ins must support a site license.|
 |10.6|Submitting Office Add-ins that are hosted within Access as paid add-ins is not currently supported.|
 |10.7|Deleted.|
-|10.8|For your Office Add-in to be available on iOS or Android, it must be free. It must not include "app" in the **App Title** or **App Short Description**. Your add-in must be free of in-app purchases, trial offers, UI that aims to upsell to paid, or links to any online stores where users can purchase or acquire other content, apps, or add-ins. Your Privacy Policy and Terms of Use pages must also be free of any commerce UI or Store links.<br/>For add-ins for iOS, you must also do the following on the Seller Dashboard submission form:<br/><br/>Accept Apple's Terms and Conditions by selecting the appropriate checkbox. Your Office Add-in must be compliant with all relevant Apple App Store policies.<br/><br/>Provide a valid Apple ID.|
+|10.8|For your Office Add-in to be available on iOS or Android, it must be free. It must not include "app" in the **App Title** or **App Short Description**. Your add-in must be free of in-app purchases, trial offers, UI that aims to upsell to paid, or links to any online stores where users can purchase or acquire other content, apps, or add-ins. Your Privacy Policy and Terms of Use pages must also be free of any commerce UI or Store links.<br/>For add-ins for iOS, you must also:<br/><br/>Accept Apple's Terms and Conditions by selecting the appropriate checkbox. Your Office Add-in must be compliant with all relevant Apple App Store policies.<br/><br/>Provide a valid Apple ID.|
 |10.8.1|For your Outlook add-in to be available on iOS or Android, it must comply with the [Outlook add-in design guidelines](/outlook/add-ins/outlook-addin-design).|
 |10.8.2|The version of your add-in that runs on Office for iOS or Office for Android must not show any UI or language, or link to any other apps, add-ins, or websites, that ask the user to pay. Use of the term “free”, as in “free account”, is also not allowed. If the add-in requires an account, only free accounts can be created in the mobile version of the add-in. You can determine the length of time that the free account remains active (indefinitely or for a limited amount of time); however, if the user’s account expires, you cannot show any UI, text, or links to the user to indicate that they need to pay.
 |10.9|Office Add-ins must use version 1.1 of the Office.js library and the manifest schema.|
@@ -309,7 +308,6 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
