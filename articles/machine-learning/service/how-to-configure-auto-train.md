@@ -145,28 +145,28 @@ Some examples include:
 1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross-validation folds.
 
     ```python
-    automl_classifier = AutoMLConfig(
-        task = 'classification',
-        primary_metric = 'AUC_weighted',
-        max_time_sec = 12000,
-        iterations = 50,
-        blacklist_models = 'XGBoostClassifier',
-        training_data = train_data,
-        label_column_name = label,
-        n_cross_validations = 2)
+    automl_classifier=AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        max_time_sec=12000,
+        iterations=50,
+        blacklist_models='XGBoostClassifier',
+        training_data=train_data,
+        label_column_name=label,
+        n_cross_validations=2)
     ```
 2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
 
     ```python
     automl_regressor = AutoMLConfig(
-        task = 'regression',
-        max_time_sec = 600,
-        iterations = 100,
-        whitelist_models = 'kNN regressor'
-        primary_metric = 'r2_score',
-        training_data = train_data,
-        label_column_name = label,
-        n_cross_validations = 5)
+        task='regression',
+        max_time_sec=600,
+        iterations=100,
+        whitelist_models='kNN regressor'
+        primary_metric='r2_score',
+        training_data=train_data,
+        label_column_name=label,
+        n_cross_validations=5)
     ```
 
 The three different `task` parameter values (the third task-type is `forecasting`, and uses the same algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
@@ -223,14 +223,14 @@ time_series_settings = {
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',
-                             debug_log = 'automl_oj_sales_errors.log',
-                             primary_metric = 'normalized_root_mean_squared_error',
-                             iterations = 10,
-                             training_data = train_data,
-                             label_column_name = label,
-                             n_cross_validations = 5,
-                             path = project_folder,
-                             verbosity = logging.INFO,
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             training_data=train_data,
+                             label_column_name=label,
+                             n_cross_validations=5,
+                             path=project_folder,
+                             verbosity=logging.INFO,
                              **time_series_settings)
 ```
 
@@ -260,12 +260,12 @@ ensemble_settings = {
 }
 
 automl_classifier = AutoMLConfig(
-        task = 'classification',
-        primary_metric = 'AUC_weighted',
-        iterations = 20,
-        training_data = train_data,
-        label_column_name = label,
-        n_cross_validations = 5,
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        training_data=train_data,
+        label_column_name=label,
+        n_cross_validations=5,
         **ensemble_settings
         )
 ```
@@ -274,14 +274,14 @@ Ensemble training is enabled by default, but it can be disabled by using the `en
 
 ```python
 automl_classifier = AutoMLConfig(
-        task = 'classification',
-        primary_metric = 'AUC_weighted',
-        iterations = 20,
-        training_data = data_train,
-        label_column_name = label,
-        n_cross_validations = 5,
-        enable_voting_ensemble = False,
-        enable_stack_ensemble = False
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        training_data=data_train,
+        label_column_name=label,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
         )
 ```
 
@@ -493,16 +493,16 @@ There are two ways to generate feature importance.
 *	To view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.
 
     ```python
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 primary_metric = 'AUC_weighted',
-                                 max_time_sec = 12000,
-                                 iterations = 10,
-                                 verbosity = logging.INFO,
-                                 training_data = train_data,
-                                 label_column_name = y_train,
-                                 validation_data = test_data,
-                                 model_explainability = True,
+    automl_config = AutoMLConfig(task='classification',
+                                 debug_log='automl_errors.log',
+                                 primary_metric='AUC_weighted',
+                                 max_time_sec=12000,
+                                 iterations=10,
+                                 verbosity=logging.INFO,
+                                 training_data=train_data,
+                                 label_column_name=y_train,
+                                 validation_data=test_data,
+                                 model_explainability=True,
                                  path=project_folder)
     ```
 
