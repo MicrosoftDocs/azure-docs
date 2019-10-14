@@ -22,9 +22,9 @@ By default, you can assign users in your IoT Central application to one of three
 
 If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. 
 
-## Create a custom role (Preview)
+## Create a custom role (preview)
 
-To create a custom role, navigate to the **Roles (Preview)** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
+To create a custom role, navigate to the **Roles (preview)** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
 
 You can [add users to your custom role](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to a built-in role.
 
