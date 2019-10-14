@@ -12,7 +12,7 @@ ms.author: pabouwer
 
 # Install Linkerd in Azure Kubernetes Service (AKS)
 
-[Linkerd][linkerd-github] is an open-source service mesh and [CNCF incubating project][linkerd-cncf]. Linkerd is an ultralight service mesh that provides features that include traffic management, service identity and security, reliability and observability. For more information about Linkerd, see the official [Linkerd FAQ][linkerd-faq] and [Linkerd Architecture][linkerd-architecture] documentation.
+[Linkerd][linkerd-github] is an open-source service mesh and [CNCF incubating project][linkerd-cncf]. Linkerd is an ultralight service mesh that provides features that include traffic management, service identity and security, reliability, and observability. For more information about Linkerd, see the official [Linkerd FAQ][linkerd-faq] and [Linkerd Architecture][linkerd-architecture] documentation.
 
 This article shows you how to install Linkerd. The Linkerd `linkerd` client binary is installed onto your client machine and the Linkerd components are installed into a Kubernetes cluster on AKS.
 
@@ -34,9 +34,9 @@ In this article, you learn how to:
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.13` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
-All Linkerd pods must be scheduled to run on Linux nodes - this is the default in the installation method detailed below and requires no additional configuration.
+All Linkerd pods must be scheduled to run on Linux nodes - this setup is the default in the installation method detailed below and requires no additional configuration.
 
-This article separates the Linkerd installation guidance into several discrete steps. The end result is the same in structure as the official Linkerd getting started [guidance][linkerd-getting-started].
+This article separates the Linkerd installation guidance into several discrete steps. The result is the same in structure as the official Linkerd getting started [guidance][linkerd-getting-started].
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -120,9 +120,9 @@ Now it's time to install the Linkerd components. Use the `linkerd` and `kubectl`
 linkerd install | kubectl apply -f -
 ```
 
-Linkerd deploys a number of objects. You will see the list from the output of your `linkerd install` command above. The deployment of the Linkerd components should take around 1 minute to complete, depending on your cluster environment.
+Linkerd deploys a number of objects. You'll see the list from the output of your `linkerd install` command above. The deployment of the Linkerd components should take around 1 minute to complete, depending on your cluster environment.
 
-At this point, you've deployed Linkerd to your AKS cluster. To ensure that we have a successful deployment of Linkerd, let's move on to the next section to [Validate the Linkerd installation](#validate-the-linkerd-installation).
+At this point, you've deployed Linkerd to your AKS cluster. To ensure we have a successful deployment of Linkerd, let's move on to the next section to [Validate the Linkerd installation](#validate-the-linkerd-installation).
 
 ## Validate the Linkerd installation
 
@@ -160,7 +160,7 @@ linkerd-tap-5cd9fc566-ct988               2/2     Running   0          64s   10.
 linkerd-web-774c79b6d5-dhhwf              2/2     Running   0          65s   10.240.0.70   aks-linux-16165125-vmss000002   <none>           <none>
 ```
 
-Linkerd provides a command via the `linkerd` client binary to validate that the Linkerd control plane was successful installed and configured.
+Linkerd provides a command via the `linkerd` client binary to validate that the Linkerd control plane was successfully installed and configured.
 
 ```console
 linkerd check
@@ -223,7 +223,7 @@ Status check results are √
 
 ## Access the Dashboard
 
-Linkerd comes with a dashboard the provides insight into the service mesh and workloads. To access the dashboard, use the `linkerd dashboard` command. This command leverages [kubectl port-forward][kubectl-port-forward] to create a secure connection between your client machine and the relevant pods in your AKS cluster. It will then automatically open the dashboard in your default browser.
+Linkerd comes with a dashboard that provides insight into the service mesh and workloads. To access the dashboard, use the `linkerd dashboard` command. This command leverages [kubectl port-forward][kubectl-port-forward] to create a secure connection between your client machine and the relevant pods in your AKS cluster. It will then automatically open the dashboard in your default browser.
 
 ```console
 linkerd dashboard
@@ -244,7 +244,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > Deleting Linkerd from a running system may result in traffic related issues between your services. Ensure that you have made provisions for your system to still operate correctly without Linkerd before proceeding.
 
-First you will need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll your workload deployments. Your workloads  should no longer have any associated data plane components.
+First you'll need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll your workload deployments. Your workloads  should no longer have any associated data plane components.
 
 Finally, remove the control plane as follows:
 
