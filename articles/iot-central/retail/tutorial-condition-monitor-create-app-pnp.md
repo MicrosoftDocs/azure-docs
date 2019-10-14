@@ -37,7 +37,7 @@ To complete this tutorial series, you need:
 * Device templates for the devices you use (templates are provided for the real devices used in the tutorial)
 
 ## Create an application
-In this section you create a new Azure IoT Central application from a template. You will use this application throughout the tutorial series to build an end-to-end condition monitoring solution.
+In this section you create a new Azure IoT Central application from a template. You'll use this application throughout the tutorial series to build a complete condition monitoring solution.
 
 To create an application:
 
@@ -86,13 +86,13 @@ To change the application logo and browser icon:
 
     ![Azure IoT Central primary navigation](./media/tutorial-condition-monitor-create-app-pnp/dashboard-expand.png)
 
-1. Select the **Administration** on the menu.
+1. Select **Administration** on the menu.
 
 1. Select **Customize your application** in the secondary navigation.
 
     ![Azure IoT Central customize application](./media/tutorial-condition-monitor-create-app-pnp/customize-application.png)
 
-1. Use the **Select image** button to choose an image to upload as the **Application logo**.  Optionally, select a browser icon image as well.
+1. Use the **Select image** button to choose an image to upload as the **Application logo**.  Optionally, select a browser icon image that will appear on browser tabs.
 
     ![Azure IoT Central application logo](./media/tutorial-condition-monitor-create-app-pnp/select-application-logo.png)
 
@@ -126,7 +126,7 @@ To add a new device template to your application:
     ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-condition-monitor-create-app-pnp/ruuvitag-device-template.png)
 
 ## Customize device templates
-You can customize the device templates in your application in two ways. First, you can customize the native built-in interfaces in your devices by changing the device capabilities. For example, if you use a temperature sensor, you can change details such as the display name of the temperature interface, the data type of the captured data, the units of measurement, and minimum and maximum operating ranges. Second, you can customize your device templates by adding cloud properties. Cloud properties are not part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. An example of a cloud property could be a calculated value, or metadata such as a location that you want to associate with a set of devices.
+You can customize the device templates in your application in two ways. First, you can customize the native built-in interfaces in your devices by changing the device capabilities. For example, if you use a temperature sensor, you can change details such as the display name of the temperature interface, the data type of the captured data, the units of measurement, and minimum and maximum operating ranges. Second, you can customize your device templates by adding cloud properties. Cloud properties aren't part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. An example of a cloud property could be a calculated value, or metadata such as a location that you want to associate with a set of devices.
 
 To customize the built-in interfaces of a device template in your application:
 
@@ -140,9 +140,9 @@ To customize the built-in interfaces of a device template in your application:
 
 1. Select **Customize** in the secondary navigation.
 
-1. Scroll in the list of capabilities and find the `humidity` interface. It is the row item with the editable **Display name** value of *humidity*.
+1. Scroll in the list of capabilities and find the `humidity` interface. It's the row item with the editable **Display name** value of *humidity*.
 
-In the following steps you customize the `humidity` interface for the RuuviTag sensors in your application. Optionally, you can customize other interfaces for RuuviTag sensors or other sensors that you will use.
+In the following steps you customize the `humidity` interface for the RuuviTag sensors. Optionally, customize some of the other interfaces.
 
 For the `humidity` interface make the following set of changes:
 
@@ -166,7 +166,7 @@ Specify the following values to create a custom property to store the location o
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
 
-1. Select *String* in the **Schema** dropdown. This enables you to associate a simple location name string with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and this automatically sets the **Schema** to *Geopoint*. This enables you to associate GPS coordinates with a device. 
+1. Select *String* in the **Schema** dropdown. This enables you to associate a location name string such as a geographical area, or an area within a facility, with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and this automatically sets the **Schema** to *Geopoint*. This enables you to associate GPS coordinates with a device. 
 
 1. Set **Minimum Length** to *2*. 
 
@@ -178,13 +178,13 @@ Specify the following values to create a custom property to store the location o
 
 1. Select **Publish**. 
 
-    Publishing a device template makes it visible to application operators. After you have published a template, you can use it to generate simulated devices for testing, or to connect real devices to your application. If you already have devices connected to your application, publishing a customized template pushes the changes to the devices.
+    Publishing a device template makes it visible to application operators. After you've published a template, use it to generate simulated devices for testing, or to connect real devices to your application. If you already have devices connected to your application, publishing a customized template pushes the changes to the devices.
 
 ## Add devices
-After you have created and customized device templates, you can add devices to your application. You can connect real devices, and you can use the device templates to generate simulated devices for testing. This section shows how to use your device templates to connect a Rigado gateway and RuuviTag sensors to the application.  It also shows how to generate a simulated gateway and sensors.
+After you have created and customized device templates, you can add devices to your application. The primary way to add devices is to connect real devices. As an alternative, use the device templates to generate simulated devices for testing. This section shows how to use your device templates to connect a Rigado gateway and RuuviTag sensors to the application.  It also shows how to generate a simulated gateway and sensors.
 
 > [!NOTE]
-> If you do not have real devices to use, you can still create simulated devices and complete the tutorial.
+> If you do not have real devices to use, follow the steps to create simulated devices and complete the tutorial.
 
 To connect a Rigado C500 gateway and RuuviTag sensors, follow the steps in [Connect a Rigado Cascade 500 to your Azure IoT Central application](../howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
@@ -247,7 +247,7 @@ To create a rule:
 
 1. Choose `Greater than` as the **Operator**. 
 
-1. Enter a typical indoor humidity level such as *50* as the **Value**. You have defined a condition for your rule that occurs when relative humidity in any RuuviTag sensor exceeds 50 percent. You may need to adjust this value up or down depending on the normal humidity range in your environment.  
+1. Enter a typical indoor humidity level such as *50* as the **Value**. You've defined a condition for your rule that occurs when relative humidity in any RuuviTag sensor exceeds 50 percent. You may need to adjust this value up or down depending on the normal humidity range in your environment.  
 
    ![Azure IoT Central add rule conditions](./media/tutorial-condition-monitor-create-app-pnp/rules-add-conditions.png)
 
@@ -271,7 +271,7 @@ To add an action to a rule:
 
    ![Azure IoT Central save a rule](./media/tutorial-condition-monitor-create-app-pnp/rules-save.png)
 
-    Within a few minutes, the specified email account should begin to receive emails when the sensors identify humidity levels that exceed the value in your condition.
+    Within a few minutes, the specified email account should begin to receive emails. The application sends email each time a sensor indicates that the humidity level exceeded the value in your condition.
 
 ## Next Steps
 In this tutorial, you learned how to:
