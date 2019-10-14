@@ -6,6 +6,16 @@
     href: resource-group-overview.md
   - name: Template overview
     href: template-deployment-overview.md
+- name: Quickstart
+  items:
+    - name: Create templates - portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Create templates - VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Create templates - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: Create templates - IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Beginner
@@ -32,14 +42,6 @@
       href: template-tutorial-use-parameter-file.md
   - name: Advanced
     items:
-    - name: Create templates - portal
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: Create templates - VS Code
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: Create templates - Visual Studio
-      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-    - name: Create templates - IntelliJ IDEA
-      href: resource-manager-quickstart-create-templates-use-intellij.md
     - name: Utilize template reference
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
     - name: Create multiple instances
@@ -134,8 +136,7 @@
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Create resource groups and resources at subscription
-      displayName: subscription level deployment
+    - name: Subscription level resources
       href: deploy-to-subscription.md
   - name: Deploy templates
     items:
@@ -227,8 +228,6 @@
       href: resource-group-delete.md
     - name: Lock resources
       href: resource-group-lock-resources.md
-    - name: Authentication API to access subscriptions
-      href: resource-manager-api-authentication.md
     - name: Create EA subscriptions
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions

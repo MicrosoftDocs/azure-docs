@@ -10,15 +10,15 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
+ms.date: 10/01/2019
 ---
 # Azure SQL Database service tiers
 
 Azure SQL Database is based on SQL Server database engine architecture that's adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Three service tiers are used in Azure SQL Database, each with a different architectural model. These service tiers are:
 
-- [General purpose](sql-database-service-tier-general-purpose.md), which is designed for most generic workloads.
-- [Business critical](sql-database-service-tier-business-critical.md), which is designed for low-latency workloads with one readable replica.
-- [Hyperscale](sql-database-service-tier-hyperscale.md), which is designed for very large databases (up to 100 TB) with multiple readable replicas.
+- [General purpose](sql-database-service-tier-general-purpose.md), which is designed for budget-oriented workloads.
+- [Hyperscale](sql-database-service-tier-hyperscale.md), which is designed for most business workloads, providing highly scalable storage, read scale-out, and fast database restore capabilities.
+- [Business critical](sql-database-service-tier-business-critical.md),which is designed for low-latency workloads with high resiliency to failures and fast failovers.
 
 This article discusses differences be·tween the service tiers, storage and backup considerations for the general purpose and business critical service tiers in the vCore-based purchasing model.
 
@@ -28,7 +28,7 @@ The following table describes the key differences between service tiers for the 
 
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Best for** | |  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements, the ability to auto-scale storage up to 100 TB, and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
+| **Best for** | |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Available in resource type:** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
 | **Compute size**|Single database / elastic pool | 1 to 80 vCores | 1 to 80  vCores | 1 to 80 vCores |
 | | Managed instance | 4, 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80  vCores |
@@ -46,7 +46,7 @@ The following table describes the key differences between service tiers for the 
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
 |**In-memory OLTP** | | N/A | N/A | Available |
 |**Read-only replicas**| | 0  | 0 - 4 | 1 (built-in, included in price) |
-|**Pricing/billing** | Single database | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. | [vCore for each replica and used storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |
+|**Pricing/billing** | Single database | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. | [vCore for each replica and used storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS not yet charged. | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |
 || Managed Instance | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | N/A | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | 
 |**Discount models**| | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| [Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
 
@@ -57,7 +57,7 @@ For more information, see the detailed differences between the service tiers in 
 
 ## Data and log storage
 
-The following factors affect the amount of storage used for data and log files:
+The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).
 
 - The allocated storage is used by data files (MDF) and log files (LDF).
 - Each single database compute size supports a maximum database size, with a default maximum size of 32 GB.
