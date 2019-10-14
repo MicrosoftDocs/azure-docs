@@ -29,8 +29,6 @@
         href: sql-database-serverless.md
       - name: Prepay for reserved capacity
         href: sql-database-reserved-capacity.md
-      - name: Migrate from Premium RS service tier
-        href: sql-database-service-tiers-prs.md
     - name: Compute & storage
       items:
       - name: Overview
@@ -44,6 +42,8 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
+      - name: Migrate from Premium RS service tier
+        href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
   expanded: true
@@ -241,6 +241,8 @@
           href: sql-database-disaster-recovery.md
         - name: Recovery drills
           href: sql-database-disaster-recovery-drills.md
+        - name: Configure failover group
+          href: sql-database-configure-failover-group.md
 
   - name: Monitor and tune
     items:
@@ -641,8 +643,6 @@
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
       href: sql-database-geo-replication-security-config.md
-    - name: Configure failover group
-      href: sql-database-configure-failover-group.md
     - name: Try in-memory features
       href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
