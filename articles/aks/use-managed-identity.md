@@ -11,16 +11,18 @@ ms.date: 09/11/2019
 ms.author: saudas
 ---
 
-# Preview - Use managed identities in Azure Kubernetes Service
+# Preview: Use managed identities in Azure Kubernetes Service
 
-Currently, users must provide a service principal or AKS creates one on your behalf in order for the AKS cluster (specifically the Kubernetes cloud provider) to create additional resources like load balancers and managed disks in Azure. Service principals are typically created with an expiration date. Clusters will eventually reach a state where the service principal will need to be renewed otherwise the cluster will not work. Managing service principals adds complexity. Managed Identities are essentially a wrapper around Service Principals and make their management simpler. Read more about [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) article.
+Currently, The Azure Kubernetes Service (AKS) cluster (specifically, the Kubernetes cloud provider) requires a *service principal* to create additional resources like load balancers and managed disks in Azure. You must provide a service principal, or AKS creates one on your behalf. Service principals typically have an expiration date. Clusters eventually reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity.
 
-AKS creates two managed identities one a system assigned managed identity and the other a user assigned identity. A system assigned managed identity is used by the kubernetes cloud provider to create Azure resources on behalf of the user. The life cycle of this system assigned managed identity is tied to that of the cluster and is deleted when the cluster is deleted. AKS also creates a User assigned managed identity that is used in the cluster for authorizing AKS to access ACRs, kubelet to get metadata from Azure, etc.
+*Managed identities* are essentially a wrapper around service principals, and make their management simpler. To learn more, read about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In this preview period, a service principal is still required. It will be used for authorization of add-ons such as monitoring, virtual node, azure policy, and http application routing. There is work ongoing to remove the dependency of the addons on the SPN and eventually SPN requirement in AKS will be removed completely.
+AKS creates two managed identities: a *system-assigned managed identity* and a *user-assigned identity*. The Kubernetes cloud provider uses the system-assigned managed identity to create Azure resources on behalf of the user. The life cycle of this system-assigned identity is tied to that of the cluster, and the identity is deleted when the cluster is deleted. The user-assigned managed identity is used for authorization in the cluster: for example, to authorize AKS to access ACRs, or to authorize the kubelet to get metadata from Azure.
+
+In this preview period, a service principal is still required. It's used for authorization of add-ons such as monitoring, virtual node, Azure policy, and HTTP application routing. Work is underway to remove the dependency of add-ons on the service principal SPN, and eventually the requirement of a service principal SPN in AKS will be removed completely.
 
 > [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
 >
 > * [AKS Support Policies](support-policies.md)
 > * [Azure Support FAQ](faq.md)
@@ -29,7 +31,8 @@ In this preview period, a service principal is still required. It will be used f
 
 You must have the following:
 
-* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.14 extension
+* The Azure CLI version 2.0.70 or later
+* The aks-preview 0.4.14 extension
 
 ## Install latest AKS CLI preview extension
 
