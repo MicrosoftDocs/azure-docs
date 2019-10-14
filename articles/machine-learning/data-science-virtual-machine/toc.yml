@@ -65,8 +65,6 @@
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Reference
   items:
-  - name: Windows DSVM
-    href: reference-windows-vm.md
   - name: Ubuntu DSVM
     href: reference-ubuntu-vm.md
   - name: CentOS DSVM
@@ -75,3 +73,5 @@
     href: release-notes.md
   - name: Known issues
     href: reference-known-issues.md
+  - name: Deprecation Announcements
+    href: reference-deprecation.md
