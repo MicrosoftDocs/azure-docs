@@ -311,6 +311,8 @@ Wait until the cluster is running before proceeding further.
 ### Install the correct SDK into a Databricks library
 Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster.
 
+1. Right-click the current Workspace folder where we are going to store the library. Select Create > Library.
+
 1. Choose **only one** option (no other SDK installation are supported)
 
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
