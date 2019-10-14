@@ -100,4 +100,8 @@ A successful response is returned in JSON format. Click the links below to view 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* What is the [Anomaly Detector API?](../overview.md)
+* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).

@@ -66,7 +66,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
 
-[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
+[!code-java[method for sending API requests](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## Detect anomalies as a batch
 
@@ -76,13 +76,13 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 3. Otherwise, find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Get the JSON array, and iterate through it, printing the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
-[!code-java[Batch detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectAnomaliesBatch)]
+[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## Detect the anomaly status of the latest data point
 
 * Create a method called `detectAnomaliesLatest()` to detect the anomaly status of the last data point in the data set. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
-[!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectAnomaliesLatest)]
+[!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
 ## Load your time series data and send the request
 
@@ -101,4 +101,8 @@ A successful response is returned in JSON format. Click the links below to view 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* What is the [Anomaly Detector API?](../overview.md)
+* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
