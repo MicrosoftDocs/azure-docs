@@ -14,15 +14,15 @@ ms.author: pabouwer
 
 ## Overview
 
-[Istio][istio] is a full featured, customisable and extensible service mesh.
+[Istio][istio] is a full featured, customisable, and extensible service mesh.
 
 ## Architecture
 
-Istio provides a data plane that is composed of [Envoy][envoy-proxy] based sidecars. These intelligent proxies control all network traffic in and out of your meshed apps and workloads.
+Istio provides a data plane that is composed of [Envoy][envoy-proxy]-based sidecars. These intelligent proxies control all network traffic in and out of your meshed apps and workloads.
 
-The control plane manages the configuration, policy and telemetry via the following [components][what-is-istio]:
+The control plane manages the configuration, policy, and telemetry via the following [components][what-is-istio]:
 
-- **Mixer** - Enforces access control and usage policies, and collects telemetry from the proxies which is pushed into [Prometheus][prometheus].
+- **Mixer** - Enforces access control and usage policies. Collects telemetry from the proxies that is pushed into [Prometheus][prometheus].
 
 - **Pilot** - Provides service discovery and traffic management policy/configuration for the proxies.
 
@@ -38,7 +38,7 @@ The following architecture diagram demonstrates how the various components withi
 
 ## Selection Criteria
 
-It is important to understand and consider the following when evaluating Istio for your workloads:
+It's important to understand and consider the following areas when evaluating Istio for your workloads:
 
 - [Design Goals](#design-goals)
 - [Capabilities](#capabilities)
@@ -53,7 +53,7 @@ The following design goals [guide][design-goals] the Istio project:
 
 - **Extensibility** - Must be able to grow and adapt with changing needs.
 
-- **Portability** - Run easily in a variety of environments - cloud, on-premises.
+- **Portability** - Run easily in different kinds of environments - cloud, on-premises.
 
 - **Policy Uniformity** - Consistency in policy definition across variety of resources.
 
@@ -68,7 +68,7 @@ Istio provides the following set of capabilities:
 
 - **Policy** – access control, rate limit, quota, custom policy adapters
 
-- **Security** – authentication (jwt), authorisation, encryption (mtls), external CA (HashiCorp Vault)
+- **Security** – authentication (jwt), authorisation, encryption (mTLS), external CA (HashiCorp Vault)
 
 - **Observability** – golden metrics, mirror, tracing, custom adapters, prometheus, grafana
 
@@ -84,12 +84,12 @@ Istio is well suited to and suggested for the following scenarios:
 
 ## Next steps
 
-The following documentation describes how you can install Istio on Azue Kubernetes Service (AKS):
+The following documentation describes how you can install Istio on Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
 > [Install Istio in Azure Kubernetes Service (AKS)][istio-install]
 
-You can also dive deeper into Istio concepts and/or explore additional Istio deployment models:
+You can also further explore Istio concepts and additional deployment models:
 
 - [Istio Concepts][what-is-istio]
 - [Istio Deployment Models][deployment-models]
