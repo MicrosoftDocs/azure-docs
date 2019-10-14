@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
+ms.date: 10/14/2019
 ---
 # High-availability and Azure SQL Database
 
@@ -67,10 +67,10 @@ The zone redundant version of the high availability architecture is illustrated 
 
 ## Testing database fault resiliency
 
-High availability is a fundamenental part of Azure SQL Database platform and works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events woudl impact teh application before you deploy it for production. A special API has been created to allow you to restart the database thus triggering a failover. In the case zone redundant database the restart would result in redirecting the client connections to the new primary in a different AZ. So in addition to testing how failover impacts the existing database sessions, you can also verify if it impacts the end-to-end performance. Because the restart operation is intrusive and a large number of them would stress out the platform, only one restart is allowed every 30 minutes. For details, see [Restart database]() and [Restart elastic pool]().       
+High availability is a fundamenental part of Azure SQL Database platform and works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events would impact the application before you deploy it for production. You can call a special API to restart the database or the elastic pool, which will in turn trigger the failover. In the case of zone redundant database or elastic pool, the API call would result in redirecting the client connections to the new primary in a different AZ. So in addition to testing how failover impacts the existing database sessions, you can also verify if it impacts the end-to-end performance. Because the restart operation is intrusive and a large number of them could stress out the platform, only one failover call is allowed every 30 minutes for each database or elastic pool. For details, see [Database failover](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) and [Elastic pool failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
 
 > [!IMPORTANT]
-> Restart command is currently not available for Hypescale databases and Managed instancses.  
+> The Failover command is currently not available for Hypescale databases and Managed instancses.  
 
 ## Conclusion
 
