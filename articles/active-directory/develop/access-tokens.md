@@ -112,9 +112,9 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. |
 
 
-> [!Groups overage claim]
-> To ensure that the token size doesn’t exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Graph API to retrieve the user’s group membership.
-  {
+> [!NOTE]
+> **Group Overage Claim** :- To ensure that the token size doesn’t exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Graph API to retrieve the user’s group membership.
+>  {
     ...
     "_claim_names": {
      "groups": "src1"
@@ -126,7 +126,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
           }
       }    
     ...
-  }
+>  }
 > You can use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) folder to help test overage scenarios.
 
 #### v1.0 basic claims
