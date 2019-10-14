@@ -210,3 +210,4 @@ In this tutorial, you added an Azure managed service identity to streamline acce
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
+ 
