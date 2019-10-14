@@ -22,7 +22,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
-|Regional availability|All regions, broad availability|Select regions, currently available in [at least nine regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Azure Compute-supported DC regions, premium disks are broadly available and recommended for Storage Spaces Direct|
+|Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Azure Compute-supported DC regions, premium disks are broadly available and recommended for Storage Spaces Direct|
 |Redundancy|Locally redundant/zone-redundant/geo-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
 |Tiers and performance|Standard<br>Premium<br>Up to max 100k IOPS per share with 5 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 320k (16K) IOPS with 4.5 GBps per volume at about 1 ms latency|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits|
 |Capacity|100 TiB per share|100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
