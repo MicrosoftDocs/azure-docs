@@ -17,7 +17,7 @@ ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As a software developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
+#Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
 
@@ -204,28 +204,28 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Single-page app</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">Implicit</a></td>
-   <td>Work or School accounts, Personal accounts, and B2C</td>
+   <td>Work or School accounts, Personal accounts, and Microsoft Azure Active Directory B2C (Azure AD B2C)</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
    <td><a href="scenario-web-app-sign-user-overview.md">A web app that signs in users</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
-   <td>Work or School accounts, Personal accounts, and B2C</td>
+   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">A web app that calls web APIs</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
-   <td>Work or School accounts, Personal accounts, and B2C</td>
+   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">A desktop app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">Authorization Code</a> with PKCE</td>
-   <td>Work or School accounts, Personal accounts, and B2C</td>
+   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
@@ -235,7 +235,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 
   <tr>
    <td><a href="v2-oauth-ropc.md">Resource Owner Password</a></td>
-   <td>Work or School accounts and B2C</td>
+   <td>Work or School accounts and Azure AD B2C</td>
  </tr>
 
   <tr>
@@ -248,19 +248,19 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
    <td rowspan="2"><a href="scenario-mobile-overview.md">A mobile app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">Authorization Code</a> with PKCE</td>
-   <td>Work or School accounts, Personal accounts, and B2C</td>
+   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="v2-oauth-ropc.md">Resource Owner Password</a></td>
-   <td>Work or School accounts and B2C</td>
+   <td>Work or School accounts and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
    <td><a href=scenario-daemon-overview.md">A daemon app that calls web APIs</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Client credentials</a></td>
-   <td>App-only permissions with no user and used only on Azure AD organizations</td>
+   <td>App-only permissions with no user and used only in Azure AD organizations</td>
  </tr>
 
   <tr>
