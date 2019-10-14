@@ -179,10 +179,6 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
-<<<<<<< HEAD
-=======
-    - name: Write .NET custom deserializer
-      href: custom-deserializer-examples.md
   - name: Visual Studio Code
     items:
     - name: Test with sample data
@@ -191,7 +187,6 @@
       href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: vscode-explore-jobs.md
->>>>>>> a854b3623ba6af9fd7a51467ed81427800a23254
   - name: Troubleshoot
     items:
     - name: Input
@@ -515,7 +510,7 @@
           href: /stream-analytics-query/join-azure-stream-analytics
           maintainContext: true
         - name: MATCH_RECOGNIZE
-          href: /stream-analytics-query/match-recognize-stream-analytics.md
+          href: /stream-analytics-query/match-recognize-stream-analytics
           maintainContext: true
         - name: Reference Data JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics
