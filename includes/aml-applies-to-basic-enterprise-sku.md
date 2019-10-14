@@ -10,4 +10,4 @@ ms.custom: "include file"
 ms.topic: "include"
 ms.date: 11/04/2019
 ---
-**APPLIES TO EDITIONS:** ![yes](media/aml-applies-to-skus/yes.png)Basic ![yes](media/aml-applies-to-skus/yes.png)Enterprise &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;[How to upgrade from Basic](../articles/machine-learning/service/how-to-manage-workspace.md#upgrade)
+**APPLIES TO EDITION(S):** ![yes](media/aml-applies-to-skus/yes.png)Basic ![yes](media/aml-applies-to-skus/yes.png)Enterprise &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;[How to upgrade from Basic](../articles/machine-learning/service/how-to-manage-workspace.md#upgrade)
