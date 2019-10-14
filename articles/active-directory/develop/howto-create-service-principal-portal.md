@@ -116,6 +116,14 @@ If you choose not to use a certificate, you can create a new application secret.
 
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## Configure access policies on resources
+Keep in mind, you might need to configure addition permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+
+1. In the Azure portal, navigate to your key vault and select **Access policies**.  
+1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
+1. Select **Add** to add the access policy, then **Save** to commit your changes.
+    ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)
+
 ## Permissions to register apps
 
 You must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
