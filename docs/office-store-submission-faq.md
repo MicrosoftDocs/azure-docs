@@ -76,7 +76,7 @@ Updates to SharePoint Add-ins are handled by the license-management tools that a
 
 <a name="bk_q4"> </a>
 ## Can I submit a paid add-in to AppSource?
-All new add-ins submitted to AppSource via Partner Center are free. Existing paid add-ins migrated from Seller Dashboard will need to be moved to free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace). 
+All new add-ins submitted to AppSource via Partner Center are free. Existing paid add-ins migrated from Seller Dashboard will need to be moved to free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md). 
 
 ## Can I submit an autohosted SharePoint Add-in to AppSource?
 
