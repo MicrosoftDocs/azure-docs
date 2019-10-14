@@ -106,7 +106,7 @@ To test your integration, you should submit an offer to a private audience for $
 When you have verified that your solution is working, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
 ## Submission process for SaaS offer + add-in
-Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in to Seller Dashboard and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
+Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
 
 ![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
