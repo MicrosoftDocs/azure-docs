@@ -7,12 +7,12 @@ localization_priority: Normal
 
 # Create effective listings in AppSource and within Office
 
-The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and images—clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to Partner Center become the AppSource and in-product listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, icons, and images—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
 - Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?*
-- Use unique logos for each submission.
+- Use unique icons for each solution.
 - Include images that show off your UI. Be sure to remove any personal information from your images.
 - If you update your functionality, update your description too.
 - Use a customer-friendly voice. Be concise and use natural language.
@@ -45,20 +45,20 @@ You specify your add-in name in two places, so be sure to use the same name in b
 <a name="bk_describe"> </a>
 ## Write compelling descriptions
 
-A good description makes your solution stand out. Your short description should entice potential users to learn more. Your long description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
+A good description makes your solution stand out. Your summary should entice potential users to learn more. Your long description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
 
-### Effective short descriptions
+### Effective summaries
 
-The short description that you supply with your submission is the text that is shown to users in AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The summary that you supply with your submission is the text that is shown to users in AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the title.
 - Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-The following figure shows a good short description next to one that relies on the brand name*
+The following figure shows a good summary next to one that relies on the brand name.
 
-![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
+![An image that shows a good summary next to one that relies on the brand name](images/description-do-dont.png)
 
 ### Effective long descriptions
 
@@ -87,7 +87,7 @@ Features:
 |**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
 |:-----|:-----|:-----|:-----|
 |Title|50 characters|30 characters|First 30 characters|
-|Short description|100 characters|70 characters|First 30 characters|
+|Summary|100 characters|70 characters|First 30 characters|
 |Long description|4,000 characters|300-500 words|First 300 words|
 
 <a name="bk_images"> </a>
@@ -173,6 +173,5 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Validation policies](validation-policies.md)
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
