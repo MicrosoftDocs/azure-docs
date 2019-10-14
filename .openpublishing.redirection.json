@@ -3766,6 +3766,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/billing-mca-setup-account.md",
+      "redirect_url": "/azure/billing/mca-setup-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/billing-subscription-transfer.md",
       "redirect_url": "/azure/billing/billing-subscription-transfer",
       "redirect_document_id": false
@@ -3801,13 +3806,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/billing-mca-setup-account.md",
-      "redirect_url": "/azure/billing/mca-setup-account.md",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/billing-subscription-become-disable.md",
-      "redirect_url": "/azure/billing/billing-subscription-become-disable",
+      "source_path": "articles/billing-use-existing-office-365-account-azure-subscription.md",
+      "redirect_url": "/azure/billing/billing-use-existing-office-365-account-azure-subscription",
       "redirect_document_id": false
     },
     {
