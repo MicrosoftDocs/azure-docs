@@ -57,7 +57,7 @@ sections:
         values:
           - href: /azure/azure-app-configuration/quickstart-feature-flag-aspnet-core
           - href:
-          - href:
+          - href: /azure/azure-app-configuration/quickstart-feature-flag-dotnet
           - href:
           - href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot
 - title: Step-by-step tutorials
