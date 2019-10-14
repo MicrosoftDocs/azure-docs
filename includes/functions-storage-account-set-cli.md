@@ -6,6 +6,8 @@ ms.date: 09/26/2019
 ms.author: glenga
 ---
 
+### Set the Storage account connection
+
 Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string by using this Bash command:
 
 ```azurecli-interactive
