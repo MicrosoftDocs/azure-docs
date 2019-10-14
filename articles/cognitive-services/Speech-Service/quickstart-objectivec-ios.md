@@ -57,11 +57,10 @@ In the dialog boxes that follow, make the following selections.
             1. On the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework by selecting **Add embedded binaries** > **Add other**. Go to your home directory and select the file `MicrosoftCognitiveServicesSpeech.framework`. This action adds the SDK library to the header **Linked Framework and Libraries** automatically.
 
             ![Added framework](media/sdk/qs-objectivec-framework.png)
-
             1. Go to the **Build Settings** tab, and select the **All** setting.
             1. Add the directory $(SRCROOT)/.. to **Framework Search Paths** under the **Search Paths** heading.
 
-           ![Framework Search Paths setting](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Framework Search Paths setting](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## Set up the UI
 
