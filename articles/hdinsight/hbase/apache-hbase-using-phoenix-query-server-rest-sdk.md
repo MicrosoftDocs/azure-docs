@@ -11,7 +11,7 @@ ms.date: 12/04/2017
 ---
 # Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database layer on top of [Apache HBase](apache-hbase-overview.md). Phoenix allows you to use SQL-like queries with HBase through SSH tools such as [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix also provides an HTTP server called Phoenix Query Server (PQS), a thin client that supports two transport mechanisms for client communication: JSON and Protocol Buffers. Protocol Buffers is the default mechanism, and offers more efficient communication than JSON.
+[Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database layer on top of [Apache HBase](apache-hbase-overview.md). Phoenix allows you to use SQL-like queries with HBase through SSH tools such as [SQLLine](apache-hbase-query-with-phoenix.md). Phoenix also provides an HTTP server called Phoenix Query Server (PQS), a thin client that supports two transport mechanisms for client communication: JSON and Protocol Buffers. Protocol Buffers is the default mechanism, and offers more efficient communication than JSON.
 
 This article describes how to use the PQS REST SDK to create tables, upsert rows individually and in bulk, and select data using SQL statements. The examples use the [Microsoft .NET driver for Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). This SDK is built on [Apache Calcite's Avatica](https://calcite.apache.org/avatica/) APIs, which exclusively use Protocol Buffers for the serialization format.
 
