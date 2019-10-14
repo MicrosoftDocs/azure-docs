@@ -96,7 +96,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your Azure usage and charges CSV from the Azure portal](billing-download-azure-usage.md).
+Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your Azure usage and charges CSV from the Azure portal](billing-download-azure-daily-usage.md).
 
 You can filter the Azure usage and charges file to reconcile the usage charges for each product listed in the invoice pdf. To view detailed usage charges for a particular product, filter **product** column in the Azure usage and charges CSV file to only include the name of that product.
 
