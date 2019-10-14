@@ -17,13 +17,16 @@ The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v
 
 This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL vertex (the default runtime) will now always be 4.7.2.  There isn't a side-by-side option for .NET Framework versions.
 
-Once this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for. This means if your assembly DLLs were generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics. It also means that you can use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.  
+After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
 
-Because of this potential to introduce breaking changes to your U-SQL jobs, if you use U-SQL custom assemblies, we suggest you check for backwards-compatibility issues now.
+- If your assembly DLLs are generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics.
+- You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.  
+
+Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs (that use U-SQL custom assemblies).  We suggest you check for backwards-compatibility issues using the procedure below.
 
 ## How to check for backwards-compatibility issues
 
-You can check for the potential risk of backwards-compatibility breaking behavior by running the .NET compatibility checks on your .NET code in your U-SQL custom assemblies.
+Check for the potential of backwards-compatibility breaking issues by running the .NET compatibility checks on your .NET code in your U-SQL custom assemblies.
 
 Note: The tool doesn't detect actual breaking changes but only identifies called APIs that may, for certain inputs, cause issues. So if you get notified of an issue, your code may still be fine but you should now check in more details.
 
@@ -33,10 +36,10 @@ Note: The tool doesn't detect actual breaking changes but only identifies called
 - Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
 - For 4.7.2. compatibility, only read isRetargeting == True breaking changes.
 
-1. If the tool indicates your code may be impacted by any of the possible backwards-incompatibilities (some common ones are listed below), you can further check by
+1. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common ones are listed below), you can further check by
 
-- Analyzing the code and identifying if you're passing values to the impacted APIs that may have issues
-- Perform a runtime check. The runtime deployment is not done side-by-side in ADLA. If you would like to perform a runtime check before the upgrade, you have to use VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.Second instruction
+- Analyzing your code and identifying if your code is passing values to the impacted APIs
+- Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
 
 1. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).
 
@@ -46,9 +49,9 @@ In most cases, you should not be impacted by backwards-incompatibility.
 
 We plan to start the deployment of the new runtime in early October using our typical staged region deployment.
 
-### What if I cannot get my code reviewed in time?
+### What if I can't get my code reviewed in time?
 
-While you can submit your job against the old runtime version (which is built targeting 4.5.2), due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode, thus you may still encounter some of the backwards-compatibility issues.
+You can submit your job against the old runtime version (which is built targeting 4.5.2), however due to the lack of .NET Framework side-by-side capabilities, it will still only run in 4.5.2 compatibility mode.  This means you may still encounter some of the backwards-compatibility issues.
 
 ### What are the most common backwards-compatibility issues you may encounter?
 
