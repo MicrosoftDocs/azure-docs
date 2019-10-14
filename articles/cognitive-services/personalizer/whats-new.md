@@ -17,6 +17,10 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ## Release notes 
 
+### November 2019 - Ignite Conference
+
+* Personalizer is generally available (GA)
+
 ### May 6, 2019 - //Build Conference
 
 The following preview features were released at the Build 2019 Conference:
