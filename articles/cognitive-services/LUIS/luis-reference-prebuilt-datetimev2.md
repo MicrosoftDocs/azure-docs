@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -170,11 +170,11 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
             "values": [
                 {
                     "timex": "XXXX-05-02",
-                    "value": "2019-05-02"
-                },
-                {
-                    "timex": "XXXX-05-02",
-                    "value": "2020-05-02"
+                    "resolution": [
+                        
+                        { "value": "2019-05-02" },
+                        { "value": "2020-05-02" }
+                    ]
                 }
             ]
         }
@@ -192,11 +192,10 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
             "values": [
                 {
                     "timex": "XXXX-05-02",
-                    "value": "2019-05-02"
-                },
-                {
-                    "timex": "XXXX-05-02",
-                    "value": "2020-05-02"
+                    "resolution": [
+                        { "value": "2019-05-02"} ,
+                        { "value": "2020-05-02"}
+                    ]
                 }
             ]
         }
@@ -261,13 +260,9 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
             "values": [
                 {
                     "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "start": "2019-05-02",
-                    "end": "2019-05-05"
-                },
-                {
-                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "start": "2020-05-02",
-                    "end": "2020-05-05"
+                    "resolution" :[
+                        { "start": "2019-05-02", "end": "2019-05-05"},
+                        { "start": "2020-05-02", "end": "2020-05-05" }
                 }
             ]
         }
@@ -286,13 +281,10 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
             "values": [
                 {
                     "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "start": "2019-05-02",
-                    "end": "2019-05-05"
-                },
-                {
-                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "start": "2020-05-02",
-                    "end": "2020-05-05"
+                    "resolution" :[
+                        { "start": "2019-05-02", "end": "2019-05-05"},
+                        { "start": "2020-05-02", "end": "2020-05-05" }
+                    ]
                 }
             ]
         }
@@ -354,13 +346,16 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
             "values": [
                 {
                     "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-                    "start": "2019-10-01",
-                    "end": "2019-10-03"
-                },
-                {
-                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-                    "start": "2019-10-08",
-                    "end": "2019-10-10"
+                    "resolution": [
+                        {                         
+                            "start": "2019-10-01",
+                            "end": "2019-10-03"
+                        },
+                        {
+                            "start": "2019-10-08",
+                            "end": "2019-10-10"
+                        }
+                    ]
                 }
             ]
         }
@@ -378,13 +373,16 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
             "values": [
                 {
                     "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-                    "start": "2019-10-01",
-                    "end": "2019-10-03"
-                },
-                {
-                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-                    "start": "2019-10-08",
-                    "end": "2019-10-10"
+                    "resolution": [
+                        {                         
+                            "start": "2019-10-01",
+                            "end": "2019-10-03"
+                        },
+                        {
+                            "start": "2019-10-08",
+                            "end": "2019-10-10"
+                        }
+                    ]
                 }
             ]
         }
@@ -442,9 +440,13 @@ Changes from API V2:
 * `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
 * The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
 
+The following utterance and its partial JSON response is shown below.
+
+`from 6pm to 7pm`
+
 #### [V3 response](#tab/5-1)
 
-For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
+The following JSON is with the `verbose` parameter set to `false`:
 
 ```JSON
 "entities": {
@@ -454,8 +456,12 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
             "values": [
                 {
                     "timex": "(T18,T19,PT1H)",
-                    "start": "18:00:00",
-                    "end": "19:00:00"
+                    "resolution": [
+                        {
+                            "start": "18:00:00",
+                            "end": "19:00:00"
+                        }
+                    ]
                 }
             ]
         }
@@ -463,7 +469,8 @@ For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 }
 ```
 #### [V3 verbose response](#tab/5-2)
-The following JSON is with the `verbose` parameter set to `false`:
+
+The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
 "entities": {
@@ -473,8 +480,12 @@ The following JSON is with the `verbose` parameter set to `false`:
             "values": [
                 {
                     "timex": "(T18,T19,PT1H)",
-                    "start": "18:00:00",
-                    "end": "19:00:00"
+                    "resolution": [
+                        {
+                            "start": "18:00:00",
+                            "end": "19:00:00"
+                        }
+                    ]
                 }
             ]
         }
@@ -532,7 +543,9 @@ The following JSON is with the `verbose` parameter set to `false`:
             "values": [
                 {
                     "timex": "T08",
-                    "value": "08:00:00"
+                    "resolution": [
+                        { "value": "08:00:00" }
+                    ]
                 }
             ]
         }
@@ -549,7 +562,9 @@ The following JSON is with the `verbose` parameter set to `false`:
             "values": [
                 {
                     "timex": "T08",
-                    "value": "08:00:00"
+                    "resolution": [
+                        { "value": "08:00:00" }
+                    ]
                 }
             ]
         }

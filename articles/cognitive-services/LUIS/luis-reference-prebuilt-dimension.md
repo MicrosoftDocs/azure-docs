@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -35,7 +35,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     "dimension": [
         {
             "number": 10.5,
-            "unit": "Mile"
+            "units": "Mile"
         }
     ]
 }
@@ -48,7 +48,7 @@ The following JSON is with the `verbose` parameter set to `true`:
     "dimension": [
         {
             "number": 10.5,
-            "unit": "Mile"
+            "units": "Mile"
         }
     ],
     "$instance": {

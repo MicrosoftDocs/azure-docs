@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -17,5 +17,5 @@ ms.author: diberry
 
     The URL has your app ID, key, and slot name. The V3 prediction endpoint URL looks like:
 
-    `https://REGION.api.cognitive.microsoft.com/luis/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
+    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
 

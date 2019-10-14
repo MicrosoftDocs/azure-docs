@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -35,7 +35,7 @@ The following JSON is with the `verbose` parameter set to `false`:
     "temperature": [
         {
             "number": 30,
-            "unit": "Degree"
+            "units": "Degree"
         }
     ]
 }
@@ -48,7 +48,7 @@ The following JSON is with the `verbose` parameter set to `true`:
     "temperature": [
         {
             "number": 30,
-            "unit": "Degree"
+            "units": "Degree"
         }
     ],
     "$instance": {

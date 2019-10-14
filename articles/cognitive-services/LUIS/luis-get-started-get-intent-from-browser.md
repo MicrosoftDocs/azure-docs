@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
@@ -33,7 +33,7 @@ In order to query a public app, you need:
     The format of the V3 URL for a **GET** endpoint (by slots) request is:
     
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?show-all-intents=true&verbose=true&query=turn off the living room light&subscription-key={your-key}
+    https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?show-all-intents=true&verbose=true&query=turn off the living room light&subscription-key={your-key}
     `
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
@@ -42,7 +42,6 @@ In order to query a public app, you need:
     {
         "query": "turn off the living room light",
         "prediction": {
-            "normalizedQuery": "turn off the living room light",
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
