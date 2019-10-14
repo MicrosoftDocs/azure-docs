@@ -1661,6 +1661,12 @@ featureFlags:
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/peering-service/">
+                                                <img src="media/index/peering-service.svg" alt="" />
+                                                <p>Peering Service</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
@@ -5578,6 +5584,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Private Link</h3>
                                                     <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/peering-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/peering-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Peering Service</h3>
+                                                    <p>Get optimal internet connectivity to access the Microsoft network</p>
                                                 </div>
                                             </div>
                                         </div>
