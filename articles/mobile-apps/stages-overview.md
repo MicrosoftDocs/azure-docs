@@ -13,11 +13,13 @@ ms.author: emalani
 # Different Stages in Mobile Application Development
 Building a mobile application involves multiple stages and developers can easily take advantage of Microsoft services, tools, and technologies to use the following components:
 
-- **Apps development** - Developers can use client-side technologies to build client apps themselves. With Microsoft technologies, developers can build native single platform apps using languages like Objective-C and Java, cross-platform apps using Xamarin, React Native, Unity, and hybrid using Cordova.
+## **App development** 
+Developers can use client-side technologies to build client apps themselves. With Microsoft technologies, developers can build native single platform apps using languages like Objective-C and Java, cross-platform apps using Xamarin, React Native, Unity, and hybrid using Cordova.
 
-    Developers building client front ends can make use of IDEs and code editors, such as Visual Studio, Xamarin Studio, or Visual Studio Code on PCs and Macs, to construct their client apps.
+Developers building client front ends can make use of IDEs and code editors, such as Visual Studio, Visual Studio for Mac, or Visual Studio Code on PCs and Macs, to construct their client apps.
 
-- **Plan and design with back-end services** - Microsoft provides variety of services for setting up a secure, scalable, and reliable back-end for your mobile application. Developers can create serverless APIs and triggers without having to maintain their own servers. They can leverage services, such as push notification, data sync online/offline, authentication, and a data platform, which together form a comprehensive and expansive mobile back end as a service that supports a variety of app construction scenarios. Building a backend service has multiple requirements:
+## **Plan and design with back-end services** 
+Microsoft provides variety of services for setting up a secure, scalable, and reliable back-end for your mobile application. Developers can create serverless APIs and triggers without having to maintain their own servers. They can leverage services, such as push notifications, offline data sync, authentication, and a data, which together form a comprehensive and expansive mobile backend as a service that supports a variety of app construction scenarios. Building a backend service has many requirements:
     - Limit on storing data on the device
     - Synchronize data across multiple devices
     - Making sure the application runs without network connectivity
@@ -26,6 +28,8 @@ Building a mobile application involves multiple stages and developers can easily
     - Build scalable, reliable, and secure back-end
     - Automatic server maintainence
 
-- **DevOps and continuous monitoring** - Developers creating mobile and cloud focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash, and exception information for their apps.
+## **DevOps and continuous monitoring**
+Developers creating mobile and cloud-focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash, and exception information for their apps.
 
-- **Additional Services** - There are different kinds of Azure services like Azure Maps, Cognitive Services etc. that developers can leverage depending on the type and nature of application that they are building.
+## **Additional Services** 
+There are different kinds of Azure services like Azure Maps, Cognitive Services etc. that developers can leverage depending on the type and nature of application that they are building.

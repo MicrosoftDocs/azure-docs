@@ -11,12 +11,12 @@ ms.author: emalani
 ---
 
 # Azure Cognitive Services
-[Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with AI. You can make your mobile apps smarter, engaging, and contextually relevant for your users. The APIs, SDKs, and services allows developers to add AI to their offering and help build intelligent applications without having direct AI or data science skills or knowledge.
+[Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with AI. You can make your mobile apps smart, engaging, and contextually relevant for your users. The APIs, SDKs, and services allow developers to add AI to their offering and help build intelligent applications without having direct AI or data science skills.
 
 ## Cognitive Services Capabilities
 - **Vision**
     - Image Tagging, Thumbnails
-    - OCR, Handwriting recognition
+    - OCR (Handwriting recognition)
     - Face detection
     - Emotion detection
     - Video insights
@@ -24,11 +24,11 @@ ms.author: emalani
     - Customized image recognition
 
 - **Speech**
-    - Speech to Text (Speech transcription)
+    - Speech to text (Speech transcription)
     - Customized speech transcription (complex words, noisy environment)
     - Text to speech
     - Speaker ID and authentication
-    - Real time speech translation
+    - Real-time speech translation
 
 - **Language**
     - Contextual language understanding - customized intent analysis
@@ -45,7 +45,7 @@ ms.author: emalani
 - **Search**
     - Automatic search suggestions 
     - Entity information augmentation
-    - Comprehensive news, image, video, web, local business, entity search
+    - Comprehensive news, image, video, web, and local business entity search
     - Tailored and customized search experiences
 
 - Support for **Containers** for Cognitive Services

@@ -67,13 +67,13 @@ Cordova lets you build Hybrid apps using Visual Studio Tools for Apache Codova o
 
 ### **Pros**
 - Code reusability as it's possible to create one codebase for different platforms at the same time
-- Wide audience as the app can be used iOS, Android, and Windows users
+- Cater to a wider audience across many platforms
 - Dramatic reduction in development time
 - Easy to launch and update
 
 ###  **Cons**
 - Lower performance
 - Lack of flexibility
-- Platform limitations as each platform has a unique set of features and functionality to make the native app more creative
-- Poor UX - Developing an app for different OS can be a bit challenging
+- Each platform has a unique set of features and functionality to make the native app more creative
+- Increased UI design time
 - Tool limitation

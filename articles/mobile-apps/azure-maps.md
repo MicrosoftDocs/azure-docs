@@ -26,8 +26,7 @@ ms.author: emalani
 - **Mobility** provides real-time location intelligence on nearby public transit services, including stops, route information, and travel time estimations
 
  ## References
-   - [Azure Portal](https://portal.azure.com) 
-   - [Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/about-azure-maps)
-   - [Developer guide](https://azure.microsoft.com/en-us/resources/iot-developers-guide/)
-   - [Azure Maps Android SDK](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-android-map-control-library)
-  
+  - [Azure Portal](https://portal.azure.com) 
+  - [Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/about-azure-maps)
+  - [Developer guide](https://azure.microsoft.com/en-us/resources/iot-developers-guide/)
+  - [Azure Maps Android SDK](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-android-map-control-library)

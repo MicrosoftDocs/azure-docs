@@ -20,6 +20,6 @@ Server](https://azure.microsoft.com/en-us/services/devops/server/) (on-premises)
 - Makes the entire software lifecycle faster, from code commit to production deployment
 - Allows organizations to more rapidly deliver software and security updates internally and to customers
 - Aims to reduce conflicts that arise when developers are focused on meeting business demands to add functionality and improve the usability of applications whereas operations teams are traditionally more focused on the stability and security of the computing environments
-- Provides greater agility, customer responsiveness, and time to market
+- Provides greater agility, improves customer responsiveness, and reduces time to market
 - Extends agility by bringing together people, process, and products to enable continuous delivery of value to end users
 - DevOps practices led to reduced costs and all organizations are better able to achieve their goals, no matter what their mission is
