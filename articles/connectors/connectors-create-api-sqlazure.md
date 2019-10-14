@@ -55,7 +55,7 @@ In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/l
 
    This example uses the **When an item is created**  trigger.
 
-   ![Select "When an item is created" trigger](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
+   ![Select "When an item is created" trigger](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
 
 1. If you are prompted to create a connection, [create your SQL connection now](#create-connection). If your connection exists, select a **Table name**.
 
