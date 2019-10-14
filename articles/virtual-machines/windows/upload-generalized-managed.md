@@ -55,7 +55,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 ## Upload the VHD to your storage account
 
-You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell] (disks-upload-vhd-to-managed-disk-powershell.md).
+You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 ## Create a managed image from the uploaded VHD 

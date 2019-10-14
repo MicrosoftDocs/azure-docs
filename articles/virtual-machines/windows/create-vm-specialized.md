@@ -60,7 +60,7 @@ Use the VHD as-is to create a new VM.
 
 ### Upload the VHD
 
-You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell] (disks-upload-vhd-to-managed-disk-powershell.md).
+You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## Option 3: Copy an existing Azure VM
 
