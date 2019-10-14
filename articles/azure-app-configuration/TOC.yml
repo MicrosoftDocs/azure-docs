@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: .NET Framework
+          href: quickstart-feature-flag-dotnet.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
