@@ -120,7 +120,10 @@
       href: data-lake-analytics-u-sql-sdk.md
   - name: Troubleshoot U-SQL runtime changes
     items:
-    - name: Overview     
+    - name: Overview
+      href: data-lake-analytics-runtime-troubleshoot.md
+    - name: Troubleshoot .NET updgrade
+      href: data-lake-analytics-net-upgrade-troubleshoot.md
 - name: Reference
   items:
   - name: Azure PowerShell
