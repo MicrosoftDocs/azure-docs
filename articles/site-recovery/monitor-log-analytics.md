@@ -22,7 +22,7 @@ For Site Recovery, you can Azure Monitor Logs to help you do the following:
 
 Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication, and **VMware VM/physical server to Azure** replication.
 
-> [!NOTE] 
+> [!NOTE]
 > The churn data logs and upload rate logs are only available for Azure VMs replicating to a secondary Azure region.
 
 ## Before you start
@@ -171,7 +171,8 @@ AzureDiagnostics  
 
 ### Query data change rate (churn) for a VM
 
->[!NOTE] The churn information is only available for Azure VMs replicating to a secondary Azure region.
+> [!NOTE] 
+> The churn information is only available for Azure VMs replicating to a secondary Azure region.
 
 This query plots a trend graph for a specific Azure VM (ContosoVM123), that tracks the data change rate (Write Bytes per Second), and data upload rate. 
 
