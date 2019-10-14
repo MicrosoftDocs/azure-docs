@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -23,12 +23,15 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 * [LUIS portal](https://www.luis.ai)
     * New authoring experience
 * New capabilities and concepts
-    * Constraints and descriptors for intents and entities   * Subcomponents of machine-learned entities
+    * [Decomposition with models](luis-concept-entity-types.md)
+    * Constraints and descriptors for intents and entities   
+    * Subcomponents of machine-learned entities
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
 * API - Prediction endpoint runtime
     * V3 API is now generally available (GA)
     * Japanese prebuilt age, currency, number, percentage are not support in V3
     * Italian prebuilt age, currency, dimension, number, percentage resolution changed from V2
+* Import and export `.lu` file format from [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) 
 
 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
