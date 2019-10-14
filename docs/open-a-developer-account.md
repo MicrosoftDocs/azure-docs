@@ -39,18 +39,13 @@ You can create an account in one of two ways:
 ### Create an account using the Partner Center enrollment page
 If you're new to Partner Center, follow the instructions in this section to create your account. 
 
-Register on the Partner Center enrollment page
-Sign in with a work account
-Agree to the terms and conditions
-Provide your publisher profile
-
-1. Register on the Partner Center enrollment page. Review the information on the [Welcome to Microsoft Partner Center enrollment](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office) page and then register for an account.
+1. Go to the [Partner Center enrollment](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office) page.
 2. Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
 
- > [!NOTE]
- > To check whether your company already has a work account, how to create a new work account, or how to set up multiple work accounts to use with Partner Center, visit Your company work account and Partner Center.
+  > [!NOTE]
+  > To check whether your company already has a work account, how to create a new work account, or how to set up multiple work accounts to use with Partner Center, visit Your company work account and Partner Center.
 
-3. Agree to terms and conditions in the Microsoft Office Store Agreement.
+3. Agree to terms and conditions of the Microsoft Office Store Agreement.
 4. Provide your publisher profile. Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the Microsoft Partner Network. After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
 5. Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers in AppSource.
 
