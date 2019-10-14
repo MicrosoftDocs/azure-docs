@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -59,17 +59,16 @@ In the example scenario above, you can classify the apps according to these two 
 
 ### How each flow emits tokens and codes
 
-Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart proides an overview:
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by the Microsoft identity platform.  These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
 
 |Flow | Requires | id_token | access token | refresh token | authorization code | 
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
-|[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
-|[Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | refresh token | x | x | x| |
-|[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
-|[Device code flow](v2-oauth2-device-code.md) | | x| x| x| |
-|[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
+|[Authorization code flow](v1-protocols-oauth-code.md) | | x | x | x | x|  
+|[Implicit flow](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Hybrid OIDC flow](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
+|[Refresh token redemption](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | refresh token | x | x | x| |
+|[On-behalf-of flow](v1-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Client credentials](v1-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
 
 **Notes**:
 
