@@ -3997,7 +3997,12 @@
     },
     {
       "source_path": "articles/resource-manager-api-authentication.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-api-authentication",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-api-authentication.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
@@ -24577,6 +24582,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-performance-checklist.md",
+      "redirect_url": "/azure/storage/blobs/storage-performance-checklist",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-php-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/storage-php-how-to-use-blobs",
       "redirect_document_id": true
@@ -26888,8 +26898,13 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel-linux.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-provision-vnet.md",
@@ -28138,7 +28153,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
       "redirect_document_id": false
     },
     {
@@ -33299,11 +33314,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-language-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
-      "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
     {
