@@ -29,7 +29,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 
-+ A workspace can contain [Azure Machine Learning compute instances](tutorial-1st-experiment-sdk-setup.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
