@@ -171,7 +171,7 @@ Some of the customer transition requests may require an additional review proces
 ### Azure subscription directory 
 The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship. 
 
-If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory] (https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 
 ## Check access to a Microsoft Partner Agreement

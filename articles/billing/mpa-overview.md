@@ -32,7 +32,7 @@ Users with  **Global Admin** and **Admin Agents** role in your organization can 
 
 Use a billing profile to manage your invoices for a currency. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains charges in the billing profile's currency for all Azure subscriptions and other purchases from the previous month. 
 
-You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-mca-understand-your-bill.md).
+You can view the invoice and download the related documents like usage file and price sheet in the Azure portal. For more information, see [Download invoices for a Microsoft Partner Agreement](billing-download-azure-invoice.md).
 
 > [!IMPORTANT]
 >
