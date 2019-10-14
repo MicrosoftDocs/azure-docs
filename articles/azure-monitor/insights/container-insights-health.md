@@ -29,17 +29,21 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Access to the Azure Monitor for containers health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. From the **Cluster** performance tab, select **Health**.  
 
-![Azure Monitor health dashboard example](./media/container-insights-health/container-insights-health-view-01.png)
+![Azure Monitor health dashboard example](./media/container-insights-health/health-view-01.png)
 
 Immediately you can see the overall health of the cluster without having to view from each tab - **Node**, **Controllers**, and **Pods**. Under the **Cluster health summary**, an overall health perspective is provided for:
 
 - Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
 
+    ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
+
 - Nodes - provides a rollup of the node pools and state of individual nodes in each pool, by evaluating CPU and memory utilization, and a nodes availability.
+
+    ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
 
 - Workloads - provides a rollup of overall utilization of the cluster and for each containerized application or other workload running across all namespaces in the cluster.
 
+    ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
-applications running on the nodes in the cluster.  
 
 ## Next steps
