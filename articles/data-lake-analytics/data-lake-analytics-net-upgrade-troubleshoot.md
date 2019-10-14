@@ -31,11 +31,9 @@ Check for the potential of backwards-compatibility breaking issues by running th
 Note: The tool doesn't detect actual breaking changes but only identifies called APIs that may, for certain inputs, cause issues. So if you get notified of an issue, your code may still be fine but you should now check in more details.
 
 1. Run the backwards-compatibility checker on your .NET DLLs either by
-
-- Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
-- Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-- For 4.7.2. compatibility, only read isRetargeting == True breaking changes.
-
+  - Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
+  - Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
+  - For 4.7.2. compatibility, only read isRetargeting == True breaking changes.
 1. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common ones are listed below), you can further check by
 
 - Analyzing your code and identifying if your code is passing values to the impacted APIs
