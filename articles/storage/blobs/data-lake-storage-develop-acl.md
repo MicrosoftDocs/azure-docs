@@ -535,6 +535,10 @@ def set_file_ACL(container_name):
 
 ---
 
+## Sample
+
+Put link to github sample here along with some explanatory text.
+
 ## Next steps
 
 Learn to create, rename, list, move, and delete directories. See [Create and manage directories in Azure Storage by using code](data-lake-storage-develop-manage-directories.md).

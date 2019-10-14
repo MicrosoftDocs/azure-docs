@@ -108,6 +108,10 @@ $blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text1.tx
 $blob.ICloudBlob.PathProperties
 ```
 
+## Sample
+
+Put link to github sample here along with some explanatory text.
+
 ## Next steps
 
 To learn more about working with Blob storage by using PowerShell, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
