@@ -54,6 +54,10 @@ Notebooks that you run on your instance have access to the data stores and compu
 
 When you create a compute instance, you control whether it can be shared. Each shared compute instance has its own managed identity, so you can share access without compromising your credentials. Each person who accesses the compute instance signs in with their own identity.  
 
+## Accessing files
+
+Your 
+
 ## Managing a compute instance
 
 In your workspace in [Azure Machine Learning studio](https://ml.azure.com), use the **Compute** section to perform the following actions on your compute instance:
