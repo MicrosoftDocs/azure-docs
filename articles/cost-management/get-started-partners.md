@@ -44,7 +44,7 @@ Regardless of the customer-billed currency, partners use the scope to set budget
 
 Partners also filter costs in a specific billing currency across customers in the cost analysis view. Select the **Actual cost** list to view costs in supported customer billing currencies.
 
-![Example showing Actual cost selection for currencies](./media/get-started-partners-cost-management/actual-cost-selector.png)
+![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
 Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) in billing scopes to view reserved instance amortized costs across a reservation term.
 
@@ -95,16 +95,16 @@ Regardless of the policy, partners can also view the costs if they have access t
 
 Partners use the following information to enable to the policy to view Azure usage charges for their customers.
 
-In the Azure portal, sign in to the partner tenant and click **Cost Management + Billing**. Select a billing account and then click **Customers. The list of customers is associated with the billing account.
+In the Azure portal, sign in to the partner tenant and click **Cost Management + Billing**. Select a billing account and then click **Customers**. The list of customers is associated with the billing account.
 
 In the list of customers, select the customer that you want to allow to view costs.
 
-![Select customers in Cost Management](./media/get-started-partners-cost-management/customer-list.png)
+![Select customers in Cost Management](./media/get-started-partners/customer-list.png)
 
 Under **Settings**, click **Policies**.
 
 The current cost visibility policy is shown for **Azure Usage** charges associated to the subscriptions for the selected customer.
-![Policy to allow customers to view pay-as-you-go charges](./media/get-started-partners-cost-management/cost-management-billing-policies.png)
+![Policy to allow customers to view pay-as-you-go charges](./media/get-started-partners/cost-management-billing-policies.png)
 
 When the policy is set to **No**, Azure Cost Management isn't available for subscription users associated to the customer. Unless enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
 
@@ -114,16 +114,16 @@ When the cost visibility policy is enabled, all services that have subscription 
 
 To view costs for the customer tenant, open Cost Management + Billing and then click Billing accounts. In the list of billing accounts, click a billing account.
 
-![Select a billing account](./media/get-started-partners-cost-management/select-billing-account.png)
+![Select a billing account](./media/get-started-partners/select-billing-account.png)
 
 Under **Billing**, click **Azure subscriptions**, and then click a customer.
 
-![Select an Azure subscription customer](./media/get-started-partners-cost-management/subscriptions-select-customer.png)
+![Select an Azure subscription customer](./media/get-started-partners/subscriptions-select-customer.png)
 
 Click **Cost analysis** and start reviewing costs.
 Cost analysis, budgets, and alerts are now available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
 
-![View cost analysis as a customer ](./media/get-started-partners-cost-management/customer-tenant-view-cost-analysis.png)
+![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
 Amortized views and actual costs for reserved instances in the RBAC scopes show zero charges. Reserved instance costs are only showing in billing scopes where the purchases were made.
 
@@ -150,7 +150,7 @@ In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save view
 
 ## View Partner Earned Credit (PEC) resource costs
 
-In Azure Cost Management, partners can cost analysis to view costs that received the PEC benefits.
+In Azure Cost Management, partners can use cost analysis to view costs that received the PEC benefits.
 
 In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Under **Cost Management**, click **Cost analysis**.
 
@@ -158,7 +158,7 @@ The Cost analysis view shows costs of the billing account for the partner. Selec
 
 In a donut chart, click the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
 
-![Example showing how to view partner-earned credit](./media/get-started-partners-cost-management/cost-analysis-pec1.png)
+![Example showing how to view partner-earned credit](./media/get-started-partners/cost-analysis-pec1.png)
 
 When the **PartnerEarnedCreditApplied** property is _True_, the associated cost has the benefit of the partner earned admin access.
 
@@ -169,7 +169,7 @@ Service usage data normally takes 8-24 hours to appear in Cost Management. For m
 
 You can also group and filter by the **PartnerEarnedCreditApplied** property using the **Group by** options. Use the options to examine costs that do and don't have PEC.
 
-![Group or filter by partner-earned credit](./media/get-started-partners-cost-management/cost-analysis-pec2.png)
+![Group or filter by partner-earned credit](./media/get-started-partners/cost-analysis-pec2.png)
 
 ## Cost Management REST APIs
 
