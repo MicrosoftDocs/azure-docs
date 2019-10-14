@@ -15,10 +15,6 @@ Begin using the Anomaly Detector service by creating an Azure resource. Choose t
 * An [Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
     * Available through the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-    
-* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Available through the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
 
 ### Create an environment variable
 
