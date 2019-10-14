@@ -1,6 +1,6 @@
 ---
-title: Use a template to deploy low-priority VMs (Preview) in Azure | Microsoft Docs
-description: Learn how to use a template to deploy low-priority VMs to save costs.
+title: Use a template to deploy spot VMs (Preview) in Azure | Microsoft Docs
+description: Learn how to use a template to deploy spot VMs to save costs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,32 +13,32 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 10/14/2019
 ms.author: cynthn
 ---
 
-# Deploy low-priority VMs using a resource manager template
+# Deploy spot VMs using a resource manager template
 
-Using [low-priority VMs](low-priority-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using [spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict spot VMs. Therefore, spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-Pricing for low-priority VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/). 
+Pricing for spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/). 
 
-You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a low-priority VM can be set in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Low-priority VMs - Pricing](low-priority-vms.md#pricing).
+You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a spot VM can be set in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [spot VMs - Pricing](spot-vms.md#pricing).
 
 > [!IMPORTANT]
-> Low-priority VMs are currently in public preview.
+> spot VMs are currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
+> For the early part of the public preview, you can set a max price, but it will be ignored. spot VMs will have a fixed price, so there will not be any price-based evictions.
 
 
 ## Use a template 
 
-For low-priority template deployments, use`"apiVersion": "2019-03-01"`. Add the `priority`, `evictionPolicy` and `billingProfile` properties to in your template: 
+For spot template deployments, use`"apiVersion": "2019-03-01"`. Add the `priority`, `evictionPolicy` and `billingProfile` properties to in your template: 
 
 ```json
-                "priority": "Low",
+                "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
@@ -47,10 +47,10 @@ For low-priority template deployments, use`"apiVersion": "2019-03-01"`. Add the 
 
 
 > [!IMPORTANT]
-> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
+> For the early part of the public preview, you can set a max price, but it will be ignored. spot VMs will have a fixed price, so there will not be any price-based evictions.
 
 
-Here is a sample template with the added properties for a low-priority VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
+Here is a sample template with the added properties for a spot VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
 
 ```json
 {
@@ -59,26 +59,26 @@ Here is a sample template with the added properties for a low-priority VM. Repla
     "parameters": {
     },
     "variables": {
-        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-abcd515f1836/resourceGroups/lowpriVM/providers/Microsoft.Network/virtualNetworks/lowpriVM",
+        "vnetId": "/subscriptions/ec9fcd04-e188-48b9-abfc-abcd515f1836/resourceGroups/spotVM/providers/Microsoft.Network/virtualNetworks/spotVM",
         "subnetName": "default",
-        "networkInterfaceName": "lowpriVMNIC",
-        "publicIpAddressName": "lowpriVM-ip",
+        "networkInterfaceName": "spotVMNIC",
+        "publicIpAddressName": "spotVM-ip",
         "publicIpAddressType": "Dynamic",
         "publicIpAddressSku": "Basic",
-        "virtualMachineName": "lowpriVM",
+        "virtualMachineName": "spotVM",
         "osDiskType": "Premium_LRS",
         "virtualMachineSize": "Standard_D2s_v3",
         "adminUsername": "azureuser",
         "adminPassword": "<password>",
-        "diagnosticsStorageAccountName": "diagstoragelowpri2019",
-        "diagnosticsStorageAccountId": "Microsoft.Storage/storageAccounts/diagstoragelowpri2019",
+        "diagnosticsStorageAccountName": "diagstoragespot2019",
+        "diagnosticsStorageAccountId": "Microsoft.Storage/storageAccounts/diagstoragespot2019",
         "diagnosticsStorageAccountType": "Standard_LRS",
         "diagnosticsStorageAccountKind": "Storage",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]"
     },
     "resources": [
         {
-            "name": "lowpriVM",
+            "name": "spotVM",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-10-01",
             "location": "eastus",
@@ -189,6 +189,6 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 
 ## Next steps
 
-You can also create a low-priority VM using [Azure PowerShell](../windows/low-priority-powershell.md) or the [Azure CLI](low-priority-cli.md).
+You can also create a spot VM using [Azure PowerShell](../windows/spot-powershell.md) or the [Azure CLI](spot-cli.md).
 
-If you encounter an error, see [Error codes](../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
