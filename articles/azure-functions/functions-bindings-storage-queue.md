@@ -68,6 +68,14 @@ public static class QueueFunctions
 }
 ```
 
+
+> [!NOTE]
+> If you use QueueTrigger with Connection property specified, eg. 
+> ```csharp
+> [QueueTrigger("myqueue-items", Connection = "StorageConnString"))] string myQueueItem
+> ```
+> you cannot use `Storage` as a name of connection string.
+
 ### Trigger - C# script example
 
 The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
