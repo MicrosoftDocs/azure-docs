@@ -17,9 +17,9 @@ ms.date: 10/03/2019
 This tutorial shows you, as a builder, how to create an Azure IoT Central application to monitor environmental conditions in a retail store. This application is a solution to the common business need to monitor and adapt to environmental conditions in a store or facility.
 
 You develop the solution in three parts: 
-> * Create the application and connect devices to monitor conditions
-> * Customize the dashboard to enable operators to monitor and manage devices
-> * Configure data export to enable store managers to run analytics and visualize insights
+* Create the application and connect devices to monitor conditions
+* Customize the dashboard to enable operators to monitor and manage devices
+* Configure data export to enable store managers to run analytics and visualize insights
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -273,7 +273,7 @@ To add an action to a rule:
 
     Within a few minutes, the specified email account should begin to receive emails. The application sends email each time a sensor indicates that the humidity level exceeded the value in your condition.
 
-## Next Steps
+## Next steps
 In this tutorial, you learned how to:
 
 * Use the Azure IoT Central **Store Analytics - Condition Monitoring** template to create a retail store application
