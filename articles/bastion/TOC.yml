@@ -23,7 +23,7 @@
   - name: Work with NSGs
     href: bastion-nsg.md
   - name: Access DevTest Lab virtual machines
-    href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
 - name: Resources
   items:
   - name: Bastion FAQ
