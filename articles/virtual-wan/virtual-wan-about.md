@@ -34,7 +34,7 @@ There are two types of virtual WANs: Basic and Standard. The following table sho
 |Basic | Basic | Site-to-site VPN only |
 | Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
 
-To change a Basic hub to a Standard hub in the portal, navigate to **WAN ->Configuration** and edit the WAN settings.
+To change a Basic hub to a Standard hub in the portal, navigate to **WAN -> Configuration** and edit the WAN settings.
 
 >[!NOTE]
 >You can change a Basic hub to Standard, but cannot revert a Standard hub back to Basic.
@@ -52,7 +52,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
-  **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
+* **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
