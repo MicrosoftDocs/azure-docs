@@ -108,7 +108,7 @@ Congratulations! You have now sent messages to an event hub.
 To create a Python application that receives events from an event hub:
 
 1. In your Python editor, create a file called *recv.py*.
-2. Paste the following code into *recv.py*, , replacing the Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>, and \<primary key value> with your values: 
+2. Paste the following code into *recv.py*, replacing the Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>, and \<primary key value> with your values: 
    
    ```python
    import os
