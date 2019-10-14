@@ -38,7 +38,7 @@ To manually add a JSON structure, add a new column and enter the expression in t
 )
 ```
 
-If this expression were entered for a column named "complexColumn" then it would be written to the sink as the following JSON:
+If this expression were entered for a column named "complexColumn", then it would be written to the sink as the following JSON:
 
 ```
 {
@@ -85,7 +85,7 @@ Using a JSON dataset as a source in your data flow allows you to set five additi
 
 ### Default
 
-By default, mapping data flows reads JSON data in the following format.
+By default, JSON data is read in the following format.
 
 ```
 { "json": "record 1" }
@@ -152,9 +152,9 @@ Select **Single quoted** if backslashes are used to escape characters in the JSO
 { "json": "record 3" }
 ```
 
-## Higher order functions
+## Higher-order functions
 
-A higher order function is a function that takes in one or more functions as an argument. Below are a list of higher order functions supported in mapping data flows that enable array operations.
+A higher-order function is a function that takes in one or more functions as an argument. Below are a list of higher-order functions supported in mapping data flows that enable array operations.
 
 ### filter
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.
