@@ -14,7 +14,7 @@ ms.author: banders
 ---
 # Understand charges on your Microsoft Partner Agreement invoice
 
- In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal. For more information, see [how to download Azure invoices for a billing profile](billing-download-azure-invoice.md#download-invoices-for-a-billing-profile).
+ In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal. For more information, see [how to download invoices from the Azure portal](billing-download-azure-invoice.md).
 
 This article applies to a billing account for a Microsoft Partner Agreement. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
@@ -96,7 +96,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your billing profile's Azure usage and charges CSV from the Azure portal](billing-download-azure-usage.md#download-usage-for-your-billing-profile).
+Use the Azure usage and charges CSV file to analyze your usage-based charges. You can [download your Azure usage and charges CSV from the Azure portal](billing-download-azure-usage.md).
 
 You can filter the Azure usage and charges file to reconcile the usage charges for each product listed in the invoice pdf. To view detailed usage charges for a particular product, filter **product** column in the Azure usage and charges CSV file to only include the name of that product.
 

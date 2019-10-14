@@ -59,7 +59,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 
 ## Billing details by product
 
-The **Billing details by product** section lists the total charges for each product associated with this billing profile. You can view a daily breakdown of each product's charges in the Azure usage and charges CSV. To learn about reconciling the invoice pdf with the Azure usage and charges CSV, see [understand your Microsoft Partner Agreement bill](#billing-mpa-understand-your-bill).
+The **Billing details by product** section lists the total charges for each product associated with this billing profile. You can view a daily breakdown of each product's charges in the Azure usage and charges CSV. To learn about reconciling the invoice pdf with the Azure usage and charges CSV, see [understand your Microsoft Partner Agreement bill](billing-mpa-understand-your-bill.md).
 
 ## How to pay
 

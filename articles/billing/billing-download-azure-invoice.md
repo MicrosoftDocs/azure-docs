@@ -57,7 +57,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
 ## Get your subscription's invoices in email
 
-You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see the next section, [Get your Microsoft Customer Agreement invoices in email](#Get-your-Microsoft-Customer-Agreement-invoices-in-email).
+You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
 1. Select your subscription on the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
 
