@@ -156,7 +156,7 @@
     - name: EA tasks in Microsoft Customer Agreement
       href: billing-mca-enterprise-operations.md
   - name: Set up billing account for Microsoft Customer Agreement
-    href: billing-mca-setup-account.md
+    href: mca-setup-account.md
   - name: Sign up with Office 365 account
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
