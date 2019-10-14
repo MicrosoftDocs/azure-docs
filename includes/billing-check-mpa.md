@@ -18,7 +18,7 @@ Check the agreement type to determine whether you have access to a billing accou
  
     ![Screenshot that shows microsoft partner agreement in properties page](./media/billing-check-mpa/mpa-property.png)
  
-4. If you have access to multiple billing scope, check the type in the billing account column. You have access to a billing account for a Microsoft Partner Agreement if the billing account type for any of the scopes is **Microsoft Partner Agreement**.
+4. If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Partner Agreement if the billing account type for any of the scopes is **Microsoft Partner Agreement**.
  
     ![Screenshot that shows microsoft partner agreement in billing account list page](./media/billing-check-mpa/mpa-in-the-list.png)
  

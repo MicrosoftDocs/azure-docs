@@ -17,7 +17,7 @@ ms.author: banders
 When you sign up for Azure, there are several things you can do to get a better idea of your spending:
 
 - Get estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
-- Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts, and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
+- Monitor costs with [budgets](../cost-management/tutorial-acm-create-budgets.md), [alerts](../cost-management/cost-mgt-alerts-monitor-usage-spending.md), and [cost analysis](../cost-management/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with [detailed usage files](billing-download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.

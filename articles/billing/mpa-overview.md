@@ -16,7 +16,7 @@ ms.author: banders
 
 A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement, Microsoft Customer Agreement or Microsoft Partner Agreement. For each of these scenarios, you would have a separate billing account.
 
-This article applies to a billing account for a Microsoft Partner Agreement. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and have an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
+This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
 ## Your billing account
 
@@ -44,7 +44,7 @@ You can view and manage customers who have accepted a Microsoft Customer Agreeme
 
 ### Enable policy to give visibility into cost
 
-Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go prices for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) access on a subscription can view and analyze the cost for the subscription. 
+Apply policy to control if users in customers' organization can view and analyze cost at Pay-As-You-Go rates for their Azure consumption. By default, the policy is turned off and users can't view the cost. Once enabled, the users who have appropriate [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) access on a subscription can view and analyze the cost for the subscription. 
 
 To turn on the policy:
 
@@ -79,6 +79,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 See the following articles to learn about your billing account:
 
-- [Create an additional Azure subscription for Microsoft Partner Agreement](billing-mca-create-subscription.md)
-- [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
+- [Create an additional Azure subscription for Microsoft Partner Agreement](billing-create-subscription.md)
+- Integrate billing data with your own reporting system using the [Azure Billing APIs](https://docs.microsoft.com/rest/api/billing/)
 - [Azure Cost Management quickstart guide for partners](https://go.microsoft.com/fwlink/?linkid=2106482)
