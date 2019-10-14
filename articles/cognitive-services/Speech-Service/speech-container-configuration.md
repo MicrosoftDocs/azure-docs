@@ -59,7 +59,7 @@ This setting can be found in the following place:
 
 ## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
@@ -69,21 +69,32 @@ This setting can be found in the following place:
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Speech containers don't use input or output mounts to store training or service data. 
+The Standard Speech containers don't use input or output mounts to store training or service data. However, Custom Speech containers rely on volume mounts.
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Speech containers do not use this.|
+|Not allowed| `Input` | String | Standard Speech containers do not use this. Custom Speech containers use [volume mounts](#volume-mount-settings). |
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
+
+## Volume mount settings
+
+The Custom Speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
+
+Custom models are downloaded the first time that a new model is ingested as part of the custom container docker run. Sequential runs of the same `ModelId` for a Custom Speech container run will use previously downloaded model, that were persisted to the volume mount.
+
+| Container Type | Required | Name | Description |
+|----------|------|-----------|-------------|
+| Custom Speech container | Yes |   |
+| Standard Speech container | Not allowed |   |
 
 ## Example docker run commands 
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](speech-container-howto.md#stop-the-container) it.
 
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-* **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
+* **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
 
 Replace {_argument_name_} with your own values:
 

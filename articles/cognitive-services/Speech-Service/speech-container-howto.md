@@ -278,13 +278,13 @@ This command:
 # [Custom Speech-to-text](#tab/cstt)
 
 > [!IMPORTANT]
-> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [Custom Speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model Id** and **Language** can be found on the **Training** page of the custom speech portal. The **Model Id** and **Language** values are required to run the container.
+> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [Custom Speech portal](https://speech.microsoft.com/customspeech). The **Model ID** and **Language** values are required to run the container.
 
-From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.
+The custom speech **Model ID** and **Language** can be found on the **Training** page of the custom speech portal. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.
 
 :::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom Speech training page":::
 
-Next, copy the **Model Id** and **Language**. Use the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**.
+Use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the locale **Code**. Use the **Model ID** and the cross referenced **Code** as the locale.
 
 :::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom Speech model details":::
 
@@ -293,10 +293,10 @@ To run the *Custom Speech-to-text* container, execute the following `docker run`
 | Parameter | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\input* where the *C drive* is located on the host machine. |
-| `{MODEL_ID}` | The custom speech **Model Id** from the **Training** page. |
+| `{MODEL_ID}` | The Custom Speech **Model Id** from the **Training** page. |
 | `{MODEL_LOCALE}` | Using the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**. |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. See [gathering required parameters](#gathering-required-parameters) for more information. |
-| `{API_KEY}` | The API key is required. See [gathering required parameters](#gathering-required-parameters) for more information. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -349,8 +349,8 @@ To run the *Custom Text-to-speech* container, execute the following `docker run`
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\input* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | ... |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. See [gathering required parameters](#gathering-required-parameters) for more information. |
-| `{API_KEY}` | The API key is required. See [gathering required parameters](#gathering-required-parameters) for more information. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
