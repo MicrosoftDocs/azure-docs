@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -31,7 +31,7 @@ There are two versions of the Azure Migrate service:
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
 - **Previous version**: If you were using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. You can no longer create Azure Migrate projects using the previous version, and we recommend that you don't perform new discoveries. To access existing projects, in the Azure portal > **All services**, search for **Azure Migrate**. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
 
-## ISV tools
+## ISV integration
 
 In addition to native Microsoft tools, Azure Migrate integrates with a number of ISV offerings. You identify the tool you need, and add it to an Azure Migrate project. You can centrally track your migration journey from within the Azure Migrate project, across Azure and ISV tools.
 
