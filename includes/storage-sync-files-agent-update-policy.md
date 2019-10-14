@@ -39,7 +39,7 @@ Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
 
 You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy setting and determine if you want to change it.
 
-To change the current policy setting to the delayed update track, you can use: 
+To change the current policy setting to the delayed update track, you can use:
 ```powershell
 Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
 ```
