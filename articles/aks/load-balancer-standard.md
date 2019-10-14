@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
+ms.custom: fasttrack-edit
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -358,6 +359,18 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
+You can investigate the oubound rule created in the load balancer:
+
+```
+node_rg=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv) 
+az network lb outbound-rule list --resource-group $node_rg --lb-name kubernetes -o table
+AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
+------------------------  ----------------  ----------------------  ---------------  ----------  -------------------  -------------
+0                         True              30                      aksOutboundRule  All         Succeeded            your_node_rg  
+```
+
+As you can see in the previous table, AllocatedOutboundPorts is 0. As documented in [Load Balancer outbound rules][azure-lb-outbound-rules], this value means that SNAT port allocation reverts to automatic assignment based on backend pool size, as documented in [Outbound connections in Azure][azure-lb-outbound-connections].
+
 ## Clean up the Standard SKU load balancer configuration
 
 To remove the sample application and load balancer configuration, use [kubectl delete][kubectl-delete]:
@@ -400,10 +413,11 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview#snatports
+[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections#snat
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-
