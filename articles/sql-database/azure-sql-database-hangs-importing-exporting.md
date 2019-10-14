@@ -38,7 +38,7 @@ If your database exports are used only for recovery from accidental data deletio
   * [Microsoft.SqlServer.Dac Namespace](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Download DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
-## Things to onsider when you export or import an Azure SQL database
+## Things to consider when you export or import an Azure SQL database
 
 * All the methods discussed in this article use up the Database Transaction Unit (DTU) quota, which causes throttling by the Azure SQLDB service. You can [view the DTU stats for the database on the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#monitor-database-performance). If the database has reached its resource limits, [upgrade the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) to add more resources.
 * Ideally, you should run client applications (like the sqlpackage utility or your custom DAC application) from a VM in the same region as your SQL database. Otherwise, you might experience performance issues related to network latency.
