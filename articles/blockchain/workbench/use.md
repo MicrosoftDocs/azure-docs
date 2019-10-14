@@ -1,5 +1,5 @@
 ---
-title: Using applications in Azure Blockchain Workbench Preview
+title: Using applications in Azure Blockchain Workbench
 description: Tutorial on how to use application contracts in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 

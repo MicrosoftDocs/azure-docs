@@ -1,5 +1,5 @@
 ---
-title: Blockchain application versioning in Azure Blockchain Workbench Preview
+title: Blockchain application versioning - Azure Blockchain Workbench
 description: How to use application versions in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 

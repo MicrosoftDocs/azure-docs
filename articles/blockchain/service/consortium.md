@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Service Consortium
-description: 
+description: Understand how a private consortium works in Azure Blockchain Service.
 services: azure-blockchain
 keywords: 
 author: PatAltimore

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Blockchain Service blockchain member using the Azure portal
+title: Create an Azure Blockchain Service member using the Azure portal
 description: Use Azure Blockchain service to create a blockchain member.
 services: azure-blockchain
 keywords: 

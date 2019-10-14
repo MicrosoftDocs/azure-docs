@@ -1,5 +1,5 @@
 ---
-title: Create a blockchain application in Azure Blockchain Workbench
+title: Create a blockchain application - Azure Blockchain Workbench
 description: Tutorial on how to create a blockchain application in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 

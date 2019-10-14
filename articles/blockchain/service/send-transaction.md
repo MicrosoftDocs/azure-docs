@@ -1,5 +1,5 @@
 ---
-title: Use Visual Studio Code to create, build, and deploy smart contracts using Azure Blockchain Service
+title: Use Visual Studio Code - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
 services: azure-blockchain
 

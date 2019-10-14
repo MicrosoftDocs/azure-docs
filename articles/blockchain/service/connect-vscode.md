@@ -1,5 +1,5 @@
 ---
-title: Use Azure Blockchain Development Kit for Ethereum to connect to Azure Blockchain Service
+title: Use Azure Blockchain Development Kit for Ethereum - Azure Blockchain Service
 description: Connect to an Azure Blockchain Service consortium network using the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code
 services: azure-blockchain
 keywords: 

@@ -1,5 +1,5 @@
 ---
-title: Using Azure Blockchain Workbench Preview REST API 
+title: Using Azure Blockchain Workbench REST API 
 description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
 services: azure-blockchain
 keywords: 

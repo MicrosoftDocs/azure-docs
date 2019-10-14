@@ -1,5 +1,5 @@
 ---
-title: Smart Contract integration patterns in Azure Blockchain Workbench Preview
+title: Smart Contract integration patterns in Azure Blockchain Workbench
 description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
