@@ -94,7 +94,7 @@ The following list describes administrative considerations for each option:
 
   Because there's no need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and addressing some performance optimizations that the Azure platform might require.
 
-## Next Steps
+## Next steps
 
-* See [Azure Database for MariaDB Pricing](https://azure.microsoft.com/pricing/details/MariaDB/).
+* See [Azure Database for MariaDB pricing](https://azure.microsoft.com/pricing/details/MariaDB/).
 * Get started by [creating your first server](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
