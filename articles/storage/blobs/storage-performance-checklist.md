@@ -238,7 +238,7 @@ To copy data within the same storage account, use the [Copy Blob](/rest/api/stor
 
 ### Use AzCopy
 
-The AzCopy command-line utility is a simple and efficient option for bulk transfer of blobs to, from, and across storage accounts. AzCopy is optimized for this scenario, and can achieve high transfer rates. AzCopy version 10 uses the `Put Block From URL` operation to copy blob data across storage accounts. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).  
+The AzCopy command-line utility is a simple and efficient option for bulk transfer of blobs to, from, and across storage accounts. AzCopy is optimized for this scenario, and can achieve high transfer rates. AzCopy version 10 uses the `Put Block From URL` operation to copy blob data across storage accounts. For more information, see [Copy or move data to Azure Storage by using AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
 
 ### Use Azure Data Box
 
