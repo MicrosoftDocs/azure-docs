@@ -1,7 +1,7 @@
 ---
 title:  Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application with Standard Internal Load Balancer in Azure virtual network using Azure Powershell.
+description: This article shows how to deploy an IPv6 dual stack application with Standard Internal Load Balancer in Azure virtual network using Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.author: kumud
 ---
 
@@ -22,7 +22,20 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application in A
 > [!Important]
 > IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-The procedure to create an IPv6-capable Internal Load Balancer is nearly identical to the process for creating an Internet-facing IPv6 Load Balancer described [here](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+The procedure to create an IPv6-capable Internal Load Balancer is nearly identical to the process for creating an Internet-facing IPv6 Load Balancer described [here](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). The only differences for creating an internal load balancer are in the front-end configuration as illustrated in the PowerShell example below:
+
+```azurepowershell
+ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
+ -Name "dsLbFrontEnd_v6" `
+ -PrivateIpAddress "ace:cab:deca:deed::100" `
+ -PrivateIpAddressVersion "IPv6" `
+ -Subnet $DsSubnet
+```
+
+The changes that make the above an internal load balancer front-end configuration are:
+- The `PrivateIpAddressVersion` is specified as “IPv6”
+- The `-PublicIpAddress` argument has been either omitted or replaced with `-PrivateIpAddress`. Note that the private address must be in the range of the Subnet IP space in which the internal load balancer will be deployed. If a static `-PrivateIpAddress` is omitted, the next free IPv6 address will be selected from the subnet in which the internal load Balancer is deployed.
+- The dual stack subnet in which the internal load balancer will be deployed is specified with either a `-Subnet` or `-SubnetId` argument.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -276,7 +289,7 @@ $Ip4Config=New-AzNetworkInterfaceIpConfig `
   -LoadBalancerBackendAddressPool $backendPoolv4 `
   -PublicIpAddress  $RdpPublicIP_2
 
-# Create NIC 2
+# Create NIC 2 reusing the IPv6 configuration from NIC 1
 $NIC_2 = New-AzNetworkInterface `
   -Name "dsNIC2" `
   -ResourceGroupName $rg.ResourceGroupName `
