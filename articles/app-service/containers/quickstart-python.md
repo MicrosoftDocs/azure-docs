@@ -48,13 +48,14 @@ The repository contains an *application.py*, which tells App Service that the re
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
-# In PowerShell
+```
+```powershell
+# In Powershell (for Windows)
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
