@@ -82,12 +82,10 @@ The exact syntax of the host mount location varies depending on the host operati
 
 The Custom Speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-Custom models are downloaded the first time that a new model is ingested as part of the custom container docker run. Sequential runs of the same `ModelId` for a Custom Speech container run will use previously downloaded model, that were persisted to the volume mount.
+Custom models are downloaded the first time that a new model is ingested as part of the Custom Speech container docker run command. Sequential runs of the same `ModelId` for a Custom Speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
 
-| Container Type | Required | Name | Description |
-|----------|------|-----------|-------------|
-| Custom Speech container | Yes |   |
-| Standard Speech container | Not allowed |   |
+> [!IMPORTANT]
+> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers.
 
 ## Example docker run commands 
 
@@ -143,6 +141,9 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+-v {VOLUME_MOUNT}:/usr/local/models \
+ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -153,6 +154,9 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+-v {VOLUME_MOUNT}:/usr/local/models \
+ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -189,6 +193,9 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+-v {VOLUME_MOUNT}:/usr/local/models \
+ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -199,6 +206,9 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+-v {VOLUME_MOUNT}:/usr/local/models \
+ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
