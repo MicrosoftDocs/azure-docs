@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the visual interface'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a predictive analytics solution in Azure Machine Learning's visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
+description: Learn how to build a predictive analytics solution in the Azure Machine Learning visual interface. Train, score, and deploy a machine learning model using drag and drop modules.
 
 author: peterclu
 ms.author: peterlu
@@ -33,7 +33,7 @@ Before you deploy your pipeline as a web service, you first have to convert your
 
 1. Select **Publish** at the top of the pipeline canvas.
 
-1. Select the drop-down arrow under **PipelineEndpoint** and select **+New PipelineEndpoint**
+1. In the Setup **Pipeline Run** dialog, select the drop-down arrow next to **PipelineEndpoint** and select **+New PipelineEndpoint**
 
 1. Select **Publish**
 
@@ -52,7 +52,7 @@ Before you deploy your pipeline as a web service, you first have to convert your
 
     The **training pipeline** is still saved under the new tabs at the top of the pipeline canvas.
 
-1. **Run** the pipeline using the same pipeline you used in part 1.
+1. **Run** the pipeline using the same experiment you used in part 1.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 

@@ -81,7 +81,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. In the **Properties** pane to the right of the canvas, select **Edit column**.
 
-    In the **Select Columns** dialog, select **All columns** and include **All features**. The dialog should look like this:
+    In the **Select Columns** dialog, select **All columns** and include **All features**.
 
 1. On the lower right, select **Save** to close the column selector.
 
