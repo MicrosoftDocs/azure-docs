@@ -1,5 +1,5 @@
 ---
-title: Tutorial Decision flow on setting up the environment
+title: Tutorial Decision flow on setting up the environment for Azure API for FHIR and FHIR Server for Azure
 description: This tutorial explains how to setup the environment based on scenarios
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -13,6 +13,8 @@ ms.date: 10/13/2019
 
 # Tutorial: Decision flow on setting up the environment
 
+## Deciding how to configure the environment
+
 There are several configuration options in setting up Azure API for FHIR (PaaS) or FHIR Server for Azure (OSS), and they all come down to:
 * Are we using or plan to use SMART on FHIR?
 * Are we deploying OSS version or Managed Service (PaaS)?
@@ -20,11 +22,11 @@ There are several configuration options in setting up Azure API for FHIR (PaaS) 
 
 **If you are deploying Azure API for FHIR**
 
-<div style="text-align: center"><img src="media/tutorial-0/flow-azure-api-for-fhir.png" width="400" /></div>
+![Azure API for FHIR flow](media/tutorial-0/flow-azure-api-for-fhir.png "Azure API for FHIR flow")
 
 **If you are deploying FHIR Server for Azure (OSS version)**
 
-<div style="text-align: center"><img src="media/tutorial-0/flow-fhir-server-azure.png" width="300" /></div>
+![FHIR Server for Azure](media/tutorial-0/flow-fhir-server-azure.png "FHIR Server for Azure")
 
 ## Next steps
 
