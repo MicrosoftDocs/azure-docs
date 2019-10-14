@@ -42,12 +42,12 @@ They can also be acquired from apps running on devices that don't have a browser
 
 Applications can be categorized as in the following list:
 
-- [**Protected resources vs. client applications**](#protected-resources-vs-client-applications): Some scenarios are about protecting resources like web apps or web APIs. Other scenarios are about acquiring a security token to call a protected web API.
-- [**With users or without users**](#with-users-or-without-users): Some scenarios involve a signed-in user, but others like daemon scenarios don't involve a user.
-- [**Single-page, public client, and confidential client applications**](#single-page-public-client-and-confidential-client-applications): These are three large categories of application types. Each is used with different libraries and objects.
-- [**Sign-in audience**](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): The available authentication flows differ depending on the sign-in audience. Some flows are available only for Work or School accounts. And some are available both for Work or School accounts and for Personal Microsoft accounts. The allowed audience depends on the authentication flows.
-- [**Supported OAuth 2.0 flows**](#scenarios-and-supported-authentication-flows):  Authentication flows are used to implement the application scenarios that are requesting tokens. There isn't a one-to-one mapping between application scenarios and authentication flows.
-- [**Supported platforms**](#scenarios-and-supported-platforms-and-languages): Not all application scenarios are available for every platform.
+- [Protected resources vs. client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources like web apps or web APIs. Other scenarios are about acquiring a security token to call a protected web API.
+- [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, but others like daemon scenarios don't involve a user.
+- [Single-page, public client, and confidential client applications](#single-page-public-client-and-confidential-client-applications): These are three large categories of application types. Each is used with different libraries and objects.
+- [Sign-in audience](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): The available authentication flows differ depending on the sign-in audience. Some flows are available only for work or school accounts. And some are available both for work or school accounts and for personal Microsoft accounts. The allowed audience depends on the authentication flows.
+- [Supported OAuth 2.0 flows](#scenarios-and-supported-authentication-flows):  Authentication flows are used to implement the application scenarios that are requesting tokens. There isn't a one-to-one mapping between application scenarios and authentication flows.
+- [Supported platforms](#scenarios-and-supported-platforms-and-languages): Not all application scenarios are available for every platform.
 
 ### Protected resources vs. client applications
 
@@ -90,13 +90,13 @@ The security tokens can be acquired from multiple types of applications. These a
 
 The Microsoft identity platform endpoint supports authentication for different kinds of app architectures:
 
-- single-page apps
-- web apps
-- web APIs
-- mobile apps
-- native apps
-- daemon apps
-- server-side apps
+- Single-page apps
+- Web apps
+- Web APIs
+- Mobile apps
+- Native apps
+- Daemon apps
+- Server-side apps
 
 Applications use the different authentication flows to sign in users and get tokens to call protected APIs.
 
@@ -204,56 +204,56 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Single-page app</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">Implicit</a></td>
-   <td>Work or School accounts, Personal accounts, and Microsoft Azure Active Directory B2C (Azure AD B2C)</td>
+   <td>Work or school accounts, personal accounts, and Microsoft Azure Active Directory B2C (Azure AD B2C)</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
    <td><a href="scenario-web-app-sign-user-overview.md">A web app that signs in users</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
-   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">A web app that calls web APIs</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
-   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">A desktop app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">Authorization Code</a> with PKCE</td>
-   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td>Integrated Windows Auth</td>
-   <td>Work or School accounts</td>
+   <td>Work or school accounts</td>
  </tr>
 
   <tr>
    <td><a href="v2-oauth-ropc.md">Resource Owner Password</a></td>
-   <td>Work or School accounts and Azure AD B2C</td>
+   <td>Work or school accounts and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
-   <td>Work or School accounts</td>
+   <td>Work or school accounts</td>
  </tr>
 
  <tr>
    <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
    <td rowspan="2"><a href="scenario-mobile-overview.md">A mobile app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">Authorization Code</a> with PKCE</td>
-   <td>Work or School accounts, Personal accounts, and Azure AD B2C</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
   <tr>
    <td><a href="v2-oauth-ropc.md">Resource Owner Password</a></td>
-   <td>Work or School accounts and Azure AD B2C</td>
+   <td>Work or school accounts and Azure AD B2C</td>
  </tr>
 
   <tr>
@@ -267,7 +267,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td><a href=scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
    <td><a href=scenario-web-api-call-api-overview.md">A web API that calls web APIs</a></td>
    <td><a href="v2-oauth2-on-behalf-of-flow.md">On Behalf Of</a></td>
-   <td>Work or School accounts and Personal accounts</td>
+   <td>Work or school accounts and personal accounts</td>
  </tr>
 
  </tbody>
