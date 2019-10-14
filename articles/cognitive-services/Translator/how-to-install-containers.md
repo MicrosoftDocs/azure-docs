@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.author: dapine
 ---
 
@@ -54,7 +54,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|---------------|
 | Translator Text | 4 core, 4 GB memory | 4 |
 
-For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 3 of 4 language pairs, depending on the `<image-tag>` you're running. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 3 or 4 language pairs, depending on the `<image-tag>` you're running. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -287,7 +287,7 @@ If you run the container with an output [mount](translator-text-container-config
 
 In this article, you learned concepts and workflow for downloading, installing, and running Translator Text containers. In summary:
 
-* Translator Text provides 1 Linux container for Docker, encapsulating 4 different language pairs.
+* Translator Text provides multiple Linux containers for Docker, encapsulating various language pairs.
 * Container images are downloaded from the "Container Preview" registry.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Translator Text containers by specifying the host URI of the container.
