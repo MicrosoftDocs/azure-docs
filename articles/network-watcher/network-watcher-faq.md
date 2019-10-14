@@ -23,14 +23,14 @@ The [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/net
 ## General
 
 ### What is Network Watcher?
-Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) components which includes Virtual Machines, Virtual Networks, Application Gateways, Load balancers and other resources in an Azure virtual network. It is not a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
+Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) components, which includes Virtual Machines, Virtual Networks, Application Gateways, Load balancers, and other resources in an Azure virtual network. It is not a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
 
 ### What tools does Network Watcher provide?
 Network Watcher provides three major sets of capabilities
 * Monitoring
   * [Topology view](https://docs.microsoft.com/en-us/azure/network-watcher/view-network-topology) shows you the resources in your virtual network and the relationships between them.
   * [Connection Monitor](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) allows you to monitor connectivity and latency between a VM and another network resource.
-  * [Network performance monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits and service/application endpoints.  
+  * [Network performance monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits, and service/application endpoints.  
 * Diagnostics
   * [IP Flow Verify](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-ip-flow-verify-overview) allows you to detect traffic filtering issues at a VM level.
   * [Next Hop](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-next-hop-overview) helps you verify traffic routes and detect routing issues.
@@ -39,14 +39,14 @@ Network Watcher provides three major sets of capabilities
   * [VPN Troubleshoot](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-troubleshoot-overview) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
 * Logging
   * [NSG Flow Logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) allows you to log all traffic in your [Network Security Groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
-  * [Traffic Analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics) processes your NSG Flow Log data enabling you to visualise, query, analyse and understand your network traffic.
+  * [Traffic Analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics) processes your NSG Flow Log data enabling you to visualise, query, analyse, and understand your network traffic.
 
 
 For more detailed information, see the [Network Watcher overview page](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview).
 
 
 ### How does Network Watcher pricing work?
-Please see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) for Network Watcher components and their pricing.
+Visit the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) for Network Watcher components and their pricing.
 
 ### Which regions is Network Watcher available in?
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/en-in/global-infrastructure/services/?products=network-watcher)
@@ -54,7 +54,7 @@ You can view the latest regional availability on the [Azure Service availability
 ## NSG Flow Logs
 
 ### What does NSG Flow Logs do?
-Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview). NSG Flow Logs enables you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analysed, queried or exported as needed.
+Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analysed, queried, or exported as needed.
 
 ### Are there caveats for using NSG Flow Logs?
 There are no pre-requisites for using NSG Flow Logs. However, there are two limitations
@@ -62,13 +62,13 @@ There are no pre-requisites for using NSG Flow Logs. However, there are two limi
 
 There are two ways to fix this:
 
-*Option 1: Re-configure NSG flow logs to emit to Azure Storage account without VNET endpoints*
+*Option 1: Reconfigure NSG flow logs to emit to Azure Storage account without VNET endpoints*
 
 * Find subnets with endpoints:
 
 	- On the Azure portal, search for **Resource Groups** in the global search at the top
 	- Navigate to the Resource Group containing the NSG you are working with
-	- Use the 2nd dropdown to filter by type and select **Virtual Networks**
+	- Use the second dropdown to filter by type and select **Virtual Networks**
 	- Click on the Virtual Network containing the Service Endpoints
 	- Select **Service endpoints** under **Settings** from the left pane
 	- Make a note of the subnets where **Microsoft.Storage** is enabled
@@ -86,7 +86,7 @@ You can check the storage logs after a few minutes, you should see an updated Ti
 If the Microsoft.Storage service endpoints are a must, you will have to disable NSG Flow Logs.
 
 
-2. **Storage Accounts must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will be still be routed through Azure internally and you will not face extra egress charges.
+2. **Storage Accounts must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
 
 This issue is resolved by enabling "All networks" to access the storage account:
 
