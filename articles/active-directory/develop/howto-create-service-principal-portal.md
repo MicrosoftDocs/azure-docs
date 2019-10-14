@@ -124,7 +124,7 @@ Keep in mind, you might need to configure addition permissions on resources that
 1. Select **Add** to add the access policy, then **Save** to commit your changes.
     ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)
 
-## Permissions to register apps
+## Required permissions
 
 You must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
 
