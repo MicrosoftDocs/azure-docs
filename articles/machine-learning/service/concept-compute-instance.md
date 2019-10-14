@@ -54,6 +54,12 @@ Notebooks that you run on your instance have access to the data stores and compu
 
 When you create a compute instance, you control whether it can be shared. Each shared compute instance has its own managed identity, so you can share access without compromising your credentials. Each person who accesses the compute instance signs in with their own identity.  
 
+## Accessing files
+
+The Azure File Share account of your workspace is mounted as a drive on the compute instance.  This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio, which allows the files to be available from all compute instances.  However, writing small files is  much slower on the network drives than writing to the VM itself.  We recommended using a directory on the compute instance, such as a `/tmp` directory, when you  write small files.
+
+This makes files  shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
+
 ## Managing a compute instance
 
 In your workspace in [Azure Machine Learning studio](https://ml.azure.com), use the **Compute** section to perform the following actions on your compute instance:
