@@ -44,8 +44,8 @@ Sign in with a work account
 Agree to the terms and conditions
 Provide your publisher profile
 
-1. Register on the Partner Center enrollment page. Review the information on the [Welcome to Microsoft Partner Center enrollment](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office) page and then register for an account. 
-2 Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
+1. Register on the Partner Center enrollment page. Review the information on the [Welcome to Microsoft Partner Center enrollment](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office) page and then register for an account.
+2. Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
 
  > [!NOTE]
  > To check whether your company already has a work account, how to create a new work account, or how to set up multiple work accounts to use with Partner Center, visit Your company work account and Partner Center.
