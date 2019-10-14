@@ -13,13 +13,13 @@ ms.date: 10/09/2019
 
 # Add full text search to Azure blob data using Azure Search
 
-Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an Azure Search service. The various service limits and pricing tiers of Azure Search can be found on the [pricing page](https://aka.ms/azspricing).
+Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an [Azure Search](https://aka.ms/whatisazsearch) service. 
 
-## What is Azure Search?
-[Azure Search](https://aka.ms/whatisazsearch) is a search service that makes it easy for developers to add robust full-text search  experiences to web and mobile applications. As a service, Azure Search removes the need to manage any search infrastructure while offering a [99.9% uptime SLA](https://aka.ms/azuresearchsla).
+Azure Search has built-in integration for indexing out of Blob storage through a *Blob indexer* that adds data-source-aware capabilities to indexing.
 
-## Index and search enterprise document formats
-With support for [document extraction](https://aka.ms/azsblobindexer) in Azure Blob storage, you can index the following content:
+## Supported content types
+
+With support for [document extraction](https://aka.ms/azsblobindexer) in Azure Blob storage, an indexer can consume the following content types:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
