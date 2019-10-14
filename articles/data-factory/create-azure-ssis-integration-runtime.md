@@ -637,7 +637,7 @@ In this section, you use an Azure Resource Manager template to create the Azure-
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
     ```
 
-    This command creates your data factory and Azure-SSIS IR in it, but it does't start the IR.
+    This command creates your data factory and Azure-SSIS IR in it, but it doesn't start the IR.
 
 3. To start your Azure-SSIS IR, run the `Start-AzDataFactoryV2IntegrationRuntime` command:
 
