@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.author: magoedte
 ---
 
@@ -75,6 +75,7 @@ When a URL is specified, Azure Monitor for containers only scrapes the endpoint.
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port is not set, it will default to 9102. |
+| | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allow list of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 | Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, h. |
 | Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
@@ -154,6 +155,8 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
          - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
         ```
+	
+    If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from.  
 
 7. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
@@ -168,11 +171,17 @@ To verify the configuration was successfully applied, use the following command 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Errors related to applying configuration changes for Prometheus are also available for review.  Either from the logs from an agent pod using the same `kubectl logs` command or from live logs. Live logs show errors similar to the following:
+Errors related to applying configuration changes for Prometheus are also available for review. The following options are available to perform additional troubleshooting of configuration changes and scraping of Prometheus metrics:
 
-```
-2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
-```
+- From an agent pod logs using the same `kubectl logs` command. 
+
+- From Live logs. Live logs show errors similar to the following:
+
+    ```
+    2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
+    ```
+
+- From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Warning* severity for scrape errors and *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence and count in the last hour.
 
 Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`.
 
