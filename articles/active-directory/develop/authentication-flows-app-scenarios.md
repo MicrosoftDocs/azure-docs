@@ -77,14 +77,14 @@ The security tokens can be acquired from multiple types of applications. These a
   - Mobile apps
   - Apps running on devices that don't have a browser, like those running on iOT
 
-  These apps are represented by the MSAL [**PublicClientApplication**](msal-client-applications.md) class.
+  These apps are represented by the MSAL [PublicClientApplication](msal-client-applications.md) class.
 
 - **Confidential client applications**:
   - Web apps calling a web API
   - Web APIs calling a web API
   - Daemon apps, even when implemented as a console service like a Linux daemon or a Windows service
  
-  These types of apps use the [**ConfidentialClientApplication**](msal-client-applications.md) class.
+  These types of apps use the [ConfidentialClientApplication](msal-client-applications.md) class.
 
 ## Application scenarios
 
@@ -175,7 +175,7 @@ For more information, see [Protected web API](scenario-protected-web-api-overvie
 
 ### A web API calling another web API on behalf of a user
 
-For your ASP.NET or ASP.NET Core protected Web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. It does so by calling the **ConfidentialClientApplication** class's [**AcquireTokenOnBehalfOf**](https://aka.ms/msal-net-on-behalf-of) method. Such calls are also named service-to-services calls. The web APIs that call other web APIs need to provide custom cache serialization.
+For your ASP.NET or ASP.NET Core protected Web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. It does so by calling the **ConfidentialClientApplication** class's [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) method. Such calls are also named service-to-services calls. The web APIs that call other web APIs need to provide custom cache serialization.
 
   ![A web API calling another web API](media/scenarios/web-api.svg)
 
@@ -283,9 +283,9 @@ Microsoft Authentication libraries support multiple platforms:
 - Windows 10/UWP
 - Xamarin.iOS
 - Xamarin.Android
-- native iOS
+- Native iOS
 - macOS
-- native Android
+- Native Android
 - Java
 - Python
 
