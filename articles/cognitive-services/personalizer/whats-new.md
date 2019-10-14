@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 # What's new in Personalizer
