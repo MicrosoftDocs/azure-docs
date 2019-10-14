@@ -24,11 +24,13 @@ This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-## Set up Visual Studio and install the Speech SDK
+## Create a Visual Studio project and install the Speech SDK
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
 The Speech SDK is now installed. You may now delete or re-use the "helloworld" project you created in the previous steps.
+
+You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

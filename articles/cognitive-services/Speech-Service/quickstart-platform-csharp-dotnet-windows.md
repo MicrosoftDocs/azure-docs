@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to install the .NET framework for Windows and the Speech SDK. When finished, you can use the Speech SDK to develop .NET Framework applications.
+description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech Services SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -20,11 +20,11 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for .NET Framewo
 
 ## Prerequisites
 
-To complete this project, you'll need:
+This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-## Install the Speech SDK
+## Create a Visual Studio project and install the Speech SDK
 
 You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) so you can reference it in your code. To do that, you may first need to create a **helloworld** project. If you already have a project with the **.NET desktop development** workload available, you can use that project and skip to [Use NuGet Package Manager to install the Speech SDK](#use-nuget-package-manager-to-install-the-speech-sdk).
 
@@ -67,6 +67,8 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 1. Accept all agreements and licenses to start the installation.
 
    After the package is installed, a confirmation appears in the **Package Manager Console** window.
+
+You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

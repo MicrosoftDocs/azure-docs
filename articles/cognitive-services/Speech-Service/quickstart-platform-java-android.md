@@ -25,9 +25,11 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for Java on Andr
 
 The Speech SDK is compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
-## Install the Speech SDK using Visual Studio Code
+## Install the Speech SDK using Android Studio
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+
+You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

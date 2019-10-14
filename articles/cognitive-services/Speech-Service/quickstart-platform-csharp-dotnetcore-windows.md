@@ -32,6 +32,8 @@ This quickstart requires:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
+You can now move on to [Next steps](#next-steps) below.
+
 ## Next steps
 
 * [Quickstart: Recognize speech from a microphone]()

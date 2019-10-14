@@ -50,9 +50,11 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for 64-bit Java 
 
 * On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
 
-##  Install the Speech SDK using Visual Studio Code
+##  Create an Eclipse project and install the Speech SDK
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+
+You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

@@ -27,9 +27,11 @@ This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition)
 
-## Create a Visual Studio project
+## Create a Visual Studio project and install the Speech SDK
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+
+You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
