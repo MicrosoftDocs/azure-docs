@@ -1,11 +1,11 @@
 ---
-title: Discover applications installed on on-premises servers using Azure Migrate: Server Assessment
-description: Describes how to discover applications installed, and roles and features enabled on on-premises servers
-author: snehaamicrosoft
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 10/10/2019
-ms.author: snehaa
+title : Discover applications installed on on-premises servers using Azure Migrate: Server Assessment
+description : Describes how to discover applications installed, and roles and features enabled on on-premises servers
+author : snehaamicrosoft
+ms.service : azure-migrate
+ms.topic : article
+ms.date : 10/10/2019
+ms.author : snehaa
 ---
 
 # Discover applications, roles, and features with Azure Migrate Server Assessment
