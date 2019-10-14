@@ -129,7 +129,7 @@ Metrics are captured for query requests.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource id |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource ID |
 | metricName |string |"Latency" |the name of the metric |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |the operation's timestamp |
 | average |int |64 |The average value of the raw samples in the metric time interval |
