@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
@@ -25,6 +25,11 @@ CSP partners use Cost Management to:
 - Enable the Azure Resource Manager policy that provides customer access to Cost Management data. Customers can then view consumption cost data for their subscriptions using [pay-as-you-go rates](https://azure.microsoft.com/pricing/calculator/).
 
 All functionality available in Azure Cost Management is also available with REST APIs. Use the APIs to automate cost management tasks.
+
+## Prerequisites
+
+Azure Cost Management requires read access to your billing account or subscription. Access can be granted at any level above your resources, from the billing account or a management group down to individual resource groups where you manage your apps. In order for subscription users to see pricing and costs, access to view charges must be enabled for your billing account. For more information about enabling and assigning access to Azure Cost Management, see [Assign access to data](assign-access-acm-data.md). To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
+
 
 ## How Cost Management uses scopes
 
