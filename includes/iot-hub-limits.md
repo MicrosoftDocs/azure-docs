@@ -49,7 +49,7 @@ The following table lists the limits that apply to IoT Hub resources.
 > If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
 
 > [!NOTE]
-> Currently, the total number of devices and modules (collectively) that can be registered in a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 IoT Hub throttles requests when the following quotas are exceeded.
 
