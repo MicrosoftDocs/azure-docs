@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/14/2019
 ms.author: dapine
 ---
 
@@ -69,20 +69,20 @@ This setting can be found in the following place:
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Standard Speech containers don't use input or output mounts to store training or service data. However, Custom Speech containers rely on volume mounts.
+The Standard Speech containers don't use input or output mounts to store training or service data. However, custom speech containers rely on volume mounts.
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Standard Speech containers do not use this. Custom Speech containers use [volume mounts](#volume-mount-settings). |
+|Not allowed| `Input` | String | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings). |
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Volume mount settings
 
-The Custom Speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
+The custom speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-Custom models are downloaded the first time that a new model is ingested as part of the Custom Speech container docker run command. Sequential runs of the same `ModelId` for a Custom Speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
+Custom models are downloaded the first time that a new model is ingested as part of the custom speech container docker run command. Sequential runs of the same `ModelId` for a custom speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
 
 The volume mount setting consists of three color `:` separated fields:
 

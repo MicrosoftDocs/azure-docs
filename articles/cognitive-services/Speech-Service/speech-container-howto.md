@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/14/2019
 ms.author: dapine
 ---
 
@@ -252,9 +252,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
-
-[Examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values. Additional [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
 # [Speech-to-text](#tab/stt)
 
@@ -278,17 +276,17 @@ This command:
 # [Custom Speech-to-text](#tab/cstt)
 
 > [!IMPORTANT]
-> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [Custom Speech portal](https://speech.microsoft.com/customspeech). The **Model ID** and **Language** values are required to run the container.
+> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The **Model ID** and **Language** values are required to run the container.
 
 The custom speech **Model ID** and **Language** can be found on the **Training** page of the custom speech portal. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.
 
-:::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom Speech training page":::
+:::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom speech training page":::
 
-Use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the locale **Code**. Use the **Model ID** and the cross referenced **Code** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
+Use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the locale **Code**. Use the cross-referenced **Code** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
 
-:::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom Speech model details":::
+:::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom speech model details":::
 
-To run the *Custom Speech-to-text* container, execute the following `docker run` command replacing the parameter placeholders with your own values.
+The following table represents the various docker run parameters and their corresponding descriptions:
 
 | Parameter | Description |
 |---------|---------|
@@ -297,6 +295,8 @@ To run the *Custom Speech-to-text* container, execute the following `docker run`
 | `{MODEL_LOCALE}` | Using the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**. |
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
+
+To run the *Custom Speech-to-text* container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
