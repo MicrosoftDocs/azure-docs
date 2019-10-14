@@ -41,7 +41,7 @@ You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy s
 
 To change the current policy setting to the delayed update track, you can use:
 ```powershell
-Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
 ```
 
 To change the current policy setting to the immediate update track, you can use:
