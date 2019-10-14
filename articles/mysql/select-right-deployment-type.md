@@ -94,7 +94,7 @@ The following list describes administrative considerations for each option:
 
   Because there's no need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and addressing some performance optimizations that the Azure platform might require.
 
-## Next Steps
+## Next steps
 
 * See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/MySQL/).
 * Get started by [creating your first server](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
