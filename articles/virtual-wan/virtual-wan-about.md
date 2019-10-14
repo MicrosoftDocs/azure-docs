@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -25,14 +25,14 @@ This article provides a quick view into the network connectivity in Azure Virtua
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure, and then use this information to take required actions.
 
-## <a name="basicstandard"></a>Basic and Standard Virtual WANs
+## <a name="basicstandard"></a>Basic and Standard virtual WANs
 
-There are two types of Virtual WANs: Virtual WAN Basic and Virtual WAN Standard. The following table shows the available configurations for each type.
+There are two types of virtual WANs: Basic and Standard. The following table shows the available configurations for each type.
 
-| **Virtual WAN type** | **Hub type** | **Available configurations** |
+| **virtual WAN type** | **hub type** | **available configurations** |
 |---|---|---|
-|Virtual WAN Basic | Basic | Site-to-site VPN only |
-| Virtual WAN Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
+|Basic | Basic | Site-to-site VPN only |
+| Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
 
 To change a Basic hub to a Standard hub in the portal, navigate to **WAN ->Configuration** and edit the WAN settings.
 
@@ -42,7 +42,7 @@ To change a Basic hub to a Standard hub in the portal, navigate to **WAN ->Confi
 
 ## <a name="resources"></a>Virtual WAN resources
 
-To configure an end-to-end Virtual WAN, you create the following resources:
+To configure an end-to-end virtual WAN, you create the following resources:
 
 * **virtualWAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and cannot contain a common hub. Virtual hubs across Virtual WAN do not communicate with each other.
 
@@ -50,9 +50,9 @@ To configure an end-to-end Virtual WAN, you create the following resources:
 
   A hub gateway is not the same as a virtual network gateway that you use for ExpressRoute and VPN Gateway. For example, when using Virtual WAN, you don't create a site-to-site connection from your on-premises site directly to your VNet. Instead, you create a site-to-site connection to the hub. The traffic always goes through the hub gateway. This means that your VNets do not need their own virtual network gateway. Virtual WAN lets your VNets take advantage of scaling easily through the virtual hub and the virtual hub gateway.
 
-  **Hub-to-hub (Preview)** - Hubs are all connected to each other in a Virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
-
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
+
+  **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
@@ -68,7 +68,7 @@ Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User V
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
-When you create a Virtual WAN site-to-site connection, you can work with an available partner. If you don't want to use a partner, you can configure the connection manually. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+When you create a virtual WAN site-to-site connection, you can work with an available partner. If you don't want to use a partner, you can configure the connection manually. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 #### <a name="s2spartner"></a>Virtual WAN partner workflow
 
@@ -78,7 +78,7 @@ When you work with a Virtual WAN partner, the workflow is:
 2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure supports both IKEv1 and IKEv2. BGP is optional.
 
-#### <a name="partners"></a>Partners for site-to-site Virtual WAN connections
+#### <a name="partners"></a>Partners for site-to-site virtual WAN connections
 
 For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
