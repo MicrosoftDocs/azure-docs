@@ -29,7 +29,7 @@ This article provides a quick view into the network connectivity in Azure Virtua
 
 There are two types of virtual WANs: Basic and Standard. The following table shows the available configurations for each type.
 
-| **virtual WAN type** | **hub type** | **available configurations** |
+| **Virtual WAN type** | **Hub type** | **Available configurations** |
 |---|---|---|
 |Basic | Basic | Site-to-site VPN only |
 | Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
