@@ -13,17 +13,16 @@ ms.date: 10/09/2019
 
 # Add full text search to Azure blob data using Azure Search
 
-Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an [Azure Search](https://aka.ms/whatisazsearch) service. 
-
-Azure Search has built-in integration for indexing out of Blob storage through a *Blob indexer* that adds data-source-aware capabilities to indexing.
+Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using [Azure Search](search-what-is-azure-search.md). Azure Search has built-in integration for indexing out of Blob storage through a [*Blob indexer*](search-howto-indexing-azure-blob-storage.md) that adds data-source-aware capabilities to indexing.
 
 ## Supported content types
 
-With support for [document extraction](https://aka.ms/azsblobindexer) in Azure Blob storage, an indexer can consume the following content types:
+By running a Blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-By extracting text and metadata from these file types, you can search across multiple file formats with a single query. 
+Optionally, you can attach [AI enrichment](search-blob-ai-integration.md) in the form of a *skillset* to create new information and structure from blobs, including text representations of image files. The addition of AI enrichment expands the content types you can index, plus the quality and quantity of extractions.
+
 
 ## Search through your blob metadata
 A common scenario that makes it easy to sort through blobs of any content type is to index both custom  metadata and system properties for each blob. In this way, information for all blobs is indexed regardless of document type. You can then proceed to sort, filter, and facet across all Blob storage content.
