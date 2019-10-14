@@ -168,6 +168,12 @@ SaaS products don't transfer with the subscriptions. Ask the user to [Contact Az
 
 Some of the customer transition requests may require an additional review process with Microsoft due to the nature of the current enterprise enrollment structure of the customer. Partner will be notified of such requirements when trying to send an invite to customers. Partners are requested to work with their Partner Development Manager and Customer’s account team to complete this review process.
 
+### Azure subscription directory 
+The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship. 
+
+If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory] (https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+
 ## Check access to a Microsoft Partner Agreement
 [!INCLUDE [billing-check-mpa](../../includes/billing-check-mpa.md)]
 
