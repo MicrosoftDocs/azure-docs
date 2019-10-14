@@ -93,11 +93,13 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
 1. Enter _Sensor #1_ as the **Dataset name**.
 1. Enter the three **Values from stream** in following table:
+
     | Value name | Value type |
     | ---------- | ---------- |
     | Timestamp  | DateTime   |
     | Humidity   | Number     |
     | Temperature | Number    |
+    
 1. Switch **Historic data analysis** on.
 1. Select **Create** and then **Done**.
 1. Create two more streaming datasets called **Sensor #2** and **Sensor #3** with the same schema as the **Sensor #1** streaming dataset.
