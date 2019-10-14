@@ -109,11 +109,11 @@ Http Functions:
 Trigger the function from the command line using cURL in a new terminal window:
 
 ```CMD
-curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d Azure
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
 ```Output
-Hello Azure!
+Hello AzureFunctions!
 ```
 The [function key](functions-bindings-http-webhook.md#authorization-keys) isn't required when running locally. Use `Ctrl+C` in the terminal to stop the function code.
 
@@ -145,16 +145,31 @@ The deployment also packages the project files and deploys them to the new funct
 
 After the deployment completes, you see the URL you can use to access your function app endpoints. Because the HTTP trigger we published uses `authLevel = AuthorizationLevel.FUNCTION`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
-## Get the HTTP trigger endpoint
+## Get the HTTP trigger URL
 
-Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
+<!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
 
-> [!NOTE]
-> Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
+You can get the URL required to the trigger your function, with the function key, from the Azure portal. 
+
+1. Browse to the [Azure portal], sign in, type the _appName_ of your function app into **Search** at the top of the page, and press enter.
+ 
+1. In your function app, expand **Functions (Read Only)**, choose your function, then select **</> Get function URL** at the top right. 
+
+    ![Copy the function URL from the Azure portal](./media/functions-create-java-maven/get-function-url-portal.png)
+
+1. Choose **default (Function key)** and select **Copy**. 
+
+You can now use the copied URL to access your function.
+
+## Verify the function in Azure
+
+To verify the function app running on Azure using `cURL`, replace the URL from the sample below with the URL that you copied from the portal.
 
 ```azurecli
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
+curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
+
+This sends a POST request to the function endpoint with `AzureFunctions` in the body of the request. You see the following response.
 
 ```Output
 Hello AzureFunctions!

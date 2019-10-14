@@ -3,7 +3,7 @@ title: Connect your Java function to Azure Storage
 description: Learn how to connect an HTTP-triggered Java function to Azure Storage by using a Queue storage output binding.
 author: ggailey777
 ms.author: glenga
-ms.date: 10/02/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
@@ -13,7 +13,7 @@ manager: gwallace
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
+This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-java-maven.md) with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make this connection easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
@@ -52,7 +52,8 @@ public HttpResponseMessage run(
         HttpRequestMessage<Optional<String>> request, 
         @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
         OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
+    ...
+}
 ```
 
 ## Add code that uses the output binding
@@ -115,7 +116,18 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-[!INCLUDE [functions-storage-binding-run-local](../../includes/functions-storage-binding-run-local.md)]
+> [!NOTE]  
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+
+As before, trigger the function from the command line using cURL in a new terminal window:
+
+```CMD
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
+```
+
+This time, the output binding also creates a queue named `outqueue` in your Storage account and adds a message with this same string.
+
+Next, you use the Azure CLI to view the new queue and verify that a message was added. You can also view your queue by using the [Microsoft Azure Storage Explorer][Azure Storage Explorer] or in the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
@@ -129,10 +141,10 @@ To update your published app, run the following command again:
 mvn azure-functions:deploy
 ```
 
-Again, you can use cURL to test the deployed function. As before, append the query string `&name=<yourname>` to the URL, as in this example:
+Again, you can use cURL to test the deployed function. As before, pass the value `AzureFunctions` in the body of the POST request to the URL, as in this example:
 
 ```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
+curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 You can [examine the Storage queue message](#query-the-storage-queue) again to verify that the output binding generates a new message in the queue, as expected.
