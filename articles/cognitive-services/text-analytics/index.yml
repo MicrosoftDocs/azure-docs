@@ -67,15 +67,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#  
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#language-detection 
         - text: Using Python   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#language-detection 
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#language-detection 
         - text: Using Go   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#language-detection 
         - text: Using Ruby   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby 
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#language-detection 
     - linkListType: how-to-guide
       links:
         - text: Language detection
@@ -86,15 +86,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#key-phrase-extraction
         - text: Using Python   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#key-phrase-extraction
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#key-phrase-extraction
         - text: Using Go   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#key-phrase-extraction
         - text: Using Ruby   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#key-phrase-extraction
     - linkListType: how-to-guide
       links:
         - text: Keyword extraction
@@ -105,15 +105,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#entity-recognition
         - text: Using Python   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#entity-recognition
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#entity-recognition
         - text: Using Go   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#entity-recognition
         - text: Using Ruby   
-          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#entity-recognition
     - linkListType: how-to-guide
       links:
         - text: Entity recognition
