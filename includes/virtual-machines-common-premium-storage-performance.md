@@ -287,15 +287,15 @@ Some of the versions require the latest Linux Integration Services (LIS), v4.0, 
 
 | Distribution | Version | Supported kernel | Details |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ or newer| Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ or newer | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ or newer| &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+ or newer| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ or newer| &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ or newer| CoreOS 584.0.0 |
+| Ubuntu | 12.04 or newer| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 or newer| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x or newer| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 or newer| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 or newer| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+ or newer| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
 | CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |
 | Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
