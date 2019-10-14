@@ -54,7 +54,6 @@ In the dialog boxes that follow, make the following selections.
     1. Choose your home directory to put the project in. This step creates a helloworld directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK on the project settings screen.
-
             1. On the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework by selecting **Add embedded binaries** > **Add other**. Go to your home directory and select the file `MicrosoftCognitiveServicesSpeech.framework`. This action adds the SDK library to the header **Linked Framework and Libraries** automatically.
         ![Added framework](media/sdk/qs-objectivec-framework.png)
             1. Go to the **Build Settings** tab, and select the **All** setting.
