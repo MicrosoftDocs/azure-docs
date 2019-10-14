@@ -173,7 +173,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 Create a Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named *myInternalLoadBalancer* using the IPv4 and IPv6 frontend IP configurations, backend pools, and load-balancing rules that you created in the preceding steps:
 
-```azurepowershell-interactive
+```azurepowershell
 $lb = New-AzLoadBalancer  `
   -ResourceGroupName $rg.ResourceGroupName  `
   -Location $rg.Location  `
@@ -193,7 +193,7 @@ To improve the high availability of your application, place your VMs in an avail
 
 Create an availability set with [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). The following example creates an availability set named *dsAVset*:
 
-```azurepowershell-interactive
+```azurepowershell
 $avset = New-AzAvailabilitySet `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
@@ -303,13 +303,13 @@ $NIC_2 = New-AzNetworkInterface `
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```azurepowershell-interactive
+```azurepowershell
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VM's"
 ```
 
-Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. 
+Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist.
 
-```azurepowershell-interactive
+```azurepowershell
 $vmsize = "Standard_A2"
 $ImagePublisher = "MicrosoftWindowsServer"
 $imageOffer = "WindowsServer"
@@ -339,7 +339,7 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name dsStd_ILB_RG
 ```
 
