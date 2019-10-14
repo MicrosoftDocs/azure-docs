@@ -296,4 +296,4 @@ armclient post /subscriptions/66bada28-271e-4b7a-aaf5-c0ead63923d7/providers/mic
 
 ## Next steps
 - [Start analyzing costs](quick-acm-cost-analysis.md) in Cost Management
-- [Create and manage budgets](tutorial-acm-create-budgets) in Cost Management
+- [Create and manage budgets](tutorial-acm-create-budgets.md) in Cost Management
