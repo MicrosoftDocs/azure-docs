@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
+title: Monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics) | Microsoft Docs
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
@@ -7,8 +7,8 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: raynew
----
 
+---
 # Monitor Site Recovery with Azure Monitor Logs
 
 This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md), and [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
@@ -22,7 +22,8 @@ For Site Recovery, you can Azure Monitor Logs to help you do the following:
 
 Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication, and **VMware VM/physical server to Azure** replication.
 
->[!NOTE] The churn data logs and upload rate logs are only available for Azure VMs replicating to a secondary Azure region.
+> [!NOTE] 
+> The churn data logs and upload rate logs are only available for Azure VMs replicating to a secondary Azure region.
 
 ## Before you start
 
