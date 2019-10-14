@@ -460,4 +460,4 @@ You can explore additional scenarios using the [Istio Bookinfo Application examp
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[istio-install]: ./istio-install.md
+[istio-install]: ./servicemesh-istio-install.md

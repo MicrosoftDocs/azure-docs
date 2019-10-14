@@ -395,5 +395,5 @@ To learn how to monitor your AKS application using Application Insights and Isti
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[istio-scenario-routing]: ./istio-scenario-routing.md
+[istio-scenario-routing]: ./servicemesh-istio-scenario-routing.md
 [helm-install]: ./kubernetes-helm.md
