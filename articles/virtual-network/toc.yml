@@ -110,7 +110,7 @@
         - name: Resource Manager template
           href: ipv6-configure-standard-load-balancer-template-json.md
       - name: Standard Internal Load Balancer
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+        href: ipv4-ipv6-dual-stack-standard-internal-load-balancer-powershell.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
