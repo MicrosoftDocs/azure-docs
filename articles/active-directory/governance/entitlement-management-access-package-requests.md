@@ -1,6 +1,6 @@
 ---
-title: View requests for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to view requests for an access package in Azure Active Directory entitlement management (Preview).
+title: View and manage requests for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to view, reprocess, and cancel requests for an access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# View requests for an access package in Azure AD entitlement management (Preview)
+# View and manage requests for an access package in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for access packages.
+In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view, reprocess, and cancel requests for an access packages.
 
 ## View requests
 
@@ -62,6 +62,24 @@ In Azure AD entitlement management, you can see who has requested access package
 
 1. Click the count to see all of the request's delivery errors.
 
+## Reprocess a request
+
+If a request encounters an error, you can reprocess the request to try it again. You can only reprocess requests that has a status of failed or partially delivered and have a completed date of less than a week.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Requests**.
+
+1. Click the request you want to reprocess.
+
+1. In the request details pane, click **Reprocess request**.
+
+    ![Reprocess a failed request](./media/entitlement-management-access-package-requests/reprocess-request.png)
+
 ## Cancel a pending request
 
 You can only cancel a pending request that has not yet been delivered.
@@ -74,7 +92,7 @@ You can only cancel a pending request that has not yet been delivered.
 
 1. Click **Requests**.
 
-1. Click the request you want to cancel
+1. Click the request you want to cancel.
 
 1. In the request details pane, click **Cancel request**.
 
