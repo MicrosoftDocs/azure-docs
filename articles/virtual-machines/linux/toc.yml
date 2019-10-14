@@ -110,8 +110,8 @@
         href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: VM instance size flexibility
         href: reserved-vm-instance-size-flexibility.md
-    - name: Low-priority VMs
-      href: low-priority-vms.md
+    - name: Spot VMs
+      href: spot-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Isolated sizes
@@ -181,14 +181,14 @@
         href: dedicated-hosts-cli.md
       - name: Portal
         href: dedicated-hosts-portal.md
-    - name: Deploy low-priority VMs
+    - name: Deploy spot VMs
       items:
       - name: CLI
-        href: low-priority-cli.md
+        href: spot-cli.md
       - name: Template
-        href: low-priority-template.md
+        href: spot-template.md
       - name: Error codes
-        href: ../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Secure VMs
     items:
     - name: Recommendations

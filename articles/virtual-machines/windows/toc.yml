@@ -109,8 +109,8 @@
         href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: VM instance size flexibility
         href: reserved-vm-instance-size-flexibility.md
-    - name: Low-priority VMs
-      href: low-priority-vms.md
+    - name: Spot VMs
+      href: spot-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md  
       displayName: D-series Ds-series A-series Basic      
@@ -170,14 +170,14 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: dedicated-hosts-portal.md
-      - name: Deploy low-priority VMs
+      - name: Deploy spot VMs
         items:
         - name: PowerShell
-          href: low-priority-powershell.md
+          href: spot-powershell.md
         - name: Template
-          href: ../linux/low-priority-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Error codes
-          href: ../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk

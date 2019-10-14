@@ -15581,6 +15581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-cli-quick-create-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
       "redirect_document_id": false
