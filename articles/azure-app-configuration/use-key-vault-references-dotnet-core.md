@@ -51,8 +51,8 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 3. From the results list, select **Key Vault**.
 4. In the **Key Vault** section, select **Create**.
 5. In the **Create key vault** section, provide the following information:
-    - **Name**: A unique name is required. For this quickstart, enter **Contoso-vault2**.
-    - **Subscription**: Choose a subscription.
+    - A unique name is required. In the **Name** box, enter **Contoso-vault2**.
+    - In **Subscription**, choose a subscription.
     - Under **Resource Group**, select **Create new** and enter a resource group name.
     - In the **Location** drop-down menu, choose a location.
     - Leave the other options with their default values.
@@ -64,11 +64,12 @@ At this point, your Azure account is the only one authorized to access this new 
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message** and we store the value of **Hello from Key Vault** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message** and you store the value of **Hello from Key Vault** in it.
 
 1. On the **Key Vault** properties pages, select **Secrets**.
 1. Select **Generate/Import**.
 1. In the **Create a secret** window, enter the following values:
+    - **Upload options**: Enter **manual**.
     - **Name**: Enter **Message**.
     - **Value**: Enter **Hello from Key Vault**.
 1. Leave the other properties with their default values.
@@ -136,7 +137,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-1. Update the **CreateWebHostBuilder** method to use App Configuration by calling the **config.AddAzureAppConfiguration** method. Include the **UseAzureKeyVault** option, passing in a new **KeyVaultClient** reference to your Key Vault.
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `UseAzureKeyVault` option, passing in a new `KeyVaultClient` reference to your Key Vault.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -159,7 +160,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
             .UseStartup<Startup>();
     ```
 
-1. After you've passed the **KeyVaultClient** reference to the **UseAzureKeyVault** method when initializing the connection to App Configuration, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys. To see this process in action, open *Index.cshtml* in the **Views** > **Home** directory. Replace its content with the following code:
+1. After you've passed the `KeyVaultClient` reference to the `UseAzureKeyVault` method when initializing the connection to App Configuration, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys. To see this process in action, open *Index.cshtml* in the **Views** > **Home** directory. Replace its contents with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -210,4 +211,3 @@ In this tutorial, you added an Azure managed service identity to streamline acce
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
- 
