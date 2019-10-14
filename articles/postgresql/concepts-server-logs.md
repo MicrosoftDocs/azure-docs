@@ -39,7 +39,7 @@ You can set the retention period for this short-term log storage using the `log_
 
 For longer-term retention of logs and log analysis, you can download the .log files and move them to a third-party service. You can download the files using the [Azure portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Alternatively, you can configure Azure Monitor diagnostic settings which automatically emits your logs (in JSON format) to longer-term locations. Learn more about this option in the section below. 
 
-You can turn off .log file collection by setting the parameter `logging_collector` to OFF. Turning off .log file collection is recommended if you are using Azure Monitor diagnostic settings. This configuration will reduce the performance impact of additional logging.
+You can stop generating .log files by setting the parameter `logging_collector` to OFF. Turning off .log file generation is recommended if you are using Azure Monitor diagnostic settings. This configuration will reduce the performance impact of additional logging.
 
 ## Diagnostic logs
 Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settings. Diagnostic settings allows you to send your Postgres logs in JSON format to Azure Monitor Logs for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving. 
@@ -64,9 +64,9 @@ To enable Diagnostic logs using Powershell, CLI, or REST API, visit the [diagnos
 
 ### Access diagnostic logs
 
-The way you access the logs depends on which endpoint you choose. For Azure Storage, the schema is described in the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs) article.
+The way you access the logs depends on which endpoint you choose. For Azure Storage, the schema is described in the [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
 
-For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/log-query/log-query-overview) overview.
+For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../azure-monitor/log-query/log-query-overview.md) overview.
 
 The following are queries you can try to get started. You can configure alerts based on queries.
 
