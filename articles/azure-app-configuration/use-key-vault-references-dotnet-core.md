@@ -28,17 +28,17 @@ Your application is responsible for authenticating properly to both App Configur
 
 This tutorial shows how you can implement Key Vault references in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available for the Windows, macOS, and Linux platforms.
+You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent cross-platform app that's available for the Windows, macOS, and Linux operating systems.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an App Configuration key that references a value stored in Key Vault
-> * Access the value of this key from an ASP.NET Core web application
+> * Create an App Configuration key that references a value stored in Key Vault.
+> * Access the value of this key from an ASP.NET Core web application.
 
 ## Prerequisites
 
-To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
+Before you start this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,16 +47,16 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 1. Select the **Create a resource** option in the upper left corner of the Azure portal
 
     ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
-2. Go to Search and enter **Key Vault**.
-3. From the results list, select **Key Vault**.
-4. In the **Key Vault** section, select **Create**.
-5. In the **Create key vault** section, provide the following information:
+1. Go to Search and enter **Key Vault**.
+1. From the results list, select **Key Vault**.
+1. In the **Key Vault** section, select **Create**.
+1. In the **Create key vault** section, provide the following information:
     - A unique name is required. In the **Name** box, enter **Contoso-vault2**.
     - In **Subscription**, choose a subscription.
     - Under **Resource Group**, select **Create new** and enter a resource group name.
     - In the **Location** drop-down menu, choose a location.
-    - Leave the other options with their default values.
-6. After providing the preceding information, select **Create**.
+1. Leave the other **Create key vault** options with their default values.
+1. Select **Create**.
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
@@ -72,7 +72,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     - **Upload options**: Enter **manual**.
     - **Name**: Enter **Message**.
     - **Value**: Enter **Hello from Key Vault**.
-1. Leave the other properties with their default values.
+1. Leave the other **Create a secret** properties with their default values.
 1. Select **Create**.
 
 ## Add a Key Vault reference to App Configuration
