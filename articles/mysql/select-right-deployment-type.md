@@ -84,7 +84,7 @@ The following list describes administrative considerations for each option:
 
   Additionally, configuring high availability to another data center requires minimal to no configuration or administration.
 
-* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see Virtual Machine and Cloud Service Sizes for Azure.
+* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual Machine and Cloud Service Sizes for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### Time to move to Azure
 
