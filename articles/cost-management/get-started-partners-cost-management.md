@@ -19,7 +19,7 @@ Azure Cost Management is natively available for partners who have onboarded thei
 CSP partners use Cost Management to:
 
 - Understand invoiced costs and associate the costs to the customer, subscriptions, resource groups, and services.
-- Get an intuitive view of Azure costs in [cost analysis](quick-acm-cost-analysis.md) with capabilities to analyze costs by customer, subscription, resource group, resource, meter, service and many other dimensions.
+- Get an intuitive view of Azure costs in [cost analysis](quick-acm-cost-analysis.md) with capabilities to analyze costs by customer, subscription, resource group, resource, meter, service, and many other dimensions.
 - View resource costs that have Partner Earned Credit (PEC) applied in Cost Analysis.
 - Set up notifications and automation using programmatic [budgets](tutorial-acm-create-budgets.md) and alerts when costs exceed budgets.
 - Enable the Azure Resource Manager policy that provides customer access to Cost Management data. Customers can then view consumption cost data for their subscriptions using [pay-as-you-go rates](https://azure.microsoft.com/pricing/calculator/).
@@ -28,7 +28,7 @@ All functionality available in Azure Cost Management is also available with REST
 
 ## How Cost Management uses scopes
 
-Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use RBAC. To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as billing scopes and RBAC scopes, respectively.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from scopes used for resource management, which use RBAC. To clearly distinguish the intent of the separate scopes, including the access control differences, they are referred to as billing scopes and RBAC scopes, respectively.
 
 To understand billing scopes and RBAC scopes and how cost management works with scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
@@ -54,7 +54,7 @@ Use the billing profile scope to view pre-tax costs in the billing currency acro
 
 After you onboard customers to a Microsoft Customer Agreement, you receive a customer invoice that shows charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations. When billed in the same billing currency, the invoice also shows customer charges that aren't included in the new Microsoft Customer Agreement.
 
-To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for all your customers. Like the invoice, the scope shows costs for all customers in the new Microsoft Customer Agreement. The scope also shows all charges for customer entitlement products still in the current CSP offer.
+To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new Microsoft Customer Agreement. The scope also shows every charge for customer entitlement products still in the current CSP offer.
 
 The billing profile and billing account scopes are the only ones that show charges for entitlement and purchase-based products.
 
@@ -87,7 +87,7 @@ Only the users with **Global admin** and **Admin agent** roles can manage and vi
 
 Partners may enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at RBAC subscription and resource groups scopes.
 
-When the policy for cost visibility is enabled by the partner, any user with ARM access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate RBAC access to the Azure subscriptions can view cost.
+When the policy for cost visibility is enabled by the partner, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate RBAC access to the Azure subscriptions can view cost.
 
 Regardless of the policy, partners can also view the costs if they have access to the subscription and resource group.
 
@@ -95,7 +95,7 @@ Regardless of the policy, partners can also view the costs if they have access t
 
 Partners use the following information to enable to the policy to view Azure usage charges for their customers.
 
-In the Azure Portal, sign in to the partner tenant and click **Cost Management + Billing**. Select a billing account and then click **Customers**.The list of customers is associated with the billing account.
+In the Azure portal, sign in to the partner tenant and click **Cost Management + Billing**. Select a billing account and then click **Customers. The list of customers is associated with the billing account.
 
 In the list of customers, select the customer that you want to allow to view costs.
 
@@ -106,7 +106,7 @@ Under **Settings**, click **Policies**.
 The current cost visibility policy is shown for **Azure Usage** charges associated to the subscriptions for the selected customer.
 ![Policy to allow customers to view pay-as-you-go charges](./media/get-started-partners-cost-management/cost-management-billing-policies.png)
 
-When the policy is set to **No**, Azure Cost Management isn't available for subscription users associated to the customer. Unless specifically enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
+When the policy is set to **No**, Azure Cost Management isn't available for subscription users associated to the customer. Unless enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
 
 When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see usage charges at pay-as-you go rates.
 
@@ -136,7 +136,7 @@ Partners can explore and analyze costs in cost analysis across customers for a s
 | PartnerTenantID | Identifier for the partner's Azure Active Directory tenant | Partner Azure Active Directory TenantID called as Partner ID. In GUID format. |
 | PartnerName | Name of the partner Azure Active Directory tenant | Partner name |
 | CustomerTenantID | Identifier of the Azure Active Directory tenant of the customer's subscription | Customer's organization ID. For example, Customer Azure Active Directory TenantID. |
-| CustomerName | Name of the Azure Active Directory tenant where the customer's subscription resides | Customer's organization name, as reported in Partner Center. Important for reconciling the invoice with your system information. |
+| CustomerName | Name of the Azure Active Directory tenant containing the customer's subscription | Customer's organization name, as reported in Partner Center. Important for reconciling the invoice with your system information. |
 | ResellerMPNID | MPNID for the reseller associated with the subscription | MPN ID of the reseller of record for the subscription. Not available for current activity. |
 | subscription ID | Unique Microsoft-generated identifier for the Azure subscription | N/A |
 | subscriptionName | Name of the Azure subscription | N/A |
@@ -152,11 +152,11 @@ In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save view
 
 In Azure Cost Management, partners can cost analysis to view costs that received the PEC benefits.
 
-In the Azure Portal, sign in to the partner tenant and select **Cost Management + Billing**. Under **Cost Management**, click **Cost analysis**.
+In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Under **Cost Management**, click **Cost analysis**.
 
 The Cost analysis view shows costs of the billing account for the partner. Select the **Scope** as needed for the partner, a specific customer, or a billing profile to reconcile invoices.
 
-In a dognut chart, click the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
+In a donut chart, click the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
 
 ![Example showing how to view partner-earned credit](./media/get-started-partners-cost-management/cost-analysis-pec1.png)
 
@@ -286,7 +286,7 @@ armclient post "/providers/Microsoft.Billing/billingAccounts/ec1b88ba-5681-517e-
 
 ### Azure Cost Management APIs for customers
 
-Customers use the following information to access the APIs. To get started, log in as user.
+Customers use the following information to access the APIs. To get started, log in as a user.
 
 #### To get or download Azure consumption usage information with retail rates
 
