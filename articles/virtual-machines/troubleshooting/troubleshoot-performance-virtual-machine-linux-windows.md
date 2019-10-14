@@ -25,7 +25,7 @@ This article describes virtual machine (VM) generic performance troubleshooting 
 
 ### Azure IAAS virtual machine monitoring
 
-To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource). If you see the following, then you most likely don't have the diagnostics enabled:
+To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). If you see the following, then you most likely don't have the diagnostics enabled:
 
 ![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  

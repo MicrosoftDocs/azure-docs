@@ -133,7 +133,7 @@ For information about passing PSCredentials as parameters, see [Credential Asset
 
 **Composite Resources** allow you to use DSC configurations as nested resources inside of a
 configuration. This enables you to apply multiple configurations to a single resource. See
-[Composite resources: Using a DSC configuration as a resource](/powershell/dsc/authoringresourcecomposite)
+[Composite resources: Using a DSC configuration as a resource](/powershell/scripting/dsc/resources/authoringresourcecomposite)
 to learn more about **Composite Resources**.
 
 > [!NOTE]

@@ -54,7 +54,7 @@ let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v2.0/generateThumbnail';
+var uriBase = endpoint + 'vision/v2.1/generateThumbnail';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';

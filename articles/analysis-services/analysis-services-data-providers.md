@@ -2,10 +2,9 @@
 title: Client libraries required for connecting to Azure Analysis Services | Microsoft Docs
 description: Describes client libraries required for client applications and tools to connect Azure Analysis Services
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -19,10 +18,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.1.25    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.1.25       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.5.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.5.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.9.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.9.0     |
 
 ## AMO and ADOMD (NuGet packages)
 
@@ -30,8 +29,8 @@ Analysis Services Management Objects (AMO) and ADOMD client libraries are availa
 
 |Package  | Product version  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.5     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.5      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
 NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 
