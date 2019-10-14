@@ -4,7 +4,7 @@ description: Describes how to use throttling with Azure Resource Manager request
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 This article helps you understand how Azure Resource Manager throttles requests. It shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you've reached the limit.
 
-Throttling happens at many different levels. The following image shows where throttling can happen.
+Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. The resource provider throttles requests for its operations. The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.
 
 ![Request throttling](./media/resource-manager-request-limits/request-throttling.svg)
 
@@ -59,6 +59,8 @@ These limits can be increased.
 
 For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
 
+For checking virtual machine instances within a virtual machine scale set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
+
 ### Azure Resource Graph throttling
 
 Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
@@ -82,9 +84,7 @@ You can determine the number of remaining requests by examining response headers
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
 
-Typically, you get the 429 response when you have exceeded one of the default limits for Azure Resource Manager. However, some resource providers return 429 to report a temporary problem. The problem could be an overload problem that isn't directly related to the your request. Or, it could represent a temporary error about the state of the target resource or dependent resource. For example, the network resource provider may return 429 with **RetryableErrorDueToAnotherOperation** error code in the response body when the target resource is locked by another ongoing operation. The error details in the response body identity the nature of the error.
-
-For details about throttling errors with compute resources, see [Throttling error details](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#throttling-error-details).
+Some resource providers return 429 to report a temporary problem. The problem could be an overload condition that isn't directly caused by your request. Or, it could represent a temporary error about the state of the target resource or dependent resource. For example, the network resource provider returns 429 with the **RetryableErrorDueToAnotherOperation** error code when the target resource is locked by another operation. To determine if the error comes from throttling or a temporary condition, view the error details in the response.
 
 ## Retrieving the header values
 
@@ -181,10 +181,6 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
-
-## Waiting before sending next request
-
-When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. 
 
 ## Next steps
 
