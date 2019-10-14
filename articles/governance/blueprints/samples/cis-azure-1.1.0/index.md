@@ -18,17 +18,18 @@ recommendations.
 ## Recommendation mapping
 
 The recommendation mapping section provides details on policies included within this blueprint and
-how these policies address various recommendations in the CIS Microsoft Azure Foundations Benchmark.
-When assigned to an architecture, resources are evaluated by Azure Policy for non-compliance with
-assigned policies. For more information, see [Azure Policy](../../../policy/overview.md).
+how these policies address various recommendations in the CIS Microsoft Azure Foundations Benchmark
+v1.1.0. When assigned to an architecture, resources are evaluated by Azure Policy for non-compliance
+with assigned policies. For more information, see [Azure Policy](../../../policy/overview.md).
 
 ## Next steps
 
 You've reviewed the overview and of the CIS Microsoft Azure Foundations Benchmark blueprint sample.
-Next, visit the following article to learn about the recommendation mapping:
+Next, visit the following articles to learn about the recommendation mapping:
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping](./control-mapping.md)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 
