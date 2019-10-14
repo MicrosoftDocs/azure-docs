@@ -100,18 +100,19 @@ Your add-in should have three states:
 
 For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
 
-## Piloting your SaaS offer
+## Testing your SaaS offer
 
-You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+To test your integration, you should submit an offer to a private audience for $0 as a test in order to ensure the end to end process is working. A private plan makes your offer visible only to a restricted audience of your choosing.
+Once you're happy with this, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
 ## Submission process for SaaS offer + add-in
-You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
+Firstly, you should submit your SaaS offer to Partner Center as a private plan (ensuring that a customer does not purchase your SaaS without the add-in available). Once this has been approved, it will be assigned a GUID. You should submit your add-in to Seller Dashboard with this GUID in the test notes, as well as test accounts (admin + non-admin). Once your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
 
 ![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
 ## Customer experience
 
-A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment detials to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
+A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
 
 ![Diagram of the user workflow to acquire a SaaS app with an associated free add-in](images/monetization-customer-flow-diagram.png)
 
