@@ -278,11 +278,11 @@ This command:
 > [!IMPORTANT]
 > The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The **Model ID** and **Language** values are required to run the container.
 
-The custom speech **Model ID** and **Language** can be found on the **Training** page of the custom speech portal. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.
+The custom speech **Model ID** and **Language** can be found on the **Training** page of the custom speech portal. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.<br>
 
 :::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom speech training page":::
 
-Use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the locale **Code**. Use the cross-referenced **Code** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
+Use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the locale **Code**. Use the cross-referenced **Code** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.<br>
 
 :::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom speech model details":::
 
