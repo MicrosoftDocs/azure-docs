@@ -6,13 +6,13 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.author: cherylmc
 
 ---
 # Configure a custom IPsec policy for Virtual WAN using the portal
 
-You can configure custom IPsec policy for Virtual WAN in the Azure portal. Custom policies are helpful when you want to **Reshmi to add second part of sentence**.
+You can configure custom IPsec policy for Virtual WAN in the Azure portal. Custom policies are helpful when you want both sides (on-premises and Azure VPN gateway) to use the same settings for IKE Phase 1 and IKE Phase 2.
 
 ## Working with custom policies
 
