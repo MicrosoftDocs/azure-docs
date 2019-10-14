@@ -20,6 +20,7 @@ Learn what's new in the service. These items may include release notes, videos, 
 ### November 2019 - Ignite Conference
 
 * Personalizer is generally available (GA)
+* Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) with entire lifecycle
 
 ### May 6, 2019 - //Build Conference
 
