@@ -2,7 +2,7 @@
 
 title: What is Azure NAT service?
 titlesuffix: Azure NAT
-description: Overview of Azure NAT service features, architecture, and implementation. Learn how the NAT service works and how to utilize it in the cloud.
+description: Overview of Azure NAT service features, architecture, and implementation. Learn how the NAT service works and how to use it in the cloud.
 services: nat
 documentationcenter: na
 author: asudbring
@@ -20,7 +20,7 @@ ms.author: allensu
 
 # What is Azure NAT service (Public Preview)
 
-You can use NAT service to provide outbound connectivity to public IP address destinations for all virtual machines on your virtual network. NAT service can accommodate different kinds of workloads by providing translations on demand without preplanning per instance demand.
+You can use Azure NAT service to provide outbound connections for public IP address destinations for all virtual machines on your virtual network. NAT service can accommodate different kinds of workloads by providing translations on demand without preplanning per instance demand.
 
 You can define which subnets of a virtual network should use NAT service. You can scale outbound connectivity with one or more IP addresses. And you can tune the idle timeout from 4 to 120 minutes. NAT service will also always send TCP Resets when inactive connections are reused as would be the case after idle timeout has been reached. 
 
