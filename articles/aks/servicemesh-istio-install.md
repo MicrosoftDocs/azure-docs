@@ -139,7 +139,7 @@ Before we can install the Istio components, we must create the secrets for both 
 
 ### Install Istio components
 
-Now that we've successfully created the Grafana and Kiali secrets in our AKS cluster, it's time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster. Use the appropriate commands for your environment.
+Now that we've successfully created the Grafana and Kiali secrets in our AKS cluster, it's time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster. 
 
 > [!NOTE]
 > **Installation options**
