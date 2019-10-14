@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
@@ -28,7 +28,7 @@ This article shows you how to create a new Azure Active Directory (Azure AD) app
 
 ## Create an Azure Active Directory application
 
-Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#required-permissions) to make sure your account can create the identity.
+Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#permissions-to-register-apps) to make sure your account can create the identity.
 
 1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory**.
@@ -116,7 +116,7 @@ If you choose not to use a certificate, you can create a new application secret.
 
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
-## Required permissions
+## Permissions to register apps
 
 You must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
 
