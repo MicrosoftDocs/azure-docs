@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -33,7 +33,7 @@ Once the LUIS app is published, a client application sends utterances (text) to 
 |Step|Action|
 |:--|:--|
 |1|The client application sends the user _utterance_ (text in their own words), "I want to call my HR rep." to the LUIS endpoint as an HTTP request.|
-|2|LUIS applies your learned model to the user's natural language text to provide intelligent understanding about the user input. LUIS returns a JSON-formatted response, with a top intent, "HRContact". The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the _Contact Type_ entity.|
+|2||LUIS enables you to craft your custom language models to add intelligence to your application. Machine learned language models take the user's unstructured input text and returns a JSON-formatted response, with a top intent, `HRContact`. The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the _Contact Type_ entity.|
 |3|The client application uses the JSON response to make decisions about how to fulfill the user's requests. These decisions can include decision tree in the bot framework code and calls to other services. |
 
 The LUIS app provides intelligence so the client application can make smart choices. LUIS doesn't provide those choices. 
@@ -47,7 +47,7 @@ Your LUIS app contains a domain-specific natural language model. You can start t
 
 * **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly.
 
-* **Custom model** LUIS gives you several ways to identify your own custom model including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ## Build the LUIS model
 Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the [LUIS portal](https://www.luis.ai).
