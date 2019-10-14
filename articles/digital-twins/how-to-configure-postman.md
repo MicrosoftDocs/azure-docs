@@ -1,13 +1,13 @@
 ---
 title: 'How to configure Postman for Azure Digital Twins | Microsoft Docs'
 description: How to configure Postman for Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -117,7 +117,8 @@ After completing the previous steps, configure Postman to make an authenticated 
    [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
-1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
+1. Under the **Body** tab, select `form-data`. 
+1. Add each file by assigning a **key** name, selecting `file`.
 1. Then, select each file through the **Choose File** button.
 
    [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

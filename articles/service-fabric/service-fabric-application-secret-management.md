@@ -52,7 +52,7 @@ Specify an encrypted [environment variable][environment-variables-link] in your 
 </CodePackage>
 ```
 
-The secrets can also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretsCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
+The secrets should also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretsCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
 
 ```xml
 <ApplicationManifest … >

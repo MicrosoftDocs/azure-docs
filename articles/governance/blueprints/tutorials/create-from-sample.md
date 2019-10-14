@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
 ---
 # Tutorial: Create an environment from a blueprint sample
 

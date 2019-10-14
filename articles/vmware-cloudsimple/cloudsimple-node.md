@@ -36,7 +36,7 @@ The following types of nodes are available for purchase or reservation.
 | CPU           | 2x2.2 GHz, 28 Cores (56 HT) | 2x2.3 GHz, 36 Cores (72 HT) | 2x2.3 GHz, 36 Cores (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Cache Disk    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |
-| Capacity Disk | 5.625 TB Raw                | 11.25 TB Raw                | 13.36 TB Raw                |
+| Capacity Disk | 5.625 TB Raw                | 11.25 TB Raw                | 15.36 TB Raw                |
 | Storage Type  | All Flash                   | All Flash                   | All Flash                   |
 
 ## Limits

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/07/2019
 ms.author: magoedte
 ---
 
@@ -48,7 +48,7 @@ The agent for Linux and Windows isn't only for connecting to Azure Monitor, it a
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 * Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
 
 >[!NOTE]
