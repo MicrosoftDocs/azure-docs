@@ -25,14 +25,6 @@
       href: ../iot-central/tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 4 - Monitor your devices
       href: ../iot-central/tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-    - name: Retail
-      items:
-        - name: 1 - Create a retail application
-          href: ../iot-central/tutorial-condition-monitor-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: 2 - Customize the dashboard
-          href: ../iot-central/tutorial-condition-monitor-customize-dashboard-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: 3 - Visualize Insights
-          href: ../iot-central/tutorial-condition-monitor-export-data-visualize-insights-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Concepts
   items:
     - name: Architecture
@@ -94,7 +86,7 @@
         - name: Manage users and roles
           href: ../iot-central/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Configure role-based access controls
-          href: ../iot-central/howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
+          href: ../iot-central/howto-configure-rbac-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: View your bill
           href: ../iot-central/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Customize application UI
