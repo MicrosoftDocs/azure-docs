@@ -23,12 +23,12 @@ To delete one of your reserved names, find the name you no longer want to use an
 Note that your solution must have at least one reserved name. 
 
 ## Remove a draft solution
-To remove a draft solution from Partner Center (and release all the names you've reserved), select **Delete** on the **Add-in setup** page. Note that if you've already published your solution to AppSource, you can't remove it from Partner Center. 
+To remove a draft solution from Partner Center (and release all the names you've reserved), select **Delete** on the **Product setup** page. Note that if you've already published your solution to AppSource, you can't remove it from Partner Center. 
 
 
 ## Rename a solution that has already been published
 
-If your solution is already in AppSource and you want to rename it, you can do so by reserving a new name for it (as described earlier in this topic) and then creating a new submission for it. 
+If your solution is already in AppSource and you want to rename it, you can do so by reserving a new name for it (as described earlier in this topic) and then publishing the update. 
 
 You must update your solution package to replace the old name with the new one and upload the updated package to your submission.
 
@@ -40,4 +40,4 @@ To update an AppSource listing to use the new name, go to the [Store listings](o
 After your solution is published with the new name, you can delete any names that you no longer need to use.
 
 > [!TIP]
-> Each solution appears in Partner Center using the first name that you reserved for it. If you've followed these steps to rename a solution, and you'd like it to appear in Partner Center using the new name, you must delete the original name (by selecting **Delete** on the **Manage app names** page). 
+> Each solution appears in Partner Center using the first name that you reserved for it. If you've followed these steps to rename a solution, and you'd like it to appear in Partner Center using the new name, select **Make alias** next to the new name. 
