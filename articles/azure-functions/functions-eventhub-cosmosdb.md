@@ -14,7 +14,7 @@ ms.author: karler
 
 <!-- TODO figure out exact brand/usage requirements for event hub(s) -->
 
-This tutorial shows you how to create an Azure Function that is triggered by Event Hub events representing temperature and pressure inputs. The function responds to the event data by adding status entries to a Cosmos DB.
+This tutorial shows you how to create an Azure Function in Java that is triggered by Event Hub events representing temperature and pressure inputs. The function responds to the event data by adding status entries to a Cosmos DB.
 
 <!-- In this tutorial, you learn to: 
  -->
