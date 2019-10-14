@@ -10,7 +10,7 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 05/15/2018
+ms.date: 10/14/2019
 ---
 
 # Automate workflows for SQL Server or Azure SQL Database by using Azure Logic Apps
