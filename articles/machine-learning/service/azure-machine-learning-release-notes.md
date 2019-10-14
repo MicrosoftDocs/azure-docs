@@ -18,6 +18,26 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-10-21
+
+### Azure Machine Learning visual interface (preview) refresh
+
++ The Azure Machine Learning visual interface (preview) has been overhauled to take advantage of Azure Machine Learning pipelines. Pipelines authored in the visual interface are now fully integrated with the core Azure Machine Learning service experience.
+  + Revamped UI
+  + Unified management experience with SDK assets
+  + Versioning and tracking for models, pipelines, and endpoints authored in the visual interface
+  + Added batch inferencing deployment
+  + Azure Kubernetes Service (AKS) support for training and inferencing
+  + New Python-step pipeline workflow
+  + New [Azure Machine Learning studio landing page](https://ml.azure.com) for Azure Machine Learning visual authoring tools
+
++ **New modules**
+  + Apply math operation
+  + Apply SQL transformation
+  + Clip values
+  + Summarize data
+  + Import from SQL database  
+
 ## 2019-10-08
 
 ### New web experience (preview) for Azure Machine Learning workspaces
