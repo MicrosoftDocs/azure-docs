@@ -203,6 +203,68 @@ For example, we can modify the counter entity example above so it sends a "miles
         break;
 ```
 
+The following snippet demonstrates how to incorporate the injected service into your entity class.
+
+```csharp
+public class HttpEntity
+{
+    private readonly HttpClient client;
+
+    public HttpEntity(IHttpClientFactory factory)
+    {
+        this.client = factory.CreateClient();
+    }
+
+    public async Task<int> GetAsync(string url)
+    {
+        using (var response = await this.client.GetAsync(url))
+        {
+            return (int)response.StatusCode;
+        }
+    }
+
+    // The function entry point must be declared static
+    [FunctionName(nameof(HttpEntity))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<HttpEntity>();
+}
+```
+
+> [!NOTE]
+> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
+
+### Bindings in entity classes (.NET)
+
+Unlike regular functions, entity class methods do not have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
+
+The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
+
+```csharp
+public class BlobBackedEntity
+{
+    private readonly CloudBlobContainer container;
+
+    public BlobBackedEntity(CloudBlobContainer container)
+    {
+        this.container = container;
+    }
+
+    // ... entity methods can use this.container in their implementations ...
+    
+    [FunctionName(nameof(BlobBackedEntity))]
+    public static Task Run(
+        [EntityTrigger] IDurableEntityContext context,
+        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
+    {
+        // passing the binding object as a parameter makes it available to the
+        // entity class constructor
+        return context.DispatchAsync<BlobBackedEntity>(container);
+    }
+}
+```
+
+For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
+
 ## Entity coordination
 
 There may be times when you need to coordinate operations across multiple entities. For example, in a banking application, you may have entities representing individual bank accounts. When transferring funds from one account to another, you must ensure that the _source_ account has sufficient funds, and that updates to both the _source_ and _destination_ accounts are done in a transactionally consistent way.
