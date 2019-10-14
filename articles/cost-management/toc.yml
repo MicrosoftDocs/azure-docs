@@ -39,7 +39,7 @@
     - name: Manage AWS cost and usage
       href: aws-integration-manage.md
     - name: Cost Management for partners
-      href: get-started-partners-cost-management.md
+      href: get-started-partners.md
   - name: Reference
     items:
     - name: Azure Cost Management REST API
