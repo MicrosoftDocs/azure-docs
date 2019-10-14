@@ -1,6 +1,6 @@
 ---
 title: Create effective listings in AppSource and within Office
-description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
+description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 ms.date: 12/04/2018
 localization_priority: Normal
 ---
@@ -45,7 +45,7 @@ You specify your add-in name in two places, so be sure to use the same name in b
 <a name="bk_describe"> </a>
 ## Write compelling descriptions
 
-A good description makes your solution stand out. Your summary should entice potential users to learn more. Your long description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
+A good description makes your solution stand out. Your summary should entice potential users to learn more. Your description, which appears on the AppSource landing page, should provide more detail about your solution and its value.
 
 ### Effective summaries
 
@@ -60,18 +60,18 @@ The following figure shows a good summary next to one that relies on the brand n
 
 ![An image that shows a good summary next to one that relies on the brand name](images/description-do-dont.png)
 
-### Effective long descriptions
+### Effective descriptions
 
-The long description is displayed on your landing page in AppSource and within Office. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
+The description is displayed on your landing page in AppSource and within Office. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
 
-In your long description, answer the following questions:
+In your description, answer the following questions:
 
 - How does your solution benefit its user?
 - What is special about it?
 - What are different ways someone could use your it?
 - What industries or specialists would use it?
 
-Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
+Most users read between 300 and 500 words. The maximum length for descriptions is 4,000 characters.
 
 You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting:
 
@@ -88,7 +88,7 @@ Features:
 |:-----|:-----|:-----|:-----|
 |Title|50 characters|30 characters|First 30 characters|
 |Summary|100 characters|70 characters|First 30 characters|
-|Long description|4,000 characters|300-500 words|First 300 words|
+|Description|4,000 characters|300-500 words|First 300 words|
 
 <a name="bk_images"> </a>
 ## Create a consistent visual identity 
