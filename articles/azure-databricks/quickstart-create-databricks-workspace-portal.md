@@ -49,6 +49,8 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard**, **Premium**, or **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Virtual Network**     |  Choose to deploy Azure Databrocks workspace in your own Virtual Network (VNet). For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).        |
+
 
     Select **Pin to dashboard** and then click **Create**.
 
