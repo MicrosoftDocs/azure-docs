@@ -15,7 +15,7 @@ ms.date: 10/10/2019
 
 This article describes how to use the **Select Columns Transform** module in Azure Machine Learning Studio. The purpose of the **Select Columns Transform** module is to ensure that a predictable, consistent set of columns is always used in downstream machine learning operations.
 
-This module is particularly helpful for tasks such as scoring, which require specific columns. Changes in the available columns might break the experiment or change the results.
+This module is helpful for tasks such as scoring, which require specific columns. Changes in the available columns might break the experiment or change the results.
 
 You use the **Select Columns Transform** to create and save a set of columns. Then, use the [Apply Transformation](apply-transformation.md) module to apply those selections to new data.
 

@@ -45,7 +45,7 @@ To generate a set of feature scores requires that you have an already trained mo
 
     -   **Regression**
 
-        Precision, Recall, Mean Absolute Error , Root Mean Squared Error, Relative Absolute Error, Relative Squared Error, Coefficient of Determination  
+        Precision, Recall, Mean Absolute Error, Root Mean Squared Error, Relative Absolute Error, Relative Squared Error, Coefficient of Determination  
 
      For a more detailed description of these evaluation metrics, and how they are calculated, see [Evaluate Model](evaluate-model.md).  
 

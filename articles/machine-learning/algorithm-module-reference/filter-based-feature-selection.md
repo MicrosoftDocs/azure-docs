@@ -48,7 +48,7 @@ The **Filter-Based Feature Selection** provides a variety of metrics for assessi
 > If you need a different option for custom feature selection method, use the [Execute R Script](execute-r-script.md) module. 
 ##  How to configure Filter-Based Feature Selection
 
-You choose a standard statistical metric, and the module computes the correlation between a pair of columns, the label column and a feature column
+You choose a standard statistical metric, and the module computes the correlation between a pair of columns: the label column and a feature column
 
 1.  Add the **Filter-Based Feature Selection** module to your experiment. You can find it in the **Feature Selection** category in the designer.
 

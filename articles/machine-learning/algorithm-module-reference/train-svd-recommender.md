@@ -14,7 +14,7 @@ ms.date: 10/10/2019
 
 # Train SVD Recommender
 
-This article describes how to use the **Train SVD Recommender** module in Azure Machine Learning designer, to train a recommendation model. The recommendation algorithm in Azure Machine Learning is based on the **SVD** (Single Value Decomposition) model.  
+This article describes how to use the **Train SVD Recommender** module in Azure Machine Learning designer. Use this module to train a recommendation model based on the **SVD** (Single Value Decomposition) algorithm.  
 
 The **Train SVD Recommender** module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by using the [Score SVD Recommender](score-svd-recommender.md) module.  
 
@@ -31,7 +31,7 @@ There are two principal approaches to recommender systems.
 
 The SVD recommender uses identifiers of the users and the items, and a matrix of ratings given by the users to the items. It is a **collaborative recommender**. 
 
-More details on the SVD recommender and its underlying probabilistic algorithm can be found in the relevant research paper: [Matrix factorization techniques for recommender systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+For more information about the SVD recommender, see the relevant research paper: [Matrix factorization techniques for recommender systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 
 ## How to configure Train SVD Recommender  
@@ -45,7 +45,7 @@ Before trying to use the module, it is essential that your data be in the format
 
 #### Required dataset of user-item-ratings
 
-It is very important that the input data used for training contain the right type of data in the correct format: 
+It is important that the input data used for training contain the right type of data in the correct format: 
 
 + The first column must contain user identifiers.
 + The second column must contain item identifiers.
@@ -68,13 +68,13 @@ From this sample, you can see that a single user has rated two separate restaura
    
 2.  For **Number of factors**, type the number specifying the number of factors to use with recommender.  
     
-    Each factor measures how much the user is related with the item. The number of factors is also the dimensionality of latent factor space. With the number of user and item increasing, it is better to set a larger number of factor. However, if the number is too big, the performance maybe reduce.
+    Each factor measures how much the user is related with the item. The number of factors is also the dimensionality of latent factor space. With the number of users and item increasing, it is better to set a larger number of factors. However, if the number is too large, the performance maybe reduce.
     
 3.  **Number of recommendation algorithm iterations**, indicates how many times the algorithm should process the input data. The higher this number, the more accurate the predictions; however, training is slower. The default value is 30.
 
 4.  For **Learning rate**, type a number between 0.0 and 2.0 that defines the step size while learning.
 
-    The learning rate determines the size of the step taken at each iteration. If the step size is too big, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution. 
+    The learning rate determines the size of the step taken at each iteration. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution. 
   
 5.  Run the experiment.  
 

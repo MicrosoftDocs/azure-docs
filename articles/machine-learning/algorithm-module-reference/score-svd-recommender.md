@@ -1,7 +1,7 @@
 ---
 title: "Score SVD Recommender: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Score SVD Recommender module in Azure Machine Learning service to score predictions for a dataset using the SVD recommender.
+description: Learn how to use the Score SVD Recommender module in Azure Machine Learning service to score recommendation predictions for a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Score SVD Recommender
 
-This article describes how to use the **Score SVD Recommender** module in Azure Machine Learning designer, to create predictions based on a trained recommendation model, based on the SVD (Single Value Decomposition) algorithm.
+This article describes how to use the **Score SVD Recommender** module in Azure Machine Learning designer. Use this module to create predictions using a trained recommendation model based on the SVD (Single Value Decomposition) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 
@@ -21,7 +21,7 @@ The SVD recommender can generate two different kinds of predictions:
 
 - [Recommend items to a given user](#recommend)
 
-When creating the last kind of predictions, you can operate in either *production mode* or *evaluation mode*.
+When creating the second type of predictions, you can operate in either *production mode* or *evaluation mode*.
 
 - **Production mode** considers all users or items, and is typically used in a web service.
 
@@ -29,7 +29,7 @@ When creating the last kind of predictions, you can operate in either *productio
 
 - **Evaluation mode** operates on a reduced set of users or items that can be evaluated, and is typically used during experimentation.
 
-More details on the SVD recommender and its underlying probabilistic algorithm can be found in the relevant research paper:  [Matrix factorization techniques for recommender systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+For more information on the SVD recommender algorithm, see the research paper: [Matrix factorization techniques for recommender systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 																																	
 
@@ -61,7 +61,6 @@ When you predict ratings, the model calculates how a given user will react to a 
 
 The output dataset contains three columns, containing the user, the item, and the predicted rating for each input user and item.
 
-
 ###  Recommend 
 
 To recommend items for users, you provide a list of users and items as input. From this data, the model uses its knowledge about existing items and users to generate a list of items with probable appeal to each user. You can customize the number of recommendations returned, and set a threshold for the number of previous recommendations that are required in order to generate a recommendation.
@@ -92,7 +91,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
         The dataset can include a third column of user-item ratings, but this column is ignored.
 
-5. **Maximum number of items to recommend to a user**: Type the number of items to return for each user. By default, 5 items are recommended.
+5. **Maximum number of items to recommend to a user**: Type the number of items to return for each user. By default, five items are recommended.
 
 6. **Minimum size of the recommendation pool per user**: Type  a value that indicates how many prior recommendations are required.  By default, this parameter is set to 2, meaning the item must have been recommended by at least two other users.
 
@@ -121,7 +120,7 @@ This section contains answers to some common questions about using the recommend
 
 ###  Production use of the SVD recommender
 
-If you have experimented with the SVD recommender and then move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
+If you have experimented with the SVD recommender, and move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
 
 - Evaluation, by definition, requires predictions that can be verified against the *ground truth* in a test set. Therefore, when you evaluate the recommender, it must predict only items that have been rated in the test set. This necessarily restricts the possible values that are predicted.
 

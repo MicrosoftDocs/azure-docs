@@ -36,7 +36,7 @@ Cross-validate also returns predicted results and probabilities for the dataset,
 
 ### Advantages of cross validation
 
-A different, and very common way of evaluating a model is to divide the data into a training and test set using [Split Data](split-data.md), and then validate the model on the training data. However, cross-validation offers some advantages:  
+A different, and common way of evaluating a model is to divide the data into a training and test set using [Split Data](split-data.md), and then validate the model on the training data. However, cross-validation offers some advantages:  
 
 -   Cross-validation uses more test data.
 
@@ -50,7 +50,7 @@ A different, and very common way of evaluating a model is to divide the data int
 
 ## How to use Cross Validate Model
 
-Cross-validation can take a long time to run if you use a lot of data.  Therefore, you might use **Cross Validate Model** in the initial phase of building and testing your model, to evaluate the goodness of the model parameters (assuming that computation time is tolerable), and then train and evaluate your model using the established parameters with the [Train Model](train-model.md) and [Evaluate Model](evaluate-model.md) modules.
+Cross-validation can take a long time to run if your dataset is large.  Therefore, you might use **Cross Validate Model** in the initial phase of building and testing your model, to evaluate the goodness of the model parameters (assuming that computation time is tolerable), and then train and evaluate your model using the established parameters with the [Train Model](train-model.md) and [Evaluate Model](evaluate-model.md) modules.
 
 In this scenario, you both train and test the model using **Cross Validate Model**.
 
@@ -72,7 +72,7 @@ In this scenario, you both train and test the model using **Cross Validate Model
 
 7. See the [Results](#results) section for a description of the reports.
 
-    To get a copy of the model for re-use later, right click the output of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**), and click **Save as Trained Model**.
+    To get a copy of the model for reuse later, right-click the output of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**), and click **Save as Trained Model**.
 
 ## Results
 
@@ -94,7 +94,7 @@ To view these results, in the experiment, right-click the **Cross Validate Model
 
 The second report is grouped by folds. Remember that, during execution, **Cross Validate Model** randomly splits the training data into *n* folds (by default, 10). In each iteration over the dataset, **Cross Validate Model** uses one fold as a validation dataset, and uses the remaining *n-1* folds to train a model. Each of the *n* models is tested against the data in all the other folds.
 
-In this report, the folds are listed by index value, in ascending order.  To order on any other column you can save the results as a dataset.
+In this report, the folds are listed by index value, in ascending order.  To order on any other column, you can save the results as a dataset.
 
 To view these results, in the experiment, right-click the **Cross Validate Model** module, select **Evaluation results by fold**, and click **Visualize**.
 
