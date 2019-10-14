@@ -61,13 +61,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/data-science-virtual-machine/tools-included.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
+      "redirect_url": "articles/machine-learning/data-science-virtual-machine/tools-included.md",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/data-science-virtual-machine/tools-included.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/reference-windows-vm.md",
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-windows-vm.md",
+      "redirect_url": "articles/machine-learning/data-science-virtual-machine/tools-included.md",
       "redirect_document_id": false
     },
     {
