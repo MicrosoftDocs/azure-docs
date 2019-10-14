@@ -154,7 +154,7 @@ The table below provides details on support for these on-premises AD UPNs in Win
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for federated enviornment](hybrid-azuread-join-federated-domains.md)
+> [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
 > [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->

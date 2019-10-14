@@ -105,7 +105,7 @@ A managed instance can't access file shares and Windows folders, so the followin
 
 See [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) and [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Workaround**: Script for the certificate or private key, store as .sql file, and create from binary:
+**Workaround**: Instead of creating backup of certificate and restoring the backup, [get the certificate binary content and private key, store it as .sql file, and create from binary](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -537,9 +537,17 @@ The maximum file size of `tempdb` can't be greater than 24 GB per core on a Gene
 
 ### Error logs
 
-A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) or [Managed instance extension(preview)](https://docs.microsoft.com/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) for Azure Data Studio.
 
 ## <a name="Issues"></a> Known issues
+
+### In-memory OLTP memory limits are not applied
+
+**Date:** Oct 2019
+
+Business Critical tier in some cases will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space). Managed instance may enable workoad to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediatelly. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
+
+**Workaround:** [Monitor usage for in-memory objects](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
 
 ### Wrong error returned while trying to remove a file that is not empty
 

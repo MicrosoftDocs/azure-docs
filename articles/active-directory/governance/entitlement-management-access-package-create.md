@@ -42,7 +42,7 @@ The following diagram shows the high-level process to create a new access packag
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -124,5 +124,3 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
-- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [Create and manage a catalog](entitlement-management-catalog-create.md)

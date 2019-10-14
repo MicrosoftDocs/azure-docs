@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 09/24/2019
+ ms.date: 10/04/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -32,7 +32,7 @@
 
       **Virtual network**: Choose the virtual network to which you want to add this gateway.
 
-      **Gateway subnet address range**: This field only appears if the virtual network you selected does not have a gateway subnet. Fill in the range if you don't already have a gateway subnet. If possible, make the range /27 or larger (/26,/25 etc.)
+      **Gateway subnet address range**: This field only appears if your VNet doesn't have a gateway subnet. If possible, make the range /27 or larger (/26,/25 etc.). We don't recommend creating a range any smaller than /28. If you already have a gateway subnet, you can view GatewaySubnet details by navigating to your virtual network. Click **Subnets** to view the range. If you want to change the range, you can delete and recreate the GatewaySubnet.
 
    **Public IP address**: This setting specifies the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
