@@ -1921,7 +1921,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-traffic-analytics",
+      "source_path": "articles/search/search-traffic-analytics.md",
       "redirect_url": "/azure/search/search-monitor-usage",
       "redirect_document_id": false
     },
