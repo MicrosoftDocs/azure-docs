@@ -3,7 +3,7 @@ title: Delete an Azure AD directory - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD directory for deletion, including self-service directories
 services: active-directory
 documentationcenter: ''
-author: curtand, addimitu
+author: curtand, adimitui
 manager: mtillman
 
 ms.service: active-directory
