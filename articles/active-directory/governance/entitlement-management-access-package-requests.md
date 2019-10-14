@@ -56,7 +56,7 @@ In Azure AD entitlement management, you can see who has requested access package
 
 1. Select the request you want to view.
 
-    If the request has any delivery errors, the request status will be **Undelivered** and the substatus will be **Partially delivered**.
+    If the request has any delivery errors, the request status will be **Undelivered** or **Partially delivered**.
 
     If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
 
@@ -64,7 +64,7 @@ In Azure AD entitlement management, you can see who has requested access package
 
 ## Reprocess a request
 
-If a request encounters an error, you can reprocess the request to try it again. You can only reprocess requests that has a status of failed or partially delivered and have a completed date of less than a week.
+If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and its completed date is less than one week.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -82,7 +82,7 @@ If a request encounters an error, you can reprocess the request to try it again.
 
 ## Cancel a pending request
 
-You can only cancel a pending request that has not yet been delivered.
+You can only cancel a pending request that has not yet been delivered or whose delivery has failed.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
