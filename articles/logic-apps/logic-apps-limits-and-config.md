@@ -292,7 +292,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 * For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, logic apps can access Azure storage accounts, except Azure Table Storage and Azure Queue Storage, that exist in a different region because a public IP address is used for communicating across regions. Just make sure that you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Otherwise, you can use either more advanced options here:
+* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions. Otherwise, you can use the more advanced options here:
 
   * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
 
@@ -354,7 +354,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 | Central India | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
 | Central US | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
 | East Asia | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
-| East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205 |
 | East US 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
 | France Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28,40.89.190.104 | 40.89.135.2 |
 | France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.133.184 |
@@ -376,7 +376,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 | UK West | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 
-## Next steps  
+## Next steps
 
 * Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Learn about [common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)

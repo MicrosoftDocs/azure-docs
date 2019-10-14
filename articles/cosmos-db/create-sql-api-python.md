@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Python and the SQL API'
+title: 'Quickstart: Build a Python app using Azure Cosmos DB SQL API account'
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-
+ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
 ---
 # Azure Cosmos DB: Build a Python application using Azure Cosmos DB SQL API account
 

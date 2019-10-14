@@ -63,6 +63,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
 
+## 2019-10-08
+
+### New web experience (preview) for Azure Machine Learning workspaces
+
+The Experiment tab in the [new workspace portal](http://ml.azure.com) has been been updated so data scientists can monitor experiments in a more performant way. You can explore the following features:
++ Experiment metadata to easily filter and sort your list of experiments
++ Simplified and performant experiment details pages which allow you to visualize and compare your runs
++ New design to run details pages to understand and monitor your training runs
+
 ## 2019-09-30
 
 ### Azure Machine Learning SDK for Python v1.0.65
