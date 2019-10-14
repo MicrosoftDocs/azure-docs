@@ -2,24 +2,24 @@
 title: Programmatically create Azure subscriptions| Microsoft Docs
 description: Learn how to create additional Azure subscriptions programmatically.
 services: azure-resource-manager
-author: jureid
+author: amberb
 
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
-ms.author: jureid
+ms.author: banders
 ---
 
 # Programmatically create Azure subscriptions (preview)
 
-Azure customers with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)] or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account can create subscriptions programmatically. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+Azure customers with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account can create subscriptions programmatically. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
 When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
-## Create subscriptions for an Enterprise Agreement (EA) billing account
+## Create subscriptions for an EA billing account
 
 ### Prerequisites
 
@@ -205,7 +205,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 
-## Create subscriptions for a Microsoft Customer Agreement (MCA) billing account
+## Create subscriptions for an MCA account
 
 ### Prerequisites
 
@@ -257,7 +257,7 @@ The API response lists the billing accounts that you have access to.
 }
 
 ```
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreeementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of that account.  For example, if you want to create a subscription for the `Contoso` billing account, you'd copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste this value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreeementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, if you want to create a subscription for the `Contoso` billing account, you'd copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste this value somewhere so that you can use it in the next step.
 
 ### Find invoice sections to create subscriptions
 
@@ -342,11 +342,11 @@ POST https://management.azure.com/providers/Microsoft.Billing<invoiceSectionId>/
 | `skuId` | Yes      | String | The sku ID that determines the type of Azure plan. |
 | `owners`      | No       | String | The Object ID of any user or service principal that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 | `costCenter` | No      | String | The cost center associated with the subscription. It shows up in the usage csv file. |
-| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](https://docs.microsoft.com/en-us/rest/api/resources/managementgroups/list). Use the *id* of a management group from the API. |
+| `managementGroupId` | No      | String | The ID of the management group to which the subscription will be added. To get the list of management groups, see [Management Groups - List API](https://docs.microsoft.com/rest/api/resources/managementgroups/list). Use the *id* of a management group from the API. |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object would return a `subscriptionLink` object, which has the subscription ID.
 
-## Create subscriptions for a Microsoft Partner Agreement (MCA) billing account
+## Create subscriptions for an MPA billing account
 
 ### Prerequisites
 
@@ -436,13 +436,13 @@ The API response lists the customers in the billing account with Azure plans. Yo
 	
 ```
 
-Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste the values somewhere to use it in the subsequent steps.
+Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste this value somewhere to use it in the subsequent steps.
 
 ### Optional for Indirect providers: Get the resellers for a customer
 
 If you're an Indirect provider in the CSP two-tier model, you can specify a reseller while creating subscriptions for customers. 
 
-Make the following request, replacing `<customerId>` with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) to list all resellers that are available for the customer. 
+Make the following request, replacing `<customerId>` with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) to list all resellers that are available for a customer.
 
 ```json
 GET https://management.azure.com<customerId>?$expand=resellers&api-version=2019-10-01-preview

@@ -3,8 +3,8 @@ title: Create an additional Azure subscription | Microsoft Docs
 description: Learn how to add a new Azure subscription in the Azure portal.
 services: 'billing'
 documentationcenter: ''
-author: jrosson
-manager: jrosson
+author: amberb
+manager: amberb
 editor: ''
 
 ms.service: billing
@@ -18,7 +18,11 @@ ms.author: banders
 ---
 # Create an additional Azure subscription
 
-You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)] or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
+You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
+
+If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
+
+To learn more about billing accounts and identify the type of your billing account, see [View billing accounts in Azure portal](billing-view-all-accounts.md).
 
 ## Permission required to create Azure subscriptions
 
@@ -27,12 +31,8 @@ You need the following permissions to create subscriptions:
 |Billing account  |Permission  |
 |---------|---------|
 |Enterprise Agreement (EA) |  Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).    |
-|Microsoft Customer Agreement (MCA) |  Owner or contributor role on the invoice section, billing profile or billing account. Azure subscription creator role on the invoice section.  For more information, see [Subscription billing roles and task](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+|Microsoft Customer Agreement (MCA) |  Owner or contributor role on the invoice section, billing profile or billing account. Or Azure subscription creator role on the invoice section.  For more information, see [Subscription billing roles and task](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
 |Microsoft Partner Agreement (MPA) |   Global Admin and Admin Agent role in the partner organization. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview)  |
-
-If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscription in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
-
-To learn more about billing accounts and identify the type of your billing account, see [View billing accounts in Azure portal](billing-view-all-accounts.md).
 
 ## Create a subscription in the Azure portal
 
@@ -47,31 +47,31 @@ To learn more about billing accounts and identify the type of your billing accou
 
 1. If you have access to multiple billing accounts, select the billing account for which you want to create the subscription.
 
-1. Fill the form and click **Create**. The tables below lists the fields on the form for each type of billing account.
+1. Fill the form and click **Create**. The tables below list the fields on the form for each type of billing account.
 
 **Enterprise Agreement**
 
 |Field  |Definition  |
 |---------|---------|
-|Name     | The display name that helps you to easily identify the subscription in the Azure portal.  |
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
 |Offer     | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions.|
 
 **Microsoft Customer Agreement**
 
 |Field  |Definition  |
 |---------|---------|
-|Billing profile     | The charges for your subscription will be billed to the selected billing profile. If you have access to only one billing profile, the selection will be greyed out.     |
+|Billing profile     | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out.     |
 |Invoice section     | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out.  |
 |Plan     | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out.  |
-|Name     | The display name that helps you to easily identify the subscription in the Azure portal.  |
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
 
 **Microsoft Partner Agreement**
 
 |Field  |Definition  |
 |---------|---------|
-|Customer    | The subscription is created for the selected customer. If you have only one customer, the selection will be greyed out.  |
-|Reseller    | The reseller that will provide services to the customer. This is an optional field which only applicable to Indirect providers in the CSP two-tier model. |
-|Name     | The display name that helps you to easily identify the subscription in the Azure portal.  |
+|Customer    | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out.  |
+|Reseller    | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
+|Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
 
 ## Create an additional Azure subscription programmatically
 
