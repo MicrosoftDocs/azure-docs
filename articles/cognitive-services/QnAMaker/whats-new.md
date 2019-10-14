@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -19,6 +19,10 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes 
 
 Learn what's new with QnA Maker.
+
+### October 2019
+
+* [Setting the language for all knowledge bases](../how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) in the  QnA Maker when you create the first knowledge base. 
 
 ### September 2019
 
