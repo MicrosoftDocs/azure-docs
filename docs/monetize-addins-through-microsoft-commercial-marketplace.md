@@ -1,17 +1,16 @@
 ---
 title: Monetize your Office 365 add-in through Microsoft Commercial Marketplace
-description: We’re making it easier for customers to discover bundled solutions and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
+description: This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your add-in will be free for your customers to download, but will require a license to your service.
 localization_priority: Priority
 ---
 
 # Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 
->[!NOTE]
->This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. For your customers, your add-in will be free to download, but will require a license to your service.
+This article describes how to sell your add-in through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your add-in will be free for your customers to download, but will require a license to your service.
 
 When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions. You'll be able to reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team.
 
-We’re making it easier for customers to discover these solutions, known as Microsoft 365 apps, and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
+We’re making it easier for customers to discover these Microsoft 365 app solutions, and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 
 In this monetization model, your add-in is authenticated by your SaaS offering, which verifies its subscription status with the Microsoft SaaS service. Your responses from this service are used to update your user database. The following diagram shows this model.
 
@@ -35,7 +34,7 @@ To begin submitting your SaaS offer, you must create an account in the Commercia
 - If you're new to Partner Center, and have never enrolled in the Microsoft Partner Network, see [Create an account using the Partner Center enrollment page](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
 - If you're already enrolled in the Microsoft Partner Network or in a Partner Center developer program, see [Create an account using existing Microsoft Partner Center enrollments](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) for information about how to create your account.
 
-### Register a SaaS Application
+### Register a SaaS application
 You must register a SaaS application using the Microsoft Azure Portal. After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS fulfillment APIs.
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
@@ -101,18 +100,19 @@ Your add-in should have three states:
 
 For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
 
-## Piloting your SaaS offer
+## Testing your SaaS offer
 
-You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+To test your integration, you should submit an offer to a private audience for $0 in order to ensure that the end to end process is working. A private plan makes your offer visible only to a restricted audience of your choosing.
+When you have verified that your solution is working, you should then submit the offer privately again, this time to prepare to go live. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
 ## Submission process for SaaS offer + add-in
-You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
+Submit your SaaS offer to Partner Center as a private plan first. This ensures that customers don't purchase your SaaS app before the add-in is available. After your SaaS offer is approved, it will be assigned a GUID. Next, submit your add-in and include this GUID in the test notes, as well as test accounts (admin + non-admin). After your add-in has been approved and is in the store, you can update your plan to be available to a public audience.
 
 ![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
 ## Customer experience
 
-A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment detials to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
+A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment details to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
 
 ![Diagram of the user workflow to acquire a SaaS app with an associated free add-in](images/monetization-customer-flow-diagram.png)
 
@@ -141,7 +141,7 @@ As a partner, you can monitor your offer listings using the data visualization a
 
 ## Help and support
 
-To kickstart your SaaS migration, or for any questions, contact [OVMC@microsoft.com](mailto:OVMC@microsoft.com). 
+For any questions, contact [Marketplace Publisher Support](aka.ms/marketplacepublishersupport). 
 
 > [!NOTE] 
 > Starting July 29th 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase existing paid add-ins in AppSource until January 2020. They will then be hidden from the store, but will still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from AppSource and for existing users. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
