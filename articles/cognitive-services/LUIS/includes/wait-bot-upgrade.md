@@ -11,4 +11,4 @@ ms.author: diberry
 ---
 
 > [!Caution]
-> This document has not been updated with text and screenshots for the latest LUIS portal. 
+> This document has not been updated with text and screenshots for the latest Bot experience. 
