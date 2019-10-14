@@ -16,67 +16,76 @@ manager: philmea
 
 By default, you can assign users in your IoT Central application to one of three built-in *roles*:
 
-- **Application Administrator**: Users in this role have access to all functionality in an Azure IoT Central application.
-- **Application Builder**: Users in this role can do everything in an Azure IoT Central application except administer the application.
-- **Application Operator**: Users in this role don't have access to **Design** mode or the **Application Builder** page. These users can't administer the application.
+- **Application administrator**: Users in this role have access to all functionality in an Azure IoT Central application.
+- **Application builder**: Users in this role can do everything in an Azure IoT Central application except access the administration and data export sections.
+- **Application operator**: Users in this role can monitor devices and system health. They can't administer or configure the application.
 
-If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. You can [add users to custom roles](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to the built-in roles.
+If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. 
+
+## Create a custom role (preview)
+
+To create a custom role, navigate to the **Roles (preview)** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
+
+You can [add users to your custom role](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to a built-in role.
 
 ## Custom role options
 
-When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update application dashboards** permission to a role, the **View application dashboards** permission is automatically added. The following tables summarize the available permissions you can use to create custom roles:
+When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update application dashboards** permission to a role, the **View application dashboards** permission is automatically added. The following tables summarize the available permissions, and their dependencies, you can use when creating custom roles:
 
 ### Customizing the app
 
-Application dashboard permissions:
+**Application dashboard permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Full Control | View, Update |
-
-Personal dashboards permissions:
-
-| Name | Automatically added |
-| ---- | -------- |
-| View | None     |
-| Update | View   |
-| Create | View   |
+| Create | View, Update |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
 
-White labeling permissions:
+**Personal dashboards permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
+| ---- | -------- |
+| View | None     |
+| Update | View   |
+| Create | View, Update   |
+| Delete | View   |
+| Full Control | View, Update, Create, Delete |
+
+**Whitelabeling permissions**
+
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
 | Full Control | View, Update |
 
-Help links permissions:
+**Help links permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
 | Full Control | View, Update |
+
 
 ### Extending the app
 
-Data export permissions:
+**Data export permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Create | View   |
+| Create | View, Update  |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
 
-API token permissions:
+**API token permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Create | View   |
@@ -85,128 +94,124 @@ API token permissions:
 
 ### Managing the app
 
-Application settings permissions:
+**Application settings permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Copy | View. Export and view application templates. View device templates, rules, jobs, device instances, and device groups. |
+| Copy | View <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
 | Delete | View   |
-| Full Control | View, Update, Copy, Delete. Export and view application templates. View device templates, rules, jobs, device instances, and device groups. |
+| Full Control | View, Update, Copy, Delete <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
 
-Application template export permissions:
+**Application template export permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
-| Export | View. View device templates, rules, jobs, device instances, and device groups.   |
-| Full Control | View, Export. View device templates, rules, jobs, device instances, and device groups. |
+| Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
+| Full Control | View, Export <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
 
-Billing permissions:
+**Billing permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | None     |
-| Convert to Paid | View |
-| Full Control | View, Convert to Paid |
+| Manage | None     |
+| Full Control | Manage |
 
 ### Managing devices
 
-Device template permissions:
+**Device template permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Create | View   |
+| Create | View, Update   |
 | Delete | View   |
-| Full Control | View, Update, Create, Delete |
+| Publish | View, Update|
+| Full Control | View, Update, Create, Delete, Publish |
 
-Device instance permissions:
+**Device instance permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View device templates |
-| Update | View. View device templates. |
-| Create | View. View device templates. |
-| Delete | View. View device templates. |
-| Execute Commands | Update, View. View device templates. |
-| Full Control | View, Update, Create, Delete, Execute Commands. View device templates. |
+| View | None <br/> Other dependencies: View device templates |
+| Update | View <br/> Other dependencies: View device templates |
+| Create | View <br/> Other dependencies:  View device templates |
+| Delete | View <br/> Other dependencies: View device templates |
+| Execute Commands | Update, View <br/> Other dependencies: View device templates |
+| Full Control | View, Update, Create, Delete, Execute Commands <br/> Other dependencies: View device templates |
 
-Device groups permissions:
+**Device groups permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View device templates and device instances. |
-| Update | View. View device templates and device instances.   |
-| Create | View. View device templates and device instances.   |
-| Delete | View. View device templates and device instances.   |
-| Full Control | View, Update, Create, Delete. View device templates and device instances. |
+| View | None <br/> Other dependencies: View device templates and device instances |
+| Update | View <br/> Other dependencies: View device templates and device instances   |
+| Create | View, Update <br/> Other dependencies:  View device templates and device instances   |
+| Delete | View <br/> Other dependencies:  View device templates and device instances   |
+| Full Control | View, Update, Create, Delete <br/> Other dependencies: View device templates and device instances |
 
-Device connectivity management permissions:
+**Device connectivity management permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| Read Instance | View device templates and device instances. |
-| Read Global | None   |
-| Update Global | Read Global |
-| Full Control | Read Instance, Read Global, Update Global. View device templates and device instances. |
+| Read instance | None <br/> Other dependencies: View device templates and device instances |
+| Read global | None   |
+| Update global | Read Global |
+| Full Control | Read instance, Read global, Update global. <br/> Other dependencies: View device templates and device instances |
 
-Jobs permissions:
+**Jobs permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View device templates, device instances, and device groups. |
-| Update | View. View device templates, device instances, and device groups. |
-| Create | View. View device templates, device instances, and device groups. |
-| Delete | View. View device templates, device instances, and device groups. |
-| Execute | View. View device templates, device instances, and device groups. Update device instances. |
-| Full Control | View, Update, Create, Delete, Execute. View device templates, device instances, and device groups. Update device instances. |
+| View | None <br/> Other dependencies: View device templates, device instances, and device groups |
+| Update | View <br/> Other dependencies: View device templates, device instances, and device groups |
+| Create | View, Update <br/> Other dependencies:  View device templates, device instances, and device groups |
+| Delete | View <br/> Other dependencies:  View device templates, device instances, and device groups |
+| Execute | View <br/> Other dependencies: View device templates, device instances, and device groups; Update device instances; Execute commands on device instances |
+| Full Control | View, Update, Create, Delete, Execute <br/> Other dependencies:  View device templates, device instances, and device groups; Update device instances; Execute commands on device instances |
 
-Rules permissions:
+**Rules permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View device templates. |
-| Update | View. View device templates. |
-| Create | View. View device templates. |
-| Delete | View. View device templates. |
-| Full Control | View, Update, Create, Delete. View device templates. |
+| View | None <br/> Other dependencies: View device templates |
+| Update | View <br/> Other dependencies: View device templates |
+| Create | View, Update <br/> Other dependencies:  View device templates |
+| Delete | View <br/> Other dependencies: View device templates |
+| Full Control | View, Update, Create, Delete <br/> Other dependencies: View device templates |
 
-Analytics permissions:
+**Analytics permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View device templates, device instances, and device groups. |
-| Full Control | View. View device templates, device instances, and device groups. |
+| View | None <br/> Other dependencies: View device templates, device instances,  device groups |
+| Full Control | View <br/> Other dependencies:  View device templates, device instances,  device groups |
+
+
 
 ### Managing users and roles
 
-Custom roles permissions:
+**Custom roles permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
 | View | None |
 | Update | View |
-| Create | View |
+| Create | View, Update |
 | Delete | View |
 | Full Control | View, Update, Create, Delete |
 
-User management permissions:
+**User management permissions**
 
-| Name | Automatically added |
+| Name | Dependencies |
 | ---- | -------- |
-| View | View custom roles. |
-| Create | View. View custom roles. |
-| Delete | View. View custom roles. |
-| Full Control | View, Create, Delete. View custom roles. |
-
-## Create a custom role
-
-To create a custom role, navigate to the **Roles** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
-
-You can [add users to your custom role](./howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#add-users) in the same way that you add users to a built-in role.
+| View | None <br/> Other dependencies: View custom roles |
+| Add | View <br/> Other dependencies:  View custom roles |
+| Delete | View <br/> Other dependencies:  View custom roles |
+| Full Control | View, Add, Delete <br/> Other dependencies:  View custom roles |
 
 ## Next steps
 
