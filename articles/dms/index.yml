@@ -5,7 +5,7 @@ metadata:
   description: " Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/11/2019
+  ms.date: 10/12/2019
   ms.service: dms
   ms.topic: landing-page
 
@@ -98,21 +98,6 @@ landingContent:
           - text: Migrate to Azure Cosmos DB Mongo API
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
 # Card 4
-  - title: Migrate Oracle to Azure
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Migrate to Azure Database for PostgreSQL - Single server - online
-            url: tutorial-oracle-azure-postgresql-online.md
-      - linkListType: reference
-        links:
-          - text: Known issues - Online migration to Azure Database for PostgreSQL - Single server
-            url: known-issues-oracle-azure-postgresql-online.md
-      - linkListType: video
-        links:
-          - text: Migrate to SQL Database single database
-            url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
-# Card 5
   - title: Tools and guidance
     linkLists:
       - linkListType: reference
@@ -129,3 +114,18 @@ landingContent:
             url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
           - text: Data Access Migration Toolkit
             url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
+# Card 5
+  - title: Migrate Oracle to Azure
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Migrate to Azure Database for PostgreSQL - Single server - online
+            url: tutorial-oracle-azure-postgresql-online.md
+      - linkListType: reference
+        links:
+          - text: Known issues - Online migration to Azure Database for PostgreSQL - Single server
+            url: known-issues-oracle-azure-postgresql-online.md
+      - linkListType: video
+        links:
+          - text: Migrate to SQL Database single database
+            url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
