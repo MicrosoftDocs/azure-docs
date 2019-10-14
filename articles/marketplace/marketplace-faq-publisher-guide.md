@@ -27,7 +27,7 @@ Azure Marketplace is designed for IT professionals and cloud developers interest
 
 **What type of products are currently available in the Azure Marketplace?**
 
-Both Microsoft and partners offer technical solutions and services built to extend Azure products and services. The solution catalog spans several categories, including:
+The Azure Marketplace offers technical solutions and services from Microsoft and partners built to extend Azure products and services. The solution catalog spans several categories, including:
 
 * base operating systems
 * databases
