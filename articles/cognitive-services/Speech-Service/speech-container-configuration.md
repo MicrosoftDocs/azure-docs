@@ -84,8 +84,22 @@ The Custom Speech containers use [volume mounts](https://docs.docker.com/storage
 
 Custom models are downloaded the first time that a new model is ingested as part of the Custom Speech container docker run command. Sequential runs of the same `ModelId` for a Custom Speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
 
+The volume mount setting consists of three color `:` separated fields:
+
+1. The first field is the name of the volume on the host machine, for example *C:\input*.
+2. The second field is the directory in the container, for example */usr/local*.
+3. The third field (optional) is a comma-separated list of options, for more information see [use volumes](https://docs.docker.com/storage/volumes/).
+
+### Volume mount example
+
+```bash
+-v C:\input:/usr/local/models
+```
+
+This command mounts the host machine *C:\input* directory to the containers */usr/local/models* directory.
+
 > [!IMPORTANT]
-> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers.
+> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The standard **Speech-to-text** and **Text-to-speech** containers do not use volume mounts.
 
 ## Example docker run commands 
 
