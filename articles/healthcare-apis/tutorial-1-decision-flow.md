@@ -14,7 +14,7 @@ ms.date: 10/13/2019
 # Tutorial: Decision flow on setting up the environment
 
 There are several configuration options in setting up Azure API for FHIR (PaaS) or FHIR Server for Azure (OSS), and they all come down to:
-* Are we using or plan to use Smart on FHIR?
+* Are we using or plan to use SMART on FHIR?
 * Are we deploying OSS version or Managed Service (PaaS)?
 * Are you using the same Azure AD tenant to secure access to Azure subscript and FHIR server?
 

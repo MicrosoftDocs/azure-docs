@@ -46,6 +46,26 @@ app.listen(port);
 console.log('Listening on port ' + port + '...');
 ```
 
+and corresponding package.json
+
+``` json
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
+```
+
 Skeleton of index.html should look like this
 
 ``` javascript
