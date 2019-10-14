@@ -16,10 +16,10 @@ As developers, you write code and check it in into the code repository but the c
 
 With **Continuous Delivery**, you automate the deployment and release of your mobile apps, regardless of whether you're distributing the application to a group of testers or company employees (for beta testing), or the App Store (for production). It makes deployments less risky, encourages fast iterations, and lets you release new changes to your customers in a continual way.
 
-# Distribute application binaries to beta testers
+## Distribute application binaries to beta testers
 Beta testing your mobile application is one of the critical steps during the app development process. It helps to find bugs and issues in your app early on and the feedback that improves your app quality getting it ready for production use.
 
-## Services
+### Services
 
 ### **Visual Studio App Center**
 [App Center Distribute](https://docs.microsoft.com/en-us/appcenter/distribution/) is a tool for developers to quickly release builds to end-user devices. With a complete install portal experience, Distribute is not only a powerful solution for beta app tester distribution but also a convenient alternative to distribution through the public App Stores. Developers can automate their distribution workflow even further with App Center Build and public app store integrations.
@@ -56,10 +56,10 @@ Beta testing your mobile application is one of the critical steps during the app
 - [Get started with Azure Pipelines guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
 - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
   
-# Distribute your application directly to App Stores
+## Distribute your application directly to App Stores
 Once your application is ready for production use and you want it to be used publicly, it needs to be submitted to App Stores where it can be downloaded by customers. There are multiple ways to distribute your application directly to App Stores. 
 
-## Services
+### Services
 
 ### **Visual Studio App Center**
 
@@ -85,9 +85,9 @@ Google Play is the official app store for Android OS, allowing users to browse a
 - Protect your company information by controlling the way your workforce accesses and shares it
 - Ensure devices and apps are compliant with company security requirements
     
-# Deploy updates directly to users' devices
+## Deploy updates directly to users' devices
 
-## Services
+### Services
 
 ### **CodePush**
 The [CodePush](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/) service in App Center enables Apache Cordova and React Native developers to deploy mobile app updates directly to their users' devices. It works by acting as a central repository that developers can publish certain updates to (for example, JS, HTML, CSS and image changes). Then apps can query for updates from the repository using the provided client SDKs. This allows you to have a more deterministic and direct engagement model with your end users, while addressing bugs or adding small features without requiring you to re-build a binary or re-distribute it through any public app stores.
