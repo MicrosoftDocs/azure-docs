@@ -1,6 +1,6 @@
 ---
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
-description: This article provides information on how to adda Microsoft.EventHub service endpoint to a virtual network. 
+description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
 
 ---
@@ -19,14 +19,15 @@ ms.author: shvija
 
 The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
-Once configured to be bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
+Once configured to bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service. 
 
-The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
+The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the denyall rule in the IP firewall associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
+
 
 >[!WARNING]
 > Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Monitor
@@ -45,7 +46,7 @@ The result is a private and isolated relationship between the workloads bound to
 
 ## Advanced security scenarios enabled by VNet integration 
 
-Solutions that require tight and compartmentalized security, and where virtual network subnets provide the segmentation between the compartmentalized services, generally still need communication paths between services residing in those compartments.
+Solutions that require tight and compartmentalized security, and where virtual network subnets provide the segmentation between the compartmentalized services, still need communication paths between services residing in those compartments.
 
 Any immediate IP route between the compartments, including those carrying HTTPS over TCP/IP, carries the risk of exploitation of vulnerabilities from the network layer on up. Messaging services provide completely insulated communication paths, where messages are even written to disk as they transition between parties. Workloads in two distinct virtual networks that are both bound to the same Event Hubs instance can communicate efficiently and reliably via messages, while the respective network isolation boundary integrity is preserved.
  
@@ -68,7 +69,7 @@ Template parameters:
 
 * **namespaceName**: Event Hubs namespace.
 * **vnetRuleName**: Name for the Virtual Network rule to be created.
-* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
+* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
 > [!NOTE]
 > While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.

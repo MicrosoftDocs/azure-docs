@@ -2,7 +2,6 @@
 title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox 
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with Hortonworks Sandbox.
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -11,8 +10,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-
 ---
+
 # Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) running on your computer. 
@@ -21,9 +20,9 @@ Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applicatio
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have the following items:
+Before you begin this article, you must have the following items:
 
-- Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](apache-hadoop-emulator-get-started.md). 
+- Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Apache Hadoop ecosystem with a Hadoop sandbox on a virtual machine](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
     > HDInsight Tools for IntelliJ has been tested only with HDP 2.4. To get HDP 2.4, expand **Hortonworks Sandbox Archive** on the [Hortonworks Sandbox downloads site](https://hortonworks.com/downloads/#sandbox).
 
@@ -40,7 +39,7 @@ To install the plug-ins:
   5. To complete the installation, select **Restart IntelliJ IDEA**.
   6. Repeat steps 4 and 5 to install **Azure Toolkit for IntelliJ**. For more information, see [Install Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
 
-## Create a Spark Scala application
+## Create an Apache Spark Scala application
 
 In this section, you create a sample Scala project by using IntelliJ IDEA. In the next section, you link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
 
@@ -49,20 +48,20 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
    1. Select **HDInsight** > **Spark on HDInsight (Scala)**.
    2. In the **Build tool** list, select one of the following, based on your scenario:
 
-    * **Maven**: For Scala project-creation wizard support.
-    * **SBT**: For managing dependencies and building for the Scala project.
+      * **Maven**: For Scala project-creation wizard support.
+      * **SBT**: For managing dependencies and building for the Scala project.
 
-   ![The New Project dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:
 
-    1. In the **Project name** box, enter a project name.
-    2. In the **Project location** box, enter a project location.
-    3. Next to the **Project SDK** drop-down list, select **New**, select **JDK**, and then specify the folder for Java JDK version 1.7 or later. Select **Java 1.8** for the Spark 2.x cluster. Select **Java 1.7** for the Spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked **Scala 2.10.x**. Do not use the repository marked Scala 2.11.x.
+   1. In the **Project name** box, enter a project name.
+   2. In the **Project location** box, enter a project location.
+   3. Next to the **Project SDK** drop-down list, select **New**, select **JDK**, and then specify the folder for Java JDK version 1.7 or later. Select **Java 1.8** for the Spark 2.x cluster. Select **Java 1.7** for the Spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
+   4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked **Scala 2.10.x**. Do not use the repository marked Scala 2.11.x.
     
-    ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Select **Finish**.
@@ -139,20 +138,20 @@ To submit a project to an emulator:
 2. Complete the following steps:
 
     1. In the **Spark cluster (Linux only)** drop-down list, select your local Hortonworks Sandbox.
-    2. In the **Main class name** box, select or enter the main class name. For this tutorial, the name is **GroupByTest**.
+    2. In the **Main class name** box, select or enter the main class name. For this article, the name is **GroupByTest**.
 
 3. Select **Submit**. The job submission logs are shown in the Spark submission tool window.
 
 ## Next steps
 
-- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to create Spark applications for an HDInsight Spark Linux cluster](../spark/apache-spark-intellij-tool-plugin.md).
+- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight Spark Linux cluster](../spark/apache-spark-intellij-tool-plugin.md).
 
-- For a video about HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Spark development](https://www.youtube.com/watch?v=YTZzYVgut6c).
+- For a video about HDInsight Tools for IntelliJ, see [Introduce HDInsight Tools for IntelliJ for Apache Spark development](https://www.youtube.com/watch?v=YTZzYVgut6c).
 
-- Learn how to [remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Learn how to [remotely debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight Spark Linux cluster](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Learn how to [use HDInsight Tools in Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on an HDInsight Spark Linux cluster](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 
-- Learn how to [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](../spark/apache-spark-eclipse-tool-plugin.md).
+- Learn how to [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](../spark/apache-spark-eclipse-tool-plugin.md).
 
 - For a video about HDInsight Tools for Eclipse, see [Use HDInsight Tools for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha).

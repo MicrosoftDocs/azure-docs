@@ -3,8 +3,8 @@ title: Deploy an existing executable to Azure Service Fabric | Microsoft Docs
 description: Learn how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
+ms.author: atsenthi
 
 ---
 # Package and deploy an existing executable to Service Fabric
@@ -69,7 +69,7 @@ The process of manually packaging a guest executable is based on the following g
 -->
 
 ### Create the package directory structure
-You can start by creating the directory structure, as described in the preceding section, "Application package file structure."
+You can start by creating the directory structure, as described in [Package an Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### Add the application's code and configuration files
 After you have created the directory structure, you can add the application's code and configuration files under the code and config directories. You can also create additional directories or subdirectories under the code or config directories.
@@ -92,7 +92,7 @@ The following is an example of a `ServiceManifest.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -203,7 +203,7 @@ Once you have configured the `Servicemanifest.xml` file, you need to make some c
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
    </ServiceManifestImport>
@@ -250,7 +250,7 @@ Log files are saved in one of the service's working directories. To determine wh
 ## Deployment
 The last step is to [deploy your application](service-fabric-deploy-remove-applications.md). The following PowerShell script shows how to deploy your application to the local development cluster, and start a new Service Fabric service.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 
@@ -298,4 +298,4 @@ In this article, you have learned how to package a guest executable and deploy i
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
-* [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Create your first Service Fabric application using Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

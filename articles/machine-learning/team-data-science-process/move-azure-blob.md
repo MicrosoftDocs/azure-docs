@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
@@ -21,7 +21,7 @@ The Team Data Science Process requires that data be ingested or loaded into a va
 The following articles describe how to move data to and from Azure Blob storage using different technologies.
 
 * [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
 * [SSIS](move-data-to-azure-blob-using-ssis.md)
 

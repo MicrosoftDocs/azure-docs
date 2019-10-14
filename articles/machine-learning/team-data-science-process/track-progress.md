@@ -1,48 +1,48 @@
 ---
-title: Tracking the progress of data science projects - Team Data Science Process
-description: How data science group managers, team lease, and project leads can track the progress of a data science project.
+title: Track progress of Team Data Science Process projects
+description: How data science group managers, team leads, and project leads can track the progress of a data science project.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/26/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
+# Track the progress of data science projects
 
-# Tracking the progress of data science projects
-
-Data science group managers, team leads, and project leads need to track the progress of their projects, what work has been done on them and by whom, and remains on the to-do lists. 
+Data science group managers, team leads, and project leads can track the progress of their projects, such as what work has been done, who did the work, and what work remains. 
 
 ## Azure DevOps dashboards
-If you are using Azure DevOps, you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
 
-For more information on how to create and customize dashboards and widgets on Azure DevOps, see the following sets of instructions:
+If you're using Azure DevOps, you can build dashboards to track the activities and work items associated with a given Agile project. For more information about dashboards, see [Dashboards, reports, and widgets](/azure/devops/report/dashboards/).
 
-- [Add and manage dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
-- [Add widgets to a dashboard](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
+For instructions on how to create and customize dashboards and widgets in Azure DevOps, see the following quickstarts:
+
+- [Add and manage dashboards](/azure/devops/report/dashboards/dashboards)
+- [Add widgets to a dashboard](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
 ## Example dashboard
 
-Here is a simple example dashboard that is built to track the sprint activities of an Agile data science project, as well as the number of commits to associated repositories. The **top left** panel shows:
+Here is a simple example dashboard that tracks the sprint activities of an Agile data science project, including the number of commits to associated repositories. 
 
-- the countdown of the current sprint, 
-- the number of commits for each repository in the last 7 days
-- the work item for specific users. 
+- The **countdown** tile shows the number of days that remain in the current sprint. 
 
-The remaining panels show the cumulative flow diagram (CFD), burndown, and burnup for a project:
+- The two **code tiles** show the number of commits in the two project repositories for the past seven days. 
 
-- **Bottom left**:  CFD the quantity of work in a given state, showing approved in gray, committed in blue, and done in green.
-- **Top right**: burndown chart the work left to complete versus the time remaining).
-- **Bottom right**: burnup chart the work that has been completed versus the total amount of work.
+- **Work items for TDSP Customer Project** shows the results of a query for all work items and their status. 
 
-![dashboard](./media/track-progress/dashboard.png)
+- A **cumulative flow diagram** (CFD) shows the number of Closed and Active work items.
 
-For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/).
- 
+- The **burndown chart** shows work still to complete against remaining time in the sprint.
+
+- The **burnup chart** shows completed work compared to total amount of work in the sprint.
+
+![Dashboard](./media/track-progress/dashboard.png)
+
 ## Next steps
 
-Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+[Walkthroughs executing the Team Data Science Process](walkthroughs.md) lists walkthroughs that demonstrate all the steps in the process for specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 

@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## Test application locally
 
-Browse to http://localhost:8080 to see the updated application.
+Browse to `http://localhost:8080` to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

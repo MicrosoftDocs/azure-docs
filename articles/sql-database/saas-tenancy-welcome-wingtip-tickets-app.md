@@ -11,8 +11,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ---
 # The Wingtip Tickets SaaS application
 
@@ -40,7 +39,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-dpt] and code on GitHub  [.
 
 ## Sharded multi-tenant database pattern
 
-Multi-tenant databases are effective for service providers looking for lower cost per tenant and okay with reduced tenant isolation. This pattern allows packing large numbers of tenants into a single database, driving the cost-per-tenant down. Near infinite scale is possible by sharding the tenants across multiple databases. A catalog database maps tenants to databases.  
+Multi-tenant databases are effective for service providers looking for lower cost per tenant and okay with reduced tenant isolation. This pattern allows packing large numbers of tenants into an individual database, driving the cost-per-tenant down. Near infinite scale is possible by sharding the tenants across multiple databases. A catalog database maps tenants to databases.  
 
 This pattern also allows a *hybrid* model in which you can optimize for cost with multiple tenants in a database, or optimize for isolation with a single tenant in their own database. The choice can be made on a tenant-by-tenant basis, either when the tenant is provisioned or later, with no impact on the application.  This model can be used effectively when groups of tenants need to be treated differently. For example, low-cost tenants can be assigned to shared databases, while premium tenants can be assigned to their own databases. 
 
@@ -55,7 +54,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code on GitHub  [..
 #### Tutorials and code
 
 - Standalone app per tenant:
-    - [Tutorials for standalone app ][docs-tutorials-for-wingtip-sa].
+    - [Tutorials for standalone app][docs-tutorials-for-wingtip-sa].
     - [Code for standalone app, on GitHub][github-code-for-wingtip-sa].
 
 - Database per tenant:

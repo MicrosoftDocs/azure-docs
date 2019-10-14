@@ -2,21 +2,22 @@
  title: include file
  description: include file
  services: digital-twins
- author: kingdomofends
+ ms.author: alinast
+ author: alinamstanciu
+ manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/13/2018
- ms.author: adgera
+ ms.date: 10/02/2019
  ms.custom: include file
 ---
 
 In the examples below, `YOUR_MANAGEMENT_API_URL` refers to the URI of the Digital Twins APIs:
 
 ```plaintext
-https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
 ```
 
 | Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Azure Digital Twins instance |
-| YOUR_LOCATION | Which server region your instance is hosted on |
+| YOUR_LOCATION | The region your instance is hosted on |

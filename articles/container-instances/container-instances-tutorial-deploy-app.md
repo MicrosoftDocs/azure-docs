@@ -3,6 +3,7 @@ title: Tutorial - Deploy container app to Azure Container Instances
 description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: tutorial
@@ -32,26 +33,20 @@ In this section, you use the Azure CLI to deploy the image built in the [first t
 
 ### Get registry credentials
 
-When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply the registry's credentials.
+When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply credentials to access the registry. As shown in [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md), a best practice for many scenarios is to create and configure an Azure Active Directory service principal with *pull* permissions to your registry. See that article for sample scripts to create a service principal with the necessary permissions. Take note of the service principal ID and service principal password. You use these credentials when you deploy the container.
 
-First, get the full name of the container registry login server (replace `<acrName>` with the name of your registry):
+You also need the full name of the container registry login server (replace `<acrName>` with the name of your registry):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Next, get the container registry password:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### Deploy container
 
-Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry and `<aciDnsLabel>` with desired DNS name.
+Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` with the value you obtained from the previous command. Replace `<service-principal-ID>` and `<service-principal-password>` with the service principal ID and password that you created to access the registry. Replace `<aciDnsLabel>` with a desired DNS name.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Within a few seconds, you should receive an initial response from Azure. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.

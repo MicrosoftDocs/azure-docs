@@ -46,4 +46,4 @@ The new inbound IP address that is being given to your app is in the portal in t
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [Inbound and outbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md).

@@ -1,10 +1,11 @@
 ---
-title: Create a Standard Load Balancer with zonal frontend IP address - Azure portal
+title: Create a Load Balancer with a zonal frontend - Azure portal
 titlesuffix: Azure Load Balancer
-description: Learn how to create a public Load Balancer Standard with zonal Public IP address frontend with the Azure portal
+description: Learn how to create a Standard Load Balancer with zonal frontend with the Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
-#  Create a public Load Balancer Standard with zonal Public IP address frontend using Azure portal
+#  Create a Standard Load Balancer with zonal frontend using Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend IP configuration. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +31,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a load balancer with zonal frontend IP address
 
-1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
+1. From a browser navigate to the Azure portal: [https://portal.azure.com](https://portal.azure.com) and login with your Azure account.
 2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** page, under **Name** type **myLoadBalancer**.
 4. Under **Type**, select **Public**.
@@ -40,10 +41,10 @@ Log in to the Azure portal at https://portal.azure.com.
 >[!NOTE] 
 > The public IP created in this step is of Standard SKU by default.
 
-7. For **Resource group**, click **Create new**, and then type **myResourceGroupZLB** as the name of the resource group.
-8. For **Location**, select **West Europe**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
+1. For **Resource group**, click **Create new**, and then type **myResourceGroupZLB** as the name of the resource group.
+1. For **Location**, select **West Europe**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
-    ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![create zone-redundant Standard Load Balancer with the Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## Next steps

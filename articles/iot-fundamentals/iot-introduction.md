@@ -22,7 +22,7 @@ The main parts of an IoT solution are as follows: devices, back-end services, an
 
 ### IoT devices
 
-Devices are generally made up of a circuit board with censors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
+Devices are generally made up of a circuit board with sensors attached that connect to the internet. Many devices communicate via a Wi-Fi chip. Here are some examples of IoT devices:
 
 * pressure sensors on a remote oil pump
 * temperature and humidity sensors in an air-conditioning unit
@@ -30,6 +30,8 @@ Devices are generally made up of a circuit board with censors attached that conn
 * presence sensors in a room
 
 Two devices that are frequently used for prototyping are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as well as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
+
+For more information about available IoT devices, check out the industry's largest [catalog of devices certified for IoT](https://catalog.azureiotsolutions.com/alldevices).
 
 The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) enable you to build apps that run on your devices so they can perform the tasks you need. With the SDKs, you can send telemetry to your IoT hub, receive messages and updates from the IoT Hub, and so on.
 
@@ -99,7 +101,7 @@ Implementing this IoT solution made it possible for the company to check and tre
 
 There are several IoT-related services in Azure and it can be confusing to figure out which one you want to use. Some, such as IoT Central and the IoT solution accelerators, provide templates to help you create your own solution and get started quickly. You can also fully develop your own solutions using other services available -- it all depends on how much help you want, and how much control. Here is a list of the services available, as well as what you may use them for.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md): This is a SaaS solution that helps you connect, monitor, and manage your ioT devices. To start, you select a template for your device type and create and test a basic IoT Central application that the operators of the device will use. The IoT Central application will also enable you to monitor the devices and provision new devices. This service is for straightforward solutions that don't require deep service customization. 
+1. [**IoT Central**](../iot-central/overview-iot-central.md): This is a SaaS solution that helps you connect, monitor, and manage your IoT devices. To start, you select a template for your device type and create and test a basic IoT Central application that the operators of the device will use. The IoT Central application will also enable you to monitor the devices and provision new devices. This service is for straightforward solutions that don't require deep service customization. 
 
 2. [**IoT solution accelerators**](/azure/iot-suite): This is a collection of PaaS solutions you can use to accelerate your development of an IoT solution. You start with a provided IoT solution and then fully customize that solution to your requirements. You need Java or .NET skills to customize the back-end, and JavaScript skills to customize the visualization. 
 

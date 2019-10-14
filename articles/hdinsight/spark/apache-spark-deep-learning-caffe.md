@@ -1,22 +1,22 @@
 ---
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning
-description: Use Caffe on Azure HDInsight Spark for distributed deep learning
-services: hdinsight
+description: Use Caffe on Apache Spark for distributed deep learning in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
 ---
-# Use Caffe on Azure HDInsight Spark for distributed deep learning
 
+# Use Caffe on Azure HDInsight Spark for distributed deep learning
 
 ## Introduction
 
-Deep learning is impacting everything from healthcare to transportation to manufacturing, and more. Companies are turning to deep learning to solve hard problems, like [image classification](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [speech recognition](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), object recognition, and machine translation. 
+Deep learning is impacting everything from healthcare to transportation to manufacturing, and more. Companies are turning to deep learning to solve hard problems, like [image classification](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [speech recognition](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), object recognition, and machine translation.
 
-There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](http://caffe.berkeleyvision.org/) is one of the most famous non-symbolic (imperative) neural network frameworks, and widely used in many areas including computer vision. Furthermore, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combines Caffe with Apache Spark, in which case deep learning can be easily used on an existing Hadoop cluster. You can use deep learning together with Spark ETL pipelines, reducing system complexity, and latency for complete solution learning.
+There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](https://caffe.berkeleyvision.org/) is one of the most famous non-symbolic (imperative) neural network frameworks, and widely used in many areas including computer vision. Furthermore, [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combines Caffe with Apache Spark, in which case deep learning can be easily used on an existing Hadoop cluster. You can use deep learning together with Spark ETL pipelines, reducing system complexity, and latency for complete solution learning.
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/) is a cloud Apache Hadoop offering that provides optimized open-source analytic clusters for Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka, and ML Services. HDInsight is backed by a 99.9% SLA. Each of these big data technologies and ISV applications is easily deployable as managed clusters with security and monitoring for enterprises.
 
@@ -37,7 +37,7 @@ To get started, you need to install the dependencies. The Caffe site and [CaffeO
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
-    #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
+    #installing all dependencies, including the ones mentioned in https://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
     #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
@@ -53,19 +53,17 @@ To get started, you need to install the dependencies. The Caffe site and [CaffeO
     sudo ldconfig
     echo "protobuf installation done"
 
-
 There are two steps in the script action. The first step is to install all the required libraries. Those libraries include the necessary libraries for both compiling Caffe(such as gflags, glog) and running Caffe (such as numpy). you are using libatlas for CPU optimization, but you can always follow the CaffeOnSpark wiki on installing other optimization libraries, such as MKL or CUDA (for GPU).
 
-The second step is to download, compile, and install protobuf 2.5.0 for Caffe during runtime. Protobuf 2.5.0 [is required](https://github.com/yahoo/CaffeOnSpark/issues/87), however this version is not available as a package on Ubuntu 16, so you need to compile it from the source code. There are also a few resources on the Internet on how to compile it. For more information, see [here](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
+The second step is to download, compile, and install protobuf 2.5.0 for Caffe during runtime. Protobuf 2.5.0 [is required](https://github.com/yahoo/CaffeOnSpark/issues/87), however this version is not available as a package on Ubuntu 16, so you need to compile it from the source code. There are also a few resources on the Internet on how to compile it. For more information, see [here](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
-
+![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 ## Step 2: Build Caffe on Apache Spark for HDInsight on the head node
 
-The second step is to build Caffe on the headnode, and then distribute the compiled libraries to all the worker nodes. In this step, you must [ssh into your headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). After that, you must follow the [CaffeOnSpark build process](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Below is the script you can use to build CaffeOnSpark with a few additional steps. 
+The second step is to build Caffe on the headnode, and then distribute the compiled libraries to all the worker nodes. In this step, you must [ssh into your headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). After that, you must follow the [CaffeOnSpark build process](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Below is the script you can use to build CaffeOnSpark with a few additional steps.
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -83,7 +81,7 @@ The second step is to build Caffe on the headnode, and then distribute the compi
 
     #compile CaffeOnSpark
     pushd ${CAFFE_ON_SPARK}
-    #always clean up the environment before building (especially when rebuiding), or there will be errors such as "failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2"
+    #always clean up the environment before building (especially when rebuiding), or there will be errors such as "failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occurred: exec returned: 2"
     make clean 
     #the build step usually takes 20~30 mins, since it has a lot maven dependencies
     make build 
@@ -109,12 +107,11 @@ You may need to do more than what the documentation of CaffeOnSpark says. The ch
 - Put the datasets to the BLOB storage, which is a shared location that is accessible to all worker nodes for later use.
 - Put the compiled Caffe libraries to BLOB storage, and later you copy those libraries to all the nodes using script actions to avoid additional compilation time.
 
-
 ### Troubleshooting: An Ant BuildException has occurred: exec returned: 2
 
 When first trying to build CaffeOnSpark, sometimes it says
 
-    failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2
+    failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occurred: exec returned: 2
 
 Clean the code repository by "make clean" and then run "make build" to solve this issue, as long as you have the correct dependencies.
 
@@ -128,7 +125,6 @@ Sometimes maven gives a connection time-out error, similar to the  following sni
     INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
 You must retry after a few minutes.
-
 
 ### Troubleshooting: Test failure for Caffe
 
@@ -161,16 +157,17 @@ Caffe is using an "expressive architecture", where for composing a model, you ju
 
 The model that you train is a sample model for MNIST training. The MNIST database of handwritten digits has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. CaffeOnSpark has some scripts to download the dataset and convert it into the right format.
 
-CaffeOnSpark provides some network topologies example for MNIST training. It has a nice design of splitting the network architecture (the topology of the network) and optimization. In this case, There are two files required: 
+CaffeOnSpark provides some network topologies example for MNIST training. It has a nice design of splitting the network architecture (the topology of the network) and optimization. In this case, There are two files required:
 
-the "Solver" file (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) is used for overseeing the optimization and generating parameter updates. For example, it defines whether CPU or GPU is used, what's the momentum, how many iterations are, etc. It also defines which neuron network topology should the program use (which is the second file you need). For more information about Solver, see [Caffe documentation](http://caffe.berkeleyvision.org/tutorial/solver.html).
+the "Solver" file (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) is used for overseeing the optimization and generating parameter updates. For example, it defines whether CPU or GPU is used, what's the momentum, how many iterations are, etc. It also defines which neuron network topology should the program use (which is the second file you need). For more information about Solver, see [Caffe documentation](https://caffe.berkeleyvision.org/tutorial/solver.html).
 
 For this example, since you are using CPU rather than GPU, you should change the last line to:
 
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![HDInsight caffe configuration example](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 You can change other lines as needed.
 
@@ -179,9 +176,9 @@ The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define
 - change the "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" to "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![HDInsight caffe configuration example again](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
-For more information on how to define the network, check the [Caffe documentation on MNIST dataset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
+For more information on how to define the network, check the [Caffe documentation on MNIST dataset](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
 For the purpose of this article, you use this MNIST example. Run the following commands from the head node:
 
@@ -195,19 +192,19 @@ Since you are using YARN cluster mode, in which case the Spark driver will be sc
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-If you want to know what happened, you usually need to get the Spark driver's log, which has more information. In this case, you need to go to the YARN UI to find the relevant YARN logs. You can get the YARN UI by this URL: 
+If you want to know what happened, you usually need to get the Spark driver's log, which has more information. In this case, you need to go to the YARN UI to find the relevant YARN logs. You can get the YARN UI by this URL:
 
     https://yourclustername.azurehdinsight.net/yarnui
-   
-![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+
+![apache yarn scheduler browser view](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 You can take a look at how many resources are allocated for this particular application. You can click the "Scheduler" link, and then you will see that for this application, there are nine containers running. you ask YARN to provide eight executors, and another container is for driver process. 
 
-![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![HDI apache YARN Scheduler view](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 You may want to check the  driver logs or container logs if there are failures. For driver logs, you can click the application ID in YARN UI, then click the "Logs" button. The driver logs are written into stderr.
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![apache yarn window browser view](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 For example, you might see some of the error below from the driver logs, indicating you allocate too many executors.
 
@@ -255,7 +252,6 @@ from the headnode. After checking container failure, it is caused by using GPU m
     WARNING: Logging before InitGoogleLogging() is written to STDERR
     F0201 07:10:48.309725 11624 common.cpp:79] Cannot use GPU in CPU-only Caffe: check mode.
 
-
 ## Getting results
 
 Since you are allocating 8 executors, and the network topology is simple, it should only take around 30 minutes to run the result. From the command line, you can see that you put the model to wasb:///mnist.model, and put the results to a folder named wasb:///mnist_features_result.
@@ -278,19 +274,19 @@ and the result looks like:
 
 The SampleID represents the ID in the MNIST dataset, and the label is the number that the model identifies.
 
-
 ## Conclusion
 
 In this documentation, you have tried to install CaffeOnSpark with running a simple example. HDInsight is a full managed cloud distributed compute platform, and is the best place for running machine learning and advanced analytics workloads on large data set, and for distributed deep learning, you can use Caffe on HDInsight Spark to perform deep learning tasks.
 
-
 ## <a name="seealso"></a>See also
+
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
+
 * [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)

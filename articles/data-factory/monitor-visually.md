@@ -1,129 +1,199 @@
----
+﻿---
 title: Visually monitor Azure data factories | Microsoft Docs
-description: Learn how to visually monitor Azure Data factories
+description: Learn how to visually monitor Azure data factories
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: shlo
-
+ms.date: 01/19/2018
 ---
+
 # Visually monitor Azure data factories
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
-In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+Azure Data Factory is a cloud-based data integration service. You can use it to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. By using Azure Data Factory, you can:
 
-## Monitor data factory v2 pipelines
+- Create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores.
+- Process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+- Publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
 
-1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. Log in to the  [Azure portal](https://portal.azure.com/).
-3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
+In this quickstart, you learn how to visually monitor Data Factory pipelines without writing a single line of code.
 
-## List-View Monitoring
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-Monitor pipeline and activity runs with a simple list view interface. All the runs are displayed in local browser time zone. You can change the time zone and all the date time fields will snap to the selected time zone.  
+## Monitor Data Factory pipelines
 
-#### Monitoring Pipeline Runs
-List view showcasing each pipeline run for your data factory v2 pipelines. Included columns:
+Monitor pipeline and activity runs with a simple list-view interface. All the runs are displayed in the browser's local time zone. If you change the time zone, all the date/time fields snap to the one that you selected.  
 
-| **Column Name** | **Description** |
+1. Start Microsoft Edge or Google Chrome. Currently, the Data Factory UI is supported only in those two web browsers.
+2. Sign in to the  [Azure portal](https://portal.azure.com/).
+3. Go to the blade for the created data factory in the Azure portal. Select the **Monitor & Manage** tile to start the Data Factory visual monitoring experience.
+
+## Monitor pipeline runs
+The list view shows each pipeline run for your Data Factory pipelines. It includes these columns:
+
+| **Column name** | **Description** |
 | --- | --- |
-| Pipeline Name | Name of the pipeline. |
-| Actions | Single action available to view activity runs. |
-| Run Start | Pipeline run start date time (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Pipeline Name | Name of the pipeline |
+| Actions | Single action available to view activity runs |
+| Run Start | Start date and time for the pipeline run (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
-| Triggered By | Manual trigger, Schedule trigger |
-| Status | Failed, Succeeded, In Progress |
-| Parameters | Pipeline run parameters (name, value pairs) |
-| Error | Pipeline run error (if/any) |
-| Run ID | Id of the pipeline run |
+| Triggered By | Manual trigger or scheduled trigger |
+| Status | **Failed**, **Succeeded**, or **In Progress** |
+| Parameters | Parameters for the pipeline run (name/value pairs) |
+| Error | Pipeline run error (if any) |
+| Run ID | ID of the pipeline run |
 
-![Monitor pipeline runs](media/monitor-visually/pipeline-runs.png)
+![List view for monitoring pipeline runs](media/monitor-visually/pipeline-runs.png)
 
-#### Monitoring Activity Runs
-List view showcasing activity runs corresponding to each pipeline run. Click **'Activity Runs'** icon under the **'Actions'** column to view activity runs for each pipeline run. Included columns:
+## Monitor activity runs
+The list view shows activity runs that correspond to each pipeline run. To view activity runs for each pipeline run, select the **Activity Runs** icon under the **Actions** column. The list view includes these columns:
 
-| **Column Name** | **Description** |
+| **Column name** | **Description** |
 | --- | --- |
-| Activity Name | Name of the activity inside the pipeline. |
-| Activity Type | Type of the activity i.e. Copy, HDInsightSpark, HDInsightHive etc. |
-| Run Start | Activity run start date time (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Activity Name | Name of the activity inside the pipeline |
+| Activity Type | Type of the activity, such as **Copy**, **HDInsightSpark**, or **HDInsightHive** |
+| Run Start | Start date and time for the activity run (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
-| Status | Failed, Succeeded, In Progress |
-| Input | JSON array describing the activity inputs |
-| Output | JSON array describing the activity outputs |
-| Error | Activity run error (if/any) |
+| Status | **Failed**, **Succeeded**, or **In Progress** |
+| Input | JSON array that describes the activity inputs |
+| Output | JSON array that describes the activity outputs |
+| Error | Activity run error (if any) |
 
-![Monitor activity runs](media/monitor-visually/activity-runs.png)
+![List view for monitoring activity runs](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> You need to click **'Refresh'** icon on top to refresh the list of pipeline and activity runs. Auto-refresh is currently not supported.
->
+> You need to select the **Refresh** button at the top to refresh the list of pipeline and activity runs. Auto-refresh is currently not supported.
 
-![Refresh](media/monitor-visually/refresh.png)
+![Refresh button](media/monitor-visually/refresh.png)
 
-## Features
+## Select a data factory to monitor
+Hover over the **Data Factory** icon on the upper left. Select the arrow icon to see a list of azure subscriptions and data factories that you can monitor.
 
-#### Select a data factory to monitor
-Hover on the **Data Factory** icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
+![Select the data factory](media/monitor-visually/select-datafactory.png)
 
-![Select data factory](media/monitor-visually/select-datafactory.png)
+## Configure the list view
 
-#### Rich ordering and filtering
+### Apply rich ordering and filtering
 
-Order pipeline runs in desc/asc by Run Start and filter pipeline runs by following columns:
+Order pipeline runs in DESC/ASC according to the run start time. Filter pipeline runs by using the following columns:
 
-| **Column Name** | **Description** |
+| **Column name** | **Description** |
 | --- | --- |
-| Pipeline Name | Name of the pipeline. Options include quick filters for 'Last 24 hours', 'Last week',  'Last 30 days' or select a custom date time. |
-| Run Start | Pipeline run start date time |
-| Run Status | Filter runs by status i.e. Succeeded, Failed, In Progress |
+| Pipeline Name | Name of the pipeline. Options include quick filters for **Last 24 hours**, **Last week**, and **Last 30 days**. Or select a custom date and time. |
+| Run Start | Start date and time for the pipeline run. |
+| Run Status | Filter runs by status: **Succeeded**, **Failed**, or **In Progress**. |
 
-![Filter](media/monitor-visually/filter.png)
+![Options for filtering](media/monitor-visually/filter.png)
 
-#### Add/Remove columns in list view
-Right click the list view header and choose columns that you want to appear in the list view
+### Add or remove columns
+Right-click the list view header and choose columns that you want to appear in the list view.
 
-![Columns](media/monitor-visually/columns.png)
+![Options for columns](media/monitor-visually/columns.png)
 
-#### Reorder column widths in list view
-Increase and decrease the column widths in list view by simply hovering over the column header
+### Adjust column widths
+Increase and decrease the column widths in the list view by hovering over the column header.
 
-#### User properties
+## Promote user properties to monitor
 
-You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the Copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a Copy activity.
+You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a copy activity.
 
 ![Create user properties](media/monitor-visually/monitor-user-properties-image1.png)
 
 > [!NOTE]
-> You can only promote up to 5 pipeline activity properties as user properties.
+> You can only promote up to five pipeline activity properties as user properties.
 
-After you create the user properties, you can then monitor them in the monitoring list views. If the source for the Copy activity is a table name, you can monitor the source table name as a column in the activity runs list view.
+After you create the user properties, you can monitor them in the monitoring list views. If the source for the copy activity is a table name, you can monitor the source table name as a column in the list view for activity runs.
 
 ![Activity runs list without user properties](media/monitor-visually/monitor-user-properties-image2.png)
 
-![Add columns for user properties to activity runs list](media/monitor-visually/monitor-user-properties-image3.png)
+![Add columns for user properties to the activity runs list](media/monitor-visually/monitor-user-properties-image3.png)
 
 ![Activity runs list with columns for user properties](media/monitor-visually/monitor-user-properties-image4.png)
 
-#### Guided Tours
-Click on the 'Information Icon' in lower left and click 'Guided Tours' to get step-by-step instructions on how to monitor your pipeline and activity runs.
+## Rerun activities inside a pipeline
+
+You can now rerun activities inside a pipeline. Select **View activity runs**, and then select the activity in your pipeline from which point you want to rerun your pipeline.
+
+![View activity runs](media/monitor-visually/rerun-activities-image1.png)
+
+![Select an activity run](media/monitor-visually/rerun-activities-image2.png)
+
+### View rerun history
+
+You can view the rerun history for all the pipeline runs in the list view.
+
+![View history](media/monitor-visually/rerun-history-image1.png)
+
+You can also view rerun history for a particular pipeline run.
+
+![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
+
+## Gantt views
+
+Use Gantt views to quickly visualize your pipelines and activity runs. You can look at the Gantt view per pipeline or group by annotations/tags that you have created on your pipelines.
+
+![Example of a Gantt chart](media/monitor-visually/gantt1.png)
+
+![Gantt chart annotations](media/monitor-visually/gantt2.png)
+
+The length of the bar informs the duration of the pipeline. You can also select the bar to see more details.
+
+![Gantt chart duration](media/monitor-visually/gantt3.png)
+
+## Guided tours
+Select the **Information** icon on the lower left. Then select **Guided Tours** to get step-by-step instructions on how to monitor your pipeline and activity runs.
 
 ![Guided tours](media/monitor-visually/guided-tours.png)
 
-#### Feedback
-Click on the 'Feedback' icon to give us feedback on various features or any issues that you might be facing.
+## Feedback
+Select the **Feedback** icon to give us feedback on various features or any issues that you might be facing.
 
 ![Feedback](media/monitor-visually/feedback.png)
 
+## Alerts
+
+You can raise alerts on supported metrics in Data Factory. Select **Monitor** > **Alerts & Metrics** on the Data Factory monitoring page to get started.
+
+![Data factory Monitor page](media/monitor-visually/alerts01.png)
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
+
+### Create alerts
+
+1.  Select **New Alert Rule** to create a new alert.
+
+    ![New Alert Rule button](media/monitor-visually/alerts02.png)
+
+1.  Specify the rule name and select the alert severity.
+
+    ![Boxes for rule name and severity](media/monitor-visually/alerts03.png)
+
+1.  Select the alert criteria.
+
+    ![Box for target criteria](media/monitor-visually/alerts04.png)
+
+    ![List of criteria](media/monitor-visually/alerts05.png)
+
+1.  Configure the alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name, or failure type.
+
+    ![Options for configuring alert logic](media/monitor-visually/alerts06.png)
+
+1.  Configure email, SMS, push, and voice notifications for the alert. Create an action group, or choose an existing one, for the alert notifications.
+
+    ![Options for configuring notifications](media/monitor-visually/alerts07.png)
+
+    ![Options for adding a notification](media/monitor-visually/alerts08.png)
+
+1.  Create the alert rule.
+
+    ![Options for creating an alert rule](media/monitor-visually/alerts09.png)
+
 ## Next steps
 
-See  [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article to learn about monitoring and managing pipelines
+To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article.

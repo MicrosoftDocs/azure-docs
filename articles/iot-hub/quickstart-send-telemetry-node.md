@@ -1,19 +1,19 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (Node.js) | Microsoft Docs
+title: 'Quickstart: Send telemetry to Azure IoT (Node.js)'
 description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 06/19/2018
-ms.author: dobett
+ms.custom: mvc, seo-javascript-september2019
+ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read the telemetry from the hub with a back-end application (Node.js)
+# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Node.js. You need Node.js v4.x.x or later on your development machine.
+The two sample applications you run in this quickstart are written in Node.js. You need Node.js v10.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -37,56 +37,59 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-
 ## Register a device
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyNodeDevice** : This is the name given for the registered device. Use MyNodeDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
-
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
-    ```
-
-1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **MyNodeDevice**: This is the name of the device you're registering. It's recommended to use **MyNodeDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
- 
+
+1. Run the following command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
+
+    ```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    ```
+
     Make a note of the device connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
-1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
-   
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
     ```
-     
+
     Make a note of the service connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart. The service connection string is different from the device connection string.
-
+    You'll use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Send simulated telemetry
 
@@ -96,7 +99,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
+    Replace the value of the `connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.js**.
 
 1. In the local terminal window, run the following commands to install the required libraries and run the simulated device application:
 
@@ -117,7 +120,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
+    Replace the value of the `connectionString` variable with the service connection string you made a note of earlier. Then save your changes to **ReadDeviceToCloudMessages.js**.
 
 1. In the local terminal window, run the following commands to install the required libraries and run the back-end application:
 
@@ -136,7 +139,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end application.
+In this quickstart, you set up an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end application.
 
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 

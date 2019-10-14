@@ -1,27 +1,19 @@
 ---
-title: Windows Remote Management over HTTPS for Azure | Microsoft Docs
-description: .
+title: Windows Remote Management over HTTPS for Azure | Azure Marketplace
+description: Explains how to configure an Azure-hosted, Windows-based VM so that it can be managed remotely with PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Windows Remote Management over HTTPS
 
 This section explains how to configure an Azure-hosted, Windows-based VM so that it can be managed and deployed remotely with PowerShell.  To enable PowerShell remoting, the target VM must expose a Windows Remote Management (WinRM) HTTPS endpoint.  For more information about PowerShell remoting, see [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  For more information about WinRM, see [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-If you created a VM using one of the "classic" Azure approaches—either the Azure Service Manager Portal or the deprecated [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)—then it is automatically configured with a WinRM endpoint.  However, if you create a VM using any of the following "modern" Aure approaches, then your VM will *not* be configured for WinRM over HTTPS.  
+If you created a VM using one of the "classic" Azure approaches—either the Azure Service Manager Portal or the deprecated [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))—then it is automatically configured with a WinRM endpoint.  However, if you create a VM using any of the following "modern" Azure approaches, then your VM will *not* be configured for WinRM over HTTPS.  
 
 - Using the [Azure portal](https://portal.azure.com/), typically from an approved base, as described in the section [Create an Azure-compatible VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Using the Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

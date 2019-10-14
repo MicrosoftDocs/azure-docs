@@ -1,13 +1,10 @@
 ---
 title: Azure CLI script - Restore an Azure Database for PostgreSQL server
 description: This sample Azure CLI script shows how to restore an Azure Database for PostgreSQL server and its databases to a previous point in time.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
@@ -33,10 +30,10 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Creates a PostgreSQL server that hosts the databases. |
 | [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Restore a server from backup. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).

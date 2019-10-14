@@ -1,28 +1,27 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for Java with Azure DevOps Projects'
+title: 'Quickstart: Create a CI/CD pipeline for Java - Azure DevOps Projects' 
 description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: 'vsts'
 ---
 
 
-# Create a CI/CD pipeline for Java with Azure DevOps Projects
+# Quickstart: Set up a CI/CD pipeline for a Java app with Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines.  
+In this quickstart article, you use Azure DevOps Projects' simplified experience to set up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines. You can also use Azure DevOps Projects to create other Azure resources.  
 
 If you don't have an Azure subscription, you can get one for free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -36,7 +35,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 2. Select **Create**.
 
-   	![Starting Continuous Delivery configuration](_img/azure-devops-project-java/fullbrowser.png)
+   	![Create an Azure resource in DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## Select a sample application and Azure service
 
@@ -59,9 +58,9 @@ The Java samples include a choice of several application frameworks.
 
 2. Select **Browse** to view your running application.
 
-   	![Dashboard view](_img/azure-devops-project-java/dashboardnopreview.png) 
+   	![View application dashboard in Azure portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 	
- DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a Java app with a CI/CD process that automatically deploys your latest work to your web site.
+   DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a Java app with a CI/CD process that automatically deploys your latest work to your web site.
 
 ## Commit code changes and execute CI/CD
 

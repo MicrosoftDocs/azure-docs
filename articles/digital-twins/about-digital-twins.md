@@ -1,36 +1,35 @@
 ---
 title: Overview of Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
-author: julieseto
-ms.author: jseto
-ms.date: 10/10/2018
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
-manager: bertvanhoof
 ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next-generation IoT services. 
 ---
 
 # Overview of Azure Digital Twins
 
-Azure Digital Twins is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins Preview is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
-With Azure Digital Twins, you can query data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware experiences that link streaming data across the digital and physical world. Your apps are enhanced by these uniquely relevant contextual features. Azure Digital Twins can be used for the following example tasks to:
+With Azure Digital Twins, you can query data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware experiences that link streaming data across the digital and physical world. Your apps are enhanced by these uniquely relevant contextual features. 
+
+Azure Digital Twins applies to all types of environments, such as, warehouses, offices, schools, hospitals, and banks. It can even be used for stadiums, factories, parking lots, parks, smart grids, and cities. The following are some scenarios where Azure Digital Twins can be helpful:
 
 - Predict maintenance needs for a factory.
 - Analyze real-time energy requirements for an electrical grid.
 - Optimize the use of available space for an office.
-
-Azure Digital Twins applies to all types of environments. Just a few examples are warehouses, offices, schools, hospitals, and banks. It can even be used for stadiums, factories, parking lots, parks, smart grids, and cities. Azure Digital Twins can be used in the following example scenarios to:
- 
-- Track daily temperature across several states. 
+- Track daily temperature across several states.
 - Monitor busy drone paths.
-- Identify autonomous vehicles. 
-- Analyze occupancy levels for a building. 
-- Find the busiest cash register in your store. 
+- Identify autonomous vehicles.
+- Analyze occupancy levels for a building.
+- Find the busiest cash register in your store.
 
-Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
+Whatever your real-world business scenario is, it's likely a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 The following video takes a closer look at Azure Digital Twins.
 
@@ -42,15 +41,15 @@ Azure Digital Twins has the following key capabilities.
 
 ### Spatial intelligence graph
 
-The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
+The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph), or *spatial graph*, is a virtual representation of the physical environment. You can use it to model the relationships between people, places, and devices.
 
 Consider a smart utility app that involves several electricity usage meters connected across a neighborhood. The smart utility company must accurately monitor and predict electricity usage and billing. Each device and sensor must be modeled with context about the location and the customer that's to be billed. You can use the spatial intelligence graph to model these kinds of complex relationships.
 
 ### Digital twin object models
 
-[Digital twin object models](./concepts-objectmodel-spatialgraph.md) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
+[Digital twin object models](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
 
-An example is a room occupancy application might use predefined space types such as campus, building, floor, and room.
+For example, a room occupancy application might use predefined space types such as campus, building, floor, and room.
 
 ### Multiple and nested tenants
 
@@ -90,23 +89,23 @@ Azure Digital Twins is useful for representing the physical world and its many r
 
 Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors that keep everything up-to-date with the physical world. The following diagram shows how Azure Digital Twins relates to other Azure IoT services.
 
-![Azure Digital Twins is a service built on top of Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+[![Azure Digital Twins is a service built on top of Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-For more information about IoT, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+For more information about IoT, see [Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## Next steps
 
 Go to a short demo about Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Find available rooms by using Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Quickstart: Find available rooms by using Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
 
 Look closely at a facilities management application by using Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md)
 
 Learn about core Azure Digital Twins concepts:
 
-> [!div class="nextstepaction"]
-> [Understand the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Understand the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)

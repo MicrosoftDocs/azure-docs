@@ -1,7 +1,6 @@
 ---
-title: Set up Apache HBase and Apache Phoenix backup and replication - Azure HDInsight
-description: Set up backup and replication for HBase and Phoenix.
-services: hdinsight
+title: Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
+description: Set up backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -22,7 +21,7 @@ Apache HBase supports several approaches for guarding against data loss:
 * Snapshots
 * Replication
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix stores its metadata in HBase tables, so that metadata is backed up when you back up the HBase system catalog tables.
 
 The following sections describe the usage scenario for each of these approaches.
@@ -31,7 +30,7 @@ The following sections describe the usage scenario for each of these approaches.
 
 With this approach, you copy all HBase data, without being able to select a subset of tables or column families. Subsequent approaches provide greater control.
 
-HBase in HDInsight uses the default storage selected when creating the cluster, either Azure Storage blobs or Azure Data Lake Store. In either case, HBase stores its data and metadata files under the following path:
+HBase in HDInsight uses the default storage selected when creating the cluster, either Azure Storage blobs or Azure Data Lake Storage. In either case, HBase stores its data and metadata files under the following path:
 
     /hbase
 
@@ -41,7 +40,7 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* In Azure Data Lake Store the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
+* In Azure Data Lake Storage the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
 
     ```
     /clusters/<clusterName>/hbase
@@ -53,7 +52,7 @@ After you delete the cluster, you can either leave the data in place, or copy th
 
 * Create a new HDInsight instance pointing to the current storage location. The new instance is created with all the existing data.
 
-* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Store location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Store use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copy the `hbase` folder to a different Azure Storage blob container or Data Lake Storage location, and then start a new cluster with that data. For Azure Storage, use [AzCopy](../../storage/common/storage-use-azcopy.md), and for Data Lake Storage use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## Export then Import
 
@@ -71,7 +70,11 @@ Specify the full export path to the default storage or to any of the attached st
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-In Azure Data Lake Store, the syntax is:
+In Azure Data Lake Storage Gen2, the syntax is:
+
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+
+In Azure Data Lake Storage Gen1, the syntax is:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -113,7 +116,7 @@ The CopyTable utility also supports parameters to specify the time range of rows
 
 CopyTable scans the entire source table content that will be copied over to the destination table. This may reduce your HBase cluster's performance while CopyTable executes.
 
-> [!NOTE]
+> [!NOTE]  
 > To automate the copying of data between tables, see the `hdi_copy_table.sh` script in the [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) repository on GitHub.
 
 ### Manually collect the Apache ZooKeeper quorum List

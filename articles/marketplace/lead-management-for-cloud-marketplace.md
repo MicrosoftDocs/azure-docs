@@ -2,21 +2,13 @@
 title: Lead management for cloud marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: yijenj
-manager: nunoc
-editor:
-
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
-ms.service: Marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
-
+ms.author: pabutler
 ---
+
 # Lead management for cloud marketplace
 
 
@@ -56,7 +48,7 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 ## Common lead configuration errors during publishing on cloud partner portal 
 
-**Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to Login to Dynamics CRM, LastCRMException:** 
+**Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
 > If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
 
@@ -83,11 +75,11 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
 
-> Resolution: Login to Azure Portal, check if the application key matches what’s in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Resolution: Sign in to the Azure Portal, check if the application key matches what’s in the Cloud Partner Portal. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
-> Resolution: Login to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it’s a valid Dynamic CRM instance
+> Resolution: Sign in to Cloud Partner Portal, check Storefront details >> Lead destination >> URL, check if it’s a valid Dynamic CRM instance
 
 ## Frequently asked questions
 
@@ -134,7 +126,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 

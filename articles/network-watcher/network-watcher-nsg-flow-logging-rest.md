@@ -3,8 +3,8 @@ title: Manage Network Security Group flow logs with Azure Network Watcher - REST
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 
@@ -28,9 +28,6 @@ ms.author: jdial
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
-
-> [!NOTE] 
-> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 ## Before you begin
 
@@ -55,7 +52,7 @@ In this scenario, you will:
 
 Log in to armclient with your Azure credentials.
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -210,13 +207,16 @@ The following is an example of the response returned:
 
 ## Download a flow log
 
-The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/
+The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+
+> [!IMPORTANT]
+> Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## Next steps
 

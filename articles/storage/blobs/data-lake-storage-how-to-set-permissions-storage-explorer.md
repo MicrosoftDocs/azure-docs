@@ -1,55 +1,63 @@
 ---
-title: "How-to: Set ACLs on files and directories using Azure Storage Explorer"
-description: In this how to, you learn how to set ACLs on files and directories
-services: storage
-author: roygara
-
-ms.custom: mvc
+title: "Set permissions for Data Lake Storage Gen2 with Azure Storage Explorer"
+description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
+author: normesta
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/05/2018
-ms.author: rogarana
+ms.date: 12/11/2018
+ms.author: normesta
+ms.reviewer: stewu
 ---
 
-# How to: Set file and directory level permissions using Azure Storage explorer
+# Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2
 
-This article shows how to set file and directory level ACLs through the desktop version of Azure Storage explorer.
+Files stored in Azure Data Lake Storage Gen2 support fine grained permissions and access control list (ACL) management. Together, fine grained permissions and ACL management allow you to manage access to your data at a very granular level.
 
-This article requires that you install Azure Storage Explorer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+In this article, you learn how to use Azure Storage Explorer to:
 
-## Sign in to Storage Explorer
+> [!div class="checklist"]
+> * Set file level permissions
+> * Set directory level permissions
+> * Add users or groups to an access control list
 
-On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
+## Prerequisites
 
-|Task|Purpose|
-|---|---|
-|Add an Azure Account | Redirects you to your organizations login page to authenticate you to Azure. Currently this is the only authentication method that will allow you to manage ACLs using storage explorer.|
-
-Select **Add an Azure Account** and click **Sign in.**. Follow the on-screen prompts to sign into your Azure account.
-
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
-
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
-
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (container created and data uploaded to it).
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
+You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
-This wil bring up the **Manage Permission** prompt.
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
-The **Manage Access** prompt will allow you to manage permissions for owner and the owners group as well as adding new users to the access control list for whom you can then manage permissions. To learn about permissions, including default permissions, access permissions, and their behavior, see our article on [access control in data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Making selections here will not set ACLs on any currently existing item inside the directory.
+To add a new user or group to the access control list, select the **Add user or group** field.
 
-We recommend creating security groups and maintaining permissions on the group rather than individual users. For details on this recommendation and other best practices, see our [best practices for data lake storage gen2](data-lake-storage-best-practices.md) article.
+Enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.
 
-You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing permissions on directories and files is the same as described above.
+The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
+
+> [!NOTE]
+> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for Data Lake Storage Gen2](data-lake-storage-best-practices.md).
+
+There are two categories of permissions you can assign: access ACLs and default ACLs.
+
+* **Access**: Access ACLs control access to an object. Files and directories both have access ACLs.
+
+* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Files do not have default ACLs.
+
+Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
+
+>[!NOTE]
+> Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
+
+You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
 
 ## Next steps
 
-In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn more about access control lists and permissions, continue to our conceptual article on the subject.
+In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn more about ACLs, including default ACLs, access ACLs, their behavior, and their corresponding permissions, continue to our conceptual article on the subject.
 
 > [!div class="nextstepaction"]
-> [HAccess control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+> [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

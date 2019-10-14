@@ -1,14 +1,13 @@
 ---
 title: Azure Quickstart - Create a blob in object storage using Go | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-services: storage  
-author: seguler
+author: mhopkins-msft
 
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
+ms.author: mhopkins
 ms.date: 11/14/2018
-ms.author: seguler
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
 ---
 
 # Quickstart: Upload, download, and list blobs using Go
@@ -47,14 +46,14 @@ This command clones the repository to your local git folder. To open the Go samp
 ## Configure your storage connection string
 This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -85,7 +84,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 When you press the key to continue, the sample program deletes the storage container and the files. 
 
 > [!TIP]
-> You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+> You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 >
 
 ## Understand the sample code
@@ -204,7 +203,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### Download the blob
 
-Download blobs using the **Download** low-level function on a BlobURL. This will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection failes while reading, it will make additional requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
+Download blobs using the **Download** low-level function on a BlobURL. This will return a **DownloadResponse** struct. Run the function **Body** on the struct to get a **RetryReader** stream for reading data. If a connection fails while reading, it will make additional requests to re-establish a connection and continue reading. Specifying a RetryReaderOption's with MaxRetryRequests set to 0 (the default), returns the original response body and no retries will be performed. Alternatively, use the high-level APIs **DownloadBlobToBuffer** or **DownloadBlobToFile** to simplify your code.
 
 The following code downloads the blob using the **Download** function. The contents of the blob is written into a buffer and shown on the console.
 

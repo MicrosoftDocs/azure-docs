@@ -3,11 +3,9 @@ title: How To Configure Server Parameters in Azure Database for MariaDB
 description: This article describes how to configure MariaDB server parameters in Azure Database for MariaDB using the Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ---
 
 # How to configure server parameters in Azure Database for MariaDB by using the Azure portal
@@ -35,7 +33,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-pricing-tiers.md).
 
 |**Pricing Tier**| **vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
-|---|---|---|---|--|
+|---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
 |General Purpose| 2| 3584| 300|
@@ -43,10 +41,12 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 |General Purpose| 8| 15360| 1250|
 |General Purpose| 16| 31232| 2500|
 |General Purpose| 32| 62976| 5000|
+|General Purpose| 64| 125952| 10000|
 |Memory Optimized| 2| 7168| 600|
 |Memory Optimized| 4| 15360| 1250|
 |Memory Optimized| 8| 30720| 2500|
 |Memory Optimized| 16| 62464| 5000|
+|Memory Optimized| 32| 125952| 10000|
 
 These additional server parameters are not configurable in the system:
 

@@ -1,29 +1,30 @@
 ---
-title: Configure security alerts for Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to configure security alerts for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: Configure security alerts for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to configure security alerts for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
-ms.date: 11/21/2018
-ms.author: rolyon
+ms.subservice: pim
+ms.date: 04/09/2019
+ms.author: curtand
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
-# Configure security alerts for Azure AD directory roles in PIM
+# Configure security alerts for Azure AD roles in PIM
 
-Azure AD Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
-![PIM security alerts - screenshot](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## Security alerts
 
-This section lists all the security alerts for directory roles, along with how to fix and how to prevent. Severity has the following meaning:
+This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
 
 * **High**: Requires immediate action because of a policy violation.
 * **Medium**: Does not require immediate action but signals a potential policy violation.
@@ -64,7 +65,7 @@ This section lists all the security alerts for directory roles, along with how t
 | | |
 | --- | --- |
 | **Severity** | Medium |
-| **Why do I get this alert?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
+| **Why do I get this alert?** | Accounts in a privileged role that have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
@@ -116,12 +117,12 @@ You can customize some of the security alerts in PIM to work with your environme
 
 1. Click **Settings** and then **Alerts**.
 
-    ![Navigate to security alerts settings](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD roles - Settings with Alerts selected](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Click an alert name to configure the setting for that alert.
 
-    ![Security alert settings](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![For the selected alert, security alert settings pane](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## Next steps
 
-- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Configure Azure AD role settings in PIM](pim-how-to-change-default-settings.md)

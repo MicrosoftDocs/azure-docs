@@ -3,23 +3,22 @@ title: Demo Conversation Learner model, password reset - Microsoft Cognitive Ser
 titleSuffix: Azure
 description: Learn how to create a demo Conversation Learner model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # Demo: Password reset
-This demo illustrates a simple technical support bot that can help with password resets. 
-
-It shows how Conversation Learner can learn non-trivial dialog flows, multi-turn sequences, including an out-of-domain class. This demonstration does not use any code or entities.
+This tutorial showcases a simple technical support bot that can help with password resets powered by Conversation Learner. The bot's model can learn non-trivial dialog flows and multi-turn sequences including an out-of-domain classes. The task can be accomplished without code or Entities.
 
 ## Video
 
-[![Demo Password Preview](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![Demo Password Preview](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## Requirements
 This tutorial requires that the password reset bot is running
@@ -32,41 +31,48 @@ In the Model list of the web UI, click on Tutorial Demo Password Reset.
 
 ### Actions
 
-We have created set of actions where the user is looking for help with their password including solutions.
+The Model contains a set of Actions designed to help users solve common password problems.
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### Training Dialogs
 
-There are a number of training dialogs. There are also demonstrations of an out of domain class -- for example, user requests like 'driving directions' are out of domain; the bot has been given examples of a few out of domain requests and can respond with 'I can't help with that.'
+The Model also contains several Train Dialogs, including some that demonstrate out of domain class training. For example, users who might request like driving directions. The sample bot has been trained on a few for demonstration purposes, and simply responds by stating it "can't help with that." The list of existing Train Dialogs is found under "Train Dialogs" in the left panel.
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-As an example, let's try a teaching session.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "i lost my password."
+3. Click the "Score Actions" button.
+4. Select the response, "Is that for your local account or Microsoft account?"
+5. In the chat panel, where it says "Type your message...", type in "local account please"
+6. Click the "Score Actions" button.
+7. Select the response, "Which version of Windows do you have?"
+8. In the chat panel, where it says "Type your message...", type in "windows xp"
+9. Click the "Score Actions" button.
+10. Click the "+Action" button.
+11. In the "Bot's response..." field, type "SOLUTION: How to reset password on Windows XP.."
+12. Click the "Create" button.
 
-1. Click Train Dialogs, then New Train Dialog.
-1. Enter 'I lost my password'.
-2. Click Score Action.
-3. Click to Select 'Is that for your local account or Microsoft account?'
-4. Enter 'Local account'.
-5. Click Score Actions.
-3. Click to Select 'Which version of Windows do you have?'
-4. Enter 'Windows 8'.
-5. click Score Actions.
-6. Select 'SOLUTION: how to reset password on Windows 8.'
-4. Click Done Teaching.
+### Training Dialogs For Out-of-Domain Scenarios
 
-Let's try how the bot can learn an out-of-domain class.
-
-1. Click Train Dialogs, then New Train Dialog.
-1. Enter 'web search'.
-	- This is an example of out-of-domain class. 
-2. Click Score Action.
-3. Click to Select 'Sorry, I can't help with that.'
-	- Notice the score for this option is currently low. But after a little more teaching, the score will get higher.
-4. Click Done Teaching.
-
-You have now seen how to create a basic technical support demo, and how it can learn to provide solutions, and also handle out of sample queries.
+1. On the left panel, click "Train Dialogs", then the existing "toy stores" Train Dialog.
+2. In the chat panel, click the "toy stores" utterance.
+3. In the "Add alternative input..." field, type "web search" and hit enter.
+4. In the "Add alternative input..." field, type "flight booking" and hit enter.
+5. Click the "Save Changes" button.
+6. Click the "Save Edit" button.
+7. On the left panel, click "Log Dialogs", then the "New Log Dialog" button.
+8. In the chat panel, where it says "Type your message...", type in "i can't find my password"
+9. In the chat panel, where it says "Type your message...", type in "Microsoft account"
+10. In the chat panel, where it says "Type your message...", type in "thanks"
+11. Click the "Done Testing" button.
+12. Click the "i can't find my password" log dialog from the grid view.
+13. In the chat panel, click the incorrectly rendered "Solution: How to reset a Microsoft Account Password" response.
+14. Click the "+Action" button.
+15. In the "Bot's response..." field, type "You are welcome"
+16. Click the "Create" button.
+17. Click the "Save As Train Dialog" button.
 
 ## Next steps
 

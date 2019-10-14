@@ -2,28 +2,22 @@
 title: How to create an Azure support request | Microsoft Docs
 description: How to create an Azure support request.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
-
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-
 ---
 # How to create an Azure support request
 ## Summary
 Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
+> Azure portal for Commerical use is [https://portal.azure.com](https://portal.azure.com)
 > Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us).
+> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us)
 
 
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:

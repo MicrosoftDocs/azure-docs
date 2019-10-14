@@ -18,16 +18,16 @@ Azure Blueprints consist of guidance documents and automation templates that dep
 
 ## Overview
 
-This Azure Security and Compliance Blueprint provides guidance and automation scripts to deliver a Microsoft Azure [platform as a service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hosted web application architecture appropriate for handling workloads classified as [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). This security classification encompasses the majority of information created or processed by the public sector. This includes routine business operations and services, which if lost, stolen or published in the media, some of which could have damaging consequences. The typical threat profile for the OFFICIAL classification is much the same as a private business who provides valuable information and services. UK OFFICIAL anticipates the need to defend UK Government data or services against threat or compromise by attackers with bounded capabilities and resources such as (but is not limited to) hactivists, single-issue pressure groups, investigative journalists, competent individual hackers, and the majority of criminal individuals and groups.
+This Azure Security and Compliance Blueprint provides guidance and automation scripts to deliver a Microsoft Azure [platform as a service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hosted web application architecture appropriate for handling workloads classified as [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). This security classification encompasses the majority of information created or processed by the public sector. This includes routine business operations and services, which if lost, stolen, or published in the media, some of which could have damaging consequences. The typical threat profile for the OFFICIAL classification is much the same as a private business who provides valuable information and services. UK OFFICIAL anticipates the need to defend UK Government data or services against threat or compromise by attackers with bounded capabilities and resources such as (but is not limited to) hactivists, single-issue pressure groups, investigative journalists, competent individual hackers, and the majority of criminal individuals and groups.
 
 This blueprint has been reviewed by the UK National Cyber Security Centre (NCSC) and aligns to the NCSC 14 Cloud Security Principles.
 
-The architecture uses Azure [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) components to deliver an environment that allows customers to avoid the expense and complexity of buying software licenses, of managing the underlying application infrastructure and middleware or the development tools, and other resources. Customers manage the applications and services that they develop, focusing on delivering business value, whilst Microsoft Azure manages the other Azure resources such as virtual machines, storage and networking, putting more of the [division of responsibility](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) for infrastructure management on to the Azure platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) offers auto-scaling, high availability, supports Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repository as default services. Through using App Services, developers can concentrate on delivering business value without the overhead of managing infrastructure. It is possible to build greenfield new Java, PHP, Node.js, Python, HTML or C# web applications or also to migrate existing cloud or on premises web applications to Azure App Services (although thorough due diligence and testing to confirm performance is required).
+The architecture uses Azure [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) components to deliver an environment that allows customers to avoid the expense and complexity of buying software licenses, of managing the underlying application infrastructure and middleware or the development tools, and other resources. Customers manage the applications and services that they develop, focusing on delivering business value, whilst Microsoft Azure manages the other Azure resources such as virtual machines, storage and networking, putting more of the [division of responsibility](../fundamentals/paas-deployments.md) for infrastructure management on to the Azure platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) offers auto-scaling, high availability, supports Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repository as default services. Through using App Services, developers can concentrate on delivering business value without the overhead of managing infrastructure. It is possible to build greenfield new Java, PHP, Node.js, Python, HTML or C# web applications or also to migrate existing cloud or on premises web applications to Azure App Services (although thorough due diligence and testing to confirm performance is required).
 
-This blueprint focuses on the provisioning of a secure foundation [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) web-based interface for public and also back office users. This blueprint design scenario considers the use of Azure hosted web-based services where a public user can securely submit, view, and manage sensitive data; also that a back office or government operator can securely process the sensitive data that the public user has submitted. Use cases for this scenario could include:
+This blueprint focuses on the provisioning of a secure foundation [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) web-based interface for public and also back-office users. This blueprint design scenario considers the use of Azure hosted web-based services where a public user can securely submit, view, and manage sensitive data; also that a back office or government operator can securely process the sensitive data that the public user has submitted. Use cases for this scenario could include:
 
 - A user submitting a tax return, with a government operator processing the submission;
-- A user requesting a service through a web-based application, with a back office user validating and delivering the service; or
+- A user requesting a service through a web-based application, with a back-office user validating and delivering the service; or
 - A user seeking and viewing public domain help information concerning a government service.
 
 Using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates and Azure Command Line Interface scripts, the blueprint deploys an environment that aligns to the UK National Cyber Security Centre (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and the Center for Internet Security (CIS) [Critical Security Controls](https://www.cisecurity.org/critical-controls.cfm). The NCSC recommends their Cloud Security Principles be used by customers to evaluate the security properties of the service and to help understand the division of responsibility between the customer and supplier. Microsoft has provided information against each of these principles to help better understand the split of responsibilities. This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This architecture has been reviewed by the NCSC, and aligns with the UK NCSC 14 Cloud Security Principles, thus enabling public sector organizations to fast-track their ability to meet compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud. This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured by customers. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-paaswa-repo/).
@@ -38,7 +38,7 @@ To deploy this blueprint, an Azure subscription is required. If you do not have 
 
 ## Architecture and components
 
-This blueprint delivers a web application hosting solution in an Azure cloud environment that supports UK OFFICIAL workloads. The architecture delivers a secure environment that leverages Azure platform as a service capabilities. Within the environment, two App Service web apps are deployed (one for public users and one for back office users), with an API App tier to provide the business services for the web front end. An Azure SQL Database is deployed as a managed relational data store for the application. Connectivity to these components from outside the platform and between all these components is encrypted through TLS 1.2 to ensure data in transport privacy, with access authenticated by Azure Active Directory.
+This blueprint delivers a web application hosting solution in an Azure cloud environment that supports UK OFFICIAL workloads. The architecture delivers a secure environment that leverages Azure platform as a service capabilities. Within the environment, two App Service web apps are deployed (one for public users and one for back-office users), with an API App tier to provide the business services for the web front end. An Azure SQL Database is deployed as a managed relational data store for the application. Connectivity to these components from outside the platform and between all these components is encrypted through TLS 1.2 to ensure data in transport privacy, with access authenticated by Azure Active Directory.
 
 ![PaaS Web Application Hosting for UK OFFICIAL Workloads reference architecture diagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Web Application Hosting for UK OFFICIAL Workloads reference architecture diagram")
 
@@ -52,9 +52,8 @@ This solution uses the following Azure services. Details of the deployment archi
 - API App
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Azure Monitor (logs)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -68,18 +67,18 @@ The following section details the deployment and implementation elements.
 
 #### Identity and authentication
 
-This blueprint ensures that access to resources is protected through directory and identity management services. This architecture makes full use of [identity as the security perimeter](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+This blueprint ensures that access to resources is protected through directory and identity management services. This architecture makes full use of [identity as the security perimeter](../fundamentals/paas-deployments.md). 
 
 The following technologies provide identity management capabilities in the Azure environment:
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is Microsoft's multi-tenant cloud-based directory and identity management service. All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
-- Authentication to the operator facing web application and access for the administration of the Azure resources is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Authentication to the operator facing web application and access for the administration of the Azure resources is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 - Database column encryption uses Azure AD to authenticate the application to Azure SQL Database. For more information, see [Always Encrypted: Protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - The citizen facing web application is configured for public access. To allow for account creation and authentication through active directory or social network identity providers [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) can be integrated if required.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
 - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted only to users who require key management access.
-- Through leveraging [Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defense against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
+- Through leveraging [Azure Active Directory Conditional Access](../../active-directory/active-directory-conditional-access-azure-portal.md) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
+- [Azure DDoS Protection](../fundamentals/paas-deployments.md#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defense against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
 
 #### Data in transit
 
@@ -91,31 +90,31 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer.
 
 ### PaaS services in this blueprint
 
 #### Azure App Service
 
-Azure Web Apps provides a fully managed web hosting environment for web application developed in Java, PHP, Node.js Python, HTML and C# without having to manage infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) or any Git-based repo.
+Azure App Service provides a fully managed web hosting environment for web application developed in Java, PHP, Node.js Python, HTML and C# without having to manage infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) or any Git-based repo.
 
-App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/) and can authenticate users with [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) or with social login ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), and [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/) and can authenticate users with [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) or with social login ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), and [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
-Basic, Standard, and Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. App services also support [IP address restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) to secure traffic to trusted IP addresses if required and also [managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) for secure connection to other PaaS services such as [Key Vault](https://azure.microsoft.com/services/key-vault/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Where additional security is required our Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale.
+Basic, Standard, and Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. App services also support [IP address restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) to secure traffic to trusted IP addresses if required and also [managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) for secure connection to other PaaS services such as [Key Vault](https://azure.microsoft.com/services/key-vault/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Where additional security is required our Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale.
 
 This template deploys the following App Service features:
 
-- [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service Plan Tier
-- Multiple Web App [deployment slots](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Dev, Preview, QA, UAT and of course Production (default slot).
-- [Managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
-- Integration with [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) to monitor performance
-- [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
-- Metric [alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
+- [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service Plan Tier
+- Multiple App Service [deployment slots](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, QA, UAT and of course Production (default slot).
+- [Managed identities for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) to connect to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (this could also be used to provide access to [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- Integration with [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) to monitor performance
+- [Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md) 
+- Metric [alerts](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
 #### Azure SQL Database
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an [elastic pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), and SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in public preview). It delivers [dynamically scalable performance](../../sql-database/sql-database-purchase-models.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
 Azure SQL Database in this blueprint
 
@@ -126,7 +125,7 @@ The Azure SQL Database instance uses the following database security measures:
 - [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication), you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.
 - Use of Azure Active Directory for database administration
 - [Audit logs](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) to storage accounts
-- Metric [alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) for failed DB connections
+- Metric [alerts](../../azure-monitor/app/alerts.md) for failed DB connections
 - [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Always Encrypted columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
@@ -143,7 +142,7 @@ This template uses the following Azure Storage components:
 
 #### Data at rest
 
-Through [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) all data written to Azure Storage is encrypted through 256-bit AES encryption, one of the strongest block ciphers available. You can use Microsoft-managed encryption keys with SSE or you can use [your own encryption keys](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Through [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) all data written to Azure Storage is encrypted through 256-bit AES encryption, one of the strongest block ciphers available. You can use Microsoft-managed encryption keys with SSE or you can use [your own encryption keys](../../storage/common/storage-encryption-keys-portal.md).
 
 Storage accounts can be secured via [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) using [virtual network rules](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
@@ -158,17 +157,17 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Azure Key Vault in this blueprint
 
-- Holds the Storage access key, with read access granted to the [managed identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) of the Customer facing web app
+- Holds the Storage access key, with read access granted to the [managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity) of the Customer facing web app
 - Holds the SQL Server DBA Password (in a separate vault)
 - Diagnostics logging
 
 ### Monitoring, logging, and audit
 
-#### Log Analytics
+#### Azure Monitor logs
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Azure that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
+[Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) is a service in Azure that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
 
-#### Log Analytics in this blueprint
+#### Azure Monitor logs in this blueprint
 
 - SQL Assessment
 - Key Vault diagnostics
@@ -177,7 +176,7 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyze performance, diagnose issues and to understand how users interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyze performance, diagnose issues and to understand how users interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and Java EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
 
 #### Application Insights in this blueprint
 
@@ -187,11 +186,11 @@ This template uses the following Application Insights components:
 
 #### Azure Activity Logs
 
-[Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
+[Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
 
 #### Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most services in Microsoft Azure.
+[Azure Monitor](../../azure-monitor/overview.md) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most services in Microsoft Azure.
 
 ## Threat model
 
@@ -215,7 +214,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 This blueprint has been reviewed by the UK National Cyber Security Centre (NCSC) and aligns to the NCSC 14 Cloud Security Principles
 
-The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](http://www.ampliphae.com/).
+The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## Deploy the solution
@@ -227,7 +226,7 @@ Three approaches have been provided for deployment; A simple "express" [Azure CL
 1.	Clone or download [this](https://aka.ms/ukofficial-paaswa-repo) GitHub repository to your local workstation.
 2.	Review [Method 1: Azure CLI 2 (Express version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) and execute the provided commands.
 3.	Review [Method 1a: Azure CLI 2 (Configuring the deployment via script arguments)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) and execute the provided commands
-4.	Review [Method 2: Azure Portal Deployment Process](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) and execute the listed commands
+4.	Review [Method 2: Azure portal Deployment Process](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) and execute the listed commands
 
 ## Guidance and recommendations
 
@@ -237,7 +236,7 @@ Three approaches have been provided for deployment; A simple "express" [Azure CL
 
 ### Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)  may be implemented as a control to allow users to register, create an identity and enable authorization and access control for the public web application.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)  may be implemented as a control to allow users to register, create an identity, and enable authorization and access control for the public web application.
 
 ## Disclaimer
 

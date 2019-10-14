@@ -1,14 +1,12 @@
 ---
 title: Recover files from Azure to a Windows Server
 description: This tutorial details recovering items from Azure to a Windows Server.
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: windows server back up;restore files windows server; back up and disaster recovery
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
-ms.author: saurse
+ms.date: 02/14/2018
+ms.author: dacurwin
 ms.custom: mvc
 ---
 # Recover files from Azure to a Windows Server

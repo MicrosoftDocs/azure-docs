@@ -4,13 +4,14 @@ titlesuffix: Azure Cognitive Services
 description: A tutorial for article personalization for contextual decision-making.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Article personalization for contextual decision making
@@ -41,13 +42,13 @@ Each feed provides a list of articles. In RSS, each one is specified by an `<ite
 </channel></rss>
 ```
 
-The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the [dashboard](#performance-dashboard).
+The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the dashboard.
 
 For more information on the feed format, see the [API reference](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 
 ## Register a new app
 
-1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
+1. Sign in with your [Microsoft account](https://portal.ds.microsoft.com/). On the ribbon, click **My Portal**.
 
 2. To register a new application, click the **New App** button.
 

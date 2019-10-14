@@ -1,27 +1,25 @@
 ---
 title: Spark Structured Streaming in Azure HDInsight 
 description: How to use Spark Structured Streaming applications on HDInsight Spark clusters.
-services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: maxluk
+ms.author: hrasheed
 ---
 # Overview of Apache Spark Structured Streaming
 
 [Apache Spark](https://spark.apache.org/) Structured Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for  processing  data streams. Structured Streaming is built upon the Spark SQL engine, and improves upon the constructs from Spark SQL Data Frames and Datasets so  you can write streaming queries in the same way you would write batch queries.  
 
-Structured Streaming applications run on HDInsight Spark clusters, and connect  to  streaming data from [Apache Kafka](https://kafka.apache.org/), a TCP socket (for debugging purposes), Azure Storage, or Azure Data Lake Store. The latter two options, which rely on external storage services, enable you to watch for new files added into storage and process their contents as if they were streamed. 
+Structured Streaming applications run on HDInsight Spark clusters, and connect  to  streaming data from [Apache Kafka](https://kafka.apache.org/), a TCP socket (for debugging purposes), Azure Storage, or Azure Data Lake Storage. The latter two options, which rely on external storage services, enable you to watch for new files added into storage and process their contents as if they were streamed. 
 
-Structured Streaming creates a long-running query during which you  apply operations to the input data, such as selection, projection, aggregation, windowing, and joining the streaming DataFrame with reference DataFrames. Next, you output the results to file storage (Azure Storage Blobs or Data Lake Store) or to any datastore by using custom code (such as SQL Database or Power BI). Structured Streaming also provides output to the console for debugging locally, and to an in-memory table so you can see the data generated for debugging in HDInsight. 
+Structured Streaming creates a long-running query during which you  apply operations to the input data, such as selection, projection, aggregation, windowing, and joining the streaming DataFrame with reference DataFrames. Next, you output the results to file storage (Azure Storage Blobs or Data Lake Storage) or to any datastore by using custom code (such as SQL Database or Power BI). Structured Streaming also provides output to the console for debugging locally, and to an in-memory table so you can see the data generated for debugging in HDInsight. 
 
-![Stream Processing with HDInsight and Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream Processing with HDInsight and Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark Structured Streaming is  replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option. 
 
 ## Streams as tables
@@ -119,11 +117,11 @@ This query  yields results similar to the following:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...	|95 |	96.980971 |	99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...	|95 |	96.965997 |	99 |  
 
-For details on the Spark Structured Stream API, along with the input data sources, operations, and output sinks it supports, see [Apache Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+For details on the Spark Structured Stream API, along with the input data sources, operations, and output sinks it supports, see [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## Checkpointing and write-ahead logs
 
-To deliver resiliency and fault tolerance, Structured Streaming relies on *checkpointing* to ensure that stream processing can continue uninterrupted, even with node failures. In HDInsight, Spark creates checkpoints to durable storage, either Azure Storage or Data Lake Store. These checkpoints store the progress information about the streaming query. In addition, Structured Streaming uses a *write-ahead log* (WAL). The  WAL  captures ingested data that has been received but not yet processed by a query. If  a failure occurs and processing is restarted from the WAL, any events received from the source are not lost.
+To deliver resiliency and fault tolerance, Structured Streaming relies on *checkpointing* to ensure that stream processing can continue uninterrupted, even with node failures. In HDInsight, Spark creates checkpoints to durable storage, either Azure Storage or Data Lake Storage. These checkpoints store the progress information about the streaming query. In addition, Structured Streaming uses a *write-ahead log* (WAL). The  WAL  captures ingested data that has been received but not yet processed by a query. If  a failure occurs and processing is restarted from the WAL, any events received from the source are not lost.
 
 ## Deploying Spark Streaming applications
 
@@ -136,5 +134,5 @@ The status of all applications can also be checked with a GET request against a 
 ## Next steps
 
 * [Create an Apache Spark cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Launch Apache Spark jobs remotely with Apache LIVY](apache-spark-livy-rest-interface.md)

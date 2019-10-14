@@ -4,25 +4,25 @@ titlesuffix: Azure Load Balancer
 description: Load Balancer with bidirectional TCP RST packets on idle timeout
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
-ms.author: kumud
+ms.date: 05/03/2019
+ms.author: allensu
 ---
 
 # Load Balancer with TCP Reset on Idle (Public Preview)
 
-You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios with bidirectional TCP Resets (TCP RST packet) for each configurable idle timeout.  Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.
+You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios by enabling TCP Reset on Idle for a given rule. Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.  Enabling this feature will cause Load Balancer to send bidirectional TCP Resets (TCP RST packet) on idle timeout.  This will inform your application endpoints that the connection has timed out and is no longer usable.  Endpoints can immediately establish a new connection if needed.
 
 ![Load Balancer TCP reset](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Load Balancer with TCP reset on idle timeout functionality is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+>Load Balancer with TCP reset on idle timeout functionality is available as Public Preview at this time. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
  
 You change this default behavior and enable sending TCP Resets on idle timeout on inbound NAT rules, load balancing rules, and [outbound rules](https://aka.ms/lboutboundrules).  When enabled per rule, Load Balancer will send bidirectional TCP Reset (TCP RST packets) to both client and server endpoints at the time of idle timeout for all matching flows.
 
@@ -64,32 +64,12 @@ Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets
 
 ## <a name="regions"></a> Region availability
 
-This parameter is currently effective in the following regions.  In regions not listed here, the parameter has no effect.
-
-| Region |
-|---|
-| Asia Southeast |
-| Brazil South |
-| Canada Central |
-| Europe West |
-| India Central |
-| India West |
-| Japan West |
-| Korea Central |
-| Korea South |
-| UK North |
-| UK South 2 |
-| US East |
-| US East 2 |
-| US North |
-| US West |
-
-This table will be updated as the preview is expanded to other regions.  
+Available in all regions.
 
 ## Limitations
 
-- Limited [region availability](#regions).
 - Portal cannot be used to configure or view TCP Reset.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
+- TCP RST only sent during TCP connection in ESTABLISHED state.
 
 ## Next steps
 

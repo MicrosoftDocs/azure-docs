@@ -1,82 +1,76 @@
 ---
-title: "Quickstart: Call endpoint by using Node.js - Bing Custom Search"
-titlesuffix: Azure Cognitive Services
-description: This quickstart shows how to request search results from your custom search instance by using Node.js to call the Bing Custom Search endpoint. 
+title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
-# Quickstart: Call Bing Custom Search endpoint (Node.js)
+# Quickstart: Call your Bing Custom Search endpoint using Node.js
 
-This quickstart shows how to request search results from your custom search instance using Node.js to call the Bing Custom Search endpoint. 
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in JavaScript, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 
-- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
-- [Node.js](https://www.nodejs.org/) installed.
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+- [Node.js](https://www.nodejs.org/)
 
-## Run the code
+- The [JavaScript Request Library](https://github.com/request/request)
 
-To run this example, follow these steps:
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. Create a folder for your code.  
-  
-2. From a command prompt or terminal, navigate to the folder you just created.  
-  
-3. Install the **request** node module:
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Create a file named BingCustomSearch.js in the folder you created and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.  
-  
-    ``` javascript
+## Create and initialize the application
+
+1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, Custom Configuration ID, and a search term. 
+
+    ```javascript
     var request = require("request");
     
     var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
     var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
     var searchTerm = 'microsoft';
-    
-    var options = {
+    ```
+
+## Send and receive a search request 
+
+1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+
+    ```javascript
+    var info = {
         url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
+            'q=' + searchTerm + "&" +
+            'customconfig=' + customConfigId,
         headers: {
             'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
-    
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Run the code using the following command:  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+    ```
+
+1. Use the JavaScript Request Library to send a search request to your Bing Custom Search instance and print out information about the results, including its name, url, and the date the webpage was last crawled.
+
+    ```javascript
+    request(info, function(error, response, body){
+            var searchResponse = JSON.parse(body);
+            for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+                var webPage = searchResponse.webPages.value[i];
+                console.log('name: ' + webPage.name);
+                console.log('url: ' + webPage.url);
+                console.log('displayUrl: ' + webPage.displayUrl);
+                console.log('snippet: ' + webPage.snippet);
+                console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+                console.log();
+            }
+    ```
 
 ## Next steps
-- [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)

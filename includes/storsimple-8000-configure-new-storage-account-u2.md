@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 01/20/17-->
-
 
 #### To add a storage account credential in the same Azure subscription as the StorSimple Device Manager service
 

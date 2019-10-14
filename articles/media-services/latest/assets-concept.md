@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets in Media Services - Azure | Microsoft Docs
+title: Assets in Azure Media Services  | Microsoft Docs
 description: This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,103 +19,92 @@ ms.custom: seodec18
 
 # Assets
 
-An **Asset** contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
+In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains information about digital files stored in Azure Storage (including video, audio, images, thumbnail collections, text tracks, and closed caption files). 
 
-An asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the asset are stored as block blobs in that container. You can interact with the Asset files in the containers using the Storage SDK clients.
+An Asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the Asset are stored as block blobs in that container. Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to [Cool or Archive storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archive** storage is suitable for archiving source files when no longer needed (for example, after they have been encoded).
 
-Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving source files when no longer needed (for example, after they have been encoded.)
+The **Archive** storage tier is only recommended for very large source files that have already been encoded and the encoding Job output was put in an output blob container. The blobs in the output container that you want to associate with an Asset and use to stream or analyze your content, must exist in a **Hot** or **Cool** storage tier.
 
-In Media Services v3, the job input can be created from assets or from HTTP(s) URLs. To create an asset that can be used as an input for your job, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
+### Naming blobs
 
-Also, read about [storage accounts in Media Services](storage-account-concept.md) and [transforms and jobs](transform-concept.md).
+The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
 
-## Asset definition
+## Upload digital files into Assets
 
-The following table shows the Asset's properties and gives their definitions.
-
-|Name|Description|
-|---|---|
-|id|Fully qualified resource ID for the resource.|
-|name|The name of the resource.|
-|properties.alternateId |The alternate ID of the Asset.|
-|properties.assetId |The Asset ID.|
-|properties.container |The name of the asset blob container.|
-|properties.created |The creation date of the Asset.|
-|properties.description|The Asset description.|
-|properties.lastModified |The last modified date of the Asset.|
-|properties.storageAccountName |The name of the storage account.|
-|properties.storageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
-|type|The type of the resource.|
-
-For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
-
-## Filtering, ordering, paging
-
-Media Services supports the following OData query options for Assets: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operator description:
-
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the Asset properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|Supports: Eq, Gt, Lt|Supports:Ascending and Descending|
-|properties.alternateId |Supports: Eq||
-|properties.assetId |Supports: Eq||
-|properties.container |||
-|properties.created|Supports: Eq, Gt, Lt| Supports: Ascending and Descending|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|type|||
-
-The following C# example filters on the created date:
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 1000.
+After the digital files are uploaded into storage and associated with an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. One of the common Media Services workflows is to upload, encode, and stream a file. This section outlines the general steps.
 
 > [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
+> Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
+1. Use the Media Services v3 API to create a new "input" Asset. This operation creates a container in the storage account associated with your Media Services account. The API returns the container name (for example, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+   
+    If you already have a blob container that you want to associate with an Asset, you can specify the container name when creating the Asset. Media Services currently only supports blobs in the container root and not with paths in the file name. Thus, a container with the "input.mp4" file name will work. However, a container with the "videos/inputs/input.mp4" file name, will not work.
 
-If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
+    You can use the Azure CLI to upload directly to any storage account and container that you have rights to in your subscription. <br/>The container name must be unique and follow storage naming guidelines. The name doesn't have to follow the Media Services Asset container name (Asset-GUID) formatting. 
+    
+    ```azurecli
+    az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
+    ```
+2. Get a SAS URL with read-write permissions that will be used to upload digital files into the Asset container. You can use the Media Services API to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+3. Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container. 
+4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
+5. Stream the content from the "output" asset.
 
-The following C# example shows how to enumerate through all the assets in the account.
+For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+### Create a new asset
 
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
+> [!NOTE]
+> Asset's properties of the Datetime type are always in UTC format.
+
+#### REST
+
+```
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
+For a REST example, see the [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) example.
+
+The example shows how to create the **Request Body** where you can specify useful information like description, container name, storage account, and other information.
+
+#### cURL
+
+```cURL
+curl -X PUT \
+  'https://management.azure.com/subscriptions/00000000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Media/mediaServices/amsAccountName/assets/myOutputAsset?api-version=2018-07-01' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "properties": {
+    "description": "",
+  }
+}'
+```
+
+#### .NET
+
+```csharp
+ Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
+```
+
+For a full example, see [Create a job input from a local file](job-input-from-local-file-how-to.md). In Media Services v3, a job's input can also be created from HTTPS URLs (see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)).
+
+## Map v3 asset properties to v2
+
+The following table shows how the [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
+
+|v3 properties|v2 properties|
+|---|---|
+|id - (unique) the full Azure Resource Manager path, see examples in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|name - (unique) see [Naming conventions](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id - (unique) value starts with the `nb:cid:UUID:` prefix.|
+|created|Created|
+|description|Name|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Options (creation options)|
+|type||
 
 ## Storage side encryption
 
@@ -131,6 +120,12 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 <sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
 
+## Filtering, ordering, paging
+
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Using a cloud DVR](live-event-cloud-dvr.md)
+* [Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)

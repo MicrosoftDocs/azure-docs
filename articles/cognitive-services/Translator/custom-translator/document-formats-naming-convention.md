@@ -2,12 +2,12 @@
 title: Document formats and naming conventions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better abd avoid naming conflicts.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
+ms.subservice: translator-text
+ms.date: 02/21/2019
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to format and name my documents.
 ---
@@ -27,13 +27,13 @@ This table includes all supported file formats that you can use to build your tr
 | Microsoft Word    | .DOCX        | Microsoft Word document                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Adobe Acrobat portable document                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML document                                                                                                                                                                                                                                                                  |
-| Text file         | .TXT         | UTF-16 or UTF-8 encoded text files                                                                                                                                                                                                                                             |
+| Text file         | .TXT         | UTF-16 or UTF-8 encoded text files. The file name must not contain Japanese characters.                                                                                                                                                                                        |
 | Aligned text file | .ALIGN       | The extension `.ALIGN` is a special extension that you can use if you know that the sentences in the document pair are perfectly aligned. If you provide a `.ALIGN` file, Custom Translator will not align the sentences for you. |
 | Excel file        | .XLSX        | Excel file (2013 or later). First line/ row of the spreadsheet should be language code.                                                                                                                                                                                                                                                      |
 
 ## Dictionary formats
 
-For dictionaries, Custom Translator supports all file formats those are supported for training set. If you are using Excel dictionary, please make sure the first line/ row of the spreadsheet should be language codes.
+For dictionaries, Custom Translator supports all file formats that are supported for training sets. If you are using an Excel dictionary, the first line/ row of the spreadsheet should be language codes.
 
 ## Zip file formats
 

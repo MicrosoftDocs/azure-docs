@@ -2,13 +2,12 @@
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -50,7 +49,7 @@ Here is the code that implements the orchestrator function:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -62,9 +61,10 @@ This orchestrator function essentially does the following:
 4. Waits for all uploads to complete.
 5. Returns the sum total bytes that were uploaded to Azure Blob Storage.
 
-Notice the `await Task.WhenAll(tasks);` (C#) and `yield context.df.Task.all(tasks);` (JS) line. All the calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `await Task.WhenAll(tasks);` (C#) and `yield context.df.Task.all(tasks);` (JavaScript) lines. All the individual calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll` (C#) or `context.df.Task.all` (JavaScript), we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET or [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
-Tasks are very similar to the JavaScript concept of promises. However, `Promise.all` has some differences from `Task.WhenAll`. The concept of `Task.WhenAll` has been ported over as part of the `durable-functions` JavaScript module and is exclusive to it.
+> [!NOTE]
+> Although tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
 
 After awaiting from `Task.WhenAll` (or yielding from `context.df.Task.all`), we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
@@ -80,7 +80,7 @@ And here is the implementation:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -99,7 +99,7 @@ The C# implementation is also pretty straightforward. It happens to use some adv
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 The JavaScript implementation does not have access to the `Binder` feature of Azure Functions, so the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) takes its place.
 
@@ -166,6 +166,9 @@ Now you can see that the orchestration is complete and approximately how much ti
 ## Visual Studio sample code
 
 Here is the orchestration as a single C# file in a Visual Studio project:
+
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

@@ -1,9 +1,9 @@
 ---
-title: Introduction to Azure IoT solution accelerators | Microsoft Docs
+title: Introduction to IoT solution accelerators - Azure | Microsoft Docs
 description: Learn about the Azure IoT solution accelerators. IoT solution accelerators are complete, end-to-end, ready to deploy IoT solutions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/09/2018
+ms.date: 03/09/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
@@ -32,7 +32,7 @@ Currently, there are four solution accelerators available for you to deploy:
 
 ### Remote Monitoring
 
-Use this solution accelerator to collect telemetry from remote devices and to control them. Example devices include cooling systems installed on your customers' premises or valves installed in remote pump stations.
+Use the [Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-sample-walkthrough.md) to collect telemetry from remote devices and to control them. Example devices include cooling systems installed on your customers' premises or valves installed in remote pump stations.
 
 You can use the remote monitoring dashboard to view the telemetry from your connected devices, provision new devices, or upgrade the firmware on your connected devices:
 
@@ -40,7 +40,7 @@ You can use the remote monitoring dashboard to view the telemetry from your conn
 
 ### Connected Factory
 
-Use this solution accelerator to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
+Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-features.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 
@@ -48,7 +48,7 @@ You can use the connected factory dashboard to monitor and manage your industria
 
 ### Predictive Maintenance
 
-Use this solution accelerator to predict when a remote device is expected to fail so you can carry out maintenance before the device fails. This solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
+Use the [Predictive Maintenance solution accelerator](iot-accelerators-predictive-walkthrough.md) to predict when a remote device is expected to fail so you can carry out maintenance before the device fails. This solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
 
 You can use the predictive maintenance dashboard to view predictive maintenance analytics:
 
@@ -56,7 +56,7 @@ You can use the predictive maintenance dashboard to view predictive maintenance 
 
 ### Device Simulation
 
-Use this solution accelerator to run simulated devices that generate realistic telemetry. You can use this solution accelerator to test the behavior of the other solution accelerators or to test your own custom IoT solutions.
+Use the [Device Simulation solution accelerator](iot-accelerators-device-simulation-overview.md) to run simulated devices that generate realistic telemetry. You can use this solution accelerator to test the behavior of the other solution accelerators or to test your own custom IoT solutions.
 
 You can use the device simulation web app to configure and run simulations:
 
@@ -83,7 +83,7 @@ The original solution accelerators were written using .NET using a model-view-co
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Device Simulation      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
 ## Deployment options
 

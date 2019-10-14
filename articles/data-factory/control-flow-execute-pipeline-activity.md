@@ -3,19 +3,16 @@ title: Execute Pipeline Activity in Azure Data Factory | Microsoft Docs
 description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
 ---
+
 # Execute Pipeline activity in Azure Data Factory
 The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
 
@@ -56,13 +53,14 @@ The Execute Pipeline activity allows a Data Factory pipeline to invoke another p
 ```
 
 ## Type properties
+
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the execute pipeline activity. | String | Yes
 type | Must be set to: **ExecutePipeline**. | String | Yes
 pipeline | Pipeline reference to the dependent pipeline that this pipeline invokes. A pipeline reference object has two properties: **referenceName** and **type**. The referenceName property specifies the name of the reference pipeline. The type property must be set to PipelineReference. | PipelineReference | Yes
 parameters | Parameters to be passed to the invoked pipeline | A JSON object that maps parameter names to argument values | No
-waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. | Default is false. | Boolean | No
+waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is false. | Boolean | No
 
 ## Sample
 This scenario has two pipelines:

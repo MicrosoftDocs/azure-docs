@@ -4,7 +4,7 @@ description: This topic lists existing players that you can use to playback your
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -27,12 +27,13 @@ Click on the desired video (make sure it was [published](media-services-portal-p
 
 Some considerations apply:
 
-* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### Azure Media Player
-Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to playback your content (clear or protected) in any of the following formats:
+
+Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your content (clear or protected) in any of the following formats:
 
 * Smooth Streaming
 * MPEG DASH
@@ -40,18 +41,20 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 * Progressive MP4
 
 ### Flash Player
-#### AES-encrypted with Token
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### Silverlight Players
+#### AES-encrypted with Token
+
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 #### PlayReady with Token
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### DASH Players
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+
+[https://dashif.org](https://dashif.org)
 
 ### Other
 To test HLS URLs you can also use:

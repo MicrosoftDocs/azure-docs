@@ -1,10 +1,9 @@
 ---
 title: Use an Interactive Spark Shell in Azure HDInsight 
 description: An interactive Spark Shell provides a read-execute-print process for running Spark commands one at a time and seeing the results.
-services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -58,7 +57,7 @@ The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many co
 | switch | description | example |
 | --- | --- | --- |
 | --master MASTER_URL | Specifies the master URL. In HDInsight, this value is always `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, this list is composed of paths to the default filesystem in Azure Storage or Data Lake Store. | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, this list is composed of paths to the default filesystem in Azure Storage or Data Lake Storage. | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Comma-separated list of maven coordinates of jars to include on the driver and executor classpaths. Searches the local maven repo, then maven central, then any additional remote repositories specified with `--repositories`. The format for the coordinates is *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | For Python only, a comma-separated list of .zip, .egg, or .py files to place on the PYTHONPATH. | `--pyfiles "samples.py"` |
 
@@ -67,4 +66,3 @@ The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many co
 - See [Introduction to Apache Spark on Azure HDInsight](apache-spark-overview.md) for an overview.
 - See [Create an Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md) to work with Spark clusters and SparkSQL.
 - See [What is Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) to write applications that process streaming data with Spark.
-

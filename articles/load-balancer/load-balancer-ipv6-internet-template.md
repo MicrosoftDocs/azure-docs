@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template
@@ -128,3 +128,7 @@ The example template used in this article includes the following variables and p
 | lbName |Specify the name of the load balancer. This name is displayed in the portal or used when referring to it with a CLI or PowerShell command. |
 
 The remaining variables in the template contain derived values that are assigned when Azure creates the resources. Do not change those variables.
+
+## Next steps
+
+For the JSON syntax and properties of a load balancer in a template, see [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

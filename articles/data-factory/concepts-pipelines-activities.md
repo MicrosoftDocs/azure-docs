@@ -3,18 +3,14 @@ title: Pipelines and activities in Azure Data Factory | Microsoft Docs
 description: 'Learn about pipelines and activities in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-
 ---
 
 # Pipelines and activities in Azure Data Factory
@@ -57,6 +53,8 @@ Data transformation activity | Compute environment
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 
@@ -94,7 +92,7 @@ Here is how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
@@ -127,7 +125,7 @@ Following table describes properties in the activity JSON definition:
 
 Tag | Description | Required
 --- | ----------- | ---------
-name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-activities) sections for different types of activities. | Yes
 linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, Azure Machine Learning Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
@@ -146,7 +144,7 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     "properties": {
       "activities": [
         {
-          "name": "MyCopyBlobtoSqlActivity"
+          "name": "MyCopyBlobtoSqlActivity",
           "type": "Copy",
           "typeProperties": {
             ...
@@ -165,11 +163,12 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     }
 }
 ```
+
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
 timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.
 retry | Maximum retry attempts | Integer | No. Default is 0
-retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 20 seconds
+retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, output from activity is considered as secure and will not be logged to monitoring. | Boolean | No. Default is false.
 
 ### Control activity
@@ -191,7 +190,7 @@ Control activities have the following top-level structure:
 
 Tag | Description | Required
 --- | ----------- | --------
-name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-activities) sections for different types of activities. | Yes
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No

@@ -1,63 +1,56 @@
 ---
 title: Link templates for Azure deployment | Microsoft Docs
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/07/2018
+ms.date: 10/02/2019
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy your solution, you can use either a single template or a main template with many related templates. The related template can be either a separate file that is linked to from the main template, or a template that is nested within the main template.
+To deploy your solution, you can use either a single template or a main template with many related templates. The related templates can either be separate files that are linked to from the main template, or templates that are nested within the main template.
 
-For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
 When using linked templates, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
-## Link or nest a template
+> [!NOTE]
+> For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
+>
+
+## Deployments resource
 
 To link to another template, add a **deployments** resource to your main template.
 
 ```json
 "resources": [
   {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          <nested-template-or-external-template>
-      }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+        "mode": "Incremental",
+        <nested-template-or-external-template>
+    }
   }
 ]
 ```
 
 The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
 
-For both linked and nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
-
-### Nested template
+## Nested template
 
 To nest the template within the main template, use the **template** property and specify the template syntax.
 
 ```json
 "resources": [
   {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
     "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "nestedTemplate",
     "properties": {
       "mode": "Incremental",
       "template": {
@@ -66,11 +59,12 @@ To nest the template within the main template, use the **template** property and
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
-            "apiVersion": "2015-06-15",
             "location": "West US",
-            "properties": {
-              "accountType": "Standard_LRS"
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
             }
           }
         ]
@@ -83,49 +77,64 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> You can't use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
+> ```json
+> "dependsOn": [
+>   "[variables('storageAccountName')]"
+> ],
+> ```
+>
+> You can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
-### External template and external parameters
+## External template
 
-To link to an external template and parameter file, use **templateLink** and **parametersLink**. When linking to a template, the Resource Manager service must be able to access it. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item.
+To link to an external template, use the **templateLink** property. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template.
+
+One option is to place your linked template in a storage account, and use the URI for that item.
+
+You can provide the parameters for your external template either in an external file or inline.
+
+### External parameters
+
+When providing an external parameter file, use the **parametersLink** property:
 
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
-     "properties": {
-       "mode": "Incremental",
-       "templateLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-          "contentVersion":"1.0.0.0"
-       },
-       "parametersLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-          "contentVersion":"1.0.0.0"
-       }
-     }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion":"1.0.0.0"
+      },
+      "parametersLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion":"1.0.0.0"
+      }
+    }
   }
 ]
 ```
 
 You don't have to provide the `contentVersion` property for the template or parameters. If you don't provide a content version value, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
 
-### External template and inline parameters
+### Inline parameters
 
 Or, you can provide the parameter inline. You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
 
-To pass a value from the main template to the linked template, use **parameters**.
+To pass a value from the main template to the linked template, use the **parameters** property.
 
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
+     "apiVersion": "2018-05-01",
+     "name": "linkedTemplate",
      "properties": {
        "mode": "Incremental",
        "templateLink": {
@@ -136,6 +145,51 @@ To pass a value from the main template to the linked template, use **parameters*
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
+  }
+]
+```
+
+## Using copy
+
+To create multiple instances of a resource with a nested template, add the copy element at the level of the **Microsoft.Resources/deployments** resource.
+
+The following example template shows how to use copy with a nested template.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy":{
+      "name": "storagecopy",
+      "count": 2
+    },
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "kind": "StorageV2",
+            "sku": {
+              "name": "Standard_LRS"
+            }
+            // no, copy doesn't work here
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
+      }
+    }
   }
 ]
 ```
@@ -196,9 +250,9 @@ The main template deploys the linked template and gets the returned value. Notic
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -217,7 +271,7 @@ The main template deploys the linked template and gets the returned value. Notic
 }
 ```
 
-Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
+Like other resource types, you can set dependencies between the linked template and other resources. When other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
 
 The following example shows a template that deploys a public IP address and returns the resource ID:
 
@@ -234,8 +288,8 @@ The following example shows a template that deploys a public IP address and retu
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -274,8 +328,8 @@ To use the public IP address from the preceding template when deploying a load b
     "resources": [
         {
             "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('loadBalancers_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "frontendIPConfigurations": [
@@ -301,9 +355,9 @@ To use the public IP address from the preceding template when deploying a load b
             ]
         },
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -340,8 +394,8 @@ You can use these separate entries in the history to retrieve output values afte
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "southcentralus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -374,9 +428,13 @@ The following template links to the preceding template. It creates three public 
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "[concat('linkedTemplate', copyIndex())]",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "[concat('linkedTemplate', copyIndex())]",
+            "copy": {
+                "count": 3,
+                "name": "ip-loop"
+            },
             "properties": {
               "mode": "Incremental",
               "templateLink": {
@@ -386,10 +444,6 @@ The following template links to the preceding template. It creates three public 
               "parameters":{
                   "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
               }
-            },
-            "copy": {
-                "count": 3,
-                "name": "ip-loop"
             }
         }
     ]
@@ -403,7 +457,7 @@ $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
     $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
@@ -428,6 +482,8 @@ Although the linked template must be externally available, it doesn't need to be
 
 The parameter file can also be limited to access through a SAS token.
 
+Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../storage/common/storage-network-security.md).
+
 The following example shows how to pass a SAS token when linking to a template:
 
 ```json
@@ -439,9 +495,9 @@ The following example shows how to pass a SAS token when linking to a template:
   },
   "resources": [
     {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -456,13 +512,13 @@ The following example shows how to pass a SAS token when linking to a template:
 }
 ```
 
-In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It isn't a parameter in the **New-AzureRmResourceGroupDeployment** command.
+In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It isn't a parameter in the **New-AzResourceGroupDeployment** command.
 
 ```azurepowershell-interactive
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+$token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+$url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
 For Azure CLI in a Bash shell, you get a token for the container and deploy the templates with the following code:

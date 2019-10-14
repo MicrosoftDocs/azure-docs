@@ -2,13 +2,12 @@
 title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -40,8 +39,8 @@ This article walks through the following functions in the sample app:
 * **E4_SendSmsChallenge**
 
 The following sections explain the configuration and code that are used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
- 
-## The SMS verification orchestration (Visual Studio Code and Azure portal sample code) 
+
+## The SMS verification orchestration (Visual Studio Code and Azure portal sample code)
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
 
@@ -49,11 +48,11 @@ The **E4_SmsPhoneVerification** function uses the standard *function.json* for o
 
 Here is the code that implements the function:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -67,7 +66,7 @@ Once started, this orchestrator function does the following:
 The user receives an SMS message with a four-digit code. They have 90 seconds to send that same 4-digit code back to the orchestrator function instance to complete the verification process. If they submit the wrong code, they get an additional three tries to get it right (within the same 90-second window).
 
 > [!NOTE]
-> It may not be obvious at first, but this orchestrator function is completely deterministic. This is because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and this property returns the same value on every replay at this point in the orchestrator code. This is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
+> It may not be obvious at first, but this orchestrator function is completely deterministic. This is because the `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) properties are used to calculate the timer expiration time, and these properties return the same value on every replay at this point in the orchestrator code. This is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > It's important to [cancel timers](durable-functions-timers.md) if you no longer need them to expire, as in the example above when a challenge response is accepted.
@@ -80,11 +79,11 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 
 And here is the code that generates the 4-digit challenge code and sends the SMS message:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -101,6 +100,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -110,12 +110,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > Currently, JavaScript orchestration starter functions cannot return instance management URIs. This capability will be added in a later release.
-
 The orchestrator function receives the supplied phone number and immediately sends it an SMS message with a randomly generated 4-digit verification code &mdash; for example, *2168*. The function then waits 90 seconds for a response.
 
-To reply with the code, you can use `RaiseEventAsync` inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
+To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -130,6 +127,7 @@ If you send this before the timer expires, the orchestration completes and the `
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144
@@ -151,6 +149,9 @@ Content-Length: 145
 ## Visual Studio sample code
 
 Here is the orchestration as a single C# file in a Visual Studio project:
+
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

@@ -27,6 +27,8 @@ This script gets you up and running quickly with an Azure Log Analytics workspac
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/log-analytics/log-analytics-create-new-resource/log-analytics-create-new-resource.ps1 "Create new Log Analytics workspace")]
 
 ## Script explanation
@@ -35,8 +37,8 @@ This script uses following commands to create a new Log Analytics workspace in y
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Gets information about an existing workspace. |
-| [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Creates a workspace in the specified resource group and location. |
+| [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) | Gets information about an existing workspace. |
+| [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) | Creates a workspace in the specified resource group and location. |
 
 
 ## Next steps

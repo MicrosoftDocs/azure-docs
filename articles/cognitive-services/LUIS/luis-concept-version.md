@@ -1,19 +1,22 @@
 ---
-title: Versioning
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn how to use versions to manage changes in Language Understanding (LUIS)
+title: Versioning - LUIS
+titleSuffix: Azure Cognitive Services
+description: Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 
-# Versions
+# Understand how and when to use a LUIS version
+
+Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact version, then to try to remove intents and utterances to a previous state.
+
 Create different models of the same app with [versions](luis-how-to-manage-versions.md). 
 
 ## Version ID
@@ -27,7 +30,7 @@ To [set a version](luis-how-to-manage-versions.md#set-active-version) as the act
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-[ ![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -40,7 +43,7 @@ You can import a version at the app level. That version becomes the active versi
 
 You can export a version at the app level or you can export a version at the version level. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you need to add these back once the version is imported into the new app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain contributor information.
 
 ## Export each version as app backup
 In order to back up your LUIS app, export each version on the **[Settings](luis-how-to-manage-versions.md)** page.
@@ -51,8 +54,23 @@ You can delete all versions except the active version from the Versions list on 
 ## Version availability at the endpoint
 Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
-## Collaborators
-The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
+## Manage multiple versions inside the same app
+Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
+
+Each author makes changes to their own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
+
+Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app. 
+
+This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
+
+## Manage multiple versions as apps
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
+## Contributions from collaborators
+
+Learn more about authoring contributions from [collaborators](luis-how-to-collaborate.md).
 
 ## Next steps
 

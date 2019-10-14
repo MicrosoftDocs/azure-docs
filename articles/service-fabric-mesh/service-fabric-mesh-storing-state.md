@@ -3,8 +3,8 @@ title: State storage options on Azure Service Fabric Mesh | Microsoft Docs
 description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
@@ -24,7 +24,7 @@ Containers often make use of temporary disks. Temporary disks are ephemeral, how
 
 ### Service Fabric Reliable Volume
 
-Service Fabric Reliable Volume is a Docker volume driver used to mount a local volume to a container. Reads and writes are local operations and fast. Data is replicated out to secondary nodes, making it highly available. Failover is also fast. When a container crashes, it fails over to a node that already has a copy of your data. For an example, see [How to deploy an app with Service Fabric Reliable Volume.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+Service Fabric Reliable Volume is a Docker volume driver used to mount a local volume to a container. Reads and writes are local operations and fast. Data is replicated out to secondary nodes, making it highly available. Failover is also fast. When a container crashes, it fails over to a node that already has a copy of your data. For an example, see [How to deploy an app with Service Fabric Reliable Volume](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### Azure Files Volume
 

@@ -1,14 +1,14 @@
 ---
-title: Use Terraform with Azure Cloud Shell
+title: Configure Azure Cloud Shell for Terraform
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
+ms.date: 09/20/2019
 ---
 
 # Terraform Cloud Shell development 
@@ -28,7 +28,7 @@ Terraform is installed and immediately available in Cloud Shell. Terraform scrip
 
 Azure Terraform modules require credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, add the following code to your scripts to use Azure Terraform modules in the Cloud Shell:
 
-```tf
+```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
 }

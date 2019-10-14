@@ -3,8 +3,8 @@ title: Prepare Azure VM image for use with cloud-init | Microsoft Docs
 description: How to prepare an pre-existing Azure VM image for deployment with cloud-init
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
-manager: jeconnoc
+author: danis
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
+ms.date: 06/24/2019
+ms.author: danis
 
 ---
 # Prepare an existing Linux Azure VM image for use with cloud-init
@@ -23,13 +23,13 @@ This article shows you how to take an existing Azure virtual machine and prepare
 ## Prerequisites
 This document assumes you already have a running Azure virtual machine running a supported version of the Linux operating system. You have already configured the machine to suit your needs, installed all the required modules, processed all the required updates and have tested it to ensure it meets your requirements. 
 
-## Preparing RHEL 7.4 / CentOS 7.4
+## Preparing RHEL 7.6 / CentOS 7.6
 You need to SSH into your Linux VM and run the following commands in order to install cloud-init.
 
 ```bash
-sudo yum install -y cloud-init gdisk
-sudo yum check-update cloud-init -y
-sudo yum install cloud-init -y
+sudo yum makecache fast
+sudo yum install -y gdisk cloud-utils-growpart
+sudo yum install - y cloud-init 
 ```
 
 Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the following modules:
@@ -61,34 +61,14 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+cloud-init clean
 ```
-Allow only Azure as a datasource for the Azure Linux Agent by creating a new file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` using an editor of your choice with the following lines:
+
+Allow only Azure as a datasource for the Azure Linux Agent by creating a new file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` using an editor of your choice with the following line:
 
 ```bash
-# This configuration file is provided by the WALinuxAgent package.
+# Azure Data Source config
 datasource_list: [ Azure ]
-```
-
-Add a configuration to address an outstanding hostname registration bug.
-```bash
-cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
-#!/bin/bash -e
-if [[ -n $1 ]]; then
-  hostnamectl set-hostname $1
-else
-  hostname
-fi
-EOF
-
-chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
-
-cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
-# local	fix to ensure hostname is registered
-datasource:
-  Azure:
-    hostname_bounce:
-      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
-EOF
 ```
 
 If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
@@ -121,8 +101,7 @@ rm /mnt/resource/swapfile
 The following three commands are only used if the VM you are customizing to be a new specialized source image was previously provisioned by cloud-init.  You do NOT need to run these if your image was configured using the Azure Linux Agent.
 
 ```bash
-sudo rm -rf /var/lib/cloud/instances/* 
-sudo rm -rf /var/log/cloud-init*
+sudo cloud-init clean --logs
 sudo waagent -deprovision+user -force
 ```
 

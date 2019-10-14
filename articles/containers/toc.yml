@@ -7,7 +7,7 @@
       items:
         - name: Introduction to AKS
           href: ../aks/intro-kubernetes.md
-        - name: Deploy an AKS cluster
+        - name: Quickstart - Deploy an AKS cluster
           href: ../aks/kubernetes-walkthrough.md
     - name: Container Instances (ACI)
       href: https://docs.microsoft.com/azure/container-instances/
@@ -25,25 +25,23 @@
     - name: Container Registry (ACR)
       href: https://docs.microsoft.com/azure/container-registry/
       items:
-        - name: Create a registry - CLI
+        - name: Quickstart - Create a registry
           href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-        - name: How To
+        - name: Tutorial - Build container images
           items:
-            - name: Push and pull an image
-              href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli
-            - name: View repositories
-              href: https://docs.microsoft.com/azure/container-registry/container-registry-repositories
-            - name: Create a service principal
-              href: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal?toc=%2fazure%2fcontainer-registry%2ftoc.json
-            - name: Authenticate with a registry
-              href: https://docs.microsoft.com/azure/container-registry/container-registry-authentication
-            - name: Use ACR webhooks
-              href: https://docs.microsoft.com/azure/container-registry/container-registry-webhook
+            - name: 1 - Build images in Azure
+              href: ../container-registry/container-registry-tutorial-quick-task.md
+            - name: 2 - Automate image builds
+              href: ../container-registry/container-registry-tutorial-build-task.md
+            - name: 3 - Base image update builds
+              href: ../container-registry/container-registry-tutorial-base-image-update.md
     - name: Web App for Containers
       href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
       items:
         - name: Using a custom Docker image for Azure Web App for Containers
           href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
+        - name: Tutorial - Multi-container app
+          href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
     - name: Service Fabric
       href: https://docs.microsoft.com/azure/service-fabric/
       items:
@@ -64,6 +62,19 @@
           href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
         - name: About Windows Containers
           href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
+    - name: Azure Red Hat OpenShift
+      href: https://docs.microsoft.com/azure/openshift/
+      items:
+        - name: What is Azure Red Hat Openshift?
+          href: ../openshift/intro-openshift.md
+        - name: Tutorial - Create and manage an Azure Red Hat OpenShift cluster
+          items:
+            - name: 1 - Create an Azure Red Hat OpenShift cluster
+              href: ../openshift/tutorial-create-cluster.md
+            - name: 2 - Scale an Azure Red Hat OpenShift cluster
+              href: ../openshift/tutorial-scale-cluster.md
+            - name: 3 - Delete an Azure Red Hat OpenShift cluster
+              href: ../openshift/tutorial-delete-cluster.md
     - name: Reference
       items:
         - name: Azure Container Instances (az container)
@@ -72,7 +83,7 @@
           href: https://docs.microsoft.com/cli/azure/acs
         - name: Azure Container Registry (az acr)
           href: https://docs.microsoft.com/cli/azure/acr
-        - name: Web App for Containers(az appservice)
+        - name: Web App for Containers (az appservice)
           href: https://docs.microsoft.com/cli/azure/appservice
         - name: Azure App Service Web App (az webapp)
           href: https://docs.microsoft.com/cli/azure/webapp

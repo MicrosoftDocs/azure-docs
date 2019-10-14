@@ -1,13 +1,13 @@
 ---
 title: Restore data in Azure to a Windows server or Windows computer
 description: Learn how to restore data stored in Azure to a Windows server or Windows computer.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/7/2018
-ms.author: saurse
+ms.date: 09/07/2018
+ms.author: dacurwin
 ---
 # Restore files to Windows by using the Azure Resource Manager deployment model
 
@@ -43,14 +43,14 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Getting Started page](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. On the **Select Recovery Mode** page, choose
-**Individual files and folders** > **Next**.
+   **Individual files and folders** > **Next**.
 
     ![Screenshot of Recover Data Wizard Select Recovery Mode page](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
+   > [!IMPORTANT]
+   > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
 
-  > [!TIP]
-  > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
+   > [!TIP]
+   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 
@@ -92,7 +92,7 @@ These steps include the following terminology:
 * *Sample vault* – The Recovery Services vault to which the source machine and target machine are registered. <br/>
 
 > [!NOTE]
-> Backups can't be restored to a target machine that is running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 8 (or later) computer. A backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
+> Backups can't be restored to a target machine that is running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
 >
 >
 

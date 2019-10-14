@@ -2,21 +2,21 @@
 title: Parallel R simulation with Azure Batch
 description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
 ---
 
 # Tutorial: Run a parallel R simulation with Azure Batch 
 
-Run your parallel R workloads at scale using [doAzureParallel](http://www.github.com/Azure/doAzureParallel), a lightweight R package that allows you to use Azure Batch directly from your R session. The doAzureParallel package is built on top of the popular [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R package. doAzureParallel takes each iteration of the foreach loop and submits it as an Azure Batch task.
+Run your parallel R workloads at scale using [doAzureParallel](https://www.github.com/Azure/doAzureParallel), a lightweight R package that allows you to use Azure Batch directly from your R session. The doAzureParallel package is built on top of the popular [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R package. doAzureParallel takes each iteration of the foreach loop and submits it as an Azure Batch task.
 
 This tutorial shows you how to deploy a Batch pool and run a parallel R job in Azure Batch directly within RStudio. You learn how to:
  
@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## Install doAzureParallel
 
-In the RStudio console, install the [doAzureParallel GitHub package](http://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
+In the RStudio console, install the [doAzureParallel GitHub package](https://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
 
 ```R
 # Install the devtools package  
@@ -112,7 +112,7 @@ Leave defaults for the remaining settings, and save the file. It should look sim
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 4,
+  "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
       "min": 0,
@@ -256,7 +256,7 @@ stopCluster(cluster)
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-Install doAzureParallel and configure it to access your Batch and storage accounts
+> Install doAzureParallel and configure it to access your Batch and storage accounts
 > * Create a Batch pool as a parallel backend for your R session
 > * Run a sample parallel simulation on the pool
 

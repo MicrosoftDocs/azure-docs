@@ -1,16 +1,15 @@
 ---
 title: Get started with a sample
 description: In this article, we'll introduce you to the Power BI Workspace Collections get started sample.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: maghan
 ---
+
 # Get started with Power BI Workspace Collections sample
 
 With **Microsoft Power BI Workspace Collections**, you can integrate Power BI reports right into your web or mobile applications. In this article, we introduce you to the **Power BI Workspace Collections** get started sample.
@@ -22,7 +21,7 @@ Before we go any further, you want to save the following resources: They help yo
 
 * [Sample workspace web app](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Workspace Collections API reference](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
+* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -67,7 +66,7 @@ The web app sample is a sample application that renders reports imported into yo
 1. In the **PowerBI-embedded** Visual Studio solution, right-click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
 
-    ```
+    ```xml
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
         <add key="powerbi:ApiUrl" value="https://api.powerbi.com" />
@@ -87,7 +86,7 @@ After you click a report, the **EmbedSample** web application should look someth
 
 ## Explore the sample code
 
-The **Microsoft Power BI Workspace Collections** sample is an example web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
+The **Microsoft Power BI Workspace Collections** sample is an example web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](https://www.asp.net/mvc).
 
 The **Microsoft Power BI Workspace Collections** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
@@ -100,19 +99,23 @@ The sample has a **ReportsViewModel** and **ReportViewModel**.
 
 **ReportsViewModel.cs**: Represents Power BI Reports.
 
-    public class ReportsViewModel
-    {
-        public List<Report> Reports { get; set; }
-    }
+```csharp
+public class ReportsViewModel
+{
+    public List<Report> Reports { get; set; }
+}
+```
 
 **ReportViewModel.cs**: Represents a Power BI Report.
 
-    public classReportViewModel
-    {
-        public IReport Report { get; set; }
+```csharp
+public class ReportViewModel
+{
+    public IReport Report { get; set; }
 
-        public string AccessToken { get; set; }
-    }
+    public string AccessToken { get; set; }
+}
+```
 
 ### Connection string
 
@@ -134,95 +137,103 @@ The **View** manages the display of Power BI **Reports** and a Power BI **Report
 | --- | --- |
 | Title |Name of the Report. |
 | QueryString |A link to the Report ID. |
-
-    <div id="reports-nav" class="panel-collapse collapse">
-        <div class="panel-body">
-            <ul class="nav navbar-nav">
-                @foreach (var report in Model.Reports)
-                {
-                    var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
-                    <li class="@reportClass">
-                        @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
-                    </li>
-                }
-            </ul>
-        </div>
+```cshtml
+<div id="reports-nav" class="panel-collapse collapse">
+    <div class="panel-body">
+        <ul class="nav navbar-nav">
+            @foreach (var report in Model.Reports)
+            {
+                var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
+                <li class="@reportClass">
+                    @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
+                </li>
+            }
+        </ul>
     </div>
-
+</div>
+```
 Report.cshtml: Set the **Model.AccessToken**, and the Lambda expression for **PowerBIReportFor**.
 
-    @model ReportViewModel
+```cshtml
+@model ReportViewModel
 
-    ...
+...
 
-    <div class="side-body padding-top">
-        @Html.PowerBIAccessToken(Model.AccessToken)
-        @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
-    </div>
+<div class="side-body padding-top">
+    @Html.PowerBIAccessToken(Model.AccessToken)
+    @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
+</div>
+```
 
 ### Controller
 
 **DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
 
+
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient()
+```csharp
+private IPowerBIClient CreatePowerBIClient()
+{
+    var credentials = new TokenCredentials(accessKey, "AppKey");
+    var client = new PowerBIClient(credentials)
     {
-        var credentials = new TokenCredentials(accessKey, "AppKey");
-        var client = new PowerBIClient(credentials)
-        {
-            BaseUri = new Uri(apiUrl)
-        };
+        BaseUri = new Uri(apiUrl)
+    };
 
-        return client;
-    }
+    return client;
+}
+```
 
 ActionResult Reports()
 
-    public ActionResult Reports()
+```csharp
+public ActionResult Reports()
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+
+        var viewModel = new ReportsViewModel
         {
-            var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+            Reports = reportsResponse.Value.ToList()
+        };
 
-            var viewModel = new ReportsViewModel
-            {
-                Reports = reportsResponse.Value.ToList()
-            };
-
-            return PartialView(viewModel);
-        }
+        return PartialView(viewModel);
     }
+}
+```
 
+Task\<ActionResult> Report(string reportId)
 
-Task<ActionResult> Report(string reportId)
-
-    public async Task<ActionResult> Report(string reportId)
+```csharp
+public async Task<ActionResult> Report(string reportId)
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
+        var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
+        var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+        var viewModel = new ReportViewModel
         {
-            var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
-            var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+            Report = report,
+            AccessToken = embedToken.Generate(this.accessKey)
+        };
 
-            var viewModel = new ReportViewModel
-            {
-                Report = report,
-                AccessToken = embedToken.Generate(this.accessKey)
-            };
-
-            return View(viewModel);
-        }
+        return View(viewModel);
     }
+}
+```
 
 ### Integrate a report into your app
 
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Workspace Collections** sample.
 
-```
+```javascript
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];
@@ -252,4 +263,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

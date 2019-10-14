@@ -6,9 +6,8 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
 ---
 
@@ -28,7 +27,7 @@ When an orchestration instance needs to run, the appropriate rows of the History
 
 The **Instances** table is another Azure Storage table that contains the statuses of all orchestration instances within a task hub. As instances are created, new rows are added to this table. The partition key of this table is the orchestration instance ID and the row key is a fixed constant. There is one row per orchestration instance.
 
-This table is used to satisfy instance query requests from the [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API as well as the [status query HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). It is kept eventually consistent with the contents of the **History** table mentioned previously. The use of a separate Azure Storage table to efficiently satisfy instance query operations in this way is influenced by the [Command and Query Responsibility Segregation (CQRS) pattern](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+This table is used to satisfy instance query requests from the [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) and `getStatus` (JavaScript) APIs as well as the [status query HTTP API](durable-functions-http-api.md#get-instance-status). It is kept eventually consistent with the contents of the **History** table mentioned previously. The use of a separate Azure Storage table to efficiently satisfy instance query operations in this way is influenced by the [Command and Query Responsibility Segregation (CQRS) pattern](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## Internal queue triggers
 
@@ -44,14 +43,37 @@ There are multiple *control queues* per task hub in Durable Functions. A *contro
 
 Control queues contain a variety of orchestration lifecycle message types. Examples include [orchestrator control messages](durable-functions-instance-management.md), activity function *response* messages, and timer messages. As many as 32 messages will be dequeued from a control queue in a single poll. These messages contain payload data as well as metadata including which orchestration instance it is intended for. If multiple dequeued messages are intended for the same orchestration instance, they will be processed as a batch.
 
+### Queue polling
+
+The durable task extension implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs. When a message is found, the runtime immediately checks for another message; when no message is found, it waits for a period of time before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to 30 seconds.
+
+The maximum polling delay is configurable via the `maxQueuePollingInterval` property in the [host.json file](../functions-host-json.md#durabletask). Setting this to a higher value could result in higher message processing latencies. Higher latencies would be expected only after periods of inactivity. Setting this to a lower value could result in higher storage costs due to increased storage transactions.
+
+> [!NOTE]
+> When running in the Azure Functions Consumption and Premium plans, the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) will poll each control and work-item queue once every 10 seconds. This additional polling is necessary to determine when to activate function app instances and to make scale decisions. At the time of writing, this 10 second interval is constant and cannot be configured.
+
 ## Storage account selection
 
-The queues, tables, and blobs used by Durable Functions are created by in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
+The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
+
+### Functions 1.x
 
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -62,6 +84,8 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 
 Activity functions are stateless and scaled out automatically by adding VMs. Orchestrator functions, on the other hand, are *partitioned* across one or more control queues. The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `durableTask/partitionCount` property to `3`.
 
+### Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -69,6 +93,19 @@ Activity functions are stateless and scaled out automatically by adding VMs. Orc
   }
 }
 ```
+
+### Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 A task hub can be configured with between 1 and 16 partitions. If not specified, the default partition count is **4**.
 
 When scaling out to multiple function host instances (typically on different VMs), each instance acquires a lock on one of the control queues. These locks are internally implemented as blob storage leases and ensure that an orchestration instance only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances can be load-balanced across as many as three VMs. Additional VMs can be added to increase capacity for activity function execution.
@@ -101,11 +138,26 @@ Azure Functions supports executing multiple functions concurrently within a sing
 
 Both activity function and orchestrator function concurrency limits can be configured in the **host.json** file. The relevant settings are `durableTask/maxConcurrentActivityFunctions` and `durableTask/maxConcurrentOrchestratorFunctions` respectively.
 
+### Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -116,15 +168,31 @@ In the previous example, a maximum of 10 orchestrator functions and 10 activity 
 > These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set of limits. These settings cannot be used to control concurrency at a global level.
 
 ## Orchestrator function replay
+
 As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue.
 
 This aggressive replay behavior can be disabled by enabling **extended sessions**. When extended sessions are enabled, orchestrator function instances are held in memory longer and new messages can be processed without a full replay. Extended sessions are enabled by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting is used to control how long an idle session will be held in memory:
+
+### Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -171,4 +239,4 @@ an Azure Storage account and sufficiently high loads may result in storage accou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first durable function in C#](durable-functions-create-first-csharp.md)
+> [Learn about disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md)

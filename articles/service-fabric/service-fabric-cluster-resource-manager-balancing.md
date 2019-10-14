@@ -4,11 +4,11 @@ description: An introduction to balancing your cluster with the Service Fabric C
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -32,9 +32,9 @@ The first set of controls around balancing are a set of timers. These timers gov
 Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer that governs its frequency. When each timer fires, the task is scheduled. By default the Resource Manager:
 
 * scans its state and applies updates (like recording that a node is down) every 1/10th of a second
-* sets the placement check flag 
+* sets the placement check flag every second
 * sets the constraint check flag every second
-* sets the balancing flag every five seconds.
+* sets the balancing flag every five seconds
 
 Examples of the configuration governing these timers are below:
 
@@ -118,6 +118,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```
 
 <center>
+
 ![Balancing Threshold Example][Image1]
 </center>
 
@@ -126,6 +127,7 @@ In this example, each service is consuming one unit of some metric. In the top e
 In the bottom example, the maximum load on a node is 10, while the minimum is two, resulting in a ratio of five. Five is greater than the designated balancing threshold of three for that metric. As a result, a rebalancing run will be scheduled next time the balancing timer fires. In a situation like this some load is usually distributed to Node3. Because the Service Fabric Cluster Resource Manager doesn't use a greedy approach, some load could also be distributed to Node2. 
 
 <center>
+
 ![Balancing Threshold Example Actions][Image2]
 </center>
 
@@ -141,6 +143,7 @@ Sometimes, although nodes are relatively imbalanced, the *total* amount of load 
 Let’s say that we retain our Balancing Threshold of three for this metric. Let's also say we have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold there's no node meets that Activity Threshold, so nothing happens. In the bottom example, Node1 is over the Activity Threshold. Since both the Balancing Threshold and the Activity Threshold for the metric are exceeded, balancing is scheduled. As an example, let's look at the following diagram: 
 
 <center>
+
 ![Activity Threshold Example][Image3]
 </center>
 
@@ -190,6 +193,7 @@ Occasionally though, a service that wasn’t itself imbalanced gets moved (remem
 Surely you can see where we’re going here: There's a chain! We don’t really have four independent services, we have three services that are related and one that is off on its own.
 
 <center>
+
 ![Balancing Services Together][Image4]
 </center>
 
@@ -198,6 +202,7 @@ Because of this chain, it's possible that an imbalance in metrics 1-4 can cause 
 The Cluster Resource Manager automatically figures out what services are related. Adding, removing, or changing the metrics for services can impact their relationships. For example, between two runs of balancing Service2 may have been updated to remove Metric2. This breaks the chain between Service1 and Service2. Now instead of two groups of related services, there are three:
 
 <center>
+
 ![Balancing Services Together][Image5]
 </center>
 

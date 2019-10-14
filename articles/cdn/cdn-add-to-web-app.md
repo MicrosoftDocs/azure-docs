@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Add Azure CDN to an Azure App Service web app
 
-This tutorial shows how to add [Azure Content Delivery Network (CDN)](cdn-overview.md) to a [web app in Azure App Service](../app-service/app-service-web-overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
+This tutorial shows how to add [Azure Content Delivery Network (CDN)](cdn-overview.md) to a [web app in Azure App Service](../app-service/overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
 
 Here's the home page of the sample static HTML site that you'll work with:
 

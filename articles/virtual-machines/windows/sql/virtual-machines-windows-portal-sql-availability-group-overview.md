@@ -3,14 +3,14 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Micr
 description: "This article introduces SQL Server Availability Groups on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -31,13 +31,37 @@ The diagram illustrates the parts of a complete SQL Server Availability Group in
 
 The key difference for an Availability Group in Azure Virtual Machines is that the Azure virtual machines, require a [load balancer](../../../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group each group requires a listener. One load balancer can support multiple listeners.
 
+Additionally, on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+
+To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets), or different [availability zones](/azure/availability-zones/az-overview). 
+
+|  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
+| :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | File share | No | No | No | No | No | No |
+| [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
+| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
-## Automatically create an availability group from a template
+## Manually with Azure CLI
+Using Azure CLI to configure and deploy an availability group is the recommended option, as it's the best in terms of simplicity and speed of deployment. With Azure CLI, the creation of the Windows Failover Cluster, joining SQL Server VMs to the cluster, as well as the creation of the listener and Internal Load Balancer can all be achieved in under 30 minutes. This option still requires a manual creation of the availability group, but automates all the other necessary configuration steps. 
+
+For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). 
+
+## Automatically with Azure Quickstart Templates
+The Azure Quickstart Templates utilize the SQL VM resource provider to deploy the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer. This option still requires a manual creation of the availability group, and Internal Load Balancer (ILB) but automates and simplifies all the other necessary configuration steps (including the configuration of the ILB). 
+
+For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
+
+## Automatically with an Azure portal template
 
 [Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
-## Manually create an availability group in Azure portal
+
+## Manually in Azure portal
 
 You can also create the virtual machines yourself without the template. First, complete the prerequisites, then create the availability group. See the following topics: 
 
@@ -47,4 +71,4 @@ You can also create the virtual machines yourself without the template. First, c
 
 ## Next steps
 
-[Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md).
+[Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md)

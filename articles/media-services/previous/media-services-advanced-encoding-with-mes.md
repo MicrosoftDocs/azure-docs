@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
@@ -24,11 +24,10 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
->[!NOTE]
->If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
->
+If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
-In this topic, the custom presets that perform the following encoding tasks are demonstrated.
+> [!NOTE] 
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## Support for relative sizes
 
@@ -157,7 +156,7 @@ Make sure to review the [Considerations](#considerations) section.
 
 ### <a id="xml"></a>XML preset
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -374,7 +373,7 @@ To trim your videos, you can take any of the MES presets documented [this](media
 To trim your videos, you can take any of the MES presets documented [here](media-services-mes-presets-overview.md) and modify the **Sources** element (as shown below).
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -579,8 +578,7 @@ If you are using .NET, add the following two functions to the .NET example defin
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -637,7 +635,7 @@ If you are using .NET, add the following two functions to the .NET example defin
 
 ### XML preset
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -654,12 +652,10 @@ If you are using .NET, add the following two functions to the .NET example defin
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>

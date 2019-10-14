@@ -1,14 +1,14 @@
 ---
-title: Full text search engine (Lucene) architecture in Azure Search | Microsoft Docs
+title: Full text search engine (Lucene) architecture - Azure Search
 description: Explanation of Lucene query processing and document retrieval concepts for full text search, as related to Azure Search.
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 08/08/2019
 ms.author: jlembicz
+
 ---
 
 # How full text search works in Azure Search
@@ -48,15 +48,15 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure Search using the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+POST /indexes/hotels/docs/search?api-version=2019-05-06
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 For this request, the search engine does the following:
@@ -111,7 +111,7 @@ By default (`searchMode=any`), the search engine assumes the broader interpretat
 Suppose that we now set `searchMode=all`. In this case, the space is interpreted as an "and" operation. Each of the remaining terms must both be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 A modified query tree for this query would be as follows, where a matching document is the intersection of all three subqueries: 
@@ -149,7 +149,7 @@ When the default analyzer processes the term, it will lowercase "ocean view" and
 The behavior of an analyzer can be tested using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Provide the text you want to analyze to see what terms given analyzer will generate. For example, to see how the standard analyzer would process the text "air-condition", you can issue the following request:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -158,7 +158,7 @@ The behavior of an analyzer can be tested using the [Analyze API](https://docs.m
 The standard analyzer breaks the input text into the following two tokens, annotating them with attributes like start and end offsets (used for hit highlighting) as well as their position (used for phrase matching):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -189,11 +189,11 @@ Lexical analysis applies only to query types that require complete terms – eit
 Document retrieval refers to finding documents with matching terms in the index. This stage is understood best through an example. Let's start with a hotels index having the following simple schema: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -202,28 +202,28 @@ Document retrieval refers to finding documents with matching terms in the index.
 Further assume that this index contains the following four documents: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -321,7 +321,7 @@ Recall the three documents that matched our example query:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,
@@ -345,7 +345,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Document 1 matched the query best because both the term *spacious* and the required phrase *ocean view* occur in the description field. The next two documents match only the phrase *ocean view*. It might be surprising that the relevance score for document 2 and 3 is different even though they matched the query in the same way. It's because the scoring formula has more components than just TF/IDF. In this case, document 3 was assigned a slightly higher score because its description is shorter. Learn about [Lucene's Practical Scoring Formula](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) to understand how field length and other factors can influence the relevance score.
+Document 1 matched the query best because both the term *spacious* and the required phrase *ocean view* occur in the description field. The next two documents match only the phrase *ocean view*. It might be surprising that the relevance score for document 2 and 3 is different even though they matched the query in the same way. It's because the scoring formula has more components than just TF/IDF. In this case, document 3 was assigned a slightly higher score because its description is shorter. Learn about [Lucene's Practical Scoring Formula](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) to understand how field length and other factors can influence the relevance score.
 
 Some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This allows matches found through query expansion to be included in the results, but without affecting the ranking. 
 
@@ -379,15 +379,13 @@ This article explored full text search in the context of Azure Search. We hope i
 
 + Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
 
-+ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
++ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
 + Review [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) if you want to tune ranking in your search application.
 
 + Learn how to apply [language-specific lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on specific fields.
-
-+ [Compare standard and English analyzers](http://alice.unearth.ai/)) side by side on this demo web site. 
 
 ## See also
 

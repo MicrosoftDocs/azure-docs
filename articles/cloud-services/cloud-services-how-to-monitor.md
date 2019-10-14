@@ -3,18 +3,11 @@ title: Monitor an Azure Cloud Service | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
+ms.author: gwallace
 ---
 
 # Introduction to Cloud Service Monitoring
@@ -89,13 +82,13 @@ Most likely you have two **.cscfg** files, one named **ServiceConfiguration.clou
 
 ## Use Application Insights
 
-When you publish the Cloud Service from Visual Studio, you are given the option to send the diagnostic data to Application Insights. You can create the Application Insights Azure resource at that time or send the data to an existing Azure resource. Your cloud service can be monitored by Application Insights for availability, performance, failures, and usage. Custom charts can be added to Application Insights so that you can see the data that matters the most. Role instance data can be collected by using the Application Insights SDK in your cloud service project. For more information on how to integrate Application Insights, see [Application Insights with Cloud Services](../application-insights/app-insights-cloudservices.md).
+When you publish the Cloud Service from Visual Studio, you are given the option to send the diagnostic data to Application Insights. You can create the Application Insights Azure resource at that time or send the data to an existing Azure resource. Your cloud service can be monitored by Application Insights for availability, performance, failures, and usage. Custom charts can be added to Application Insights so that you can see the data that matters the most. Role instance data can be collected by using the Application Insights SDK in your cloud service project. For more information on how to integrate Application Insights, see [Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md).
 
 Note that while you can use Application Insights to display the performance counters (and the other settings) you have specified through the Windows Azure Diagnostics extension, you only get a richer experience by integrating the Application Insights SDK into your worker and web roles.
 
 
 ## Next steps
 
-- [Learn about Application Insights with Cloud Services](../application-insights/app-insights-cloudservices.md)
+- [Learn about Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md)
 

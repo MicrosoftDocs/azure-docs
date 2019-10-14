@@ -3,8 +3,8 @@ title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Access control in Azure Data Lake Storage Gen1
@@ -162,7 +162,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -212,9 +212,9 @@ When a new file or folder is created under an existing folder, the Default ACL o
 
 ### umask
 
-When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
+The umask for Azure Data Lake Storage Gen1 is a constant value set to 007. This value translates to
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
@@ -285,13 +285,13 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-* [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS permission guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL using access control lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
 

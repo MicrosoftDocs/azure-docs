@@ -3,7 +3,7 @@ title: Device concepts in Azure device provisioning | Microsoft Docs
 description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -39,7 +39,7 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 
 ## Registration ID
 
-The registration ID is used to uniquely identify a device in the Device Provisioning Service. The device ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
+The registration ID is used to uniquely identify a device in the Device Provisioning Service. The registration ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
 
 * In the case of TPM, the registration ID is provided by the TPM itself.
 * In the case of X.509-based attestation, the registration ID is provided as the subject name of the certificate.

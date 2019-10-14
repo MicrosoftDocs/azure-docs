@@ -1,33 +1,48 @@
 ---
-title: Good example utterances 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Good example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/07/2019
 ms.author: diberry
 ---
-# Utterances in LUIS
+# Understand what good utterances are for your LUIS app
 
-**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
+**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
 
-Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement. 
+Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in a variety of different ways:
+
+* Utterance length - short, medium, and long for your client-application
+* Word and phrase length 
+* Word placement - entity at beginning, middle, and end of utterance
+* Grammar 
+* Pluralization
+* Stemming
+* Noun and verb choice
+* Punctuation - a good variety using correct, incorrect, and no grammar
 
 ## How to choose varied utterances
+
 When you first get started by [adding example utterances](luis-how-to-add-example-utterances.md) to your LUIS model, here are some principles to keep in mind.
 
 ### Utterances aren't always well formed
-It may be a sentence, like "Book me a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you spell-check user input before passing it to LUIS. The [Bing Spell Check API][BingSpellCheck] integrates with LUIS. You can associate your LUIS app with an external key for the Bing Spell Check API when you publish it. If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
+
+It may be a sentence, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you use [Bing Spell Check](luis-tutorial-bing-spellcheck.md) to correct user input before passing it to LUIS. 
+
+If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
 
 ### Use the representative language of the user
-When choosing utterances, be aware that what you think is a common term or phrase might not be to the typical user of your client application. They may not have domain experience. So be careful when using terms or phrases that a user would only say if they were an expert.
+
+When choosing utterances, be aware that what you think is a common term or phrase might not be correct for the typical user of your client application. They may not have domain experience. Be careful when using terms or phrases that a user would only say if they were an expert.
 
 ### Choose varied terminology as well as phrasing
+
 You will find that even if you make efforts to create varied sentence patterns, you will still repeat some vocabulary.
 
 Take these example utterances:
@@ -39,39 +54,83 @@ Take these example utterances:
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?| 
 
-The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
+The core term here, "computer", isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
-Each intent needs to have example utterances, at least 10 to 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
 
-## Add small groups of 10-15 utterances for each authoring iteration
-In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](luis-interactive-test.md) again.  
+Each intent needs to have example utterances, at least 15. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
 
-LUIS builds effective models with utterances that are selected carefully. Adding too many utterances is not valuable because it introduces confusion.  
+## Add small groups of 15 utterances for each authoring iteration
 
-It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endoint-utt.md) for correct intent prediction and entity extraction.
+In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of 15. [Train](luis-how-to-train.md), [publish](luis-how-to-publish-app.md), and [test](luis-interactive-test.md) again.  
 
-## Punctuation marks
+LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.  
 
-LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns. 
+It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endpoint-utterances.md) for correct intent prediction and entity extraction.
 
-## Ignoring words and punctuation
-If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+## Utterance normalization
+
+Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction.
+
+## Utterance normalization for diacritics and punctuation
+
+Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default. 
+
+Diacritics are marks or signs within the text, such as: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+If your app turns normalization on, scores in the **Test** pane, batch tests, and endpoint queries will change for all utterances using diacritics or punctuation.
+
+Turn on utterance normalization for diacritics or punctuation to your LUIS JSON app file in the `settings` parameter.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalizing **punctuation** means that before your models get trained and before your endpoint queries get predicted, punctuation will be removed from the utterances. 
+
+Normalizing **diacritics** replaces the characters with diacritics in utterances with regular characters. For example: `Je parle français` becomes `Je parle francais`. 
+
+Normalization doesn’t mean you will not see punctuation and diacritics in your example utterances or prediction responses, merely that they will be ignored during training and prediction.
+
+
+### Punctuation marks
+
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not contain a period at the end are two separate utterances and may get two different predictions. 
+
+If punctuation is not normalized, LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. 
+
+Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+
+If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
+
+### Ignoring words and punctuation
+
+If you want to ignore specific words or punctuation in patterns, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`. 
 
 ## Training utterances
-Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
+
+Training is generally non-deterministic: the utterance prediction could vary slightly across versions or apps. 
+You can remove non-deterministic training by updating the [version settings](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API with the `UseAllTrainingData` name/value pair to use all training data.
 
 ## Testing utterances 
 
-Developers should start testing their LUIS application with real traffic by sending utterances to the endpoint. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
+Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endpoint-utterances.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
-After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](luis-how-to-review-endoint-utt.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
+
+After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](luis-how-to-review-endpoint-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
-Review [best practices](luis-concept-best-practices.md) to learn more.
+
+Review [best practices](luis-concept-best-practices.md) and apply them as part of your regular authoring cycle.
 
 ## Next steps
 See [Add example utterances](luis-how-to-add-example-utterances.md) for information on training a LUIS app to understand user utterances.
 
-[BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

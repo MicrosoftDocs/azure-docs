@@ -3,8 +3,8 @@ title: Develop Java Azure Service Fabric applications with Visual Studio Code | 
 description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: JimacoMS
-manager: timlt
+author: peterpogorski
+manager: chackdan
 editor: ''
 
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
-ms.author: v-jamebr
+ms.author: pepogors
 
 ---
 
@@ -63,11 +63,11 @@ After you have built the application, you can deploy it to the local cluster.
 
    ![Deploy Application Command in VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. When the deployment is complete, launch a browser and open Service Fabric Explorer: http://localhost:19080/Explorer. You should see that the application is running. This may take some time, so be patient. 
+4. When the deployment is complete, launch a browser and open Service Fabric Explorer: `http://localhost:19080/Explorer`. You should see that the application is running. This may take some time, so be patient. 
 
    ![Voting Application in Service Fabric Explorer](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. After you've verified that the application is running, launch a browser and open this page: http://localhost:8080. This is the web front-end of the application. You can add items and click on them to vote.
+4. After you've verified that the application is running, launch a browser and open this page: `http://localhost:8080`. This is the web front-end of the application. You can add items and click on them to vote.
 
    ![Voting Application in Browser](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
@@ -116,7 +116,7 @@ To set a breakpoint, complete the following steps:
 
    ![Debug (Attach) Configuration](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. In a web browser, go to http://localhost:8080. Type a new item in the text box and click **+ Add**. Your breakpoint should be hit. You can use the Debug toolbar at the top of VS Code to continue execution, step over lines, step into methods, or step out of the current method. 
+3. In a web browser, go to `http://localhost:8080`. Type a new item in the text box and click **+ Add**. Your breakpoint should be hit. You can use the Debug toolbar at the top of VS Code to continue execution, step over lines, step into methods, or step out of the current method. 
    
    ![Hit breakpoint](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        

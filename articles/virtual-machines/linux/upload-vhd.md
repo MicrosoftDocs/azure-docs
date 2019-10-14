@@ -4,7 +4,7 @@ description: Upload or copy a customized virtual machine by using the Resource M
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -27,8 +27,8 @@ This article shows you how to upload a customized virtual hard disk (VHD), and h
 To create multiple VMs from your customized disk, first create an image from your VM or VHD. For more information, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).
 
 You have two options to create a custom disk:
-* [Upload a VHD](#option-1-upload-a-specialized-vhd)
-* [Copy an existing Azure VM](#option-2-copy-an-existing-azure-vm)
+* Upload a VHD
+* Copy an existing Azure VM
 
 ## Quick commands
 
@@ -44,7 +44,7 @@ To complete the following steps, you'll need:
 
 * A Linux virtual machine that has been prepared for use in Azure. The [Prepare the VM](#prepare-the-vm) section of this article covers how to find distro-specific information on installing the Azure Linux Agent (waagent), which is needed for you to connect to a VM with SSH.
 * The VHD file from an existing [Azure-endorsed Linux distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (or see [information for non-endorsed distributions](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
-  * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) with `qemu-img convert`.
+  * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](https://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) with `qemu-img convert`.
   * You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -96,7 +96,7 @@ az group create \
 
 ### Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#az-storageaccount-create). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
 
 ```azurecli
 az storage account create \

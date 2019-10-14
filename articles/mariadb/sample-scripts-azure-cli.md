@@ -1,12 +1,10 @@
 ---
 title: Azure CLI samples for Azure Database for MariaDB
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MariaDB.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/27/2018

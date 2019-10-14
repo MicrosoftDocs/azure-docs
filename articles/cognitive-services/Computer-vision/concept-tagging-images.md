@@ -1,19 +1,20 @@
 ---
-title: Tagging images - Computer Vision
+title: Content tags - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to tagging images using the Computer Vision API.
+description: Learn concepts related to the images tagging feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Tagging images
+# Applying content tags to images
 
 Computer Vision returns tags based on thousands of recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
 
@@ -23,7 +24,7 @@ After uploading an image or specifying an image URL, Computer Vision algorithms 
 
 The following JSON response illustrates what Computer Vision returns when tagging visual features detected in the example image.
 
-![House_Yard](./Images/house_yard.png).
+![A blue house and the front yard](./Images/house_yard.png).
 
 ```json
 {

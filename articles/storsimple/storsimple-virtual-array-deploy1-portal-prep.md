@@ -13,14 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Prepare the Azure portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Device Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
 
@@ -38,7 +42,7 @@ To deploy your StorSimple Virtual Array, refer to the following articles in the 
 | **#** | **In this step** | **You do this …** | **And use these documents.** |
 | --- | --- | --- | --- |
 | 1. |**Set up the Azure portal** |Create and configure your StorSimple Device Manager service prior to provisioning a StorSimple Virtual Array. |[Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, or 6.0.<br></br> |[Provision a virtual array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, 6.0 or 6.5.<br></br> |[Provision a virtual array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Set up the Virtual Array** |For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes. |[Set up virtual array as file server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 You can now begin to set up the Azure portal.
@@ -66,7 +70,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual array, make sure that:
 
-* You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.0, 5.5 or 6.0) that can be used to a provision a device.
+* You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.0, 5.5, 6.0 or 6.5) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your virtual array:
   
   * A minimum of 4 cores.
@@ -132,7 +136,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
    
    * VHDX for Hyper-V on Windows Server 2012 and later
    * VHD for Hyper-V on Windows Server 2008 R2 and later
-   * VMDK for VMWare ESXi 5.0, 5.5 or 6.0
+   * VMDK for VMWare ESXi 5.0, 5.5, 6.0 or 6.5
 5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
 ## Optional step: Configure a new storage account for the service
@@ -150,15 +154,15 @@ Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) 
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
    
-    1. For **Subscription**, select **Current**.
+   1. For **Subscription**, select **Current**.
    
-    2. Provide the name of your Azure storage account.
+   2. Provide the name of your Azure storage account.
    
-    3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
+   3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
    
-    4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
+   4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
    
-     ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## Next step
 

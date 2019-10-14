@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS cu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -13,11 +13,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -26,7 +27,7 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
@@ -225,7 +226,7 @@ This rule defines a temporary flag called **idflag** that is set to **useguid** 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
 
 This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You'll have to change this to the appropriate claim type for the immutable ID in your environment.
 
@@ -233,7 +234,7 @@ This is an implicit **Exist** check. If the value for the claim exists, then iss
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 
 In this rule, you're simply checking the temporary flag **idflag**. You decide whether to issue the claim based on its value.
 

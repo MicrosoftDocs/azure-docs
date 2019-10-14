@@ -3,9 +3,9 @@ title: Send custom events to hybrid connection - Event Grid, Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint. 
 services: event-grid 
 keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 12/07/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
@@ -20,7 +20,8 @@ This article assumes you already have a hybrid connection and a listener applica
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+> [!NOTE]
+> If you are using Azure CLI on your local machine, use Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -39,10 +40,6 @@ az group create --name gridResourceGroup --location westus2
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
@@ -77,7 +74,7 @@ Notice that an [expiration date](concepts.md#event-subscription-expiration) is s
 
 You need an application that can retrieve events from the hybrid connection. The [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) performs that operation. You've already finished the prerequisite steps.
 
-1. Make sure you have Visual Studio 2017 Version 15.5 or later.
+1. Make sure you have Visual Studio 2019 or later.
 
 1. Clone the repository to your local machine.
 

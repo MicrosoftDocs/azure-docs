@@ -2,10 +2,9 @@
 title: Manage database roles and users in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage database roles and users on an Analysis Services server in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -21,10 +20,10 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SSDT. When deployed to a server, you use SSMS, [Analysis Services PowerShell cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), or [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SQL Server Data Tools (SSDT). When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
 
-> [!NOTE]
-> Security groups must have the `MailEnabled` property set to `True`.
+**Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
+
 
 ## To add or manage roles and users in SSDT  
   
@@ -58,6 +57,7 @@ When creating a tabular model project, you create roles and add users or groups 
 
 
 ## To add or manage roles and users in SSMS
+
 To add roles and users to a deployed model database, you must be connected to the server as a Server administrator or already in a database role with administrator permissions.
 
 1. In Object Exporer, right-click **Roles** > **New Role**.
@@ -65,6 +65,7 @@ To add roles and users to a deployed model database, you must be connected to th
 2. In **Create Role**, enter a role name and description.
 
 3. Select a permission.
+
    |Permission|Description|  
    |----------------|-----------------|  
    |**Full control (Administrator)**|Members can modify the model schema, process, and can query all data.| 
@@ -78,7 +79,8 @@ To add roles and users to a deployed model database, you must be connected to th
 5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 
 ## To add roles and users by using a TMSL script
-You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) object.
+
+You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) object.
 
 **Sample TMSL script**
 
@@ -111,15 +113,17 @@ In this sample, a B2B external user and a group are added to the Analyst role wi
 ```
 
 ## To add roles and users by using PowerShell
-The [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module provides task-specific database management cmdlets and the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets are used for managing database roles and users.
+
+The [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) module provides task-specific database management cmdlets and the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets are used for managing database roles and users.
   
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Add a member to a database role.| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remove a member from a database role.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute a TMSL script.|
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Add a member to a database role.| 
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remove a member from a database role.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute a TMSL script.|
 
 ## Row filters  
+
 Row filters define which rows in a table can be queried by members of a particular role. Row filters are defined for each table in a model by using DAX formulas.  
   
 Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members  can query all rows in the table unless cross-filtering applies from another table.
@@ -139,7 +143,8 @@ Row filters apply to the specified rows and related rows. When a table has multi
  You can use the filter, *=FALSE()*, to deny access to all rows for an entire table.
 
 ## Next steps
+
   [Manage server administrators](analysis-services-server-admins.md)   
   [Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
 

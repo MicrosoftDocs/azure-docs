@@ -27,6 +27,8 @@
     href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
+  - name: OCR with Batch and Functions
+    href: tutorial-batch-functions.md
 - name: Samples
   items:
   - name: Code samples
@@ -47,6 +49,10 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
+  - name: High availability and disaster recovery
+    href: high-availability-disaster-recovery.md
+  - name: Task runtime environment variables
+    href: batch-compute-node-environment-variables.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -55,13 +61,15 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
+    - name: Cost analysis and budgets
+      href: budget.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
       href: batch-aad-auth.md
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
-  - name: Create application packages
+  - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools
     items:
@@ -71,13 +79,17 @@
       href: batch-pool-vm-sizes.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
-    - name: Create a pool with a custom image
+    - name: Create a pool with the Shared Image Gallery
+      href: batch-sig-images.md
+    - name: Create a pool with a managed image resource
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Mount a virtual file system
+      href: virtual-file-mount.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
-    - name: Use compute-intensive VMs
+    - name: Use RDMA or GPU instances
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
@@ -85,6 +97,8 @@
       href: batch-low-pri-vms.md
     - name: Checking for pool and node errors
       href: batch-pool-node-error-checking.md
+  - name: Create a CI/CD pipeline for Batch
+    href: batch-ci-cd.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
@@ -97,6 +111,8 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+  - name: Create resource files
+    href: resource-files.md
   - name: Persist job and task output
     href: batch-task-output.md
     items:
@@ -157,7 +173,7 @@
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.batch
+    href: /powershell/module/az.batch
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -172,6 +188,8 @@
       href: /rest/api/batchservice
     - name: Batch Management
       href: /rest/api/batchmanagement/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.batch/allversions
   - name: Batch Analytics
     href: batch-analytics.md
     items:
@@ -191,8 +209,6 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
-  - name: Batch compute node environment variables
-    href: batch-compute-node-environment-variables.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -203,8 +219,8 @@
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: https://blogs.technet.microsoft.com/windowshpc/
-  - name: HPC solutions in Azure
-    href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+  - name: HPC on Azure
+    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator
@@ -214,6 +230,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch

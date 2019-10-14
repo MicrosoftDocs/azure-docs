@@ -1,20 +1,20 @@
 ---
 title: How to configure Azure Cache for Redis | Microsoft Docs
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Azure Cache for Redis
@@ -53,7 +53,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
-* [Administration](#administration)
+* Administration
 	* [Import data](#importexport)
 	* [Export data](#importexport)
 	* [Reboot](#reboot)
@@ -61,7 +61,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis metrics](#redis-metrics)
 	* [Alert rules](#alert-rules)
 	* [Diagnostics](#diagnostics)
-* [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+* Support & troubleshooting settings
 	* [Resource health](#resource-health)
 	* [New support request](#new-support-request)
 
@@ -143,7 +143,7 @@ The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-r
 * `volatile-ttl`
 * `noeviction`
 
-For more information about `maxmemory` policies, see [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies).
+For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
 The **maxmemory-reserved** setting configures the amount of memory, in MB, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
 
@@ -166,7 +166,7 @@ Redis keyspace notifications are configured on the **Advanced settings** blade. 
 > 
 > 
 
-For more information, see [Redis Keyspace Notifications](http://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
+For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 
 <a name="recommendations"></a>
@@ -353,10 +353,10 @@ Click **Alert rules** to configure alerts based on Azure Cache for Redis metrics
 
 ### Diagnostics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 
@@ -403,7 +403,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>The limit for `databases` is different for each Azure Cache for Redis pricing tier and can be set at cache creation. If no `databases` setting is specified during cache creation, the default is 16.
@@ -421,12 +421,12 @@ New Azure Cache for Redis instances are configured with the following default Re
   * P2 (13 GB - 130 GB) - up to 32 databases
   * P3 (26 GB - 260 GB) - up to 48 databases
   * P4 (53 GB - 530 GB) - up to 64 databases
-  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 
@@ -470,14 +470,14 @@ For more information about databases, see [What are Redis databases?](cache-faq.
 > 
 > 
 
-For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
+For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 
 ## Redis console
 You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for all cache tiers.
 
 > [!IMPORTANT]
 > - The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
-> - Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
+> - Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 > 
 > 
 

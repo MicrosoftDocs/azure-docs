@@ -1,21 +1,21 @@
 ---
-title: Batch test 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch test - LUIS
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/06/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 03/29/2019
 ms.author: diberry
 ---
 
 # Batch testing with a set of example utterances
 
- Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. 
+ Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. The data sets used for batch testing should not include example utterances in the intents or utterances received from the prediction runtime endpoint. 
 
 <a name="batch-testing"></a>
 
@@ -61,9 +61,6 @@ To review the batch test results, select **See results**.
 
 ![Batch test results](./media/luis-how-to-batch-test/run-test-results.png)
 
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
-
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 
 ## Filter chart results
@@ -94,11 +91,13 @@ The two sections of the chart in red indicate utterances that did not match the 
 
 The two sections of the chart in green did match the expected prediction.
 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
 ## Next steps
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).

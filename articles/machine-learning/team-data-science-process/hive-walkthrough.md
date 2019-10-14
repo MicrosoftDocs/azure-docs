@@ -6,14 +6,14 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
-In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
+In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
 
 For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md).
 
@@ -78,15 +78,15 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 > 
 > 
 
-To copy the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
+To copy the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
 
 Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy.md).
 
-1. From a command prompt window, run the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
+1. From a command prompt window, run the following AzCopy commands, replacing *\<path_to_data_folder>* with the desired destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *<path\_to\_unzipped_data\_files\>* in what follows.
+1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *\<path\_to\_unzipped_data\_files\>* in what follows.
 
 ## <a name="upload"></a>Upload the data to the default container of the HDInsight Hadoop cluster
 > [!NOTE]
@@ -96,10 +96,10 @@ Here, we describe how to use AzCopy to transfer the files containing data. To do
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
-* ***<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
-* ***<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
-* ***<storage account key>*** The key for the storage account used by your cluster.
+* ***\<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***\<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
+* ***\<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
+* ***\<storage account key>*** The key for the storage account used by your cluster.
 
 From a command prompt or a Windows PowerShell window, run the following two AzCopy commands.
 
@@ -510,7 +510,7 @@ Run the following command from the Hadoop command-line console:
 
 You might want to know if there is a difference between the direct distance between two locations, and the actual trip distance of the taxi. A passenger might be less likely to tip if they figure out that the driver has intentionally taken them by a longer route.
 
-To see the comparison between actual trip distance and the [Haversine distance](http://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), you can use the trigonometric functions available within Hive:
+To see the comparison between actual trip distance and the [Haversine distance](https://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), you can use the trigonometric functions available within Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -816,9 +816,9 @@ You can now proceed to model building and model deployment in [Machine Learning]
 This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. For more details, see the **LICENSE.txt** file in the directory of the sample code on GitHub.
 
 ## References
-•    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)  
+•    [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

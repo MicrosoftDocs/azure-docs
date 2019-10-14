@@ -1,27 +1,21 @@
 ---
-title: Install and use Giraph on HDInsight (Hadoop) - Azure 
-description: Learn how to install Giraph on Linux-based HDInsight clusters using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities.
-services: hdinsight
+title: Install and use Giraph on Azure HDInsight
+description: Learn how to install Giraph on HDInsight clusters using script actions. You can use Giraph to do graph processing in Apache Hadoop in the Azure cloud.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/23/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 04/22/2019
 ---
-# Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
+
+# Install Apache Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
 
 Learn how to install Apache Giraph on an HDInsight cluster. The script action feature of HDInsight allows you to customize your cluster by running a bash script. Scripts can be used to customize clusters during and after cluster creation.
 
-> [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## <a name="whatis"></a>What is Giraph
 
-[Apache Giraph](http://giraph.apache.org/) allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight. Graphs model relationships between objects. For example, the connections between routers on a large network like the Internet, or relationships between people on social networks. Graph processing allows you to reason about the relationships between objects in a graph, such as:
+[Apache Giraph](https://giraph.apache.org/) allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight. Graphs model relationships between objects. For example, the connections between routers on a large network like the Internet, or relationships between people on social networks. Graph processing allows you to reason about the relationships between objects in a graph, such as:
 
 * Identifying potential friends based on your current relationships.
 
@@ -29,10 +23,10 @@ Learn how to install Apache Giraph on an HDInsight cluster. The script action fe
 
 * Calculating the page rank of webpages.
 
-> [!WARNING]
+> [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported - Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components, such as Giraph, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft Support may be able to resolving the issue. If not, you must consult open source communities where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components, such as Giraph, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft Support may be able to resolving the issue. If not, you must consult open source communities where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
 
 
 ## What the script does
@@ -51,10 +45,10 @@ A sample script to install Giraph on an HDInsight cluster is available at the fo
 
 This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal.
 
-> [!NOTE]
+> [!NOTE]  
 > A script action can be applied using any of the following methods:
 > * Azure PowerShell
-> * The Azure Classic CLI
+> * The Azure CLI
 > * The HDInsight .NET SDK
 > * Azure Resource Manager templates
 > 
@@ -68,13 +62,13 @@ This section provides instructions on how to use the sample script while creatin
 
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**: Check this entry
+   * **HEAD**: Check this entry.
 
-   * **WORKER**: Leave this entry unchecked
+   * **WORKER**: Leave this entry unchecked.
 
-   * **ZOOKEEPER**: Leave this entry unchecked
+   * **ZOOKEEPER**: Leave this entry unchecked.
 
-   * **PARAMETERS**: Leave this field blank
+   * **PARAMETERS**: Leave this field blank.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** section to save the optional configuration information.
 
@@ -82,7 +76,7 @@ This section provides instructions on how to use the sample script while creatin
 
 ## <a name="usegiraph"></a>How do I use Giraph in HDInsight?
 
-Once the cluster has been created, use the following steps to run the SimpleShortestPathsComputation example included with Giraph. This example uses the basic [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) implementation for finding the shortest path between objects in a graph.
+Once the cluster has been created, use the following steps to run the SimpleShortestPathsComputation example included with Giraph. This example uses the basic [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) implementation for finding the shortest path between objects in a graph.
 
 1. Connect to the HDInsight cluster using SSH:
 
@@ -112,7 +106,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     Drawn out, and using the value (or weight) as the distance between objects, the data might look like the following diagram:
 
-    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. To save the file, use **Ctrl+X**, then **Y**, and finally **Enter** to accept the file name.
 
@@ -142,9 +136,9 @@ Once the cluster has been created, use the following steps to run the SimpleShor
    | `-op` |The output location. |
    | `-w 2` |The number of workers to use. In this example, 2. |
 
-    For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](http://giraph.apache.org/quick_start.html).
+    For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](https://giraph.apache.org/quick_start.html).
 
-6. Once the job has finished, the results are stored in the **/example/out/shotestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
+6. Once the job has finished, the results are stored in the **/example/out/shortestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
@@ -162,10 +156,8 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     Visualizing this data, you can verify the results by traveling the shortest paths between ID 1 and all other objects. The shortest path between ID 1 and ID 4 is 5. This value is the total distance between <span style="color:orange">ID 1 and 3</span>, and then <span style="color:red">ID 3 and 4</span>.
 
-    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## Next steps
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
-
-* [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).

@@ -2,13 +2,16 @@
 title: Require secure transfer in Azure Storage | Microsoft Docs
 description: Learn about the "Secure transfer required" feature for Azure Storage, and how to enable it.
 services: storage
-author: fhryo-msft
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 06/20/2017
-ms.author: fryu
-ms.component: common
+ms.author: tamram
+ms.reviewer: fryu
+ms.subservice: common
 ---
+
 # Require secure transfer in Azure Storage
 
 The "Secure transfer required" option enhances the security of your storage account by only allowing requests to the account from secure connections. For example, when you're calling REST APIs to access your storage account, you must connect by using HTTPS. "Secure transfer required" rejects requests that use HTTP.
@@ -29,7 +32,7 @@ You can turn on the "Secure transfer required" setting when you create a storage
 1. Open the **Create storage account** pane in the Azure portal.
 1. Under **Secure transfer required**, select **Enabled**.
 
-  ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### Require secure transfer for an existing storage account
 
@@ -37,14 +40,14 @@ You can turn on the "Secure transfer required" setting when you create a storage
 1. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
 1. Under **Secure transfer required**, select **Enabled**.
 
-  ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## Enable "Secure transfer required" programmatically
 
 To require secure transfer programmatically, use the setting _supportsHttpsTrafficOnly_ in storage account properties with REST API, tools, or libraries:
 
 * [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (version: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (version: 4.1.0)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (version: 0.7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (version: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (version: 1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (version: 6.3.0)
@@ -53,14 +56,16 @@ To require secure transfer programmatically, use the setting _supportsHttpsTraff
 
 ### Enable "Secure transfer required" setting with PowerShell
 
-This sample requires the Azure PowerShell module version 4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Run `Connect-AzureRmAccount` to create a connection with Azure.
+This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+
+Run `Connect-AzAccount` to create a connection with Azure.
 
  Use the following command line to check the setting:
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -71,7 +76,7 @@ EnableHttpsTrafficOnly : False
 Use the following command line to enable the setting:
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True

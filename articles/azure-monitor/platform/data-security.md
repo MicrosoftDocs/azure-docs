@@ -11,11 +11,11 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 03/04/2019
 ms.author: magoedte
 ---
 # Log Analytics data security
-This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
+This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../../security/fundamentals/trust-center.md).  
 
 This article explains how data is collected, processed, and secured by Log Analytics. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Log Analytics. 
 
@@ -46,7 +46,6 @@ We do not recommend explicitly setting your agent to only use TLS 1.2 unless abs
 | Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
-| Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 
 ## Data segregation
 After your data is ingested by the Log Analytics service, the data is kept logically separate on each component throughout the service. All data is tagged per workspace. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you have selected.
@@ -54,7 +53,7 @@ After your data is ingested by the Log Analytics service, the data is kept logic
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When the data is deleted, we also delete the Azure Storage Account where the data resides.  When customer data is removed, no physical drives are destroyed.  
+As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When customer data is removed, no physical drives are destroyed.  
 
 The following table lists some of the available solutions and provides examples of the type of data they collect.
 
@@ -118,8 +117,8 @@ The Log Analytics software development and service team are actively working wit
 ## Certifications and attestations
 Azure Log Analytics meets the following requirements:
 
-* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
-* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO/IEC 27001](https://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
@@ -144,7 +143,7 @@ For your organization to send data to Log Analytics, you configure a Windows or 
 * [Organizational ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft Account - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for Log Analytics service availability.
+A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region.
 
 For Operations Manager, the Operations Manager management group establishes a connection with the Log Analytics service. You then configure which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the Log Analytics service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Log Analytics service directly.
 
@@ -168,7 +167,7 @@ As described above, data from the management server or direct-connected agents i
 ## 3. The Log Analytics service receives and processes data
 The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
 
-The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is currently not encrypted.  We are currently working to support encrypting SSD-based cache.      
+The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
 ## 4. Use Log Analytics to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.

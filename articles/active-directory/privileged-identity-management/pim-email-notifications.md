@@ -1,31 +1,32 @@
 ---
-title: Email notifications in PIM - Azure | Microsoft Docs
+title: Email notifications in PIM - Azure Active Directory | Microsoft Docs
 description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
-ms.date: 11/30/2018
-ms.author: rolyon
+ms.subservice: pim
+ms.date: 01/05/2019
+ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Email notifications in PIM
 
-Azure AD Privileged Identity Management (PIM) lets you know when important events occur, such as when a role is assigned or activated. PIM keeps you informed by sending you and other participants email notifications. These emails might also include links to relevant tasks, such activating or renewing a role. This article describes what these emails look like, when they are sent, and who receives them.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) lets you know when important events occur, such as when a role is assigned or activated. PIM keeps you informed by sending you and other participants email notifications. These emails might also include links to relevant tasks, such activating or renewing a role. This article describes what these emails look like, when they are sent, and who receives them.
 
 ## Sender email address and subject line
 
 Emails sent from PIM for both Azure AD and Azure resource roles have the following sender email address:
 
-- Email address:  **azure-noreply@microsoft.com**
+- Email address:  **azure-noreply\@microsoft.com**
 - Display name: Microsoft Azure
 
 These emails include a **PIM** prefix in the subject line. Here's an example:
@@ -38,16 +39,15 @@ PIM sends emails when the following events occur for Azure AD roles:
 
 - When a privileged role activation is pending approval
 - When a privileged role activation request is completed
-- When a privileged role is assigned as eligible
 - When Azure AD PIM is enabled
 
 Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting:
 
-| User | Role activation is pending approval | Role activation request is completed | Role is assigned as eligible | PIM is enabled |
-| --- | --- | --- | --- | --- |
-| Privileged Role Administrator</br>(Activated/Eligible) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes | Yes |
-| Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes | Yes |
-| Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes | Yes |
+| User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
+| --- | --- | --- | --- |
+| Privileged Role Administrator</br>(Activated/Eligible) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes |
+| Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
+| Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
 
 \* If the [**Notifications** setting](pim-how-to-change-default-settings.md#notifications) is set to **Enable**.
 
@@ -96,5 +96,5 @@ The following shows an example email that is sent when a user is assigned an Azu
 
 ## Next steps
 
-- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
-- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)
+- [Configure Azure AD role settings in PIM](pim-how-to-change-default-settings.md)
+- [Approve or deny requests for Azure AD roles in PIM](azure-ad-pim-approval-workflow.md)

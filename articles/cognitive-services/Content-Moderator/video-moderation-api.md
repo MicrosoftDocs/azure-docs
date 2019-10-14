@@ -1,16 +1,17 @@
 ---
-title: "Analyze video content for objectionable material in C#"
-titlesuffix: Azure Cognitive Services
+title: "Analyze video content for objectionable material in C# - Content Moderator"
+titleSuffix: Azure Cognitive Services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 

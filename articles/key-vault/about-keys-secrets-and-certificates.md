@@ -1,20 +1,15 @@
 ---
-title: About Azure Key Vault keys, secrets and certificates
+title: About Azure Key Vault keys, secrets and certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
-documentationcenter:
-author: BryanLa
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
-ms.author: bryanla
+ms.date: 09/04/2019
+ms.author: mbaldwin
 ---
 
 # About keys, secrets, and certificates
@@ -26,20 +21,20 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature.
 - Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
 
-For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
 ## Azure Key Vault
 
 The following sections offer general information applicable across the implementation of the Key Vault service.
 
-###  Supporting standards
+### Supporting standards
 
 The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
 
--   [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### Data types
 
@@ -56,7 +51,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 -   **Identity** - an identity from Azure Active Directory (AAD).  
 -   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
 
-###  Objects, identifiers, and versioning
+### Objects, identifiers, and versioning
 
 Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
@@ -77,16 +72,16 @@ Where:
 |`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
 |`object-type`|The type of the object, either "keys" or "secrets".|  
 |`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
+|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used *o address a unique version of an object.|  
 
 ## Key Vault keys
 
-###  Keys and key types
+### Keys and key types
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
 - **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
-- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the T attribute to the JWK obtain to carry the HSM key material.
+- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the key_hsm attribute to the JWK obtain to carry the HSM key material.
 
      For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -101,7 +96,7 @@ Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Ell
 
 ### Cryptographic protection
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2 or higher. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1. For more information, see [Keys and key types](#keys-and-key-types).
 
 ###  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
@@ -109,7 +104,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 #### Curve Types
 
 -   **P-256** - The NIST curve P-256, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf).
+-   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** - The NIST curve P-384, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - The NIST curve P-521, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -164,7 +159,7 @@ Key Vault doesn't support EXPORT operations. Once a key is provisioned in the sy
 
 Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
-For more information on JWK objects, see [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  Key attributes
 
@@ -187,7 +182,7 @@ Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for 
 
 For more information on data types, see [Data types](#data-types).
 
-For more information on other possible attributes, see the [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### Key tags
 
@@ -198,9 +193,9 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ###  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys, is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
 
-The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object:  
+The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object.  Granting access to an service principal in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
 
 - Permissions for key management operations
   - *get*: Read the public part of a key, plus its attributes
@@ -407,10 +402,10 @@ Certificate contacts contain contact information to send notifications triggered
 
 If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
 
--   Before certificate renewal
--   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 
@@ -478,5 +473,4 @@ For more information, see the [Storage account operations in the Key Vault REST 
 ## See Also
 
 - [Authentication, requests, and responses](authentication-requests-and-responses.md)
-- [Key Vault versions](key-vault-versions.md)
 - [Key Vault Developer's Guide](/azure/key-vault/key-vault-developers-guide)

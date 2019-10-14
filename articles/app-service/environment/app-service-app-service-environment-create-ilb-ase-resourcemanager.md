@@ -11,7 +11,6 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
@@ -23,6 +22,8 @@ ms.custom: seodec18
 > [!NOTE] 
 > This article is about the App Service Environment v1. There is a newer version of the App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
 App Service Environments can be created with a virtual network internal address instead of a public VIP.  This internal address is provided by an Azure component called the internal load balancer (ILB).  An ILB ASE can be created using the Azure portal.  It can also be created using automation by way of Azure Resource Manager templates.  This article walks through the steps and syntax needed to create an ILB ASE with Azure Resource Manager templates.
@@ -38,7 +39,7 @@ An example Azure Resource Manager template, and its associated parameters file, 
 
 Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as ASEs bound to a public VIP.  The list below calls out parameters of special note, or that are unique, when creating an ILB ASE:
 
-* *interalLoadBalancingMode*:  In most cases set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.  If this property is instead set to 2, then only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
+* *internalLoadBalancingMode*:  In most cases set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.  If this property is instead set to 2, then only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
 * *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE.  In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*.  However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain.  Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network.  For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
 * *ipSslAddressCount*:  This parameter is automatically defaulted to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address.  There are no explicit IP-SSL addresses for an ILB ASE, and hence the IP-SSL address pool for an ILB ASE must be set to zero, otherwise a provisioning error will occur. 
 
@@ -47,7 +48,7 @@ Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, t
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 After the Azure Resource Manager template is submitted it will take a few hours for the ILB ASE to be created.  Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
 
@@ -120,7 +121,7 @@ Once the *azuredeploy.parameters.json* file has been filled in, the default SSL 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 After the Azure Resource Manager template is submitted it will take roughly forty minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
 

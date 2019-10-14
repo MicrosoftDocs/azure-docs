@@ -2,12 +2,12 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
-ms.author: iainfou
+ms.date: 03/01/2019
+ms.author: mlearned
 ---
 
 # Storage options for applications in Azure Kubernetes Service (AKS)
@@ -25,12 +25,14 @@ This article introduces the core concepts that provide storage to your applicati
 
 ## Volumes
 
-Applications often need to be able to store and retrieve data. As Kubernetes typically treats individual pods as ephemeral, disposable resources, different approaches are available for applications use and persist data as necessary. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
+Applications often need to be able to store and retrieve data. As Kubernetes typically treats individual pods as ephemeral, disposable resources, different approaches are available for applications to use and persist data as necessary. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
 Traditional volumes to store and retrieve data are created as Kubernetes resources backed by Azure Storage. You can manually create these data volumes to be assigned to pods directly, or have Kubernetes automatically create them. These data volumes can use Azure Disks or Azure Files:
 
 - *Azure Disks* can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as *ReadWriteOnce*, so are only available to a single node. For storage volumes that can be accessed by multiple nodes simultaneously, use Azure Files.
-- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Currently, Files can only use Azure Standard storage backed by regular HDDs.
+- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs.
+> [!NOTE] 
+> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
 
 In Kubernetes, volumes can represent more than just a traditional disk where information can be stored and retrieved. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers. Common additional volume types in Kubernetes include:
 
@@ -40,7 +42,7 @@ In Kubernetes, volumes can represent more than just a traditional disk where inf
 
 ## Persistent volumes
 
-Volumes are defined and created as part of the pod lifecycle only exist until the pod is deleted. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
+Volumes that are defined and created as part of the pod lifecycle only exist until the pod is deleted. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
 Azure Disks or Files are used to provide the PersistentVolume. As noted in the previous section on Volumes, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
 
@@ -117,6 +119,8 @@ spec:
 
 ## Next steps
 
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+
 To see how to create dynamic and static volumes that use Azure Disks or Azure Files, see the following how-to articles:
 
 - [Create a static volume using Azure Disks][aks-static-disks]
@@ -144,3 +148,4 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-storage]: operator-best-practices-storage.md

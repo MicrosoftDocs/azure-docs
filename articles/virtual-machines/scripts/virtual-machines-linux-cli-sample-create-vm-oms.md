@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with Azure monitoring | Microsoft Docs
-description: Azure CLI Script Sample - Create a Linux VM with Azure monitoring
+title: Azure CLI Script Sample - Create a Linux VM with Azure Monitor | Microsoft Docs
+description: Azure CLI Script Sample - Create a Linux VM with Azure Monitor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Monitor a VM with Azure Monitoring
+# Monitor a VM with Azure Monitor
 
 This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in the console.
 
@@ -45,10 +45,10 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Runs a VM extension against a virtual machine. In this case, the Log Analytics agent extension is used to install the Log Analytics agent and enroll the VM in an Log Analytics workspace. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Runs a VM extension against a virtual machine. In this case, the Azure Monitor agent extension is used to install the Log Analytics agent and enroll the VM in an Log Analytics workspace. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

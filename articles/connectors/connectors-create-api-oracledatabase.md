@@ -38,7 +38,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 * Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle:  
 
-  [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > If the Oracle client is not installed, an error occurs when you try to create or use the connection. See the common errors in this article.
@@ -113,7 +113,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 #### Currently not supported
 
-* Views and stored procedures 
+* Views 
 * Any table with composite keys
 * Nested object types in tables
  

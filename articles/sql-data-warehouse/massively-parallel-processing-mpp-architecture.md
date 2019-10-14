@@ -2,13 +2,13 @@
 title: Azure SQL Data Warehouse - MPP architecture | Microsoft Docs
 description: Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
-author: ronortloff
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -46,7 +46,7 @@ The Control node is the brain of the data warehouse. It is the front end that in
 
 The Compute nodes provide the computational power. Distributions map to Compute nodes for processing. As you pay for more compute resources, SQL Data Warehouse re-maps the distributions to the available Compute nodes. The number of compute nodes ranges from 1 to 60, and is determined by the service level for the data warehouse.
 
-Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [MPP system views](sql-data-warehouse-reference-tsql-statements.md).
+Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [MPP system views](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### Data Movement Service
 Data Movement Service (DMS) is the data transport technology that coordinates data movement between the Compute nodes. Some queries require data movement to ensure the parallel queries return accurate results. When data movement is required, DMS ensures the right data gets to the right location. 
@@ -79,7 +79,7 @@ A round-robin distributed table distributes data evenly across the table but wit
 ## Replicated Tables
 A replicated table provides the fastest query performance for small tables.
 
-A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there are additional overheads that are incurred when writing data which make large tables impractical.  
+A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical.  
 
 The following diagram shows a replicated table. For SQL Data Warehouse, the replicated table is cached on the first distribution on each compute node.  
 
@@ -119,9 +119,9 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

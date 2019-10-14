@@ -2,19 +2,11 @@
 title: Configure a VNet-to-VNet VPN gateway connection by using the Azure portal | Microsoft Docs
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.topic: conceptual
+ms.date: 09/24/2019
 ms.author: cherylmc
 
 ---
@@ -35,7 +27,6 @@ The steps in this article apply to the Azure Resource Manager deployment model a
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
 
 ## About connecting VNets
 
@@ -90,7 +81,6 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
     - **Gateway subnet**:
         - **Name**: *GatewaySubnet* is autofilled.
         - **Address range**: Enter *10.11.255.0/27*.
-    - **DNS server**: Select **Custom** and enter the IP address of your DNS server.
 
 - **Virtual network gateway settings** 
     - **Name**: Enter *TestVNet1GW*.
@@ -116,7 +106,6 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
    - **GatewaySubnet** 
       - **Name**: *GatewaySubnet* is autofilled.
       - **Address range**: Enter *10.41.255.0/27*.
-   - **DNS server**: Select **Custom** and enter the IP address of your DNS server.
 
 - **Virtual network gateway settings** 
     - **Name**: Enter *TestVNet4GW*.
@@ -129,7 +118,7 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
        - **Shared key**: Enter *abc123*. You can create the shared key yourself. When you create the connection between the VNets, the values must match.
 
 ## Create and configure TestVNet1
-If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets. After your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets.
 
 ### To create a virtual network
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -139,26 +128,15 @@ You can add additional address space and create subnets once your VNet has been 
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## Create a gateway subnet
-Before creating a virtual network gateway for your virtual network, you first need to create the gateway subnet. The gateway subnet contains the IP addresses that are used by the virtual network gateway. If possible, it's best to create a gateway subnet by using a CIDR block of /28 or /27 to provide enough IP addresses to accommodate future additional configuration requirements.
-
-If you're creating this configuration as an exercise, refer to these [Example settings](#example-settings) when creating your gateway subnet.
-
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### To create a gateway subnet
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-## Specify a DNS server (optional)
-DNS isn't required for VNet-to-VNet connections. However, if you want to have name resolution for resources that are deployed to your virtual network, specify a DNS server. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It doesn't create a DNS server.
-
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
-
 ## Create a virtual network gateway
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. If you're creating this configuration as an exercise, see the [Example settings](#example-settings).
 
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
 ### To create a virtual network gateway
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Create and configure TestVNet4
 After you've configured TestVNet1, create TestVNet4 by repeating the previous steps and replacing the values with TestVNet4 values. You don't need to wait until the virtual network gateway for TestVNet1 has finished creating before you configure TestVNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
@@ -168,10 +146,10 @@ When the virtual network gateways for both TestVNet1 and TestVNet4 have complete
 
 1. In the Azure portal, select **All resources**, enter *virtual network gateway* in the search box, and then navigate to the virtual network gateway for your VNet. For example, **TestVNet1GW**. Select it to open the **Virtual network gateway** page.
 
-  ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
+   ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
 2. Under **Settings**, select **Connections**, and then select **Add** to open the **Add connection** page.
 
-  ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
+   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
 3. On the **Add connection** page, fill in the values for your connection:
 
    - **Name**: Enter a name for your connection. For example, *TestVNet1toTestVNet4*.
@@ -182,11 +160,11 @@ When the virtual network gateways for both TestVNet1 and TestVNet4 have complete
 
    - **Second virtual network gateway**: This field is the virtual network gateway of the VNet that you want to create a connection to. Select **Choose another virtual network gateway** to open the **Choose virtual network gateway** page.
 
-    - View the virtual network gateways that are listed on this page. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that isn't in your subscription, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+     - View the virtual network gateways that are listed on this page. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that isn't in your subscription, use the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-    - Select the virtual network gateway to which you want to connect.
+     - Select the virtual network gateway to which you want to connect.
 
-    - **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
+     - **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
     
 4. Select **OK** to save your changes.
 

@@ -1,6 +1,6 @@
 ---
-title: app() expression in Azure Log Analytics query | Microsoft Docs
-description: The app expression is used in a Log Analytics query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription.
+title: app() expression in Azure Monitor log queries | Microsoft Docs
+description: The app expression is used in an Azure Monitor log query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,13 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
 ---
 
-# app() expression in Log Analytics query
+# app() expression in Azure Monitor query
 
-The `app` expression is used in a Log Analytics query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in a Log Analytics query and to query data across multiple applications in an Application Insights query.
+The `app` expression is used in an Azure Monitor query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in an Azure Monitor log query and to query data across multiple applications in an Application Insights query.
 
 
 
@@ -43,6 +43,7 @@ The `app` expression is used in a Log Analytics query to retrieve data from a sp
 * You must have read access to the application.
 * Identifying an application by its name assumes that it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query will fail because of the ambiguity. In this case you must use one of the other identifiers.
 * Use the related expression [workspace](workspace-expression.md) to query across Log Analytics workspaces.
+* The app() expression is currently not supported in the search query when using the Azure portal to create a [custom log search alert rule](../platform/alerts-log.md), unless an Application Insights application is used as the resource for the alert rule.
 
 ## Examples
 
@@ -72,5 +73,6 @@ union
 
 ## Next steps
 
-- See the [workspace expression](workspace-expression.md) to refer to Log Analytics workspace.
-- Read about how [Log Analytics data](../../azure-monitor/log-query/log-query-overview.md) is stored.
+- See the [workspace expression](workspace-expression.md) to refer to a Log Analytics workspace.
+- Read about how [Azure Monitor data](../../azure-monitor/log-query/log-query-overview.md) is stored.
+- Access full documentation for the [Kusto query language](/azure/kusto/query/).

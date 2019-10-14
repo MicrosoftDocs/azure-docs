@@ -10,13 +10,14 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 5/9/2018
+ms.date: 2/20/2019
 ms.author: raiye
 ms.custom: H1Hack27Feb2017
+ms.subservice: disks
 
 ---
 

@@ -1,12 +1,9 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords:
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
@@ -42,6 +39,13 @@ The following sample *host.json* files have all possible options specified.
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -82,6 +86,9 @@ The following sample *host.json* files have all possible options specified.
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -111,6 +118,28 @@ The following sections of this article explain each top-level property. All are 
 ## applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## DocumentDB
+
+Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## durableTask
 
@@ -170,6 +199,17 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
 
+```json
+{
+    "http": {
+        "routePrefix": "api",
+        "maxOutstandingRequests": 200,
+        "maxConcurrentRequests": 100,
+        "dynamicThrottlesEnabled": true
+    }
+}
+```
+
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## id
@@ -215,13 +255,60 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+```json
+{
+    "queues": {
+      "maxPollingInterval": 2000,
+      "visibilityTimeout" : "00:00:30",
+      "batchSize": 16,
+      "maxDequeueCount": 5,
+      "newBatchThreshold": 8
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxPollingInterval|60000|The maximum interval in milliseconds between queue polls.| 
+|visibilityTimeout|0|The time interval between retries when processing of a message fails.| 
+|batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. | 
+|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
+|newBatchThreshold|batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.| 
+
+## SendGrid
+
+Configuration setting for the [SendGrind output binding](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|from|n/a|The sender's email address across all functions.| 
 
 ## serviceBus
 
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+```json
+{
+    "serviceBus": {
+      "maxConcurrentCalls": 16,
+      "prefetchCount": 100,
+      "autoRenewTimeout": "00:05:00"
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
+|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
 
 ## singleton
 

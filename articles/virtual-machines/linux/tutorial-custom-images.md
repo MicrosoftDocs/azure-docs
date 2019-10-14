@@ -4,13 +4,12 @@ description: In this tutorial, you learn how to use the Azure CLI to create a cu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -32,7 +31,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -49,6 +48,9 @@ To create an image of a virtual machine, you need to prepare the VM by deprovisi
 ### Deprovision the VM 
 
 Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
+
+> [!WARNING]
+> Deprovisioning and marking the VM as generalized will make source VM unusable, and it cannot be restarted. 
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
@@ -71,13 +73,13 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
+Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -85,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### Create the image
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
+Now you can create an image of the VM by using [az image create](/cli//azure/image). The following example creates an image named *myImage* from a VM named *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -96,7 +98,7 @@ az image create \
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -106,6 +108,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
 
 ## Image management 
 

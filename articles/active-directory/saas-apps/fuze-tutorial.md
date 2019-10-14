@@ -5,219 +5,190 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Fuze
 
 In this tutorial, you learn how to integrate Fuze with Azure Active Directory (Azure AD).
-
 Integrating Fuze with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Fuze
-- You can enable your users to automatically get signed-on to Fuze (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+* You can control in Azure AD who has access to Fuze.
+* You can enable your users to be automatically signed-in to Fuze (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Fuze, you need the following items:
 
-- An Azure AD subscription
-- A Fuze single-sign on enabled subscription
-
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Fuze single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Fuze from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
+* Fuze supports **SP** initiated SSO
+
+* Fuze supports **Just In Time** user provisioning
 
 ## Adding Fuze from the gallery
+
 To configure the integration of Fuze into Azure AD, you need to add Fuze from the gallery to your list of managed SaaS apps.
 
 **To add Fuze from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. Click **Add** button on the top of the dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Fuze**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/fuze-tutorial/tutorial_fuze_000.png)
+4. In the search box, type **Fuze**, select **Fuze** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **Fuze**, and then click **Add** button to add the application.
+	 ![Fuze in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/fuze-tutorial/tutorial_fuze_0001.png)
+## Configure and test Azure AD single sign-on
 
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Fuze based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Fuze is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Fuze needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Fuze.
+In this section, you configure and test Azure AD single sign-on with Fuze based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Fuze needs to be established.
 
 To configure and test Azure AD single sign-on with Fuze, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Fuze test user](#creating-a-fuze-test-user)** - to have a counterpart of Britta Simon in Fuze that is linked to the Azure AD representation of her.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Fuze Single Sign-On](#configure-fuze-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Fuze test user](#create-fuze-test-user)** - to have a counterpart of Britta Simon in Fuze that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Fuze application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Fuze, perform the following steps:**
+To configure Azure AD single sign-on with Fuze, perform the following steps:
 
-1. In the Azure Management portal, on the **Fuze** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Fuze** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
- 
-	![Configure Single Sign-On](./media/fuze-tutorial/tutorial_fuze_01.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Fuze Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/fuze-tutorial/tutorial_fuze_020.png)
-	
-	In the **Sign on URL** textbox, type the Sign-on URL as: `https://www.thinkingphones.com/jetspeed/portal/`
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-1.  Click **Save** button.
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	![Configure Single Sign-On](./media/fuze-tutorial/tutorial_general_400.png)
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the xml file on your computer.
+    ![Fuze Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-	![Configure Single Sign-On](./media/fuze-tutorial/tutorial_fuze_05.png) 
+    In the **Sign-on URL** text box, type a URL:
+    `https://www.thinkingphones.com/jetspeed/portal/`
 
-1. To configure single sign-on on **Fuze** side, you need to send the downloaded **Metadata XML** to [Fuze support team](https://www.fuze.com/support). They will set this up in order to have the SAML SSO connection set properly on both sides.
+5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
+	![The Certificate download link](common/metadataxml.png)
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+6. On the **Set up Fuze** section, copy the appropriate URL(s) as per your requirement.
 
-![Create Azure AD User][100]
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-**To create a test user in Azure AD, perform the following steps:**
+	a. Login URL
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+	b. Azure Ad Identifier
 
-	![Creating an Azure AD test user](./media/fuze-tutorial/create_aaduser_01.png) 
+	c. Logout URL
 
-1. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/fuze-tutorial/create_aaduser_02.png) 
+### Configure Fuze Single Sign-On
 
-1. At the top of the dialog click **Add** to open the **User** dialog.
- 
-	![Creating an Azure AD test user](./media/fuze-tutorial/create_aaduser_03.png) 
+To configure single sign-on on **Fuze** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Fuze support team](https://www.fuze.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/fuze-tutorial/create_aaduser_04.png) 
+### Create an Azure AD test user 
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-    d. Click **Create**. 
+2. Select **New user** at the top of the screen.
 
+    ![New user Button](common/new-user.png)
 
-### Creating a Fuze test user
+3. In the User properties, perform the following steps.
 
-Fuze application supports full Just in time user provision, so users will get created automatically when they sign-in. For any other clarification, please contact Fuze [support](https://www.fuze.com/support).
+    ![The User dialog box](common/user-properties.png)
 
-### Assigning the Azure AD test user
+    a. In the **Name** field, enter **BrittaSimon**.
+  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Fuze.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
-![Assign User][200] 
+    d. Click **Create**.
 
-**To assign Britta Simon to Fuze, perform the following steps:**
+### Assign the Azure AD test user
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Fuze.
 
-	![Assign User][201] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Fuze**.
 
-1. In the applications list, select **Fuze**.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-	![Configure Single Sign-On](./media/fuze-tutorial/tutorial_fuze_50.png) 
+2. In the applications list, select **Fuze**.
 
-1. In the menu on the left, click **Users and groups**.
+	![The Fuze link in the Applications list](common/all-applications.png)
 
-	![Assign User][202] 
+3. In the menu on the left, select **Users and groups**.
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-	![Assign User][203]
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Select** button on **Users and groups** dialog.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog, select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-### Testing single sign-on
+7. In the **Add Assignment** dialog, click the **Assign** button.
+
+### Create Fuze test user
+
+Fuze application supports just in time user provision, so users will get created automatically when they sign in. For any other clarification, contact Fuze [support](https://www.fuze.com/support).
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Fuze tile in the Access Panel, you should get automatically signed-on to your Fuze application.
+When you click the Fuze tile in the Access Panel, you should be automatically signed in to the Fuze for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## Additional Resources
 
-## Additional resources
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-
-<!--Image references-->
-
-[1]: ./media/fuze-tutorial/tutorial_general_01.png
-[2]: ./media/fuze-tutorial/tutorial_general_02.png
-[3]: ./media/fuze-tutorial/tutorial_general_03.png
-[4]: ./media/fuze-tutorial/tutorial_general_04.png
-
-[100]: ./media/fuze-tutorial/tutorial_general_100.png
-
-[200]: ./media/fuze-tutorial/tutorial_general_200.png
-[201]: ./media/fuze-tutorial/tutorial_general_201.png
-[202]: ./media/fuze-tutorial/tutorial_general_202.png
-[203]: ./media/fuze-tutorial/tutorial_general_203.png

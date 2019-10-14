@@ -3,18 +3,17 @@ title: Azure Service Fabric CLI (sfctl) Script Remove Sample
 description: Remove an application from an Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric
 documentationcenter: 
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: azure-service-management
 
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: twhitney
+ms.author: atsenthi
 ms.custom: mvc
 ---
 

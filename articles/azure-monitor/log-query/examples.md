@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics query examples | Microsoft Docs
-description: Examples of queries in Log Analytics using the Kusto language.
+title: Azure Monitor log query examples | Microsoft Docs
+description: Examples of log queries in Azure Monitor using the Kusto query language.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/01/2019
 ms.author: bwren
 ---
 
 
-# Log Analytics query examples
-This article includes various examples of [queries](../../azure-monitor/log-query/log-query-overview.md) using the [Kusto language](https://docs.microsoft.com/azure/kusto/query/) to retrieve different types of data from Log Analytics. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
+# Azure Monitor log query examples
+This article includes various examples of [queries](log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
 
-See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Log Analytics.
+See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Azure Monitor.
 
 ## Events
 
@@ -30,11 +30,11 @@ This example searches the **Events** table for records in which **EventLog** is 
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### Search events related to unmarshaling
-Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
+Search tables **Event** and **SecurityEvents** for records that mention _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
@@ -421,13 +421,12 @@ This example shows a list of computers that were missing one or more critical up
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```
@@ -436,4 +435,4 @@ Update
 ## Next steps
 
 - Refer to the [Kusto language reference](/azure/kusto/query) for details on the language.
-- Walk through a [lesson on writing queries in Log Analytics](get-started-queries.md).
+- Walk through a [lesson on writing log queries in Azure Monitor](get-started-queries.md).

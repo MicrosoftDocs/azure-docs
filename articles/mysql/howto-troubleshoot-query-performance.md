@@ -1,13 +1,10 @@
 ---
 title: How To Troubleshoot Query Performance in Azure Database for MySQL
-description: This article describes how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
-services: mysql
+description: Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/28/2018
 ---
 
@@ -161,7 +158,7 @@ The EXPLAIN now shows that MySQL is able to use combined index to avoid addition
  
 ## Conclusion
  
-Using EXPLAIN and different type of Indexes can increase performance significantly. Just because you have an index on the table does not necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
+Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table does not necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
 
 
 ## Next steps

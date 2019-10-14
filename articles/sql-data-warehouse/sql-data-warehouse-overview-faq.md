@@ -2,13 +2,13 @@
 title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
 description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
-author: acomet
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -103,7 +103,7 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Connection Strings]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Security]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings

@@ -1,13 +1,13 @@
 ---
 title: Sentence pairing and alignment - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other. 
-author: rajdeep-in
-manager: christw
+description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other.
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
+ms.subservice: translator-text
+ms.date: 02/21/2019
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
 ---

@@ -1,31 +1,27 @@
----
+﻿---
 title: Azure Active Directory Identity Protection FAQ | Microsoft Docs
 description: 'Frequently asked questions about Azure AD Identity Protection'
+
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
-ms.component: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: identity-protection
+ms.topic: troubleshooting
 ms.date: 11/03/2017
-ms.author: markvi
-ms.reviewer: nigu
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
+
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection FAQ
 
 This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) Identity Protection. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
+## Why do some risk detections have “Closed (system)” status?
 
-## Why do some risk events have “Closed (system)” status?
-
-**A:** These risk events were detected by Identity Protection and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
+**A:** These risk detections were detected by Identity Protection and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
 
 ---
 
@@ -42,6 +38,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## How can I sort users in "Users flagged for risk"?
 
-**A:** Download the users flagged for risk report by clicking **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
+**A:** Download the users flagged for risk report by clicking **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
 
 ---

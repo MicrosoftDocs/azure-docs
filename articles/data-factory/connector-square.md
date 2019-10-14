@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
@@ -24,6 +24,12 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
+
+This Square connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 
 You can copy data from Square to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -45,7 +51,7 @@ The following properties are supported for Square linked service:
 | host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | The client ID associated with your Square application.  | Yes |
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| redirectUri | The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)  | Yes |
+| redirectUri | The redirect URL assigned in the Square application dashboard. (i.e. http:\//localhost:2500)  | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -88,11 +94,12 @@ To copy data from Square, set the type property of the dataset to **SquareObject
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -141,6 +148,10 @@ To copy data from Square, set the source type in the copy activity to **SquareSo
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

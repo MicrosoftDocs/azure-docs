@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
@@ -17,7 +17,7 @@ The preview of Microsoft Azure Machine Learning Python client library can enable
 
 This topic provides instructions on how to:
 
-* install the Machine Learning Python client library 
+* install the Machine Learning Python client library
 * access and upload datasets, including instructions on how to get authorization to access Azure Machine Learning datasets from your local Python environment
 * access intermediate datasets from experiments
 * use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
@@ -43,7 +43,7 @@ The Azure Machine Learning Python client library must also be installed to compl
 
     pip install azureml
 
-Alternatively, you can download and install from the sources on [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Alternatively, you can download and install from the sources on [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -68,11 +68,11 @@ If your role is not set as **Owner**, you can either request to be reinvited as 
 
 To obtain the authorization token, you can do one of the following:
 
-* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens. Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
 ![Authorization tokens](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
+* Ask to be promoted to role of owner. To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
 Once developers have obtained the workspace id and authorization token, they are able to access the workspace using the code snippet regardless of their role.
 

@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
-ms.author: xpouyat;anilmur;juliako
+ms.date: 03/18/2019
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
 
 ---
 # Using multiple input files and component properties with Premium Encoder
@@ -426,7 +427,7 @@ You can download the sample workflow from [GitHub](https://github.com/Azure/azur
 
 ## Example 2 : Multiple audio language encoding
 
-An example of multiple audio language encoding workfkow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+An example of multiple audio language encoding workflow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 This folder contains a sample workflow which can be used to encode a MXF file to a multi MP4 files asset with multiple audio tracks.
 

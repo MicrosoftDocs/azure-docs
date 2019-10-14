@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-manager: craigg
-ms.date: 08/09/2018
+ms.date: 04/25/2019
 ---
 
 # Migrate certificate of TDE protected database to Azure SQL Database Managed Instance
@@ -26,21 +25,25 @@ When migrating a database protected by [Transparent Data Encryption](https://doc
 For an alternative option using fully managed service for seamless migration of both TDE protected database and corresponding certificate, see [How to migrate your on-premises database to Managed Instance using Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Transparent Data Encryption for Azure SQL Database Managed Instance works in service-managed mode. Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different, system-managed certificate.
+> Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different protector, either service-managed certificate or asymmetric key from the key vault, depending on the type of the transparent data encryption you set on the instance.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
-- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-- [AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 or higher.
+- Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
   Run the following commands in PowerShell to install/update the PowerShell module:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## Export TDE certificate to a Personal Information Exchange (.pfx) file
@@ -111,13 +114,13 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target Managed Instance:
@@ -128,7 +131,7 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 The certificate is now available to the specified Managed Instance and backup of corresponding TDE protected database can be restored successfully.

@@ -1,7 +1,6 @@
 ---
 title: Phoenix performance in Azure HDInsight 
-description: Best practices to optimize Phoenix performance.
-services: hdinsight
+description: Best practices to optimize Apache Phoenix performance for Azure HDInsight clusters
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -14,7 +13,7 @@ ms.author: ashishth
 ---
 # Apache Phoenix performance best practices
 
-The most important aspect of [Apache Phoenix](https://phoenix.apache.org/) performance is to optimize the underlying [Apache HBase](http://hbase.apache.org/). Phoenix creates a relational data model atop HBase that converts SQL queries into HBase operations, such as scans. The design of your table schema, the selection and ordering of the fields in your primary key, and your use of indexes all affect Phoenix performance.
+The most important aspect of [Apache Phoenix](https://phoenix.apache.org/) performance is to optimize the underlying [Apache HBase](https://hbase.apache.org/). Phoenix creates a relational data model atop HBase that converts SQL queries into HBase operations, such as scans. The design of your table schema, the selection and ordering of the fields in your primary key, and your use of indexes all affect Phoenix performance.
 
 ## Table schema design
 
@@ -221,9 +220,9 @@ If your scenario favors write speed over data integrity, consider disabling the 
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-For details on this and other options, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html#options).
+For details on this and other options, see [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html#options).
 
 ## Next steps
 
 * [Apache Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html)
-* [Secondary Indexes](http://phoenix.apache.org/secondary_indexing.html)
+* [Secondary Indexes](https://phoenix.apache.org/secondary_indexing.html)

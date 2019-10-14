@@ -4,9 +4,9 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 services: functions
 author: craigshoemaker
 ms.author: cshoe
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
@@ -21,14 +21,14 @@ ms.custom: seodec18
 This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
-> This article is for Azure Functions 1.x.  For information about how to use these bindings in Functions 2.x, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
+> This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
@@ -70,7 +70,7 @@ namespace CosmosDBSamplesV1
             collectionName: "Items",
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
             TraceWriter log)
         {
             if (documents != null && documents.Count > 0)
@@ -105,8 +105,8 @@ Here's the binding data in the *function.json* file:
 ```
 
 Here's the C# script code:
- 
-```cs 
+
+```cs
     #r "Microsoft.Azure.Documents.Client"
     
     using System;
@@ -116,8 +116,8 @@ Here's the C# script code:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Info("Documents modified " + documents.Count);
-      log.Info("First document Id " + documents[0].Id);
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
     }
 ```
 
@@ -146,9 +146,9 @@ Here's the JavaScript code:
 
 ```javascript
     module.exports = function (context, documents) {
-      context.log('First document Id modified : ', documents[0].id);
+        context.log('First document Id modified : ', documents[0].id);
 
-      context.done();
+        context.done();
     }
 ```
 
@@ -179,7 +179,7 @@ The following table explains the binding configuration properties that you set i
 |---------|---------|----------------------|
 |**type** || Must be set to `cosmosDBTrigger`. |
 |**direction** || Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
-|**name** || The variable name used in function code that represents the list of documents with changes. | 
+|**name** || The variable name used in function code that represents the list of documents with changes. |
 |**connectionStringSetting**|**ConnectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
 |**databaseName**|**DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** |**CollectionName** | The name of the collection being monitored. |
@@ -187,14 +187,15 @@ The following table explains the binding configuration properties that you set i
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is  automatically set when the binding is created using the portal.
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal.
 |**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Optional) When set, it adds a prefix to the leases created in the Lease collection for this Function, effectively allowing two separate Azure Functions to share the same Lease collection by using different prefixes.
 |**feedPollDelay**| **FeedPollDelay**| (Optional) When set, it defines, in milliseconds, the delay in between polling a partition for new changes on the feed, after all current changes are drained. Default is 5000 (5 seconds).
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (Optional) When set, it defines, in milliseconds, the interval to kick off a task to compute if partitions are distributed evenly among known host instances. Default is 13000 (13 seconds).
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Optional) When set, it defines, in milliseconds, the interval for which the lease is taken on a lease representing a partition. If the lease is not renewed within this interval, it will cause it to expire and ownership of the partition will move to another instance. Default is 60000 (60 seconds).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Optional) When set, it defines, in milliseconds, the renew interval for all leases for partitions currently held by an instance. Default is 17000 (17 seconds).
-|**checkpointFrequency**| **CheckpointFrequency**| (Optional) When set, it defines, in milliseconds, the interval between lease checkpoints. Default is always after a successful Function call.
+|**checkpointFrequency**| **CheckpointFrequency**| (Optional) When set, it defines, in milliseconds, the interval between lease checkpoints. Default is always after each Function call.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optional) When set, it customizes the maximum amount of items received per Function call.
+|**startFromBeginning**| **StartFromBeginning**| (Optional) When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to `true` when there are leases already created has no effect.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -276,7 +277,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -318,7 +319,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{Query.id}")] ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -357,12 +358,12 @@ namespace CosmosDBSamplesV1
         [FunctionName("DocByIdFromRouteData")]
         public static HttpResponseMessage Run(
             [HttpTrigger(
-                AuthorizationLevel.Anonymous, "get", "post", 
+                AuthorizationLevel.Anonymous, "get", "post",
                 Route = "todoitems/{id}")]HttpRequestMessage req,
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{id}")] ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -402,12 +403,12 @@ namespace CosmosDBSamplesV1
     {
         [FunctionName("DocByIdFromRouteDataUsingSqlQuery")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
                 Route = "todoitems2/{id}")]HttpRequestMessage req,
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")] IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
         {
@@ -447,7 +448,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
@@ -566,7 +567,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
     "partitionKey": "{partition key value}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -577,10 +578,10 @@ Here's the C# script code:
 ```cs
     using System;
 
-    // Change input document contents using Azure Cosmos DB input binding 
+    // Change input document contents using Azure Cosmos DB input binding
     public static void Run(string myQueueItem, dynamic inputDocument)
-    {   
-      inputDocument.text = "This has changed.";
+    {
+        inputDocument.text = "This has changed.";
     }
 ```
 
@@ -590,7 +591,7 @@ Here's the C# script code:
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
-The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. 
+The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
 Here's the binding data in the *function.json* file:
 
@@ -612,11 +613,11 @@ Here's the C# script code:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
-    {   
+    {
         foreach (var doc in documents)
         {
             // operate on each document
-        }    
+        }
     }
 
     public class QueuePayload
@@ -676,7 +677,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+        log.Info($"ToDo item not found");
     }
     else
     {
@@ -738,7 +739,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+        log.Info($"ToDo item not found");
     }
     else
     {
@@ -910,7 +911,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 },
 {
@@ -930,7 +931,7 @@ Here's the JavaScript code:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {   
+    module.exports = function (context) {
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
     context.done();
@@ -1062,7 +1063,7 @@ module.exports = function (context, req, toDoItem) {
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
-The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. 
+The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
 Here's the binding data in the *function.json* file:
 
@@ -1083,12 +1084,12 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, input) {    
+    module.exports = function (context, input) {
         var documents = context.bindings.documents;
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
-        }	    
+        }
         context.done();
     };
 ```
@@ -1110,7 +1111,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -1126,8 +1127,7 @@ Here's the F# code:
     inputDocument?text <- "This has changed."
 ```
 
-This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
-dependencies:
+This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet dependencies:
 
 ```json
 {
@@ -1148,7 +1148,7 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
 
-The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration). 
+The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration).
 
 ## Input - configuration
 
@@ -1161,7 +1161,7 @@ The following table explains the binding configuration properties that you set i
 |**name**     || Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
-|**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](functions-triggers-bindings.md#binding-expressions-and-patterns). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
+|**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved.|
 |**connection**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
 |**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters.|
@@ -1170,13 +1170,13 @@ The following table explains the binding configuration properties that you set i
 
 ## Input - usage
 
-In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
+In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
 
 In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-examples).
 
 ## Output
 
-The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API. 
+The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
 ## Output - examples
 
@@ -1324,7 +1324,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1341,16 +1341,16 @@ Here's the C# script code:
 
     public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-      dynamic employee = JObject.Parse(myQueueItem);
+        dynamic employee = JObject.Parse(myQueueItem);
 
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
+        employeeDocument = new {
+            id = employee.name + "-" + employee.employeeId,
+            name = employee.name,
+            employeeId = employee.employeeId,
+            address = employee.address
+        };
     }
 ```
 
@@ -1447,7 +1447,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1459,7 +1459,7 @@ Here's the JavaScript code:
 ```javascript
     module.exports = function (context) {
 
-      context.bindings.employeeDocument = JSON.stringify({ 
+      context.bindings.employeeDocument = JSON.stringify({
         id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
         name: context.bindings.myQueueItem.name,
         employeeId: context.bindings.myQueueItem.employeeId,
@@ -1504,7 +1504,7 @@ Here's the binding data in the *function.json* file:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1533,8 +1533,7 @@ Here's the F# code:
           address = employee?address }
 ```
 
-This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
-dependencies:
+This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet dependencies:
 
 ```json
 {
@@ -1558,7 +1557,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB]
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 
 ```csharp
-    [FunctionName("QueueToDocDB")]        
+    [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
         [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
@@ -1589,10 +1588,10 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter. 
+By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the `id` property in the JSON object passed to the output parameter.
 
-> [!Note]  
-> When you specify the ID of an existing document, it gets overwritten by the new output document. 
+> [!Note]
+> When you specify the ID of an existing document, it gets overwritten by the new output document.
 
 ## Exceptions and return codes
 

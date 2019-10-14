@@ -3,6 +3,7 @@ title: Tutorial - Prepare a container registry for Azure Container Instances
 description: Azure Container Instances tutorial part 2 of 3 - Prepare an Azure container registry and push an image
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: tutorial
@@ -213,12 +214,12 @@ Advance to the next tutorial to learn how to deploy the container to Azure using
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-group-create]: /cli/azure/group#az-group-create

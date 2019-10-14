@@ -2,19 +2,19 @@
 title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) and Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 12/04/2018
+ms.date: 09/20/2019
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
-In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](http://terraform.io) and AKS:
+In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](https://terraform.io) and AKS:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -27,12 +27,12 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
@@ -69,7 +69,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.5"
     }
@@ -100,14 +100,19 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     resource "azurerm_resource_group" "k8s" {
         name     = "${var.resource_group_name}"
         location = "${var.location}"
     }
+    
+    resource "random_id" "log_analytics_workspace_name_suffix" {
+        byte_length = 8
+    }
 
     resource "azurerm_log_analytics_workspace" "test" {
-        name                = "${var.log_analytics_workspace_name}"
+        # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
+        name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
         location            = "${var.log_analytics_workspace_location}"
         resource_group_name = "${azurerm_resource_group.k8s.name}"
         sku                 = "${var.log_analytics_workspace_sku}"
@@ -160,7 +165,7 @@ Create the Terraform configuration file that declares the resources for the Kube
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }
@@ -192,7 +197,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     variable "client_id" {}
     variable "client_secret" {}
 
@@ -256,7 +261,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -313,7 +318,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -347,7 +352,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform plan" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section ["Recover from a Cloud Shell timeout"](#recover-from-a-dloud-shell-timeout) to enable you to complete the tutorial.
+1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the tutorial.
 
     ```bash
     terraform apply out.plan
@@ -357,7 +362,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform apply" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetese cluster.
+1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetes cluster.
 
     ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

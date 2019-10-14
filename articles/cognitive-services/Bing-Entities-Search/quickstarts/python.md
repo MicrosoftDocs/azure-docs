@@ -1,69 +1,75 @@
 ---
-title: "Quickstart: Bing Entity Search API, Python"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
+title: "Quickstart: Send a search request to the Bing Entity Search REST API using Python"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Python, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 07/24/2019
 ms.author: aahi
 ---
-# Quickstart for Bing Entity Search API with Python
 
-This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Python.
+# Quickstart: Send a search request to the Bing Entity Search REST API using Python
+
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Python application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
+
+While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
+* [Python](https://www.python.org/downloads/) 2.x or 3.x
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.   See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## Search entities
+## Create and initialize the application
 
-To run this application, follow these steps.
+1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and a search query. You can find your endpoint in the Azure dashboard.
 
-1. Create a new Python project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+    ```python
+    import http.client, urllib.parse
+    import json
+    
+    subscriptionKey = 'ENTER YOUR KEY HERE'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-```python
-# -*- coding: utf-8 -*-
+2. Create a request url by appending your market variable to the `?mkt=` parameter. Url-encode your query and appending it to the `&q=` parameter. 
+    
+    ```python
+    params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
+    ```
 
-import http.client, urllib.parse
-import json
+## Send a request and get a response
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+1. Create a function called `get_suggestions()`. Then perform the following steps.
+   1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
+   2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
+   3. Store the response with `getresponse()`, and return `response.read()`.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+2. Call `get_suggestions()`, and print the json response.
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
-
-def get_suggestions ():
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection (host)
-	conn.request ("GET", path + params, None, headers)
-	response = conn.getresponse ()
-	return response.read ()
-
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
-
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -103,7 +109,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -128,11 +134,10 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+* [What is the Bing Entity Search API](../search-the-web.md)
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

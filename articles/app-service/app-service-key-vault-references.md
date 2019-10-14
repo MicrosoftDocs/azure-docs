@@ -8,18 +8,17 @@ editor: ''
 
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 
 ---
 
-# Use Key Vault references for App Service and Azure Functions (preview)
+# Use Key Vault references for App Service and Azure Functions
 
 > [!NOTE] 
-> Key Vault references are currently in preview.
+> Key Vault references are not currently available in Linux consumption plans.
 
 This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
@@ -29,12 +28,15 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create a key vault by following the [Key Vault quickstart](../key-vault/quick-create-cli.md).
 
-1. Create a [system-assigned managed identity](app-service-managed-service-identity.md) for your application.
+1. Create a [system-assigned managed identity](overview-managed-identity.md) for your application.
 
    > [!NOTE] 
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
-1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy.
+1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+
+    > [!NOTE]
+    > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 ## Reference syntax
 
@@ -47,7 +49,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
 > [!NOTE] 
-> In the current preview, versions are required. When rotating secrets, you will need to update the version in your application configuration.
+> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
 
 For example, a complete reference would look like the following:
 
@@ -64,7 +66,7 @@ Alternatively:
 
 ## Source Application Settings from Key Vault
 
-Key Vault references can be used as values for [Application Settings](web-sites-configure.md#app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
+Key Vault references can be used as values for [Application Settings](configure-common.md#configure-app-settings), allowing you to keep secrets in Key Vault instead of the site config. Application Settings are securely encrypted at rest, but if you need secret management capabilities, they should go into Key Vault.
 
 To use a Key Vault reference for an application setting, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 
@@ -180,3 +182,29 @@ An example psuedo-template for a function app might look like the following:
 
 > [!NOTE] 
 > In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated.
+
+## Troubleshooting Key Vault References
+
+If a reference is not resolved properly, the reference value will be used instead. This means that for application settings, an environment variable would be created whose value has the `@Microsoft.KeyVault(...)` syntax. This may cause the application to throw errors, as it was expecting a secret of a certain structure.
+
+Most commonly, this is due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
+
+If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. Below the setting configuration, you should see status information, including any errors. The absence of these implies that the reference syntax is invalid.
+
+You can also use one of the built-in detectors to get additional information.
+
+### Using the detector for App Service
+
+1. In the portal, navigate to your app.
+2. Select **Diagnose and solve problems**.
+3. Choose **Availability and Performance** and select **Web app down.**
+4. Find **Key Vault Application Settings Diagnostics** and click **More info**.
+
+
+### Using the detector for Azure Functions
+
+1. In the portal, navigate to your app.
+2. Navigate to **Platform features.**
+3. Select **Diagnose and solve problems**.
+4. Choose **Availability and Performance** and select **Function app down or reporting errors.**
+5. Click on **Key Vault Application Settings Diagnostics.**

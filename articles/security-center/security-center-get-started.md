@@ -3,10 +3,8 @@ title: Azure Security Center Quickstart - Onboard your Azure subscription to Sec
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,7 +13,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
@@ -33,7 +31,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
@@ -51,13 +49,13 @@ For the purpose of the Security Center quickstarts and tutorials you must upgrad
 
 1. Under the Security Center main menu, select **Getting started**.
  
-  ![Get started][4]
+   ![Get started][4]
 
 2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
    - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
    -	You can upgrade subscriptions and workspaces that are not eligible for trial.
    -	You can select eligible workspaces and subscriptions to start your trial.
-3.	Click **Start trial** to start your trial on the selected subscriptions.
+3. Click **Start trial** to start your trial on the selected subscriptions.
 
 
   ![Security alerts][9]
@@ -69,11 +67,11 @@ When automatic provisioning is enabled, Security Center installs the Microsoft M
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 
-1. Under the Security Center main menu, select **Security Policy**.
-2. On the row of the subscription, select **Edit settings>**.
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
 3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
 4. Select **Save**.
-****
+---
   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
@@ -83,15 +81,15 @@ With this new insight into your Azure VMs, Security Center can provide additiona
 ## Clean up resources
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. On the row of the subscription that you want to return to free, select **Edit settings>**.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Click on the subscription that you want to change to the free tier.
 3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
 
-1. Return to the Security Center main menu and select **Security policy**.
-2. On the row of the subscription you want to disable automatic provisioning, select **Edit settings>**.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Clean on the subscription that you want to disable automatic provisioning on.
 3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
 4. Select **Save**.
 

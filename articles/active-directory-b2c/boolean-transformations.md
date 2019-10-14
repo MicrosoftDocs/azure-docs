@@ -2,22 +2,22 @@
 title: Boolean claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: Boolean claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Boolean claims transformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the boolean claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the boolean claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AndClaims
 
@@ -36,7 +36,7 @@ The following claims transformation demonstrates how to And two boolean ClaimTyp
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>					
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -137,7 +137,7 @@ Use this claim transformation to perform logical negation on a claim.
 - Output claims:
     - **outputClaim**: true
 
-## OrClaims 
+## OrClaims
 
 Computes an Or of two boolean inputClaims and sets the outputClaim with result of the operation.
 
@@ -154,7 +154,7 @@ The following claims transformation demonstrates how to `Or` two boolean ClaimTy
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>					
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>

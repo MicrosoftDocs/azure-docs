@@ -28,7 +28,7 @@ Enterprises care deeply about security, and to protect themselves from security 
 
 Even when using a private registry, it is a good idea to use image scanning solutions for additional security validation. Each software layer in a container image is potentially prone to vulnerabilities independent of other layers in the container image. As increasingly companies start deploying their production workloads based on container technologies, image scanning becomes important to ensure prevention of security threats against their organizations. 
 
-Security monitoring and scanning solutions such as [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) and [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), among others, can be used to scan container images in a private registry and identify potential vulnerabilities. It is important to understand the depth of scanning that the different solutions provide. For example, some solutions might only cross-verify image layers against known vulnerabilities. These solutions might not be able to verify image-layer software built through certain package manager software. Other solutions have deeper scanning integration and can find vulnerabilities in any packaged software.
+Security monitoring and scanning solutions such as [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) and [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), among others, can be used to scan container images in a private registry and identify potential vulnerabilities. It is important to understand the depth of scanning that the different solutions provide. For example, some solutions might only cross-verify image layers against known vulnerabilities. These solutions might not be able to verify image-layer software built through certain package manager software. Other solutions have deeper scanning integration and can find vulnerabilities in any packaged software.
 
 ### Production deployment rules and audit
 Once an application is deployed in production, it is essential to set a few rules to ensure that images used in production environments are secure and contain no vulnerabilities.
@@ -54,7 +54,7 @@ For additional orchestrator-specific security information, see the following res
 
 * **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**: [Securing Your Cluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
 * **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security)
 

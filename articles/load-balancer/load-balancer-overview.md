@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
@@ -12,8 +12,8 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
-ms.author: kumud
+ms.date: 01/11/2019
+ms.author: allensu
 
 ---
 
@@ -64,7 +64,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Port forwarding**
 
-    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the fronend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
+    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the frontend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
 
 * **Application agnostic and transparent**
 
@@ -90,8 +90,8 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     All outbound flows from private IP addresses inside your virtual network to public IP addresses on the internet can be translated to a frontend IP address of the Load Balancer. When a public front end is tied to a backend VM by way of a load balancing rule, Azure programs outbound connections to be automatically translated to the public frontend IP address.
 
-    * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
-    * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
+  * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
+  * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
 
     For more information, see [outbound connections](load-balancer-outbound-connections.md).
 
@@ -135,7 +135,7 @@ By default, Azure Load Balancer distributes network traffic equally among multip
 
 ### <a name = "internalloadbalancer"></a> Internal Load Balancer
 
-An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
 An internal Load Balancer enables the following types of load balancing:
 
@@ -149,7 +149,13 @@ An internal Load Balancer enables the following types of load balancing:
 *Figure: Load balancing multi-tier applications by using both public and internal Load Balancer*
 
 ## Pricing
-Standard Load Balancer usage is charged based on the number of configured load-balancing rules and the amount of processed inbound and outbound data. For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 Basic Load Balancer is offered at no charge.
 
@@ -161,6 +167,7 @@ For information about the Standard Load Balancer SLA, go to the [Load Balancer S
 
 - Load Balancer is a TCP or UDP product for load balancing and port forwarding for these specific IP protocols.  Load balancing rules and inbound NAT rules are supported for TCP and UDP and not supported for other IP protocols including ICMP. Load Balancer does not terminate, respond, or otherwise interact with the payload of a UDP or TCP flow. It is not a proxy. Successful validation of connectivity to a frontend must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a frontend.  Not receiving an in-band response from the Load Balancer frontend indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer frontend without a virtual machine able to respond.  This also applies to outbound connections where [port masquerade SNAT](load-balancer-outbound-connections.md#snat) is only supported for TCP and UDP; any other IP protocols including ICMP  will also fail.  Assign an instance-level Public IP address to mitigate.
 - Unlike public Load Balancers which provide [outbound connections](load-balancer-outbound-connections.md) when transitioning from private IP addresses inside the virtual network to public IP addresses, internal Load Balancers do not translate outbound originated connections to the frontend of an internal Load Balancer as both are in private IP address space.  This avoids potential for SNAT port exhaustion inside unique internal IP address space where translation is not required.  The side effect is that if an outbound flow from a VM in the backend pool attempts a flow to frontend of the internal Load Balancer in which pool it resides _and_ is mapped back to itself, both legs of the flow don't match and the flow will fail.  If the flow did not map back to the same VM in the backend pool which created the flow to the frontend, the flow will succeed.   When the flow maps back to itself the outbound flow appears to originate from the VM to the frontend and the corresponding inbound flow appears to originate from the VM to itself. From the guest OS's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack will not recognize these halves of the same flow as being part of the same flow as the source and destination don't match.  When the flow maps to any other VM in the backend pool, the halves of the flow will match and the VM can successfully respond to the flow.  The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend which originated the flow. There are several common workarounds for reliably achieving this scenario (originating flows from a backend pool to the backend pools respective internal Load Balancer frontend) which include either insertion of a proxy layer behind the internal Load Balancer or [using DSR style rules](load-balancer-multivip-overview.md).  Customers can combine an internal Load Balancer with any 3rd party proxy or substitute internal [Application Gateway](../application-gateway/application-gateway-introduction.md) for proxy scenarios limited to HTTP/HTTPS. While you could use a public Load Balancer to mitigate, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat) and should be avoided unless carefully managed.
+- In general, forwarding IP fragments or performing IP fragmentation of UDP and TCP packets are not supported on load balancing rules.  [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) are an exception to this general statement and can be used to forward existing IP fragments.
 
 ## Next steps
 

@@ -5,13 +5,16 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.author: ramamill
 ---
 
 # Manage the configuration server for VMware VM disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Access configuration server
 
@@ -88,26 +91,26 @@ The Open Virtualization Format (OVF) template deploys the configuration server V
 You can reregister the configuration server in the same vault if you need to. If you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
 
 
-  1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
-  2. In **Servers**, select **Download registration key** to download the vault credentials file.
-  3. Sign in to the configuration server machine.
-  4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
-  5. On the **Vault Registration** tab, select **Browse**, and locate the vault credentials file that you downloaded.
-  6. If needed, provide proxy server details. Then select **Register**.
-  7. Open an admin PowerShell command window, and run the following command:
+1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. In **Servers**, select **Download registration key** to download the vault credentials file.
+3. Sign in to the configuration server machine.
+4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
+5. On the **Vault Registration** tab, select **Browse**, and locate the vault credentials file that you downloaded.
+6. If needed, provide proxy server details. Then select **Register**.
+7. Open an admin PowerShell command window, and run the following command:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-      > *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
+    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-  8. Finally, restart the obengine by executing the following command.
-  ```
-          net stop obengine
-          net start obengine
+8. Finally, restart the obengine by executing the following command.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 
@@ -133,10 +136,12 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
+For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
+Links to update rollups for upgrading to all versions of the configuration server are available [here](https://aka.ms/asr_update_rollups).
 
 > [!IMPORTANT]
-> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
+> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.</br>
+> For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
 
 Upgrade the server as follows:
 
@@ -154,6 +159,64 @@ Upgrade the server as follows:
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Click **Finish** to close the installer.
+8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](https://aka.ms/asr_vmware_upgrades).
+
+## Upgrade configuration server/process server from the command line
+
+Run the installation file as follows:
+
+  ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
+### Sample usage
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+  ```
+
+
+### Parameters
+
+|Parameter Name| Type | Description| Values|
+|-|-|-|-|
+| /ServerMode|Required|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
+|/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
+|/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
+|/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
+|/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
+|/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
+|/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
+|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
+|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
+|DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
+|/SkipSpaceCheck|Optional|Skip space check for cache disk| |
+|/AcceptThirdpartyEULA|Required|Flag implies acceptance of third-party EULA| |
+|/ShowThirdpartyEULA|Optional|Displays third-party EULA. If provided as input all other parameters are ignored| |
+
+
+
+### Create file input for MYSQLCredsFilePath
+
+The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
+```ini
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
+### Create file input for ProxySettingsFilePath
+ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
+
+```ini
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## Delete or unregister a configuration server
 
@@ -170,28 +233,28 @@ Upgrade the server as follows:
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+1. [Install](https://docs.microsoft.com/powershell/azure/install-Az-ps) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Select the vault subscription.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Set the vault context.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. Retrieve the configuration server.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the configuration server.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
+> You can use the **-Force** option in Remove-AzSiteRecoveryFabric for forced deletion of the configuration server.
 
 ## Generate configuration server Passphrase
 

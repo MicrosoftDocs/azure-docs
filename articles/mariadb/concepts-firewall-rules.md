@@ -1,13 +1,11 @@
 ---
 title: Azure Database for MariaDB server firewall rules
-description: Describes firewall rules for your Azure Database for MariaDB server.
+description: Learn about using firewall rules to enable connections to your Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/22/2019
 ---
 
 # Azure Database for MariaDB server firewall rules
@@ -45,7 +43,7 @@ In addition to the Azure portal, firewall rules can be managed programmatically 
 
 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
-## Troubleshooting the database firewall
+## Troubleshooting firewall issues
 Consider the following points when access to the Microsoft Azure Database for MariaDB server service does not behave as expected:
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for MariaDB Server firewall configuration to take effect.
@@ -54,9 +52,12 @@ Consider the following points when access to the Microsoft Azure Database for Ma
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you can try one of the following solutions:
 
-* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for MariaDB server, and then add the IP address range as a firewall rule.
+   * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for MariaDB server, and then add the IP address range as a firewall rule.
 
-* Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
+   * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
+
+* **Server's IP appears to be public:**
+Connections to the Azure Database for MariaDB server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md). 
 
 ## Next steps
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md)

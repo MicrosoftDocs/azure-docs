@@ -7,12 +7,12 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 03/19/2019
 ms.author: magattus
 ---
 
@@ -52,7 +52,7 @@ For global and custom caching rules, you can specify the following **Caching beh
 
 - **Bypass cache**: Do not cache and ignore origin-provided cache-directive headers.
 
-- **Override**: Ignore origin-provided cache-directive headers; use the provided cache duration instead.
+- **Override**: Ignore origin-provided cache duration; use the provided cache duration instead. This will not override cache-control: no-cache.
 
 - **Set if missing**: Honor origin-provided cache-directive headers, if they exist; otherwise, use the provided cache duration.
 

@@ -4,15 +4,16 @@ titlesuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create connections to VMs in an Azure virtual network.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
+author: asudbring
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
-ms.author: kumud
+ms.date: 02/26/2019
+ms.author: allensu
 ms.custom: seodec18
 ---
 
@@ -38,25 +39,26 @@ For all steps in this tutorial, sign in to the Azure portal at [https://portal.a
 
 First, create a public Standard load balancer that can balance traffic load over VMs. A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you also create a new Standard public IP address, which is configured as the load balancer front end and named **LoadBalancerFrontEnd** by default. 
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
-   
-1. In the **Create load balancer** pane, type or select these values:
-   
-   - **Name**: Type *MyLoadBalancer*.
-   - **Type**: Select **Public**. 
-   - **SKU**: Select **Standard**.
-   - **Public IP address**: Select **Create new**, then type *MyPublicIP* in the field.
-   - **Configure public IP address** > **Availability zone**: Select **Zone-redundant**.
-   - **ResourceGroup**: Select **Create new**, then enter *MyResourceGroupLB*, and select **OK**. 
-   - **Location**: Select **West Europe**. 
-     
-     >[!NOTE]
-     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Select **Create**.
-   
-![Create a load balancer](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
 
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Standard**.                          |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    |Availability zone| Select **Zone redundant**.    |
+     
+    >[!NOTE]
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#services-support-by-region). 
+
+3. In the **Review + create** tab, click **Create**.  
+  
 ## Create and configure back-end servers
 
 Create a virtual network with two virtual machines, and add the VMs to the back-end pool of your load balancer. 
@@ -213,7 +215,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## Create an inbound NAT port-forwarding rule
 

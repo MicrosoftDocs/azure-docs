@@ -1,13 +1,10 @@
 ---
 title: Create and manage Azure Database for MySQL server using Azure portal
-description: This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure Portal.
-services: mysql
+description: This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 
@@ -42,7 +39,9 @@ Follow these steps to create an Azure Database for MySQL server named “mydemos
     | *Location* | Southeast Asia (select between North Europe and West US) |
     | *Version* | 5.7 (choose Azure Database for MySQL server version) |
 
-4. Click **Pricing tier** to specify the service tier and performance level for your new server. Select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**.
+   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
+
+4. Click **Pricing tier** to specify the service tier and performance level for your new server. Select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
@@ -51,7 +50,7 @@ Follow these steps to create an Azure Database for MySQL server named “mydemos
     > Select the **Pin to dashboard** option to allow easy tracking of your deployments.
 
 ## Update an Azure Database for MySQL server
-After the new server has been provisioned, the user has several options for configuring the existing server, including resetting the administrator password and scaling the server up or down by changing vCore or storage.
+After the new server has been provisioned, the user has several options for configuring the existing server, including resetting the administrator password, changing the pricing tier and scaling the server up or down by changing vCore or storage
 
 ### Change the administrator user password
 1. From the server **Overview**, click **Reset password** to show the password reset window.
@@ -63,6 +62,17 @@ After the new server has been provisioned, the user has several options for conf
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Click **OK** to save the new password.
+
+### Change the pricing tier
+> [!NOTE]
+> Scaling is only supported from General Purpose to Memory Optimized service tiers and vice-versa. Please note that changing to and from the Basic pricing tier after server creation is not supported in Azure Database for MySQL.
+> 
+1. Click on **Pricing tier**, located under **Settings**.
+2. Select the **Pricing tier** you want to change to.
+
+    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+
+4. Click **OK** to save changes. 
 
 ### Scale vCores up/down
 

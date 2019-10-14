@@ -13,17 +13,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/26/2019
 ms.author: juliako
 
 ---
-# Customizing Media Encoder Standard presets
+
+# Customizing Media Encoder Standard presets  
 
 ## Overview
 
 This article shows how to perform advanced encoding with Media Encoder Standard (MES) using a custom preset. The article uses .NET to create an encoding task and a job that executes this task.  
 
 This article shows you how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) article demonstrates custom presets that can be used to perform advanced encoding tasks.
+
+> [!NOTE]
+> The custom presets described in this article cannot be used in [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transforms or the CLI commands. See the [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md) for more details.
 
 ## <a id="customizing_presets"></a> Customizing a MES preset
 
@@ -257,12 +261,13 @@ namespace CustomizeMESPresests
 }
 ```
 
+## See also
+
+- [How to encode with a custom transform by using CLI](../latest/custom-preset-cli-howto.md)
+- [Encoding with Media Services v3](../latest/encoding-concept.md)
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See Also
-[Media Services Encoding Overview](media-services-encode-asset.md)
-

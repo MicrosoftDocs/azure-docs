@@ -4,15 +4,13 @@ description: Samples are a great way to experience Jupyter notebooks running in 
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
 ---
 
@@ -29,11 +27,11 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 
 - [Azure Notebooks starter set](https://notebooks.azure.com/#sample-redirect) includes introductions to Python, R, and F#, along with notebooks demonstrating data access, Azure Machine Learning Services, and a few data science exercises.
 - [Introduction to Jupyter notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Introduction to Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) by Jake Vanderplas.
+- [Introduction to Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) by Jake Vanderplas.
 - [Gallery of interesting notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter project on GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Physics instruction from the [Physics Department at the Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning getting started samples](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [Azure Machine Learning getting started samples](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## Next steps  
 

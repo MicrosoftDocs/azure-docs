@@ -9,16 +9,15 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
-manager: craigg 
-ms.date: 04/01/2018
+ms.reviewer: jrasnik
+ms.date: 12/19/2018
 ---
 # Performance recommendations for SQL Database
 
 Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based on database-unique workload patterns and help improve performance.
 
 > [!TIP]
-> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for performance tuning. [Intelligent Insights](sql-database-intelligent-insights.md) is the recommended method for monitoring performance. 
+> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
 >
 
 ## Create index recommendations
@@ -79,6 +78,10 @@ The “Fix schema issue” recommendation appears when the Azure SQL Database se
 | 213 |Column name or number of supplied values does not match table definition. |
 | 2812 |Could not find stored procedure '*'. |
 | 8144 |Procedure or function * has too many arguments specified. |
+
+## Custom applications
+
+Developers might consider developing custom applications using performance recommendations for Azure SQL Database. All recommendations listed in the portal for a database can be accessed through [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
 
 ## Next steps
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database Advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 

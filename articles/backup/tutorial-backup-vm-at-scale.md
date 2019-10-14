@@ -1,11 +1,12 @@
 ---
 title: Back up Azure virtual machines at scale
 description: Simultaneously back up multiple virtual machines to Azure
-services: backup
+
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 2/14/2018
+author: dcurwin
+manager: carmonm
+ms.author: dacurwin
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
@@ -72,16 +73,16 @@ After creating the Recovery Services vault, the next step is to configure the va
     ![Select workload](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. In the **Backup policy** menu, for **Policy Name** type *Finance*. Enter the following changes for the Backup policy:
-    - For **Backup frequency** set the timezone for *Central Time*. Since the sports complex is in Texas, the owner wants the timing to be local. Leave the backup frequency set to Daily at 3:30AM.
-    - For **Retention of daily backup point**, set the period to 90 days.
-    - For **Retention of weekly backup point**, use the *Monday* restore point and retain it for 52 weeks.
-    - For **Retention of monthly backup point**, use the restore point from First Sunday of the month, and retain it for 36 months.
-    - Deselect the **Retention of yearly backup point** option. The leader of Finance doesn't want to keep data longer than 36 months.
-    - Click **OK** to create the backup policy.
+   - For **Backup frequency** set the timezone for *Central Time*. Since the sports complex is in Texas, the owner wants the timing to be local. Leave the backup frequency set to Daily at 3:30AM.
+   - For **Retention of daily backup point**, set the period to 90 days.
+   - For **Retention of weekly backup point**, use the *Monday* restore point and retain it for 52 weeks.
+   - For **Retention of monthly backup point**, use the restore point from First Sunday of the month, and retain it for 36 months.
+   - Deselect the **Retention of yearly backup point** option. The leader of Finance doesn't want to keep data longer than 36 months.
+   - Click **OK** to create the backup policy.
 
-    ![Select workload](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Select workload](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    After creating the backup policy, associate the policy with the virtual machines.
+     After creating the backup policy, associate the policy with the virtual machines.
 
 6. In the **Select virtual machines** dialog select *myVM* and click **OK** to deploy the backup policy to the virtual machines.
 

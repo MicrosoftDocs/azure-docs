@@ -3,18 +3,14 @@ title: Upload an Azure Service Management Certificate | Microsoft Docs
 description: Learn how to upload the Service Management certificate for the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
+author: georgewallace
+manager: carmonm
 
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Upload an Azure Service Management Certificate
@@ -52,4 +48,4 @@ Once you have a management certificate created, (.cer file with only the public 
     ![Settings](./media/azure-api-management-certs/certificate_details.png)
 
 ## Next steps
-Now that you have a management certificate associated with a subscription, you can (after you have installed the matching certificate locally) programmatically connect to the [classic deployment model REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.
+Now that you have a management certificate associated with a subscription, you can (after you have installed the matching certificate locally) programmatically connect to the [classic deployment model REST API](/azure/#pivot=sdkstools) and automate the various Azure resources that are also associated with that subscription.

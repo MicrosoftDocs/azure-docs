@@ -4,9 +4,9 @@ description: Tutorial that walks you through the creation, testing, and publishi
 keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
@@ -223,4 +223,5 @@ You now modify the runbook so that it only attempts to start the virtual machine
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+
 

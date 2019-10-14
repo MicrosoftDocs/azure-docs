@@ -11,7 +11,7 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 
@@ -42,7 +42,7 @@ In the relayed data transfer pattern, the basic steps involved are:
 Azure Relay has two features:
 
 - [Hybrid Connections](#hybrid-connections) - Uses the open standard web sockets enabling multi-platform scenarios.
-- [WCF Relays](#wcf-relays) - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
+- WCF Relays - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
 
 ## Hybrid Connections
 
@@ -54,7 +54,7 @@ For details on the Hybrid Connection protocol, see [Hybrid Connections protocol 
 > Hybrid Connections of Azure Relay replaces the old Hybrid Connections feature of BizTalk Services. The Hybrid Connections feature in BizTalk Services was built on the Azure Service Bus WCF Relay. The Hybrid Connections capability in Azure Relay complements the pre-existing WCF Relay feature. These two service capabilities (WCF Relay and Hybrid Connections) exist side-by-side in the Azure Relay service. They share a common gateway, but are otherwise different implementations.
 
 ## WCF Relay
-WCF Relay works with the full .NET Framework and for WCF. You create a connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. The relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. For more information, see [getting started with WCF Relay](relay-wcf-dotnet-get-started.md).
+WCF Relay works with the full .NET Framework and for WCF. You create a connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. The relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. For more information, see [getting started with WCF Relay](service-bus-relay-tutorial.md).
 
 ## Hybrid Connections vs. WCF Relay
 Hybrid Connections and WCF Relay both enable secure connection to assets that exist within a corporate network. Use of one over the other depends on your particular needs, as described in the following table:
@@ -80,7 +80,7 @@ The following diagram shows you how incoming relay requests are handled by the A
 5. The gateway forwards the connection request to the right gateway mentioned in the gateway store. 
 6. The gateway sends a request to the listening client for it to create a temporary channel to the gateway node that's closest to the sending client. 
 7. The listening client creates a temporary channel to the gateway that's closest to the sending client. Now that the connection is established between clients via a gateway, the clients can exchange messages with each other. 
-8. The gateway forwards any messages form the listening client to the sending client. 
+8. The gateway forwards any messages from the listening client to the sending client. 
 9. The gateway forwards any messages from the sending client to the listening client.  
 
 ## Next steps

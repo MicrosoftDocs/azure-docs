@@ -1,22 +1,21 @@
 ---
-title: Manage Batch account resources with the client library for .NET - Azure | Microsoft Docs
+title: Manage account resources with the client library for .NET - Azure Batch | Microsoft Docs
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
@@ -60,7 +59,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Applications that use the Batch Management .NET library and its BatchManagementClient class require **service administrator** or **coadministrator** access to the subscription that owns the Batch account to be managed. For more information, see the [Azure Active Directory](#azure-active-directory) section and the [AccountManagement][acct_mgmt_sample] code sample.
+> Applications that use the Batch Management .NET library and its BatchManagementClient class require **service administrator** or **coadministrator** access to the subscription that owns the Batch account to be managed. For more information, see the Azure Active Directory section and the [AccountManagement][acct_mgmt_sample] code sample.
 > 
 > 
 
@@ -177,9 +176,9 @@ To run the sample application successfully, you must first register it with your
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer

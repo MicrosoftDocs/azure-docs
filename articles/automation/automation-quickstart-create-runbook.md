@@ -4,10 +4,10 @@ description: Learn how to create an Azure Automation runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/14/2017
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
 ---
 
@@ -17,9 +17,9 @@ Azure Automation runbooks can be created through Azure. This method provides a b
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Create runbook
 
@@ -29,7 +29,7 @@ First, create a runbook. The sample runbook created in this quickstart outputs `
 
 1. Click **Runbooks** under **PROCESS AUTOMATION**. The list of runbooks is displayed.
 
-1. Click the **Add a runbook** button found at the top of the list. On the **Add Runbook** page, select **Quick Create**.
+1. Click the **Create a runbook** button found at the top of the list
 
 1. Enter "Hello-World" for the runbook **Name**, and select **PowerShell** for **Runbook type**. Click **Create**.
 
@@ -40,7 +40,7 @@ First, create a runbook. The sample runbook created in this quickstart outputs `
     ![Author PowerShell script in the runbook editor](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Type or copy and paste the following code into the edit pane. It creates an optional input parameter called "Name" with a default value of "World", and outputs a string that uses this input value:
-   
+
    ```powershell-interactive
    param
    (

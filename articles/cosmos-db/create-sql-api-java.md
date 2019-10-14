@@ -1,29 +1,26 @@
 ---
-title: Create an Azure Cosmos DB document database with Java'
+title: Use Java to create a document database - Azure Cosmos DB
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/24/2018
-ms.author: moderakh
-
+ms.date: 05/21/2019
+ms.author: sngun
+ms.custom: seo-java-august2019, seo-java-september2019
 ---
-# Create and manage resources of an Azure Cosmos DB SQL API account using a Java application
+# Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
+
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-This quickstart shows how to create and manage resources of an Azure Cosmos DB [SQL API](sql-api-introduction.md) account by using a Java application. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the [SQL Java SDK](sql-api-sdk-async-java.md), add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, collections in either the UI or programmatically, whichever is your preference.
+This quickstart shows you how to use a Java application to create and manage a document database from your Azure Cosmos DB SQL API account. First, you create an Azure Cosmos DB SQL API account using the Azure portal, create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. The instructions in this quickstart can be followed on any operating system that is capable of running Java. After completing this quickstart you'll be familiar with creating and modifying Cosmos DB databases, containers in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -32,8 +29,7 @@ This quickstart shows how to create and manage resources of an Azure Cosmos DB [
 
 In addition: 
 
-* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
@@ -46,7 +42,7 @@ Before you can create a document database, you need to create a SQL API account 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Add a collection
+## Add a container
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -74,7 +70,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
 ](#run-the-app). 
 
-* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
+* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) provides client-side logical representation for the Azure Cosmos database service. This client is used to configure and execute requests against the service.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -85,7 +81,7 @@ This step is optional. If you're interested in learning how the database resourc
              .build();
     ```
 
-* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) creation.
+* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) creation.
 
     ```java
     Database databaseDefinition = new Database();
@@ -96,7 +92,7 @@ This step is optional. If you're interested in learning how the database resourc
             .await();
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection) creation.
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) creation.
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -109,7 +105,7 @@ This step is optional. If you're interested in learning how the database resourc
             .await();
     ```
 
-* Document creation by using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document) method.
+* Document creation by using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) method.
 
     ```java
     // Any Java object within your code
@@ -126,7 +122,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```
 
-* SQL queries over JSON are performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) method.
+* SQL queries over JSON are performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) method.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -190,7 +186,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
 
-    ![Console output](./media/create-sql-api-java/rxjava-console-output.png)
+    ![View the output in the console window](./media/create-sql-api-java/rxjava-console-output.png)
 
 
 ## Review SLAs in the Azure portal
@@ -203,7 +199,7 @@ Now go back to the Azure portal to get your connection string information and la
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, document database, and collection using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB collection. 
+In this quickstart, you've learned how to create an Azure Cosmos account, document database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos container. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

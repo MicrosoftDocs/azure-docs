@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
@@ -18,7 +17,7 @@ ms.date: 12/04/2018
 The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
-1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Download the latest NuGet version from [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commands.
 3. Download the latest Split-Merge package into the current directory with the below command:
    ```
@@ -198,7 +197,7 @@ The script files included are:
    
 ## Use PowerShell to verify your deployment
 1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
-2. Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
+2. Create an Azure SQL Database server (or choose an existing server) where the shard map manager and shards will be created.
    
    > [!NOTE]
    > The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. This is not a restriction of the Split-Merge Service itself.

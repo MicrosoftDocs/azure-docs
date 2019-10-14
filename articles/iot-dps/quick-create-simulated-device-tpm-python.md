@@ -28,9 +28,12 @@ This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
+> [!NOTE]
+> This guide only applies to the now-deprecated V1 Python SDK. Simulated TPM devices are not yet been supported in V2. The team is currently hard at work bringing V2 to feature parity.
+
 ## Prepare the environment 
 
-1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
+1. Make sure you have installed either [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later, with the 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
 1. Download and install the [CMake build system](https://cmake.org/download/).
 
@@ -39,7 +42,7 @@ This article will demonstrate individual enrollments.
 1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
 1. Create a folder in your local copy of this GitHub repo for CMake build process. 
@@ -78,14 +81,14 @@ This article will demonstrate individual enrollments.
 1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 1. Under the **Add Enrollment**, enter the following information:
-    - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
-    - Select an IoT hub linked with your provisioning service.
-    - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-    - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+   - Select **TPM** as the identity attestation *Mechanism*.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+   - Select an IoT hub linked with your provisioning service.
+   - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
+   - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
@@ -97,11 +100,11 @@ This article will demonstrate individual enrollments.
 
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
-    > [!NOTE]
-        > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
-
-    > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
+   > [!NOTE]
+   > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
+   > 
+   > [!NOTE]
+   > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
 
 1. Navigate to the samples folder.
 

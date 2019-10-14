@@ -9,9 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
-manager: craigg
-ms.date: 04/01/2018
+ms.reviewer: mathoma, carlrab
+ms.date: 12/18/2018
 ---
 # Performing Disaster Recovery Drill
 

@@ -13,9 +13,9 @@ ms.custom: include file
 
 ## Create a function
 
-The following command creates an HTTP-triggered function named `MyHtpTrigger`.
+The following command creates an HTTP-triggered function named `MyHttpTrigger`.
 
-```bash
+```command
 func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 

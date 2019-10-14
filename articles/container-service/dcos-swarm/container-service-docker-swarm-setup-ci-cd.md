@@ -134,7 +134,7 @@ The next steps define the build workflow. There are five container images to bui
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 You need to add two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
@@ -201,14 +201,14 @@ The release workflow is composed of two tasks that you add.
 
     The command executed on the master use the Docker CLI and the Docker-Compose CLI to do the following tasks:
 
-    - Login to the Azure container registry (it uses three build variab`les that are defined in the **Variables** tab)
-    - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
-    - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
-    - Execute `docker-compose` commands that pull the new images, stop the services, remove the services, and create the containers.
+   - Login to the Azure container registry (it uses three build variab`les that are defined in the **Variables** tab)
+   - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
+   - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
+   - Execute `docker-compose` commands that pull the new images, stop the services, remove the services, and create the containers.
 
-    >[!IMPORTANT]
-    > As shown on the preceding screen, leave the **Fail on STDERR** checkbox unchecked. This is an important setting, because `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps Services reports that errors occurred during the release, even if all goes well.
-    >
+     >[!IMPORTANT]
+     > As shown on the preceding screen, leave the **Fail on STDERR** checkbox unchecked. This is an important setting, because `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps Services reports that errors occurred during the release, even if all goes well.
+     >
 1. Save this new release pipeline.
 
 
@@ -222,4 +222,4 @@ Now that you are done with the configuration, it's time to test this new CI/CD p
 
 ## Next Steps
 
-* For more information about CI/CD with Azure DevOps Services, see the [Azure DevOps Services Build overview](https://www.visualstudio.com/docs/build/overview).
+* For more information about CI/CD with Azure DevOps Services, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.

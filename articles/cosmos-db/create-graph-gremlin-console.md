@@ -1,16 +1,14 @@
 ---
 title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPops Gremlin Console'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Gremlin API.
-services: cosmos-db
 author: luisbosquez
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 07/23/2019
 ms.author: lbosq
 ---
-# Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
+# Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -23,7 +21,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ![Azure Cosmos DB from the Apache Gremlin console](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -51,12 +49,12 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/). U
 
     Setting|Suggested value|Description
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmosdb.azure.com] or [*account-name*.graphs.azure.com] for accounts created before December 20th, 2017|See the following screenshot. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.
+    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|See the following screenshot. This is the **Gremlin URI** value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed. Note: Be sure to use the Gremlin value, and **not** the URI that ends with [*account-name*.documents.azure.com] which would likely result in a "Host did not respond in a timely fashion" exception when attempting to execute Gremlin queries later. 
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
     connectionPool|{enableSsl: true}|Your connection pool setting for SSL.
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
     For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-gremlin-console/gremlin-uri.png)
@@ -67,23 +65,25 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/). U
 Your remote-secure.yaml file should look like this:
 
 ```
-hosts: [your_database_server.gremlin.cosmosdb.azure.com]
+hosts: [your_database_server.gremlin.cosmos.azure.com] 
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key
 connectionPool: {
   enableSsl: true
 }
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
 ```
 
-3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
+make sure to wrap the value of hosts parameter within brackets []. 
+
+1. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
 
     > [!TIP]
-    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
+    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
 
-5. Next run `:remote console` to redirect all console commands to the remote server.
+1. Next run `:remote console` to redirect all console commands to the remote server.
 
    > [!NOTE]
    > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
@@ -103,7 +103,7 @@ Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *B
 Input (Thomas):
 
 ```
-g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
 Output:
@@ -114,7 +114,7 @@ Output:
 Input (Mary Kay):
 
 ```
-g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
 
@@ -128,7 +128,7 @@ Output:
 Input (Robin):
 
 ```
-g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
 Output:
@@ -140,7 +140,7 @@ Output:
 Input (Ben):
 
 ```
-g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
 
@@ -153,7 +153,7 @@ Output:
 Input (Jack):
 
 ```
-g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
 Output:

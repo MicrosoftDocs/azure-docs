@@ -23,7 +23,7 @@ ms.author: jomolesk
 
  The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We've provided information against each of these principles to help you understand the split of responsibilities.
 
- This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
+ This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organizations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
 
@@ -127,7 +127,7 @@ Storage
 
 ### Deployment Architecture:
 
-**On-Premises Network**: A private local-area network implemented in an organisation.
+**On-Premises Network**: A private local-area network implemented in an organization.
 
 **Production VNet**: The Production [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) hosts the application and other operational resources running in Azure. Each VNet may contain several subnets which are used for isolating and managing network traffic.
 
@@ -139,7 +139,7 @@ Storage
 
 **Gateway**: The [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) provides connectivity between the routers in the on-premises network and the production VNet.
 
-**Internet Gateway and Public IP Address**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offering Layer 7 routing and load balancing capabilities with web application firewall (WAF) protection.
+**Internet Gateway and Public IP Address**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](../../application-gateway/overview.md) offering Layer 7 routing and load balancing capabilities with web application firewall (WAF) protection.
 
 **Management VNet**: This [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contains resources that implement management and monitoring capabilities for the workloads running in the production VNet.
 
@@ -150,11 +150,11 @@ Storage
 **Network Peered VNETs**: The Production and Management VNets are connected using [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
      These VNets are still managed as separate resources, but appear as one for all connectivity purposes for these virtual machines. These networks communicate with each other directly by using private IP addresses. VNet peering is subject to the VNets being in the same Azure Region.
 
-**Network Security Groups**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a VNet. NSGs can be used to secure traffic at a subnet or individual VM level.
+**Network Security Groups**: [NSGs](../../virtual-network/virtual-network-vnet-plan-design-arm.md) contain Access Control Lists that allow or deny traffic within a VNet. NSGs can be used to secure traffic at a subnet or individual VM level.
 
 **Active Directory Domain Services (AD DS)**: This architecture provides a dedicated [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) deployment.
 
-**Logging and Audit**: [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) captures operations taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation. Azure Activity Log is an Azure platform service that captures all actions on a subscription. Logs can be archived or exported if required.
+**Logging and Audit**: [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) captures operations taken on the resources in your subscription such as who initiated the operation, when the operation occurred, the status of the operation and the values of other properties that might help you research the operation. Azure Activity Log is an Azure platform service that captures all actions on a subscription. Logs can be archived or exported if required.
 
 **Network Monitoring and Alerting**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is a platform service provides network packet capture, flow logging, topology tools and diagnostics  for network traffics within your VNets.
 
@@ -166,25 +166,25 @@ Storage
 
 ### Logging and Audit
 
-**Monitoring**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) is the platform service that provides a single source for monitoring the activity log, metrics, and diagnostic logs of all your Azure resources. Azure Monitor can be configured to visualize, query, route, archive, and act on the metrics and logs coming from resources in Azure. It is recommended that Resource Based Access Control is used to secure the audit trail to help ensure that users don't have the ability to modify the logs.
+**Monitoring**: [Azure Monitor](../../azure-monitor/overview.md) is the platform service that provides a single source for monitoring the activity log, metrics, and diagnostic logs of all your Azure resources. Azure Monitor can be configured to visualize, query, route, archive, and act on the metrics and logs coming from resources in Azure. It is recommended that Resource Based Access Control is used to secure the audit trail to help ensure that users don't have the ability to modify the logs.
 
-**Activity Logs**: Configure [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) to provide insight into the operations that were performed on resources in your subscription.
+**Activity Logs**: Configure [Azure Activity Logs](../../azure-monitor/platform/activity-logs-overview.md) to provide insight into the operations that were performed on resources in your subscription.
 
-**Diagnostic Logs**: [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by a resource. These logs could include Windows event system logs, blob, table, and queue logs.
+**Diagnostic Logs**: [Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md) are all logs emitted by a resource. These logs could include Windows event system logs, blob, table, and queue logs.
 
 **Firewall Logs**: Application Gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
-**Log Archiving**: Log data storage can be configured to write to a centralised Azure storage account for archival and a defined retention period. Logs can be processed using Azure Log Analytics or by third party SIEM systems.
+**Log Archiving**: Log data storage can be configured to write to a centralized Azure storage account for archival and a defined retention period. Logs can be processed using Azure Monitor logs or by third party SIEM systems.
 
 ### Identity
 
 **Active Directory Domain Services**: This architecture delivers an Active Directory Domain Services deployment in Azure. For specific recommendations on implementing Active Directory in Azure, see the following articles:
 
-[Extending Active Directory Domain Services (AD DS) to Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
+[Extending Active Directory Domain Services (AD DS) to Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) integration or [Active Directory in Azure joined to an on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](/azure/architecture/reference-architectures/identity) integration or [Active Directory in Azure joined to an on-premises forest](/azure/architecture/reference-architectures/identity).
 
 ### Security
 
@@ -192,21 +192,21 @@ Storage
 
 Customers may also consider using an [enhanced security administrative model](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) to secure the environment when connecting to the management VNet and Jumpbox. It is suggested that for enhanced security customers use a [Privileged Access Workstation](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) and RDGateway configuration. The use of network virtual appliances and public/private DMZs will offer further security enhancements.
 
-**Securing the Network**: [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) are recommended for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled gateway. Example - [Resource Manager template for deploying an NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Securing the Network**: [Network Security Groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSGs) are recommended for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled gateway. Example - [Resource Manager template for deploying an NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Securing Public Endpoints**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), which provides a Web Application Firewall and HTTPS protocol management.
+**Securing Public Endpoints**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](../../application-gateway/overview.md), which provides a Web Application Firewall and HTTPS protocol management.
 
 **IP Ranges**: The IP ranges in the architecture are suggested ranges. Customers are advised to consider their own environment and use appropriate ranges.
 
-**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacenter through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway Resource Manager template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) for private network connectivity to Microsoft cloud services.
+**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacenter through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway Resource Manager template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) for private network connectivity to Microsoft cloud services.
 
-**Separation of Concerns**: This reference architecture separates the VNets for management operations and business operations. Separate VNets and subnets allow traffic management, including traffic ingress and egress restrictions, by using NSGs between network segments following [Microsoft cloud services and network security](https://docs.microsoft.com/azure/best-practices-network-security) best practices.
+**Separation of Concerns**: This reference architecture separates the VNets for management operations and business operations. Separate VNets and subnets allow traffic management, including traffic ingress and egress restrictions, by using NSGs between network segments following [Microsoft cloud services and network security](/azure/architecture/vdc/networking-virtual-datacenter) best practices.
 
-**Resource Management**: Azure resources such as VMs, VNets, and load balancers are managed by grouping them together into [Azure Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Resource Based Access Control roles can then be assigned to each resource group to restrict access to only authorized users.
+**Resource Management**: Azure resources such as VMs, VNets, and load balancers are managed by grouping them together into [Azure Resource Groups](../../azure-resource-manager/resource-group-overview.md). Resource Based Access Control roles can then be assigned to each resource group to restrict access to only authorized users.
 
-**Access Control Restrictions**: Use [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) to manage the resources in your application using [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC can be used to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
+**Access Control Restrictions**: Use [Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md) (RBAC) to manage the resources in your application using [custom roles](../../role-based-access-control/custom-roles.md) RBAC can be used to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-**Internet Access**: This reference architecture utilises [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internet Access**: This reference architecture utilizes [Azure Application Gateway](../../application-gateway/overview.md) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](../../application-gateway/overview.md).
 
 **Azure Security Center**: The [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a central view of the security status of resources in the subscription, and provides recommendations that help prevent compromised resources. It can also be used to enable more granular policies. For example, policies can be applied to specific resource groups, which allows the enterprise to tailor its posture to risk. It is recommended that customers enable Azure Security Center in their Azure Subscription.
 
@@ -224,7 +224,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 ## Deploy the Solution
 
-There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
+There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilizes the Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## Disclaimer
 

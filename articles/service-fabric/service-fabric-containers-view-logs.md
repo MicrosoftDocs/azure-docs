@@ -3,8 +3,8 @@ title: View containers logs in Azure Service Fabric | Microsoft Docs
 description: Describes how to view container logs for a running Service Fabric container services using Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: twhitney
+ms.author: atsenthi
 
 ---
 # View logs for a Service Fabric container service
@@ -40,6 +40,8 @@ To assist with diagnosing container startup failures, Service Fabric (version 6.
 
 The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount** attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. Use placement constraints to target the container service to a particular node when using this feature to prevent the container service from moving to other nodes. Any containers retained using this feature must be manually removed.
 
+The setting **RunInteractive** corresponds to Docker's `--interactive` and `tty` [flags](https://docs.docker.com/engine/reference/commandline/run/#options). When this setting is set to true in the manifest file, these flags are used to start the container.  
+
 ### REST
 Use the [Get Container Logs Deployed On Node](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operation to get the logs for a crashed container. Specify the name of the node that the container was running on, application name, service manifest name, and the code package name.  Specify `&Previous=true`. The response will contain the container logs for the dead container of the code package instance.
 
@@ -60,10 +62,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### Service Fabric (SFCTL)
-Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `-previous` flag.  The response will contain the container logs for the dead container of the code package instance.
+Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `--previous` flag.  The response will contain the container logs for the dead container of the code package instance.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Response:
 ```json

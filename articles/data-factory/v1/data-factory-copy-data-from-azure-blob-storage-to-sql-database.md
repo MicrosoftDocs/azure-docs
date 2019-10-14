@@ -11,7 +11,7 @@ ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -22,7 +22,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -90,9 +89,8 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
     John, Doe
     Jane, Doe
 	```
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
-    ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 	```SQL
@@ -115,7 +113,6 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     
 
 * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-* [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

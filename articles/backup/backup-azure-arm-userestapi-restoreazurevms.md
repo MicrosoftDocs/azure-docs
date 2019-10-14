@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Restore Azure VMs using REST API'
 description: manage restore operations of Azure VM Backup using REST API
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM backup; Azure VM restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ---
 
@@ -118,13 +118,13 @@ The recovery point is identified with the `{name}` field in the above response.
 
 ## Restore disks
 
-If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks as per their requirements. The storage account should be in the same region as the recovery services vault and should not be zone redundant. The disks as well as the configuration of the backed up VM ("vmconfig.json") will be stored in the given storage account.
+If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks as per their requirements. The storage account should be in the same region as the recovery services vault and should not be zone redundant. The disks as well as the configuration of the backed-up VM ("vmconfig.json") will be stored in the given storage account.
 
 Triggering restore disks is a *POST* request. To know more about the Restore disks operation, refer to the ["trigger restore" REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` is "Azure" and the `{recoveryPointId}` is the `{name}` field of the recovery point mentioned [above](#example-response).
 
@@ -142,7 +142,7 @@ For the complete list of definitions of the request body and other details, refe
 
 The following request body defines properties required to trigger a disk restore.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -158,7 +158,7 @@ The following request body defines properties required to trigger a disk restore
     }
   }
 }
-````
+```
 
 ### Response
 
@@ -238,7 +238,7 @@ Once the long running job is complete, the disks and the configuration of the ba
 
 The following request body defines properties required to trigger a virtual machine restore.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -270,7 +270,7 @@ The following request body defines properties required to trigger a virtual mach
       }
     }
 }
-````
+```
 
 The response should be handled in the same way as [explained above for restoring disks](#response).
 

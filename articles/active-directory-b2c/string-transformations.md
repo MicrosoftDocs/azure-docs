@@ -2,38 +2,38 @@
 title: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # String claims transformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the string claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the string claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## AssertStringClaimsAreEqual 
+## AssertStringClaimsAreEqual
 
 Compare two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | First claim's type, which is to be compared. |
-| inputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
+| InputClaim | inputClaim1 | string | First claim's type, which is to be compared. |
+| InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
 The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationStringsAreNotEqual** self-asserted technical profile metadata controls the error message that is presented to the user.
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
-You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** ClaimType is equal to **email** ClaimType. Otherwise an error message is thrown. 
+You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** ClaimType is equal to **email** ClaimType. Otherwise an error message is thrown.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -74,13 +74,13 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 ### Example
 
 - Input claims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Input parameters:
-    - **stringComparison**:  ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Input parameters:
+  - **stringComparison**:  ordinalIgnoreCase
 - Result: Error thrown
 
-## ChangeCase 
+## ChangeCase
 
 Changes the case of the provided claim to lower or upper case depending on the operator.
 
@@ -90,7 +90,7 @@ Changes the case of the provided claim to lower or upper case depending on the o
 | InputParameter | toCase | string | One of the following values: `LOWER` or `UPPER`. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
-Use this claim transformation to change any string ClaimType to lower or upper case.  
+Use this claim transformation to change any string ClaimType to lower or upper case.
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -109,13 +109,13 @@ Use this claim transformation to change any string ClaimType to lower or upper c
 ### Example
 
 - Input claims:
-    - **email**: SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Input parameters:
     - **toCase**: LOWER
 - Output claims:
-    - **email**: someone@contoso.com
+  - **email**: someone@contoso.com
 
-## CreateStringClaim 
+## CreateStringClaim
 
 Creates a string claim from the provided input parameter in the policy.
 
@@ -150,8 +150,8 @@ Determine whether one string claim is equal to another. The result is a new bool
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | First claim type, which is to be compared. |
-| inputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
+| InputClaim | inputClaim1 | string | First claim type, which is to be compared. |
+| InputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
@@ -177,8 +177,8 @@ Use this claims transformation to check if a claim is equal to another claim. Fo
 ### Example
 
 - Input claims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Input parameters:
     - **operator**:  NOT EQUAL
     - **ignoreCase**: true
@@ -191,7 +191,7 @@ Determines whether a claim value is equal to the input parameter value.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
+| InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
@@ -220,7 +220,7 @@ You can use this claims transformation to check if a claim is equal to a value y
     - **inputClaim1**: v1
 - Input parameters:
     - **compareTo**: V1
-    - **operator**: EQUAL 
+    - **operator**: EQUAL
     - **ignoreCase**:  true
 - Output claims:
     - **outputClaim**: true
@@ -234,7 +234,7 @@ Creates a random string using the random number generator. If the random number 
 | InputParameter | randomGeneratorType | string | Specifies the random value to be generated, `GUID` (global unique ID) or `INTEGER` (a number). |
 | InputParameter | stringFormat | string | [Optional] Format the random value. |
 | InputParameter | base64 | boolean | [Optional] Convert the random value to base64. If string format is applied, the value after string format is encoded to base64. |
-| InputParameter | maximumNumber | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the maximute number. |
+| InputParameter | maximumNumber | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the maximum number. |
 | InputParameter | seed  | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the seed for the random value. Note: same seed yields same sequence of random numbers. |
 | OutputClaim | outputClaim | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The random value. |
 
@@ -254,7 +254,7 @@ Following example generates a global unique ID. This claims transformation is us
 
 - Input parameters:
     - **randomGeneratorType**: GUID
-- Output claims: 
+- Output claims:
     - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 Following example generates an integer random value between 0 and 1000. The value is formatted to OTP_{random value}.
@@ -280,7 +280,7 @@ Following example generates an integer random value between 0 and 1000. The valu
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: false
-- Output claims: 
+- Output claims:
     - **outputClaim**: OTP_853
 
 
@@ -294,7 +294,7 @@ Format a claim according to the provided format string. This transformation uses
 | InputParameter | stringFormat | string | The string format, including the {0}  parameter. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
-Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.   
+Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -317,7 +317,7 @@ Use this claims transformation to format any string with one parameter {0}. The 
 - Input parameters:
     - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Output claims:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## FormatStringMultipleClaims
 
@@ -388,7 +388,7 @@ The claims transformation looks up the text of the item and returns its value. I
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -411,7 +411,7 @@ Look up a claim value from a list of values based on the value of another claim.
 | InputParameter | errorOnFailedLookup | boolean | Controlling whether an error is returned when no matching lookup. |
 | OutputClaim | inputParameterId | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The value of the matching Id. |
 
-The following example looks up the domain name in one of the inpuParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
+The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -427,7 +427,7 @@ The following example looks up the domain name in one of the inpuParameters coll
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation>	
+</ClaimsTransformation>
 ```
 
 ### Example
@@ -490,7 +490,7 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 ### Example
 
 - Input claims:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Output claims:
     - **domain**: outlook.com
 
@@ -500,7 +500,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | The claim type, which is to be compared. |
+| InputClaim | inputClaim | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with `inputClaim`. |
 | InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | First value to be set if strings are equal. |
@@ -509,7 +509,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 | OutputClaim | outputClaim2 | string | If strings are equals, this output claim contains the value of `stringMatchMsgCode` input parameter. |
 | OutputClaim | stringCompareResultClaim | boolean | The compare result output claim type, which is to be set as `true` or `false` based on the result of comparison. |
 
-You can use this claims transformation to check if a claim is equal to value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`. If yes, change the value to `v2`. 
+You can use this claims transformation to check if a claim is equal to value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`. If yes, change the value to `v2`.
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -535,7 +535,7 @@ You can use this claims transformation to check if a claim is equal to value you
     - **inputClaim**: v1
 - Input parameters:
     - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **stringMatchMsg**:  B2C_V1_90005
     - **stringMatchMsgCode**:  The TOS is upgraded to v2
 - Output claims:
@@ -549,14 +549,14 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | The claim type, which is to be compared. |
+| InputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with inputClaim. |
 | InputParameter | stringComparison | string | Possible values: `Ordinal` or `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |
 | OutputClaim | outputClaim | string | If strings are equals, this output claim contains the value of `outputClaimIfMatched` input parameter. Or null, if the strings aren't match. |
 | OutputClaim | stringCompareResultClaim | boolean | The compare result output claim type, which is to be set as `true` or `false` based on the result of comparison. |
 
-For example, the following claims transformation checks if the value of **ageGroup** claim is equal to `Minor`. If yes, return the value to `B2C_V1_90001`. 
+For example, the following claims transformation checks if the value of **ageGroup** claim is equal to `Minor`. If yes, return the value to `B2C_V1_90001`.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -581,7 +581,7 @@ For example, the following claims transformation checks if the value of **ageGro
     - **claimToMatch**: Minor
 - Input parameters:
     - **matchTo**: Minor
-    - **stringComparison**: ordinalIgnoreCase 
+    - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Output claims:
     - **isMinorResponseCode**: B2C_V1_90001

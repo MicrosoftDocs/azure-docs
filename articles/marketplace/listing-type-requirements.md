@@ -2,26 +2,26 @@
 title: Requirements by Listing Type | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: jm-aditi-ms
 manager: pabutler
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
 
----  
+---
 
 # Requirements by Listing Type  
 The technical and marketing content requirements vary by storefront, offer type, and listing type. Review the following specifications to verify your compliance.  
 1. Storefront Requirements:  
-    *   [AppSource](#storefront-requirements-appSource)  
+    *   [AppSource](#storefront-requirements-appsource)  
     *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Listing Type and Offer Type Requirements:  
     *   For more information about listing types and offer types, visit the Determine the Listing Type for Your Solution page located at [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
@@ -37,7 +37,7 @@ The following table describes the prerequisite requirements for publishing on Ap
 | ***Software as a service (SaaS) app for business*** | Your app must meet the following requirements.<ul> <li>A line-of-business SaaS app</li> <li>Business-process focused</li> <li>Targeted to business customers</li> <li>Enable users to use their work credentials to sign in such as user name and password</li> </ul> | Required |  
 | ***Free trial period and trial experience*** | Your app must include one the following options in order for a customer to use your app for free for a limited time.<ul> <li>Provide a `try` method, so customers may start a trial of your app within AppSource</li> <li>Provide a `request trial` option in the AppSource, so customers may request a trial version of your app</li> </ul>The free trial that you provide must offer the customer a pre-set amount of time to try out your app with no additional cost. | Required |  
 | ***Easily configurable, ready-to-use solution*** | Your app must be easy and quick to configure and set up with no customization required. | Required |  
-| ***Lead management*** | You must enable your CRM to accept lead data before you receive leads from the storefront.<ul> <li>Examples of CRMs are Marketo, Microsoft Dynamics, or Salesforce</li> </ul> | Required |  
+| ***Lead management*** | Enable your CRM to accept lead data before you receive leads from the storefront.<ul> <li>Examples of CRMs are Marketo, Microsoft Dynamics, or Salesforce</li> </ul> | Required |  
 | ***Privacy policy and terms of use*** | Your app must provide a link to your privacy policy page using a public URL. Your terms of use must be provided during publishing as text. | Required |  
 | ***Support*** | Your app must provide a link to your customer support page using a public URL. If your app is a trial, then you must support at no additional cost during the trial period. | Required |  
 
@@ -46,10 +46,10 @@ The following are prerequisite requirements for listing types in Azure Marketpla
 
 | Requirement | Details | Listing type |  
 |:--- |:--- |:--- |  
-| ***Participation policies*** | You app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
+| ***Participation policies*** | Your app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
 | ***Integration with Microsoft*** | Your offer should use or extend Microsoft Azure service types such as compute, networking, or storage. Your offer should align to an existing Azure Marketplace category such as databases, security, or networking.<ul> <li>For more information about Marketplace offers, visit the Marketplace Apps page located at [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transact<br />trial |  
 | ***Audience*** | Your offer must be for IT pros, cloud developers, or other technical customer roles. | list<br />transact<br />trial |  
-| ***Lead management*** | You must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data before you receive leads from the storefront. | list<br />transact<br />trial |  
+| ***Lead management*** | Enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data before you receive leads from the storefront. | list<br />transact<br />trial |  
 | ***Privacy policy and terms of use*** | Your app must provide a link to your privacy policy page using a public URL. Your terms of use must be provided during publishing as text. | list<br />transact<br />trial |  
 | ***Support*** | Your offer must provide a link to your customer support page using a public URL. If your offer is a trial, then you must support at no additional cost during the trial period. | transact<br />trial |    
 
@@ -61,10 +61,10 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Consulting Services | AppSource | [Requirements: AppSource: List: Consulting Services](#requirements-appsource-list-consulting-services) |  
-| Consulting Services | Azure Marketplace | [Requirements: Azure Marketplace: List: Consulting Services](#requirements-azure-marketplace-list-consulting-services) |  
+| Consulting Services | AppSource | Requirements: AppSource: List: Consulting Services |  
+| Consulting Services | Azure Marketplace | Requirements: Azure Marketplace: List: Consulting Services |  
 | Contact Me | AppSource | [](#) |  
-| Contact Me | Azure Marketplace | [Requirements: AppSource: List: Contact Me](#requirements-azure-marketplace-list-contact-me) |  
+| Contact Me | Azure Marketplace | Requirements: AppSource: List: Contact Me |  
 
 #### Requirements: AppSource: List: Consulting service  
 
@@ -82,17 +82,17 @@ The List listing type includes the following Offer types on the storefronts in t
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
----   
+---
 
 ### Trial  
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Free / SaaS trial | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
-| Free / SaaS trial | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Free trial / SaaS trial](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interactive demo | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Free / SaaS trial | AppSource | Listing Type Requirements: Trial |  
+| Free / SaaS trial | Azure Marketplace | Requirements: Azure Marketplace: Trial: Free trial / SaaS trial |  
+| Interactive demo | AppSource | Listing Type Requirements: Trial |  
 | Interactive demo | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Interactive demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Test drive | AppSource | Listing Type Requirements: Trial |  
 | Test drive | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### Requirements: Azure Marketplace: Trial  
@@ -130,8 +130,8 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Azure apps: Managed app | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Managed app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure apps: Solution template | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Solution template](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure apps: Managed app | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Managed app |  
+| Azure apps: Solution template | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Solution template |  
 | Containers | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements-azure-marketplace-transact-saas-app) |  
 | Virtual machine | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Virtual machine](#requirements-azure-marketplace-transact-virtual-machine) |  
@@ -152,7 +152,7 @@ The List listing type includes the following Offer types on the storefronts in t
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based *true-up* options are not supported at this time. |  
-| Cancelation | Your offer is cancelable by the customer at any time. |  
+| Cancellation | Your offer is cancelable by the customer at any time. |  
 | Transaction Landing Page | Host an Azure co-branded transaction landing page. Your landing page enables your customers to create and manage your SaaS service account. |  
 | SaaS Subscription API | Provide a service that interacts with the SaaS Subscription to create, update, and delete a user account and service plan. All critical API changes must be supported within 24 hours. Any non-critical API changes are updated periodically. |  
 
@@ -161,9 +161,8 @@ The List listing type includes the following Offer types on the storefronts in t
 | Requirement | Details |  
 |:--- |:--- | 
 | Billing and metering | Your VM must support either BYOL or Pay-As-You-Go monthly billing. |  
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux.<ul> <li>For more information about creating a Linux VHD, visit the Create an Azure-compatible VHD (Linux-based) section located at [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>For more information about creating a Windows VHD, visit the Create an Azure-compatible VHD (Windows-based) section located at [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux.<ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
----  
+

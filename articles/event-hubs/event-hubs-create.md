@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
@@ -25,77 +25,81 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- [Visual Studio 2019)](https://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
 
-A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Do the following to create a resource group:
+A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. To create a resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left navigation, click **Resource groups**. Then click **Add**.
 
    ![Resource groups - Add button](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. Type a unique name for the resource group. The system immediately checks to see if the name is available in the currently selected Azure subscription.
-
-3. In **Subscription**, click the name of the Azure subscription in which you want to create the resource group.
-
-4. Select a geographic location for the resource group.
-
-5. Click **Create**.
+2. For **Subscription**, select the name of the Azure subscription in which you want to create the resource group.
+3. Type a unique **name for the resource group**. The system immediately checks to see if the name is available in the currently selected Azure subscription.
+4. Select a **region** for the resource group.
+5. Select **Review + Create**.
 
    ![Resource group - create](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. On the **Review + Create** page, select **Create**. 
 
 ## Create an Event Hubs namespace
 
 An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
 1. In the Azure portal, and click **Create a resource** at the top left of the screen.
-
-2. Click **Internet of Things**, and then click **Event Hubs**.
-
-3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
-
-   ![Create an event hub namespace](./media/event-hubs-create/create-event-hub1.png)
-
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource.
- 
-5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
-6. Select **Alerts**, and then select the **deployment** with the same name as the name of event hub namespace. 
-
-   ![Resource group - alert from create](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Select your event hub namespace from the list of resources created in the deployment. 
-
-   ![Select namespace from the deployment](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. On the **Event Hubs Namespace** page, select **Shared access policies**, and then click **RootManageSharedAccessKey**.
+2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
     
-8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
+   ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+
+   ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. On the **Create namespace** page, take the following steps:
+    1. Enter a name for the namespace. The system immediately checks to see if the name is available.
+    2. Choose the pricing tier (Basic or Standard).
+    3. Select the **subscription** in which you want to create the namespace.
+    4. Select a **location** for the namespace.
+    5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.
+
+       ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. Refresh the **Event Hubs** page to see the event hub namespace. You can check the status of the event hub creation in the alerts. 
+
+    ![Create an event hub namespace](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. Select the namespace. You see the home page for your **Event Hubs namespace** in the portal. 
+
+   ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## Create an event hub
 
 To create an event hub within the namespace, do the following actions:
 
-1. On the Event Hubs Namespaces page, select click **Event Hubs**.
-   
-    ![Select Event Hubs from left menu](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. On the Event Hubs Namespace page, select **Event Hubs** in the left menu.
 1. At the top of the window, click **+ Event Hub**.
    
     ![Add Event Hub - button](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Type a name for your event hub, then click **Create**.
    
     ![Create event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs as shown in the following image:
 
+    ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace. 
 
 ## Next steps
 
-In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials:  
+In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
-- **Send events to an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Receive events from an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (send only)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

@@ -4,7 +4,7 @@ description: Describes how to write your own actor service that implements servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
@@ -156,13 +156,13 @@ The remoting V2 (interface compatible, known as V2_1) stack has all the features
 
 The following changes are required to use the remoting V2_1 stack:
 
- 1. Add the following assembly attribute on actor interfaces.
+1. Add the following assembly attribute on actor interfaces.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Build and upgrade actor service and actor client projects to start using the V2 stack.
+2. Build and upgrade actor service and actor client projects to start using the V2 stack.
 
 ### Actor service upgrade to remoting V2 (interface compatible) stack without affecting service availability
 
@@ -170,12 +170,12 @@ This change is a two-step upgrade. Follow the steps in this sequence.
 
 1. Add the following assembly attribute on actor interfaces. This attribute starts two listeners for the actor service, V1 (existing) and the V2_1 listener. Upgrade the actor service with this change.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. Upgrade the actor clients after you complete the previous upgrade.
-This step makes sure that the actor proxy uses the remoting V2_1 stack.
+   This step makes sure that the actor proxy uses the remoting V2_1 stack.
 
 3. This step is optional. Change the previous attribute to remove the V1 listener.
 
@@ -189,13 +189,13 @@ With the version 2.8 NuGet package, users can now use the remoting V2 stack, whi
 
 The following changes are required to use the remoting V2 stack.
 
- 1. Add the following assembly attribute on actor interfaces.
+1. Add the following assembly attribute on actor interfaces.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Build and upgrade the actor service and actor client projects to start using the V2 stack.
+2. Build and upgrade the actor service and actor client projects to start using the V2 stack.
 
 ### Upgrade the actor service to the remoting V2 stack without affecting service availability
 
@@ -203,12 +203,12 @@ This change is a two-step upgrade. Follow the steps in this sequence.
 
 1. Add the following assembly attribute on actor interfaces. This attribute starts two listeners for the actor service, V1 (existing) and the V2 listener. Upgrade the actor service with this change.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. Upgrade the actor clients after you complete the previous upgrade.
-This step makes sure that the actor proxy uses the remoting V2 stack.
+   This step makes sure that the actor proxy uses the remoting V2 stack.
 
 3. This step is optional. Change the previous attribute to remove the V1 listener.
 
@@ -222,7 +222,7 @@ This step makes sure that the actor proxy uses the remoting V2 stack.
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

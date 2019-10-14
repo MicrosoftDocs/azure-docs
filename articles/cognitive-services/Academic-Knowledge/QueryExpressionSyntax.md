@@ -4,13 +4,14 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use query expression syntax in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Query Expression Syntax

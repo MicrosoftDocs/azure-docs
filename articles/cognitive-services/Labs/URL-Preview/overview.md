@@ -4,13 +4,14 @@ titlesuffix: Azure Cognitive Services
 description: Introduction to the Project URL Preview.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # What is Project URL Preview?
@@ -22,7 +23,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 The response: 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -40,7 +41,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## Scenarios 
 
 The URL Preview API supports brief descriptions of Web resources. Developers use it to build rich preview experiences.  Users can share or bookmark webpages, news, blogs, forums, etc. This API can also be used for content moderation.    

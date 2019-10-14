@@ -1,26 +1,26 @@
 ---
 title: How to monitor Azure Cache for Redis | Microsoft Docs
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to monitor Azure Cache for Redis
 Azure Cache for Redis uses [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Cache for Redis instances and help you manage your caching applications.
 
-Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately twice per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](https://redis.io/commands/info) command approximately twice per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -57,7 +57,7 @@ For more information on working with metrics using Azure Monitor, see [Overview 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/platform/archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
 
 To configure a storage account for your cache metrics:
 
@@ -71,11 +71,11 @@ To configure a storage account for your cache metrics:
 ![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 
-To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
@@ -94,14 +94,14 @@ Each metric includes two versions. One metric measures performance for the entir
 
 | Metric | Description |
 | --- | --- |
-| Cache Hits |The number of successful key lookups during the specified reporting interval. This maps to `keyspace_hits` from the Redis [INFO](http://redis.io/commands/info) command. |
+| Cache Hits |The number of successful key lookups during the specified reporting interval. This maps to `keyspace_hits` from the Redis [INFO](https://redis.io/commands/info) command. |
 | Cache Latency (Preview) | The latency of the cache calculated based off the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: "Avg", "Min", and "Max" which represent the average, minimum, and maximum latency of the cache respectively during the specified reporting interval. |
 | Cache Misses |The number of failed key lookups during the specified reporting interval. This maps to `keyspace_misses` from the Redis INFO command. Cache misses do not necessarily mean there is an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache due to memory pressure then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`. |
 | Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
 | Connected Clients |The number of client connections to the cache during the specified reporting interval. This maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached subsequent connection attempts to the cache will fail. Note that even if there are no active client applications, there may still be a few instances of connected clients due to internal processes and connections. |
 | CPU |The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. |
-| Errors | Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows: <br/><ul><li>**Failover** – when a cache fails over (slave promotes to master)</li><li>**Crash** – when the cache crashes unexpectedly on either of the nodes</li><li>**Dataloss** – when there is dataloss on the cache</li><li>**UnresponsiveClients** – when the clients are not reading data from the server fast enough</li><li>**AOF** – when there is an issue related to AOF persistence</li><li>**RDB** – when there is an issue related to RDB persistence</li><li>**Import** – when there is an issue related to Import RDB</li><li>**Export** – when there is an issue related to Export RDB</li></ul> |
+| Errors | Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows: <br/><ul><li>**Failover** – when a cache fails over (subordinate promotes to master)</li><li>**Dataloss** – when there is dataloss on the cache</li><li>**UnresponsiveClients** – when the clients are not reading data from the server fast enough</li><li>**AOF** – when there is an issue related to AOF persistence</li><li>**RDB** – when there is an issue related to RDB persistence</li><li>**Import** – when there is an issue related to Import RDB</li><li>**Export** – when there is an issue related to Export RDB</li></ul> |
 | Evicted Keys |The number of items evicted from the cache during the specified reporting interval due to the `maxmemory` limit. This maps to `evicted_keys` from the Redis INFO command. |
 | Expired Keys |The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.|
 | Gets |The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval. |
@@ -138,7 +138,7 @@ Activity logs provide insight into the operations that were performed on your Az
 
 To view activity logs for your cache, click **Activity logs** from the **Resource menu**.
 
-For more information about Activity logs, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

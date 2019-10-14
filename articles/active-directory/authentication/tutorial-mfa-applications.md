@@ -4,20 +4,21 @@ description: In this tutorial, you will enable Azure AD Multi-Factor Authenticat
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
 # Customer intent: As an Azure AD Administrator, I want to enhance user authentication with MFA to make sure the user is who they say they are.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure Multi-Factor Authentication pilot roll out
 
-In this tutorial, you walk you through configuring a conditional access policy enabling Azure Multi-Factor Authentication (Azure MFA) when logging in to the Azure portal. The policy is deployed to and tested on a specific group of pilot users. Deployment of Azure MFA using conditional access provides significant flexibility for organizations and administrators compared to the traditional enforced method.
+In this tutorial, you walk you through configuring a Conditional Access policy enabling Azure Multi-Factor Authentication (Azure MFA) when logging in to the Azure portal. The policy is deployed to and tested on a specific group of pilot users. Deployment of Azure MFA using Conditional Access provides significant flexibility for organizations and administrators compared to the traditional enforced method.
 
 > [!div class="checklist"]
 > * Enable Azure Multi-Factor Authentication
@@ -33,7 +34,7 @@ In this tutorial, you walk you through configuring a conditional access policy e
 ## Enable Azure Multi-Factor Authentication
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
-1. Browse to **Azure Active Directory**, **Conditional access**
+1. Browse to **Azure Active Directory**, **Conditional Access**
 1. Select **New policy**
 1. Name your policy **MFA Pilot**
 1. Under **users and groups**, select the **Select users and groups** radio button
@@ -53,7 +54,7 @@ In this tutorial, you walk you through configuring a conditional access policy e
 
 ## Test Azure Multi-Factor Authentication
 
-To prove that your conditional access policy works, you test logging in to a resource that should not require MFA and then to the Azure portal that requires MFA.
+To prove that your Conditional Access policy works, you test logging in to a resource that should not require MFA and then to the Azure portal that requires MFA.
 
 1. Open a new browser window in InPrivate or incognito mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that it should not ask you to complete MFA.
@@ -67,8 +68,8 @@ To prove that your conditional access policy works, you test logging in to a res
 If you decide you no longer want to use the functionality you have configured as part of this tutorial, make the following change.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory**, **Conditional access**.
-1. Select the conditional access policy you created.
+1. Browse to **Azure Active Directory**, **Conditional Access**.
+1. Select the Conditional Access policy you created.
 1. Click **Delete**.
 
 ## Next steps

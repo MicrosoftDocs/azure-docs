@@ -7,18 +7,17 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 
 # Customize a Language model with Video Indexer
 
-Video Indexer supports automatic speech recognition through integration with the Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). The automatic speech recognition works with two basic models - an acoustic model and a Language model. The acoustic model is responsible for translating the audio signal to parts of words. Based on the probabilities of words to occur one after the other, the Language model is then used to choose the most reasonable sequence of words out of these guesses.
+Video Indexer supports automatic speech recognition through integration with the Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). You can customize the Language model by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized, assuming default pronunciation, and the Language model will learn new probable sequences of words. Custom Language models are supported for English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, Brazilian Portuguese, Hindi, and Korean. 
 
-Video Indexer lets you customize the Language model by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized, assuming default pronunciation, and the Language model will learn new probable sequences of words. Custom Language models are supported for English, German, Spanish, Arabic, French, Hindi, Italian, Japanese, Portuguese, Russian, and Chinese.
-
-Let's take a word that is highly specific, like "Kubernetes" (an Azure product), as an example. Since the word is new to Video Indexer, it is recognized as "communities". You need to train the model to recognize it as "Kubernetes". In other cases, the words exist, but the Language model is not expecting them to appear in a certain context. For example, "container service" is not a 2-word sequence that a non-specialized Language model would recognize as a specific set of words.
+Let's take a word that is highly specific, like "Kubernetes" (in the context of Azure Kubernetes service), as an example. Since the word is new to Video Indexer, it is recognized as "communities". You need to train the model to recognize it as "Kubernetes". In other cases, the words exist, but the Language model is not expecting them to appear in a certain context. For example, "container service" is not a 2-word sequence that a non-specialized Language model would recognize as a specific set of words.
 
 You have the option to upload words without context in a list in a text file. This is considered partial adaptation. Alternatively, you can upload text file(s) of documentation or sentences related to your content for better adaptation.
 

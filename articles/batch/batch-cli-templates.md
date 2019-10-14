@@ -1,18 +1,17 @@
 ﻿---
-title: Run Azure Batch jobs end-to-end using templates | Microsoft Docs
+title: Run jobs end-to-end using templates - Azure Batch | Microsoft Docs
 description: Create Batch pools, jobs, and tasks with template files and the Azure CLI. 
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
 ---
 # Use Azure Batch CLI templates and file transfer
 
@@ -49,7 +48,7 @@ jobs, tasks, and other items. Batch templates add the following capabilities:
 Jobs typically use input data files and produce output data files. A storage account is associated, by default, with each Batch account. Transfer files to and from this storage account using the
 CLI, with no coding and no storage credentials.
 
-For example, [ffmpeg](http://ffmpeg.org/) is a popular application that
+For example, [ffmpeg](https://ffmpeg.org/) is a popular application that
 processes audio and video files. Here are steps with the Azure Batch CLI to invoke
 ffmpeg to transcode source video files to different resolutions.
 

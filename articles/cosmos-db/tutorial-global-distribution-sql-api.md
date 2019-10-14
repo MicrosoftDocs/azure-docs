@@ -1,15 +1,12 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for the SQL API
 description: Learn how to set up Azure Cosmos DB global distribution using the SQL API.
-services: cosmos-db
-keywords: global distribution
-author: rafats
-
+author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
+ms.date: 07/15/2019
+ms.author: rimman
+ms.reviewer: sngun
 
 ---
 # Set up Azure Cosmos DB global distribution using the SQL API
@@ -76,7 +73,8 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## NodeJS, JavaScript, and Python SDKs
+## Node.js/JavaScript
+
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region.
 
 In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions][regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
@@ -88,9 +86,9 @@ The current write and read endpoints are available in DocumentClient.getWriteEnd
 >
 >
 
-Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
+Below is a code example for Node.js/Javascript.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
@@ -102,6 +100,34 @@ connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+```
+
+## Python SDK
+
+The following code shows how to set preferred locations by using the Python SDK:
+
+```python
+
+connectionPolicy = documents.ConnectionPolicy()
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
+client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
+
+```
+
+## Java V2 SDK
+
+The following code shows how to set preferred locations by using the Java SDK:
+
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKeyOrResourceToken(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy)
+                .build();
 ```
 
 ## REST

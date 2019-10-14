@@ -1,21 +1,21 @@
 ---
 title: Code samples - Content Moderator, .NET
-description: Use Content Moderator in your applications
+titleSuffix: Azure Cognitive Services
+description: Use Content Moderator in your .NET applications through the SDK.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
-# .NET SDK samples
+# Content Moderator .NET SDK samples
 
 The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
-
-- **Helper library**: [Create a Content Moderator client for use in other samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). See [quickstart](content-moderator-helper-quickstart-dotnet.md).
 
 ## Moderation
 
@@ -26,7 +26,7 @@ The following list includes links to the code samples built using the Azure Cont
 > There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
 >
 
-- **Text moderation**: [Screen text for profanity and personally identifiable information (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). See [quickstart](text-moderation-quickstart-dotnet.md).
+- **Text moderation**: [Screen text for profanity and personal data](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). See [quickstart](text-moderation-quickstart-dotnet.md).
 - **Custom terms**: [Moderate with custom term lists](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). See [quickstart](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]

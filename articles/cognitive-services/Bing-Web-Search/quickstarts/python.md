@@ -4,28 +4,29 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Python, and receive a JSON response
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
 ---
 
 # Quickstart: Use Python to call the Bing Web Search API  
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Python application sends a search request to the API, and shows the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
-This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Click the launch Binder badge:
+This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Select the launch binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
+
+## Prerequisites
+
+* [Python 2.x or 3.x](https://www.python.org/)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Define variables
 
@@ -50,13 +51,13 @@ search_term = "Azure Cognitive Services"
 
 ## Make a request
 
-This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
+This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+params = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 response = requests.get(search_url, headers=headers, params=params)
 response.raise_for_status()
 search_results = response.json()
@@ -64,7 +65,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
+The `search_results` object includes the search results and metadata like related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML
@@ -72,14 +73,14 @@ from IPython.display import HTML
 rows = "\n".join(["""<tr>
                        <td><a href=\"{0}\">{1}</a></td>
                        <td>{2}</td>
-                     </tr>""".format(v["url"],v["name"],v["snippet"]) \
+                     </tr>""".format(v["url"], v["name"], v["snippet"])
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```
 
 ## Sample code on GitHub
 
-If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
 
 ## Next steps
 

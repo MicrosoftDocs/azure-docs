@@ -2,15 +2,15 @@
 title: Use Azure Database Migration Service to monitor migration activity | Microsoft Docs
 description: Learn to use the Azure Database Migration Service to monitor migration activity.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: HJToland3
+ms.author: jtoland
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 03/12/2019
 ---
 
 # Monitor migration activity
@@ -131,7 +131,7 @@ The following table describes the fields shown in table level migration progress
 | **Update** | Number of CDC updates in rows applied to target.      |
 | **Delete**      | Number of CDC deletes in rows applied to target. |
 | **Total Applied**      | Total of CDC updates, inserts, and deletes in rows applied to target. |
-| **Data Errors** | Number of data errors happened in this table. Some examples of the errors are *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d, 8114: Error converting data type %ls to %ls.*  Customer should query from attms_apply_exceptions table in Azure target to see the error details.    |
+| **Data Errors** | Number of data errors happened in this table. Some examples of the errors are *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d, 8114: Error converting data type %ls to %ls.*  Customer should query from dms_apply_exceptions table in Azure target to see the error details.    |
 
 > [!NOTE]
 > CDC values of Insert, Update and Delete and Total Applied may decrease when database is cutover or migration is restarted.

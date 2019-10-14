@@ -1,30 +1,33 @@
 ---
-title: Phone number Prebuilt entities
-titleSuffix: Azure
+title: Phone number Prebuilt entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains phone number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 11/27/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
-# Phonenumber prebuilt entity for a LUIS app
+# Phone number prebuilt entity for a LUIS app
 The `phonenumber` entity extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances to the application. The `phonenumber` entity is supported in `en-us` culture only. 
 
-## Types of phonenumber
-Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub repository
+## Types of a phone number
+`Phonenumber` is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub repository
 
-## Resolution for prebuilt phonenumber entity
+## Resolution for this prebuilt entity
+
+#### [V2 prediction endpoint response](#tab/V2)
+
 The following example shows the resolution of the **builtin.phonenumber** entity.
 
 ```json
 {
-  "query": "my mobile is 00 44 161 1234567",
+  "query": "my mobile is 1 (800) 642-7676",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.8448457
@@ -37,19 +40,82 @@ The following example shows the resolution of the **builtin.phonenumber** entity
   ],
   "entities": [
     {
-      "entity": "00 44 161 1234567",
-      "type": "builtin.phonenumber",
-      "startIndex": 13,
-      "endIndex": 29,
-      "resolution": {
-        "value": "00 44 161 1234567"
-      }
+        "entity": "1 (800) 642-7676",
+        "type": "builtin.phonenumber",
+        "startIndex": 13,
+        "endIndex": 28,
+        "resolution": {
+            "score": "1",
+            "value": "1 (800) 642-7676"
+        }
     }
   ]
 }
 ```
 
+#### [V3 prediction endpoint response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "my mobile is 1 (800) 642-7676",
+    "prediction": {
+        "normalizedQuery": "my mobile is 1 (800) 642-7676",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.592748761
+            }
+        },
+        "entities": {
+            "phonenumber": [
+                "1 (800) 642-7676"
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "my mobile is 1 (800) 642-7676",
+    "prediction": {
+        "normalizedQuery": "my mobile is 1 (800) 642-7676",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.592748761
+            }
+        },
+        "entities": {
+            "phonenumber": [
+                "1 (800) 642-7676"
+            ],
+            "$instance": {
+                "phonenumber": [
+                    {
+                        "type": "builtin.phonenumber",
+                        "text": "1 (800) 642-7676",
+                        "startIndex": 13,
+                        "length": 16,
+                        "score": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+* * * 
 
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [percentage](luis-reference-prebuilt-percentage.md), [number](luis-reference-prebuilt-number.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

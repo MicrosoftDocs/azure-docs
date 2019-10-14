@@ -3,8 +3,8 @@ title: Create a Service Fabric cluster in the Azure portal | Microsoft Docs
 description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -86,7 +86,7 @@ Navigate to the **Service Fabric Cluster** blade, and click **Create**.
 The **Create Service Fabric cluster** blade has the following four steps:
 
 ### 1. Basics
-![Screen shot of creating a new resource group.][CreateRG]
+![Screenshot of creating a new resource group.][CreateRG]
 
 In the Basics blade, you need to provide the basic details for your cluster.
 
@@ -126,7 +126,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 > 
 
 ### 3. Security
-![Screen shot of security configurations on Azure portal.][BasicSecurityConfigs]
+![Screenshot of security configurations on Azure portal.][BasicSecurityConfigs]
 
 To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](/azure/key-vault/) (and enabled the key vault for deployment), then use the **Custom** option
 
@@ -187,7 +187,7 @@ You can see the creation progress in the notifications. (Click the "Bell" icon n
 In order to perform management operations on your cluster using Powershell or CLI, you need to connect to your cluster, read more on how to at [connecting to your cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## View your cluster status
-![Screen shot of cluster details in the dashboard.][ClusterDashboard]
+![Screenshot of cluster details in the dashboard.][ClusterDashboard]
 
 Once your cluster is created, you can inspect your cluster in the portal:
 
@@ -212,7 +212,7 @@ At this point, you have a secure cluster using certificates for management authe
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

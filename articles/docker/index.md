@@ -2,15 +2,14 @@
 title:  Docker on Azure
 description: Deploy and integrate Docker with Azure 
 services: multiple
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
 ms.service: multiple
-ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: carolz
+ms.author: gwallace
 ---
 <div class="content">
    <h1>Docker on Azure</h1>   
@@ -22,7 +21,7 @@ ms.author: carolz
     </div>
 <h2>5-Minute Quickstarts</h2>
 <p>Learn how to deploy Docker on Azure:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Deploy Docker on Ubuntu Quickstart template</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Deploy Docker on Ubuntu Quickstart template</a><br/>
 <h2>Step-by-Step Tutorials</h2>
 <p>Learn how to use Docker in your application and as part of your CI/CD pipeline:</p>
 <ol>

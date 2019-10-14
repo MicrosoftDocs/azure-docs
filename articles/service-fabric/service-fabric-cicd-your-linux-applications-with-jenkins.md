@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous build and integration for your Azure Service Fabric Linux applications using Jenkins | Microsoft Docs
 description: Continuous build and integration for your Service Fabric Linux application using Jenkins
 services: service-fabric
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
+ms.author: jeconnoc
 
 ---
 # Use Jenkins to build and deploy your Linux applications
@@ -248,24 +248,24 @@ The steps in this section show you how to configure a Jenkins job to respond to 
       ```
    
    * **For Jenkins running outside your cluster:** Follow these steps to copy the cluster certificate to your container:
-      1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
+     1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      If the PFX file is password protected, include the password in the `-passin` parameter. For example:
+        If the PFX file is password protected, include the password in the `-passin` parameter. For example:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. To get the container ID for your Jenkins container, run `docker ps` from your host.
-      1. Copy the PEM file to your container with the following Docker command:
+     1. To get the container ID for your Jenkins container, run `docker ps` from your host.
+     1. Copy the PEM file to your container with the following Docker command:
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 You're almost finished! Keep the Jenkins job open. The only remaining task is to configure the post-build steps to deploy your application to your Service Fabric cluster:
 
@@ -296,7 +296,7 @@ For development and test environments, you can configure either Azure credential
    * While following the steps in the topic, be sure to copy and save the following values: *Application ID*, *Application key*, *Directory ID (Tenant ID)*, and *Subscription ID*. You need them to configure the Azure credentials in Jenkins.
    * If you don't have the [required permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to either grant you the permissions or create the service principal for you, or you'll need to configure the management endpoint for your cluster in the **Post-Build Actions** for your job in Jenkins.
    * In the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
-   * In the [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) section, you can assign your application the *Reader* role on the resource group for your cluster.
+   * In the [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) section, you can assign your application the *Reader* role on the resource group for your cluster.
 
 1. Back in the Jenkins job, click the **Post-build Actions** tab.
 1. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 

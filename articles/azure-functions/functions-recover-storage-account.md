@@ -7,9 +7,8 @@ author: alexkarcher-msft
 manager: cfowler
 editor: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.workload: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
@@ -33,6 +32,7 @@ We'll walk through the four most common error cases, how to identify, and how to
 1. Storage Account application settings deleted
 1. Storage Account credentials invalid
 1. Storage Account Inaccessible
+1. Daily Execution Quota Full
 
 ## Storage account deleted
 
@@ -53,20 +53,20 @@ In the previous step, if you did not have a storage account connection string th
 * Required
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Required for Consumption Plan Functions
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentshare)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
 [Read about these application settings here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
 ### Guidance
 
 * Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not set these settings when using automated deployments.
+* Do not modify these settings as part of automated deployments.
 * These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
 
 ## Storage account credentials invalid
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## Storage account inaccessible
 
@@ -75,6 +75,13 @@ Your Function App must be able to access the storage account. Common issues that
 * Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
 * The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## Daily Execution Quota Full
+
+If you have a Daily Execution Quota configured, your Function App will be temporarily disabled and many of the portal controls will become unavailable. 
+
+* To verify, check open Platform Features > Function App Settings in the portal. You will see the following message if you are over quota
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Remove the quota and restart your app to resolve the issue.
 
 ## Next Steps
 
@@ -88,5 +95,5 @@ Now that your Function App is back and operational take a look at our quickstart
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/app-service-web-overview.md)  
+* [Learn more about Azure App Service](../app-service/overview.md)  
   Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 

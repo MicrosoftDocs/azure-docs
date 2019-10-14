@@ -3,9 +3,7 @@ title: How to Use Twilio for Voice and SMS (PHP) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP.
 documentationcenter: php
 services: ''
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 
 ms.assetid: 007f22e3-ac75-4868-8315-da000c2e0dd0
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Use Twilio for Voice and SMS Capabilities in PHP
@@ -71,7 +69,7 @@ When you're ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 ## <a id="create_app"></a>Create a PHP Application
-A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from GitHub][twilio_php]. For more information about using the Twilio library for PHP, see [https://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
+A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from GitHub][twilio_php]. For more information about using the Twilio library for PHP, see [https://www.twilio.com/docs/libraries/php][twilio_lib_docs].
 
 Detailed instructions for building and deploying a Twilio/PHP application to Azure are available at [How to Make a Phone Call Using Twilio in a PHP Application on Azure][howto_phonecall_php].
 
@@ -237,7 +235,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 * [Talk to Twilio Support][twilio_support]
 
 [twilio_php]: https://github.com/twilio/twilio-php
-[twilio_lib_docs]: https://readthedocs.org/docs/twilio-php/en/latest/index.html
+[twilio_lib_docs]: https://www.twilio.com/docs/libraries/php
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: https://www.twilio.com/docs/api/errors
 [twilio_api_service]: https://api.twilio.com

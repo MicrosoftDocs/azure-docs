@@ -2,7 +2,6 @@
 title: Submit MapReduce jobs using HDInsight .NET SDK - Azure 
 description: Learn how to submit MapReduce jobs to Azure HDInsight Apache Hadoop using HDInsight .NET SDK.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 
 ms.service: hdinsight
@@ -17,7 +16,7 @@ ms.author: hrasheed
 
 Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters come with a jar file with some MapReduce samples. The jar file is */example/jars/hadoop-mapreduce-examples.jar*.  One of the samples is *wordcount*. You develop a C# console application to submit a wordcount job.  The job reads the */example/data/gutenberg/davinci.txt* file, and outputs the results to */example/data/davinciwordcount*.  If you want to rerun the application, you must clean up the output folder.
 
-> [!NOTE]
+> [!NOTE]  
 > The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
 > 
 > 
@@ -25,7 +24,7 @@ Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters 
 ## Prerequisites
 Before you begin this article, you must have the following items:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit MapReduce jobs using HDInsight .NET SDK
@@ -167,9 +166,9 @@ When the job completes successfully, the application prints the content of the o
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
-* For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
-* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md).
+* For submitting a Hive job, see [Run Apache Hive queries using HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
+* For creating HDInsight clusters, see [Create Linux-based Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+* For managing HDInsight clusters, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md).
 * For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

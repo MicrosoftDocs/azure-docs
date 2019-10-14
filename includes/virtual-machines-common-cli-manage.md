@@ -40,7 +40,7 @@ For more detailed help with specific command line switches and options, you can 
 ## Disks and images
 | Task | Azure CLI commands |
 | --- | --- |
-| Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Remove a data disk from a VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Resize a disk | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Snapshot a disk | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |

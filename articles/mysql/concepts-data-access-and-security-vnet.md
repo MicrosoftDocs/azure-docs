@@ -1,11 +1,9 @@
 ---
 title: 'Azure Database for MySQL Server VNet services endpoint overview | Microsoft Docs'
 description: 'Describes how VNet service endpoints work for your Azure Database for MySQL server.'
-services: mysql
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
@@ -20,6 +18,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for MySQL server.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -98,10 +97,13 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 > In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
+> - Make sure that both the subscription has the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Limitations
 
 For Azure Database for MySQL, the virtual network rules feature has the following limitations:
+
+- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must Allow Azure services to access server on the server.
 
 - In the firewall for your Azure Database for MySQL, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure Database for MySQL.
 
@@ -138,7 +140,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MySQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md)
 - [Create and manage Azure Database for MySQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
@@ -152,3 +154,5 @@ For articles on creating VNet rules, see:
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

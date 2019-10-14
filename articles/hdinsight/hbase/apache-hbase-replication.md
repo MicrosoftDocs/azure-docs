@@ -1,7 +1,6 @@
 ---
 title: Set up HBase cluster replication in Azure virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,13 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ---
+
 # Set up Apache HBase cluster replication in Azure virtual networks
 
-Learn how to set up [Apache HBase](http://hbase.apache.org/) replication within a virtual network, or between two virtual networks in Azure.
+Learn how to set up [Apache HBase](https://hbase.apache.org/) replication within a virtual network, or between two virtual networks in Azure.
 
 Cluster replication uses a source-push methodology. An HBase cluster can be a source or a destination, or it can fulfill both roles at once. Replication is asynchronous. The goal of replication is eventual consistency. When the source receives an edit to a column family when replication is enabled, the edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters that have already consumed the data are tracked, to prevent replication loops.
 
-In this tutorial, you set up a source-destination replication. For other cluster topologies, see the [Apache HBase reference guide](http://hbase.apache.org/book.html#_cluster_replication).
+In this article, you set up a source-destination replication. For other cluster topologies, see the [Apache HBase reference guide](https://hbase.apache.org/book.html#_cluster_replication).
 
 The following are HBase replication usage cases for a single virtual network:
 
@@ -34,7 +34,7 @@ The following are HBase replication usage cases for two virtual networks:
 You can replicate clusters by using [script action](../hdinsight-hadoop-customize-cluster-linux.md) scripts from [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
-Before you begin this tutorial, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin this article, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Set up the environments
 
@@ -55,7 +55,7 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 Some of the hard-coded values in the template:
 
@@ -115,7 +115,7 @@ To install Bind, use the following procedure:
 
     Replace `sshuser` with the SSH user account you specified when creating the DNS virtual machine.
 
-    > [!NOTE]
+    > [!NOTE]  
 	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -130,7 +130,7 @@ To install Bind, use the following procedure:
 	sudo apt-get install bind9 -y
     ```
 
-3. Configure Bind to forward name resolution requests to your on-prem DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. Configure Bind to forward name resolution requests to your on premises DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
     ```
     acl goodclients {
@@ -156,7 +156,7 @@ To install Bind, use the following procedure:
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace the values in the `goodclients` section with the IP address range of the two virtual networks. This section defines the addresses that this DNS server accepts requests from.
 
     To edit this file, use the following command:
@@ -191,7 +191,7 @@ To install Bind, use the following procedure:
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > You must replace the `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the DNS suffix of the other virtual network. And the forwarder IP is the private IP address of the DNS server in the other virtual network.
 
     To edit this file, use the following command:
@@ -215,7 +215,7 @@ To install Bind, use the following procedure:
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the fully qualified domain name (FQDN) of the DNS virtual machine in the other network.
     >
     > Replace `10.2.0.4` with the __internal IP address__ of your custom DNS server in the other virtual network.
@@ -252,7 +252,7 @@ sudo service bind9 status
 
 ## Create Apache HBase clusters
 
-Create an [Apache HBase](http://hbase.apache.org/) cluster in each of the two virtual networks with the following configuration:
+Create an [Apache HBase](https://hbase.apache.org/) cluster in each of the two virtual networks with the following configuration:
 
 - **Resource group name**: use the same resource group name as you created the virtual networks.
 - **Cluster type**: HBase
@@ -282,16 +282,15 @@ The following steps describe how to call the script action script from the Azure
 4. At the top of the page, select **Submit New**.
 5. Select or enter the following information:
 
-  1. **Name**: Enter **Enable replication**.
-  2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Head**: Ensure this is selected. Clear the other node types.
-  4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
+   1. **Name**: Enter **Enable replication**.
+   2. **Bash Script URL**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **Head**: Ensure this is selected. Clear the other node types.
+   4. **Parameters**: The following sample parameters enable replication for all existing tables, and then copy all data from the source cluster to the destination cluster:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
-    > Use hostname instead of FQDN for both the source and destination cluster DNS name.
+      > [!NOTE]
+      > Use hostname instead of FQDN for both the source and destination cluster DNS name.
 
 6. Select **Create**. The script can take a while to run, especially when you use the **-copydata** argument.
 
@@ -392,7 +391,7 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 
 ## Next steps
 
-In this tutorial, you learned how to set up Apache HBase replication within a virtual network, or between two virtual networks. To learn more about HDInsight and Apache HBase, see these articles:
+In this article, you learned how to set up Apache HBase replication within a virtual network, or between two virtual networks. To learn more about HDInsight and Apache HBase, see these articles:
 
 * [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase overview](./apache-hbase-overview.md)

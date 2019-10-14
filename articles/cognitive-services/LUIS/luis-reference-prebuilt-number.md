@@ -1,15 +1,15 @@
 ---
-title: Number Prebuilt entity
-titleSuffix: Azure
+title: Number Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 11/26/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -36,6 +36,10 @@ Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recog
 LUIS includes the recognized value of a **`builtin.number`** entity in the `resolution` field of the JSON response it returns.
 
 ## Resolution for prebuilt number
+
+
+#### [V2 prediction endpoint response](#tab/V2)
+
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
 ```json
@@ -66,6 +70,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
       "startIndex": 6,
       "endIndex": 14,
       "resolution": {
+        "subtype": "integer",
         "value": "24"
       }
     }
@@ -73,6 +78,68 @@ The following example shows a JSON response from LUIS, that includes the resolut
 }
 ```
 
+#### [V3 prediction endpoint response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "two dozen",
+                        "startIndex": 6,
+                        "length": 9,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 

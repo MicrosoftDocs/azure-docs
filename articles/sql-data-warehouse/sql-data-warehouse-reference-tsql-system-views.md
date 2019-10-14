@@ -1,14 +1,14 @@
-﻿---
+---
 title: System views - Azure SQL Data Warehouse | Microsoft Docs
 description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
@@ -21,6 +21,9 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
+* [sys.pdw_materialized_view_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
+* [sys.pdw_materialized_view_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
+* [sys.pdw_materialized_view_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) (Preview)
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)
@@ -32,6 +35,9 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](https://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](https://msdn.microsoft.com/library/mt203876.aspx)
+* [sys.resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
+* [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) (Preview)
+* [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) (Preview)
 
 ## SQL Data Warehouse dynamic management views (DMVs)
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
@@ -79,6 +85,7 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 * [sys.database_files](https://msdn.microsoft.com/library/ms174397.aspx)
 * [sys.database_permissions](https://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)
+* [sys.database_query_store_options](/sql/relational-databases/system-catalog-views/sys-database-query-store-options-transact-sql?view=azure-sqldw-latest)
 * [sys.database_role_members](https://msdn.microsoft.com/library/ms189780.aspx)
 * [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
@@ -101,6 +108,12 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 * [sys.partition_schemes](https://msdn.microsoft.com/library/ms189752.aspx)
 * [sys.partitions](https://msdn.microsoft.com/library/ms175012.aspx)
 * [sys.procedures](https://msdn.microsoft.com/library/ms188737.aspx)
+* [sys.query_context_settings](/sql/relational-databases/system-catalog-views/sys-query-context-settings-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_plan](/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query](/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query_text](/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats_interval](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql?view=azure-sqldw-latest)
 * [sys.schemas](https://msdn.microsoft.com/library/ms176011.aspx)
 * [sys.securable_classes](https://msdn.microsoft.com/library/ms408301.aspx)
 * [sys.sql_expression_dependencies](https://msdn.microsoft.com/library/bb677315.aspx)
@@ -188,8 +201,6 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 | sys.dm_pdw_nodes_os_wait_stats |[sys.dm_os_wait_stats](https://msdn.microsoft.com/library/ms179984.aspx) |
 | sys.dm_pdw_nodes_os_waiting_tasks |[sys.dm_os_waiting_tasks](https://msdn.microsoft.com/library/ms188743.aspx) |
 | sys.dm_pdw_nodes_os_workers |[sys.dm_os_workers](https://msdn.microsoft.com/library/ms178626.aspx) |
-| sys.dm_pdw_nodes_resource_governor_resource_pools |[sys.dm_resource_governor_resource_pools](https://msdn.microsoft.com/library/bb934023.aspx) |
-| sys.dm_pdw_nodes_resource_governor_workload_groups |[sys.dm_resource_governor_workload_groups](https://msdn.microsoft.com/library/bb934197.aspx) |
 | sys.dm_pdw_nodes_tran_active_snapshot_database_transactions |[sys.dm_tran_active_snapshot_database_transactions](https://msdn.microsoft.com/library/ms180023.aspx) |
 | sys.dm_pdw_nodes_tran_active_transactions |[sys.dm_tran_active_transactions](https://msdn.microsoft.com/library/ms174302.aspx) |
 | sys.dm_pdw_nodes_tran_commit_table |[sys.dm_tran_commit_table](https://msdn.microsoft.com/library/cc645959.aspx) |

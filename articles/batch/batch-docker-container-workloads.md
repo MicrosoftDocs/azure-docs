@@ -1,16 +1,16 @@
 ---
-title: Container workloads on Azure Batch | Microsoft Docs
+title: Container workloads - Azure Batch | Microsoft Docs
 description: Learn how to run applications from container images on Azure Batch.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
-ms.author: danlep
+ms.date: 08/09/2019
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 
@@ -86,7 +86,7 @@ Additional considerations for using a custom Linux image:
 
 ## Container configuration for Batch pool
 
-To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/azure.batch) API.)
+To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/overview/azure/batch) API.)
 
 You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you pre-load container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
 
@@ -100,10 +100,10 @@ To configure a container-enabled pool without prefetched container images, defin
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='16-04-lts',
-        version='latest')
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
 
 """
 Specify container configuration. This is required even though there are no prefetched images.
@@ -112,13 +112,13 @@ Specify container configuration. This is required even though there are no prefe
 container_conf = batch.models.ContainerConfiguration()
 
 new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-            image_reference=image_ref_to_use,
-            container_configuration=container_conf,
-            node_agent_sku_id='batch.node.ubuntu 16.04'),
-        vm_size='STANDARD_D1_V2',
-        target_dedicated_nodes=1)
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
 ...
 ```
 
@@ -140,7 +140,8 @@ image_ref_to_use = batch.models.ImageReference(
 Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
 """
 
-container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+container_conf = batch.models.ContainerConfiguration(
+    container_image_names=['ubuntu'])
 
 new_pool = batch.models.PoolAddParameter(
     id=pool_id,
@@ -223,7 +224,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 To run a container task on a container-enabled pool, specify container-specific settings. Settings include the image to use, registry, and container run options.
 
-* Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class.
+* Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. Note that the `--rm` container option doesn't require an additional `--runtime` option since it is taken care of by Batch. 
 
 * If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 
@@ -270,14 +271,13 @@ The following Python snippet shows a basic command line running in a container c
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='myimage', 
+    image_name='myimage',
     container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
     command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
-
 ```
 
 The following C# example shows basic container settings for a cloud task:

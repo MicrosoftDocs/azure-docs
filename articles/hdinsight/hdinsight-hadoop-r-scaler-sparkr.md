@@ -1,9 +1,9 @@
 ---
 title: Use ScaleR and SparkR with Azure HDInsight
-description: Use ScaleR and SparkR with ML Services on HDInsight
-services: hdinsight
+description: Use ScaleR and SparkR for data manipulation and model development with ML Services on Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -14,9 +14,9 @@ ms.date: 06/19/2017
 
 This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
-Although both packages run on Hadoop’s Spark execution engine, they are blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
+Although both packages run on Apache Hadoop’s Spark execution engine, they are blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
 
-This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
 The code was originally written for ML Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments.
 
@@ -24,9 +24,9 @@ The steps in this document assume that you have an intermediate level of knowled
 
 ## The airline and weather datasets
 
-The flight data is available from the [U.S. government archives](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It is also available as a zip from [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It is also available as a zip from [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](http://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips. 
+The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](https://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips. 
 
 ## Setting up the Spark environment
 
@@ -36,7 +36,7 @@ Use the following code to set up the Spark environment:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -189,7 +189,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## Importing the airline and weather data to Spark DataFrames
 
-Now we use the SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, are executed lazily, meaning that they are queued for execution but not executed until required.
+Now we use the SparkR [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) function to import the weather and airline data to Spark DataFrames. This function, like many other Spark methods, are executed lazily, meaning that they are queued for execution but not executed until required.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -262,7 +262,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://spark.apache.org/docs/latest/api/R/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -501,7 +501,7 @@ plot(logitRoc)
 
 ## Scoring elsewhere
 
-We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
+We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as MIcrosoft SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
 
 ```
 # save the model and a sample of the test dataset 
@@ -530,14 +530,12 @@ In this article, we’ve shown how it’s possible to combine use of SparkR for 
 
 ## Next steps and more information
 
-- For more information on use of ML Server on Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- For general information on ML Server, see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
-
-- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md) and [Get started with ML Services on Azure HDInsight](r-server/r-server-get-started.md).
+- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
 For more information on use of SparkR, see:
 
-- [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) from Databricks
+- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) from Databricks.

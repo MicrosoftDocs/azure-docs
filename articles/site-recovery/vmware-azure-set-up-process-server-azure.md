@@ -28,7 +28,7 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 3. In **Add process server** page, and select to deploy the process server in Azure.
 4. Specify the Azure settings, including the subscription used for failover, a resource group, the Azure region used for failover, and the virtual network in which the Azure VMs are located. If you used multiple Azure networks, you need a process server in each one.
 
-  ![Add process server gallery item](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Add process server gallery item](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. In **Server name**, **User name**, and **Password**, specify a name for the process server, and credentials that will be assigned Admin permissions on the server.
 5. Specify a storage account to be used for the server VM disks, the subnet in which the process server VM will be located, and the server IP address that will be assigned when the VM starts.

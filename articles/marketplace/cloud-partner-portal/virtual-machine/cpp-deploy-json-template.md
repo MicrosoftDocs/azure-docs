@@ -1,20 +1,12 @@
 ---
-title: Azure VHD deployment template | Microsoft Docs
+title: Azure VHD deployment template | Azure Marketplace
 description: Lists the Azure Resource Manager template required to deploy a new Azure virtual machine from a user virtual hard disk.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Virtual hard disk deployment template 
@@ -23,7 +15,7 @@ The following Azure Resource Manager template defines a new Azure virtual machin
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "userStorageAccountName": {

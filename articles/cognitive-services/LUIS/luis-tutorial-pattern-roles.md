@@ -1,24 +1,42 @@
 ---
-title: Pattern roles
+title: "Tutorial: Pattern roles - LUIS"
 titleSuffix: Azure Cognitive Services
-description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
+description: Patterns extract data from well-formatted template utterances. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 09/05/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial 4: Extract contextually-related patterns
+# Tutorial: Extract contextually related patterns using roles
 
-In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
+In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a [simple entity](luis-concept-entity-types.md#simple-entity) and [roles](luis-concept-roles.md) to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
-The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
+
+**In this tutorial, you learn how to:**
+
+> [!div class="checklist"]
+> * Import example app
+> * Create new entities
+> * Create new intent
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+> * Create pattern with roles
+> * Create phrase list of Cities
+> * Get intents and entities from endpoint
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Using roles in patterns
+
+The purpose of roles is to extract contextually related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
 
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
@@ -33,27 +51,12 @@ Because the example utterance `Move new employee Robert Williams from Sacramento
 
 If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
 
-**In this tutorial, you learn how to:**
-
-> [!div class="checklist"]
-> * Use existing tutorial app
-> * Create new entities
-> * Create new intent
-> * Train
-> * Publish
-> * Get intents and entities from endpoint
-> * Create pattern with roles
-> * Create phrase list of Cities
-> * Get intents and entities from endpoint
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
+## Import example app
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Import the JSON into a new app.
 
@@ -362,23 +365,10 @@ Cities, like people's names are tricky in that they can be any mix of words and 
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 The intent score is now much higher and the role names are part of the entity response.
-
-## Hierarchical entities versus roles
-
-In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the hierarchical entity. 
-
-In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are the same but solved with different LUIS abilities.
-
-|Tutorial|Example utterance|Origin and destination locations|
-|--|--|--|
-|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Clean up resources
 

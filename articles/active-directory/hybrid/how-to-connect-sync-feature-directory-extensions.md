@@ -4,19 +4,20 @@ description: This topic describes the directory extensions feature in Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Directory extensions
 You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph API directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://developer.microsoft.com/graph/). You can see the available attributes by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectively.
@@ -38,7 +39,7 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
-> Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions. But no features in Azure AD currently support the use of multi-valued directory extensions.
+> Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
@@ -57,7 +58,7 @@ These attributes are now available through the Azure AD Graph API. You can query
 Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> You need to ask for the attributes to be returned. Explicitly select the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> You need to ask for the attributes to be returned. Explicitly select the attributes like this: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

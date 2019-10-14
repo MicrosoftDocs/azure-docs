@@ -3,13 +3,13 @@ title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
-ms.author: agaiha
+ms.date: 12/13/2018 
+ms.author: gwallace
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
@@ -33,9 +33,7 @@ This extension works with both Azure deployment models.
 
 ## Installing the extension in your VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](features-linux.md).
-
-The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
+You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
 
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
@@ -56,10 +54,10 @@ The downloadable configuration is just an example; modify it to suit your own ne
 
 ### Sample installation
 
-Fill in the correct parameters on the first three lines, then execute this script as root:
+Fill in the correct values for the variables in the first section before running:
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -132,9 +130,7 @@ storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
 
-
-> [!NOTE]
-> When deploying the extension with an Azure deployment template, the storage account and SAS token must be created beforehand and then passed to the template. You can't deploy a VM, storage account, and configure the extension in a single template. Creating a SAS token within a template is not currently supported.
+To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 You can easily construct the required SAS token through the Azure portal.
 
@@ -313,7 +309,7 @@ type | Identifies the actual provider of the metric.
 class | Together with "counter", identifies the specific metric within the provider's namespace.
 counter | Together with "class", identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the [`builtin` metric definitions](#metrics-supported-by-builtin).
+condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
 sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If not set, the collection interval is set by the value of [sampleRateInSeconds](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Should be one of these strings: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
@@ -383,7 +379,7 @@ This optional section controls execution of arbitrary [OMI](https://github.com/M
 
 Element | Value
 ------- | -----
-namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://github.com/Microsoft/SCXcore).
 query | The OMI query to be executed.
 table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
@@ -497,7 +493,9 @@ ReadsPerSecond | Read operations per second
 WritesPerSecond | Write operations per second
 TransfersPerSecond | Read or write operations per second
 
-Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`.
+Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`. 
+
+**NOTE**: If using the Azure Portal instead of JSON, the correct condition field form is Name='/mnt'
 
 ### builtin metrics for the Disk class
 

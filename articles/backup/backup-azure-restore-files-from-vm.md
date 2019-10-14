@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pullabhk
+ms.date: 03/01/2019
+ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
 
@@ -23,7 +23,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 
 To restore files or folders from the recovery point, go to the virtual machine and choose the desired recovery point.
 
-1. Sign in to the [Azure portal](http://portal.Azure.com) and in the left pane, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard.
+1. Sign in to the [Azure portal](https://portal.Azure.com) and in the left pane, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard.
 
 2. In the virtual machine's menu, click **Backup** to open the Backup dashboard.
 
@@ -61,17 +61,23 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     - download.microsoft.com
     - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (For Azure public geos)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China 21Vianet)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (For Azure US Government)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (For Azure Germany)
     - outbound port 3260
 
-    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+> [!Note]
+> 
+> * The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678.....<br><br>
+> * The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
-    The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
-    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+   For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+
+   The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
+
+   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
 
 ### Identifying Volumes
 
@@ -86,7 +92,7 @@ When you run the executable, the operating system mounts the new volumes and ass
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 ## Closing the connection
 
 After identifying the files and copying them to a local storage location, remove (or unmount) the additional drives. To unmount the drives, on the **File Recovery** menu in the Azure portal, click **Unmount Disks**.
@@ -103,8 +109,8 @@ In Linux, after the connection to the recovery point is severed, the OS doesn't 
 
 If the protected Azure VM has volumes with one or both of the following characteristics, you can't run the executable script on the same VM.
 
-    - Volumes that span multiple disks (spanned and striped volumes)
-    - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks
+- Volumes that span multiple disks (spanned and striped volumes)
+- Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks
 
 Instead, run the executable script on any other computer with a compatible operating system.
 
@@ -194,6 +200,11 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
 
+> [!Note]
+> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS. Investigating with SLES team.
+> Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
+>
+
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 
 |Component | Version  |
@@ -214,4 +225,42 @@ If you have problems while recovering files from the virtual machines, check the
 | On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked | The iSCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache. |  After clicking **Dismount**, wait a few minutes. If the new volumes are not dismounted, browse through all volumes. Browsing all volumes forces the initiator to refresh the connection, and the volume is dismounted with an error message that the disk is not available.|
 | Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |    This is a transient error    | The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
 | Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the protected VM | Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the protected VM's filesystem |
-| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state try making them online by right-clicking on the disk and click 'Online'|
+| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state, try making them online by right-clicking on the disk and click 'Online'|
+
+## Security
+
+This section discusses the various security measures taken for the implementation of File recovery from Azure VM backups, such that users are aware of the security aspects of the feature.
+
+### Feature flow
+
+This feature was built to access the VM data without the need to restore the entire VM or VM disks and in minimum steps. Access to VM data is provided by a script (which mounts the recovery volume when run as shown below) and hence it forms the cornerstone of all security implementations
+
+  ![Security Feature Flow](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+
+### Security implementations
+
+#### Select Recovery point (who can generate script)
+
+The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to log in into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
+
+File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
+
+The generated script is signed with official Microsoft certificate for Azure Backup service. Any tampering with the script means that the signature is broken and any attempt to run the script is highlighted as a potential risk by the OS.
+
+#### Mount Recovery volume (who can run script)
+
+Only Admin can run the script and should run it in elevated mode. The script only runs a pre-generated set of steps and does not accept input from any external source.
+
+To run the script, one requires a password that is only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure that the authorized user who downloads the script is also responsible for running the script.
+
+#### Browse files and folders
+
+To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that is configured as an iSCSI target. Here one can assume scenarios where one is trying to imitate/spoof either/all components.
+
+We use mutual CHAP authentication mechanism so that each component authenticates the other. This means it is extremely difficult for a fake initiator to connect to the iSCSI target and a fake target to be connected to the machine where the script is run.
+
+The data flow between the recovery service and the machine is protected by building a secure SSL tunnel over TCP ([TLS 1.2 should be supported](#system-requirements) in the machine where script is run)
+
+Any file Access Control List (ACL) present in the parent/backed up VM are preserved in the mounted file system also.
+
+The script gives read-only access to a recovery point and is valid for only 12 hours. If the user wishes to remove the access earlier, then sign into Azure Portal/PowerShell/CLI and perform the **unmount disks** for that particular recovery point. The script will be invalidated immediately.

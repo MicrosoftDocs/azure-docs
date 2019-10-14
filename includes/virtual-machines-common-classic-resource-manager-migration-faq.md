@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
 
 ---
@@ -50,7 +50,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 <a name="vault">When</a> you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
 
 1. In the Recovery Services vault, go to the **Protected Items** tab and select the VM. 
-2. Click [Stop Protection](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+2. Click Stop Protection. Leave *Delete associated backup data* option **unchecked**.
 
 > [!NOTE]
 > You will be charged backup instance cost till you retain data. Backup copies will be pruned as per retention range. However, last backup copy is always kept until you explicitly delete backup data. It is advised to check your retention range of the Virtual machine and trigger "Delete Backup Data" on the protected item in the vault once the retention range is over. 
@@ -78,7 +78,7 @@ Post your issues and questions about migration to our [VM forum](https://social.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 
-All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
+All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](https://feedback.azure.com).
 
 ## Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
 

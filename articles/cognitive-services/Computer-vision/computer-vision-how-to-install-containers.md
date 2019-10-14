@@ -1,130 +1,324 @@
 ---
-title: Install and run containers
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: How to install and run containers - Computer Vision
+titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
-manager: cgronlun
-ms.custom: seodec18
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
-ms.topic: article
-ms.date: 11/14/2018
-ms.author: diberry
+ms.subservice: computer-vision
+ms.topic: conceptual
+ms.date: 10/03/2019
+ms.author: dapine
+ms.custom: seodec18
 ---
 
-# Install and run containers
+# Install and run Computer Vision containers
 
-Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
+Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 
-The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
+There are two Docker containers available for Computer Vision: *Recognize Text* and *Read*. The *Recognize Text* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The *Read* container, however; also detects *handwritten text* in images and provides PDF/TIFF/multi-page support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+
 > [!IMPORTANT]
-> The Recognize Text container currently works only with English.
+> The Recognize Text container is being deprecated in favor of the Read container. The Read container is a superset of its predecessor the Recognize Text container, and consumers should migrate to using the Read container. Both containers work only with English.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Preparation
+## Prerequisites
 
-You must meet the following prerequisites before using the Recognize Text container:
+You must meet the following prerequisites before using the containers:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+|Required|Purpose|
+|--|--|
+|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
+|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
+|Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
-Docker must be configured to allow the containers to connect with and send billing data to Azure.
-
-**Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
-
-For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
-
-### Container requirements and recommendations
-
-The Recognize Text container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 8 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 8 GB of allocated memory.
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Request access to the private container registry
 
-You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Recognize Text container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
+### The host computer
 
-If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-## Create a Computer Vision resource on Azure
+### Container requirements and recommendations
 
-You must create a Computer Vision resource on Azure if you want to use the Recognize Text container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
-Perform the following steps to create and retrieve information from an Azure resource:
+## Get the container image with `docker pull`
 
-1. Create an Azure resource in the Azure portal.  
-   If you want to use the Recognize Text container, you must first create a corresponding Computer Vision resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
+# [Read](#tab/read)
 
-1. Get the endpoint URL and subscription key for the Azure resource.  
-   Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Recognize Text container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Computer Vision resource on the Azure portal.
+Container images for Read are available.
 
-## Log in to the private container registry
+| Container | Container Registry / Repository / Image Name |
+|-----------|------------|
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
+# [Recognize Text](#tab/recognize-text)
 
-Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
+Container images for Recognize Text are available.
 
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
+| Container | Container Registry / Repository / Image Name |
+|-----------|------------|
+| Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+
+***
+
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
+
+# [Read](#tab/read)
+
+### Docker pull for the Read container
+
+```bash
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
 
-If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
+# [Recognize Text](#tab/recognize-text)
 
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
+### Docker pull for the Recognize Text container
 
-## Download container images from the private container registry
-
-The container image for the Recognize Text container is available from a private Docker container registry, named `containerpreview.azurecr.io`, in Azure Container Registry. The container image for the Recognize Text container must be downloaded from the repository to run the container locally.
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Recognize Text container image from the repository, use the following command:
-
-```Docker
+```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
-For a full description of available tags for the Recognize Text container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
+***
 
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## Instantiate a container from a downloaded container image
+## How to use the container
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
+Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-* Instantiates a container from the Recognize Text container image
-* Allocates two CPU cores and 8 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](computer-vision-resource-container-config.md) of the `docker run` command are available. 
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
-```docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westus.api.cognitive.microsoft.com/vision/v2.0 ApiKey=0123456789
+## Run the container with `docker run`
+
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+
+[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+
+# [Read](#tab/read)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+containerpreview.azurecr.io/microsoft/cognitive-services-read \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Recognize Text container that was instantiated in the previous example:
+This command:
+
+* Runs the Read container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+# [Recognize Text](#tab/recognize-text)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs the Recognize Text container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+***
+
+More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+
+> [!IMPORTANT]
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+## Query the container's prediction endpoint
+
+The container provides REST-based query prediction endpoint APIs. 
+
+Use the host, `http://localhost:5000`, for container APIs.
+
+# [Read](#tab/read)
+
+### Asynchronous read
+
+You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
+
+![tabs vs spaces](media/tabs-vs-spaces.png)
+
+When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
 
 ```http
-http://localhost:5000/
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
 ```
 
-> [!IMPORTANT]
-> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Recognize Text container that was instantiated in the previous example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
 
-You can either [call the REST API operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) available from your container for asynchronously or synchronously recognizing text, or use the [Azure Cognitive Services Computer Vision SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library to call those operations.  
-> [!IMPORTANT]
-> You must have Azure Cognitive Services Computer Vision SDK version 3.2.0 or later if you want to use the client library with your container.
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [
+            56,
+            39,
+            317,
+            50,
+            313,
+            134,
+            53,
+            123
+          ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [
+                90,
+                43,
+                243,
+                53,
+                243,
+                123,
+                94,
+                125
+              ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [
+                259,
+                55,
+                313,
+                62,
+                313,
+                122,
+                259,
+                123
+              ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [
+            221,
+            148,
+            417,
+            146,
+            417,
+            206,
+            227,
+            218
+          ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [
+                230,
+                148,
+                416,
+                141,
+                419,
+                211,
+                232,
+                218
+              ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Synchronous read
+
+You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+
+```json
+{
+    status: "Failed"
+}
+```
+
+The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
+
+```typescript
+export interface AnalyzeResult {
+    status: Status;
+    recognitionResults?: RecognitionResult[] | null;
+}
+
+export enum Status {
+    NotStarted = 0,
+    Running = 1,
+    Failed = 2,
+    Succeeded = 3
+}
+
+export enum Unit {
+    Pixel = 0,
+    Inch = 1
+}
+
+export interface RecognitionResult {
+    page?: number | null;
+    clockwiseOrientation?: number | null;
+    width?: number | null;
+    height?: number | null;
+    unit?: Unit | null;
+    lines?: Line[] | null;
+}
+
+export interface Line {
+    boundingBox?: number[] | null;
+    text: string;
+    words?: Word[] | null;
+}
+
+export interface Word {
+  boundingBox?: number[] | null;
+  text: string;
+  confidence?: string | null;
+}
+```
+
+For an example use-case, see the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and select "Run" to visualize its ease-of-use.
+
+# [Recognize Text](#tab/recognize-text)
 
 ### Asynchronous text recognition
 
@@ -132,39 +326,49 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 
 ### Synchronous text recognition
 
-You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as that for the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
+You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
-### Billing
+***
 
-The Recognize Text container sends billing information to Azure, using a corresponding Computer Vision resource on your Azure account. The following options are used by the Recognize Text container for billing purposes:
+## Stop the container
 
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the Computer Vision resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned Computer Vision Azure resource specified in `Billing`. |
-| `Billing` | The endpoint of the Computer Vision resource used to track billing  information.<br/>The value of this option must be set to the endpoint URI of a provisioned Computer Vision Azure resource.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+## Troubleshooting
 
-For more information about these options, see [Configure containers](computer-vision-resource-container-config.md).
+If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+## Billing
+
+The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
+
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+
+For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
+
+<!--blogs/samples/video course -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:
 
-* Computer Vision provides one Linux containers for Docker, to detect and extract printed text.
-* Container images are downloaded from a private container registry in Azure.
+* Computer Vision provides a Linux container for Docker, encapsulating both Recognize Text and Read.
+* Container images are downloaded from the "Container Preview" container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Computer Vision containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Recognize Text or Read containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text  
+* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

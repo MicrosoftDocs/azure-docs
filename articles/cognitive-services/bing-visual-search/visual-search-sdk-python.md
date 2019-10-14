@@ -3,220 +3,96 @@ title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
 description: Setup for Visual search SDK Python console application.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
+ms.date: 06/18/2019
+ms.author: aahi
 ---
 
-# Quickstart: Bing Visual Search SDK Python
+# Quickstart: Get image insights using the Bing Visual Search SDK for Python
 
-The Bing Visual Search SDK uses the functionality of the REST API for web requests and parsing results.
-The [source code for Python Bing Visual Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) is available on Git Hub.
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Python SDK. While Bing Visual Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-Code scenarios are documented under the following headings:
-* [Visual Search Client](#client)
-* [Complete console application](#complete-console)
-* [Image binary post with cropArea](#binary-crop)
-* [KnowledgeRequest parameter](#knowledge-req)
-* [Tags, actions, and actionType](#tags-actions)
+## Prerequisites
 
-## Application dependencies
-* For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
-
-To start a subscription in Azure portal:
-1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
-2. Under Marketplace in the drop-down list, select `Bing Search v7`.
-3. Enter `Name` for the new resource.
-4. Select `Pay-As-You-Go` subscription.
-5. Select `S9` pricing tier.
-6. Click `Enable` to start the subscription.
- 
-* If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
-* The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
-```
-python -m venv mytestenv
-```
-Install Bing Visual Search SDK dependencies:
-```
-cd mytestenv
-python -m pip install azure-cognitiveservices-search-visualsearch
-```
-
-<a name="client"></a> 
-## Visual Search client
-To create an instance of the `VisualSearchAPI` client, import the following libraries:
-```
-import http.client, urllib.parse
-import json
-import os.path
-from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
-from azure.cognitiveservices.search.visualsearch.models import (
-    VisualSearchRequest,
-    CropArea,
-    ImageInfo,
-    Filters,
-    KnowledgeRequest,
-)
-```
-Replace the subscriptionKey string value with your valid subscription key.
-```
-subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
-```
-Then, instantiate the client:
-```
-var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-```
-Use the client to search images and parse results:
-```
-PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
-image_path = os.path.join(PATH, "image.jpg")
-
-with open(image_path, "rb") as image_fd:
-
-    # You need to pass the serialized form of the model
-    knowledge_request = json.dumps(VisualSearchRequest().serialize())
-
-    print("\r\nSearch visual search request with binary of dog image")
-    result = client.images.visual_search(image=image_fd, knowledge_request=knowledge_request)
-		
-    if not result:
-        print("No visual search result data.")
-
-        # Visual Search results
-    if result.image.image_insights_token:
-        print("Uploaded image insights token: {}".format(result.image.image_insights_token))
-    else:
-        print("Couldn't find image insights token!")
-
-    # List of tags
-    if result.tags:
-        first_tag = result.tags[0]
-        print("Visual search tag count: {}".format(len(result.tags)))
-
-        # List of actions in first tag
-        if first_tag.actions:
-            first_tag_action = first_tag.actions[0]
-            print("First tag action count: {}".format(len(first_tag.actions)))
-            print("First tag action type: {}".format(first_tag_action.action_type))
-        else:
-            print("Couldn't find tag actions!")
-    else:
-        print("Couldn't find image tags!")
-
-```
-
-<a name="complete-console"></a> 
-## Complete console application
-
-The following console application executes the previously defined query and parses the results:
-```
-import http.client, urllib.parse
-import json
-import os.path
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
-
-PATH = 'C:\\Users\\v-gedod\\azure-cognitive-samples\\mytestenv\\TestImages\\'
-
-from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
-from azure.cognitiveservices.search.visualsearch.models import (
-    VisualSearchRequest,
-    CropArea,
-    ImageInfo,
-    Filters,
-    KnowledgeRequest,)
-
-from msrest.authentication import CognitiveServicesCredentials
-
-client = VisualSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-image_path = os.path.join(PATH, "image.jpg")
-
-with open(image_path, "rb") as image_fd:
-
-    # You need to pass the serialized form of the model
-    knowledge_request = json.dumps(VisualSearchRequest().serialize())
-
-    print("\r\nSearch visual search request with binary of dog image")
-    result = client.images.visual_search(image=image_fd, knowledge_request=knowledge_request)
-		
-    if not result:
-        print("No visual search result data.")
-
-        # Visual Search results
-    if result.image.image_insights_token:
-        print("Uploaded image insights token: {}".format(result.image.image_insights_token))
-    else:
-        print("Couldn't find image insights token!")
-
-    # List of tags
-    if result.tags:
-        first_tag = result.tags[0]
-        print("Visual search tag count: {}".format(len(result.tags)))
-
-        # List of actions in first tag
-        if first_tag.actions:
-            first_tag_action = first_tag.actions[0]
-            print("First tag action count: {}".format(len(first_tag.actions)))
-            print("First tag action type: {}".format(first_tag_action.action_type))
-        else:
-            print("Couldn't find tag actions!")
-    else:
-        print("Couldn't find image tags!")
+* [Python](https://www.python.org/) 2.x or 3.x
+* It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv).
+* The Bing Visual Search SDK for Python. You can install it with the following commands:
+    1. `cd mytestenv`
+    2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
 
-# Uncomment these methods to include code under the following headings of this documentation.
-#search_image_binary_with_crop_area(client, subscription_key, PATH)
-#search_url_with_filters(client, subscription_key)
-#search_insights_token_with_crop_area(client, subscription_key)
 
-```
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `VisualSrchSDK` class.
 
-<a name="binary-crop"></a>
-## Image binary post with cropArea
+## Create and initialize the application
 
-The following code sends an image binary in the body of the post request, along with a cropArea object.  Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
+1. Create a new Python file in your favorite IDE or editor, and add the following import statements. 
 
-```
-def search_image_binary_with_crop_area(client, sub_key, file_path):
+    ```python
+    import http.client, urllib.parse
+    import json
+    import os.path
+    from azure.cognitiveservices.search.visualsearch import VisualSearchClient
+    from azure.cognitiveservices.search.visualsearch.models import (
+        VisualSearchRequest,
+        CropArea,
+        ImageInfo,
+        Filters,
+        KnowledgeRequest,
+    )
+    from msrest.authentication import CognitiveServicesCredentials
+    ```
+2. Create variables for your subscription key, Custom Configuration ID, and the image you want to upload. 
+    
+    ```python
+    subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
+    PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
+    image_path = os.path.join(PATH, "image.jpg")
+    
+    ```
 
-    #client = VisualSearchAPI(CognitiveServicesCredentials(sub_key))
+3. Instantiate the client
 
-    image_path = os.path.join(file_path, "image.jpg")
+    ```python
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
+    ```
+
+## Send the search request
+
+1. With the image file open, serialize `VisualSearchRequest()`, and pass it as the `knowledge_request` parameter for the `visual_search()`.
+
+    ```python
     with open(image_path, "rb") as image_fd:
-
-        crop_area = CropArea(top=0.1,bottom=0.5,left=0.1,right=0.9)
-        knowledge_request = VisualSearchRequest(image_info=ImageInfo(crop_area=crop_area))
-
         # You need to pass the serialized form of the model
-        knowledge_request = json.dumps(knowledge_request.serialize())
-
+        knowledge_request = json.dumps(VisualSearchRequest().serialize())
+    
         print("\r\nSearch visual search request with binary of dog image")
         result = client.images.visual_search(image=image_fd, knowledge_request=knowledge_request)
+    ```
 
-        if not result:
+2. If any results were returned, print them, the tags, and the actions in the first tag.
+
+    ```python
+    if not result:
             print("No visual search result data.")
-            return
-
-        # Visual Search results
+    
+            # Visual Search results
         if result.image.image_insights_token:
             print("Uploaded image insights token: {}".format(result.image.image_insights_token))
         else:
             print("Couldn't find image insights token!")
-
+    
         # List of tags
         if result.tags:
             first_tag = result.tags[0]
             print("Visual search tag count: {}".format(len(result.tags)))
-
+    
             # List of actions in first tag
             if first_tag.actions:
                 first_tag_action = first_tag.actions[0]
@@ -226,108 +102,9 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
                 print("Couldn't find tag actions!")
         else:
             print("Couldn't find image tags!")
-
-
-```
-<a name="knowledge-req"></a>
-## KnowledgeRequest parameter
-
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:pinterest.com\" filter. Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
-```
-def search_url_with_filters(client_in, sub_key):
-
-    client = client_in
-
-    image_url = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80"
-    filters = Filters(site="pinterest.com")
-
-    knowledge_request = VisualSearchRequest(
-        image_info=ImageInfo(url=image_url),
-        knowledge_request=KnowledgeRequest(filters=filters)
-    )
-
-    # You need to pass the serialized form of the model
-    knowledge_request = json.dumps(knowledge_request.serialize())
-
-    print("\r\nSearch visual search request with url of dog image")
-    result = client.images.visual_search(knowledge_request=knowledge_request)
-
-    if not result:
-        print("No visual search result data.")
-        return
-
-    # Visual Search results
-    if result.image.image_insights_token:
-        print("Uploaded image insights token: {}".format(result.image.image_insights_token))
-    else:
-        print("Couldn't find image insights token!")
-
-    # List of tags
-    if result.tags:
-        first_tag = result.tags[0]
-        print("Visual search tag count: {}".format(len(result.tags)))
-
-        # List of actions in first tag
-        if first_tag.actions:
-            first_tag_action = first_tag.actions[0]
-            print("First tag action count: {}".format(len(first_tag.actions)))
-            print("First tag action type: {}".format(first_tag_action.action_type))
-        else:
-            print("Couldn't find tag actions!")
-    else:
-        print("Couldn't find image tags!")
-
-```
-<a name="tags-actions"></a>
-## Tags, actions, and actionType
-
-The following code sends an image insights token in the knowledgeRequest parameter, along with a cropArea object. Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
-
-```
-    client = client_in
-
-    image_insights_token = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D"
-    crop_area = CropArea(top=0.1,bottom=0.5,left=0.1,right=0.9)
-
-    knowledge_request = VisualSearchRequest(
-        image_info=ImageInfo(
-            image_insights_token=image_insights_token,
-            crop_area=crop_area
-        ),
-    )
-
-    # You need to pass the serialized form of the model
-    knowledge_request = json.dumps(knowledge_request.serialize())
-
-    print("\r\nSearch visual search request with URL of dog image")
-    result = client.images.visual_search(knowledge_request=knowledge_request)
-
-    if not result:
-        print("No visual search result data.")
-        return
-
-    # Visual Search results
-    if result.image.image_insights_token:
-        print("Uploaded image insights token: {}".format(result.image.image_insights_token))
-    else:
-        print("Couldn't find image insights token!")
-
-    # List of tags
-    if result.tags:
-        first_tag = result.tags[0]
-        print("Visual search tag count: {}".format(len(result.tags)))
-
-        # List of actions in first tag
-        if first_tag.actions:
-            first_tag_action = first_tag.actions[0]
-            print("First tag action count: {}".format(len(first_tag.actions)))
-            print("First tag action type: {}".format(first_tag_action.action_type))
-        else:
-            print("Couldn't find tag actions!")
-    else:
-        print("Couldn't find image tags!")
-```
+    ```
 
 ## Next steps
 
-[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+> [!div class="nextstepaction"]
+> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)

@@ -44,10 +44,10 @@ This script uses the following commands to create the storage account and retrie
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account in the specified resource group. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Displays the storage account access keys for the specified account. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Regenerates the primary or secondary storage account access key. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account) | Creates an Azure Storage account in the specified resource group. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Displays the storage account access keys for the specified account. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Regenerates the primary or secondary storage account access key. |
 
 ## Next steps
 

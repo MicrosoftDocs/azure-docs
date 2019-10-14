@@ -1,13 +1,12 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
 ---
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
@@ -69,7 +68,9 @@ Compute clusters are created close to storage account resources in an Azure regi
 
 ## Use external metadata stores
 
+
 There are two main metastores that work with HDInsight clusters: [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/). The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Spark, LLAP, Presto, and Apache Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
+
 
 HDInsight uses Azure SQL Database for Hive and Oozie metastores. There are two ways to set up a metastore in HDInsight clusters:
 
@@ -97,7 +98,7 @@ Some HDInsight Hive metastore best practices are as follows:
 - Don't share the metastore created for one HDInsight cluster version with clusters of a different version. Different Hive versions use different schemas. For example, a metastore can't be shared with both Hive 1.2 and Hive 2.1 clusters.
 - Back up the custom metastore periodically.
 - Keep the metastore and HDInsight cluster in the same region.
-- Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Log Analytics.
+- Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Monitor logs.
 - Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## Best practices for different workloads

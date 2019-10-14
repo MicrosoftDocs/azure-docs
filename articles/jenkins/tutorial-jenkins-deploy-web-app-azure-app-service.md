@@ -1,13 +1,14 @@
 ---
-title: Tutorial - Deploy from GitHub to Azure App Service with Jenkins
+title: 'Tutorial: Deploy from GitHub to Azure App Service with Jenkins'
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure App Service for Java web apps
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service with Jenkins continuous integration and deployment
@@ -19,9 +20,9 @@ deployment (CD) in Jenkins. When you update the app by
 pushing commits to GitHub, Jenkins automatically builds 
 and republishes your app to Azure App Service. The sample 
 app in this tutorial was developed by using the 
-[Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+[Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
-![Overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![GitHub to Azure App Service deployment overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 In this tutorial, you'll complete these tasks:
 
@@ -54,7 +55,7 @@ and Maven tools installed on an Azure Linux VM
   [Create Jenkins server on an Azure Linux VM](/azure/jenkins/install-jenkins-solution-template)
 
 * A [GitHub](https://github.com) account so you can get a 
-working copy ([fork](#fork)) for the sample Java web app. 
+working copy (fork) for the sample Java web app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), 
 which you can run from either your local command line 
@@ -80,7 +81,7 @@ or [Azure Cloud Shell](/azure/cloud-shell/overview)
    If these plug-ins don't appear, make sure they're not 
    already installed by checking the **Installed** tab.
 
-1. To install your selected plug-ins, choose 
+1. To install your selected plug-ins, select 
 **Download now and install after restart**.
 
 1. After you're done, on the Jenkins menu, 
@@ -91,7 +92,7 @@ the Jenkins management page for future steps.
 
 1. [Sign in to GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
 
-1. In the upper-right corner in GitHub, choose **Fork**.
+1. In the upper-right corner in GitHub, select **Fork**.
 
    ![Fork sample repo from GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -113,31 +114,31 @@ in Jenkins.
 > However, if your GitHub account uses two-factor authentication, 
 > create your token in GitHub and set up Jenkins to use that token instead. 
 > For more information, see the 
-> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation.
+> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) documentation.
 
 1. From the **Manage Jenkins** page, 
 select **Configure System**. 
 
-   ![Configure system](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Configure system in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. In **GitHub** section, provide details for your GitHub server. 
 From the **Add GitHub Server** list, select **GitHub Server**. 
 
-   ![Add GitHub server](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Add GitHub server in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. If the **Manage hooks** property isn't selected, select this property. 
-Choose **Advanced** so you can specify other settings. 
+Select **Advanced** so you can specify other settings. 
 
-   ![Choose "Advanced" for more settings](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Specify advanced Jenkins settings for GitHub Server](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. From the **Manage additional GitHub actions** list, 
 select **Convert login and password to token**.
 
-   ![Choose "Manage additional GitHub actions"](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Convert the login and password to token for GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. Select **From login and password** so you 
 can enter your GitHub username and password. 
-When you're done, choose **Create token credentials**, 
+When you're done, select **Create token credentials**, 
 which creates a [GitHub personal access token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Create GitHub PAT from login and password](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
@@ -212,14 +213,13 @@ subscription in the properties described by the table in this step:
    | Property | Value | Description | 
    |----------|-------|-------------| 
    | **Subscription ID** | <*yourAzureSubscription-ID*> | The GUID value for your Azure subscription <p>**Tip**: If you don't know your Azure subscription ID, run this Azure CLI command from either the command line or in Cloud Shell, and then use the `id` GUID value: <p>`az account list` | 
-   | **Client ID** | <*yourAzureServicePrincipal-ID*> | The `appId` GUID value for previously generated for your Azure service principal | 
+   | **Client ID** | <*yourAzureServicePrincipal-ID*> | The `appId` GUID value previously generated for your Azure service principal | 
    | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" you provided for your Azure service principal | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | The `tenant` GUID value for your Azure Active Directory tenant | 
    | **ID** | <*yourAzureServicePrincipalName*> | The `displayName` value for your Azure service principal | 
-   |||| 
 
 1. To confirm that your service principal works, 
-choose **Verify Service Principal**. When you're done, choose **OK**.
+select **Verify Service Principal**. When you're done, select **OK**.
 
 Next, create the Jenkins pipeline that builds and deploys your app.
 
@@ -229,13 +229,13 @@ In Jenkins, create the pipeline job for building and deploying your app.
 
 1. Return to your Jenkins home page, and select **New Item**. 
 
-   ![Select "New Item"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Create a Jenkins pipeline](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Provide a name for your pipeline job, for example, 
 "My-Java-Web-App", and select **Pipeline**. 
-At the bottom, choose **OK**.  
+At the bottom, select **OK**.  
 
-   ![Select "Pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Name the Jenkins pipeline job](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Set up Jenkins with your service principal so Jenkins 
 can deploy to Azure without using your own credentials.
@@ -246,15 +246,15 @@ can deploy to Azure without using your own credentials.
    1. In the **Properties Content** box that appears, 
    add these environment variables and their values. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
       ```
 
-      ![Select "Prepare an environment for the run" and set environment variables](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Prepare an environment for the run and set the environment variables](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
-1. When you're done, choose **Save**.
+1. When you're done, select **Save**.
 
 Next, create build and deployment scripts for Jenkins.
 
@@ -267,7 +267,7 @@ app configuration file named `web.config`, which contains this XML
 but replace `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -282,7 +282,7 @@ but replace `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
 deployment script named `Jenkinsfile`, which contains this text 
 ([source in GitHub here](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm
@@ -312,7 +312,7 @@ Now specify the build and deployment script you want Jenkins to use.
 
 1. In Jenkins, select your previously created pipeline job. 
 
-   ![Select pipeline job for your web app](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Select the Jenkins pipeline job for your web app](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. On the left menu, select **Configure**.
 
@@ -336,9 +336,9 @@ select **Pipeline script from SCM**.
    When you're done, your pipeline definition 
    looks like this example: 
 
-   ![Point pipeline at script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Point your Jenkins pipeline at the script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. When you're done, choose **Save**.
+1. When you're done, select **Save**.
 
 Next, build and deploy your app to Azure App Service. 
 
@@ -379,7 +379,7 @@ Make sure your web app has a unique name.
 
    `complete/src/main/java/Hello/Application.java`
    
-1. From the upper-right corner in GitHub, choose **Edit this file**.
+1. From the upper-right corner in GitHub, select **Edit this file**.
 
 1. Make this change to the `commandLineRunner()` method, 
 and commit the change to the repo's `master` branch. 

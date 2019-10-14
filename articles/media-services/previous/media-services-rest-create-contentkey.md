@@ -4,7 +4,7 @@ description: Learn how to create content keys that provide secure access to Asse
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---

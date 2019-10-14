@@ -3,10 +3,9 @@ title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
@@ -59,7 +58,7 @@ If you are using Visual Studio, you can get the extensions by installing [the Nu
 
 ### Configuring Authentication / Authorization
 
-The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
+The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
 > [!Note] 
 > The Microsoft Graph extension only supports Azure AD authentication. Users need to log in with a work or school account.
@@ -222,7 +221,8 @@ The binding itself does not require any Azure AD permissions, but depending on h
 
 The token is always presented to code as a string.
 
-
+> [!Note]
+> When developing locally with either of `userFromId`, `userFromToken` or `userFromRequest` options, required token can be [obtained manually](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) and specified in `X-MS-TOKEN-AAD-ID-TOKEN` request header from a calling client application.
 
 
 <a name="excel-input"></a>
@@ -355,6 +355,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -517,6 +518,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -659,6 +661,7 @@ The following table explains the binding configuration properties that you set i
 ### File input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -806,6 +809,7 @@ The following table explains the binding configuration properties that you set i
 #### File output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -955,6 +959,7 @@ The following table explains the binding configuration properties that you set i
 ### Outlook output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Send mail as user|
@@ -977,7 +982,7 @@ Webhooks allow you to react to events in the Microsoft Graph. To support webhook
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
 - A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
-The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 For more information about webhooks, see [Working with webhooks in Microsoft Graph].
 
@@ -1078,11 +1083,11 @@ module.exports = function (context) {
 
 ### Webhook trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) attribute.
 
 ### Webhook trigger - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookTrigger` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookTrigger` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1230,11 +1235,11 @@ module.exports = function (context, req) {
 
 ### Webhook input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook input - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1371,11 +1376,11 @@ module.exports = function (context, req) {
 
 ### Webhook output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1416,7 +1421,7 @@ This section contains an example for each of these approaches:
 See the language-specific example:
 
 * [C# script (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### App identity refresh - C# script example
 

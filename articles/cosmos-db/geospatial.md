@@ -1,12 +1,10 @@
 ---
 title: Working with geospatial data in Azure Cosmos DB SQL API account
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the SQL API.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/01/2017
+ms.date: 07/23/2019
 ms.author: sngun
 
 ---
@@ -139,7 +137,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
+If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country/region, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## Querying spatial types
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using Azure Cosmos DB using SQL and LINQ.
@@ -147,32 +145,13 @@ Now that we've taken a look at how to insert geospatial data, let's take a look 
 ### Spatial SQL built-in functions
 Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query Azure Cosmos DB](how-to-sql-query.md).
 
-<table>
-<tr>
-  <td><strong>Usage</strong></td>
-  <td><strong>Description</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.</td>
-</tr>
-</table>
+|**Usage**|**Description**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.|
+|ST_WITHIN (spatial_expr, spatial_expr) | Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.|
+|ST_ISVALID| Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.|
+| ST_ISVALIDDETAILED| Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.|
 
 Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
@@ -235,7 +214,7 @@ Azure Cosmos DB also supports performing inverse queries, that is, you can index
 
 ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
-** Query **
+**Query**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -265,12 +244,12 @@ These functions can also be used to validate Polygons. For example, here we use 
 ### LINQ Querying in the .NET SDK
 The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
 
-Here's an example of a LINQ query that finds all documents in the Azure Cosmos DB collection whose "location" value is within a radius of 30 km of the specified point using LINQ.
+Here's an example of a LINQ query that finds all documents in the Azure Cosmos container whose "location" value is within a radius of 30 km of the specified point using LINQ.
 
 **LINQ query for Distance**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

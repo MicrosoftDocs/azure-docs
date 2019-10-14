@@ -2,10 +2,9 @@
 title: Failure to create or delete a database or table in Azure Data Explorer
 description: This article describes troubleshooting steps for creating and deleting databases and tables in Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
@@ -48,7 +47,7 @@ For more information about permissions, see [Manage database permissions](manage
 
 ## General guidance
 
-1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/>). Look for the status of Azure Data Explorer in the region where you're trying to work with a database or table.
+1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/). Look for the status of Azure Data Explorer in the region where you're trying to work with a database or table.
 
     If the status isn't **Good** (green check mark), try again after the status improves.
 

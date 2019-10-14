@@ -16,7 +16,7 @@ ms.author: alkohli
      ![StorSimple security settings](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage2.png)
 
 3. Go to the **Remote Management** section. Click **Remote management** box.
-     ![StorSimple remote manangement](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)
+     ![StorSimple remote management](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage3.png)
 
 4. In the **Remote management** blade:
 
@@ -24,5 +24,5 @@ ms.author: alkohli
     2. The default is to connect over HTTPS. You can choose to connect using HTTP. Connecting over HTTP is acceptable only on trusted networks. Ensure that HTTP is enabled.
     3. From the command bar at the top of blade, click **... More** and then click **Download certificate** to download a remote management certificate. You can specify a location in which to save this file. This certificate should be installed on the client or host machine that you use to connect to the cloud appliance.
 
-        ![Remote manangement blade](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
+        ![Remote management blade](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. Click **Save** and when prompted, confirm the changes.

@@ -6,9 +6,8 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
 ---
 
@@ -116,25 +115,17 @@ The most fail-proof way to ensure that breaking changes are deployed safely is b
 
 The task hub can be configured in the *host.json* file as follows:
 
+#### Functions 1.x
+
 ```json
 {
-    "extensions": {
-        "durableTask": {
-            "HubName": "MyTaskHubV2"
-        }
+    "durableTask": {
+        "HubName": "MyTaskHubV2"
     }
 }
 ```
 
-> [!NOTE]
-> For V1 Functions, *host.json* should be configured like this instead
->```json
->{
->    "durableTask": {
->        "HubName": "MyTaskHubV2"
->    }
->}
->```
+#### Functions 2.x
 
 The default value is `DurableFunctionsHub`.
 
@@ -143,7 +134,7 @@ All Azure Storage entities are named based on the `HubName` configuration value.
 We recommend that you deploy the new version of the function app to a new [Deployment Slot](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Deployment slots allow you to run multiple copies of your function app side-by-side with only one of them as the active *production* slot. When you are ready to expose the new orchestration logic to your existing infrastructure, it can be as simple as swapping the new version into the production slot.
 
 > [!NOTE]
-> This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should derive from an app setting that gets updated as part of the swap operation.
+> This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.
 
 ## Next steps
 

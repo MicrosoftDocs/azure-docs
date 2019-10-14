@@ -1,91 +1,145 @@
 ---
-title: Azure VM Backup FAQ
-description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'
-services: backup
-author: trinadhk
-manager: shreeshd
-keywords: azure vm backup, azure vm restore, backup policy
+title: Frequently asked questions about backing up Azure VMs with Azure Backup
+description: Answers to common questions about backing up Azure VMs with Azure Backup.
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
-ms.author: trinadhk
+ms.date: 09/17/2019
+ms.author: dacurwin
 ---
-# Questions about the Azure VM Backup service
-This article has answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# Frequently asked questions-Back up Azure VMs
 
-## Configure backup
-### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
-Recovery Services vaults support both models.  You can back up a classic VM or a Resource Manager VM to a Recovery Services vault.
+This article answers common questions about backing up Azure VMs with the [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
-### What configurations are not supported by Azure VM backup?
-Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
-
-### Why can't I see my VM in configure backup wizard?
-In Configure backup wizard, Azure Backup only lists VMs that are:
-  * Not already protected
-      You can verify the backup status of a VM by going to VM blade and checking Backup status from Settings Menu . Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
-  * Belongs to same region as VM
 
 ## Backup
-### Will on-demand backup job follow same retention schedule as scheduled backups?
-No. You should specify the retention range for an on-demand backup job. By default, it is retained for 30 days when triggered from portal.
+
+### Which VM images can be enabled for backup when I create them?
+When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
+
+### Is the backup cost included in the VM cost?
+
+No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+
+### Which permissions are required to enable backup for a VM?
+
+If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
+If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
+
+
+### Does an on-demand backup job use the same retention schedule as scheduled backups?
+No. Specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
 
 ### I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
-You need to give permissions for Azure Backup service to access Key Vault. You can provide these permissions in PowerShell using steps mentioned in *Enable Backup* section of [PowerShell](backup-azure-vms-automation.md) documentation.
+Provide permissions for Azure Backup to access Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
 
-### I migrated disks of a VM to managed disks. Will my backups continue to work?
-Yes, backups work seamlessly and no need to reconfigure backup.
+### I migrated VM disks to managed disks. Will my backups continue to work?
+Yes, backups work seamlessly. There's no need to reconfigure anything.
+
+### Why can't I see my VM in the Configure Backup wizard?
+The wizard only lists VMs in the same region as the vault, and that aren't already being backed up.
 
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
-Yes. Even when a machine is shut down backups work and the recovery point is marked as Crash consistent. For more details, see the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Yes. Backups run when a machine is shut down. The recovery point is marked as crash consistent.
 
 ### Can I cancel an in-progress backup job?
-Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**.
+Yes. You can cancel backup job in a **Taking snapshot** state. You can't cancel a job if data transfer from the snapshot is in progress.
 
-### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
-If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
+### I enabled lock on resource group created by Azure Backup Service (i.e `AzureBackupRG_<geo>_<number>`), will my backups continue to work?
+If you lock the resource group created by Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
 
-### Does Backup policy take Daylight Saving Time(DST) into account?
-No. Be aware that date and time on your local computer is displayed in your local time and with your current daylight saving time bias. So the configured time for scheduled backups can be different from your local time due to DST.
+User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Maximum of how many data disks can I attach to a VM to be backed up by Azure Backup?
-Azure Backup now supports backup of virtual machines with up to 16 disks. To get 16 disk support, [upgrade to Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md). All the VMs enabling protection starting 24th Sept, 2018 will get supported.
 
-### Does Azure backup support Standard SSD managed disk?
-Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure Virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
+### Does Azure backup support standard SSD managed disk?
+Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
+Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
+
+### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
+Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
+
+We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at `AskAzureBackupTeam@microsoft.com` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
+
+### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
+The scheduled backup will be triggered within 2 hours of the scheduled backup time. For ex. If 100 VMs have backup start time scheduled at 2:00 am, then by max 4:00 am all the 100VMs will have backup job in progress. If scheduled backups have been paused due to outage and resumed/retried then backup can start outside of this scheduled 2hr window.
+
+### What is the minimum allowed retention range for daily backup point?
+Azure Virtual Machine backup policy supports a minimum retention range of 7 days up to 9999 days. Any modification to an existing VM backup policy with less than 7 days will require an update to meet the minimum retention range of 7 days.
 
 ## Restore
-### How do I decide between restoring disks versus full VM restore?
-Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set.
 
-Use restore disks to:
-  * Customize the VM that gets created from point in time configuration like changing the size
-  * Add configurations, which are not present at the time of backup
-  * Control the naming convention for resources getting created
-  * Add VM to availability set
-  * For any other configuration which can be achieved only by using PowerShell/a declarative template definition
+### How do I decide whether to restore disks only or a full VM?
+Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses, and network interface names. The change maintains unique resources when a VM is created. The VM isn't added to an availability set.
 
-### Can I use backups of unmanaged disk VM to restore after I upgrade my disks to managed disks?
-Yes, you can use the backups taken before migrating disks from unmanaged to managed. By default, restore VM job will create a VM with unmanaged disks. You can use restore disks functionality to restore disks and use them to create a VM on managed disks.
+You can use the restore disk option if you want to:
+  * Customize the VM that gets created. For example, change the size.
+  * Add configuration settings which weren't there at the time of backup.
+  * Control the naming convention for resources that are created.
+  * Add the VM to an availability set.
+  * Add any other setting that must be configured using PowerShell or a template.
 
-### What is the procedure to restore a VM to a restore point taken before the conversion from unmanaged to managed disks was done for a VM?
-In this scenario, by default, restore VM job will create a VM with unmanaged disks. To create a VM with managed disks:
-1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk)
-2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
-3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
-For PowerShell cmdlets, refer [here](backup-azure-vms-automation.md#restore-an-azure-vm).
+### Can I restore backups of unmanaged VM disks after I upgrade to managed disks?
+Yes, you can use backups taken before disks were migrated from unmanaged to managed.
+- By default, a restore VM job creates an unmanaged VM.
+- However, you can restore disks and use them to create a managed VM.
 
-### Can I restore the VM if my VM is deleted?
-Yes. Life Cycle of VM and its corresponding backup item are different. So, even if you delete the VM, you can go to corresponding backup item in the Recovery Services vault and trigger a restore using one of the recovery points.
+### How do I restore a VM to a restore point before the VM was migrated to managed disks?
+By default, a restore VM job creates a VM with unmanaged disks. To create a VM with managed disks:
+1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk).
+2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+
+[Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
+
+### Can I restore the VM that's been deleted?
+Yes. Even if you delete the VM, you can go to corresponding backup item in the vault and restore from a recovery point.
+
+### How to restore a VM to the same availability sets?
+For Managed Disk Azure VM, restoring to the availability sets is enabled by providing an option in template while restoring as managed Disks. This template has the input parameter called **Availability sets**.
+
+### How do we get faster restore performances?
+[Instant Restore](backup-instant-restore-capability.md) capability helps in faster backups and instant restores from the snapshots.
+
+### What happens when we change the key vault settings for the encrypted VM?
+
+After you change the KeyVault settings for the encrypted VM, backups will continue to work with the new set of details, However, after the restore from a recovery point prior to the change, you will have to restore the secrets in a KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operations like secret/key roll-over do not require this step and the same KeyVault can be used after restore.
+
+### Can I access the VM once restored due to an VM having broken relationship with domain controller?
+
+Yes, you access the VM once restored due to an VM having broken relationship with domain controller. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## Manage VM backups
-### What happens when I change a backup policy on VM(s)?
-When a new policy is applied on VM(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
-### How can I move a VM enrolled in Azure backup between resource groups?
-Follow the below steps to successfully move the backed-up VM to the target resource group
-1. Temporarily stop backup and retain backup data
-2. Move the VM to the target resource group
-3. Re-protect it with same/new vault
+### What happens if I modify a backup policy?
+The VM is backed up using the schedule and retention settings in the modified or new policy.
 
-Users can restore from the available restore points created before the move operation.
+- If retention is extended, existing recovery points are marked and kept in accordance with the new policy.
+- If retention is reduced, recovery points are marked for pruning in the next cleanup job, and subsequently deleted.
+
+### How do I move a VM backed up by Azure Backup to a different resource group?
+
+1. Temporarily stop the backup, and retain backup data.
+2. Move the VM to the target resource group.
+3. Re-enabled backup in the same or new vault.
+
+You can restore the VM from available restore points that were created before the move operation.
+
+### Is there a limit on number of VMs that can be associated with a same backup policy?
+Yes, there is a limit of 100 VMs that can be associated to the same backup policy from portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.

@@ -1,13 +1,10 @@
 ---
 title: Server concepts in Azure Database for MySQL
 description: This topic provides considerations and guidelines for working with Azure Database for MySQL servers.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Server concepts in Azure Database for MySQL
@@ -34,6 +31,7 @@ Within an Azure Database for MySQL server, you can create one or multiple databa
 ## How do I connect and authenticate to an Azure Database for MySQL server?
 
 The following elements help ensure safe access to your database.
+
 |     |     |
 | :-- | :-- |
 | **Authentication and authorization** | Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |

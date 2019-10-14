@@ -3,19 +3,19 @@ title: SAP Business One on Azure Virtual Machines | Microsoft Docs
 description: SAP Business One on Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2018
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -35,7 +35,7 @@ To use this guide, you need basic knowledge of the following Azure components:
 - [Azure virtual machines on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Azure virtual machines on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure networking and virtual networks management with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Azure networking and virtual networks with CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure networking and virtual networks with CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Manage Azure disks with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) can be a good source of information.
@@ -116,7 +116,7 @@ These documents should help you to decide on the selection of storage types and 
 
 In principle you should:
 
-- Use [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) over [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../windows/disks-types.md)
 - Use Azure Managed disks over unmanaged disks
 - Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration
 - Combine /hana/data and /hana/log volume in order to have a cost efficient storage configuration
@@ -135,7 +135,6 @@ Rough sizing estimates for the DBMS side for SQL Server are:
 | up to 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on azure is easy. A change between VM types is possible with just a restart of the VM.
-
 
 #### SAP HANA as DBMS
 Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).

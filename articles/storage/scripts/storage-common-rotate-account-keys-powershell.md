@@ -22,7 +22,7 @@ ms.author: tamram
 
 This script creates an Azure Storage account, displays the new storage account's primary access key, then renews (rotates) the key.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ This script creates an Azure Storage account, displays the new storage account's
 Run the following command to remove the resource group, storage account, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
 ## Script explanation
@@ -44,11 +44,11 @@ This script uses the following commands to create the storage account and retrie
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | Gets all locations and the supported resource providers for each location. |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates an Azure resource group. |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Creates a Storage account. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Gets the access keys for an Azure Storage account. |
-| [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | Regenerates an access key for an Azure Storage account. |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Gets all locations and the supported resource providers for each location. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates an Azure resource group. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a Storage account. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for an Azure Storage account. |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Regenerates an access key for an Azure Storage account. |
 
 ## Next steps
 

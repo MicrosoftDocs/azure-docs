@@ -2,15 +2,15 @@
 title: Application Insights to troubleshoot Custom Policies in Azure Active Directory B2C | Microsoft Docs
 description: how to setup Application Insights to trace the execution of custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: Collecting Logs
@@ -40,31 +40,31 @@ Azure AD B2C supports a feature for sending data to Application Insights.  Appli
 1. Open the RP file (for example, SignUpOrSignin.xml).
 1. Add the following attributes to the `<TrustFrameworkPolicy>` element:
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. If it doesn't exist already, add a child node `<UserJourneyBehaviors>` to the `<RelyingParty>` node. It must be located immediately after the `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the **Instrumentation Key** that you obtained from Application Insights in the previous section.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline, good for development, but constrained at high volumes.
-  * `ClientEnabled="true"` sends the ApplicationInsights client-side script for tracking page view and client-side errors (not needed).
-  * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
-Sample:
+   * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline, good for development, but constrained at high volumes.
+   * `ClientEnabled="true"` sends the ApplicationInsights client-side script for tracking page view and client-side errors (not needed).
+   * `ServerEnabled="true"` sends the existing UserJourneyRecorder JSON as a custom event to Application Insights.
+   Sample:
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -72,8 +72,8 @@ Sample:
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. Upload the policy.
 

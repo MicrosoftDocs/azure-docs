@@ -3,18 +3,16 @@ title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
 description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
 ---
+
 # Branching and chaining activities in a Data Factory pipeline
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, the pipeline sends details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
@@ -45,11 +43,11 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
 
 1. Launch Notepad. Copy the following text and save it as **input.txt** file on your disk.
 
-	```
+    ```
     John,Doe
     Jane,Doe
-	```
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) do the following steps: 
+    ```
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) do the following steps: 
     1. Create the **adfv2branch** container.
     2. Create **input** folder in the **adfv2branch** container.
     3. Upload **input.txt** file to the container.
@@ -124,9 +122,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![New->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
       
      ![New data factory page](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
@@ -196,10 +195,10 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New Azure Storage linked service](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Enter `@pipeline().parameters.sourceBlobContainer` for the folder and `emp.txt` for the file name. You use the sourceBlobContainer pipeline parameter to set the folder path for the dataset. 
 
-    ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**. 
 
-   ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. In the properties window, switch to the **Sink** tab, and click **+ New** for **Sink Dataset**. You create a sink dataset for the copy activity in this step similar to the way you created the source dataset. 
 
     ![New sink dataset button](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -214,7 +213,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Switch to the **pipeline** tab at the top. Expand **General** in the **Activities** toolbox, and drag-drop a **Web** activity to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
 
-   ![Drag-drop first Web activity](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![Drag-drop first Web activity](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Switch to the **Settings** tab from the **General** tab, and do the following steps: 
     1. For **URL**, specify URL for the logic apps workflow that sends the success email.  
     2. Select **POST** for **Method**. 
@@ -232,12 +231,12 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ```
         The message body contains the following properties:
 
-        - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
-        - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
-        - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-        - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+       - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
+       - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
+       - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
+       - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
     
-        ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
 
     ![Connect Copy activity with the first Web activity](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

@@ -1,14 +1,11 @@
 ---
 title: How to backup and restore a server in Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
-services: mariadb
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
@@ -67,6 +64,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 The `az mariadb server restore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the source server exists.  |
@@ -106,6 +104,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 ```
 
 The `az mariadb server georestore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

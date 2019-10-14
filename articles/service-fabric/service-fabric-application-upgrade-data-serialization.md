@@ -4,7 +4,7 @@ description: Best practices for data serialization and how it affects rolling ap
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
@@ -58,5 +58,5 @@ Control how your application upgrades by using [Upgrade Parameters](service-fabr
 
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
 

@@ -2,7 +2,8 @@
 title: Use Helm repositories in Azure Container Registry
 description: Learn how to use a Helm repository with Azure Container Registry to store charts for your applications
 services: container-registry
-author: iainfoulds
+author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -133,7 +134,7 @@ $ helm inspect myacrhelm/wordpress
 appVersion: 4.9.8
 description: Web publishing platform for building blogs and websites.
 engine: gotpl
-home: http://www.wordpress.com/
+home: https://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress

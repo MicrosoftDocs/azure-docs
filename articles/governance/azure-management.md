@@ -1,14 +1,13 @@
 ---
-title: Azure Management Overview
+title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
 author: DCtheGeek
-manager: carmonm
 ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
 ---
-# Management in Azure
+# Overview of Management services in Azure
 
 Governance in Azure is one aspect of Azure Management. This article covers the different areas of
 management for deploying and maintaining your resources in Azure.
@@ -24,13 +23,13 @@ any application or resource. These different areas can be thought of as a lifecy
 required in continuous succession over the lifespan of a resource. This resource lifecycle starts
 with the initial deployment, through continued operation, and finally when retired.
 
-![Management disciplines](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplines of Management in Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 No single Azure service completely fills the requirements of a particular management area. Instead,
 each is realized by several services working together. Some services, such as Application Insights,
-provide targeted monitoring functionality for web applications. Others, like Log Analytics, store
-management data for other services. This feature allows you to analyze data of different types
-collected by different services.
+provide targeted monitoring functionality for web applications. Others, like Azure Monitor logs,
+store management data for other services. This feature allows you to analyze data of different
+types collected by different services.
 
 The following sections briefly describe the different management areas and provide links to
 detailed content on the main Azure services intended to address them.
@@ -58,7 +57,7 @@ resources in Azure. It involves planning your initiatives and setting strategic 
 Governance in Azure is primarily implemented with two services. [Azure
 Policy](./policy/overview.md) allows you to create, assign, and manage policy definitions to
 enforce rules for your resources. This feature keeps those resources in compliance with your
-corporate standards. [Azure Cost Management by Cloudyn](../cost-management/overview.md) allows you
+corporate standards. [Azure Cost Management](../cost-management/overview-cost-mgt.md) allows you
 to track cloud usage and expenditures for your Azure resources and other cloud providers.
 
 ## Secure
@@ -68,14 +67,14 @@ collecting and analyzing data, and compliance of your applications and resources
 monitoring and threat analysis are provided by [Azure Security
 Center](../security-center/security-center-intro.md), which includes unified security management
 and advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
-Security](../security/azure-security.md) for comprehensive information and guidance on securing
+Security](../security/fundamentals/overview.md) for comprehensive information and guidance on securing
 Azure resources.
 
 ## Protect
 
 Protection refers to keeping your applications and data available, even with outages that are
 beyond your control. Protection in Azure is provided by two services. [Azure
-Backup](../backup/backup-introduction-to-azure-backup.md)provides backup and recovery of your data,
+Backup](../backup/backup-introduction-to-azure-backup.md) provides backup and recovery of your data,
 either in the cloud or on-premises. [Azure Site
 Recovery](../site-recovery/site-recovery-overview.md) provides business continuity and immediate
 recovery during a disaster.

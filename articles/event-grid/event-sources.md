@@ -2,12 +2,12 @@
 title: Azure Event Grid event sources
 description: Describes supported event sources for Azure Event Grid 
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
+ms.date: 02/12/2019
+ms.author: spelluru
 ---
 
 # Event sources in Azure Event Grid
@@ -70,7 +70,7 @@ For examples of Event Hubs as a handler, see [Event Hubs handler](event-handlers
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected, disconnected and telemetry events.
 
 |Title  |Description  |
 |---------|---------|
@@ -127,6 +127,35 @@ Subscribe to Blob Storage events to respond to blob created and deleted events.
 | [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 | [Event schema](event-schema-blob-storage.md) | Shows fields in Blob Storage events. |
+
+## Maps
+Subscribe to Azure Maps events to respond to geofence events. For example, an application could deliver an email notification every time a device enters or exits a geofence.
+
+|Title  |Description  |
+|---------|---------|
+| [React to Azure Maps events by using Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure Maps with Event Grid. |
+| [Tutorial: Set up a geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | This tutorial walks you through the basics steps to set up geofence by using Azure Maps. You use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. |
+| [Event schema](event-schema-azure-maps.md) | Shows fields in Azure Maps events. |
+
+## App Configuration
+Subscribe to Azure App Configuration events to respond to key-value modification events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
+| [QuickStart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+| [Event schema](event-schema-app-configuration.md) | Shows fields in Azure App Configuration events. |
+
+## Azure SignalR
+Subscribe to Azure SignalR Service events to respond to client connection events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
+| [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
+
+
 
 ## Next steps
 

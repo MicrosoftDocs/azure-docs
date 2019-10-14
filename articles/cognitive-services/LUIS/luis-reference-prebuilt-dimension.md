@@ -1,15 +1,15 @@
 ---
-title: Dimension Prebuilt entities
-titleSuffix: Azure
+title: Dimension Prebuilt entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains dimension prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 11/26/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -22,6 +22,9 @@ Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Re
 
 
 ## Resolution for dimension entity
+
+#### [V2 prediction endpoint response](#tab/V2)
+
 The following example shows the resolution of the **builtin.dimension** entity.
 
 ```json
@@ -52,6 +55,75 @@ The following example shows the resolution of the **builtin.dimension** entity.
 }
 ```
 
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ],
+            "$instance": {
+                "dimension": [
+                    {
+                        "type": "builtin.dimension",
+                        "text": "10 1/2 miles",
+                        "startIndex": 19,
+                        "length": 12,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities. 

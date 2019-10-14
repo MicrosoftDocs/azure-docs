@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/13/2019
 ms.author: jingwang
 ---
 
@@ -46,7 +46,7 @@ The following properties are supported for Azure Search linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer an Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 
@@ -72,9 +72,9 @@ The following properties are supported for Azure Search linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Search dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Search dataset.
 
-To copy data into Azure Search, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data into Azure Search, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -88,12 +88,13 @@ To copy data into Azure Search, set the type property of the dataset to **Relati
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -160,7 +161,7 @@ Azure Search service supports writing documents as a batch. A batch can contain 
 ]
 ```
 
-### Data type support
+## Data type support
 
 The following table specifies whether an Azure Search data type is supported or not.
 
@@ -174,6 +175,8 @@ The following table specifies whether an Azure Search data type is supported or 
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
+
+Currently other data types e.g. ComplexType are not supported. For a full list of Azure Search supported data type, see [Supported data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: Use Azure Video Indexer to customize Brands model 
+title: Use Azure Video Indexer to customize Brands model
 titlesuffix: Azure Media Services
 description: This article shows how to use Azure Video Indexer to customize Brands model.
 services: media-services
@@ -7,8 +7,9 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 
@@ -22,17 +23,17 @@ You can use the Video Indexer APIs to create, use, and edit custom Brands models
 
 ## Create a Brand
 
-This creates a new custom brand and adds it to the custom Brands model for the specified account. 
+This creates a new custom brand and adds it to the custom Brands model for the specified account.
 
 ### Request URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### Request parameters 
+### Request parameters
 
 |**Name**|**Type**|**Required**|**Description**|
 |---|---|---|---|
@@ -91,7 +92,7 @@ Removes a brand from the custom Brands model for the specified account. The acco
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### Request parameters
@@ -113,17 +114,17 @@ There is no returned content when the brand is deleted successfully.
 
 ## Get a specific Brand
 
-This lets you search for the details of a brand in the custom Brands model for the specified account using the brand id. 
+This lets you search for the details of a brand in the custom Brands model for the specified account using the brand id.
 
 ### Request URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### Request parameters 
+### Request parameters
 
 |**Name**|**Type**|**Required**|**Description**|
 |---|---|---|---|
@@ -163,14 +164,14 @@ The response provides information on the brand that you searched (using brand ID
 
 ## Update a specific brand
 
-This lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID. 
+This lets you search for the details of a brand in the custom Brands model for the specified account using the brand ID.
 
 ### Request URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### Request parameters
@@ -184,7 +185,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### Request body
 
-In addition to these parameters, you must provide a request body JSON object that provides updated information on the  brand that you want to update following the format of the example below.
+In addition to these parameters, you must provide a request body JSON object that provides updated information on the brand that you want to update following the format of the example below.
 
 ```json
 {
@@ -211,7 +212,7 @@ The response provides the updated information on the brand that you updated foll
   "referenceUrl": null,
   "id": 97974,
   "name": "Example",
-  "accountId": "SampeAccountId",
+  "accountId": "SampleAccountId",
   "lastModifierUserName": "SampleUserName",
   "Created": "2018-04-25T14:59:52.7433333",
   "lastModified": "2018-04-25T15:37:50.67",
@@ -233,7 +234,7 @@ This returns all of the brands in the custom Brands model for the specified acco
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### Request parameters
@@ -266,7 +267,7 @@ The response provides a list of all of the brands in your account and each of th
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -293,7 +294,7 @@ This returns the Brands model settings in the specified account. The Brands mode
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### Request parameters
@@ -326,14 +327,14 @@ The response shows whether Bing brands are enabled following the format of the e
 
 This updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands are not enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
-### Request URL: 
+### Request URL:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### Request parameters 
+### Request parameters
 
 |**Name**|**Type**|**Required**|**Description**|
 |---|---|---|---|

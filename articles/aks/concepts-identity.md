@@ -2,12 +2,12 @@
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (RBAC), and roles and bindings.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
-ms.author: iainfou
+ms.date: 02/28/2019
+ms.author: mlearned
 ---
 
 # Access and identity options for Azure Kubernetes Service (AKS)
@@ -26,7 +26,7 @@ This article introduces the core concepts that help you authenticate and assign 
 
 One of the primary user types in Kubernetes is a *service account*. A service account exists in, and is managed by, the Kubernetes API. The credentials for service accounts are stored as Kubernetes secrets, which allows them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
 
-Normal user accounts allow more traditional access for human administrators or developers, not just services and processes. Kubernetes itself does not provide an identity management solution where regular user accounts and passwords are stored. Instead, external identity solutions can be integrated into Kubernetes. For AKS clusters, this integrated identity solution is Azure Active Directory.
+Normal user accounts allow more traditional access for human administrators or developers, not just services and processes. Kubernetes itself doesn't provide an identity management solution where regular user accounts and passwords are stored. Instead, external identity solutions can be integrated into Kubernetes. For AKS clusters, this integrated identity solution is Azure Active Directory.
 
 For more information on the identity options in Kubernetes, see [Kubernetes authentication][kubernetes-authentication].
 
@@ -71,6 +71,8 @@ A ClusterRoleBinding works in the same way to bind roles to users, but can be ap
 
 To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
 
+For associated best practices, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
+
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
@@ -88,9 +90,10 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

@@ -1,22 +1,16 @@
 ---
 title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs "
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
-keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-
-ms.assetid:
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
-
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
@@ -49,12 +43,19 @@ Here are some things that you cannot do with a JavaScript user-defined function 
 Although functions like **Date.GetDate()** or **Math.random()** are not blocked in the functions definition, you should avoid using them. These functions **do not** return the same result every time you call them, and the Azure Stream Analytics service does not keep a journal of function invocations and returned results. If a function returns different result on the same events, repeatability is not guaranteed when a job is restarted by you or by the Stream Analytics service.
 
 ## Add a JavaScript user-defined function in the Azure portal
-To create a simple JavaScript user-defined function under an existing Stream Analytics job, do these steps:
+To create a simple JavaScript user-defined function under an existing Stream Analytics job, follow these steps:
+
+> [!NOTE]
+> These steps work on the Stream Analytics jobs configured to run in the cloud. If your Stream Analytics job is configured to run on Azure IoT Edge, instead use Visual Studio and [write the user-defined function using C#](stream-analytics-edge-csharp-udf.md).
 
 1.	In the Azure portal, find your Stream Analytics job.
-2.  Under **JOB TOPOLOGY**, select your function. An empty list of functions appears.
-3.	To create a new user-defined function, select **Add**.
+
+2. Under the **Job topology** heading, select **Functions**. An empty list of functions appears.
+
+3.	To create a new user-defined function, select **+ Add**.
+
 4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
+
 5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
     ```javascript
@@ -69,7 +70,7 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 
 ## Call a JavaScript user-defined function in a query
 
-1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
+1. In the query editor, under the **Job topology** heading, select **Query**.
 2.	Edit your query, and then call the user-defined function, like this:
 
     ```SQL
@@ -116,6 +117,8 @@ Object | Record
 Array | Array
 Null, Undefined | NULL
 Any other type (for example, a function or error) | Not supported (results in runtime error)
+
+JavaScript language is case sensitive and casing of the object fields in JavaScript code must match the casing of the fields in the incoming data. Please note that jobs with compatibility level 1.0 will convert fields from SQL SELECT statement to be lowercase. Under compatibility level 1.1 and higher, fields from SELECT statement will have the same casing as specified in the SQL query.
 
 ## Troubleshooting
 JavaScript runtime errors are considered fatal, and are surfaced through the Activity log. To retrieve the log, in the Azure portal, go to your job and select **Activity log**.

@@ -2,13 +2,12 @@
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
 services: container-service
-author: iainfoulds
-manager: jeconnoc
+author: mlearned
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
-ms.author: iainfou
+ms.date: 12/19/2018
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so that I can provide high availability or respond to customer demand and application load.
@@ -16,20 +15,20 @@ ms.custom: mvc
 
 # Tutorial: Scale applications in Azure Kubernetes Service (AKS)
 
-If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app. In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. You learn how to:
+If you've followed the tutorials, you have a working Kubernetes cluster in AKS and you deployed the sample Azure Voting app. In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. You learn how to:
 
 > [!div class="checklist"]
 > * Scale the Kubernetes nodes
 > * Manually scale Kubernetes pods that run your application
 > * Configure autoscaling pods that run the app front-end
 
-In subsequent tutorials, the Azure Vote application is updated to a new version.
+In additional tutorials, the Azure Vote application is updated to a new version.
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, an application was packaged into a container image. This image was uploaded to Azure Container Registry, and you created an AKS cluster. The application was then deployed to the AKS cluster. If you haven't done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Manually scale pods
 
@@ -53,7 +52,7 @@ To manually change the number of pods in the *azure-vote-front* deployment, use 
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run [kubectl get pods][kubectl-get] again to verify that Kubernetes creates the additional pods. After a minute or so, the additional pods are available in your cluster:
+Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
 
 ```console
 $ kubectl get pods
@@ -75,14 +74,15 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-If your AKS cluster is less than *1.10*, install the Metrics Server, otherwise skip this step. Clone the `metrics-server` GitHub repo and install the example resource definitions. To view the contents of these YAML definitions, see [Metrics Server for Kuberenetes 1.8+][metrics-server-github].
+> [!NOTE]
+> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. To install, clone the `metrics-server` GitHub repo and install the example resource definitions. To view the contents of these YAML definitions, see [Metrics Server for Kuberenetes 1.8+][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
-
-To use the autoscaler, your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU. The settings look like:
+To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
 
 ```yaml
 resources:
@@ -92,7 +92,7 @@ resources:
      cpu: 500m
 ```
 
-The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If CPU utilization exceeds 50%, the autoscaler increases the pods up to a maximum of 10 instances:
+The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of *10* instances. A minimum of *3* instances is then defined for the deployment:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -111,7 +111,7 @@ After a few minutes, with minimal load on the Azure Vote app, the number of pod 
 
 ## Manually scale AKS nodes
 
-If you created your Kubernetes cluster using the commands in the previous tutorial, it has one node. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
+If you created your Kubernetes cluster using the commands in the previous tutorial, it has two nodes. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
 
 The following example increases the number of nodes to three in the Kubernetes cluster named *myAKSCluster*. The command takes a couple of minutes to complete.
 
@@ -119,7 +119,7 @@ The following example increases the number of nodes to three in the Kubernetes c
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-The output is similar to:
+When the cluster has successfully scaled, the output is similar to following example:
 
 ```
 "agentPoolProfiles": [
@@ -142,9 +142,9 @@ The output is similar to:
 In this tutorial, you used different scaling features in your Kubernetes cluster. You learned how to:
 
 > [!div class="checklist"]
-> * Scale the Kubernetes nodes
 > * Manually scale Kubernetes pods that run your application
 > * Configure autoscaling pods that run the app front-end
+> * Manually scale the Kubernetes nodes
 
 Advance to the next tutorial to learn how to update application in Kubernetes.
 
@@ -157,7 +157,7 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 [metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
-[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
+[metrics-server]: https://v1-12.docs.kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

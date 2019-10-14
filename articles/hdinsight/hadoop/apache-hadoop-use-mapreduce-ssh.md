@@ -1,7 +1,6 @@
 ---
 title: MapReduce and SSH connection with Apache Hadoop in HDInsight - Azure 
 description: Learn how to use SSH to run MapReduce jobs using Apache Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -24,9 +23,6 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 ## <a id="prereq"></a>Prerequisites
 
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster
-
-  > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -59,7 +55,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](.
     This command starts the `wordcount` class, which is contained in the `hadoop-mapreduce-examples.jar` file. It uses the `/example/data/gutenberg/davinci.txt` document as input, and output is stored at `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+    > For more information about this MapReduce job and the example data, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
 2. The job emits details as it processes, and it returns information similar to the following text when the job completes:
 
@@ -76,7 +72,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](.
 
     This command display two files, `_SUCCESS` and `part-r-00000`. The `part-r-00000` file contains the output for this job.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
 
 4. To view the output, use the following command:
@@ -107,5 +103,5 @@ For general information about MapReduce jobs in HDInsight:
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)

@@ -1,19 +1,10 @@
 ---
 title: Azure Resource Manager template functions - deployment | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2017
+ms.topic: conceptual
+ms.date: 09/13/2019
 ms.author: tomfitz
 
 ---
@@ -82,6 +73,8 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
+When you [deploy to an Azure subscription](deploy-to-subscription.md), instead of a resource group, the return object includes a `location` property. The location property is included when deploying either a local template or an external template.
+
 ### Remarks
 
 You can use deployment() to link to another template based on the URI of the parent template.
@@ -91,6 +84,8 @@ You can use deployment() to link to another template based on the URI of the par
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
 
 ### Example
 
@@ -134,17 +129,7 @@ The preceding example returns the following object:
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
+For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
 
 <a id="parameters" />
 
@@ -250,17 +235,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
+For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
 <a id="variables" />
 
@@ -352,21 +327,11 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
+For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+* To merge several templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 

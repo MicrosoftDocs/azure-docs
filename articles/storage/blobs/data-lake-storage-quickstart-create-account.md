@@ -1,18 +1,18 @@
 ---
 title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
-description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
-services: storage
-author: jamesbak
-ms.component: data-lake-storage-gen2
+description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI.
+author: normesta
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.author: jamesbak
+ms.date: 08/19/2019
+ms.author: normesta
+ms.reviewer: stewu
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
+# Create an Azure Data Lake Storage Gen2 storage account
 
-Azure Data Lake Storage Gen2 [supports a Hierarchical Namespace Service](data-lake-storage-introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supports a hierarchical namespace](data-lake-storage-introduction.md) which provides a native directory-based container tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
 
 This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -23,8 +23,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |           | Prerequisite |
 |-----------|--------------|
 |Portal     | None         |
-|PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version other than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
-|CLI        | You can log in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
+|PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version lower than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
+|CLI        | You can sign in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
 
@@ -58,7 +58,7 @@ When naming your storage account, keep these rules in mind:
 
 ## Create an account using the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create a resource group
 
@@ -71,14 +71,14 @@ To create a resource group in the Azure portal, follow these steps:
 5. Choose the location for the resource group.
 6. Click the **Create** button.  
 
-   ![Screen shot showing resource group creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Screenshot showing resource group creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### Create a general-purpose v2 storage account
 
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Select your **Subscription** and the **Resource group** you created earlier.
@@ -88,10 +88,10 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 6. Choose the subscription in which you want to create the storage account.
 7. Select **Next : Advanced >**
 8. Leave the values under **SECURITY** and **VIRTUAL NETWORKS** fields set to their defaults.
-9. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+9. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
 10. Click **Review + Create** to create the storage account.
 
-    ![Screen shot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Screenshot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Your storage account is now created through the portal.
 
@@ -107,74 +107,53 @@ To remove a resource group using the Azure portal:
 
 First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
 
-Then, upgrade your powershell module, log in to your Azure subscription, create a resource group, and then create a storage account.
+Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
 ### Upgrade your powershell module
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 To interact with Data Lake Storage Gen2 by using PowerShell, you'll need to install module Az.Storage version **0.7** or later.
 
 Start by opening a PowerShell session with elevated permissions.
 
-Then, determine if you have the AzureRM.Storage module installed.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-If a module appears, then uninstall it.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
-
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
-Enable compatibility mode for AzureRM.
+### Sign in to your Azure Subscription
+
+Use the `Login-AzAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Enable-AzureRMAlias
-```
-
-Compatibility mode means that any scripts that use the AzureRM.Storage module will continue to work even though you've uninstalled the AzureRM.Storage module.
-
-> [!NOTE]
-> Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
-
-### Log in to your Azure Subscription
-
-Use the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
-
-```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### Create a resource group
 
-To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
+To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command: 
 
 > [!NOTE]
-> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command:
+To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -184,17 +163,17 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### Clean up resources
 
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command: 
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Create an account using Azure CLI
 
-To start Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-If you want to log into your local installation of the CLI, run the login command:
+If you want to sign in to your local installation of the CLI, run the login command:
 
 ```cli
 az login
@@ -208,7 +187,7 @@ To do that, enter the following command by using either the Cloud Shell or a loc
 
 ### Create a resource group
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group create `
@@ -217,11 +196,11 @@ az group create `
 ```
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> > The hierarchical namespace is currently available in all public regions.
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -235,7 +214,7 @@ az storage account create `
 
 ### Clean up resources
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

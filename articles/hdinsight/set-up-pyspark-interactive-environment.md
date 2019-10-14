@@ -1,87 +1,53 @@
 ---
-title: Azure HDInsight Tools - Set Up PySpark Interactive Environment for Visual Studio Code 
+title: Azure HDInsight Tools - PySpark Interactive Environment for Visual Studio Code
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: hdinsight
-ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 06/13/2019
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code
 
-The following steps show you how to install Python packages by running **HDInsight: PySpark Interactive**.
+The following steps show you how to set up the PySpark interactive environment in VS Code.
 
+We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually. More details see [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
-## Set up the PySpark interactive environment on macOS and Linux
-If you're using **python 3.x**, you need to use the command **pip3** for the following steps:
+1. Install [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/).
 
-1. Make sure **Python** and **pip** are installed.
- 
-    ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+   + Install Python from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+   + Install pip from [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (if it's not installed from the Python installation).
+   + Validate that Python and pip are installed successfully by using the following commands. (Optional)
 
-2.	Install Jupyter.
-    ```
-    sudo pip install jupyter
-    ```
-   You might see the following error message on Linux and macOS:
+        ![Check Python pip version command](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-   ![Error 1](./media/set-up-pyspark-interactive-environment/error1.png)
+     > [!NOTE]
+     > It is recommended to manually install Python instead of using the macOS default version.
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. Install **virtualenv** by running command below.
 
-3. Install **libkrb5-dev** (for Linux only). You might see the following error message:
-
-   ![Error 2](./media/set-up-pyspark-interactive-environment/error2.png)
-       
-   ```Resolve:
-   sudo apt-get install libkrb5-dev 
+   ```
+   pip install virtualenv
    ```
 
-3. Install **sparkmagic**.
-   ```
-   sudo pip install sparkmagic
-   ```
+## Other packages
 
-4. Make sure that **ipywidgets** is properly installed by running the following:
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
+If you encounter an error message, install the required packages by running the following commands:
 
-5. Install the wrapper kernels. Run **pip show sparkmagic**. The output shows the path for the **sparkmagic** installation. 
+   ![Install libkrb5 package for python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-    ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. Go to the location, and then run:
+```
+sudo apt-get install libkrb5-dev
+```
 
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
-   ```
+```
+sudo apt-get install python-dev
+```
 
-   ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Check the installation status.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    For available kernels: 
-    - **python2** and **pysparkkernel** correspond to **python 2.x**. 
-    - **python3** and **pyspark3kernel** correspond to **python 3.x**. 
-
-8. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
+Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
 
 ## Next steps
 
@@ -90,14 +56,13 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
 
 ### Tools and extensions
 * [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md)
-* [Use Azure Toolkit for IntelliJ to create and submit Spark Scala applications](spark/apache-spark-intellij-tool-plugin.md)
-* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](spark/apache-spark-eclipse-tool-plugin.md)
-* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Use Azure Toolkit for IntelliJ to create and submit Apache Spark Scala applications](spark/apache-spark-intellij-tool-plugin.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](spark/apache-spark-eclipse-tool-plugin.md)
+* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in an Apache Spark cluster for HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Use Zeppelin to run Hive queries in Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)
+* [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./interactive-query/hdinsight-connect-hive-zeppelin.md)

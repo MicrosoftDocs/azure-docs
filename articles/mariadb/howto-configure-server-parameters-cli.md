@@ -1,14 +1,11 @@
 ---
 title: Configure the service parameters in Azure Database for MariaDB
 description: This article describes how to configure the service parameters in Azure Database for MariaDB using the Azure CLI command line utility.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/09/2018
 ---
 # Customize server configuration parameters by using Azure CLI

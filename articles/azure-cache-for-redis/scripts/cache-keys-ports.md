@@ -1,21 +1,21 @@
 ---
 title: Azure CLI Script Sample - Get the hostname, ports, and keys for Azure Cache for Redis | Microsoft Docs
 description: Azure CLI Script Sample - Get the hostname, ports, and keys for an Azure Cache for Redis instance
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: 
 tags: azure-service-management
 
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
-ms.service: cache-redis
+ms.service: cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: wesmc
+ms.author: yegu
 ---
 
 # Get the hostname, ports, and keys for Azure Cache for Redis
@@ -35,8 +35,8 @@ This script uses the following commands to retrieve the hostname, keys, and port
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Retrieve details of an Azure Cache for Redis instance. |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Retrieve access keys for an Azure Cache for Redis instance. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Retrieve details of an Azure Cache for Redis instance. |
+| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis) | Retrieve access keys for an Azure Cache for Redis instance. |
 
 
 ## Next steps

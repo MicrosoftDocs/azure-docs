@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Firstbird
 
@@ -75,8 +76,8 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Firstbird Single Sign-On](#configure-firstbird-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Firstbird test user](#create-firstbird-test-user)** - to have a counterpart of Britta Simon in Firstbird that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Firstbird test user](#create-firstbird-test-user)** - to have a counterpart of Britta Simon in Firstbird that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -102,18 +103,18 @@ To configure Azure AD single sign-on with [Application name], perform the follow
     ![Firstbird Domain and URLs single sign-on information](common/idp_intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<company-domain>.auth.1brd.com/saml/sp`.
+    `https://<company-domain>.auth.1brd.com/saml/sp`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<company-domain>.auth.1brd.com/saml/callback`.
+    `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![Firstbird Domain and URLs single sign-on information](common/metadata_upload_additional_signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<company-domain>.1brd.com/login`.
-    
+    `https://<company-domain>.1brd.com/login`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Firstbird Client support team](mailto:support@firstbird.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -178,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
 
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -223,8 +224,8 @@ When you click the Firstbird tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

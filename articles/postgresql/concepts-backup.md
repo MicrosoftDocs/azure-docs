@@ -1,23 +1,20 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL
-description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server.
-services: postgresql
+title: Backup and restore in Azure Database for PostgreSQL - Single Server
+description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 08/21/2019
 ---
 
-# Backup and restore in Azure Database for PostgreSQL
+# Backup and restore in Azure Database for PostgreSQL - Single Server
 
 Azure Database for PostgreSQL automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
 ## Backups
 
-Azure Database for PostgreSQL takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
+Azure Database for PostgreSQL takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
 ### Backup frequency
 
@@ -48,7 +45,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### Point-in-time restore
 
@@ -60,7 +57,7 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size is not supported.
 
@@ -75,6 +72,6 @@ After a restore from either recovery mechanism, you should perform the following
 
 ## Next steps
 
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md).
+- Learn how to restore using [the Azure CLI](howto-restore-server-cli.md).
 - To learn more about business continuity, see the [business continuity overview](concepts-business-continuity.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).

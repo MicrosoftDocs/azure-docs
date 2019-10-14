@@ -12,9 +12,9 @@
 
 ## View device telemetry
 
-You can view the telemetry sent from your device on the **Devices** page in the solution.
+You can view the telemetry sent from your device on the **Device Explorer** page in the solution.
 
-1. Select the device you provisioned in the list of devices on the **Devices** page. A panel displays information about your device including a plot of the device telemetry:
+1. Select the device you provisioned in the list of devices on the **Device Explorer** page. A panel displays information about your device including a plot of the device telemetry:
 
     ![See device detail](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -28,28 +28,24 @@ You can view the telemetry sent from your device on the **Devices** page in the 
 
 ## Act on your device
 
-To invoke methods on your devices, use the **Devices** page in the Remote Monitoring solution. For example, in the Remote Monitoring solution **Chiller** devices implement a **FirmwareUpdate** method.
+To invoke methods on your devices, use the **Device Explorer** page in the Remote Monitoring solution. For example, in the Remote Monitoring solution **Chiller** devices implement a **Reboot** method.
 
-1. Choose **Devices** to navigate to the **Devices** page in the solution.
+1. Choose **Devices** to navigate to the **Device Explorer** page in the solution.
 
-1. Select the device you provisioned in the list of devices on the **Devices** page:
+1. Select the device you provisioned in the list of devices on the **Device Explorer** page:
 
-    ![Select your physical device](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![Select your real device](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. To display a list of the methods you can call on your device, choose **Jobs**, then **Run method**. To schedule a job to run on multiple devices, you can select multiple devices in the list. The **Jobs** panel shows the types of method common to all the devices you selected.
+1. To display a list of the methods you can call on your device, choose **Jobs**, then **Methods**. To schedule a job to run on multiple devices, you can select multiple devices in the list. The **Jobs** panel shows the types of method common to all the devices you selected.
 
-1. Choose **FirmwareUpdate**, set the job name to **UpdatePhysicalChiller**. Set **Firmware Version** to **2.0.0**, set **Firmware URI** to **http://contoso.com/updates/firmware.bin**, and then choose **Apply**:
+1. Choose **Reboot**, set the job name to **RebootPhysicalChiller** and then choose **Apply**:
 
     ![Schedule the firmware update](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. A sequence of messages displays in the console running your device code while the simulated device handles the method.
 
-1. When the update is complete, the new firmware version displays on the **Devices** page:
-
-    ![Update completed](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> To track the status of the job in the solution, choose **View**.
+> To track the status of the job in the solution, choose **View Job Status**.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
-title: Azure Digital Twins public preview service limits | Microsoft Docs
-description: Understand Azure Digital Twins public preview service limits
-author: dwalthermsft
-manager: deshner
+title: 'Azure Digital Twins public preview service limits | Microsoft Docs'
+description: Understand Azure Digital Twins public preview service limits.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
-ms.author: dwalthermsft
+ms.date: 10/03/2019
 ---
 
 # Public preview service limits
@@ -30,21 +30,25 @@ During the public preview, each Azure subscription can create or run only one Az
 
 In turn, each Azure Digital Twins instance can have:
 
-- One **IoTHub** resource.
-- One **EventHub** endpoint for the event type **DeviceMessage**.
+- Exactly one embedded **IoTHub** resource that's created automatically during service provisioning.
+- Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
 - Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
-## Management API limits
+> [!NOTE]
+> Some parameters that are usually defined in creating the above Azure IoT entities are not required during public preview.
+> - Consult the [Swagger reference documentation](./how-to-use-swagger.md) for the most recent API specifications.
 
-The request rate limits for your Management API are:
+## Azure Digital Twins Management API limits
 
-- 100 requests per second to the Management API.
-- Up to 1,000 objects returned by a single Management API query. 
+The request rate limits for your Azure Digital Twins Management API are:
+
+- 100 requests per second to the Azure Digital Twins Management API.
+- Up to 1,000 objects returned by a single Azure Digital Twins Management API query.
 
 > [!IMPORTANT]
 > If you exceed the 1,000-object limit, you receive an error and must simplify your query.
 
-## UDF rate limits
+## User-defined functions rate limits
 
 The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
@@ -54,7 +58,7 @@ The following limits set the total number of all user-defined function calls mad
 > [!NOTE]
 > The following actions might cause additional rate limits to be applied temporarily:
 > - Edits made to the topology object metadata
-> - Updates made to the UDF definition
+> - Updates made to the user-defined function definition
 > - Devices that send telemetry for the first time
 
 ## Device telemetry limits
@@ -65,4 +69,4 @@ The following limits cap the total number of all messages your devices can send 
 
 ## Next steps
 
-To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

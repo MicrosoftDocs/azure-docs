@@ -32,12 +32,12 @@ Before working through these examples, you need a DC/OS cluster that is configur
 >
 
 ## Explore the DC/OS UI
-With a Secure Shell (SSH) tunnel [established](../container-service-connect.md), browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
+With a Secure Shell (SSH) tunnel [established](../container-service-connect.md), browse to http:\//localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
 
 ![DC/OS UI](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## Explore the Marathon UI
-To see the Marathon UI, browse to http://localhost/marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
+To see the Marathon UI, browse to http:\//localhost/marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
 ![Marathon UI](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -81,7 +81,7 @@ Back on the Marathon main page, you can see the deployment status for the contai
 
 ![Marathon main page UI--container deployment status](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-When you switch back to the DC/OS web UI (http://localhost/), you see that a task (in this case, a Docker-formatted container) is running on the DC/OS cluster.
+When you switch back to the DC/OS web UI (http:\//localhost/), you see that a task (in this case, a Docker-formatted container) is running on the DC/OS cluster.
 
 ![DC/OS web UI--task running on the cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

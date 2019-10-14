@@ -3,10 +3,10 @@ title: Troubleshooting issues with Azure Change Tracking
 description: This article provides information on troubleshooting Change Tracking
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
-author: georgewallace
-ms.author: gwallace
-ms.date: 10/24/2018
+ms.subservice: change-inventory-management
+author: bobbytreed
+ms.author: robreed
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -14,11 +14,11 @@ manager: carmonm
 
 ## Windows
 
-### <a name="records-not-showing-windows"></a>Scenario: Change Tracking records aren't showing in the Azure portal
+### <a name="records-not-showing-windows"></a>Scenario: Change Tracking records aren't showing for Windows Machines
 
 #### Issue
 
-You don't see any Inventory or Change Tracking results for machines that are onboarded for Change Tracking.
+You don't see any Inventory or Change Tracking results for Windows machines that are onboarded for Change Tracking.
 
 #### Cause
 
@@ -32,19 +32,20 @@ This error can be caused by the following reasons:
 #### Resolution
 
 1. Verify the **Microsoft Monitoring Agent** (HealthService.exe) is running on the machine.
-2. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Change Tracking to work.
-3. Verify that the following Change Tracking and Inventory management packs exist locally:
+1. Check **Event Viewer** on the machine and look for any events that have the word `changetracking` in them.
+1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Change Tracking to work.
+1. Verify that the following Change Tracking and Inventory management packs exist locally:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. If using a cloned image, sysprep the image first and install the Microsoft Monitoring Agent agent after the fact.
+1. If using a cloned image, sysprep the image first and install the Microsoft Monitoring Agent agent after the fact.
 
 If these solutions don't resolve your problem and you contact support, you can run the following commands to collect the diagnostic on the agent
 
 On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice

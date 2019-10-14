@@ -1,22 +1,22 @@
 ---
-title: Change, train app, Node.js
+title: "Quickstart: Change, train app, Node.js - LUIS"
 titleSuffix: Azure Cognitive Services
 description: In this Node.js quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 09/03/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Node.js.  
 ---
 
 # Quickstart: Change model using Node.js
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ ms.author: diberry
 * NPM dependencies for this article: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## Example utterances JSON file
 

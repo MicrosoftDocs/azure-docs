@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals
-  href: /azure/iot-fundamentals
 - name: Azure Digital Twins
   href: index.yml
 - name: Overview
@@ -7,6 +5,7 @@
   - name: About Azure Digital Twins
     href: about-digital-twins.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Find available rooms
     href: quickstart-view-occupancy-dotnet.md
@@ -20,7 +19,7 @@
         href: tutorial-facilities-udf.md
       - name: Notify with Logic Apps
         href: tutorial-facilities-events.md
-      - name: Visualize events with TSI
+      - name: Visualize events with Time Series Insights
         href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
@@ -46,50 +45,34 @@
       href: security-authenticating-apis.md
 - name: How-to guides
   items:
-  - name: How to enable multitenant applications
+  - name: Enable multitenant applications
     href: how-to-multitenant-applications.md
-  - name: How to create user-defined functions
+  - name: Create user-defined functions
     href: how-to-user-defined-functions.md
-  - name: How to route events and messages via endpoints
+  - name: Route events and messages via endpoints
     href: how-to-egress-endpoints.md
-  - name: How to configure Postman
-    href: how-to-configure-postman.md
-  - name: How to add blobs to objects
+  - name: Add blobs to objects
     href: how-to-add-blobs.md
-  - name: How to use Digital Twins Swagger
+  - name: Use Digital Twins Swagger
     href: how-to-use-swagger.md
-  - name: How to debug user-defined functions
+  - name: Debug user-defined functions
     href: how-to-diagnose-user-defined-functions.md
-  - name: How to configure monitoring
+  - name: Configure monitoring
     href: how-to-configure-monitoring.md
-#- name: Reference
-#  items:
-- name: Related
+  - name: Query Digital Twins APIs
+    items:
+    - name: Set up Postman
+      href: how-to-configure-postman.md
+    - name: Use Digital Twins APIs
+      href: how-to-navigate-apis.md
+    - name: Common query patterns
+      href: how-to-query-common-apis.md
+  - name: Register your app with legacy AAD
+    href: how-to-use-legacy-aad.md
+- name: Reference
   items:
-  - name: Solutions
-    items:
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform Services
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+  - name: User-defined functions client library
+    href: reference-user-defined-functions-client-library.md
 - name: Resources
   items:
   - name: Azure Digital Twins samples for C# (.NET)
@@ -100,7 +83,7 @@
     href: https://azure.microsoft.com/pricing/details/digital-twins/     
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-    name: Azure Digital Twins Graph Viewer
+  - name: Azure Digital Twins Graph Viewer
     href: https://github.com/Azure/azure-digital-twins-graph-viewer
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-digital-twins

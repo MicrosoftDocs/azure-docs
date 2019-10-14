@@ -1,31 +1,30 @@
 ---
-title: 'Quickstart: Recognize speech, Javascript (Browser) - Speech Services'
+title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
+description: Learn how to recognize speech in JavaScript in a browser using the Speech SDK
 services: cognitive-services
 author: fmegen
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in JavaScript in a browser using the Speech Service SDK
+# Quickstart: Recognize speech in JavaScript in a browser using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the [Speech SDK for JavaScript](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
-* A current version of Chrome or Microsoft Edge.
+* A current version of Chrome, Microsoft Edge, or Safari.
 * Optionally, a web server that supports hosting PHP scripts.
 
 ## Create a new Website folder
@@ -36,8 +35,8 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-The latter file is optional and used to help debugging into SDK code, if necessary.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+The latter file is optional, and is useful for debugging into the SDK code.
 
 ## Create an index.html page
 
@@ -45,12 +44,12 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
 1. Create the following HTML skeleton:
 
-  ```html
-  <html>
-  <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   ```html
+   <html>
+   <head>
+      <title>Speech SDK JavaScript Quickstart</title>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -58,21 +57,21 @@ Create a new file in the folder, named `index.html` and open this file with a te
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
 1. Add the following UI code to your file, below the first comment:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
 1. Add a reference to the Speech SDK
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire up handlers for the recognition button, recognition result, and subscription related fields defined by the UI code:
+1. Wire up handlers for the recognition button, recognition result, and subscription-related fields defined by the UI code:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## Create the token source (optional)
 
@@ -81,11 +80,11 @@ That way, your subscription key will never leave your server while allowing user
 
 1. Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
 1. Edit the `index.html` file and add the following code to your file:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Authorization tokens only have a limited lifetime.
@@ -95,14 +94,15 @@ That way, your subscription key will never leave your server while allowing user
 
 To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
 
+> [!NOTE]
+> This method doesn't work on the Safari browser.
+> On Safari, the sample web page needs to be hosted on a web server; Safari doesn't allow websites loaded from a local file to use the microphone.
+
 ## Build and run the sample via a web server
 
 To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/js-browser` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore JavaScript samples on GitHub](https://aka.ms/csspeech/samples)

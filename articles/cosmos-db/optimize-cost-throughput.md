@@ -2,14 +2,13 @@
 title: Optimizing throughput cost in Azure Cosmos DB
 description: This article explains how to optimize throughput costs for the data stored in Azure Cosmos DB.
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/26/2019
 ms.author: rimman
 ---
 
-# Optimizing throughput cost in Azure Cosmos DB
+# Optimize provisioned throughput cost in Azure Cosmos DB
 
 By offering provisioned throughput model, Azure Cosmos DB offers predictable performance at any scale. Reserving or provisioning throughput ahead of time eliminates the “noisy neighbor effect” on your performance. You specify the exact amount of throughput you need and Azure Cosmos DB guarantees the configured throughput, backed by SLA.
 
@@ -25,11 +24,11 @@ You can provision throughput on databases or containers and each strategy can he
 
 The following are some guidelines to decide on a provisioned throughput strategy:
 
-**Consider provisioning throughput on an Azure Cosmos DB database (containing a set of containers) if**:
+**Consider provisioning throughput on an Azure Cosmos database (containing a set of containers) if**:
 
 1. You have a few dozen Azure Cosmos containers and want to share throughput across some or all of them. 
 
-2. You are migrating from a single-tenant database designed to run on IaaS-hosted VMs or on-premises, for example, NoSQL or relational databases to Azure Cosmos DB. Anf if you have many collections/tables/graphs and you do not want to make any changes to your data model. Note, you might have to compromise some of the benefits offered by Azure Cosmos DB if you are not updating your data model when migrating from an on-premise database. It's recommended that you always reaccess your data model to get the most in terms of performance and also to optimize for costs. 
+2. You are migrating from a single-tenant database designed to run on IaaS-hosted VMs or on-premises, for example, NoSQL or relational databases to Azure Cosmos DB. And if you have many collections/tables/graphs and you do not want to make any changes to your data model. Note, you might have to compromise some of the benefits offered by Azure Cosmos DB if you are not updating your data model when migrating from an on-premises database. It's recommended that you always reaccess your data model to get the most in terms of performance and also to optimize for costs. 
 
 3. You want to absorb unplanned spikes in workloads by virtue of pooled throughput at the database level subjected to unexpected spike in workload. 
 
@@ -52,7 +51,7 @@ As shown in the following table, depending on the choice of API, you can provisi
 |API|For **shared** throughput, configure |For **dedicated** throughput, configure |
 |----|----|----|
 |SQL API|Database|Container|
-|MongoDB API|Database|Collection|
+|Azure Cosmos DB's API for MongoDB|Database|Collection|
 |Cassandra API|Keyspace|Table|
 |Gremlin API|Database account|Graph|
 |Table API|Database account|Table|
@@ -61,7 +60,7 @@ By provisioning throughput at different levels, you can optimize your costs base
 
 ## Optimize with rate-limiting your requests
 
-For workloads that aren't sensitive to latency, you can provision less throughput and let the application handle rate-limiting when the actual throughput exceeds the provisioned throughput. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
+For workloads that aren't sensitive to latency, you can provision less throughput and let the application handle rate-limiting when the actual throughput exceeds the provisioned throughput. The server will preemptively end the request with `RequestRateTooLarge` (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
 
 ```html
 HTTP Status 429, 
@@ -73,15 +72,13 @@ HTTP Status 429,
 
 The native SDKs (.NET/.NET Core, Java, Node.js and Python) implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is  accessed concurrently by multiple clients, the next retry will succeed.
 
-If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently that is currently set to 9 may bot be sufficient. In such case, the client throws a `DocumentClientException` with status code 429 to the application. The default retry count can be changed by setting the `RetryOptions` on the ConnectionPolicy instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value. 
+If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently that is currently set to 9 may not be sufficient. In such case, the client throws a `DocumentClientException` with status code 429 to the application. The default retry count can be changed by setting the `RetryOptions` on the ConnectionPolicy instance. By default, the `DocumentClientException` with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) is set to 3, so in this case, if a request operation is rate limited by exceeding the reserved throughput for the collection, the request operation retries three times before throwing the exception to the application. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is set to 60, so in this case if the cumulative retry waits time in seconds since the first request exceeds 60 seconds, the exception is thrown.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) is set to 3, so in this case, if a request operation is rate limited by exceeding the reserved throughput for the container, the request operation retries three times before throwing the exception to the application. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is set to 60, so in this case if the cumulative retry wait time in seconds since the first request exceeds 60 seconds, the exception is thrown.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
@@ -109,7 +106,7 @@ Furthermore, if you're using Azure Cosmos DB, and you know you are not going to 
 
 ## Optimize by changing indexing policy 
 
-By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad-hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
+By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
 
 ## Monitoring provisioned and consumed throughput 
 
@@ -155,7 +152,7 @@ The following steps help you to make your solutions highly scalable and cost-eff
 
 2. One method for estimating the amount of reserved throughput required by your application is to record the request unit RU charge associated with running typical operations against a representative Azure Cosmos container or database used by your application and then estimate the number of operations you anticipate to perform each second. Be sure to measure and include typical queries and their usage as well. To learn how to estimate RU costs of queries programmatically or using portal see [Optimizing the cost of queries](online-backup-and-restore.md). 
 
-3. Another way to get operations and their costs in RUs is by enabling Log Analytics, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
+3. Another way to get operations and their costs in RUs is by enabling Azure Monitor logs, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
 
 4. You can elastically scale up and down provisioned throughput as you need to accommodate your workload needs. 
 

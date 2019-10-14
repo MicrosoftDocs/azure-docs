@@ -7,11 +7,10 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
-manager: craigg
-ms.date: 10/22/2018
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
+ms.date: 12/19/2018
 ---
 # Monitoring performance Azure SQL Database using dynamic management views
 
@@ -23,7 +22,7 @@ SQL Database partially supports three categories of dynamic management views:
 - Execution-related dynamic management views.
 - Transaction-related dynamic management views.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online.
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online. 
 
 ## Permissions
 
@@ -232,13 +231,13 @@ GO
 
 ## Identify `tempdb` performance issues
 
-When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database id, `x` is the file id, and `y` is the page id.  
+When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database ID, `x` is the file ID, and `y` is the page ID.  
 
 For tempdb contention, a common method is to reduce or re-write application code that relies on `tempdb`.  Common `tempdb` usage areas include:
 
 - Temp tables
 - Table variables
-- Table valued parameters
+- Table-valued parameters
 - Version store usage (specifically associated with long running transactions)
 - Queries that have query plans that use sorts, hash joins, and spools
 
@@ -543,7 +542,7 @@ Other application types might interpret the same graph differently. For example,
 Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
 > [!NOTE]
-> You must be connected to the **master** database of your logical SQL database server to query **sys.resource_stats** in the following examples.
+> You must be connected to the **master** database of your SQL Database server to query **sys.resource_stats** in the following examples.
 
 This example shows you how the data in this view is exposed:
 

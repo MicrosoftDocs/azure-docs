@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View roles assigned to a user using the Azure portal | Microsoft Docs
-description: Learn how to view the role-based access control (RBAC) permissions assigned to a user, group, service principal, or managed identity using the Azure portal.
+title: Quickstart - View the access a user has to Azure resources | Microsoft Docs
+description: Learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -20,13 +20,13 @@ ms.reviewer: bagovind
 
 ---
 
-# Quickstart: View roles assigned to a user using the Azure portal
+# Quickstart: View the access a user has to Azure resources
 
-You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the role assignments for multiple users, groups, service principals, and managed identities, but sometimes you just need to quickly view role assignments for a single user, group, service principal, or managed identity. The easiest way to do this is to use the **Check access** feature in the Azure portal.
+You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
 ## View role assignments
 
-Follow these steps to view the role assignments for a single user, group, service principal, or managed identity at the subscription scope.
+ The way that you view the access for a user is to list their roles assignments. Follow these steps to view the role assignments for a single user, group, service principal, or managed identity at the subscription scope.
 
 1. In the Azure portal, click **All services** and then **Subscriptions**.
 
@@ -53,4 +53,4 @@ Follow these steps to view the role assignments for a single user, group, servic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+> [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)

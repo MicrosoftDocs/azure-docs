@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -40,15 +40,18 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
   * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
 
 ### Working with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## Connect a virtual network in the same subscription to a circuit
 You can connect a virtual network gateway to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
 ## Connect a virtual network in a different subscription to a circuit
@@ -79,12 +82,12 @@ The circuit owner creates an authorization. This results in the creation of an a
 The following cmdlet snippet shows how to create an authorization:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
 
@@ -104,8 +107,8 @@ The response to this will contain the authorization key and status:
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **To add authorizations**
@@ -113,12 +116,12 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 The circuit owner can add authorizations by using the following cmdlet:
 
 ```azurepowershell-interactive
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+$authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
 **To delete authorizations**
@@ -126,8 +129,8 @@ $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircu
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+Remove-AzExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $circuit
 ```    
 
 ### Circuit user operations
@@ -137,7 +140,7 @@ The circuit user needs the peer ID and an authorization key from the circuit own
 Peer ID can be checked from the following command:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **To redeem a connection authorization**
@@ -146,8 +149,8 @@ The circuit user can run the following cmdlet to redeem a link authorization:
 
 ```azurepowershell-interactive
 $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
-$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
 **To release a connection authorization**
@@ -162,12 +165,26 @@ You can update certain properties of a virtual network connection.
 Your virtual network can be connected to multiple ExpressRoute circuits. You may receive the same prefix from more than one ExpressRoute circuit. To choose which connection to send traffic destined for this prefix, you can change *RoutingWeight* of a connection. Traffic will be sent on the connection with the highest *RoutingWeight*.
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
 $connection.RoutingWeight = 100
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
 
 The range of *RoutingWeight* is 0 to 32000. The default value is 0.
+
+## Configure ExpressRoute FastPath 
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual newtork gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
+
+> [!NOTE] 
+> If you already have a virtual network connection but haven't enabled FastPath you need to delete the virtual network connection and create a new one. 
+> 
+>  
+
+```azurepowershell-interactive 
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
+$gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
+$connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

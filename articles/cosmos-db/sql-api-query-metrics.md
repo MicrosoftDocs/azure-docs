@@ -1,14 +1,11 @@
 ---
 title: SQL query metrics for Azure Cosmos DB SQL API
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
-keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
 
 ---
@@ -42,7 +39,7 @@ The SDKs provide various options for query execution. For example, in .NET these
 | `EnableScanInQuery` | Must be set to true if you have opted out of indexing, but want to run the query via a scan anyway. Only applicable if indexing for the requested filter path is disabled. | 
 | `MaxItemCount` | The maximum number of items to return per round trip to the server. By setting to -1, you can let the server manage the number of items. Or, you can lower this value to retrieve only a small number of items per round trip. 
 | `MaxBufferedItemCount` | This is a client-side option, and used to limit the memory consumption when performing cross-partition ORDER BY. A higher value helps reduce the latency of cross-partition sorting. |
-| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure Cosmos DB database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
+| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure Cosmos database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
 | `PopulateQueryMetrics` | Enables detailed logging of statistics of time spent in various phases of query execution like compilation time, index loop time, and document load time. You can share output from query statistics with Azure Support to diagnose query performance issues. |
 | `RequestContinuation` | You can resume query execution by passing in the opaque continuation token returned by any query. The continuation token encapsulates all state required for query execution. |
 | `ResponseContinuationTokenLimitInKb` | You can limit the maximum size of the continuation token returned by the server. You might need to set this if your application host has limits on response header size. Setting this may increase the overall duration and RUs consumed for the query.  |
@@ -214,6 +211,8 @@ The section on query execution metrics explains how to retrieve the server execu
 ### Indexing policy
 See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses Hash indexing for strings, which is effective for equality queries, but not for range queries/order by queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
 
+By default, Azure Cosmos DB will apply automatic indexing to all data. For high performance insert scenarios, consider excluding paths as this will reduce the RU cost for each insert operation. 
+
 ## Query execution metrics
 You can obtain detailed metrics on query execution by passing in the optional `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in the .NET SDK). The value returned in `x-ms-documentdb-query-metrics` has the following key-value pairs meant for advanced troubleshooting of query execution. 
 
@@ -268,7 +267,7 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 
 
 ## Next steps
-* To learn about the supported SQL query operators and keywords, see [SQL query](how-to-sql-query.md). 
+* To learn about the supported SQL query operators and keywords, see [SQL query](sql-query-getting-started.md). 
 * To learn about request units, see [request units](request-units.md).
 * To learn about indexing policy, see [indexing policy](index-policy.md) 
 

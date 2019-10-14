@@ -4,18 +4,19 @@ titlesuffix: Azure Load Balancer
 description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: kumud
+ms.date: 03/28/2019
+ms.author: allensu
 ---
 
-# Azure Load Balancer Standard overview
+# Azure Standard Load Balancer overview
 
 Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications. 
 
@@ -68,6 +69,9 @@ Review [Load Balancer health probes](load-balancer-custom-probe-overview.md) for
 
 ### <a name="az"></a>Availability Zones
 
+>[!IMPORTANT]
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
+
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 
 Non-zonal frontends become zone-redundant by default when deployed in a region with Availability Zones.   A zone-redundant frontend survives zone failure and is served by dedicated infrastructure in all of the zones simultaneously. 
@@ -84,12 +88,12 @@ Standard Load Balancer provides multi-dimensional metrics through Azure Monitor.
 
 | Metric | Description |
 | --- | --- |
-| VIP availability | Load Balancer Standard continuously exercises the data path from within a region to the Load Balancer front-end all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that is used by your customers is also validated. The measurement is invisible to your application and does not interfere with other operations.|
-| DIP availability | Load Balancer Standard uses a distributed health probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per endpoint filtered-view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
-| SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.|
-| SNAT connections | Load Balancer Standard reports the number of outbound flows that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows.  Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.|
-| Byte counters | Load Balancer Standard reports the data processed per front-end.|
-| Packet counters | Load Balancer Standard reports the packets processed per front-end.|
+| VIP availability | Standard Load Balancer continuously exercises the data path from within a region to the Load Balancer front-end all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that is used by your customers is also validated. The measurement is invisible to your application and does not interfere with other operations.|
+| DIP availability | Standard Load Balancer uses a distributed health probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per endpoint filtered-view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
+| SYN packets | Standard Load Balancer does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.|
+| SNAT connections | Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows.  Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.|
+| Byte counters | Standard Load Balancer reports the data processed per front-end.|
+| Packet counters | Standard Load Balancer reports the packets processed per front-end.|
 
 Review [detailed discussion of Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 
@@ -197,7 +201,7 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 ## Region availability
 
-Load Balancer Standard is currently available in all public cloud regions.
+Standard Load Balancer is currently available in all public cloud regions.
 
 ## SLA
 
@@ -205,14 +209,18 @@ Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard L
 
 ## Pricing
 
-Standard Load Balancer is a charged product based on number of load-balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://aka.ms/lbpricing) page.
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 ## Limitations
 
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - A Load Balancer rule cannot span two virtual networks.  Frontends and their related backend instances must be located in the same virtual network.  
-- Load Balancer frontends are not accessible across global virtual network peering.
 - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
 - Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. You must not rely on this as the respective service itself or the underlying platform can change without notice. You must always assume you need to create [outbound connectivity](load-balancer-outbound-connections.md) explicitly if desired when using an internal Standard Load Balancer only.
 - Load Balancer is a TCP or UDP product for load balancing and port forwarding for these specific IP protocols.  Load balancing rules and inbound NAT rules are supported for TCP and UDP and not supported for other IP protocols including ICMP. Load Balancer does not terminate, respond, or otherwise interact with the payload of a UDP or TCP flow. It is not a proxy. Successful validation of connectivity to a front-end must take place in-band with the same protocol used in a load balancing or inbound NAT rule (TCP or UDP) _and_ at least one of your virtual machines must generate a response for a client to see a response from a front-end.  Not receiving an in-band response from the Load Balancer front-end indicates no virtual machines were able to respond.  It is not possible to interact with a Load Balancer front-end without a virtual machine able to respond.  This also applies to outbound connections where [port masquerade SNAT](load-balancer-outbound-connections.md#snat) is only supported for TCP and UDP; any other IP protocols including ICMP  will also fail.  Assign an instance-level Public IP address to mitigate.
@@ -224,7 +232,7 @@ Standard Load Balancer is a charged product based on number of load-balancing ru
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn about [supported multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Learn about [supported multi-dimensional metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
 - Learn about [Outbound Rules](load-balancer-outbound-rules-overview.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).

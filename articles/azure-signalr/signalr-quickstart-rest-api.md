@@ -3,9 +3,8 @@ title: Quickstart - Azure SignalR Service REST API
 description: A quickstart for using the Azure SignalR Service REST API.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Quickstart: Broadcast real-time messages from console app
@@ -123,13 +122,13 @@ The list of available APIs for each specific version is available in the followi
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Broadcast to all](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[Broadcast to a group](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Broadcast to some groups | :heavy_check_mark: (Deprecated) | `N / A`
-[Send to specific users](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Send to some users | :heavy_check_mark: (Deprecated) | `N / A`
-[Adding a user to a group](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[Removing a user from a group](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[Broadcast to all](#broadcast) | **&#x2713;** | **&#x2713;**
+[Broadcast to a group](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Broadcast to some groups | **&#x2713;** (Deprecated) | `N / A`
+[Send to specific users](#send-user) | **&#x2713;** | **&#x2713;**
+Send to some users | **&#x2713;** (Deprecated) | `N / A`
+[Adding a user to a group](#add-user-to-group) | `N / A` | **&#x2713;**
+[Removing a user from a group](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### Broadcast to everyone
@@ -170,3 +169,10 @@ Version | API HTTP Method | Request URL
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## Next steps
+
+In this quickstart, you learned how to use REST API to broadcast real-time message from SignalR Service to clients. Next, learn more about how to develop and deploy Azure Functions with SignalR Service binding, which is built on top of REST API.
+
+> [!div class="nextstepaction"]
+> [Develop Azure Functions using Azure SignalR Service bindings](signalr-quickstart-azure-functions-csharp.md)

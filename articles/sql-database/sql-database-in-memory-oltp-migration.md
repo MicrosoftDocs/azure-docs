@@ -7,14 +7,14 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.reviewer: MightyPen
-ms.date: 04/01/2018
+ms.date: 11/07/2018
 ---
 # Use In-Memory OLTP to improve your application performance in SQL Database
+
 [In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](sql-database-service-tiers-vcore.md) databases without increasing the pricing tier. 
 
 > [!NOTE] 
@@ -24,6 +24,7 @@ ms.date: 04/01/2018
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
 ## Step 1: Ensure you are using a Premium and Business Critical tier database
+
 In-Memory OLTP is supported only in Premium and Business Critical tier databases. In-Memory is supported if the returned result is 1 (not 0):
 
 ```

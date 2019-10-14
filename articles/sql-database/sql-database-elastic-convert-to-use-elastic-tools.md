@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 
 ---
 # Migrate existing databases to scale out
@@ -25,7 +24,7 @@ To migrate an existing sharded database:
 3. Prepare the individual shards.  
 4. Add mappings to the shard map.
 
-These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
 For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
@@ -64,11 +63,11 @@ For a single-tenant model, create a **list mapping** shard map. The single-tenan
 
 ![List mapping][1]
 
-The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, assign a range of tenants to a database using **range mapping**. 
+The multi-tenant model assigns several tenants to an individual database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, assign a range of tenants to a database using **range mapping**. 
 
 ![Range mapping][2]
 
-Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant ID 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to an individual database. For example, DB1 is used to store information about tenant ID 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
 
 ![Multiple tenants on single DB][3] 
 
@@ -93,7 +92,7 @@ To utilize this mapping pattern, tenant ID values needs to be continuous ranges,
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### Option 3: List mappings on a single database
+### Option 3: List mappings on an individual database
 Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
 ## Step 3: Prepare individual shards
@@ -133,7 +132,7 @@ Add the range mappings for all the tenant ID range - database associations:
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### Step 4 option 3: map the data for multiple tenants on a single database
+### Step 4 option 3: map the data for multiple tenants on an individual database
 For each tenant, run the Add-ListMapping (option 1). 
 
 ## Checking the mappings

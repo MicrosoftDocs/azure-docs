@@ -17,45 +17,47 @@
   - name: Get started with Conversation Learner
     href: quickstart.md
   - name: Hello world
-    href: tutorials/1-hello-world.md
+    href: tutorials/01-hello-world.md
+  - name: Introduction to training
+    href: tutorials/02-intro-to-training.md
   - name: Wait versus non-wait actions
-    href: tutorials/2-wait-vs-nonwait-actions.md
+    href: tutorials/03-wait-vs-nonwait-actions.md
   - name: Introduction to entities
-    href: tutorials/3-introduction-to-entities.md
+    href: tutorials/04-introduction-to-entities.md
   - name: Expected entity
-    href: tutorials/4-expected-entity.md
+    href: tutorials/05-expected-entity.md
   - name: Negatable entities
-    href: tutorials/5-negatable-entities.md
+    href: tutorials/06-negatable-entities.md
   - name: Multi-value entities
-    href: tutorials/6-multi-value-entities.md
-  - name: Built-in entities
-    href: tutorials/7-built-in-entities.md
+    href: tutorials/07-multi-value-entities.md
+  - name: Pre-Trained entities
+    href: tutorials/08-pre-trained-entities.md
+  - name: Entity resolvers
+    href: tutorials/09-entity-resolvers.md
+  - name: Enum entities
+    href: tutorials/tutorial-enum-set-entity.md
   - name: Alternative inputs
-    href: tutorials/8-alternative-inputs.md
+    href: tutorials/10-alternative-inputs.md
   - name: Log dialogs
-    href: tutorials/9-log-dialogs.md
+    href: tutorials/11-log-dialogs.md
   - name: Entity detection callback
-    href: tutorials/10-entity-detection-callback.md
+    href: tutorials/12-entity-detection-callback.md
   - name: Session callbacks
-    href: tutorials/11-session-callbacks.md
+    href: tutorials/13-session-callbacks.md
   - name: API calls
-    href: tutorials/12-api-calls.md
-  - name: Cards part 1
-    href: tutorials/13-cards-1.md
-  - name: Cards part 2
-    href: tutorials/14-cards-2.md
-  - name: Branching and undo
-    href: tutorials/15-branching-and-undo.md
-  - name: Versioning and tagging
-    href: tutorials/16-versioning-and-tagging.md
+    href: tutorials/14-api-calls.md
+  - name: Cards
+    href: tutorials/15-cards.md
   - name: Hybrid Bots
-    href: tutorials/17-hybrid-bots.md
+    href: tutorials/16-hybrid-bots.md
+  - name: Branching and undo
+    href: tutorials/17-branch-undo.md
+  - name: Versioning and tagging
+    href: tutorials/18-version-tag.md
   - name: Demo - password reset
     href: tutorials/demo-password-reset.md
   - name: Demo - pizza order
     href: tutorials/demo-pizza-order.md
-  - name: Demo - VR app launcher
-    href: tutorials/demo-vr-app-launcher.md
   - name: Deploying a Conversation Learner bot
     href: deploy-to-bf.md
   - name: How to teach with Conversation Learner 

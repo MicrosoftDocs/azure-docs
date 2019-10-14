@@ -3,7 +3,7 @@ title: Tutorial - Create and use disks for scale sets with Azure PowerShell | Mi
 description: Learn how to use Azure PowerShell to create and use Managed Disks with virtual machine scale sets, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 ---
 # Tutorial: Create and use disks with virtual machine scale set with Azure PowerShell
+
 Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -31,9 +32,9 @@ Virtual machine scale sets use disks to store the VM instance's operating system
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## Default Azure disks
@@ -91,12 +92,12 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ### Attach disks at scale set creation
-Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
+Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
 
 Two disks are created with the `-DataDiskSizeGb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -111,23 +112,23 @@ New-AzureRmVmss `
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
 ### Attach a disk to existing scale set
-You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). The following example attaches an additional *128* GB disk to an existing scale set:
+You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). The following example attaches an additional *128* GB disk to an existing scale set:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -139,11 +140,13 @@ The disks that are created and attached to your scale set VM instances are raw d
 
 To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
-The following example executes a script from a GitHub sample repo on each VM instance with [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) that prepares all the raw attached data disks:
+
+The following example executes a script from a GitHub sample repo on each VM instance with [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) that prepares all the raw attached data disks:
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -154,7 +157,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -162,7 +165,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -170,17 +173,18 @@ Update-AzureRmVmss `
 
 To confirm that the disks have been prepared correctly, RDP to one of the VM instances. 
 
-First, get the load balancer object with [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Then, view the inbound NAT rules with [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). The NAT rules list the *FrontendPort* for each VM instance that RDP listens on. Finally, get the public IP address of the load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+First, get the load balancer object with [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Then, view the inbound NAT rules with [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). The NAT rules list the *FrontendPort* for each VM instance that RDP listens on. Finally, get the public IP address of the load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 To connect to your VM, specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set. If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
@@ -241,10 +245,10 @@ Close the remote desktop connection session with the VM instance.
 
 
 ## List attached disks
-To view information about disks attached to a scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) as follows:
+To view information about disks attached to a scale set, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) as follows:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisks* is shown. Information on the disk size, storage tier, and LUN (Logical Unit Number) is shown. The following example output details the three data disks attached to the scale set:
@@ -275,21 +279,21 @@ DataDisks[2]                            :
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)  in the previous section. The following example detaches LUN *3* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [Get-AzVmss](/powershell/module/az.compute/get-azvmss)  in the previous section. The following example detaches LUN *3* from the scale set:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -297,10 +301,10 @@ Update-AzureRmVmss `
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
+To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

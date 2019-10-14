@@ -1,10 +1,10 @@
----
+﻿---
 title: Disable the guest OS Firewall in Azure VM | Microsoft Docs
 description: 
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 
@@ -67,7 +67,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
     ```
 
 > [!Note]
-> If the firewall is set through a Group Policy Object, this method may not work because this command changes only the local registry entries. If a policy is in place, it will override this change. 
+> If the firewall is set through a Group Policy Object, this method may not work because this command changes only the local registry entries. If a policy is in place, it will override this change. 
 
 #### Mitigation 3: PSTools commands
 
@@ -89,7 +89,7 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
 
 1.	On the troubleshooting VM, start registry editor, and then go to **File** > **Connect Network Registry**.
 
-2.	Open up the *TARGET MACHINE*\SYSTEM branch, and specify the following values:
+2.	Open up the *TARGET MACHINE*\SYSTEM branch, and specify the following values:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -99,13 +99,13 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
 
 3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remove Service Console.
 
-4.	Open an instance of **Services.msc**.
+4.	Open an instance of **Services.msc**.
 
 5.	Click **Services (Local)**.
 
 6.	Select **Connect to another computer**.
 
-7.	Enter the **Private IP Address (DIP)** of the problem VM.
+7.	Enter the **Private IP Address (DIP)** of the problem VM.
 
 8.	Restart the local firewall policy.
 

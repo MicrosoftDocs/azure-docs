@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2018
 ms.author: jingwang
 
 ---
@@ -26,6 +26,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This Amazon Redshift connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Amazon Redshift to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
@@ -35,7 +40,7 @@ Specifically, this Amazon Redshift connector supports retrieving data from Redsh
 
 ## Prerequisites
 
-* If you are copying data to an on-premises data store using [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md), grant Integration Runtime (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.
+* If you are copying data to an on-premises data store using [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md), grant Integration Runtime (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.
 * If you are copying data to an Azure data store, see [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) for the Compute IP address and SQL ranges used by the Azure data centers.
 
 ## Getting started
@@ -86,14 +91,16 @@ The following properties are supported for Amazon Redshift linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Amazon Redshift dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Amazon Redshift dataset.
 
-To copy data from Amazon Redshift, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Amazon Redshift, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
-| tableName | Name of the table in the Amazon Redshift. | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to: **AmazonRedshiftTable** | Yes |
+| schema | Name of the schema. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -102,15 +109,18 @@ To copy data from Amazon Redshift, set the type property of the dataset to **Rel
     "name": "AmazonRedshiftDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "AmazonRedshiftTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Amazon Redshift linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -123,7 +133,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AmazonRedshiftSource** | Yes |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
+| query |Use the custom query to read data. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
 | s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying a linked service name of "AmazonS3" type. | Yes if using UNLOAD |
 | bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |
@@ -148,7 +158,7 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
+[UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a mechanism provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is the way recommended by Amazon for copying large data set from Redshift.
 
 **Example: copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
 
@@ -218,6 +228,10 @@ When copying data from Amazon Redshift, the following mappings are used from Ama
 | TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

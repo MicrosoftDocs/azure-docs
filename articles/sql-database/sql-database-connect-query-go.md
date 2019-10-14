@@ -8,34 +8,51 @@ ms.custom:
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
-ms.date: 12/07/2018
+ms.date: 02/12/2019
 ---
-# Quickstart: Use Go to query an Azure SQL database
+# Quickstart: Use Golang to query an Azure SQL database
 
-This quickstart demonstrates using the [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to an Azure SQL database and run Transact-SQL statements to query and modify data. [Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software.  
+In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to an Azure SQL database. You'll then run Transact-SQL statements to query and modify data. [Golang](https://golang.org/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
 
 ## Prerequisites
 
 To complete this tutorial, you need:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) configured for your computer's public IP address.
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-- Go and related software for your operating system installed:
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-    - **MacOS**: Install Homebrew and GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  Install GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: Install GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+- Golang and related software for your operating system installed:
 
-## SQL server connection information
+  - **MacOS**: Install Homebrew and Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu**:  Install Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Windows**: Install Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+## Get SQL server connection information
 
-## Create Go project and dependencies
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+## Create Golang project and dependencies
 
 1. From the terminal, create a new project folder called **SqlServerSample**. 
 
@@ -43,7 +60,7 @@ To complete this tutorial, you need:
    mkdir SqlServerSample
    ```
 
-2. Change the directory to **SqlServerSample** and install the SQL Server driver for Go.
+2. Navigate to **SqlServerSample** and install the SQL Server driver for Go.
 
    ```bash
    cd SqlServerSample
@@ -53,7 +70,7 @@ To complete this tutorial, you need:
 
 ## Create sample data
 
-1. In your favorite text editor, create a file called **CreateTestData.sql** in the **SqlServerSample** folder. In the file, copy and paste the following T-SQL code, which creates a schema, table, and inserts a few rows.
+1. In a text editor, create a file called **CreateTestData.sql** in the **SqlServerSample** folder. In the file, paste this T-SQL code, which creates a schema, table, and inserts a few rows.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -76,17 +93,17 @@ To complete this tutorial, you need:
    GO
    ```
 
-2. Use `sqlcmd` to connect to the database and run your newly-created SQL script. Replace the appropriate values for your server, database, username, and password.
+2. Use `sqlcmd` to connect to the database and run your newly created SQL script. Replace the appropriate values for your server, database, username, and password.
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## Insert code to query SQL database
 
 1. Create a file named **sample.go** in the **SqlServerSample** folder.
 
-2. Open the file and paste the following code. Add the appropriate values for your server, database, username, and password. This example uses the GoLang Context methods to make sure there's an active connection to the database server.
+2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://golang.org/pkg/context/) to make sure there's an active database server connection.
 
    ```go
    package main
@@ -102,11 +119,11 @@ To complete this tutorial, you need:
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -305,6 +322,6 @@ To complete this tutorial, you need:
 ## Next steps
 
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Go driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Golang driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Report issues or ask questions](https://github.com/denisenkom/go-mssqldb/issues)
 

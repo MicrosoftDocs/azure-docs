@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na

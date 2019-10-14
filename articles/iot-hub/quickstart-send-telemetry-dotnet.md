@@ -1,19 +1,19 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/20/2018
-ms.author: dobett
+ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read the telemetry from the hub with a back-end application (C#)
+# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -37,6 +37,12 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
@@ -47,44 +53,43 @@ Download the sample C# project from https://github.com/Azure-Samples/azure-iot-s
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyDotnetDevice** : This is the name given for the registered device. Use MyDotnetDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDotnetDevice**: This is the name of the device you're registering. It's recommended to use **MyDotnetDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
-2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the following command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
-3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
+3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _service primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    Make a note of these three values, which you use later in the quickstart.
+    Make a note of these three values, which you'll use later in the quickstart.
 
 ## Send simulated telemetry
 
@@ -94,7 +99,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 2. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `s_connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
+    Replace the value of the `s_connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.cs**.
 
 3. In the local terminal window, run the following commands to install the required packages for simulated device application:
 
@@ -122,9 +127,9 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of previously. |
-    | `s_eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of previously. |
-    | `s_iotHubSasKey`                | Replace the value of the variable with the iothubowner primary key you made a note of previously. |
+    | `s_eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `s_eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `s_iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
@@ -148,7 +153,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a C# application, and read the telemetry from the hub using a simple back-end application.
+In this quickstart, you set up an IoT hub, registered a device, sent simulated telemetry to the hub using a C# application, and read the telemetry from the hub using a simple back-end application.
 
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 

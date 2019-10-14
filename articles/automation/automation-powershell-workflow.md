@@ -3,10 +3,10 @@ title: Learning PowerShell Workflow for Azure Automation
 description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/04/2018
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -187,10 +187,10 @@ Workflow Copy-Files
 }
 ```
 
-You can use the **ForEach -Parallel** construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the following syntax shown below. In this case, Activity1 starts at the same time for all items in the collection. For each item, Activity2 starts after Activity1 is complete. Activity3 starts only after both Activity1 and Activity2 have completed for all items.
+You can use the **ForEach -Parallel** construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the following syntax shown below. In this case, Activity1 starts at the same time for all items in the collection. For each item, Activity2 starts after Activity1 is complete. Activity3 starts only after both Activity1 and Activity2 have completed for all items. We use the `ThrottleLimit` parameter to limit the parallelism. Too high of a `ThrottleLimit` can cause problems. The ideal value for the `ThrottleLimit` parameter depends on many factors in your environment. You should try start with a low value and try different increasing values until you find one that works for your specific circumstance.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -205,7 +205,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -220,7 +220,7 @@ Workflow Copy-Files
 
 ## Checkpoints
 
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity. Azure Automation has a feature called [fair share](automation-runbook-execution.md#fair-share), where any runbook that runs for 3 hours is unloaded to allow other runbooks to run. Eventually, the unloaded runbook will be reloaded, and when it is, it will resume execution from the last checkpoint taken in the runbook. In order to guarantee that the runbook will eventually complete, you must add checkpoints at intervals that run for less than 3 hours. If during each run a new checkpoint is added, and if the runbook gets evicted after 3 hours due to an error, then the runbook will be resumed indefinitely.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.
 
@@ -290,3 +290,4 @@ For more information about checkpoints, see [Adding Checkpoints to a Script Work
 ## Next steps
 
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+

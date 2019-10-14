@@ -1,23 +1,21 @@
 ---
 title: What is Apache Storm - Azure HDInsight 
 description: Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,what is apache storm
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/27/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-
+#Customer intent: As a developer, I want to understand how Storm on HDInsight is different from Storm on other platforms.
 ---
+
 # What is Apache Storm on Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with [Apache Hadoop](https://hadoop.apache.org/). Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+[Apache Storm](https://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with [Apache Hadoop](https://hadoop.apache.org/). Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
 ## Why use Apache Storm on HDInsight?
 
@@ -35,16 +33,15 @@ Storm on HDInsight provides the following features:
 
 * **Dynamic scaling**: You can add or remove worker nodes with no impact to running Storm topologies.
 
-    > [!NOTE]
-    > You must deactivate and reactivate running topologies to take advantage of new nodes added through scaling operations.
+    * You must deactivate and reactivate running topologies to take advantage of new nodes added through scaling operations.
 
-* **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Store.
+* **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Storage.
 
     For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-To get started using Storm, see [Get started with pache Storm on HDInsight][gettingstarted].
+To get started using Storm, see [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md).
 
 ## How does Apache Storm work
 
@@ -64,11 +61,11 @@ The Nimbus node provides functionality similar to the Apache Hadoop JobTracker, 
 
 The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
-![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/nimbus.png)
+![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## Ease of creation
 
-You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Get started with Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Ease of use
 
@@ -82,13 +79,13 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
-* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.Net framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
+* __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.NET framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
 
   For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## Integration with other Azure services
 
-* __Azure Data Lake Store__: For an example of using Data Lake Store with a Storm cluster, see [Use Azure Data Lake Store with Apache Storm on HDInsight](apache-storm-write-data-lake-store.md).
+* __Azure Data Lake Storage__: For an example of using Data Lake Storage with a Storm cluster, see [Use Azure Data Lake Storage with Apache Storm on HDInsight](apache-storm-write-data-lake-store.md).
 
 * __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following examples:
 
@@ -132,21 +129,23 @@ Python can also be used to develop Storm components. For more information, see [
 
 ### Guaranteed message processing
 
-Apache Storm can provide different levels of guaranteed message processing. For example, a basic Storm application can guarantee at-least-once processing, and [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) can guarantee exactly once processing.
+Apache Storm can provide different levels of guaranteed message processing. For example, a basic Storm application can guarantee at-least-once processing, and [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) can guarantee exactly once processing.
 
 For more information, see [Guarantees on data processing](https://storm.apache.org/about/guarantees-data-processing.html) at apache.org.
 
 ### IBasicBolt
 
-The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
+The pattern of reading an input tuple, emitting zero or more tuples, and then acknowledging the input tuple immediately at the end of the execute method is common. Storm provides the [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) interface to automate this pattern.
 
 ### Joins
 
-How data streams are joined varies between applications. For example, you can join each tuple from multiple streams into one new stream, or you can join only batches of tuples for a specific window. Either way, joining can be accomplished by using [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Field grouping is a way of defining how tuples are routed to bolts.
+How data streams are joined varies between applications. For example, you can join each tuple from multiple streams into one new stream, or you can join only batches of tuples for a specific window. Either way, joining can be accomplished by using [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Field grouping is a way of defining how tuples are routed to bolts.
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the MyJoiner bolt:
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### Batches
 
@@ -156,11 +155,11 @@ For an example of using a tick tuple from a C# component, see [PartialBoltCount.
 
 ### Caches
 
-In-memory caching is often used as a mechanism for speeding up processing because it keeps frequently used assets in memory. Because a topology is distributed across multiple nodes, and multiple processes within each node, you should consider using [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Use `fieldsGrouping` to ensure that tuples containing the fields that are used for cache lookup are always routed to the same process. This grouping functionality avoids duplication of cache entries across processes.
+In-memory caching is often used as a mechanism for speeding up processing because it keeps frequently used assets in memory. Because a topology is distributed across multiple nodes, and multiple processes within each node, you should consider using [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Use `fieldsGrouping` to ensure that tuples containing the fields that are used for cache lookup are always routed to the same process. This grouping functionality avoids duplication of cache entries across processes.
 
 ### Stream "top N"
 
-When your topology depends on calculating a top N value, calculate the top N value in parallel. Then merge the output from those calculations into a global value. This operation can be done by using [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) to route by field for parallel processing. Then you can route to a bolt that globally determines the top N value.
+When your topology depends on calculating a top N value, calculate the top N value in parallel. Then merge the output from those calculations into a global value. This operation can be done by using [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) to route by field for parallel processing. Then you can route to a bolt that globally determines the top N value.
 
 For an example of calculating a top N value, see the [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) example.
 
@@ -174,10 +173,5 @@ For an example topology that demonstrates how to configure logging, see [Java-ba
 
 Learn more about real-time analytics solutions with Apache Storm on HDInsight:
 
-* [Get started with Apache Storm on HDInsight][gettingstarted]
+* [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

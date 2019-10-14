@@ -1,23 +1,23 @@
 ---
 title: Extract, transform, and load (ETL) at Scale - Azure HDInsight 
-description: Learn how ETL is used in HDInsight with Apache Hadoop.
-services: hdinsight
+description: Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
 author: ashishthaps
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 06/13/2019
 ms.author: ashishth
 ---
+
 # Extract, transform, and load (ETL) at scale
 
-Extract, transform, and load (ETL) is the process by which data is acquired from various sources, collected in a standard location, cleaned and processed, and ultimately loaded into a datastore from which it can be queried. Legacy ETL processes import data, clean it in place, and then store it in a relational data engine. With HDInsight, a wide variety of Apache Hadoop ecosystem components support performing ETL at scale. 
+Extract, transform, and load (ETL) is the process by which data is acquired from various sources, collected in a standard location, cleaned and processed, and ultimately loaded into a datastore from which it can be queried. Legacy ETL processes import data, clean it in place, and then store it in a relational data engine. With HDInsight, a wide variety of Apache Hadoop ecosystem components support performing ETL at scale.
 
 The use of HDInsight in the ETL process can be summarized by this pipeline:
 
-![HDInsight ETL Overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![HDInsight ETL at scale overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 The following sections explore each of the ETL phases and their associated components.
 
@@ -27,15 +27,15 @@ Orchestration spans across all phases of the ETL pipeline. ETL jobs in HDInsight
 
 Orchestration is needed to run the appropriate job at the appropriate time.
 
-### Oozie
+### Apache Oozie
 
-Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie runs within an HDInsight cluster and is integrated with the Hadoop stack. Oozie supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. Oozie can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
+Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie runs within an HDInsight cluster and is integrated with the Hadoop stack. Oozie supports Hadoop jobs for Apache Hadoop MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. Oozie can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
-For more information, see [Use Oozie with Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md) For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](../hdinsight-operationalize-data-pipeline.md). 
+For more information, see [Use Apache Oozie with Apache Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md) For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](../hdinsight-operationalize-data-pipeline.md).
 
 ### Azure Data Factory
 
-Azure Data Factory provides orchestration capabilities in the form of platform-as-a-service. It is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. 
+Azure Data Factory provides orchestration capabilities in the form of platform-as-a-service. It is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation.
 
 Using Azure Data Factory, you can:
 
@@ -47,7 +47,7 @@ For more information on Azure Data Factory, see the [documentation](../../data-f
 
 ## Ingest file storage and result storage
 
-Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Store. Files can be in any format, but typically they are flat files like CSVs. 
+Source data files are typically loaded into a location in Azure Storage or Azure Data Lake Storage. Files can be in any format, but typically they are flat files like CSVs. 
 
 ### Azure Storage 
 
@@ -61,11 +61,11 @@ Azure Storage also has a WebHDFS API layer for the blob storage.  All the servic
 
 Data is typically ingested into Azure Storage using either PowerShell, the Azure Storage SDK, or AZCopy.
 
-### Azure Data Lake Store
+### Azure Data Lake Storage
 
-Azure Data Lake Store (ADLS) is a managed, hyperscale repository for analytics data that is compatible with HDFS.  ADLS uses a design paradigm that is similar to HDFS, and offers unlimited scalability in terms of total capacity and the size of individual files. ADLS is very good when working with large files, since a large file can be stored across multiple nodes.  Partitioning data in ADLS is done behind the scenes.  You get massive throughput to run analytic jobs with thousands of concurrent executors that efficiently read and write hundreds of terabytes of data.
+Azure Data Lake Storage (ADLS) is a managed, hyperscale repository for analytics data that is compatible with HDFS.  ADLS uses a design paradigm that is similar to HDFS, and offers unlimited scalability in terms of total capacity and the size of individual files. ADLS is very good when working with large files, since a large file can be stored across multiple nodes.  Partitioning data in ADLS is done behind the scenes.  You get massive throughput to run analytic jobs with thousands of concurrent executors that efficiently read and write hundreds of terabytes of data.
 
-Data is typically ingested into ADLS using Azure Data Factory, ADLS SDKs, AdlCopy Service, Apache DistCp, or Apache Sqoop.  Which of these services to use largely depends on where the data is.  If the data is currently in an existing Hadoop cluster, you might use Apache DistCp, AdlCopy Service, or Azure Data Factory.  If it's in Azure Blob Storage, you might use Azure Data Lake Store .NET SDK, Azure PowerShell, or Azure Data Factory.
+Data is typically ingested into ADLS using Azure Data Factory, ADLS SDKs, AdlCopy Service, Apache DistCp, or Apache Sqoop.  Which of these services to use largely depends on where the data is.  If the data is currently in an existing Hadoop cluster, you might use Apache DistCp, AdlCopy Service, or Azure Data Factory.  If it's in Azure Blob Storage, you might use Azure Data Lake Storage .NET SDK, Azure PowerShell, or Azure Data Factory.
 
 ADLS is also optimized for event ingestion using Azure Event Hub or Apache Storm.
 
@@ -75,7 +75,7 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 * Azure ExpressRoute:  Azure ExpressRoute lets you create private connections between Azure datacenters and your on-premises infrastructure. These connections provide a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-* "Offline" upload of data. You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) or the [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) tool to copy data from Azure Storage blobs to Data Lake Store.
+* "Offline" upload of data. You can use [Azure Import/Export service](../../storage/common/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) or the [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) tool to copy data from Azure Storage blobs to Data Lake Storage.
 
 ### Azure SQL Data Warehouse
 
@@ -83,7 +83,7 @@ Azure SQL DW is a great choice to store cleaned and prepared results for future 
 
 Azure SQL Data Warehouse (SQL DW) is a relational database store optimized for analytic workloads.  Azure SQL DW scales based on partitioned tables.  Tables can be partitioned across multiple nodes.  Azure SQL DW nodes are selected at the time of creation.  They can scale after the fact, but that's an active process that might require data movement. See [SQL Data Warehouse - Manage Compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) for more information.
 
-### HBase
+### Apache HBase
 
 Apache HBase is a key-value store available in Azure HDInsight.  Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides performant random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
@@ -113,17 +113,17 @@ Analysis cubes can scale by changing tiers for each individual cube.  For more i
 
 Once the data exists in Azure, you can use many services to extract and load it into other products.  HDInsight supports Sqoop and Flume. 
 
-### Sqoop
+### Apache Sqoop
 
 Apache Sqoop is a tool designed for efficiently transferring data between structured, semi-structured, and unstructured data sources. 
 
 Sqoop uses MapReduce to import and export the data, to provide parallel operation and fault tolerance.
 
-### Flume
+### Apache Flume
 
 Apache Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. Flume has a simple and flexible architecture based on streaming data flows. Flume is robust and fault-tolerant with tunable reliability mechanisms and many failover and recovery mechanisms. Flume uses a simple extensible data model that allows for online analytic application.
 
-Apache Flume cannot be used with Azure HDInsight.  An on-premises Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Store.  For more information, see [Using Apache Flume with HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume cannot be used with Azure HDInsight.  An on-premises Hadoop installation can use Flume to send data to either Azure Storage Blobs or Azure Data Lake Storage.  For more information, see [Using Apache Flume with HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## Transform
 
@@ -131,5 +131,6 @@ Once data exists in the chosen location, you need to clean it, combine it, or pr
 
 ## Next steps
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Using Apache Hive as an ETL Tool](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -9,9 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
-manager: craigg
-ms.date: 10/05/2018
+ms.reviewer: jrasnik, carlrab
+ms.date: 12/19/2018
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance
 
@@ -91,7 +90,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Stream Azure diagnostics logs to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Stream Azure diagnostics logs to Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -174,4 +173,4 @@ If any of the monitored critical exceptions cross the absolute thresholds manage
 - Learn how to [troubleshoot SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use the [Intelligent Insights SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Learn how to [monitor SQL Database by using SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Learn how to [collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Learn how to [collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md).

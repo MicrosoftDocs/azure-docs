@@ -3,21 +3,22 @@ title: Permissions in Azure Active Directory | Microsoft docs
 description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Permissions and consent in the Azure Active Directory v1.0 endpoint
@@ -32,7 +33,7 @@ Azure Active Directory (Azure AD) makes extensive use of permissions for both OA
 
 Azure AD defines two kinds of permissions:
 
-* **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented by an administrator](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) because they are typically powerful and allow access to data across user-boundaries, or data that would otherwise be restricted to administrators.
 
 Effective permissions are the permissions that your app will have when making requests to an API. 
@@ -97,11 +98,11 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 - Resources should explicitly define `Read` and `ReadWrite` permissions separately.
 - Resources should mark any permissions that allow access to data across user boundaries as `Admin` permissions.
 - Resources should follow the naming pattern `Subject.Permission[.Modifier]`, where:
-    - `Subject` corresponds with the type of data that is available
-    - `Permission` corresponds to the action that a user may take upon that data
-    - `Modifier` is used optionally to describe specializations of another permission
+  - `Subject` corresponds with the type of data that is available
+  - `Permission` corresponds to the action that a user may take upon that data
+  - `Modifier` is used optionally to describe specializations of another permission
     
     For example:
-    * Mail.Read - Allows users to read mail.
-    * Mail.ReadWrite - Allows users to read or write mail.
-    * Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
+  - Mail.Read - Allows users to read mail.
+  - Mail.ReadWrite - Allows users to read or write mail.
+  - Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.

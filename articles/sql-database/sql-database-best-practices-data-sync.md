@@ -9,15 +9,17 @@ ms.devlang:
 ms.topic: conceptual
 author: "allenwux"
 ms.author: "xiwu"
-ms.reviewer: 
-manager: "craigg"
-ms.date: 10/22/2018
+ms.reviewer: carlrab
+ms.date: 12/20/2018
 ---
 # Best practices for SQL Data Sync 
 
 This article describes best practices for Azure SQL Data Sync.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
 
 ## <a name="security-and-reliability"></a> Security and reliability
 
@@ -220,7 +222,7 @@ For more information about SQL Data Sync, see:
         -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
--   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)

@@ -1,13 +1,13 @@
 ---
-title: Routing events and messages with Azure Digital Twins | Microsoft Docs
+title: 'Routing events and messages - Azure Digital Twins | Microsoft Docs'
 description: Overview of routing events and messages to service endpoints with Azure Digital Twins
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.author: alinast
+ms.date: 09/17/2019
 ---
 
 # Routing events and messages
@@ -16,7 +16,7 @@ IoT solutions often unite several powerful services that include storage, analyt
 
 ## Route types  
 
-Azure Digital Twins offers two ways to integrate IoT events into other Azure services or business applications:
+Azure Digital Twins offers two ways to connect IoT events with other Azure services or business applications:
 
 * **Routing Azure Digital Twins events**: An object in the spatial graph that changes, telemetry data that's received, or a user-defined function that creates a notification based on predefined conditions can trigger Azure Digital Twins events. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
 
@@ -24,7 +24,7 @@ Azure Digital Twins offers two ways to integrate IoT events into other Azure ser
 
 Users can specify one or more egress endpoints to send out events or to forward messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify a certain endpoint to receive graph operation events, another to receive device telemetry events, and so on.
 
-![Azure Digital Twins events routing][1]
+[![Azure Digital Twins events routing](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Routing to Event Hubs maintains the order in which telemetry messages are sent. So they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema includes a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
@@ -60,7 +60,5 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 ## Next steps
 
 - To learn about Azure Digital Twins preview limits, see [Public preview service limits](concepts-service-limits.md).
-- To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
 
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png
+- To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).

@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
-ms.author: cenkd;juliako
+ms.date: 03/18/2019
+ms.author: juliako
 
 ---
 # Filters and dynamic manifests
@@ -30,7 +30,7 @@ This topic discusses common scenarios in which using filters would be beneficial
 ## Overview
 When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. To achieve this goal do the following:
 
-* encode your stream to multi-bitrate ([adaptive bitrate](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
+* encode your stream to multi-bitrate ([adaptive bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
 * use Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols (this will take care of streaming on different devices). Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH. 
 
 ### Manifest files
@@ -80,11 +80,11 @@ To achieve this flexibility, Media Services offers **Dynamic Manifests** based o
 
 MPEG DASH URL with filter
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
 
 Smooth Streaming URL with filter
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
 For more information about how to deliver your content and build streaming URLs, see [Delivering content overview](media-services-deliver-content-overview.md).
@@ -142,7 +142,7 @@ Filtered Asset:
 ![Skiing][skiing]
 
 ## Adjusting Presentation Window (DVR)
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
 
 ![DVR window][dvr_filter]
 

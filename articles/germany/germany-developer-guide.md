@@ -48,7 +48,7 @@ To learn about mapping global Azure and Azure SQL Database endpoints to Azure Ge
 | --- | --- |
 | ActiveDirectoryServiceEndpointResourceId | https://management.core.cloudapi.de/ |
 | GalleryUrl                               | https://gallery.cloudapi.de/ |
-| ManagementPortalUrl                      | http://portal.microsoftazure.de/ |
+| ManagementPortalUrl                      | https://portal.microsoftazure.de/ |
 | ServiceManagementUrl                     | https://management.core.cloudapi.de/ |
 | PublishSettingsFileUrl                   | https://manage.microsoftazure.de/publishsettings/index |
 | ResourceManagerUrl                       | https://management.microsoftazure.de/ |

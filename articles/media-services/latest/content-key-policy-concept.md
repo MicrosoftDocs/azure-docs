@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,87 +19,43 @@ ms.custom: seodec18
 
 # Content Key Policies
 
-You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.
+With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
-In Azure Media Services v3, Content Key Policies enable you to specify how the content key is delivered to end clients via the Media Services Key Delivery component. For more information, see [Content protection overview](content-protection-overview.md).
+To specify encryption options on your stream, you need to create a [Streaming Policy](streaming-policy-concept.md) and associate it with your [Streaming Locator](streaming-locators-concept.md). You create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) to configure how the content key (that provides secure access to your [Assets](assets-concept.md)) is delivered to end clients. You need to set the requirements (restrictions) on the Content Key Policy that must be met in order for keys with the specified configuration to be delivered to clients. The content key policy is not needed for clear streaming or downloading. 
 
-## ContentKeyPolicies definition
+Usually, you associate your content key policy with your [Streaming Locator](streaming-locators-concept.md). Alternatively, you can specify the content key policy inside a [Streaming Policy](streaming-policy-concept.md) (when creating a custom streaming policy for advanced scenarios). 
 
-The following table shows the ContentKeyPolicy's properties and gives their definitions.
+> [!NOTE]
+> Properties of the Content Key Policies that are of the `Datetime` type are always in UTC format.
 
-|Name|Description|
-|---|---|
-|id|Fully qualified resource ID for the resource.|
-|name|The name of the resource.|
-|properties.created	|The creation date of the Policy|
-|properties.description	|A description for the Policy.|
-|properties.lastModified|The last modified date of the Policy|
-|properties.options	|The Key Policy options.|
-|properties.policyId	|The legacy Policy ID.|
-|type	|The type of the resource.|
+## Best practices and considerations
 
-For the full definition, see [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+> [!IMPORTANT]
+> Please review the following recommendations.
+
+* You should design a limited set of policies for your Media Service account and reuse them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+* Content key policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
+
+   By updating the policy, you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
+* We recommend that you do not create a new content key policy for each asset. The main benefits of sharing the same content key policy between assets that need the same policy options are:
+   
+   * It is easier to manage a small number of policies.
+   * If you need to make updates to the content key policy, the changes go into effect on all new license requests almost right away.
+* If you do need to create a new policy, you have to create a new streaming locator for the asset.
+* It is recommended to let Media Services autogenerate the content key. 
+
+   Typically, you would use a long-lived key and check for the existence of the content key policy with [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
+
+## Example
+
+To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) example.
 
 ## Filtering, ordering, paging
 
-Media Services supports the following OData query options for ContentKeyPolicies: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operator description:
-
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingPolicy properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.description	|Eq, ne, ge, le, gt, lt||
-|properties.lastModified	|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.options	|||
-|properties.policyId	|Eq, ne||
-|type	|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
-
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
-
-If StreamingPolicy are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
-
-The following C# example shows how to enumerate through all ContentKeyPolicies in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
 ## Next steps
 
-[Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
-
-[Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+* [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
+* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

@@ -11,18 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 02/13/2019
 ms.author: magoedte
 ---
 
-# Application Insights Connector management solution (Preview)
+# Application Insights Connector management solution (Deprecated)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
+> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights Connector management solution is no longer required. It has been deprecated and removed from Azure Marketplace, along with the OMS portal that was officially deprecated on January 15, 2019 for Azure commercial cloud. It will be retired on March 30, 2019 for Azure US Government cloud.
+>
+>Existing connections will continue to work until June 30, 2019.  With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. See [Removing the connector with PowerShell](#removing-the-connector-with-powershell) below for a script on using PowerShell to remove existing connections.
+>
+>For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>
+> 
 
-The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
+The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../../azure-monitor/app/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
 When you use the solution, you can:
 
@@ -30,6 +36,9 @@ When you use the solution, you can:
 - Correlate infrastructure data with application data
 - Visualize application data with perspectives in log search
 - Pivot from Log Analytics data to your Application Insights app in the Azure portal
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Connected sources
 
@@ -50,7 +59,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
 3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
@@ -116,7 +125,7 @@ When you click anywhere in the **Exceptions** blade, you see a visualization tha
 
 Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **&#42;** query also shows the perspective tab like the following image:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspective components are updated depending on the search query. This means that you can filter the results by using any search field that gives you the ability to see the data from:
 
@@ -137,7 +146,7 @@ To pivot, click the ellipses (**…**) that appears at the end of each line, and
 
 ### Sample-corrected data
 
-Application Insights provides *[sampling correction](../../application-insights/app-insights-sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
+Application Insights provides *[sampling correction](../../azure-monitor/app/sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
 
 Here is an example of sampling correction in a log search query:
 
@@ -156,8 +165,8 @@ The solution receives the following telemetry types of data from your connected 
 - Availability
 - Exceptions
 - Requests
-- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Data is received by Log Analytics from Application Insights as it becomes available.
 
@@ -178,10 +187,10 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 | DeviceType | Client device |
 | ScreenResolution |   |
 | Continent | Continent where the request originated |
-| Country | Country where the request originated |
+| Country | Country/region where the request originated |
 | Province | Province, state, or locale where the request originated |
 | City | City or town where the request originated |
-| isSynthetic | Indicates whether the request was created by a user or by automated method. True = user generated or false = automated method |
+| isSynthetic | Indicates whether the request was created by a user or by automated method. True = automated method or false = user generated |
 | SamplingRate | Percentage of telemetry generated by the SDK that is sent to portal. Range 0.0-100.0. |
 | SampledCount | 100/(SamplingRate). For example, 4 =&gt; 25% |
 | IsAuthenticated | True or false |
@@ -257,6 +266,57 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 ## Sample log searches
 
 This solution does not have a set of sample log searches shown on the dashboard. However, sample log search queries with descriptions are shown in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
+
+## Removing the connector with PowerShell
+With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script. You must be the owner or contributor of the workspace and reader of Application Insights resource to perform this operation.
+
+```powershell
+$Subscription_app = "App Subscription Name"
+$ResourceGroup_app = "App ResourceGroup"
+$Application = "Application Name"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+
+Connect-AzAccount
+Set-AzContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzContext -SubscriptionId $Subscription_workspace
+Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. 
+
+```powershell
+Connect-AzAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+This script requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
+
+
+![Bearer token](media/app-insights-connector/bearer-token.png)
+
+
+You can also retrieve a list of applications use a log query:
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
+```
 
 ## Next steps
 

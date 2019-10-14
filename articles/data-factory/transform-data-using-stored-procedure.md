@@ -3,17 +3,13 @@ title: Transform data by using the Stored Procedure activity in Azure Data Facto
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: douglasl
-
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 
 
@@ -53,7 +49,7 @@ Here is the JSON format for defining a Stored Procedure Activity:
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "storedProcedureName": "sp_sample",
+        "storedProcedureName": "usp_sample",
         "storedProcedureParameters": {
             "identifier": { "value": "1", "type": "Int" },
             "stringData": { "value": "str1" }
@@ -73,6 +69,17 @@ The following table describes these JSON properties:
 | linkedServiceName         | Reference to the **Azure SQL Database** or **Azure SQL Data Warehouse** or **SQL Server** registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure to invoke. | Yes      |
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
+
+## Parameter data type mapping
+The data type you specify for the parameter is the Azure Data Factory type that maps to the data type in the data source you are using. You can find the data type mappings for your data source in the connectors area. Some examples are
+
+| Data Source          | Data Type Mapping |
+| ---------------------|-------------------|
+| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
 
 ## Error info
 

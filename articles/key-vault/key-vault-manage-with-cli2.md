@@ -1,20 +1,14 @@
 ---
-title: Manage Azure Key Vault using CLI | Microsoft Docs
+title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: mbaldwin
-tags: azure-resource-manager
+author: msmbaldwin
+manager: rkarlin
 
-ms.assetid:
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 08/28/2018
-ms.author: barclayn
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
 
 ---
 # Manage Key Vault using the Azure CLI 
@@ -37,7 +31,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 > This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
 
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -100,7 +94,7 @@ For more information about configuring Azure Cross-Platform Command-Line Interfa
 When using Azure Resource Manager, all related resources are created inside a resource group. You can create a key vault in an existing resource group. If you want to use a new resource group, you can create a new one.
 
 ```azurecli
-az group create -n 'ContosoResourceGroup' -l 'East Asia'
+az group create -n "ContosoResourceGroup" -l "East Asia"
 ```
 
 The first parameter is resource group name and the second parameter is the location. To get a list of all possible locations type:
@@ -124,7 +118,7 @@ Use the `az keyvault create` command to create a key vault. This script has thre
 To create a new vault with the name **ContosoKeyVault**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
@@ -139,21 +133,21 @@ Your Azure account is now authorized to perform any operations on this key vault
 If you want Azure Key Vault to create a software-protected key for you, use the `az key create` command.
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
+az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-If you have an existing key in a .pem file, you can upload it to Azure Key Vault. You can choose to protect the key with software or HSM. Use the following to import the key from the .pem file and protect it with software:
+If you have an existing key in a .pem file, you can upload it to Azure Key Vault. You can choose to protect the key with software or HSM. This example imports the key from the .pem file and protect it with software, using the password "hVFkk965BuUv":
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Add a secret to the vault, which is a password named SQLPassword, and that has the value of Pa$$w0rd to Azure Key Vaults. 
+Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults. 
 
 ```azurecli
-az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] to get this specific version. For example, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -161,7 +155,7 @@ Reference this password by using its URI. Use **https://ContosoVault.vault.azure
 Import a certificate to the vault using a .pem or .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\cert.pfx' --name 'ContosoCert' --password 'Pa$$w0rd'
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Let's view the key, secret, or certificate that you created:
@@ -169,19 +163,19 @@ Let's view the key, secret, or certificate that you created:
 * To view your keys, type: 
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 * To view your secrets, type: 
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 * To view certificates, type: 
 
 ```azurecli
-az keyvault certificate list --vault-name 'ContosoKeyVault'
+az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
 ## Registering an application with Azure Active Directory
@@ -200,7 +194,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -211,63 +205,65 @@ To authorize the application to access the key or secret in the vault, use the `
 For example, if your vault name is ContosoKeyVault, the application has an appID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, use the following command:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 To authorize the same application to read secrets in your vault, type the following command:
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
 ## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault. 
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
 
  Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
+
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
- ``` 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+ ```
 
 Enable Key Vault for disk encryption: Required when using the vault for Azure Disk encryption.
 
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
 Enable Key Vault for template deployment: Allows Resource Manager to retrieve secrets from the vault.
- ```azurecli 
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+
+```azurecli 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 
 When you create the keyvault, add the 'sku' parameter:
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
 ```
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
+az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
 The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
 For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
@@ -277,13 +273,13 @@ For more detailed instructions about how to generate this BYOK package, see [How
 If you no longer need the key vault and its keys or secrets, you can delete the key vault by using the `az keyvault delete` command:
 
 ```azurecli
-az keyvault delete --name 'ContosoKeyVault'
+az keyvault delete --name "ContosoKeyVault"
 ```
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
 ```azurecli
-az group delete --name 'ContosoResourceGroup'
+az group delete --name "ContosoResourceGroup"
 ```
 
 ## Miscellaneous Azure Cross-Platform Command-line Interface Commands
@@ -293,31 +289,31 @@ Other commands that you might find useful for managing Azure Key Vault.
 This command lists a tabular display of all keys and selected properties:
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 This command displays a full list of properties for the specified key:
 
 ```azurecli
-az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 This command lists a tabular display of all secret names and selected properties:
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 Here's an example of how to remove a specific key:
 
 ```azurecli
-az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Here's an example of how to remove a specific secret:
 
 ```azurecli
-az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
+az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
 ## Next steps

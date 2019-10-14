@@ -1,20 +1,66 @@
 ---
-title: Egress and endpoints in Azure Digital Twins | Microsoft Docs
-description: Guidelines on how to create endpoints with Azure Digital Twins
+title: 'Egress and endpoints in Azure Digital Twins | Microsoft Docs'
+description: Guidelines on how to create endpoints with Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
-ms.author: alinast
+ms.date: 10/02/2019
 ---
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of **endpoints**. Each endpoint represents a message or event broker in the user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
+Azure Digital Twins *endpoints* represent a message or event broker within a user's Azure subscription. Events and messages can be sent to Azure Event Hubs, Azure Event Grid, and Azure Service Bus topics.
 
-Events are sent to endpoints according to predefined routing preferences. The user can specify which endpoint should receive any of the following events: 
+Events are routed to endpoints according to predefined routing preferences. Users specify which *event types* each endpoint may receive.
+
+To learn more about events, routing, and event types, refer to [Routing events and messages in Azure Digital Twins](./concepts-events-routing.md).
+
+## Events
+
+Events are sent by IoT objects (such as devices and sensors) for processing by Azure message and event brokers. Events are defined by the following [Azure Event Grid event schema reference](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| id | string | Unique identifier for the event. |
+| subject | string | Publisher-defined path to the event subject. |
+| data | object | Event data specific to the resource provider. |
+| eventType | string | One of the registered event types for this event source. |
+| eventTime | string | The time the event is generated based on the provider's UTC time. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| topic | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+
+For more information about the Event Grid event schema:
+
+- Review the [Azure Event Grid event schema reference](../event-grid/event-schema.md).
+- Read the [Azure EventGrid Node.js SDK EventGridEvent reference](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## Event types
+
+Events types classify the nature of the event and are set in the **eventType** field. Available event types are given by the following list:
 
 - TopologyOperation
 - UdfCustom
@@ -22,15 +68,11 @@ Events are sent to endpoints according to predefined routing preferences. The us
 - SpaceChange
 - DeviceMessage
 
-For a basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
-
-## Event types description
-
-The event formats for each of the event types are described in the following sections.
+The event formats for each event type are further described in the following subsections.
 
 ### TopologyOperation
 
-**TopologyOperation** applies to graph changes. The **subject** property specifies the type of object affected. The following types of objects might trigger this event: 
+**TopologyOperation** applies to graph changes. The **subject** property specifies the type of object affected. The following types of objects might trigger this event:
 
 - Device
 - DeviceBlobMetadata
@@ -81,7 +123,7 @@ The event formats for each of the event types are described in the following sec
 
 ### UdfCustom
 
-**UdfCustom** is an event sent by a user-defined function (UDF). 
+**UdfCustom** is an event sent by a user-defined function (UDF).
   
 > [!IMPORTANT]  
 > This event must be explicitly sent from the UDF itself.
@@ -190,10 +232,19 @@ By using **DeviceMessage**, you can specify an **EventHub** connection to which 
 
 ## Configure endpoints
 
-Endpoint management is exercised through the Endpoints API. The following examples demonstrate how to configure the different supported endpoints. Pay special attention to the event types array as it defines the routing for the endpoint:
+Endpoint management is exercised through the Endpoints API.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+The following examples demonstrate how to configure the supported endpoints.
+
+>[!IMPORTANT]
+> Pay careful attention to the **eventTypes** attribute. It defines which event types are handled by the endpoint and thus determine its routing.
+
+An authenticated HTTP POST request against:
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Route to Service Bus event types **SensorChange**, **SpaceChange**, and **TopologyOperation**:

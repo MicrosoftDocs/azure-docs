@@ -3,9 +3,9 @@ title: Azure Service Bus messaging samples overview | Microsoft Docs
 description: Describes Service Bus messaging samples with links to each
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
 ms.service: service-bus-messaging
@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: spelluru
+ms.date: 03/13/2019
+ms.author: aschhab
 
 ---
 # Service Bus messaging samples
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
 
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in two places:
-
-- [.NET and Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . See the [.NET readme](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in the repo for descriptions of the  .NET samples, and the [Java readme](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) for the descriptions of the Java samples.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| Programming language | SDK or samples location |
+| -------------------- | ----------------------- |
+| .NET, Java, and Management | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
 ## Service Bus Explorer
 

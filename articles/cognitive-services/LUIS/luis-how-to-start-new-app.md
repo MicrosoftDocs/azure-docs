@@ -1,15 +1,15 @@
 ---
-title: Create a new app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Create a new app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 
@@ -17,6 +17,7 @@ ms.author: diberry
 There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 ## Using the LUIS portal
+
 You can create a new app in the LUIS portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
@@ -35,6 +36,8 @@ You can create a new app with the authoring APIs in a couple of ways:
 <a name="delete-app"></a>
  
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## Create new app in LUIS
 
 1. On **My Apps** page, select **Create new app**.
@@ -51,51 +54,37 @@ You can create a new app with the authoring APIs in a couple of ways:
     > [!NOTE]
     > The culture cannot be changed once the application is created. 
 
-    
-
-<!--
-
-## Import new app
-You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+## Import an app from file
 
 1. On **My Apps** page, select **Import new app**.
-2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
+1. In the pop-up dialog, select a valid app JSON file, and then select **Done**.
 
-    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
+### Import errors
 
-## Export app
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
+Possible errors are: 
 
-    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
 
-2. Select **Export app** from the menu. 
+## Export app for backup
 
-## Rename app
+1. On **My Apps** page, select **Export**.
+1. Select **Export as JSON**. Your browser downloads the active version of the app.
+1. Add this file to your backup system to archive the model.
 
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Rename** from the menu.
-3. Enter the new name of the app and select **Done**.
+## Export app for containers
+
+1. On **My Apps** page, select **Export**.
+1. Select **Export as container** then select which published slot (production or stage) you want to export.
+1. Use this file with your [LUIS container](luis-container-howto.md). 
+
+    If you are interested in exporting a trained but not yet published model to use with the LUIS container, go to the **Versions** page and export from there. 
 
 ## Delete app
 
-> [!CAUTION]
-> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+1. Select **Delete** from the menu.
+1. Select **Ok** in the confirmation window.
 
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Delete** from the menu.
-3. Select **Ok** in the confirmation window.
-
-## Export endpoint logs
-The logs contain the Query, UTC time, and LUIS JSON response.
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Export endpoint logs** from the menu.
-
-```
-Query,UTC DateTime,Response
-text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
-```
--->
 ## Next steps
 
 Your first task in the app is to [add intents](luis-how-to-add-intents.md).

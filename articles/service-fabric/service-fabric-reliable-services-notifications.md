@@ -4,7 +4,7 @@ description: Conceptual documentation for Service Fabric Reliable Services notif
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
@@ -174,7 +174,7 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** and **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 

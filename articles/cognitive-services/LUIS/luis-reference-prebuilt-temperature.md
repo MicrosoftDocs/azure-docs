@@ -1,15 +1,15 @@
 ---
-title: Temperature Prebuilt entity
-titleSuffix: Azure
+title: Temperature Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains temperature prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 11/27/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,9 @@ Temperature extracts a variety of temperature types. Because this entity is alre
 Temperature is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub repository
 
 ## Resolution for prebuilt temperature entity
+
+#### [V2 prediction endpoint response](#tab/V2)
+
 The following example shows the resolution of the **builtin.temperature** entity.
 
 ```json
@@ -50,6 +53,74 @@ The following example shows the resolution of the **builtin.temperature** entity
 }
 ```
 
+#### [V3 prediction endpoint response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "set the temperature to 30 degrees",
+    "prediction": {
+        "normalizedQuery": "set the temperature to 30 degrees",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.656305432
+            }
+        },
+        "entities": {
+            "temperature": [
+                {
+                    "number": 30,
+                    "unit": "Degree"
+                }
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "set the temperature to 30 degrees",
+    "prediction": {
+        "normalizedQuery": "set the temperature to 30 degrees",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.656305432
+            }
+        },
+        "entities": {
+            "temperature": [
+                {
+                    "number": 30,
+                    "unit": "Degree"
+                }
+            ],
+            "$instance": {
+                "temperature": [
+                    {
+                        "type": "builtin.temperature",
+                        "text": "30 degrees",
+                        "startIndex": 23,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [percentage](luis-reference-prebuilt-percentage.md), [number](luis-reference-prebuilt-number.md), and [age](luis-reference-prebuilt-age.md) entities. 

@@ -1,6 +1,6 @@
 ---
-title: Aggregations in Azure Log Analytics queries| Microsoft Docs
-description: Describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data.
+title: Aggregations in Azure Monitor log queries| Microsoft Docs
+description: Describes aggregation functions in Azure Monitor log queries that offer useful ways to analyze your data.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -16,14 +16,14 @@ ms.author: bwren
 ---
 
 
-# Aggregations in Log Analytics queries
+# Aggregations in Azure Monitor log queries
 
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
+This article describes aggregation functions in Azure Monitor log queries that offer useful ways to analyze your data. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
 
 ## Counts
 
@@ -75,7 +75,7 @@ Heartbeat
 ```
 
 ### Evaluating subgroups
-To perform a count or other aggregations on subgroups in your data, use the `by` keyword. For example, to count the number of distinct Linux computers that sent heartbeats in each country:
+To perform a count or other aggregations on subgroups in your data, use the `by` keyword. For example, to count the number of distinct Linux computers that sent heartbeats in each country/region:
 
 ```Kusto
 Heartbeat 
@@ -92,7 +92,7 @@ Heartbeat
 |Netherlands	  | 2  					|
 
 
-To analyze even smaller subgroups of your data, add additional column names to the `by` section. For example, you might want to count the distinct computers from each country per OSType:
+To analyze even smaller subgroups of your data, add additional column names to the `by` section. For example, you might want to count the distinct computers from each country/region per OSType:
 
 ```Kusto
 Heartbeat 
@@ -143,7 +143,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

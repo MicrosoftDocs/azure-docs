@@ -4,18 +4,19 @@ description: This page is a technical reference page for ports that are required
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
@@ -31,9 +32,11 @@ This table describes the ports and protocols that are required for communication
 | Kerberos |88 (TCP/UDP) |Kerberos authentication to the AD forest. |
 | MS-RPC |135 (TCP/UDP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during Password synchronization. |
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
-| RPC | 445 (TCP/UDP) |Used by Seamless SSO to create a computer account in the AD forest. |
+| SMB | 445 (TCP/UDP) |Used by Seamless SSO to create a computer account in the AD forest. |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using SSL. |
 | RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
+|WinRM  | 5985 (TCP/UDP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard|
+|AD DS Web Services | 9389 (TCP/UDP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.
@@ -96,8 +99,10 @@ This table describes the following outbound ports and protocols that are require
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |Outbound |
-| Azure Service Bus |5671 (TCP/UDP) |Outbound |
+| HTTPS |443(TCP) |Outbound |
+| Azure Service Bus |5671 (TCP) |Outbound |
+
+Azure Service Bus port 5671 is no longer required for the latest version of agent. The latest Azure AD Connect Health agent version only required port 443.
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](how-to-connect-health-agent-install.md#requirements).

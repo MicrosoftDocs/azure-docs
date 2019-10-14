@@ -1,18 +1,17 @@
 ---
-title: 'Quickstart: Cassandra API with Java - Azure Cosmos DB'
+title: Use the Cassandra API and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
+ms.custom: seo-java-august2019, seo-java-september2019
 ---
 
-# Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -31,8 +30,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
@@ -69,7 +67,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` file.  
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* file.  
 
 * The Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
@@ -83,7 +81,7 @@ This step is optional. If you're interested to learn how the code creates the da
     return cluster.connect();
     ```
 
-The following snippets are from the `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` file.
+The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* file.
 
 * Create a new keyspace.
 
@@ -149,9 +147,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
+    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
-2. Use the ![Copy button](./media/create-cassandra-java/copy.png) button on the right side of the screen to copy the CONTACT POINT value.
+2. Use the ![Copy button](./media/create-cassandra-java/copy-button-azure-portal.png) button on the right side of the screen to copy the CONTACT POINT value.
 
 3. Open the `config.properties` file from `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` folder. 
 
@@ -201,11 +199,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by ID and displays the value.  
 
-    Press CTRL + C to stop execution of the program and close the console window.
+    Select **CTRL + C** to stop execution of the program and close the console window.
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    ![View the data in Data Explorer](./media/create-cassandra-java/data-explorer.png)
+    ![View the data in Data Explorer - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## Review SLAs in the Azure portal
 
@@ -217,7 +215,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos DB container. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, Cassandra database, and container using the Data Explorer, and run an app to do the same thing programmatically. You can now import additional data into your Azure Cosmos container. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

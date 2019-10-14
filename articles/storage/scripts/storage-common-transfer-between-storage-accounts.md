@@ -3,8 +3,7 @@ title: Azure PowerShell Script Sample - Migrate blobs across storage accounts us
 description: Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
 services: storage
 documentationcenter: na
-author: roygara
-manager: jeconnoc
+author: normesta
 
 ms.custom: mvc
 ms.service: storage
@@ -13,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
-ms.author: rogarana
+ms.author: normesta
 ---
 
 # Migrate blobs across storage accounts using AzCopy on Windows
 
 This sample copies all blob objects from a user-provided source storage account to a user-provided target storage account. 
 
-This is accomplished by making use of the `Get-AzureStorageContainer` command, which lists all the containers in a storage account. The sample then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur, the sample retries $retryTimes (default is 3, and can be modified with the `-RetryTimes` parameter). If failure is experienced on each retry, the user can rerun the script by providing the sample with the last successfully copied container using the `-LastSuccessContainerName` parameter. The sample then continues copying containers from that point.
+This is accomplished by making use of the `Get-AzStorageContainer` command, which lists all the containers in a storage account. The sample then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur, the sample retries $retryTimes (default is 3, and can be modified with the `-RetryTimes` parameter). If failure is experienced on each retry, the user can rerun the script by providing the sample with the last successfully copied container using the `-LastSuccessContainerName` parameter. The sample then continues copying containers from that point.
 
-This sample requires the Azure PowerShell Storage module version **4.0.2** or later. You can check your installed version using `Get-Module -ListAvailable Azure.storage`. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This sample requires the Azure PowerShell Storage module version **0.7** or later. You can check your installed version using `Get-Module -ListAvailable Az.storage`. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,7 +32,7 @@ This sample takes in a source storage account name and key, a target storage acc
 The following are examples of the input for this sample:
 
 If AzCopy is installed at the default directory:
-```PowerShell
+```powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
 DestStorageAccountName: ExampleTargetStorageAccountName
@@ -64,8 +63,8 @@ This script uses the following commands to copy data from one storage account to
 
 | Command | Notes |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returns the containers associated with this Storage account. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Creates an Azure Storage context. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Returns the containers associated with this Storage account. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Creates an Azure Storage context. |
 
 ## Next steps
 

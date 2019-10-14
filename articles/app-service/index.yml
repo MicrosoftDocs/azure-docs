@@ -1,35 +1,33 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Web Apps Documentation
+title: App Service Documentation
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: Azure Web Apps Documentation - Tutorials, API Reference
-  meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
+  title: Azure App Service Documentation - Tutorials, API Reference
+  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
   services: app-service
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: app-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
-  description: Azure Web Apps enables you to build and host web applications in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.
+  description: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250  
-    title: Create a Web App with Node.js and Azure App Service. (2:41)
+    title: Create an app with Node.js and Azure App Service. (2:41)
     href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first application to the cloud using Web Apps:'
+    text: 'Learn how to deploy your first application to the cloud using App Service:'
   - type: list
     style: icon48
     items: 
@@ -48,7 +46,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java
     - image: 
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
       text: Python (on Linux)
@@ -69,15 +67,15 @@ sections:
     - image:
         src: media/index/zip.svg
       text: ZIP/WAR
-      href: app-service-deploy-zip.md
+      href: deploy-zip.md
     - image:
         src: media/index/ftp.svg
       text: FTP
-      href: app-service-deploy-ftp.md
+      href: deploy-ftp.md
     - image:
         src: media/index/git-icon.svg
       text: Local Git
-      href: app-service-deploy-local-git.md
+      href: deploy-local-git.md
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: Azure DevOps
@@ -85,19 +83,19 @@ sections:
     - image:
         src: media/index/github-octicons.svg
       text: GitHub
-      href: app-service-continuous-deployment.md
+      href: deploy-continuous-deployment.md
     - image:
         src: media/index/bitbucket.svg
       text: Bitbucket
-      href: app-service-continuous-deployment.md
+      href: deploy-continuous-deployment.md
     - image:
         src: media/index/dropbox.svg
       text: DropBox sync
-      href: app-service-deploy-content-sync.md
+      href: deploy-content-sync.md
     - image:
         src: media/index/onedrive.svg
       text: OneDrive sync
-      href: app-service-deploy-content-sync.md
+      href: deploy-content-sync.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

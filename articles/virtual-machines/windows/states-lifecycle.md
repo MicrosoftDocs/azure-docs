@@ -4,12 +4,12 @@ description: Overview of the lifecycle of a Windows VM in Azure including descri
 services: virtual-machines-windows
 documentationcenter: ''
 author: shandilvarun
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

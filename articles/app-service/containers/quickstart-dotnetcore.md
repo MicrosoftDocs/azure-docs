@@ -1,31 +1,30 @@
 ---
-title: Create .NET Core web app on Linux - Azure App Service | Microsoft Docs
+title: Create ASP.NET Core app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: linux
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Create a .NET Core web app in App Service on Linux
+# Create an ASP.NET Core app in App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create an ASP.NET Core web app in Azure](../app-service-web-get-started-dotnet.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create an ASP.NET Core app in Azure](../app-service-web-get-started-dotnet.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -45,11 +44,11 @@ To complete this quickstart:
 In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
-Create a new .NET Core web app.
+Create a new .NET Core app.
 
 ```bash
 dotnet new web
@@ -91,15 +90,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
+Browse to your newly created app. Replace _&lt;app-name>_ with your app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-Here is what your new web app should look like:
+Here is what your new app should look like:
 
-![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![Empty app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -140,7 +139,7 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The .NET Core sample code is running in a web app with a built-in image.
+The .NET Core sample code is running in App Service on Linux with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -165,15 +164,15 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![Portal navigation to Azure app](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
 ![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -184,4 +183,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database web app in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure API management policy sample - authorize acces based on JWT claims| Microsoft Docs
+title: Azure API management policy sample - authorize access based on JWT claims| Microsoft Docs
 description: Azure API management policy sample - Demonstrates how to authorize access to specific HTTP methods on an API based on JWT claims.
 services: api-management
 documentationcenter: ''
@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm

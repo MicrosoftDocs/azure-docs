@@ -16,6 +16,9 @@ ms.author: magoedte
 ---
 
 # Log Analytics FAQ
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Azure. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 
@@ -44,13 +47,13 @@ A: Custom Fields extraction are currently supported in the classic Logs experien
 
 A: List view is not available in the new Logs. There is an arrow to the left of each record in the results table. Click this arrow to open the details for a specific record. 
 
-### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
+### Q. After running a query, a list of suggested filters are available. How can I see filters? 
 
-A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+A: Click ‘Filters’ on the left pane to see a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
-A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#portal) for more information.
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) for more information.
 
 ### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
 
@@ -58,13 +61,13 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../azure-monitor/platform/oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
 
 ### Q. Can I still use the Analytics portal outside of Azure?
-A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -76,7 +79,7 @@ A: The list of views and installed solutions are available in Azure portal. Clic
 
 ### Q. Why I can’t create workspaces in West Central US region? 
 
-A: This region is at temporary capacity limit. The limit is planned to be addressed in the first half of 2019.
+A: This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019.
 
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
@@ -165,7 +168,7 @@ Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
 
-A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. The `Move-AzResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 This change can also be made in the Azure portal.
 
@@ -216,7 +219,7 @@ A. The free plan sets a daily cap of 500 MB per workspace. The standard and prem
 
 The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
+For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 

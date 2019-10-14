@@ -4,8 +4,8 @@ description: This article explains how Azure Security Center uses role-based acc
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: memildin
+manager: rkarlin
 
 ms.assetid:
 ms.service: security-center
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 
@@ -56,7 +56,7 @@ The following table displays roles and allowed actions in Security Center. An X 
 ## Next steps
 This article explained how Security Center uses RBAC to assign permissions to users and identified the allowed actions for each role. Now that you're familiar with the role assignments needed to monitor the security state of your subscription, edit security policies, and apply recommendations, learn how to:
 
-- [Set security policies in Security Center](security-center-azure-policy.md)
+- [Set security policies in Security Center](tutorial-security-policy.md)
 - [Manage security recommendations in Security Center](security-center-recommendations.md)
 - [Monitor the security health of your Azure resources](security-center-monitoring.md)
 - [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)

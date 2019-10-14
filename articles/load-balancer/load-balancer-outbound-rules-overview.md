@@ -4,15 +4,15 @@ titlesuffix: Azure Load Balancer
 description: Use outbound rules to define outbound network address translations
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
+ms.date: 7/17/2019
+ms.author: allensu
 ---
 
 # Load Balancer outbound rules
@@ -29,7 +29,7 @@ Outbound rules allow you to control:
 - which virtual machines should be translated to which public IP addresses. 
 - how [outbound SNAT ports](load-balancer-outbound-connections.md#snat) should be allocated.
 - which protocols to provide outbound translation for.
-- what duration to use for outbound connection idle timeout.
+- what duration to use for outbound connection idle timeout (4-120 minutes).
 - whether to send a TCP Reset on idle timeout (in Public Preview). 
 
 Outbound rules expand [scenario 2](load-balancer-outbound-connections.md#lb) in described in the [outbound connections](load-balancer-outbound-connections.md) article and the scenario precedence remains as-is.
@@ -79,13 +79,13 @@ Use the following parameter to allocate 10,000 SNAT ports per VM (NIC IP configu
 
           "allocatedOutboundPorts": 10000
 
-Each public IP address from all frontends of an outbound rule contributes up to 51,200 ephemeral ports for use as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,0000 SNAT ports > 51,200 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
+Each public IP address from all frontends of an outbound rule contributes up to 51,200 ephemeral ports for use as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,000 SNAT ports > 51,200 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
 
 You can revert back to [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for number of ports.
 
 ### <a name="idletimeout"></a> Control outbound flow idle timeout
 
-Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application.  Outbound idle timeouts default to 4 minutes.  The parameter accepts a value from 4 to 66 to specific the number of minutes for the idle timeout for flows matching this particular rule.
+Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application.  Outbound idle timeouts default to 4 minutes.  The parameter accepts a value from 4 to 120 to specific the number of minutes for the idle timeout for flows matching this particular rule.
 
 Use the following parameter to set the outbound idle timeout to 1 hour:
 
@@ -200,9 +200,10 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 ## Limitations
 
 - The maximum number of usable ephemeral ports per frontend IP address is 51,200.
-- The range of the configurable outbound idle timeout is 4 to 66 minutes (240 to 4000 seconds).
+- The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
 - Portal cannot be used to configure or view outbound rules.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
+- Outbound rules can only be applied to primary IP configuration of a NIC.  Multiple NICs are supported.
 
 ## Next steps
 

@@ -1,19 +1,45 @@
 ---
 title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
 description: Troubleshooting Azure Files problems in Windows
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
-ms.date: 10/30/2018
+ms.topic: conceptual
+ms.date: 01/02/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Windows
 
 This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+<a id="error5"></a>
+## Error 5 when you mount an Azure file share
+
+When you try to mount a file share, you might receive the following error:
+
+- System error 5 has occurred. Access is denied.
+
+### Cause 1: Unencrypted communication channel
+
+For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. An encrypted communication channel is provided only if the user's client OS supports SMB encryption.
+
+Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
+
+### Solution for cause 1
+
+1. Connect from a client that supports SMB encryption (Windows 8, Windows Server 2012 or later) or connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
+2. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account if the client does not support SMB encryption.
+
+### Cause 2: Virtual network or firewall rules are enabled on the storage account 
+
+If virtual network (VNET) and firewall rules are configured on the storage account, network traffic will be denied access unless the client IP address or virtual network is allowed access.
+
+### Solution for cause 2
+
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -24,39 +50,57 @@ When you try to mount a file share from on-premises or from a different datacent
 - System error 67 has occurred. The network name cannot be found.
 - System error 87 has occurred. The parameter is incorrect.
 
-### Cause 1: Unencrypted communication channel
-
-For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. Communication channel encryption is provided only if the user's client OS supports SMB encryption.
-
-Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
-
-### Solution for cause 1
-
-1. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account.
-2. Connect from a client that does one of the following:
-
-    - Meets the requirements of Windows 8 and Windows Server 2012 or later versions
-    - Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
-
-### Cause 2: Port 445 is blocked
+### Cause 1: Port 445 is blocked
 
 System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-To understand whether this is the reason behind the "System error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
+To check if your firewall or ISP is blocking port 445, use the [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) tool or `Test-NetConnection` cmdlet. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
-If TCP port 445 is blocked by a rule along the network path, you will see the following output:
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
+    
+If the connection was successful, you should see the following output:
+    
+  
+    ComputerName     : <your-storage-account-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### Solution for cause 2
+> [!Note]  
+> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
 
-Work with your IT department to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+### Solution for cause 1
 
-### Cause 3: NTLMv1 is enabled
+#### Solution 1 - Use Azure File Sync
+Azure File Sync can transforms your on-premises Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. Azure File Sync works over port 443 and can thus be used as a workaround to access Azure Files from clients that have port 445 blocked. [Learn how to setup Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+
+#### Solution 2 - Use VPN
+By Setting up a VPN to your specific Storage Account, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) to access Azure Files from Windows.
+
+#### Solution 3 - Unblock port 445 with help of your ISP/IT Admin
+Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### Solution 4 - Use REST API based tools like Storage Explorer/Powershell
+Azure Files also supports REST in addition to SMB. REST access works over port 443 (standard tcp). There are various tools that are written using REST API which enable rich UI experience. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) is one of them. [Download and Install Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and connect to your file share backed by Azure Files. You can also use [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) which also user REST API.
+
+### Cause 2: NTLMv1 is enabled
 
 System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
@@ -66,7 +110,7 @@ To determine whether this is the cause of the error, verify that the following r
 
 For more information, see the [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) topic on TechNet.
 
-### Solution for cause 3
+### Solution for cause 2
 
 Revert the **LmCompatibilityLevel** value to the default value of 3 in the following registry subkey:
 
@@ -82,6 +126,50 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 ### Solution
 
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+To view open handles for a file share, directory or file, use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
+
+To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+<a id="authorizationfailureportal"></a>
+## Error “Authorization failure” when browsing to an Azure file share in the portal
+
+When you browse to an Azure file share in the portal, you may receive the following error:
+
+Authorization failure  
+You do not have access 
+
+### Cause 1: Your user account does not have access to the storage account
+
+### Solution for cause 1
+
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### Cause 2: Virtual network or firewall rules are enabled on the storage account
+
+### Solution for cause 2
+
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## Unable to delete a file or directory in an Azure file share
+
+### Cause
+This issue typically occurs if the file or directory has an open handle. 
+
+### Solution
+
+If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
+
+- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+
+- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Windows
@@ -110,7 +198,7 @@ If hotfix is installed, the following output is displayed:
 > Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
 
 <a id="shareismissing"></a>
-## No folder with a drive letter in **My Computer**
+## No folder with a drive letter in "My Computer" or "This PC"
 
 If you map an Azure file share as an administrator by using net use, the share appears to be missing.
 
@@ -134,7 +222,7 @@ You can use either of the following steps to work around the problem:
 
 - Run the following PowerShell command:
 
-  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
+  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
   From a batch file, you can run the command this way:
 
@@ -201,6 +289,17 @@ To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry 
  
 For example, you can set it to 0x100000 and see if the performance become better.
 
+## Error AadDsTenantNotFound in enabling Azure Active Directory authentication for Azure Files "Unable to locate active tenants with tenant Id aad-tenant-id"
+
+### Cause
+
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory (AAD) authentication for Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) on a storage account where [AAD Domain Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the AAD tenant of the associated subscription.  
+
+### Solution
+
+Enable AAD DS on the AAD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the AAD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

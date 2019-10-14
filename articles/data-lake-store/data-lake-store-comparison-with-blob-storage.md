@@ -3,8 +3,8 @@ title: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob | Microso
 description: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
@@ -12,18 +12,14 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Comparing Azure Data Lake Storage Gen1 and Azure Blob Storage
-  >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) was announced recently. Data Lake Storage Gen2 Preview is the result of converging the capabilities of our two existing storage services, Azure Blob Storage and [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Features from Azure Data Lake Storage Gen1, such as file system semantics, file-level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> We highly recommend that you start using Data Lake Storage Gen2 Preview as the foundation for building your enterprise data lakes and get the best of Azure Blob Storage as well as Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Blob Storage along some key aspects of big data processing. Azure Blob Storage is a general purpose, scalable object store that is designed for a wide variety of storage scenarios. Azure Data Lake Storage Gen1 is a hyper-scale repository that is optimized for big data analytics workloads.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |

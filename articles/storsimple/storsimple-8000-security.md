@@ -19,6 +19,8 @@ ms.author: alkohli
 ---
 # StorSimple security and data protection
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 
 Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data. As you evaluate different technologies, you must consider increased risks and costs for data protection. Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure:
@@ -117,7 +119,7 @@ For more information about StorSimple Snapshot Manager, go to [What is StorSimpl
 We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
 
 * Change your passwords every three months. Changing the passwords is enforced annually.
-* Use strong passwords. For more information, go to [Create stronger passwords and protect them](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Use strong passwords. For more information, go to [Create stronger passwords and protect them](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
 * Do not share passwords with anyone who is not authorized to access the StorSimple device.
 * Do not speak about a password in front of others or hint at the format of a password.

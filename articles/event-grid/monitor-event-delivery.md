@@ -2,13 +2,13 @@
 title: Monitor Azure Event Grid message delivery
 description: Describes how to monitor the delivery of Azure Event Grid messages.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
+ms.date: 01/22/2019
+ms.author: spelluru
 ---
 
 # Monitor Event Grid message delivery 

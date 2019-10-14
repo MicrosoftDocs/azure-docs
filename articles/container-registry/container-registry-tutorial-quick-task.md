@@ -3,6 +3,7 @@ title: Tutorial - Build container images in the cloud - Azure Container Registry
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: tutorial
@@ -20,7 +21,7 @@ ms.custom: "seodec18, mvc"
 
 The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A quick task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
-All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
+All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run. 
 
 In this tutorial, part one of a series:
 
@@ -29,7 +30,7 @@ In this tutorial, part one of a series:
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
 
-In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update.
+In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -73,7 +74,7 @@ The commands in this tutorial series are formatted for the Bash shell. If you pr
 
 Now that you've pulled the source code down to your machine, follow these steps to create a container registry and build the container image with ACR Tasks.
 
-To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
+To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, contain only lower case letters, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>
@@ -200,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-The `--role` argument in the preceding command configures the service principal with the *reader* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *contributor*.
+The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
 
 Next, store the service principal's *appId* in the vault, which is the **username** you pass to Azure Container Registry for authentication:
 
