@@ -50,7 +50,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard**, **Premium**, or **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Select **Pin to dashboard** and then click **Create**.
+    Click **Create**.
 
 4. The workspace creation takes a few minutes. During workspace creation, you can view the deployment status in **Notifications**.
 
