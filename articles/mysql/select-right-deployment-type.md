@@ -1,5 +1,5 @@
 ---
-title: Selecting the right deployment type for your Azure Database for MySQL
+title: Selecting the right deployment type for Azure Database for MySQL
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
 author: kummanish
 ms.author: manishku
@@ -75,16 +75,16 @@ The following list describes administrative considerations for each option:
 
 * With Azure Database for MySQL, you can continue to administer your database. But you no longer need to manage the database engine, the operating system, or the hardware. Examples of items you can continue to administer include:
 
-  - databases
-  - sign-in
-  - index tuning
-  - query tuning
-  - auditing
-  - security
+  - Databases
+  - Sign-in
+  - Index tuning
+  - Query tuning
+  - Auditing
+  - Security
 
   Additionally, configuring high availability to another data center requires minimal to no configuration or administration.
 
-* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual Machine and Cloud Service Sizes for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual machine and cloud service sizes for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### Time to move to Azure
 
@@ -92,9 +92,9 @@ The following list describes administrative considerations for each option:
 
 * When you want to avoid the time and expense of acquiring new on-premises hardware, MySQL on Azure VMs is the right solution for applications that require a MySQL database or access to MySQL features on Windows or Linux. This solution is also suitable for migrating existing on-premises applications and databases to Azure intact, for cases where Azure Database for MySQL is a poor fit.
 
-  As there's no need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and addressing some performance optimizations that the Azure platform might require.
+  Because there's no need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and addressing some performance optimizations that the Azure platform might require.
 
 ## Next Steps
 
-* See [Azure Database for MySQL Pricing](https://azure.microsoft.com/pricing/details/MySQL/).
+* See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/MySQL/).
 * Get started by [creating your first server](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
