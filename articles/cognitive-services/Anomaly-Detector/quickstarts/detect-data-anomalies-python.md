@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 10/14/2019
 ms.author: aahi
 ---
 
@@ -40,10 +40,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. In your favorite text editor or IDE, create a new python file. Add the following imports.
 
-    ```python
-    import requests
-    import json
-    ```
+    [!code-python[import statements](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
 
 2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
@@ -52,21 +49,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
-    ```python
-    batch_detection_url = "/anomalydetector/v1.0/timeseries/entire/detect"
-    latest_point_detection_url = "/anomalydetector/v1.0/timeseries/last/detect"
-
-    endpoint = "[YOUR_ENDPOINT_URL]"
-    subscription_key = "[YOUR_SUBSCRIPTION_KEY]"
-    data_location = "[PATH_TO_TIME_SERIES_DATA]"
-    ```
+    [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
 3. Read in the JSON data file by opening it, and using `json.load()`.
 
-    ```python
-    file_handler = open(data_location)
-    json_data = json.load(file_handler)
-    ```
+    [!code-python[Open JSON file and read in the data](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=fileLoad)]
 
 ## Create a function to send requests
 
@@ -76,14 +63,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 3. Send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. And then return the response.
 
-```python
-def send_request(endpoint, url, subscription_key, request_data):
-    headers = {'Content-Type': 'application/json',
-               'Ocp-Apim-Subscription-Key': subscription_key}
-    response = requests.post(
-        endpoint+url, data=json.dumps(request_data), headers=headers)
-    return json.loads(response.content.decode("utf-8"))
-```
+[!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
 ## Detect anomalies as a batch
 
@@ -95,24 +75,7 @@ def send_request(endpoint, url, subscription_key, request_data):
 
 4. Otherwise, find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the index of anomalous data points, if any were found.
 
-```python
-def detect_batch(request_data):
-    print("Detecting anomalies as a batch")
-    result = send_request(endpoint, batch_detection_url,
-                          subscription_key, request_data)
-    print(json.dumps(result, indent=4))
-
-    if result.get('code') != None:
-        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(
-            result['code'], result['message']))
-    else:
-        # Find and display the positions of anomalies in the data set
-        anomalies = result["isAnomaly"]
-        print("Anomalies detected in the following data positions:")
-        for x in range(len(anomalies)):
-            if anomalies[x] == True:
-                print(x)
-```
+[!code-python[detection as a btach](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 
 ## Detect the anomaly status of the latest data point
 
@@ -120,26 +83,13 @@ def detect_batch(request_data):
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
-```python
-def detect_latest(request_data):
-    print("Determining if latest data point is an anomaly")
-    # send the request, and print the JSON result
-    result = send_request(endpoint, latest_point_detection_url,
-                          subscription_key, request_data)
-    print(json.dumps(result, indent=4))
-```
+[!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
 ## Load your time series data and send the request
 
 1. Load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
 
-```python
-file_handler = open(data_location)
-json_data = json.load(file_handler)
-
-detect_batch(json_data)
-detect_latest(json_data)
-```
+[!code-python[File load and method calls](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=fileLoad)]
 
 ### Example response
 
