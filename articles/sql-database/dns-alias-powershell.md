@@ -48,105 +48,154 @@ If you want to run the demo PowerShell script given in this article, the followi
 
 The following PowerShell code example starts by assign literal values to several variables. To run the code, you must first edit all the placeholder values to match real values in your system. Or you can just study the code. And the console output of the code is also provided.
 
-```powershell
-################################################################
-###    Assign prerequisites.                                 ###
-################################################################
-cls;
-
-$SubscriptionName             = '<EDIT-your-subscription-name>';
-[string]$SubscriptionGuid_Get = '?'; # The script assigns this value, not you.
-
-$SqlServerDnsAliasName = '<EDIT-any-unique-alias-name>';
-
-$1ResourceGroupName = '<EDIT-rg-1>';  # Can be same or different than $2ResourceGroupName.
-$1SqlServerName     = '<EDIT-sql-1>'; # Must differ from $2SqlServerName.
-
-$2ResourceGroupName = '<EDIT-rg-2>';
-$2SqlServerName     = '<EDIT-sql-2>';
-
-# Login to your Azure subscription, first time per session.
-Write-Host "You must log into Azure once per powershell_ise.exe session,";
-Write-Host "  thus type 'yes' only the first time.";
-Write-Host " ";
-$yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
-if ('yes' -eq $yesno)
-{
-    Connect-AzAccount -SubscriptionName $SubscriptionName;
-}
-
-$SubscriptionGuid_Get = Get-AzSubscription `
-    -SubscriptionName $SubscriptionName;
-
-################################################################
-###    Working with DNS aliasing for Azure SQL DB server.    ###
-################################################################
-
-Write-Host '[1] Assign a DNS alias to SQL DB server 1.';
-New-AzSqlServerDNSAlias `
-    –ResourceGroupName  $1ResourceGroupName `
-    -ServerName         $1SqlServerName `
-    -ServerDNSAliasName $SqlServerDnsAliasName;
-
-Write-Host '[2] Get and list all the DNS aliases that are assigned to SQL DB server 1.';
-Get-AzSqlServerDNSAlias `
-    –ResourceGroupName $1ResourceGroupName `
-    -ServerName        $1SqlServerName;
-
-Write-Host '[3] Move the DNS alias from 1 to SQL DB server 2.';
-Set-AzSqlServerDNSAlias `
-    –ResourceGroupName  $2ResourceGroupName `
-    -NewServerName      $2SqlServerName `
-    -ServerDNSAliasName $SqlServerDnsAliasName `
-    -OldServerResourceGroup  $1ResourceGroupName `
-    -OldServerName           $1SqlServerName `
-    -OldServerSubscriptionId $SubscriptionGuid_Get;
-
-# Here your client, such as SSMS, can connect to your "$2SqlServerName"
-# by using "$SqlServerDnsAliasName" in the server name.
-# For example, server:  "any-unique-alias-name.database.windows.net".
-
-# Remove-AzSqlServerDNSAlias  - would fail here for SQL DB server 1.
-
-Write-Host '[4] Remove the DNS alias from SQL DB server 2.';
-Remove-AzSqlServerDNSAlias `
-    –ResourceGroupName  $2ResourceGroupName `
-    -ServerName         $2SqlServerName `
-    -ServerDNSAliasName $SqlServerDnsAliasName;
-```
-
-### Actual console output from the PowerShell example
-
-The following console output was copied and pasted from an actual run.
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
-You must log into Azure once per powershell_ise.exe session,
-  thus type 'yes' only the first time.
+$subscriptionName = '<subscriptionName>';
 
-[yes/no]  Do you need to log into Azure now?: yes
+$sqlServerDnsAliasName = '<aliasName>';
 
+$resourceGroupName = '<resourceGroupName>';  
+$sqlServerName = '<sqlServerName>';
 
-Environment           : AzureCloud
-Account               : gm@acorporation.com
-TenantId              : 72f988bf-1111-1111-1111-111111111111
-SubscriptionId        : 45651c69-2222-2222-2222-222222222222
-SubscriptionName      : mysubscriptionname
-CurrentStorageAccount :
+$resourceGroupName2 = '<resourceGroupNameTwo>'; # can be same or different than $resourceGroupName
+$sqlServerName2 = '<sqlServerNameTwo>'; # must be different from $sqlServerName.
 
-[1] Assign a DNS alias to SQL DB server 1.
-[2] Get the DNS alias that is assigned to SQL DB server 1.
-[3] Move the DNS alias from 1 to SQL DB server 2.
-[4] Remove the DNS alias from SQL DB server 2.
-ResourceGroupName ServerName         ServerDNSAliasName
------------------ ----------         ------------------
-gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
-gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
-gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
+# login to Azure (first time per session)
+Connect-AzAccount -SubscriptionName $SubscriptionName;
+$subscriptionId = Get-AzSubscription -SubscriptionName $subscriptionName;
 
+Write-Host 'Assign an alias to server 1: ';
+New-AzSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName `
+    -ServerName $sqlServerName `
+    -Name $sqlServerDnsAliasName;
 
-[C:\windows\system32\]
->>
+Write-Host 'Get the aliases assigned to server 1: ';
+Get-AzSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName `
+    -ServerName $sqlServerName;
+
+Write-Host 'Move the alias from server 1 to server 2: ';
+Set-AzSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -TargetServerName $sqlServerName2 `
+    -Name $sqlServerDnsAliasName `
+    -SourceServerResourceGroup $resourceGroupName `
+    -SourceServerName $sqlServerName `
+    -SourceServerSubscriptionId $subscriptionId.Id;
+
+Write-Host 'Get the aliases assigned to server 2: ';
+Get-AzSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -ServerName $sqlServerName2;
+
+Write-Host 'Remove the alias from server 2: ';
+Remove-AzSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -ServerName $sqlServerName2 `
+    -Name $sqlServerDnsAliasName;
 ```
+
+# [Azure Rm](#tab/azure-rm)
+
+```powershell
+$subscriptionName = '<subscriptionName>';
+
+$sqlServerDnsAliasName = '<aliasName>';
+
+$resourceGroupName = '<resourceGroupName>';  
+$sqlServerName = '<sqlServerName>';
+
+$resourceGroupName2 = '<resourceGroupTwo>'; # can be same or different than $resourceGroupName
+$sqlServerName2 = '<sqlServerNameTwo>'; # must be different from $sqlServerName.
+
+# login to Azure (first time per session)
+Connect-AzureRmAccount -SubscriptionName $SubscriptionName;
+$subscriptionId = Get-AzureRmSubscription -SubscriptionName $subscriptionName;
+
+Write-Host 'Assign an alias to server 1: ';
+New-AzureRmSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName `
+    -ServerName $sqlServerName `
+    -Name $sqlServerDnsAliasName;
+
+Write-Host 'Get the aliases assigned to server 1: ';
+Get-AzureRmSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName `
+    -ServerName $sqlServerName;
+
+Write-Host 'Move the alias from server 1 to server 2: ';
+Set-AzureRmSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -TargetServerName $sqlServerName2 `
+    -Name $sqlServerDnsAliasName `
+    -SourceServerResourceGroup $resourceGroupName `
+    -SourceServerName $sqlServerName `
+    -SourceServerSubscriptionId $subscriptionId.Id;
+
+Write-Host 'Get the aliases assigned to server 2: ';
+Get-AzuzreRmSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -ServerName $sqlServerName2;
+
+Write-Host 'Remove the alias from server 2: ';
+Remove-AzureRmSqlServerDnsAlias `
+    –ResourceGroupName $resourceGroupName2 `
+    -ServerName $sqlServerName2 `
+    -Name $sqlServerDnsAliasName;
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```powershell
+$subscriptionName = '<subscriptionName>';
+
+$sqlServerDnsAliasName = '<aliasName>';
+
+$resourceGroupName = '<resourceGroupName>';  
+$sqlServerName = '<sqlServerName>';
+
+$resourceGroupName2 = '<resourceGroupNameTwo>'; # can be same or different than $resourceGroupName
+$sqlServerName2 = '<sqlServerNameTwo>'; # must be different from $sqlServerName.
+
+# Login to Azure (first time per session)
+az login -SubscriptionName $SubscriptionName;
+$subscriptionId = az account list[0].i -SubscriptionName $subscriptionName;
+
+Write-Host 'Assign an alias to server 1: ';
+az sql server dns-alias create `
+    –-resource-group $resourceGroupName `
+    --server $sqlServerName `
+    --name $sqlServerDnsAliasName;
+
+Write-Host 'Get the aliases assigned to server 1: ';
+az sql server dns-alias show `
+    –-resource-group $resourceGroupName `
+    --server $sqlServerName;
+
+Write-Host 'Move the alias from server 1 to server 2: ';
+az sql server dns-alias set `
+    –-resource-group $resourceGroupName2 `
+    --server $sqlServerName2 `
+    --name $sqlServerDnsAliasName `
+    --original-resource-group $resourceGroupName `
+    --original-server $sqlServerName `
+    --original-subscription-id $subscriptionId.Id;
+
+Write-Host 'Get the aliases assigned to server 2: ';
+az sql server dns-alias show `
+    –-resource-group $resourceGroupName2 `
+    --server $sqlServerName2;
+
+Write-Host 'Remove the alias from server 2: ';
+az sql server dns-alias delete `
+    –-resource-group $resourceGroupName2 `
+    --server $sqlServerName2 `
+    --name $sqlServerDnsAliasName;
+```
+
+* * *
 
 ## Next steps
 
