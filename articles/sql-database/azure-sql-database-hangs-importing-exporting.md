@@ -12,29 +12,29 @@ ms.date: 09/27/2019
 
 # Azure SQL Database Import/Export service takes a long time to import or export a database
 
-When you use the Azure SQL Database Import/Export service, the process might take longer than expected to complete. This article describes the potential causes for this delay and alternative workaround methods.
+When you use the Azure SQL Database Import/Export service, the process might take longer than expected. This article describes the potential causes for this delay and alternative workaround methods.
 
 ## Azure SQL Database Import/Export service
 
-The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import Database](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) options to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports from an Azure SQL database to Azure Blob storage.
+The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import database](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) option to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports between an Azure SQL database and Azure Blob storage.
 
 The import and export operations don't represent a traditional physical database backup but instead a logical backup of the database that uses a special BACPAC format. The BACPAC format lets you avoid having to use a physical format that might vary between versions of Microsoft SQL Server and Azure SQL Database. Therefore, you can use it to safely restore the database to a SQL Server database and to a SQL database.
 
 ## What causes delays in the process?
 
-The Azure SQL Database Import/Export service provides a limited number of compute virtual machines (VMs) per region to process import and export operations. The compute VM is hosted per region to make sure that the import or export avoids cross-region bandwidth delays and charges. If too many requests are made at the same time in the same region, significant delays can occur in processing the operations. The time that's required to complete requests can vary from a few seconds to many hours.
+The Azure SQL Database Import/Export service provides a limited number of compute virtual machines (VMs) per region to process import and export operations. The compute VMs are hosted per region to make sure that the import or export avoids cross-region bandwidth delays and charges. If too many requests are made at the same time in the same region, significant delays can occur in processing the operations. The time that's required to complete requests can vary from a few seconds to many hours.
 
 > [!NOTE]
 > If a request is not processed within four days, the service automatically cancels the request.
 
 ## Recommended solutions
 
-If your database exports are used only for recovery from accidental data deletion, all the Azure SQL Server database editions provide self-service restoration capability from system-generated backups. But if you need these exports for other reasons, and if you require consistently faster or more predictable import/export performance, consider the following options:
+If your database exports are used only for recovery from accidental data deletion, all the Azure SQL Database editions provide self-service restoration capability from system-generated backups. But if you need these exports for other reasons, and if you require consistently faster or more predictable import/export performance, consider the following options:
 
-* [Export to a BACPAC file by using the SQLPackage utility].(https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility)
+* [Export to a BACPAC file by using the SQLPackage utility](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [Export to a BACPAC file by using SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Run the BACPAC import or export directly in your code by using the Microsoft® SQL Server® Data-Tier Application Framework (DacFx) API. For additional information, see:
-  * [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+* Run the BACPAC import or export directly in your code by using the Microsoft SQL Server Data-Tier Application Framework (DacFx) API. For additional information, see:
+  * [Export a data-tier application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Microsoft.SqlServer.Dac Namespace](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Download DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
