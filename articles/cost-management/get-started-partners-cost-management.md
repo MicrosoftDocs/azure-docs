@@ -32,9 +32,9 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 
 To understand billing scopes and RBAC scopes and how cost management works with scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-## Manage invoiced costs with billing scopes in the partner tenant
+## Manage costs with partner tenant billing scopes
 
-After you've onboarded your customers to a Microsoft Customer Agreement, the following _billing scopes_ are available in your tenant. Use the  scopes to manage costs in Cost Management.
+After you've onboarded your customers to a Microsoft Customer Agreement, the following _billing scopes_ are available in your tenant. Use the scopes to manage costs in Cost Management.
 
 ### Billing account scope
 
