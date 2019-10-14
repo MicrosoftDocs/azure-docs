@@ -114,6 +114,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 > [!NOTE]
 > **Group Overage Claim** :- To ensure that the token size doesn’t exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Graph API to retrieve the user’s group membership.
+
 >  {
     ...
     "_claim_names": {
