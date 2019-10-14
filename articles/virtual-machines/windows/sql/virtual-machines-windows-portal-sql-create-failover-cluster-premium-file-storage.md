@@ -32,7 +32,7 @@ You should have an operational understanding of the following technologies:
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
+One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
 
 Additionally, you should have a general understanding of the following technologies:
 
@@ -46,7 +46,7 @@ Additionally, you should have a general understanding of the following technolog
 
 Premium file shares provide IOPS and throughout capacity that will meet the needs of many workloads. However, for IO intensive workloads, consider [SQL Server FCI with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) based on managed premium disks or ultra-disks.  
 
-Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
+Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log, and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
 
 ### Licensing and pricing
 
@@ -160,34 +160,20 @@ After the virtual machines are created and configured, you can configure the pre
 1. Sign into the [Azure portal](https://portal.azure.com) and go to your storage account.
 1. Go to **File Shares** under **File service** and select the premium file share you want to use for your SQL storage. 
 1. Select **Connect** to bring up the connection string for your file share. 
-1. Select the drive letter you want to use from the drop-down and then copy the two PowerShell commands from the two PowerShell command blocks.  Paste them to a text editor, such as notepad. 
+1. Select the drive letter you want to use from the drop-down and then copy both code blocks to a notepad.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
 
 1. RDP into the SQL Server VM using the account that your SQL Server FCI will use for the service account. 
 1. Launch an administrative PowerShell command console. 
-1. Run the `Test-NetConnection` command to test connectivity to the storage account. Do not run the `cmdkey` command from the first code block. 
+1. Run the commands from the portal you saved earlier. 
+1. Navigate to the share with either file explorer or the **Run** dialog box (Windows key + r) using the network path `\\storageaccountname.file.core.windows.net\filesharename`. Example: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. Run the `cmdkey` command from the *second* code block to mount the file share as a drive, and persist it. 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. Open **File Explorer** and navigate to **This PC**. The file share is visible under network locations: 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="File share visible as storage in file explorer":::
-
-1. Open the newly-mapped drive and create at least one folder here to place your SQL Data files into. 
+1. Create at least one folder on the newly connected file share to place your SQL Data files into. 
 1. Repeat these steps on each SQL Server VM that will participate in the cluster. 
 
   > [!IMPORTANT]
-  > Do not use the same file share for both data files and back ups. Use the same steps to configure a secondary file share for backups if you want to back up your databases to a file share. 
+  > Consider using a separate file share for backup files to save the IOPS and size capacity of this share for Data and Log file. You can use either a Premium or Standard File Share for backup files
 
 ## Step 3: Configure failover cluster with file share 
 
@@ -344,7 +330,7 @@ To create the load balancer:
    - **Name**: A name that identifies the load balancer.
    - **Region**: Use the same Azure location as your virtual machines.
    - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer.
-   - **SKU**: The SKU for the your load balancer should be standard. 
+   - **SKU**: The SKU for your load balancer should be standard. 
    - **Virtual Network**: The same network as the virtual machines.
    - **IP address assignment**: The IP address assignment should be static. 
    - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
