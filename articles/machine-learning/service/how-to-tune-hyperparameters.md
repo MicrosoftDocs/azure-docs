@@ -94,6 +94,12 @@ This code defines a search space with two parameters - `learning_rate` and `keep
 
 You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning supports random sampling, grid sampling, and Bayesian sampling.
 
+#### Picking a sampling method
+
+* Grid sampling can be used if your hyperparameter space can be defined as a choice among discrete values and if you have sufficient budget to exhaustively search over all values in the defined search space. Additionally, one can use automated early termination of poorly performing runs, which reduces wastage of resources.
+* Random sampling allows the hyperparameter space to include both discrete and continuous hyperparameters. In practice it produces good results most of the times and also allows the use of automated early termination of poorly performing runs. Some users perform an initial search using random sampling and then iteratively refine the search space to improve results.
+* Bayesian sampling leverages knowledge of previous samples when choosing hyperparameter values, effectively trying to improve the reported primary metric. Bayesian sampling is recommended when you have sufficient budget to explore the hyperparameter space - for best results with Bayesian Sampling we recommend using a maximum number of runs greater than or equal to 20 times the number of hyperparameters being tuned. Note that Bayesian sampling does not currently support any early termination policy.
+
 #### Random sampling
 
 In random sampling, hyperparameter values are randomly selected from the defined search space. [Random sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) allows the search space to include both discrete and continuous hyperparameters.
@@ -246,8 +252,10 @@ policy=None
 
 If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
 
->[!NOTE] 
->If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+### Picking an early termination policy
+
+* If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+* If you are looking for more aggressive savings from early termination, you can either use Bandit Policy with a stricter (smaller) allowable slack or Truncation Selection Policy with a larger truncation percentage.
 
 ## Allocate resources
 
