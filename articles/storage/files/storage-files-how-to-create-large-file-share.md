@@ -79,7 +79,7 @@ Creating a large file share is almost identical to creating a standard file shar
 
 ## Expand existing file shares
 
-Once your storage account has enabled large file shares, you can expand existing shares to the higher quota capacities.
+Once you've enabled large file shares on your storage account, you can expand existing shares to the higher quota capacities.
 
 1. From your storage account, select **File shares**.
 1. Right-click your file share and select **Quota**.

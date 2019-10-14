@@ -188,11 +188,11 @@ Keep these points in mind when deciding which replication option to use:
 
 ## Onboard to larger file shares (standard tier)
 
-This section only applies to the standard file shares. All premium file shares are available with 100 TiB.
+This section only applies to the standard file shares. All premium file shares are available with 100 TiB capacity.
 
 ### Restrictions
 
-- LRS/ZRS to GRS/GZRS account conversion will not be possible on any new storage account created with large file shares.
+- LRS/ZRS to GRS/GZRS account conversion will not be possible for any storage account with large file shares enabled.
 
 ### Regional availability
 

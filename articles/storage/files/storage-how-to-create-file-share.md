@@ -28,7 +28,7 @@ To create an Azure file share, you can use a Storage Account that already exists
 2. **Click on add File Share button**:    
     ![Click the add file share button](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Provide Name and Quota.**:    
+3. **Provide Name and Quota**:    
     ![Provide a name and a desired quota for the new file share](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **View your new file share**:
