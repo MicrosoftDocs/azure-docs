@@ -56,9 +56,9 @@ You can request the enterprise administrators of the enrollment to complete the 
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
-2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your enterprise agreement that was renewed.
+2. If you don't have the email, sign in using the following link. Replace `<enrollmentNumber>` with the enrollment number of your enterprise agreement that was renewed.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_Billing/EATransitionToMCA/enrollmentId/enrollmentNumber`
+   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
 
 3. Select the enterprise administrators that you want to send the request.
 
@@ -90,12 +90,12 @@ Depending on their access, billing administrators on your Enterprise Agreement e
 | Existing role | Post transition role |
 | --- | --- |
 | **Enterprise administrator (Read only = No)** | **- Billing account owner** </br> Manage everything on the billing account </br> **- Billing profile owner** </br> Manage everything on the billing profile </br> **- Invoice section owner on all invoice sections** </br> Manage everything on the invoice sections |
-| **Enterprise administrator (Read only = Yes)** | **- Billing account reader** </br> Read-only view of everything on billing account</br> **- Billing profile reader** </br> Read-only view of everything on billing profile</br>**- Invoice section reader on all invoice section**</br> - Read-only view of everything on the invoice section|
+| **Enterprise administrator (Read only = Yes)** | **- Billing account reader** </br> Read-only view of everything on billing account</br> **- Billing profile reader** </br> Read-only view of everything on billing profile</br>**- Invoice section reader on all invoice section**</br> - Read-only view of everything on the invoice sections|
 | **Department administrator(Read only = No)** |**- Invoice section owner on the invoice section created for their respective department** </br>Manage everything on the invoice section|
 | **Department administrator (Read only = Yes)**|**- Invoice section reader on the invoice section created for their respective department**</br> Read-only view of everything on the invoice section|
 | **Account owner** | **- Azure subscription creator on the invoice section created for their respective department** </br>  Create Azure subscriptions for their invoice section|
 
-An Azure Active Directory tenant is selected for the new billing account while signing the Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Azure Active Directory. Global tenant administrators in your organization use the tenant to manage access of applications and data in your organization.
+An Azure Active Directory (AD) tenant is selected for the new billing account while accepting your Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Azure Active Directory. Global tenant administrators in your organization use the tenant to manage access of applications and data in your organization.
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they’ll get access to the new billing account during the setup. If they’re not part of the tenant, they won’t be able to access the new billing account unless you invite them.
 
@@ -151,7 +151,7 @@ Charges and credits balance prior to transition can be viewed in your Enterprise
 
 ### When should the setup be completed?
 
-Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions will still keep on running without disruption. However, you'll be charged retail rates for the services.
+Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions will still keep on running without disruption. However, you'll be charged pay-as-you-go rates for the services.
 
 ### Changes to the Enterprise Agreement enrollment after the setup
 
@@ -171,9 +171,9 @@ To complete the setup, you need access to both the new billing account and the E
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
-2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your Enterprise Agreement that was renewed.
+2. If you don't have the email, sign in using the following link. Replace `<enrollmentNumber>` with the enrollment number of your enterprise agreement that was renewed.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_Billing/EATransitionToMCA/enrollmentId/enrollmentNumber`
+   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
 
 3. Select **Start transition** in the last step of the setup. Once you select start transition:
 
@@ -182,7 +182,7 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won’t be any impact on your Azure services during this transition. They’ll keep running without any disruption**.
-    - If you have Azure Reservations, they are moved to your new billing account with the same discount and term. Your reservation discount will continue to be applied during the transition.
+    - If you have Azure Reservations, they are moved to your new billing account with no change to benefits or term. 
 
 4. You can monitor the status of the transition on the **Transition status** page.
 
@@ -208,6 +208,10 @@ To complete the setup, you need access to both the new billing account and the E
 
 Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md)
 
+### Azure reservations
+
+Azure reservations in your Enterprise Agreement enrollment will be moved to your new billing account with no change to benefits or term. Since, these are paid for already, they won't appear in the new billing account. However, you can verify the benefits of your reservation are applied to your subscription in the Azure reservations page.
+
 ### Access of enterprise administrators on the billing account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -224,6 +228,22 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
 Enterprise administrators are listed as billing account owners while the enterprise administrators with read-only permissions are listed as billing account readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
+### Access of enterprise administrators on the billing profile
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Search for **Cost Management + Billing**.
+
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
+
+3. Select the billing profile created for your enrollment. Depending on your access, you may need to select a billing account. From the billing account, select Billing profiles and then the billing profile.
+
+4. Select **Access control (IAM)** from the left side.
+
+   ![Screenshot that shows access of enterprise administrators post transition](./media/billing-mca-setup-account/billing-mca-ea-admins-access-post-transition.png)
+
+Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
 ### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -232,7 +252,7 @@ Enterprise administrators are listed as billing account owners while the enterpr
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 
-3. Select an invoice section. Invoice sections have the same name as their respective departments in Enterprise Agreement enrollments. Depending on your access, you may need to select a billing profile or a billing account. From the billing profile or the billing account, select **Invoice sections** and then select an invoice section.
+3. Select an invoice section. Invoice sections have the same name as their respective departments in Enterprise Agreement enrollments. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then select **Invoice sections**. Select an invoice section.
 
    ![Screenshot that shows list of invoice section post transition](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
