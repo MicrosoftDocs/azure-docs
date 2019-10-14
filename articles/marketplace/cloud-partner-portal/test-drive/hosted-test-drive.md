@@ -1,4 +1,4 @@
----
+﻿---
 title: Hosted Test Drive | Azure Marketplace
 description: How to setup an maintain a Marketplace Hosted Test Drive
 services: Azure, Marketplace, Cloud Partner Portal, 
@@ -51,4 +51,4 @@ Provide the following fields in the \'Technical Configuration\' section:
 
 ## Next steps
 
-When ready **publish** your offer, after your app has passed certification, you will have a **preview** of your offer. Start a Test Drive in the UI and verify that your Test Drives are running correctly. Once you feel comfortable with your preview offering, now it is time to **go live!**
+When ready **publish** your offer, after your app has passed certification, you will have a **preview** of your offer. Start a Test Drive in the UI and verify that your Test Drives are running correctly. Once you feel comfortable with your preview offering, now it is time to **go live!**

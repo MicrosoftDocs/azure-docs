@@ -23,7 +23,7 @@ Building an app is free and doesn't require an Azure subscription. When you're r
 
 ## Create an app
 
-1. Select **Create new app** from the context toolbar.
+1. Select **+ Create** from the context toolbar.
 
    [![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 

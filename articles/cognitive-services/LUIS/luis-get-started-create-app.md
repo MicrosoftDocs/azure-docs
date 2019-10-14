@@ -27,7 +27,7 @@ For this article, you need a free LUIS account, created on the LUIS portal at [h
 ## Create a new app
 You can create and manage your applications on **My Apps**. 
 
-1. Select **Create new app**.
+1. Select **+ Create**.
 
     [![Screenshot of app list](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
 

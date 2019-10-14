@@ -40,7 +40,7 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 ## Create new app in LUIS
 
-1. On **My Apps** page, select **Create new app**.
+1. On **My Apps** page, select **+ Create**.
 
     ![LUIS apps list](./media/luis-create-new-app/apps-list.png)
 

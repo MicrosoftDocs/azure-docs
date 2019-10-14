@@ -241,6 +241,8 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Quarantine status
+          href: application-provisioning-quarantine-status.md
         - name: Provisioning logs
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Sync an attribute for mapping - gallery app

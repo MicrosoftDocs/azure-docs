@@ -177,6 +177,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Computer Vision API v2.1
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
           - text: Computer Vision API v2.0
             url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
           - text: Computer Vision API v1.0
@@ -190,7 +192,7 @@ landingContent:
           - text: Node.js SDK
             url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
           - text: Go SDK
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
