@@ -204,16 +204,17 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |Australia Southeast|LRS |
 |Central India  |LRS     |
 |East Asia      |LRS     |
-|East US        |LRS     |
+|East US*        |LRS     |
 |France Central |LRS, ZRS|
 |France South   |LRS     |
-|North Europe   |LRS     |
 |South India    |LRS     |
 |Southeast Asia |LRS, ZRS|
 |West Central US|LRS     |
 |West Europe    |LRS, ZRS|
 |West US        |LRS     |
 |West US 2      |LRS, ZRS|
+
+\* Supported for new accounts, not all existing accounts have completed the upgrade process.
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 

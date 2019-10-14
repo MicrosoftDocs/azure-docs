@@ -341,6 +341,11 @@ This article answers common questions about Azure Files features and functionali
 **What sizes are available for Azure file shares?**  
     Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
 
+* <a id="lfs-performance-impact"></a>
+**Does expanding my file share quota impact my workloads or Azure File Sync?**
+    
+    No. Expanding the quota will not impact your workloads or Azure File Sync.
+
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   
     There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.

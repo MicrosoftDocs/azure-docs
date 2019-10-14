@@ -10,9 +10,11 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Enable large file shares
+# Enable large file shares for standard file shares
 
-Originally, file shares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. In order to scale up to 100 TiB, you must enable your storage account to use large file shares. You can either enable an existing account or create a new account to use large file shares.
+Originally, standard file shares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. Premium file shares scale up to 100 TiB by default. 
+
+In order to scale up to 100 TiB using standard file shares, you must enable your storage account to use large file shares. You can either enable an existing account or create a new account to use large file shares.
 
 ## Prerequisites
 
@@ -20,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Restrictions
 
-Large file share enabled accounts support LRS or ZRS. For now, large file share enabled accounts do not support GZRS, GRS, or RA-GRS. Enabling large file shares on an account is an irreversible process, once it is enabled your account cannot be converted to GZRS, GRS, or RA-GRS.
+Large file shares enabled accounts support LRS or ZRS. For now, large file shares enabled accounts do not support GZRS, GRS, or RA-GRS. Enabling large file shares on an account is an irreversible process, once it is enabled your account cannot be converted to GZRS, GRS, or RA-GRS.
 
 ## Create a new storage account
 
@@ -54,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable on existing account
 
-You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to use GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
+You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
 1. Open the [Azure portal](https://portal.azure.com) and navigate to the storage account you want to enable large file shares on.
 1. Open the storage account and select **Configuration**.
@@ -73,13 +75,13 @@ Creating a large file share is almost identical to creating a standard file shar
 
 1. From your storage account, select **File shares**.
 1. Select **+ File Share**.
-1. Enter a name for your file share and the quota size you'd like, up to 100 TiB, then select **Create**. 
+1. Enter a name for your file share and (optionally) the quota size you'd like, up to 100 TiB, then select **Create**. 
 
 ![large-file-shares-create-share.png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
 ## Expand existing file shares
 
-Once you've enabled large file shares on your storage account, you can expand existing shares to the higher quota capacities.
+Once you've enabled large file shares on your storage account, you can expand existing shares to the higher quota.
 
 1. From your storage account, select **File shares**.
 1. Right-click your file share and select **Quota**.
