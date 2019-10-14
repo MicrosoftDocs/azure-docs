@@ -67,9 +67,9 @@ To view aggregate cost for subscriptions that belonged to an account, you must s
 
 A monthly invoice is generated for each billing profile in your billing account. For each invoice, you can download Azure usage and charges csv file, price sheet, and tax document (if applicable). You can also download Azure usage and charges csv file for the current month's charges.
 
-To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
 
-To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
+To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](billing-ea-pricing.md).
 
 To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
