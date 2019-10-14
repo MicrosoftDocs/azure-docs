@@ -21,7 +21,7 @@ ms.author: shvija
 
 # Event Hubs Capture walkthrough: Python
 
-*Capture* is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to do batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
+Capture is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to do batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
 
 This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs, creates an append file for each of your devices, and writes the data to *.csv* files on each device.
 
@@ -35,10 +35,10 @@ In this walkthrough, you:
 
 ## Prerequisites
 
-- Python 3.4 or later.
+- Python 3.4 or later, with `pip` installed and updated.
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of your namespace and event hub names to use later in this walkthrough. 
-- Your Event Hubs shared access key name and primary key value. Find or create these values under **Shared access policies** on your Event Hubs page. The default access key name is **RootManageSharedAccessKey**. Copy the key name and the primary key value to use later in this walkthrough. 
+- Your Event Hubs shared access key name and primary key value. Find or create these values under **Shared access policies** on your Event Hubs page. The default access key name is **RootManageSharedAccessKey**. Copy the access key name and the primary key value to use later in this walkthrough. 
 
 ## Create an Azure Blob storage account and container
 
@@ -66,7 +66,7 @@ This script sends 200 events to your event hub. The events are simple environmen
 
 1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
 2. Create a new file called *sender.py*. 
-3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace name>, \<event hubs access key name>, \<primary key value>, and \<event hub name>:
+3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace>, \<access key name>, \<primary key value>, and \<eventhub>:
    
    ```python
    import uuid
@@ -75,7 +75,7 @@ This script sends 200 events to your event hub. The events are simple environmen
    import json
    from azure.servicebus.control_client import ServiceBusService
    
-   sbs = ServiceBusService(service_namespace='<namespace name>', shared_access_key_name='<event hubs access key name>', shared_access_key_value='<primary key value>')
+   sbs = ServiceBusService(service_namespace='<namespace>', shared_access_key_name='<AccessKeyName>', shared_access_key_value='<primary key value>')
    devices = []
    for x in range(0, 10):
        devices.append(str(uuid.uuid4()))
@@ -84,7 +84,7 @@ This script sends 200 events to your event hub. The events are simple environmen
        for dev in devices:
            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
            s = json.dumps(reading)
-           sbs.send_event('<event hub name>', s)
+           sbs.send_event('<eventhub>', s)
        print(y)
    ```
 4. Save the file.
@@ -94,7 +94,7 @@ This script sends 200 events to your event hub. The events are simple environmen
 This script reads the captured files and creates a file for each of your devices to write the data only for that device.
 
 1. In your Python editor, create a new file called *capturereader.py*. 
-2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storage account name>, \<storage account access key value>, and \<storage container name>:
+2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storageaccount>, \<storage account access key>, and \<storagecontainer>:
    
    ```python
    import os
@@ -137,7 +137,7 @@ This script reads the captured files and creates a file for each of your devices
                processBlob(cleanName)
                os.remove(cleanName)
            block_blob_service.delete_blob(container, blob.name)
-   startProcessing('<storage account name>', '<storage account access key value>', '<storage container name>')
+   startProcessing('<storageaccount>', '<storage account access key>', '<storagecontainer>')
    ```
 
 ## Run the Python scripts

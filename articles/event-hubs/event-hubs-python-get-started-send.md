@@ -20,7 +20,7 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service th
 This quickstart shows how to create Python applications that send events to and receive events from an event hub. 
 
 > [!NOTE]
-> Instead of working through the quickstart, you can download and run the sample apps from [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples). Replace the `EventHubConnectionString` and `EventHubName` strings with your event hub values. 
+> Instead of working through the quickstart, you can download and run the [sample apps](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) from GitHub. Replace the `EventHubConnectionString` and `EventHubName` strings with your event hub values. 
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To complete this quickstart, you need the following prerequisites:
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of the namespace and event hub names to use later in this walkthrough. 
 - The shared access key name and primary key value for your Event Hubs namespace. Get the access key name and value by following the instructions at [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). The default access key name is **RootManageSharedAccessKey**. Copy the key name and the primary key value to use later in this walkthrough. 
-- Python 3.4 or later.
+- Python 3.4 or later, with `pip` installed and updated.
 - The Python package for Event Hubs. To install the package, run this command in a command prompt that has Python in its path: 
   
   ```cmd
@@ -45,7 +45,7 @@ To create a Python application that sends events to an event hub:
 
 1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a new file called *send.py*. This script sends 100 events to your event hub.
-3. Paste the following code into *send.py*, replacing the Event Hubs \<namespace name>, \<event hub name>, \<access key name>, and \<primary key value> with your values: 
+3. Paste the following code into *send.py*, replacing the Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>, and \<primary key value> with your values: 
    
    ```python
    import sys
@@ -59,12 +59,12 @@ To create a Python application that sends events to an event hub:
    logger = logging.getLogger("azure")
    
    # Address can be in either of these formats:
-   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
-   # "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
+   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<namespace>.servicebus.windows.net/eventhub"
+   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
    # SAS policy and key are not required if they are encoded in the URL
    
-   ADDRESS = "amqps://<namespace name>.servicebus.windows.net/<event hub name>"
-   USER = "<access key name>"
+   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   USER = "<AccessKeyName>"
    KEY = "<primary key value>"
    
    try:
@@ -108,7 +108,7 @@ Congratulations! You have now sent messages to an event hub.
 To create a Python application that receives events from an event hub:
 
 1. In your Python editor, create a file called *recv.py*.
-2. Paste the following code into *recv.py*, replacing the Event Hubs \<namespace name>, \<event hub name>, \<access key name>, and \<primary key value> with your own values: 
+2. Paste the following code into *recv.py*, , replacing the Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>, and \<primary key value> with your values: 
    
    ```python
    import os
@@ -121,11 +121,11 @@ To create a Python application that receives events from an event hub:
    
    # Address can be in either of these formats:
    # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
-   # "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
+   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
    # SAS policy and key are not required if they are encoded in the URL
    
-   ADDRESS = "amqps://<namespace name>.servicebus.windows.net/<event hub name>"
-   USER = "<access key name>"
+   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   USER = "<AccessKeyName>"
    KEY = "<primary key value>"
    
    
