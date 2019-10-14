@@ -35,8 +35,8 @@ Here are some possible error codes you could receive when using spot VMs and sca
 | VariablePricingIsNotSupportedForThisAPIVersion | Variable pricing is not supported for this API version. | The API version needs to be 2019-03-01. |
 | VariablePricingIsNotSupportedForThisVMSize | Variable pricing is not supported for this VM size {0}. | Select another VM size. For more information, see [spot Virtual Machines](./linux/spot-vms.md). |
 | VariablePricingIsSupportedOnlyForLowPriorityVirtualMachines | Variable pricing is supported only for spot Virtual Machines. | For more information, see [spot Virtual Machines](./linux/spot-vms.md). |
-| MoveResourcesWithLowPriorityVMNotSupported | The move resources request contains a spotvirtual machine. This is currently not supported. Please check the error details for virtual machine Ids.  | You cannot move spot VMs. |
-| MoveResourcesWithLowPriorityVmssNotSupported | The Move resources request contains a spotvirtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids.| You cannot move spot instances. |
+| MoveResourcesWithLowPriorityVMNotSupported | The move resources request contains a spot virtual machine. This is currently not supported. Please check the error details for virtual machine IDs.  | You cannot move spot VMs. |
+| MoveResourcesWithLowPriorityVmssNotSupported | The Move resources request contains a spot virtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set IDs.| You cannot move spot instances. |
 
 
 ## Next steps

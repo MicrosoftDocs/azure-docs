@@ -17,7 +17,7 @@ ms.date: 10/14/2019
 ms.author: cynthn
 ---
 
-# Deploy spot VMs using a resource manager template
+# Deploy spot VMs using a Resource Manager template
 
 Using [spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict spot VMs. Therefore, spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
