@@ -1,11 +1,11 @@
 ---
-title: Manage members in an Azure Blockchain Service consortium by using Azure PowerShell
+title: Manage Azure Blockchain Service members using Azure PowerShell
 description: Learn how to manage Azure Blockchain Service consortium members by using Azure PowerShell.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
