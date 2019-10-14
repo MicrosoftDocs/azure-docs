@@ -495,7 +495,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-single-database-get-started.md
       - name: Using template
         displayName: Azure Resource Manager template, ARM
@@ -728,7 +728,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-managed-instance-get-started.md
       - name: Using PowerShell
         href: scripts/sql-database-create-configure-managed-instance-powershell.md
