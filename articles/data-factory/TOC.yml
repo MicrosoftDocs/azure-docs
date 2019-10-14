@@ -410,10 +410,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: ML Batch Execution Activity
+    - name: Machine Learning Batch Execution Activity
       href: transform-data-using-machine-learning.md
-    - name: ML Update Resource Activity
+    - name: Machine Learning Update Resource Activity
       href: update-machine-learning-models.md
+    - name: Machine Learning Execute Pipeline Activity
+      href: transform-data-machine-learning-service.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -432,6 +434,8 @@
       href: control-flow-get-metadata-activity.md
     - name: If Condition Activity
       href: control-flow-if-condition-activity.md
+    - name: Switch Activity
+      href: control-flow-switch-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
     - name: Set Variable Activity
