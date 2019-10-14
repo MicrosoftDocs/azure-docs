@@ -541,7 +541,7 @@ A managed instance places verbose information in error logs. There are many inte
 
 ## <a name="Issues"></a> Known issues
 
-### In-memory OLTP memory limits are not 
+### In-memory OLTP memory limits are not applied
 
 **Date:** Oct 2019
 
