@@ -28,7 +28,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
 
-While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Windows: Install tools](disk-encryption-windows.md#install-tools-and-connect-to-azure) for details.
+While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation.
 
 ### Connect to your Azure account
 
@@ -42,7 +42,7 @@ az login
 Connect-AzAccount
 ```
 
-[!INCLUDE [disk-encryption-key-vault](../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](../../includes/disk-encryption-key-vault.md)]
  
 ## Next steps
 
