@@ -128,7 +128,7 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 ## Connector-specific details
 
-For technical information about this connector's triggers, actions, and limits, see the [connector's reference details](/connectors/sql/).
+For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](/connectors/sql/).
 
 ## Next steps
 
