@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: 
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.author: danlep
 
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) for user-driven events in your registry. Collect and consume this data in a variety of ways to:
+This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data in several ways:
 
-* Audit configuration changes to a registry to ensure security and compliance 
+* Audit registry authentication events to ensure security and compliance 
 
-* Provide a complete activity trail on registry artifacts such as pull, push, and delete events so you can diagnose any issues with operation of your registry. 
+* Provide a complete activity trail on registry artifacts such as pull, push, and delete events so you can diagnose operational issues with your registry 
+
+Resource logs are different from the [Azure activity log](/azure-monitor/platform/activity-logs-overview.md), a single subscription-level record of management events such as the creation of an Azure resource.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some limitations apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
-You may incur additional costs to store or process diagnostic log data.
+You may incur additional costs to store or process resource log data.
 
-## Registry diagnostic logs
+## Registry resource logs
 
-Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For an Azure container registry, the logs include the following kinds of events and data. 
+Resource logs contain information emitted by Azure resources that describe their internal operation. For an Azure container registry, the logs contain authentication and repository-level stored in the following tables. 
 
-* **ContainerRegistryRepositoryEvents** table - Push, pull, delete, untag,  and related operations for  images and other artifacts in registry repositories
-* **ContainerRegistryLoginEvents** table - Registry login account and account type, including assignment of roles and permissions
+* **ContainerRegistryLoginEvents**  - Registry authentication events and status, including the identity and IP address
+* **ContainerRegistryRepositoryEvents** - Push, pull, and related operations for images and other artifacts in registry repositories
 * **AzureMetrics** - Container registry metrics, such as aggregated push and pull counts.
 
 For operations, log data includes:
   * Success and failure events
   * Start and end time stamps
-  
-Custom views prefixed with **ACR** show data scoped to subsets of registry events. For example, the **ACRDelete** view shows events related to deleting tags, manifests, or repositories. 
 
-## Enable collection of diagnostic logs
+## Enable collection of resource logs
 
-Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options and steps to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
+Collection of resource logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options and steps to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
 
 As an example, to view logs and metrics for a container registry in near real-time in Azure Monitor, enable *streaming* of diagnostic logs to a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
 
@@ -80,13 +80,14 @@ For a tutorial on using Log Analytics in the Azure portal, see [Get started with
  
 ## Additional log destinations
 
-In addition to streaming the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a destination to archive logs. To archive logs in Azure Storage, create the account before enabling archiving through the diagnostic settings.
+In addition to streaming the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create the account before enabling archiving through the diagnostic settings.
 
 You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
 ## Next steps
 
 * Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md)
+* See [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md) to learn about the platform logs that are available at different layers of Azure.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
