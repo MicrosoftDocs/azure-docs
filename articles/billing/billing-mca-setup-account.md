@@ -78,7 +78,7 @@ Your new billing account simplifies billing for your organization while providin
 
 ![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [understand billing account](billing-mca-overview.md#your-billing-account).
+1. You use the billing account to manage billing for your Microsoft customer agreement. Enterprise administrators become owners of the billing account. To learn more about billing account, see [understand billing account](billing-mca-overview.md#your-billing-account).
 2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](billing-mca-overview.md#billing-profiles).
 3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](billing-mca-overview.md#invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
@@ -89,8 +89,8 @@ Depending on their access, billing administrators on your Enterprise Agreement e
 
 | Existing role | Post transition role |
 | --- | --- |
-| **Enterprise administrator (Read only = No)** | **- Billing profile owner** </br> Manage everything on the billing profile </br> - **Invoice section owner on all invoice sections** </br> Manage everything on the invoice sections |
-| **Enterprise administrator (Read only = Yes)** | **- Billing profile reader** </br> - Read-only view of everything on billing account</br>**- Invoice section reader on all invoice section**</br> - Read-only view of everything on the invoice section|
+| **Enterprise administrator (Read only = No)** | **- Billing account owner** </br> Manage everything on the billing account </br> **- Billing profile owner** </br> Manage everything on the billing profile </br> **- Invoice section owner on all invoice sections** </br> Manage everything on the invoice sections |
+| **Enterprise administrator (Read only = Yes)** | **- Billing account reader** </br> Read-only view of everything on billing account</br> **- Billing profile reader** </br> Read-only view of everything on billing profile</br>**- Invoice section reader on all invoice section**</br> - Read-only view of everything on the invoice section|
 | **Department administrator(Read only = No)** |**- Invoice section owner on the invoice section created for their respective department** </br>Manage everything on the invoice section|
 | **Department administrator (Read only = Yes)**|**- Invoice section reader on the invoice section created for their respective department**</br> Read-only view of everything on the invoice section|
 | **Account owner** | **- Azure subscription creator on the invoice section created for their respective department** </br>  Create Azure subscriptions for their invoice section|
@@ -200,7 +200,7 @@ To complete the setup, you need access to both the new billing account and the E
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Select the billing profile. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then the billing profile.
+3. Select the billing account. The billing account will be of type **Microsoft Customer Agreement**.
 
 4. Select **Azure subscriptions** from the left side.
 
@@ -208,7 +208,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md)
 
-### Azure Reservations
+### Access of enterprise administrators on the billing account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -216,33 +216,13 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Select an invoice section. Depending on your access, you may need to select a billing account or a billing profile.  From the billing account or billing profile, select **Invoice sections** and then an invoice section.
-
-    ![Screenshot that shows list of invoice section post transition](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
-
-4. Select **All products** from the left side.
-
-5. Search for **Reserved**.
-
-    ![Screenshot that shows list of subscriptions post transition](./media/billing-mca-setup-account/billing-mca-azure-reservations-post-transition.png)
-
-Azure Reservations that are moved from your Enterprise Agreement enrollment to the new billing account are displayed on the All products page. Repeat the steps for all the invoice sections to verify that all Azure Reservations are moved from your Enterprise Agreement enrollment. If you believe any Azure Reservation is missing, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move the Reservation to the new billing account.
-
-### Access of enterprise administrators on the billing profile
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Search for **Cost Management + Billing**.
-
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
-
-3. Select the billing profile created for your enrollment. Depending on your access, you may need to select a billing account.  From the billing account, select **Billing profiles** and then the billing profile.
+3. Select the billing account. The billing account will be of type **Microsoft Customer Agreement**.
 
 4. Select **Access control (IAM)** from the left side.
 
    ![Screenshot that shows access of enterprise administrators post transition](./media/billing-mca-setup-account/billing-mca-ea-admins-access-post-transition.png)
 
-Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Enterprise administrators are listed as billing account owners while the enterprise administrators with read-only permissions are listed as billing account readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
