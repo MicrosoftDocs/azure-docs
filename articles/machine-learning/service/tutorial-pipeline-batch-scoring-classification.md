@@ -522,12 +522,7 @@ Don't complete this section if you plan to run other Azure Machine Learning tuto
 
 ### Stop the compute instance
 
-If you used a cloud notebook server, to reduce costs, stop the VM when your'e not using it:
-
-1. In your workspace, select **Compute**.
-1. In the list of VMs, select the VM you want to stop.
-1. Select **Stop**.
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 
