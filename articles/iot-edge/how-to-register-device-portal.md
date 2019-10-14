@@ -19,7 +19,7 @@ This article shows how to register a new IoT Edge device using the Azure portal.
 
 ## Prerequisites
 
-A free for standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+A free or standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 
 ## Create a device
 

@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
+ms.date: 09/20/2019
 ---
 
 # Create a VM cluster with Terraform using the Module Registry
@@ -30,7 +30,7 @@ For more information on Terraform, see the [Terraform documentation](https://www
 
  Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
-```tf
+```hcl
 variable subscription_id {}
 variable tenant_id {}
 variable client_id {}
@@ -48,7 +48,7 @@ provider "azurerm" {
 
 Create a new Terraform template named `main.tf` with the following code:
 
-```tf
+```hcl
 module mycompute {
     source = "Azure/compute/azurerm"
     resource_group_name = "myResourceGroup"

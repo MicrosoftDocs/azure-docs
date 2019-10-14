@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In this article, you add a new user provided entry (a claim) to your sign-up user journey in Azure Active Directory (Azure AD) B2C.  You configure the entry as a dropdown and define whether it's required.
+In this article, you add a new user provided entry (a claim) to your sign-up user journey in Azure Active Directory B2C (Azure AD B2C).  You configure the entry as a dropdown and define whether it's required.
 
 ## Prerequisites
 
@@ -256,7 +256,7 @@ The following elements are used to define the claim:
 ## Test the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD tenant.
+2. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **Identity Experience Framework (Preview)**.
 5. Select **Upload Custom Policy**, and then upload the two policy files that you changed.

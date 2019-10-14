@@ -5,10 +5,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
 ---
 
-# Scenario: Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in Azure HDInsight
+# Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 

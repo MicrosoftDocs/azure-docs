@@ -23,7 +23,6 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 [API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
-
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -80,7 +79,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
 
 > [!Important]
-> Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different and use that name throughout this quickstart.
+> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -90,7 +89,8 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Service-to-service authentication to Azure Key Vault using .NET](service-to-service-authentication.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal.
+The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
@@ -114,26 +114,14 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId, clientSecret, subscriptionId, and tenantId, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
-
-You will also need the appID of the service principal. You can find it by running [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) with the `--show-mine` parameter:
-
-```azurecli
-az ad sp list --show-mine
-```
-
-The `appID` appears in the returned JSON:
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+Take note of the clientId and clientSecret, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
 
 #### Give the service principal access to your key vault
 
-Create an access policy for your key vault that grants permission to your service principal. You do so with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. We are going to give the service principal get, list, and set permissions for both keys and secrets.
+Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## Object model
@@ -152,7 +140,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate to your key vault
 
-This .NET quickstart relies on environment variables to store credentials that should not but put in code. 
+This .NET quickstart relies on environment variables to store credentials that should not be put in code. 
 
 Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
 
@@ -160,10 +148,6 @@ Before you build and run your app, use the `setx` command to set the `akvClientI
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
@@ -174,7 +158,7 @@ Assign these environment variables to strings in your code, and then authenticat
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for resue.
+Now that your application is authenticated, you can put a secret into your keyvault using the [SetSecretAsync method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires the URL of your key vault, which is in the form `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. It also requires a name for the secret -- we're using "mySecret".  You may wish to assign these strings to a variables for reuse.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

@@ -1,17 +1,16 @@
 ---
-title: Samples - CAF Migration landing zone blueprint - Overview
+title: CAF Migration landing zone blueprint sample - Overview
 description: Overview and architecture of the CAF Migration landing zone blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
 
-The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of
+The Microsoft Cloud Adoption Framework for Azure (CAF) Migration landing zone blueprint is a set of
 infrastructure to help you set up for migrating your first workload and manage your cloud estate in
 alignment with CAF.
 
@@ -30,7 +29,7 @@ confidently get started with Azure.
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready governance. This environment is composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the Certificates, Keys, and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your migration
@@ -57,7 +56,7 @@ For more information, see the [Microsoft Cloud Adoption Framework for Azure - Mi
 You've reviewed the overview and architecture of the CAF Migrate landing zone blueprint sample.
 
 > [!div class="nextstepaction"]
->  [CAF Migrate landing zone blueprint - Deploy steps](./deploy.md)
+>  [CAF Migration landing zone blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

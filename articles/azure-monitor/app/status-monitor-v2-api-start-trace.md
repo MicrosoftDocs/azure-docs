@@ -3,7 +3,7 @@ title: "Azure Status Monitor v2 API reference: Start trace | Microsoft Docs"
 description: Status Monitor v2 API reference. Start-Trace. Collect ETW logs from Status Monitor and Application Insights SDK.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights

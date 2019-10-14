@@ -3,13 +3,13 @@ title: Troubleshooting Bing Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: How to resolve issues when using Bing Speech.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Troubleshooting Bing Speech

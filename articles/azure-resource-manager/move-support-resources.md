@@ -3,8 +3,8 @@ title: Move operation support by Azure resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: conceptual
-ms.date: 08/23/2019
+ms.topic: reference
+ms.date: 10/03/2019
 ms.author: tomfitz
 ---
 
@@ -67,7 +67,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -604,21 +603,6 @@ Jump to a resource provider namespace:
 > | labs / servicerunners | Yes | Yes |
 > | labs / virtualmachines | Yes | No |
 > | schedules | Yes | Yes |
-
-## microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | No | No |
-> | dnszones / a | No | No |
-> | dnszones / aaaa | No | No |
-> | dnszones / cname | No | No |
-> | dnszones / mx | No | No |
-> | dnszones / ptr | No | No |
-> | dnszones / srv | No | No |
-> | dnszones / txt | No | No |
-> | trafficmanagerprofiles | No | No |
 
 ## Microsoft.DocumentDB
 

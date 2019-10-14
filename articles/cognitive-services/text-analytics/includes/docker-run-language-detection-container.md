@@ -6,12 +6,12 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/20/2019
+ms.topic: include
+ms.date: 09/12/2019
 ms.author: dapine
 ---
 
-### Run container example of docker run command
+To run the *Language Detection* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

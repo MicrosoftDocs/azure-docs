@@ -3,10 +3,8 @@ title: Onboarding to Azure Security Center Standard for enhanced security | Micr
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security
@@ -108,7 +106,7 @@ In this article you learned how to onboard Azure and non-Azure resources in orde
 
 - [Enable data collection](security-center-enable-data-collection.md)
 - [Threat intelligence report](security-center-threat-report.md)
-- [Just in time VM access](security-center-just-in-time.md)
+- [Just-in-time VM access](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

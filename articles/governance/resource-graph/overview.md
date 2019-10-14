@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
-manager: carmonm
 ---
 # Overview of the Azure Resource Graph service
 
@@ -56,7 +55,7 @@ updated outside of Resource Manager.
 
 ## The query language
 
-Now that you have a better understanding of what Azure Resource Graph is, let’s dive into how to
+Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to
 construct queries.
 
 It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](../../data-explorer/data-explorer-overview.md)

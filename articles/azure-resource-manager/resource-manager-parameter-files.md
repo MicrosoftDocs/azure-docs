@@ -199,6 +199,6 @@ If your template includes a parameter with the same name as one of the parameter
 
 ## Next steps
 
-- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To understand how to define parameters in your template, see [Parameters in Azure Resource Manager templates](template-parameters.md).
 - For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](resource-manager-keyvault-parameter.md).
-
+- For more information about parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).

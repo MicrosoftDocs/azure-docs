@@ -4,7 +4,7 @@ description: Shows how to use Azure custom routes to enable KMS activation when 
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 

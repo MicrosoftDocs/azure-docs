@@ -101,9 +101,9 @@ You may receive errors that indicate your AKS cluster is not on a virtual machin
 
 **AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
 
-To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster. Virtual machine scale set support is currently in preview in AKS.
+To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster.
 
-Follow the *Before you begin* steps in the appropriate doc to correctly register for the virtual machine scale set feature preview and create an AKS cluster:
+Follow the *Before you begin* steps in the appropriate doc to correctly create an AKS cluster:
 
 * [Use the cluster autoscaler](cluster-autoscaler.md)
 * [Create and use multiple node pools](use-multiple-node-pools.md)
@@ -128,3 +128,18 @@ Based on the output of the cluster status:
 * If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) terminates. When the previous operation has completed, re-try your latest cluster operation.
 
 * If the cluster has a failed upgrade, follow the steps outlined [I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## I'm receiving errors that my service principal was not found when I try to create a new cluster without passing in an existing one.
+
+When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to fully propagate the new service principal in a reasonable time in order to have the cluster succeed in creation. When this propagation takes too long, the cluster will fail validation to create as it cannot find an available service principal to do so. 
+
+Use the following workarounds for this:
+1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
+2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
+3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
+
+## I'm receiving errors after restricting my egress traffic
+
+When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, you may not be able to run certain `kubectl` commands. You may also see errors when creating an AKS cluster.
+
+Verify that your settings are not conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.

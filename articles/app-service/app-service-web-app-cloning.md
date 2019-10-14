@@ -46,7 +46,7 @@ Using the `New-AzWebApp` command, you can create the new app in the North Centra
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-To clone an existing app including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
+To clone an existing app including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter.  Note that the `IncludeSourceWebAppSlots` parameter is only supported for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots

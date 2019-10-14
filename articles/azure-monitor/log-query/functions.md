@@ -34,8 +34,6 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 > [!NOTE]
 > A function in Azure Monitor cannot contain another function.
 
-> [!NOTE]
-> Saving a function is possible in Azure Monitor log queries, but currently not for Application Insights queries.
 
 
 

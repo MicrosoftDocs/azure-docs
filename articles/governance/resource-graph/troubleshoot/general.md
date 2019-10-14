@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
 ---
 # Troubleshoot errors using Azure Resource Graph
 
@@ -86,7 +85,7 @@ _403_ (Forbidden) response.
 
 #### Cause
 
-If the customer doesn’t have read permission to all the provided subscriptions, the request is
+If the customer doesn't have read permission to all the provided subscriptions, the request is
 denied due to lack of appropriate security rights.
 
 #### Resolution

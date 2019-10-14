@@ -135,7 +135,7 @@ Event Hubs is the data source for this example. Use the information in the "Crea
    | writer |Send |
    | reader |Listen |
 
-    ![Screenshot of Share access policies window](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
+    ![Screenshot of Share access policies window](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
 2. Select the **reader** and **writer** policies. Copy and save the primary key value for both policies, as these values are used later.
 
@@ -177,15 +177,15 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 1. From **Solution Explorer**, right-click the **EventHubReader** project, and select **Submit to Storm on HDInsight**.
 
-    ![Screenshot of Solution Explorer, with Submit to Storm on HDInsight highlighted](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
+    ![Screenshot of Solution Explorer, with Submit to Storm on HDInsight highlighted](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
 2. On the **Submit Topology** dialog box, select your **Storm Cluster**. Expand **Additional Configurations**, select **Java File Paths**, select **...**, and select the directory that contains the JAR file that you downloaded earlier. Finally, click **Submit**.
 
-    ![Screenshot of Submit Topology dialog box](./media/apache-storm-develop-csharp-event-hub-topology/submit.png)
+    ![Screenshot of Submit Topology dialog box](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
 3. When the topology has been submitted, the **Storm Topologies Viewer** appears. To view information about the topology, select the **EventHubReader** topology in the left pane.
 
-    ![Screenshot of Storm Topologies Viewer](./media/apache-storm-develop-csharp-event-hub-topology/topologyviewer.png)
+    ![Screenshot of Storm Topologies Viewer](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
 4. From **Solution Explorer**, right-click the **EventHubWriter** project, and select **Submit to Storm on HDInsight**.
 
@@ -207,7 +207,7 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 To stop the topologies, select each topology in the **Storm Topology Viewer**, then click **Kill**.
 
-![Screenshot of Storm Topology Viewer, with Kill button highlighted](./media/apache-storm-develop-csharp-event-hub-topology/killtopology.png)
+![Screenshot of Storm Topology Viewer, with Kill button highlighted](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 
 ## Delete your cluster
 

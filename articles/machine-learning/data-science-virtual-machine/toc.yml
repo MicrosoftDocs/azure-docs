@@ -4,10 +4,12 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Data Science Virtual Machine?
+  - name: What is the Data Science Virtual Machine (DSVM)?
     href: overview.md
   - name: What is the Geo AI DSVM?
     href: geo-ai-dsvm-overview.md
+  - name: Tools Included on the DSVM
+    href: tools-included.md
 - name: Quickstarts
   expanded: true
   items:
@@ -61,3 +63,15 @@
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+- name: Reference
+  items:
+  - name: Windows DSVM
+    href: reference-windows-vm.md
+  - name: Ubuntu DSVM
+    href: reference-ubuntu-vm.md
+  - name: CentOS DSVM
+    href: reference-centos-vm.md
+  - name: Release notes
+    href: release-notes.md
+  - name: Known issues
+    href: reference-known-issues.md

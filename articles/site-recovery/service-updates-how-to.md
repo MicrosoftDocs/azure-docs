@@ -98,8 +98,7 @@ If you want to manually manage updates, do the following:
 
 1. Based on your current version and the [support statement](#support-statement-for-azure-site-recovery), install the update first on the on-premises configuration server, using [these instructions](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
 2. If you have scale-out process servers, update them next, using [these instructions](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-3. To update the Mobility agent on each protected machine, open **Protected Items** > **Replicated Items**.
-4. Select the VM, and select the **Update Agent** button that appears at the bottom of the page for each VM. This updates the Mobility Service agent on all protected VMs.
+3. To update the Mobility agent on each protected machine, refer to [this](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) article.
 
 ### Reboot after Mobility service upgrade
 

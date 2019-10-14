@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Configure complexity requirements for passwords in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C supports changing the complexity requirements for passwords supplied by an end user when creating an account. By default, Azure AD B2C uses `Strong` passwords. Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
+Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requirements for passwords supplied by an end user when creating an account. By default, Azure AD B2C uses `Strong` passwords. Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
 
 ## Password rule enforcement
 
@@ -33,7 +33,7 @@ If you are using custom policies, you can ([configure password complexity in a c
 ## Configure password complexity
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **User flows**.
 2. Select a user flow, and click **Properties**.

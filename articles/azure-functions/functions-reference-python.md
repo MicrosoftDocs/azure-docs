@@ -89,6 +89,7 @@ The folder structure for a Python Functions project looks like the following exa
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -105,6 +106,12 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+To reference modules local to a function, you can use the relative import syntax as follows:
+
+```
+from . import example
 ```
 
 When deploying a Function project to your function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
@@ -161,7 +168,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in `AzureWebJobsStorage` which is the same storage account used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
 
 
 ## Outputs
@@ -270,28 +277,40 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
-                                                              
-## Async
 
-We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
+## Concurrency
+
+By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient under one or more of the following conditions:
+
++ You're trying to handle a number of invocations being made at the same time.
++ You're processing a large number of I/O events.
++ Your application is I/O bound.
+
+In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
+
+### Async
+
+We recommend that you use the `async def` statement to make your function run as an asynchronous coroutine.
 
 ```python
-# Will be run with asyncio directly
-
+# Runs with asyncio directly
 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no  qualifier), we automatically run the function in an `asyncio` thread-pool.
+When the `main()` function is synchronous (without the `async` qualifier), the function is automatically run in an `asyncio` thread-pool.
 
 ```python
-# Would be run in an asyncio thread-pool
-
+# Runs in an asyncio thread-pool
 
 def main():
     some_blocking_socket_io()
 ```
+
+### Use multiple language worker processes
+
+By default, every Functions host instance has a single language worker process. However there's support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
 
 ## Context
 
@@ -308,7 +327,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) class has the following methods:
+The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) class has the following string attributes:
 
 `function_directory`  
 The directory in which the function is running.

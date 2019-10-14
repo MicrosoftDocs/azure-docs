@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 01/15/2019
+ms.date: 09/12/2019
 ---
 # Create a virtual network for Azure SQL Database Managed Instance
 

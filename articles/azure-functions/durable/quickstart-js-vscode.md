@@ -158,4 +158,4 @@ After you've verified that the function runs correctly on your local computer, i
 You have used Visual Studio Code to create and publish a JavaScript durable function app.
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

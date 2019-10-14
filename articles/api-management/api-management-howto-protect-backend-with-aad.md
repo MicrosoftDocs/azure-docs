@@ -19,6 +19,9 @@ ms.author: apimpm
 
 This guide shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
 
+> [!NOTE]
+> This feature is available in **Developer**, **Standard** and **Premium** tiers of API Management.
+
 ## Prerequisites
 To follow the steps in this article, you must have:
 * An API Management instance

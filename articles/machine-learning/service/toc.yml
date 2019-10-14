@@ -1,9 +1,9 @@
-- name: Azure Machine Learning service Documentation
+- name: Azure Machine Learning Documentation
   href: ../index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning service?
+  - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: Architecture & terms
@@ -27,11 +27,13 @@
         href: tutorial-train-models-with-aml.md
       - name: 2. Deploy a model
         href: tutorial-deploy-models-with-aml.md
-    - name: Regression (NYC Taxi data)
+    - name: Regression with Automated ML (NYC Taxi data)
       items:
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
+    - name: Machine Learning pipelines (advanced)
+      href: tutorial-pipeline-batch-scoring-classification.md
   - name: Visual interface
     items:
     - name: 1. Train regression model
@@ -40,36 +42,16 @@
     - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
-  - name: Automated machine learning
-    items:
-    - name: Classification (Bank data)
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
+  - name: Automated ML (interface)
+    displayName: automl, automated, auto ml, portal, ui
+    href: tutorial-first-experiment-automated-ml.md
+  - name: Machine Learning CLI
+    href: tutorial-train-deploy-model-cli.md
 - name: Samples
   items:
   - name: Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
-  - name: Visual interface experiments
-    items:
-    - name: "Predict price"
-      displayName: regression, studio
-      href:  ui-sample-regression-predict-automobile-price-basic.md
-    - name: "Predict price (advanced)"
-      displayName: regression, studio
-      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-    - name: "Predict credit risk"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-credit-risk-basic.md
-    - name: "Predict credit risk (advanced)"
-      displayName: classification, studio
-      href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - name: "Predict churn"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-churn.md
-    - name: "Predict flight delays"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
@@ -79,6 +61,9 @@
   - name: Compute target
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
+  - name: Model training
+    displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+    href: concept-train-machine-learning-model.md
   - name: Visual interface
     displayName: studio
     href: ui-concept-visual-interface.md
@@ -123,13 +108,13 @@
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
-  - name: Set up development environment 
+  - name: Set up your environment 
     items:
-    - name: Configure dev environments
+    - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Manage software environment
-      displayName: pip, Conda
+    - name: Set up software environments
+      displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
@@ -148,29 +133,71 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Train with datasets
+      displayName: data, dataset
+      href: how-to-train-with-datasets.md
   - name: Train models
     items:
-    - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-      href: how-to-set-up-training-targets.md
-    - name: Create estimators in training
-      href: how-to-train-ml-models.md
-    - name: Use Scikit-learn
+    - name: Use visual interface
+      displayName: sample visual interface experiments
+      items:
+      - name: "Predict price"
+        displayName: regression, studio
+        href:  how-to-ui-sample-regression-predict-automobile-price-basic.md
+      - name: "Predict price (advanced)"
+        displayName: regression, studio
+        href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+      - name: "Predict credit risk"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-credit-risk-basic.md
+      - name: "Predict credit risk (advanced)"
+        displayName: classification, studio
+        href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+      - name: "Predict churn"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-churn.md
+      - name: "Predict flight delays"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-flight-delay.md
+    - name: Use estimators for ML
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Set up training environments
+        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+        href: how-to-set-up-training-targets.md
+      - name: Tune hyperparameters
+        displayName: parameter
+        href: how-to-tune-hyperparameters.md
+      - name: Use Key Vault when training
+        displayName: secrets keyvault
+        href: how-to-use-secrets-in-runs.md
+    - name: Scikit-learn
       href: how-to-train-scikit-learn.md
-    - name: Use TensorFlow
+    - name: TensorFlow
       href: how-to-train-tensorflow.md
-    - name: Use Keras
+    - name: Keras
       href: how-to-train-keras.md
-    - name: Use PyTorch
+    - name: PyTorch
       href: how-to-train-pytorch.md
-    - name: Use Chainer
+    - name: Chainer
       href: how-to-train-chainer.md
-    - name: Tune hyperparameters
-      displayName: parameter
-      href: how-to-tune-hyperparameters.md
-    - name: Use Key Vault when training
-      displayName: secrets keyvault
-      href: how-to-use-secrets-in-runs.md
+  - name: Automate machine learning
+    displayName: automl, auto ml
+    items:
+    - name: Use automated ML (Python)
+      displayName: SDK automl
+      href: how-to-configure-auto-train.md
+    - name: Use automated ML (workspace landing page)
+      href: how-to-create-portal-experiments.md
+    - name: Use remote compute targets
+      displayName: automl automated auto ml
+      href: how-to-auto-train-remote.md
+    - name: Auto-train a forecast model
+      displayName: time series
+      href: how-to-auto-train-forecast.md
+    - name: Understand charts and metrics
+      href: how-to-understand-automated-ml.md
   - name: Track & monitor experiments
     items:
     - name: Start, monitor or cancel runs
@@ -184,50 +211,34 @@
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
       href: how-to-monitor-tensorboard.md
-  - name: Automate machine learning
-    displayName: automl, auto ml
-    items:
-    - name: Use automated ML (Python)
-      displayName: SDK automl
-      href: how-to-configure-auto-train.md
-    - name: Use automated ML (Azure portal)
-      href: how-to-create-portal-experiments.md
-    - name: Use remote compute targets
-      displayName: automl automated auto ml
-      href: how-to-auto-train-remote.md
-    - name: Auto-train a forecast model
-      displayName: time series
-      href: how-to-auto-train-forecast.md
-    - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: how-to-deploy-and-where.md
-    - name: Deploy to Azure Kubernetes Service
+    - name: Azure Kubernetes Service
       displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
-    - name: Deploy for GPU inference
-      href: how-to-deploy-inferencing-gpus.md
-    - name: Deploy to Azure App Service
-      displayName: web app
-      href: how-to-deploy-app-service.md
-    - name: Deploy to Azure Container Instances
+    - name: Azure Container Instances
       displayName: aci
       href: how-to-deploy-azure-container-instance.md
-    - name: Deploy to Notebook VMs
+    - name: IoT Edge
+      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: FPGA inference
+      href: how-to-deploy-fpga-web-service.md
+    - name: GPU inference
+      href: how-to-deploy-inferencing-gpus.md
+    - name: Azure App Service
+      displayName: web app
+      href: how-to-deploy-app-service.md
+    - name: Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md
-    - name: Deploy existing models
+    - name: Use existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Deploy to IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Deploy for FPGAs inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: Troubleshoot & debug deployments
+    - name: Troubleshoot & debug
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:
@@ -251,6 +262,8 @@
     items:
     - name: Create ML pipelines in Python
       href: how-to-create-your-first-pipeline.md
+    - name: Debug and troubleshoot ML pipelines
+      href: how-to-debug-pipelines.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

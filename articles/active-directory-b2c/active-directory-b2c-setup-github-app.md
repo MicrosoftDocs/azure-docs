@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 ## Create a GitHub OAuth application
 
-To use a GitHub account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
+To use a GitHub account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
 
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) website with your GitHub credentials.
 1. Select **OAuth Apps** and then select **New OAuth App**.

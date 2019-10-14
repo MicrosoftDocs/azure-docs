@@ -7,6 +7,16 @@
     href: Home.md
 - name: Quickstarts
   items:
+  - name: Using the client SDK
+    items:
+    - name: .NET SDK
+      href: quickstarts-sdk/csharp-sdk.md
+    - name: Python SDK
+      href: quickstarts-sdk/python-sdk.md
+    - name: Java SDK
+      href: quickstarts-sdk/java-sdk.md
+    - name: Node.js SDK
+      href: quickstarts-sdk/node-sdk.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
@@ -75,18 +85,6 @@
       items:
       - name: Python
         href: QuickStarts/python-domain.md
-  - name: Using the .NET SDK
-    items:
-    - name: Analyze an image
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: Generate a thumbnail
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract text
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
-  - name: Using the Python SDK
-    href: quickstarts-sdk/python-sdk.md
-  - name: Using the Java SDK
-    href: quickstarts-sdk/java-sdk.md
 - name: Tutorials
   items:
   - name: Generate metadata for images
@@ -115,7 +113,7 @@
     href: concept-generating-thumbnails.md
   - name: Printed and handwritten text recognition
     href: concept-recognizing-text.md
-  - name: Adult and racy content detection
+  - name: Adult content detection
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
@@ -145,6 +143,8 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v2.1
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
   - name: Computer Vision API v2.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: Computer Vision API v1.0
@@ -158,7 +158,7 @@
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
 - name: Resources

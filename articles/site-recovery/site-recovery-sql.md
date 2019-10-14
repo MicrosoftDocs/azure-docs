@@ -106,7 +106,7 @@ Some BCDR technologies such as SQL Always On don’t natively support test failo
 
 	![Screenshot of window labeled Content_AG showing server names and statuses](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Create a load balancer. For each availability group listener, create one IP address from the front-end IP pool. Also add the SQL Server VM to the back-end pool.
+1. Ensure that the load balancer in the failover network has one IP address, from the front-end IP address pool that corresponding to each availability group listener, and with the SQL Server VM in the back-end pool.
 
 	 ![Screenshot of window titled "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
 

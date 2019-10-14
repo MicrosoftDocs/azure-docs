@@ -1,7 +1,7 @@
 ---
 title: Deploy ml models to Azure App Service (preview)
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Azure Machine Learning service to deploy a model to a Web App in Azure App Service.
+titleSuffix: Azure Machine Learning
+description: Learn how to use Azure Machine Learning to deploy a model to a Web App in Azure App Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,12 +16,12 @@ ms.date: 08/27/2019
 
 # Deploy a machine learning model to Azure App Service (preview)
 
-Learn how to deploy a model from the Azure Machine Learning service as a web app in Azure App Service.
+Learn how to deploy a model from Azure Machine Learning as a web app in Azure App Service.
 
 > [!IMPORTANT]
-> While both Azure Machine Learning service and Azure App Service are generally available, the ability to deploy a model from the Machine Learning service to App Service is in preview.
+> While both Azure Machine Learning and Azure App Service are generally available, the ability to deploy a model from the Machine Learning service to App Service is in preview.
 
-With Azure Machine Learning service, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
+With Azure Machine Learning, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
 
 * Advanced [authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
 * [Autoscale](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
@@ -34,7 +34,7 @@ For more information on features provided by Azure App Service, see the [App Ser
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
@@ -45,7 +45,7 @@ For more information on features provided by Azure App Service, see the [App Ser
     > * `model` - The registered model that will be deployed.
     > * `inference_config` - The inference configuration for the model.
     >
-    > For more information on setting these variables, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md).
+    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prepare for deployment
 
@@ -63,7 +63,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
 
-    For more information on entry scripts, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md).
+    For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -86,7 +86,7 @@ These entities are encapsulated into an __inference configuration__. The inferen
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > When deploying to Azure App Service, you do not need to create a __deployment configuration__.
@@ -96,7 +96,7 @@ For more information on inference configuration, see [Deploy models with the Azu
 To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -150,7 +150,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     In this example, a __Basic__ pricing tier (`--sku B1`) is used.
 
     > [!IMPORTANT]
-    > Images created by the Azure Machine Learning service use Linux, so you must use the `--is-linux` parameter.
+    > Images created by Azure Machine Learning use Linux, so you must use the `--is-linux` parameter.
 
 1. To create the web app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier:
 

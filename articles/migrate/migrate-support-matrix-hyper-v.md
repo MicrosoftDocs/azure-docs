@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -22,9 +22,9 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Deployment** | **Details***
 --- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
-**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure. 
+**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration. 
+Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration.
 
 ## Azure Migrate projects
 
@@ -39,10 +39,13 @@ Geography | You can create Azure Migrate projects in a number of geographies. Al
   Azure Government | US Gov Virginia
   Asia Pacific | East Asia or Southeast Asia
   Australia | Australia East or Australia Southeast
+  Brazil | Brazil South
   Canada | Canada Central or Canada East
   Europe | North Europe or West Europe
+  France | France Central
   India | Central India or South India
   Japan |  Japan East or Japan West
+  Korea | Korea Central or Korea South
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 
@@ -137,7 +140,8 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Integration Services**       | [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) must be running on VMs that you assess, in order to capture operating system information. |
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks. |
-| **UEFI boot**                  | VMs with UEFI boot aren't supported for migration.  |
+| **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.
+  |
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.
 | **Disk number** | A maximum of 16 disks per VM.
 | **Encrypted disks/volumes**    | Not supported for migration. |

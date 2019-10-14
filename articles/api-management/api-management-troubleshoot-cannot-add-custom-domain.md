@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue in which you can't add a custom
 services: api-management
 documentationcenter: ''
 author: genlin
-manager: cfowler
+manager: dcscontentpm
 editor: ''
 
 ms.service: api-management

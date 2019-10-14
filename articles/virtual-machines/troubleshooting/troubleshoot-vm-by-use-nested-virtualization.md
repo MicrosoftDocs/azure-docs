@@ -4,7 +4,7 @@ description: How to troubleshoot a problem Azure VM by using nested virtualizati
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 

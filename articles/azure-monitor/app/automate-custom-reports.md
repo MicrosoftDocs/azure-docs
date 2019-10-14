@@ -90,7 +90,9 @@ availabilityResults
 5. Select the **_Application Insights scheduled digest template_**.
 
      > [!NOTE]
-     > By default, function apps are created with runtime version 2.x. You must [target Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x to use the Application Insights scheduled digest template.
+     > By default, function apps are created with runtime version 2.x. You must [target Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** to use the Application Insights scheduled digest template.  ![runtime screenshot](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+
+
 
    ![New Function Application Insights Template screenshot](./media/automate-custom-reports/function-app-04.png)
 

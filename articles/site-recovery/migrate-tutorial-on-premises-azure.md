@@ -41,7 +41,7 @@ Note that devices exported by paravirtualized drivers aren't supported.
 2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) servers. If you're migrating physical machines, you don't need to prepare anything. Just verify the [support matrix](vmware-physical-azure-support-matrix.md).
 
 
-## Select a replication goal
+## Select a protection goal
 
 Select what you want to replicate, and where you want to replicate to.
 1. Click **Recovery Services vaults** > vault.

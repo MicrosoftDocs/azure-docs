@@ -65,13 +65,13 @@ The following steps describe how to download and configure the sample Python app
 
 1. Run the following command to install the IoT Central Python client:
 
-    ```sh
+    ```bash
     pip install iotc
     ```
 
 1. Download the sample Python code:
 
-    ```sh
+    ```bash
     curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
     ```
 
@@ -82,7 +82,7 @@ The following steps describe how to download and configure the sample Python app
 
 1. Use the following command to run the sample:
 
-    ```sh
+    ```bash
     python app.py
     ```
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart to learn how to use Azure Cache for Redis with Node.js | Microsoft Docs
+title: 'Quickstart: Use Azure Cache for Redis with Node.js'
 description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
 services: cache
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Node.js
@@ -109,7 +109,7 @@ node redistest.js
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Cache app completed](./media/cache-nodejs-get-started/cache-app-complete.png)
+![Redis Cache app completed](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## Clean up resources
 
@@ -125,7 +125,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![Delete Azure Resource group](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 

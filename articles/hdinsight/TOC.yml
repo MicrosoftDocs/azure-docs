@@ -17,8 +17,12 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Build an ETL pipeline
+        href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
     items:
+    - name: Azure CLI samples
+      href: ./azure-cli-samples.md
     - name: .NET samples
       href: ./hdinsight-sdk-dotnet-samples.md
     - name: Java samples
@@ -217,6 +221,8 @@
         href: ./hdinsight-release-notes.md    
       - name: HDInsight 3.6 full release notes
         href: ./hdinsight-release-notes-archive.md 
+    - name: Frequently asked questions (FAQ)
+      href: ./hdinsight-faq.md
     - name: Migrate to granular role-based access for cluster configurations
       href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
@@ -271,6 +277,14 @@
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ
         href: ./spark/apache-spark-create-standalone-application.md   
+  - name: Concepts
+    items:
+      - name: Spark best practices on HDInsight
+        href: ./spark/spark-best-practices.md
+      - name: Configure Apache Spark settings
+        href: ./spark/apache-spark-settings.md
+      - name: Optimize Apache Spark jobs
+        href: ./spark/apache-spark-perf.md
   - name: How to
     items:
     - name: Use tools
@@ -323,10 +337,6 @@
         href: ./spark/apache-spark-resource-manager.md
       - name: Manage Apache Spark applications using extended History Server
         href: ./spark/apache-azure-spark-history-server.md
-      - name: Configure Apache Spark settings
-        href: ./spark/apache-spark-settings.md
-      - name: Optimize Apache Spark jobs
-        href: ./spark/apache-spark-perf.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
       - name: Use notebooks with Apache Spark
@@ -570,7 +580,7 @@
   - name: Quickstarts
     items:
     - name: Query Apache HBase - Apache Phoenix
-      href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+      href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
       href: ./hbase/query-hbase-with-hbase-shell.md
   - name: Tutorials
@@ -607,6 +617,8 @@
         href: ./hbase/apache-hbase-provision-vnet.md
     - name: Troubleshoot
       items:
+      - name: Troubleshoot Apache HBase performance issues
+        href: ./hbase/troubleshoot-hbase-performance-issues.md
       - name: hbase hbck returns inconsistencies
         href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
       - name: Storage exception after connection reset

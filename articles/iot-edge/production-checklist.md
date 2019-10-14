@@ -78,7 +78,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 ### Be consistent with upstream protocol
 
-If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, configure the same APQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP will override the settings and prevent you from connecting again. 
+If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, configure the same AMQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP will override the settings and prevent you from connecting again. 
 
 You only have to configure the UpstreamProtocol environment variable for the IoT Edge agent and IoT Edge hub modules. Any additional modules adopt whatever protocol is set in the runtime modules. 
 
@@ -172,9 +172,11 @@ This checklist is a starting point for firewall rules:
    | mcr.microsoft.com  | 443 | Microsoft container registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
    | \*.azurecr.io | 443 | Personal and third-party container registries |
-   | \*.blob.core.windows.net | 443 | Download of image deltas | 
+   | \*.blob.core.windows.net | 443 | Download Azure Container Registry image deltas from blob storage  | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
    | \*.docker.io  | 443 | Docker Hub access (optional) |
+
+Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
 ### Configure communication through a proxy
 
@@ -204,13 +206,15 @@ By default the Moby container engine does not set container log size limits. Ove
 
 You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
 
@@ -225,18 +229,19 @@ The container engine must be restarted for the changes to take effect.
 
 You can do so in the **createOptions** of each module. For example:
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Additional options on Linux systems**
 

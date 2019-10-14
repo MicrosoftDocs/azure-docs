@@ -1,5 +1,5 @@
 ---
-title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+title: 'Quickstart: Create a search index in Node.js using REST APIs - Azure Search'
 description: Node.js sample for Azure Search, demonstrating how to create, load data into, and query from JavaScript.
 author: lobrien
 manager: nitinme
@@ -8,10 +8,10 @@ services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
 ---
-# Quickstart: Create an Azure Search index in Node.js
+# Quickstart: Create an Azure Search index in Node.js using REST APIs
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
