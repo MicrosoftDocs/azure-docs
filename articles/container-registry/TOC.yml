@@ -131,7 +131,7 @@
         href: ../service-fabric/service-fabric-tutorial-create-container-images.md
   - name: Monitor and log
     items:
-      - name: Diagnostic and audit logs
+      - name: Diagnostic and audit logs (preview)
         href: container-registry-diagnostics-audit-logs.md   
   - name: Troubleshoot
     items:
