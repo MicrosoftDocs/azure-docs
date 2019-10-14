@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot OpenShift deployment in Azure | Microsoft Docs
-description: Troubleshoot OpenShift deployment in Azure.
+title: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure | Microsoft Docs
+description: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,11 +14,11 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
-# Troubleshoot OpenShift deployment in Azure
+# Troubleshoot OpenShift Container Platform 3.11 deployment in Azure
 
 If the OpenShift cluster doesn't deploy successfully, the Azure portal will provide error output. The output may be difficult to read which makes it difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
 
@@ -28,7 +28,7 @@ If the OpenShift cluster doesn't deploy successfully, the Azure portal will prov
 
 For all other exit codes, connect to the host(s) via ssh to view the log files.
 
-**OpenShift Container Platform**
+**OpenShift Container Platform 3.11**
 
 SSH to the ansible playbook host. For the template or the Marketplace offer, use the bastion host. From the bastion, you can SSH to all other nodes in the cluster (master, infra, CNS, compute). You'll need to be root to view the log files. Root is disabled for SSH access by default so don't use root to SSH to other nodes.
 

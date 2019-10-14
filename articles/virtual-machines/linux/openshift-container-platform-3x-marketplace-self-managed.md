@@ -1,6 +1,6 @@
 ---
-title: Deploy OpenShift Container Platform Self-Managed Marketplace Offer in Azure | Microsoft Docs
-description: Deploy OpenShift Container Platform Self-Managed Marketplace Offer in Azure.
+title: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure | Microsoft Docs
+description: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,18 +14,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/7/2019
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
 # Configure prerequisites
 
-Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
+Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform 3.11 cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
 
  
 ## Deploy using the Marketplace offer
 
-The simplest way to deploy a self-managed OpenShift Container Platform cluster into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+The simplest way to deploy a self-managed OpenShift Container Platform 3.11 cluster into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 This option is the simplest, but it also has limited customization capabilities. The Marketplace offer deploys OpenShift Container Platform 3.11.82 and includes the following configuration options:
 
@@ -44,7 +44,7 @@ In the upper left of the Azure portal, click **Create a resource**, enter 'opens
    ![New resource search](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
 
-The Results page will open with **Red Hat OpenShift Container Platform Self-Managed** in the list. 
+The Results page will open with **Red Hat OpenShift Container Platform 3.11 Self-Managed** in the list. 
 
    ![New resource search result](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
@@ -124,7 +124,7 @@ To select a different VM size, click ***Change size***.  The VM selection window
    ![Offer infrastructure custom IP range](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
 <br>
 
-**OpenShift Container Platform**
+**OpenShift Container Platform 3.11**
 
 Enter values for the Input Parameters and click **OK**
 

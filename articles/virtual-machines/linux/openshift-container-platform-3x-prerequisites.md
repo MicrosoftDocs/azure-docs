@@ -1,6 +1,6 @@
 ---
-title: OpenShift in Azure prerequisites | Microsoft Docs
-description: Prerequisites to deploy OpenShift in Azure.
+title: OpenShift Container Platform 3.11 in Azure prerequisites | Microsoft Docs
+description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,11 +14,11 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2019
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
-# Common prerequisites for deploying OpenShift in Azure
+# Common prerequisites for deploying OpenShift Container Platform 3.11 in Azure
 
 This article describes common prerequisites for deploying OpenShift Container Platform or OKD in Azure.
 
