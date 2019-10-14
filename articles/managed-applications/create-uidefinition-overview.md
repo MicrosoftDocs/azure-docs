@@ -1,6 +1,6 @@
 ---
 title: CreateUiDefinition.json for Azure managed application's create experience | Microsoft Docs
-description: Describes how to create UI definitions for Azure Managed Applications
+description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
