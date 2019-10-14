@@ -28,17 +28,26 @@ A common scenario that makes it easy to sort through blobs of any content type i
 
 [Learn more about indexing blob metadata.](https://aka.ms/azsblobmetadataindexing)
 
-## Index and search through JSON blobs
-Azure Search can be configured to extract structured content found in blobs that contain JSON. Azure Search can read JSON blobs and parse the structured content into the appropriate fields of an Azure Search document. Azure Search can also take blobs that contain an array of JSON objects and map each element to a separate Azure Search document.
+### Indexing JSON blobs
+Azure Search can be configured to extract structured content found in blobs that contain JSON. Azure Search can read JSON blobs and parse the structured content into the appropriate fields of an Azure Search document. Azure Search can also take blobs that contain an array of JSON objects and map each element to a separate Azure Search document. You can set a parsing mode to affect the type of JSON object created by the indexer.
 
-JSON parsing is not currently configurable through the portal. [Learn more about JSON parsing in Azure Search.](https://aka.ms/azsjsonblobindexing)
+## How to get started
 
-## Quickstart
-Azure Search can be added to blobs directly from the Blob storage portal page.
+You can start directly in your storage account portal page. Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service. 
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
-Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service.
+If you already have an existing search service in the same subscription, clicking **Add Azure Search** opens the Import data wizard so that you can immediately step through indexing, enrichment, and index definition.
+
+You can also [create an Azure Search service](search-create-index-portal.md) and define Blob indexers that pull content from blob containers.
+
+The following quickstarts and tutorials use Blob data:
+
++ [Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
++ [Create an AI enrichment pipeline in C#](cognitive-search-tutorial-blob-dotnet.md)
++ [Index semi-structured blobs using REST APIs](search-semi-structured-data.md)
 
 ## Next steps
-Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).
+
+> [!div class="nextstepaction"]
+> [Set up a blob indexer](search-howto-indexing-azure-blob-storage.md) 
