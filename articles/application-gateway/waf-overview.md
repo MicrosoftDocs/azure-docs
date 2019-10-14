@@ -115,6 +115,9 @@ The Application Gateway WAF can be configured to run in the following two modes:
 * **Detection mode**: Monitors and logs all threat alerts. You turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You must also make sure that the WAF log is selected and turned on. Web application firewall doesn't block incoming requests when it's operating in Detection mode.
 * **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is terminated. Prevention mode records such attacks in the WAF logs.
 
+> [!NOTE]
+> It is recommended to run a newly deployed WAF in detection mode for a short period of time in a production environment. This provides the opportunity to obtain [firewall logs](./application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) prior to transition to Prevention mode and reduce the opportunity for unexpected blocked traffic. 
+
 ### Anomaly Scoring mode
 
 OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.
