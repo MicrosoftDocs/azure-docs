@@ -66,7 +66,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
 
-[!code-java[method for sending API requests](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
+[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## Detect anomalies as a batch
 
