@@ -62,13 +62,13 @@ Indexer was not able to run a skill in the skillset.
 | --- | --- | --- |
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 | Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a support ticket to get help. |
-| A skill which is not Web API based has failed | (From Merge Skill)One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will requires action to resolve. |
+| A skill has encountered an error during execution | (From Merge Skill)One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
 ### Could not execute skill because the Web Api request failed
-Indexer was not able to run a skill in the skillset because the Web Api request response indicated a failure. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built in Cognitive skill, use the information in the error to fix the issue.
+Indexer was not able to run a skill in the skillset because the Web Api request response indicated a failure. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built-in Cognitive skill, use the information in the error to fix the issue.
 
 ### Could not execute skill because Web Api skill response is invalid
-Indexer was not able to run a skill in the skillset because the Web Api request response was invalid. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built in Cognitive skill, then please file a support ticket to get assistance.
+Indexer was not able to run a skill in the skillset because the response from the Web Api request was invalid. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built-in Cognitive skill, then please file a support ticket to get assistance.
 
 ### Skill did not execute within the time limit
 There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
@@ -190,5 +190,5 @@ In the example LanguageDetectionSkill below, the `'text'` input field may trigge
 
 If you want to ensure that all text is analyzed, consider using the [Split skill](cognitive-search-skill-textsplit.md).
 
-### Web Api skill response contains warnings.
-Indexer was able to run a skill in the skillset, but the Web Api request response indicated there were warnings during execution. Review the warnings to understand if your data is impacted in a meaningful way.
+### Web Api skill response contains warnings
+Indexer was able to run a skill in the skillset, but the response from the Web Api request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
