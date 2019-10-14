@@ -94,7 +94,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
     ```
 
-    This operation will return a series of key / value pairs. 
+    This operation will return the following series of key/value pairs:
 
     ```console
     {
@@ -111,7 +111,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     }
     ```
 
-1. Run the following command to allow the service principal to access your key vault:
+1. Run the following command to let the service principal access your key vault:
 
     ```
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
@@ -120,7 +120,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 1. Add secrets for *clientId* and *clientSecret* to Secrets Manager. These commands must be executed in the same directory as the *.csproj* file.
 
     ```
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>        
+    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
     dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
     ```
 
@@ -129,14 +129,14 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 ## Update your code to use a Key Vault reference
 
-1. Open *Program.cs*, and add references to required packages.
+1. Open *Program.cs*, and add references to the required packages.
 
     ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method. Include the `UseAzureKeyVault` option, passing in a new `KeyVaultClient` reference to your Key Vault.
+1. Update the **CreateWebHostBuilder** method to use App Configuration by calling the **config.AddAzureAppConfiguration** method. Include the **UseAzureKeyVault** option, passing in a new **KeyVaultClient** reference to your Key Vault.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -159,7 +159,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
             .UseStartup<Startup>();
     ```
 
-1. Once you've passed the *KeyVaultClient* reference to the `UseAzureKeyVault` method when initializing the connection to App Configuration, you can access the values of Key Vault references in the same way you access the values of regular App Configution keys. To see this process in action, open *Index.cshtml* in the Views > Home directory. Replace its content with the following code:
+1. After you've passed the **KeyVaultClient** reference to the **UseAzureKeyVault** method when initializing the connection to App Configuration, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys. To see this process in action, open *Index.cshtml* in the **Views** > **Home** directory. Replace its content with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -179,7 +179,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    You access the value of the Key Vault reference *TestApp:Settings:KeyVaultMessage* in the same way as the configuration value *TestApp:Settings:Message*
+    You access the value of the Key Vault reference "TestApp:Settings:KeyVaultMessage" in the same way as the configuration value for "TestApp:Settings:Message".
 
 ## Build and run the app locally
 
