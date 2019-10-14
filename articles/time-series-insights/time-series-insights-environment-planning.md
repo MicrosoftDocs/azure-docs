@@ -35,7 +35,7 @@ To best plan your Time Series Insights environment for long-term success, consid
 - [Storage capacity](#storage-capacity)
 - [Data retention period](#data-retention)
 - [Ingress capacity](#ingress-capacity)
-- [Shaping your event](#shape-your-events)
+- [Shaping your events](#shape-your-events)
 - [Ensuring that you have reference data in place](#ensure-that-you-have-reference-data)
 
 ## Storage capacity
