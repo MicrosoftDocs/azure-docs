@@ -278,15 +278,32 @@ This command:
 # [Custom Speech-to-text](#tab/cstt)
 
 > [!IMPORTANT]
-> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) and [deployed](how-to-custom-speech-deploy-model.md) using the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+> The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [Custom Speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model Id** and **Language** can be found on the **Training** page of the custom speech portal. The **Model Id** and **Language** values are required to run the container.
 
-To run the *Custom Speech-to-text* container, execute the following `docker run` command.
+From the [Custom Speech portal](https://speech.microsoft.com/customspeech), navigate to the **Training** page and select the model.
+
+:::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom Speech training page":::
+
+Next, copy the **Model Id** and **Language**. Use the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**.
+
+:::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom Speech model details":::
+
+To run the *Custom Speech-to-text* container, execute the following `docker run` command replacing the parameter placeholders with your own values.
+
+| Parameter | Description |
+|---------|---------|
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\input* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | The custom speech **Model Id** from the **Training** page. |
+| `{MODEL_LOCALE}` | Using the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. See [gathering required parameters](#gathering-required-parameters) for more information. |
+| `{API_KEY}` | The API key is required. See [gathering required parameters](#gathering-required-parameters) for more information. |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
--v C:\input:/usr/local/models \
-ModelId="{MODEL_ID_1},{MODEL_ID_2}" \
+-v {VOLUME_MOUNT}:/usr/local/models \
+ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -296,8 +313,9 @@ This command:
 
 * Runs a *Custom Speech-to-text* container from the container image.
 * Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
-* Loads the Custom Speech-to-Text model from input mount *C:\input*.
+* Loads the *Custom Speech-to-Text* model from the volume input mount, for example *C:\CustomSpeech*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
 * If the custom model was already present (previously downloaded), it is used and the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -325,13 +343,21 @@ This command:
 > [!IMPORTANT]
 > The *Custom Text-to-speech* container relies on a custom voice model, which has been [trained and deployed](how-to-custom-voice-create-voice.md) using the [Custom Voice portal](https://aka.ms/custom-voice-portal).
 
-To run the *Custom Text-to-speech* container, execute the following `docker run` command.
+To run the *Custom Text-to-speech* container, execute the following `docker run` command replacing the parameter placeholders with your own values.
+
+| Parameter | Description |
+|---------|---------|
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\input* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | ... |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. See [gathering required parameters](#gathering-required-parameters) for more information. |
+| `{API_KEY}` | The API key is required. See [gathering required parameters](#gathering-required-parameters) for more information. |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
--v C:\input:/usr/local/models \
+-v {VOLUME_MOUNT}:/usr/local/models \
 ModelId={MODEL_ID} \
+Locale={MODEL_LOCALE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -341,8 +367,9 @@ This command:
 
 * Runs a *Custom Text-to-speech* container from the container image.
 * Allocates 2 CPU cores and one gigabyte (GB) of memory.
-* Loads the Custom Text-to-speech model from input mount *C:\input*.
+* Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
 * If the custom model was already present (previously downloaded), it is used and the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
