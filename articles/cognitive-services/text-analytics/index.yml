@@ -41,15 +41,15 @@ landingContent:
       links:
         - text: Using C#
         
-          url: quickstarts/text-analytics-sdk.md&pivots=programming-language-csharp    
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp    
         - text: Using Python   
-          url: quickstarts/text-analytics-sdk.md&pivots=programming-language-python
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python
         - text: Using Node.js
-          url: quickstarts/text-analytics-sdk.md&pivots=programming-language-nodejs
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs
         - text: Using Go   
-          url: quickstarts/text-analytics-sdk.md&pivots=programming-language-go    
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go    
         - text: Using Ruby   
-          url: quickstarts/text-analytics-sdk.md&pivots=programming-language-ruby  
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby  
     - linkListType: tutorial
       links:
         - text: Integrate Power BI to analyze customer sentiment
