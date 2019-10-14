@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 10/14/19
+ms.date: 10/14/2019
 ---
 
 # Tutorial: Get started with Azure Machine Learning and its R SDK
