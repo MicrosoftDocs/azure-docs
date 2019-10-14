@@ -135,7 +135,6 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
 1. Delete all the **Applications** you registered in your Azure AD B2C tenant.
-1. Switch to the Azure AD B2C tenant you want to delete.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
