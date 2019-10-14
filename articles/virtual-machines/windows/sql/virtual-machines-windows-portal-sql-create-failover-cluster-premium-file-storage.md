@@ -48,7 +48,7 @@ Premium file shares provide IOPS and throughout capacity that will meet the need
 
 Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log, and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
 
-For more information about premium file share performance, see [File share performans tiers](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
+For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
 
 ### Licensing and pricing
 
