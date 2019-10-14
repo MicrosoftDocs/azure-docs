@@ -112,7 +112,7 @@ When you create a new route or edit an existing route, you should test the route
 
 ## Ordering guarantees and message duplication
 
-IoT Hub message routing guarantees ordered and at least once delivery of messages to the endpoints. This means that there can be duplicate messsages and a series of messages can be retransmitted honoring the original message ordering. For example, if the original message order is [1,2,3,4], you could receive a message sequence like [1,2,1,2,3,1,2,3,4]. The ordering guarantee is that if you ever receive message [1], it would always be followed by [2,3,4].
+IoT Hub message routing guarantees ordered and at least once delivery of messages to the endpoints. This means that there can be duplicate messages and a series of messages can be retransmitted honoring the original message ordering. For example, if the original message order is [1,2,3,4], you could receive a message sequence like [1,2,1,2,3,1,2,3,4]. The ordering guarantee is that if you ever receive message [1], it would always be followed by [2,3,4].
 
 For handling message duplicates, we recommend stamping a unique identifier in the application properties of the message at the point of origin, which is usually a device or a module. The service consuming the messages can handle duplicate messages using this identifier.
 
