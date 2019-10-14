@@ -7,7 +7,6 @@ ms.author: marsma
 # Used by the web app/web API tutorials for granting a web application access to
 # a registered web API application
 ---
-
 #### [Azure portal](#tab/portal/)
 
 1. Select **Applications**, and then select the web application that should have access to the API. For example, *webapp1*.
