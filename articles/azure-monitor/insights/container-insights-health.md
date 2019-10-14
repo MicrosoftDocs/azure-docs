@@ -45,5 +45,6 @@ Immediately you can see the overall health of the cluster without having to view
 
     ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
+Selecting 
 
 ## Next steps
