@@ -12,6 +12,8 @@ ms.author: karler
 
 # Tutorial: Create an Azure function in Java with an Event Hub trigger and Cosmos DB output binding
 
+<!-- TODO figure out exact brand/usage requirements for event hub(s) -->
+
 This tutorial shows you how to create an Azure Function that is triggered by Event Hub events representing temperature and pressure inputs. The function responds to the event data by adding status entries to a Cosmos DB.
 
 <!-- In this tutorial, you learn to: 
@@ -32,10 +34,12 @@ This tutorial shows you how to create an Azure Function that is triggered by Eve
 
 <!-- TODO links -->
 
-* Java
-* Visual Studio Code
-* The Azure Functions extension for VS Code
-* The Event Hubs extension for VS Code
+* [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+* [Visual Studio Code](https://code.visualstudio.com)
+* [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for VS Code
+* [Azure Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) extension for VS Code
+
+<!-- TODO include info on Azure CLI and Cloud Shell -->
 
 <!-- 
 To create Azure Functions in Python, you need to install a few tools.
@@ -44,26 +48,96 @@ To create Azure Functions in Python, you need to install a few tools.
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/) -->
 
-## Create an Event Hub
+<!-- TODO consider replacing portal instructions/topic-links with Azure CLI snippets -->
 
-Trigger - Using the portal, create a resource group and an event hub – Follow https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create 
+## Create Azure resources
+
+First, create the following resources:
+
+* A resource group
+* An Event Hubs namespace and event hub
+* A Cosmos DB account, database, and collection
+* A function app and a storage account to host it
+
+You can use the following commands to create these resources:
+
+```azurecli
+export SUBSCRIPTION_ID=<value>
+export RESOURCE_GROUP=<value>
+export LOCATION=<value>
+export EVENT_HUB_NAMESPACE=<value>
+export EVENT_HUB_NAME=<value>
+export COSMOS_DB_ACCOUNT=<value>
+export STORAGE_ACCOUNT=<value>
+export FUNCTION_APP=<value>
+
+export DATABASE_NAME=TelemetryDb
+export COLLECTION_NAME=TelemetryInfo
+export PARTITION_KEY_PATH='/temperatureStatus'
+
+az login
+
+az account set --subscription $SUBSCRIPTION_ID
+
+az group create \
+    --name $RESOURCE_GROUP \
+    --location $LOCATION
+
+az eventhubs namespace create \
+    --name $EVENT_HUB_NAMESPACE \
+    --resource-group $RESOURCE_GROUP
+
+az eventhubs eventhub create \
+    --name $EVENT_HUB_NAME \
+    --namespace-name $EVENT_HUB_NAMESPACE \
+    --resource-group $RESOURCE_GROUP
+
+az cosmosdb create \
+    --name $COSMOS_DB_ACCOUNT \
+    --resource-group $RESOURCE_GROUP
+
+az cosmosdb database create \
+    --db-name $DATABASE_NAME \
+    --name $COSMOS_DB_ACCOUNT \
+    --resource-group-name $RESOURCE_GROUP
+
+ az cosmosdb collection create \
+    --collection-name $COLLECTION_NAME \
+    --db-name $DATABASE_NAME \
+    --name $COSMOS_DB_ACCOUNT \
+    --partition-key-path $PARTITION_KEY_PATH \
+    --resource-group-name $RESOURCE_GROUP
+
+az storage account create \
+    --name $STORAGE_ACCOUNT \
+    --resource-group $RESOURCE_GROUP \
+    --sku Standard_LRS
+
+az functionapp create \
+    --name $FUNCTION_APP \
+    --resource-group $RESOURCE_GROUP \
+    --storage-account $STORAGE_ACCOUNT \
+    --consumption-plan-location $LOCATION \
+    --runtime java
+```
+
+<!-- ## Create an Event Hub
+
+First, use the Azure portal to create a resource group, an Event Hubs namespace, and an event hub. Follow the instructions at [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
 
 ## Create a Cosmos DB
 
-Binding – Create cosmos db in the same resource group following  https://docs.microsoft.com/en-us/azure/cosmos-db/create-sql-api-java#create-a-database-account. Add container with database id ‘TelemetryDb’, container name ‘TelemetryInfo’ and partition key ‘/temperatureStatus’ following https://docs.microsoft.com/en-us/azure/cosmos-db/create-sql-api-java#add-a-container.
-
-## Create a storage account
-
-Storage account – Create a storage account in same resource group using the portal following https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal#create-a-storage-account-1 
-This is where your code will be uploaded 
+Next, create a Cosmos DB account in the same resource group. Then, add a container using `TelemetryDb` for the database ID, `TelemetryInfo` for the container ID, and  `/temperatureStatus` for the partition key. For instructions, see [Quickstart: Create an Azure Cosmos account, container, and items with the Azure portal](/azure/cosmos-db/create-cosmosdb-resources-portal).
 
 ## Create a function app
 
-Function App – Create a function app in the same resource group following steps in https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function#log-in-to-azure. Changes – For resource group, check Use Existing. Preferably select same location as your other resources. For Runtime Stack – Java. Storage – Use existing (Created in step 4) 
+Next, create a function app in the same resource group and region that you used previously. Follow the instructions at [Create your first function in the Azure portal](/azure/azure-functions/functions-create-first-azure-function), but skip the part where you create a new function. Be sure to set the runtime stack to Java. For storage, select **Create new**. This storage account is where your function app will be hosted.
+ -->
 
 ## Create a function project in Visual Studio Code
 
-For this tutorial, we will use Visual Studio code. If you haven’t used it before, follow the steps  https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code and create your functions project with a function. If this is your first function app and you are unsure of the values to input for groupId, artifactId, package – see https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project to as a reference. Use similar (yet not same) values so they make sense for your app. Make sure to change the appname (it has to be unique, so change the numbers at the end).p We now have a function app with http trigger set up.  
+Next, use Visual Studio to create a 
+For this tutorial, we will use Visual Studio code to create the function. If you haven’t used it before, follow the steps  https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code and create your functions project with a function. If this is your first function app and you are unsure of the values to input for groupId, artifactId, package – see https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project to as a reference. Use similar (yet not same) values so they make sense for your app. Make sure to change the appname (it has to be unique, so change the numbers at the end).p We now have a function app with http trigger set up.  
 
 ## Configure the project
 
@@ -251,11 +325,17 @@ Follow the same steps that you used to test locally. This time your function app
 
 ## Clean up resources
 
-The entirety of this tutorial runs locally on your machine, so there are no Azure resources or services to clean up.
+When you are finished with the Azure resources you created in this topic, you can delete them using the following command:
+
+```azurecli
+az group delete --name $RESOURCE_GROUP
+```
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model. You also learned how to call the API from a web application.
+In this tutorial, you learned how to ...
+
+<!-- build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model. You also learned how to call the API from a web application.
 
 You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
@@ -267,4 +347,4 @@ To deploy the function app to Azure, use the [Azure Functions Core Tools](./func
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> [Next steps button](contribute-get-started-mvc.md) -->
