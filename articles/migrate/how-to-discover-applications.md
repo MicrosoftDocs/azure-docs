@@ -1,11 +1,11 @@
 ---
-title: Discover applications installed on on-premises servers using Azure Migrate: Server Assessment | Microsoft Docs
-description: Describes how to discover applications installed, and roles and features enabled on on-premises servers
-author: snehaamicrosoft
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 10/10/2019
-ms.author: snehaa
+  title: Discover applications installed on on-premises servers using Azure Migrate: Server Assessment | Microsoft Docs
+  description: Describes how to discover applications installed, and roles and features enabled on on-premises servers
+  author: snehaamicrosoft
+  ms.service: azure-migrate
+  ms.topic: article
+  ms.date: 10/10/2019
+  ms.author: snehaa
 ---
 
 
@@ -56,7 +56,7 @@ Download and install the agents on each on-premises machine that you want to vis
 4. To review the application details per server, in the **Discovered applications** column, click the count that displays the number of applications on the server.
 
 > [!NOTE]
-> The count will only show up if you have provided guest credentials in the appliance and have waited for few hours for the discovery to complete.
+> The option to view application details will only show up if you have provided guest credentials in the appliance and have waited for few hours for the application discovery to complete.
 
 5. To export the application inventory across all the servers, click the gesture **Export application inventory** on the page. This will download the application inventory in an excel format. The first sheet in the excel report, **Application Inventory** lists all the applications discovered across all virtual machines. The roles and features available  
 
