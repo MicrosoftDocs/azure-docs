@@ -16,29 +16,22 @@ ms.author: banders
 
 # View and download your Azure usage and charges
 
-If you're an EA customer or have a [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement), you can download Azure usage and charges in the [Azure portal](https://portal.azure.com/). For other subscriptions, go to the [Azure Account Center](https://account.azure.com/Subscriptions) to download usage.
+You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
-Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
-
-If you have a [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
 
 ## Download usage from the Azure portal (.csv)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
 
     ![Screenshot that shows Azure portal search](./media/billing-download-azure-usage/portal-cm-billing-search.png)
 
-1. Under Billing, select **Invoices**.
-
-    ![select invoices blade](./media/billing-download-azure-usage/select-invoices-blade.png)
-
-1. Select a subscription in the subscription drop-down filter. 
+1. Depending on your access, you might need to select a Billing account or Billing profile.
+1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
-1. Click the download icon on the right.
-1. Click **Download** for the usage details csv.
-
-    ![download menu](./media/billing-download-azure-usage/download-menu.png)
+1. Click the download icon or the ellipsis (`...`) on the right.
+1. Select **Download Azure usage and charges** from the download menu.
 
 ## Download usage for EA customers
 
@@ -52,28 +45,9 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.
 
-## Download usage for your Microsoft Customer Agreement
+## Download usage for pending charges
 
-If you have a Microsoft Customer Agreement, you can download your Azure usage and charges for your billing profile. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download the Azure usage and charges CSV.
-
-### Download usage for billed charges
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for *Cost Management + Billing*.
-3. Select a billing profile. Depending on your access, you might need to select a billing account first.
-4. Select **Invoices**.
-5. In the invoice grid, find the row of the invoice corresponding to the usage you want to download.
-6. Click the ellipsis (`...`) at the end of the row.
-
-    ![Screenshot that shows the ellipsis at the end of the row](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
-
-7. In the download context menu, select **Azure usage and charges**.
-
-     ![Screenshot that shows Azure usage and charges selected](./media/billing-download-azure-usage/contextmenu-usage.png)
-
-### Download usage for pending charges
-
-You can also download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
+If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.
@@ -83,8 +57,8 @@ You can also download month-to-date usage for the current billing period. These 
 
     ![Screenshot that shows download from Overview](./media/billing-download-azure-usage/open-usage.png)
 
-## Check your access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## Check your billing account type
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## Need help? Contact us.
 
