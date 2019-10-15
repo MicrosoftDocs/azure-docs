@@ -167,7 +167,7 @@ Current VM SKUs that offer necessary compute isolation include specific offering
 The storage supporting these Virtual Machines can be encrypted in one of two ways to support necessary encryption standards.
 
 - Leverage Azure Disk Encryption to encrypt the drives using DM-Crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../security/azure-security-disk-encryption-linux.md)
+  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
   - [Enable Azure Disk Encryption for Windows](../security/azure-security-disk-encryption-windows.md)
 - Leverage Azure Storage Service Encryption for Storage Accounts with your own key to encrypt the storage account that holds the disks:
   - [Storage Service Encryption with Customer Managed Keys](../storage/common/storage-service-encryption-customer-managed-keys.md)

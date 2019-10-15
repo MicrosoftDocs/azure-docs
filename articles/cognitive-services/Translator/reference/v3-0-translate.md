@@ -465,8 +465,10 @@ The response is:
 
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
+#### Limitations
 Note the following restrictions:
 
+* Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
   - from English to any other language;
   - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;

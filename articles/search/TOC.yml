@@ -169,7 +169,7 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Load data
+  - name: Indexing any data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Load data with indexers
+  - name: Indexing Azure Blob data
+    items:      
+    - name: Use AI with blob data
+      href: search-blob-ai-integration.md
+    - name: Add full text search
+      href: search-blob-storage-integration.md
+    - name: Set up a blob indexer
+      href: search-howto-indexing-azure-blob-storage.md
+    - name: Index one-to-many blobs
+      href: search-howto-index-one-to-many-blobs.md
+    - name: Index CSV blobs
+      href: search-howto-index-csv-blobs.md
+    - name: Index JSON blobs
+      href: search-howto-index-json-blobs.md
+  - name: Indexing with "indexers"
     items:
     - name: Indexers overview
       href: search-indexer-overview.md
@@ -191,16 +205,6 @@
       href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - name: Azure Cosmos DB indexer
       href: search-howto-index-cosmosdb.md
-    - name: Azure Blob Storage indexer
-      items:      
-      - name: Set up a blob indexer
-        href: search-howto-indexing-azure-blob-storage.md
-      - name: Index one-to-many blobs
-        href: search-howto-index-one-to-many-blobs.md
-      - name: Index CSV blobs
-        href: search-howto-index-csv-blobs.md
-      - name: Index JSON blobs
-        href: search-howto-index-json-blobs.md
     - name: Schedule indexers
       href: search-howto-schedule-indexers.md
     - name: Map fields
@@ -244,11 +248,13 @@
       - name: Create a knowledge store in Azure portal
         href: knowledge-store-create-portal.md
       - name: Create using REST and Postman
-        href: knowledge-store-howto.md
+        href: knowledge-store-create-rest.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md
+    - name: Troubleshoot enrichment issues
+      href: cognitive-search-common-errors-warnings.md    
   - name: Query documents
     items:
     - name: Query types and composition
@@ -293,8 +299,6 @@
       href: search-manage-powershell.md
     - name: Monitor activity and logging
       href: search-monitor-usage.md
-    - name: Search traffic analytics
-      href: search-traffic-analytics.md
 - name: Reference
   items:
   - name: Azure CLI

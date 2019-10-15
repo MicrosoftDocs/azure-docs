@@ -108,9 +108,16 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
-  - name: Azure Blockchain Service
-    tocHref: /azure/blockchain/service
-    topicHref: /azure/blockchain/service
+  - name: Blockchain
+    tocHref: /azure/blockchain/
+    topicHref: /azure/blockchain/
+    items:
+    - name: Blockchain Service
+      tocHref: /azure/blockchain/service/
+      topicHref: /azure/blockchain/service/index
+    - name: Blockchain Workbench
+      tocHref: /azure/blockchain/workbench/
+      topicHref: /azure/blockchain/workbench/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
@@ -224,9 +231,6 @@
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/
-  - name: Blockchain Workbench
-    tocHref: /azure/blockchain-workbench/
-    topicHref: /azure/blockchain-workbench/
   - name: Bot Service
     tocHref: /azure/bot-service/
     topicHref: /azure/bot-service/
@@ -336,9 +340,9 @@
     - name: Translator Text
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
-    - name: Translator Speech
-      tocHref: /azure/cognitive-services/translator-speech/
-      topicHref: /azure/cognitive-services/translator-speech/
+#    - name: Translator Speech
+#      tocHref: /azure/cognitive-services/translator-speech/
+#      topicHref: /azure/cognitive-services/translator-speech/
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview

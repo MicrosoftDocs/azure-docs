@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: wmgries
+ author: roygara
  ms.service: storage
  ms.topic: include
  ms.date: 07/08/2018
- ms.author: wgries
+ ms.author: rogarana
  ms.custom: include file
 ---
 This error can occur whenever the Azure File Sync service is inaccessible from the server. You can troubleshoot this error by working through the following steps:

@@ -1,5 +1,5 @@
 ---
-title: Connect data sources to Azure Sentinel?| Microsoft Docs
+title: Connect data sources to Azure Sentinel | Microsoft Docs
 description: Learn how to connect data sources to Azure Sentinel.
 services: sentinel
 documentationcenter: na

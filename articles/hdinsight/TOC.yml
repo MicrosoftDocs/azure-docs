@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Build an ETL pipeline
+        href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
     items:
     - name: Azure CLI samples
@@ -219,7 +221,7 @@
         href: ./hdinsight-release-notes.md    
       - name: HDInsight 3.6 full release notes
         href: ./hdinsight-release-notes-archive.md 
-    - name: FAQ
+    - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.md
     - name: Migrate to granular role-based access for cluster configurations
       href: ./hdinsight-migrate-granular-access-cluster-configurations.md
@@ -578,7 +580,7 @@
   - name: Quickstarts
     items:
     - name: Query Apache HBase - Apache Phoenix
-      href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+      href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
       href: ./hbase/query-hbase-with-hbase-shell.md
   - name: Tutorials
@@ -615,6 +617,8 @@
         href: ./hbase/apache-hbase-provision-vnet.md
     - name: Troubleshoot
       items:
+      - name: Troubleshoot Apache HBase performance issues
+        href: ./hbase/troubleshoot-hbase-performance-issues.md
       - name: hbase hbck returns inconsistencies
         href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
       - name: Storage exception after connection reset

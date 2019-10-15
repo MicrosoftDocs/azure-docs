@@ -8,7 +8,6 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
-ms.subservice: cognitive-search
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 

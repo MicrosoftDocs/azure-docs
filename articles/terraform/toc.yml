@@ -25,7 +25,7 @@
       items:
         - name: Create a Kubernetes cluster with AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
-        - name: Create a Kubernetes cluster with Application Gateway as ingress controller with AKS
+        - name: Create an Application Gateway ingress controller in AKS
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastructure
       items:

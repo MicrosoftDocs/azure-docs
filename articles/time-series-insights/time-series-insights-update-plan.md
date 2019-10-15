@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
 ---
 
@@ -77,7 +77,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
 
-For more information, see [Shape events](./time-series-insights-send-events.md#json).
+For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
