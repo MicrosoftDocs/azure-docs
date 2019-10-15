@@ -44,7 +44,7 @@ We recommend that you use a subnet size of at least /28. This size gives you 11 
 
 Network security groups (NSGs) are supported on Application Gateway. But there are several restrictions:
 
-- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as "Any". This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
+- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as *Any*. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
 
 - Outbound internet connectivity can't be blocked. Default outbound rules in the NSG allow internet connectivity. We recommend that you:
 
