@@ -24,12 +24,13 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 --->
 Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands which will be helpful for new learners as well as for those who want to take a quick look at the important topics.
 
-[Picture of the architecture of Arcadia]
+## Architecture
+![Synapse Architecture](../synapse-analytics/Media/Azure-Synapse-Architecture.png)
 
 ## Concepts
 | Nouns and verbs                         | What it does       |
 |:---                                 |:---:                 |
-| **Synapse Workspace** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLSg2 account and file system (for storing temporary data)  |
+| **Synapse Workspace** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLSg2 account and file system (for storing temporary data). A workspace is under a resource group. |
 | **SQL Analytics**   | Can do SQL Analytics with pools and with on-demand  |
 | **SQL pool**   | 0-to-N SQL provisioned resources with their corresponding databases can be deployed in a workspace. Each SQL pool has an associated database. A SQL pool can be scaled, paused and resumed manually or automatically through Azure function. A SQL pool can scale from 100 DWU up to 30,000 DWU.       |
 |**Spark** | Spark run-time used in a Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .Net Support for Apache Spark 0.5 and Delta Lake 0.3  | 
