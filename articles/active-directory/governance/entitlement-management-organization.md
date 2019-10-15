@@ -73,5 +73,4 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 
 ## Next steps
 
-- [Add a new policy](entitlement-management-access-package-edit.md#add-a-new-policy)
-- [Edit an existing policy](entitlement-management-access-package-edit.md#edit-an-existing-policy)
+- [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md)
