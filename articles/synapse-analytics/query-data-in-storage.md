@@ -1,5 +1,5 @@
 ---
-title: Overview: Query data in storage #Required; update as needed page title displayed in search results. Include the brand.
+title: Overview - Query data in storage #Required; update as needed page title displayed in search results. Include the brand.
 description: This section contains sample queries you can use to try out SQL on demand service. #Required; Add article description that is displayed in search results.
 services: synapse-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
