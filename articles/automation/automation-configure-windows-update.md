@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Configure Windows Update settings for Update Management
 
-Azure Update Management relies on Windows Update to download and install Windows Updates. As a result, we respect many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+Azure Update Management relies on Windows Update to download and install Windows updates. As a result, Update Management respects many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
 
 ## Pre-download updates
 
@@ -28,7 +28,7 @@ $WUSettings.Save()
 
 ## Disable automatic installation
 
-By default, Azure VMs have automatic installation of updates enabled. This might cause updates to be installed before you schedule them for installation by Update Management. You can disable this behavior by setting the `NoAutoUpdate` registry key to `1`. The following PowerShell snippet shows one way to do this:
+By default on Azure virtual machines (VMs), automatic installation of updates is enabled. This might cause updates to be installed before you schedule them for installation by Update Management. You can disable this behavior by setting the `NoAutoUpdate` registry key to `1`. The following PowerShell snippet shows how to do this:
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -37,11 +37,11 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## Configure reboot settings
 
-The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you set the **Never Reboot** option in the Update Deployment settings. You should configure these registry keys to best suit your environment.
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. You should configure these registry keys to best suit your environment.
 
 ## Enable updates for other Microsoft products
 
-By default, Windows Update provides updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive with updates for other products, including security patches for SQL Server and other first-party software. This option can't be configured by Group Policy. Run the following PowerShell command on the systems that you want to enable other first-party updates on. Update Management will honor this setting.
+By default, Windows Update provides updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. This option can't be configured by Group Policy. Run the following PowerShell command on the systems that you want to enable other Microsoft updates on. Update Management will comply with this setting.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -52,11 +52,11 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## WSUS configuration settings
 
-Update Management respects Windows Server Update Services (WSUS) settings. The WSUS settings you can configure for working with Update Management are listed below.
+Update Management complies with Windows Server Update Services (WSUS) settings. The WSUS settings you can configure for working with Update Management are listed below.
 
 ### Intranet Microsoft update service location
 
-You can specify sources for scanning and downloading updates under [Intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
+You can specify sources for scanning and downloading updates under [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
 
 ## Next steps
 
