@@ -127,7 +127,7 @@ landingContent:
             url: /rest/api/time-series-insights/
           - text: Data Access Concepts Preview
             url: /rest/api/time-series-insights/preview
-          - text: Data Access Concepts GA
+          - text: Data Access GA
             url: /rest/api/time-series-insights/ga
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
