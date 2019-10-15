@@ -17,10 +17,9 @@ This article shows you how to deploy the Azure Blob Storage on IoT module, which
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-> [!NOTE]
-> For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
+For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
 
-> [!CAUTION]
+> [!WARNING]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
 
 ## Prerequisites

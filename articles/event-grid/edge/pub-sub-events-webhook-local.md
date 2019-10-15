@@ -51,6 +51,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```json
         {
           "Env": [
+           "inbound:serverAuth:tlsPolicy=enabled",
             "inbound:clientAuth:clientCert:enabled=false",
             "outbound:webhook:httpsOnly=false"
           ],
