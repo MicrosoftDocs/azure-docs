@@ -10,7 +10,7 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Enable large file shares for standard file shares
+# How to enable and create large file shares
 
 Originally, standard file shares could only scale up to 5 TiB, now, with large file shares, they can scale up to 100 TiB. Premium file shares scale up to 100 TiB by default. 
 
