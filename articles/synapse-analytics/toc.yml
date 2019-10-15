@@ -36,8 +36,8 @@
     #   href: article-template.md
     # - name: With SQL Analytics pool
     #   href: article-template.md
-    # - name: With SQL on-demand
-    #   href: article-template.md
+    - name: With SQL on-demand
+      href: quickstart-using-sql-on-demand.md
 - name: Tutorials
   items:
   # - name: BI Professional
