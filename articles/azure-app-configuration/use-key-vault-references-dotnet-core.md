@@ -22,7 +22,7 @@ ms.custom: mvc
 
 In this tutorial, you learn how to use the Azure App Configuration service together with Azure Key Vault. App Configuration and Key Vault are complementary services used side by side in most application deployments.
 
-App Configuration helps you use the services together by creating keys that reference values stored in Key Vault. When App Configuration creates such keys, it stores URIs to Key Vault values rather than the values themselves.
+App Configuration helps you use the services together by creating keys that reference values stored in Key Vault. When App Configuration creates such keys, it stores the URIs of Key Vault values rather than the values themselves.
 
 Your application uses the App Configuration client provider to retrieve the Key Vault values, just as it does for any other keys stored in App Configuration. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
 
@@ -46,14 +46,14 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 ## Create a vault
 
-1. Select the **Create a resource** option in the upper-left corner of the Azure portal.
+1. Select the **Create a resource** option in the upper-left corner of the Azure portal:
 
     ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
 1. From the results list, select **Key Vault**.
-1. On the **Key Vault** pane, select **Create**.
-1. On the **Create key vault** pane, provide the following information:
-    - In the **Name** box, enter **Contoso-vault2**. The name must be unique.
+1. In the **Key Vault** pane, select **Create**.
+1. In the **Create key vault** pane, provide the following information:
+    - In **Name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
     - In **Subscription**, choose a subscription.
     - Under **Resource Group**, select **Create new** and enter a resource group name.
     - In the **Location** drop-down menu, choose a location.
@@ -68,9 +68,9 @@ At this point, your Azure account is the only one authorized to access this new 
 
 To add a secret to the vault, you need to take just a few additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message**, and you store the value "Hello from Key Vault" in it.
 
-1. On the **Key Vault** properties pages, select **Secrets**.
+1. From the Key Vault properties pages, select **Secrets**.
 1. Select **Generate/Import**.
-1. In the **Create a secret** window, enter the following values:
+1. In the **Create a secret** pane, enter the following values:
     - **Upload options**: Enter **manual**.
     - **Name**: Enter **Message**.
     - **Value**: Enter **Hello from Key Vault**.
@@ -79,11 +79,11 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Add a Key Vault reference to App Configuration
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and then select the App Configuration store instance that you created in the quickstart.
 
 1. Select **Configuration Explorer**.
 
-1. Select **+ Create** > **Key vault reference**, and then enter or select the following values:
+1. Select **+ Create** > **Key vault reference**, and then specify the following values:
     - **Key**: Select **TestApp:Settings:KeyVaultMessage**.
     - **Label**: Leave this value blank.
     - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to those in the key vault you created in the previous section.
@@ -97,7 +97,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
     ```
 
-    This operation returns the following series of key/value pairs:
+    This operation returns a series of key/value pairs:
 
     ```console
     {
@@ -194,7 +194,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     dotnet build
     ```
 
-1. After the build is successfully completed, use the following command to run the web app locally:
+1. After the build is complete, use the following command to run the web app locally:
 
     ```
     dotnet run
