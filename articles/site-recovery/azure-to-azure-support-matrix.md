@@ -82,11 +82,11 @@ Windows Server 2019 | Server Core, Server with Desktop Experience
 Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |
-Windows Server 2008 R2 | Running SP1 or later
+Windows Server 2008 R2 | Running SP1 or later. </br>- It is mandatory to install [Servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) KBs on **Windows Server 2008 R2 SP1** OS for successful mobility agent installation and upgrade. </br>- It is mandatory to install [Servicing stack update (SSU)](https://support.microsoft.com/help/4493730) and [SHA-2 update](https://support.microsoft.com/help/4474419) KBs on **Windows Server 2008 SP2** OS for successful mobility agent installation and upgrade.</br> - Learn more on [SHA1 deprecation details and step-by-step details on how to upgrade to respective KBs](https://aka.ms/SHA-2KB).
 Windows 10 (x64) |
 Windows 8.1 (x64) |
 Windows 8 (x64) |
-Windows 7 (x64) | Running SP1 or later (Windows 7 RTM is not supported)
+Windows 7 (x64) | Running SP1 or later (Windows 7 RTM is not supported). </br>- It is mandatory to install [Servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) KBs on **Windows 7 SP1** OS for successful mobility agent installation and upgrade. </br> - Learn more on [SHA1 deprecation details and step-by-step details on how to upgrade to respective KBs](https://aka.ms/SHA-2KB).
 
 #### Linux
 
