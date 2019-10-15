@@ -32,7 +32,7 @@ The following list includes best practices for LUIS apps:
 
 |Do|Don't|
 |--|--|
-|[Define distinct intents](#do-define-distinct-intents)<br>[Add descriptors to intents](#do-add-descriptors-to-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents)<br>[Use few or simple entities](#dont-use-few-or-simple-entites) |
+|[Define distinct intents](#do-define-distinct-intents)<br>[Add descriptors to intents](#do-add-descriptors-to-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents)<br>[Use few or simple entities](#dont-use-few-or-simple-entities) |
 |[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
 |[Build your app iteratively with versions](#do-build-your-app-iteratively-with-versions)<br>[Build entities for model decomposition](#do-build-for-model-decomposition)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add patterns in later iterations](#do-add-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|

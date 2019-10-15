@@ -31,7 +31,7 @@ LUIS provides three types of prebuilt models. Each model can be added to your ap
 
 Language Understanding (LUIS) provides *prebuilt domains*, which are pretrained models of [intents](luis-how-to-add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
 
-The prebuilt domains are trained and ready to add to your LUIS app. The intents and entities in a prebuilt domains are fully customizable once you've added them to your app. 
+The prebuilt domains are trained and ready to add to your LUIS app. The intents and entities of a prebuilt domain are fully customizable once you've added them to your app. 
 
 > [!TIP]
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
