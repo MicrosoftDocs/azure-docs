@@ -12,14 +12,14 @@ ms.author: aelnably
 
 # Monitoring Azure Functions with Azure Monitor Logs
 
-[Azure Functions](functions-overview.md) offers an integration with [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
+Azure Functions offers an integration with [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
 
 Azure Monitor Logs gives you the ability to consolidate logs from different resources in the same workspace, where it can be analyzed with [queries](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](../azure-monitor/log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](../azure-monitor/visualizations.md) or [alert rules](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Integration with Azure Monitor Logs is currently supported for Functions running on Windows Consumption, Premium, and Dedicated hosting plans.
+> Integration with Azure Monitor Logs is currently supported for function apps running on Windows Consumption, Premium, and Dedicated hosting plans.
 
 ## Setting up
 
@@ -34,6 +34,8 @@ In the setting page, choose **Send to Log Analytics**, and under **LOG** choose 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
 ## User generated logs
+
+To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets
 
 **JavaScript**
 
