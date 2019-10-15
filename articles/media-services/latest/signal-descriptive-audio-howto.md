@@ -159,7 +159,8 @@ When your encoding job is done, the output asset will contain the files generate
       <audio src="audio_description.m4a" systemBitrate="194000" systemLanguage="eng">
         <param name="trackName" value="aac_eng_audio_description" />
         <param name="accessibility" value="description" />
-        <param name="role" value="alternate" />      
+        <param name="role" value="alternate" />     
+      </audio>          
       <video src="ignite_1280x720_AACAudio_3549.mp4" systemBitrate="3549855">
         <param name="systemBitrate" value="3549855" valuetype="data" />
         <param name="trackID" value="1" valuetype="data" />
