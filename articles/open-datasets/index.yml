@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title:  Azure Open Datasets Documentation
-summary: Azure Open Datasets offer curated and cleansed data that you can use with minimal preparation, including weather, census, and holidays to enrich ML models. 
+summary: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
 
 metadata:
   title: Open Datasets Documentation - Azure
-  description: Azure Open Datasets offer curated and cleansed data that you can use with minimal preparation, including weather, census, and holidays to enrich ML models.  
+  description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: data-science-vm
