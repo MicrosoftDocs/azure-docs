@@ -215,4 +215,4 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 ## Next steps
 
-Now that you've learned about how to create custom roles in your Azure IoT Central application, the suggested next step is to learn how to [View your bill](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Now that you've learned about how to create custom roles in your Azure IoT Central application, the suggested next step is to learn how to [Manage your bill](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
