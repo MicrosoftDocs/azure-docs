@@ -58,7 +58,19 @@
       items:
       - name: Create a new access package
         href: entitlement-management-access-package-create.md
-      - name: Edit an access package
+      - name: Share access package link
+        href: entitlement-management-access-package-settings.md
+      - name: Change resource roles
+        href: entitlement-management-access-package-resources.md
+      - name: Change request and approval settings
+        href: entitlement-management-access-package-request-policy.md
+      - name: Change lifecycle settings
+        href: entitlement-management-access-package-lifecycle-policy.md
+      - name: View and manage requests
+        href: entitlement-management-access-package-requests.md
+      - name: View, add, and remove assignments
+        href: entitlement-management-access-package-assignments.md
+      - name: Hide or delete
         href: entitlement-management-access-package-edit.md
     - name: Approvers
       items:
