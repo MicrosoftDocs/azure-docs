@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# A End-to-End example for ingesting blobs into Azure Data Explorer using Python
+# An End-to-End example for ingesting blobs into Azure Data Explorer using Python
 
 > [!div class="op_single_selector"]
-> * [C#](data-connection-csharp.md)
-> * [Python](data-connection-python.md)
+> * [C#](end-to-end-csharp.md)
+> * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. In this article, it gives you an End-to-End example about how to ingest data from a blob storage into Azure Data Explorer. You will learn how to programmatically create a resource group, azure resources (a storage account, an event hub, an Azure Data Explorer cluster), and how to configure Azure Data Explorer to ingest data from an storage account.
+Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. In this article, it gives you an End-to-End example about how to ingest data from a blob storage into Azure Data Explorer. You will learn how to programmatically create a resource group, azure resources (a storage account, an event hub, an Azure Data Explorer cluster), and how to configure Azure Data Explorer to ingest data from a storage account.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 [!INCLUDE [data-explorer-e2e-event-grid-resource-template](../../includes/data-explorer-e2e-event-grid-resource-template.md)]
 
 ## Code Example 
-The following code example shows how to prepare all the relevant resources, and configurations for ingesting blobs into Azure Data Explorer step by step. 
+The following code example shows how to create azure resources, and configurations for ingesting blobs into Azure Data Explorer step by step. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -193,3 +193,10 @@ To delete the resource group and clean up resources, use the following command:
 ```csharp
 await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 ```
+
+## Next steps
+
+*  [Create an Azure Data Explorer cluster and database](create-cluster-database-csharp.md) to learn about other ways to create a cluster and database.
+* [Azure Data Explorer data ingestion](ingest-data-overview.md) to learn more about ingestion methods.
+* [Quickstart: Query data in Azure Data Explorer](web-query-data.md) Web UI.
+* [Write queries](write-queries.md) with Kusto Query Language.
