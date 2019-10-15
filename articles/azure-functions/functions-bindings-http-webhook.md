@@ -527,11 +527,13 @@ This example reads the body of a POST request. The request body gets automatical
 
 ## Trigger - attributes
 
+In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HTTPTrigger` attribute is available to configure the function.
+
+You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration).
+
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
-
-You can set the authorization level and allowable HTTP methods in attribute constructor parameters, and there are properties for webhook type and route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration). Here's an `HttpTrigger` attribute in a method signature:
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -562,7 +564,10 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) attribute.
+
 ```java
+@FunctionName("HttpTriggerJava")
 public HttpResponseMessage<String> HttpTrigger(
         @HttpTrigger(name = "req",
                      methods = {"get"},
@@ -681,7 +686,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
         "get",
         "post"
       ],
-      "route": "{category:alpha}/{id:int?}"
+      "route": "products/{category:alpha}/{id:int?}"
     },
     {
       "type": "http",
