@@ -69,7 +69,7 @@ Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use
 Now you have an event hub, you can configure your **Store Analytics - Condition Monitoring** application to export telemetry from the connected devices. The following steps show you how to configure the export:
 
 1. Sign in to your **Store Analytics - Condition Monitoring** IoT Central application.
-1. Select **Data export** in the primary navigation.
+1. Select **Data export** in the left pane.
 1. Select **+ New**, and then select **Azure Event Hubs**.
 1. Enter _Telemetry export_ as the **Display Name**.
 1. Select your **Event Hubs namespace**.
@@ -87,7 +87,7 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 1. Select **Workspaces**, and then select **Create a workspace**.
 1. On the **Create a workspace** page, enter _Store Analytics - Condition Monitoring_ as the **Workspace name**.
 1. Scroll to the bottom of the **Welcome to the Store Analytics - Condition Monitoring workspace** page, and select **Skip**.
-1. On the workspace page, select **+ Create -> Streaming dataset**.
+1. On the workspace page, select **+ Create > Streaming dataset**.
 1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
 1. Enter _Sensor #1_ as the **Dataset name**.
 1. Enter the three **Values from stream** in following table:
@@ -293,7 +293,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
 1. Select **Save** to save your logic app design.
 
-To start the logic app, navigate to the **Overview** page and select **Run Trigger -> When_events_are_available_in_Event_Hub**.
+To start the logic app, navigate to the **Overview** page and select **Run Trigger > When_events_are_available_in_Event_Hub**.
 
 <!-- TODO - check if you do actually need to start the logic app -->
 
@@ -302,10 +302,10 @@ To start the logic app, navigate to the **Overview** page and select **Run Trigg
 Now you have telemetry flowing from your IoT Central application through your event hub. Then your logic app parses the event hub messages and adds them to a Power BI streaming dataset. Now, you can create a Power BI dashboard to visualize the telemetry:
 
 1. Sign in to your **Power BI** account.
-1. Select **Workspaces -> Store Analytics - Condition Monitoring**.
-1. Select **+ Create -> Dashboard**.
+1. Select **Workspaces > Store Analytics - Condition Monitoring**.
+1. Select **+ Create > Dashboard**.
 1. Enter **Store analytics** as the dashboard name, and select **Create**.
-1. Select **...(More options) -> Add Tile**. Select **Custom Streaming Data**, and then select **Next**.
+1. Select **...(More options) > Add Tile**. Select **Custom Streaming Data**, and then select **Next**.
 1. Select **Sensor #1**, and then select **Next**.
 1. On the **Visualization design** step:
     * Select **Line chart** as the visualization type.
