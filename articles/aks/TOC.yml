@@ -311,10 +311,6 @@
     items: 
     - name: About Service Meshes
       href: servicemesh-about.md
-    - name: Understand capabilities 
-      href: servicemesh-capabilities.md
-    - name: Understand selection criteria
-      href: servicemesh-selection-criteria.md
     - name: Use Istio
       items: 
       - name: About Istio
