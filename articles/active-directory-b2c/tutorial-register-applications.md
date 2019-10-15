@@ -59,7 +59,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
-    Also called a "reply URL," Azure AD B2C returns any tokens that your application requests to the redirect URI. In a production application, this might be a publicly accessible endpoint where your app is running, like `https://contoso.com/authentication`. During development or testing, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs in your registered applications at any time.
+    Also called a reply URL, this is the endpoint to which the user is redirected by Azure AD B2C after they've successfully completed the sign-in flow. In a production application, this is typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application runs locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
     The following restrictions apply to redirect URIs:
 
