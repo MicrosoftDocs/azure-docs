@@ -118,11 +118,11 @@ The following table lists the tasks that the entitlement management roles can pe
 
 ## Required roles to add resources to a catalog
 
-A Global administrator can add or remove any group (cloud-created security groups or cloud-created Office 365 groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog.
+A Global administrator can add or remove any group (cloud-created security groups or cloud-created Office 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog.
 
 For a user who is not a Global administrator or a User administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* the required Azure AD directory role and catalog owner entitlement management role. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
-| Azure AD directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
+| Azure AD directory role | Entitlement management role | Can add security group | Can add Office 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
