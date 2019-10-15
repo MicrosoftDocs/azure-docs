@@ -33,7 +33,7 @@ Once the LUIS app is published, a client application sends utterances (text) to 
 |Step|Action|
 |:--|:--|
 |1|The client application sends the user _utterance_ (text in their own words), "I want to call my HR rep." to the LUIS endpoint as an HTTP request.|
-|2||LUIS enables you to craft your custom language models to add intelligence to your application. Machine learned language models take the user's unstructured input text and returns a JSON-formatted response, with a top intent, `HRContact`. The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the _Contact Type_ entity.|
+|2|LUIS enables you to craft your custom language models to add intelligence to your application. Machine learned language models take the user's unstructured input text and returns a JSON-formatted response, with a top intent, `HRContact`. The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the _Contact Type_ entity.|
 |3|The client application uses the JSON response to make decisions about how to fulfill the user's requests. These decisions can include decision tree in the bot framework code and calls to other services. |
 
 The LUIS app provides intelligence so the client application can make smart choices. LUIS doesn't provide those choices. 
