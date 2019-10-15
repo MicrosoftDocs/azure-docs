@@ -14,7 +14,10 @@ ms.author: dapine
 
 # Install and run Speech Service containers
 
-Speech containers enable customers to build a speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. There are four different containers available, the two standard containers are **Speech-to-text** and **Text-to-speech** and the two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
+Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available, the two standard containers are **Speech-to-text** and **Text-to-speech** and the two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
+
+> [!IMPORTANT]
+> All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). An announcement will be made when speech containers progress to General Availability (GA).
 
 | Function | Features | Latest |
 |--|--|--|
@@ -286,7 +289,7 @@ Use the [Speech-to-text language support](language-support.md#speech-to-text) ta
 
 :::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom speech model details":::
 
-The following table represents the various docker run parameters and their corresponding descriptions:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Description |
 |---------|---------|
@@ -345,20 +348,19 @@ This command:
 
 The custom voice **Model ID** and **Language** can be found on the **Training** page of the custom voice portal. From the [Custom Voice portal](https://aka.ms/custom-voice-portal), navigate to the **Training** page and select the model.
 
-:::image type="content" source="media/custom-voice/custom-voice-model-details.png" alt-text="Custom voice training page":::
+:::image type="content" source="media/custom-voice/custom-voice-model-training.png" alt-text="Custom voice training page":::
 
 Use the [Text-to-speech language support](language-support.md#text-to-speech) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
 
 :::image type="content" source="media/custom-voice/custom-voice-model-details.png" alt-text="Custom voice model details":::
 
-The following table represents the various docker run parameters and their corresponding descriptions:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\input* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page. |
 | `{MODEL_LOCALE}` | Using the [Text-to-speech language support](language-support.md#text-to-speech) table, look up the locale **Code** from the model **Language**. |
-| `{MODEL_VOICE}` | The model name, also known as the voice name is required. |
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
