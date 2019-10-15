@@ -1,0 +1,4 @@
+- name: SQL Database Edge Documentation
+  href: index.yml
+- name: What is SQL Database Edge?
+  href: sql-database-edge-overview.md
