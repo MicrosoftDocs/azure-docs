@@ -1,5 +1,5 @@
 ---
-title: Cheat Sheet - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
+title: Cheat sheet - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
 description: Reference guide walking user through Azure Synapse Analytics #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: ArnoMicrosoft #Required; update with your GitHub user alias, with correct capitalization.

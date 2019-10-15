@@ -22,6 +22,7 @@ They are not intended to define benefits or value prop; that would be in marketi
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
 --->
+Guide over the most frequently asked questions that users might have
 
 ## General
 ### Q: What is Azure Synapse Analytics
