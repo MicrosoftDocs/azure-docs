@@ -40,7 +40,7 @@ Azure Machine Learning offers two editions tailored for your machine learning ne
 + Basic (generally available)
 + Enterprise (preview)
 
-These editions make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. You assign the edition when you create a workspace and determines the functionality to which you have access. 
+These editions make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. You assign the edition when you create a workspace and it determines the functionality to which you have access. 
 
 Learn more about what's available in each edition on the [pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 Customers are responsible for costs incurred on underlying compute during this time. 
