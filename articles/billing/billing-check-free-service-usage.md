@@ -23,7 +23,7 @@ You're not charged for services included for free with your Azure free account, 
 
 2.  Search for **Subscriptions**.
 
-   ![Screenshot that shows search in portal for subscriptions](./media/billing-check-usage-of-free-services/billing-search-subscriptions.png)
+    ![Screenshot that shows search in portal for subscriptions](./media/billing-check-usage-of-free-services/billing-search-subscriptions.png)
 
 3.	Select the subscription that was created when you signed up for your Azure free account.
 
@@ -50,4 +50,4 @@ You're not charged for services included for free with your Azure free account, 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [Upgrade your subscription](billing-upgrade-azure-subscription.md)
+- [Upgrade your Azure free account](billing-upgrade-azure-subscription.md)

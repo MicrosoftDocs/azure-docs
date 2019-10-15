@@ -55,4 +55,4 @@ Once your free services and quantities expire, you are charged pay-as-you-go rat
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- [Upgrade your free trial Azure subscription](billing-upgrade-azure-subscription.md)
+- [Upgrade your Azure free account](billing-upgrade-azure-subscription.md)

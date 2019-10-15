@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 You can upgrade your [Azure free account](https://azure.microsoft.com/free/) or [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure portal.
 
-If you've signed up for an [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) account and are eligible for an [Azure free account](https://azure.microsoft.com/free/), you can upgrade to a free account. You'll get $200 of Azure credits and 12 months of free services on upgrade.
+If you've signed up for an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/free/), you can upgrade to a free account. You'll get $200 of Azure credits and 12 months of free services on upgrade.
 
 <a id="freetrial"></a>
 
@@ -32,7 +32,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
     ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Select the subscription that was created when you signed up for Azure free account.
-1. In the subscription overview, click **Upgrade subscription** in the command bar. If you don't see the upgrade subscription button, click on the upgrade banner at the top of the page. <!-- TODO: Update this once all the experiences are the same-->
+1. In the subscription overview, click **Upgrade subscription** button in the command bar. If you don't see the upgrade subscription button, click on the upgrade banner at the top of the page.
 
     ![Screenshot that shows upgrade button](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 

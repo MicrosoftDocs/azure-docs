@@ -18,19 +18,19 @@ ms.author: banders
 
 To provide a single consolidated invoice for managed services and Azure consumption, Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Enterprise Agreement (EA).
 
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) It is subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It is subject to Microsoft governance and policies and might require review and approval for certain customers.
 
 To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
-This article applies to a billing account for a Microsoft Partner Agreement. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new billing experience. The new experience is only available for partners, who have at least one customer that has accepted Microsoft Customer Agreement(MCA) and have an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
+This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement(MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
 ## Prerequisites
 
 1. Establish [reseller relationship](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) with the customer. Check [CSP Regional Authorization Overview](https://docs.microsoft.com/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.  
 
-2. [Confirm customer has accepted the Microsoft Customer Agreement](https://docs.microsoft.com/partner-center/confirm-customer-agreement)
+2. [Confirm customer has accepted the Microsoft Customer Agreement](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
 
-3. Setup [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to setup Azure plan for each customer and reseller combination.
+3. Setup [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to setup Azure plan for each combination of a customer and a reseller.
 
 ## Request billing ownership
 
@@ -116,7 +116,7 @@ You can request billing ownership of the subscription types listed below.
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\* 
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Enterprise DevTest subscription will be billed at pay-as-you-go rate upon transferred, any discount offered via the Enterprise DevTest offer within the customer's EA will not be available to CSP.
+\* Enterprise DevTest subscription will be billed at pay-as-you-go rate upon transferred, any discount offered via the Enterprise DevTest offer through the customer's EA will not be available to the CSP partner.
 
 ## Additional information
 
@@ -171,7 +171,7 @@ Some of the customer transition requests may require an additional review proces
 ### Azure subscription directory 
 The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship. 
 
-If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory] (https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 
 ## Check access to a Microsoft Partner Agreement
