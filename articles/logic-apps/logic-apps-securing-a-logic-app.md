@@ -600,11 +600,11 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 
 | Authentication type | Supported by |
 |---------------------|--------------|
-| [Basic](#basic-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure API Management |
-| [Client Certificate](#client-certificate-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure API Management |
-| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
-| [Raw](#raw-authentication) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
-| [Managed identity](#managed-identity-authentication) (system-assigned only) | HTTP, HTTP + Swagger, HTTP Webhook, Azure Functions, Azure API Management |
+| [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook,  |
+| [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Managed identity](#managed-identity-authentication) (system-assigned only) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 |||
 
 > [!NOTE]
