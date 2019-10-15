@@ -151,7 +151,7 @@ To enable Concur mobile SSO, you need to give Concur support team **User access 
 1. Copy **User access URL** and give this URL to Concur support
 
 > [!NOTE]
-> Self-Service option to configure SSO is not available so work with Concur support team to enable mobile SSO. 
+> Self-Service option to configure Mobile SSO is not available so work with Concur support team to enable mobile SSO. 
 
 ## Test SSO 
 
