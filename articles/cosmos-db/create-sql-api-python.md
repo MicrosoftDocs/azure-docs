@@ -10,7 +10,7 @@ ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
 ---
-# Azure Cosmos DB: Build a Python application using Azure Cosmos DB SQL API account
+# Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
