@@ -64,7 +64,7 @@ In this tutorial, you completed these tasks:
 * Created and configured a compute instance in your workspace.
 * Started RStudio on the compute instance.
 
-In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
+In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.Rmd` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train your first model](tutorial-1st-experiment-r-train-model.md)
