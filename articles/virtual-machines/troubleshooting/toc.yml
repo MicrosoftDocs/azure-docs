@@ -71,6 +71,7 @@
   href: troubleshoot-performance-virtual-machine-linux-windows.md
 - name: Support for 32-bit operating systems in Azure virtual machines
   href: support-32-bit-operating-systems-virtual-machines.md
+- name: PerfInsights
   items:
   - name: Windows
     items:
