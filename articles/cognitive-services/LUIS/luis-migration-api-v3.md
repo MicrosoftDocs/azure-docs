@@ -51,6 +51,12 @@ V3 made the following changes as part of the move to GA:
 * Response body JSON changes:
     * `normalizedQuery` removed
 
+## Suggested adoption strategy
+
+If you use Bot Framework, Bing Spell Check V7, or want to migrate your LUIS app authoring only, continue to use the V2 endpoint. 
+
+If you know none of your client application or integrations (Bot Framework, and Bing Spell Check V7) are impacted and you are comfortable migrating your LUIS app authoring and your prediction endpoint at the same time, begin using the V3 prediction endpoint. The V2 prediction endpoint will still be available and is a good fall-back strategy. 
+
 ## Not supported
 
 * Bing Spell Check API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections
@@ -198,7 +204,7 @@ The `prediction.entities.<entity-name>` object contains an array because each en
 
 #### Prebuilt entity changes
 
-The V3 response object include changes to prebuilt entities. Review [specific prebuilt entities](luis-reference-prebuilt-entities.md) to learn more. 
+The V3 response object includes changes to prebuilt entities. Review [specific prebuilt entities](luis-reference-prebuilt-entities.md) to learn more. 
 
 #### List entity prediction changes
 
@@ -287,7 +293,7 @@ External entities give your LUIS app the ability to identify and label entities 
 
 The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request. 
 
-External entities are the mechanism for extending any entity type while still being used as signals to other models like roles, composite and others.
+External entities are the mechanism for extending any entity type while still being used as signals to other models like roles, composite, and others.
 
 This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user’s contact list. 
 
