@@ -13,6 +13,12 @@
     href: ingest-sample-data.md 
   - name: Query data with Web UI
     href: web-query-data.md
+  - name: An End to End Example
+    items:
+      - name: C#
+        href: end-to-end-csharp.md
+      - name: python
+        href: end-to-end-python.md
 - name: Tutorials
   items:
   - name: Ingest data without using code
