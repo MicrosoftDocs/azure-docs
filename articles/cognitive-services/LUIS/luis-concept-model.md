@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 ms.author: diberry
 ---
 
@@ -17,21 +17,36 @@ ms.author: diberry
 
 Language understanding provides several types of models. Some models can be used in more than one way. 
 
-## Model decomposition
+## V3 Authoring model decomposition
 
-LUIS supports _model decomposition_, breaking down the model into smaller models, with the following model types:
+LUIS supports _model decomposition_ with the V3 authoring APIs, breaking down the model into smaller parts. This allows you to build your models with confidence in how the various parts are constructed and predicted.
+
+Model decomposition has the following parts:
 
 * intents
+    * descriptors provided by features
 * machine-learned entities
-* machine-learned entity subcomponents
-* machine-learned entity subcomponent's descriptors 
-* machine-learned entity subcomponent's constraints
+    * subcomponents (also machine-learned entities)
+        * descriptors provided by features 
+        * constraints provided by non-machine-learned entities such as (regular expressions and lists)
+
+Subcomponents are 
 
 [add conceptual image]
 
+## V2 Authoring models
+
+LUIS supports composite entities with the V2 authoring APIs. This provides similar model decomposition but is not the same as V3 model decomposition. The recommended model architecture is to move to model decomposition in the V3 authoring APIs. 
+
 ## Intents classify utterances
 
-Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. 
+Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents.
+
+Consider an app that needs to determine a user's intention to order a book and an app that needs the shipping address for the customer. This app has two intents: `OrderBook` and `ShippingLocation`.
+
+The following utterance is a **positive example** for the `OrderBook` intent and a **negative example** for the `ShippingLocation` and `None` intents: 
+
+`Buy the top-rated book on bot architecture.`
 
 The result of well-designed intents, with their example utterances, is a high intent prediction. 
 
@@ -50,7 +65,7 @@ An example of a machine-learned entity is an order for a plane ticket. Conceptua
 
 ### Entity subcomponents help extract data
 
-A subcomponent is a child entity within a machine-learned entity. The subcomponent can be any entity type: machine-learned, non-machine-learned, prebuilt entity. 
+A subcomponent is a machine-learned child entity within a machine-learned parent entity. 
 
 Use the subcomponent to decompose the parts of the machine-learned entity (parent entity).
 
@@ -70,14 +85,15 @@ You design how the data is matched and extracted by which models you choose and 
 
 ### Constraints are text rules
 
-A constraint is a text-matching rule applied at prediction time to a subcomponent of a machine-learned entity. You define these rules while authoring the subcomponent. 
+A constraint is a text-matching rule, provided by a non-machine-learned entity such as the regular expression entity or a list entity. The constraint is applied at prediction time to limit the prediction and provide entity resolution needed by the client application. You define these rules while authoring the subcomponent. 
 
 Use a constraint when you know the exact text to extract.
 
 Constraints include:
 
-* regular expression entities
-* list entities 
+* [regular expression](reference-entity-regular-expression.md) entities
+* [list](reference-entity-list.md) entities 
+* [prebuilt](luis-reference-prebuilt-entities.md) entities
 
 Continuing with the example of the plane ticket, the airport codes can be in a List entity for exact text matches. 
 
@@ -95,7 +111,7 @@ If you want to only recognize 3 letter codes for airport codes, use a regular ex
 
 ## Intents versus entities
 
-An intent is the desired outcome of the _whole_ utterance while entities are pieces of data extracted from the utterance.
+An intent is the desired outcome of the _whole_ utterance while entities are pieces of data extracted from the utterance. Usually intents are tied to actions the client application should take and entities are information needed to perform this action. From a programming perspective, an intent would trigger a method call and the entities would be used as parameters to that method call.
 
 This utterance _must_ have an intent and _may_ have entities:
 
@@ -112,7 +128,7 @@ This utterance _may_ have several entities:
 
 ## Descriptors are features
 
-A descriptor is a feature applied to a model at training time. A descriptor includes:
+A descriptor is a signals that enable you to explain some characteristics of the model. It is a feature applied to a model at training time. A descriptor includes:
 
 * phrase lists
 * entities 
