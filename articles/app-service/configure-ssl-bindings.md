@@ -17,14 +17,14 @@ ms.custom: seodec18
 ---
 # Secure a custom DNS name with an SSL binding in Azure App Service
 
-This article shows you how to secure your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating a certificate binding. When you're finished, you can access your App Service app at the `https://` endpoint for your custom DNS name (for example, `https://www.contoso.com`). 
+This article shows you how to secure the [custom domain](app-service-web-tutorial-custom-domain.md) in your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating a certificate binding. When you're finished, you can access your App Service app at the `https://` endpoint for your custom DNS name (for example, `https://www.contoso.com`). 
 
 ![Web app with custom SSL certificate](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
 Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
 
 - [Add a private certificate to App Service](configure-ssl-cert.md) that satisfies all the [requirements for SSL bindings](configure-ssl-cert.md#private-certificate-requirements).
--  Create an SSL binding to the corresponding custom domain. This second step is covered by this tutorial.
+-  Create an SSL binding to the corresponding custom domain. This second step is covered by this article.
 
 In this tutorial, you learn how to:
 
@@ -160,7 +160,5 @@ When the operation is complete, your app rejects all connections with lower TLS 
 
 ## More resources
 
-* [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
-* [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
+* [Use an SSL certificate in your application code](configure-ssl-use-cert-in-code.md)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

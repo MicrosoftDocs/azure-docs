@@ -25,9 +25,9 @@ The following table lists the options you have for adding certificates in App Se
 
 |Option|Description|
 |-|-|
-| Create a free App Service managed certificate | A private certificate that's easy to use if you just need to secure your `www` [custom domain in App Service](app-service-web-tutorial-custom-domain.md). |
+| Create a free App Service managed certificate (Preview) | A private certificate that's easy to use if you just need to secure your `www` [custom domain in App Service](app-service-web-tutorial-custom-domain.md). |
 | Purchase an App Service certificate | A private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. |
-| Import a Key Vault certificate | Useful if you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
+| Import a certificate from Key Vault | Useful if you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a public certificate | Public certificates are not used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
 
@@ -365,7 +365,7 @@ Now you can delete the App Service certificate. From the left navigation, select
 
 ## More resources
 
-* [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
-* [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
+* [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
+* [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
+* [Use an SSL certificate in your application code](configure-ssl-use-cert-in-code.md)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
