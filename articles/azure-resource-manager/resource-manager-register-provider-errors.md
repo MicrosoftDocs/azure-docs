@@ -1,6 +1,6 @@
 ---
 title: Azure resource provider registration errors | Microsoft Docs
-description: Describes how to resolve Azure resource provider registration errors.
+description: Describes how to resolve Azure resource provider registration errors when deploying resources with Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac

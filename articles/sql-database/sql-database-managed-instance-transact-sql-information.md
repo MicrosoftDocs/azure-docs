@@ -533,7 +533,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
 ### Error logs
 
