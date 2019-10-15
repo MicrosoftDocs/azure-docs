@@ -79,7 +79,7 @@ To add a redirect URI to your application:
     1. Locate the Suggested **Redirect URIs for public clients (mobile, desktop)** section.
     1. Select the appropriate Redirect URI(s) for your application using the checkboxes. You can also enter a custom redirect URI. If you're not sure what to use, check out the library documentation.
 
-There are certain restrictions that apply to redirect URIs. Learn more about [redirect URI restrictions and limitations](https://docs.microsoft.com/en-us/azure/active-directory/develop/reply-url).
+There are certain restrictions that apply to redirect URIs. Learn more about [redirect URI restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 > [!NOTE]
 > Try out the new **Authentication** settings experience where you can configure settings for your application based on the platform or device that you want to target.
 >
