@@ -3,17 +3,15 @@ title: Scenarios for Azure DNS Private Zones
 description: Overview of common scenarios for using Azure DNS Private Zones.
 services: dns
 author: vhorne
-
 ms.service: dns
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/05/2019
 ms.author: victorh
 ---
 
-# Azure DNS Private Zones scenarios
-Azure DNS Private Zones provide name resolution within a virtual network as well as between virtual networks. In this article, we look at some common scenarios that can be realized using this feature. 
+# Azure DNS Private zones scenarios
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Azure DNS Private Zones provide name resolution within a virtual network as well as between virtual networks. In this article, we look at some common scenarios that can be realized using this feature.
 
 ## Scenario: Name Resolution scoped to a single virtual network
 In this scenario, you have a virtual network in Azure that has a number of Azure resources in it, including virtual machines (VMs). You want to resolve the resources from within the virtual network via a specific domain name (DNS zone), and you need the name resolution to be private and not accessible from the internet. Furthermore, for the VMs within the VNET, you need Azure to automatically register them into the DNS zone. 

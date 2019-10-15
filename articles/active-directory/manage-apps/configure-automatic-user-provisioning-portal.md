@@ -84,7 +84,6 @@ Change the **Provisioning Status** to **Off**  to pause the provisioning service
 Select the **Clear current state and restart synchronization** checkbox and select **Save** to:
 
 * Stop the provisioning service
-* Dump the cached data about what accounts Azure AD is managing
 * Restart the services and run the initial cycle again
 
 This option lets admins start the provisioning deployment process over again.

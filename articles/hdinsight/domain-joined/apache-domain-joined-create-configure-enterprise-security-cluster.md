@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and configure Enterprise Security Package clusters in Azure HDInsight
 description: Learn how to create and configure Enterprise Security Package clusters in Azure HDInsight
 services: hdinsight
@@ -161,17 +161,17 @@ Now you'll configure your Azure AD tenant so that you can synchronize users and 
 
 ### Configure a sync with the on-premises domain controller
 
-1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**. 
+1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**. 
 
     ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**. 
+1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**. 
 
    ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, select **Next**.
    ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
-1. On the **Ready to configure** page, select **Install**.
+1. On the **Ready to configure** page, select **Install**.
 
    ![The "Ready to configure" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
@@ -245,8 +245,8 @@ Use the following steps to configure your Azure AD DS virtual network (**HDIFabr
 
 1. Locate the IP addresses of your custom DNS servers. 
     1. Select the **HDIFabrikam.com** Azure AD DS resource. 
-    1. Under **Manage**, select **Properties**. 
-    1. Find the IP addresses under **IP address on virtual network**.
+    1. Under **Manage**, select **Properties**. 
+    1. Find the IP addresses under **IP address on virtual network**.
 
     ![Locate custom DNS IP addresses for Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
@@ -255,7 +255,7 @@ Use the following steps to configure your Azure AD DS virtual network (**HDIFabr
     1. Under **Settings**, select **DNS Servers**. 
     1. Select **Custom**.
     1. In the text box, enter the first IP address (*10.0.0.4*).
-    1. Select **Save**.
+    1. Select **Save**.
     1. Repeat the steps to add the other IP address (*10.0.0.5*).
 
 In our scenario, we configured Azure AD DS to use IP addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on the Azure AD DS virtual network:
@@ -286,19 +286,19 @@ Verify that the certificate is installed in the computer's **Personal** store:
 
 1. Start Microsoft Management Console (MMC).
 1. Add the **Certificates** snap-in that manages certificates on the local computer.
-1. Expand **Certificates (Local Computer)** > **Personal** > **Certificates**. A new certificate should exist in the **Personal** store. This certificate is issued to the fully qualified host name.
+1. Expand **Certificates (Local Computer)** > **Personal** > **Certificates**. A new certificate should exist in the **Personal** store. This certificate is issued to the fully qualified host name.
 
     ![Verify local certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
-1. In pane on the right, right-click the certificate that you created. Point to **All Tasks**, and then select **Export**.
+1. In pane on the right, right-click the certificate that you created. Point to **All Tasks**, and then select **Export**.
 
-1. On the **Export Private Key** page, select **Yes, export the private key**. The computer where the key will be imported needs the private key to read the encrypted messages.
+1. On the **Export Private Key** page, select **Yes, export the private key**. The computer where the key will be imported needs the private key to read the encrypted messages.
 
     ![The Export Private Key page of the Certificate Export Wizard](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
-1. On the **Export File Format** page, leave the default settings, and then select **Next**. 
-1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
-1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
+1. On the **Export File Format** page, leave the default settings, and then select **Next**. 
+1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
+1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
 1. Enable LDAPS for an Azure AD DS managed domain.
     1. From the Azure portal, select the domain **HDIFabrikam.com**.
     1. Under **Manage**, select **Secure LDAP**.

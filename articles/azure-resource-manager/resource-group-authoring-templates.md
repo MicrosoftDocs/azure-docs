@@ -4,7 +4,7 @@ description: Describes the structure and properties of Azure Resource Manager te
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
 ---
 
@@ -61,7 +61,7 @@ The available properties for a parameter are:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
@@ -70,7 +70,7 @@ The available properties for a parameter are:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameter-name |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
+| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types](#data-types). |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
@@ -81,6 +81,18 @@ The available properties for a parameter are:
 
 For examples of how to use parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).
 
+### Data types
+
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](resource-manager-parameter-files.md). Resource types apply their own limits for integer properties.
+
+When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
+
+Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
+
+Secure strings and secure objects can't be read after resource deployment.
+
+For samples of formatting data types, see [Parameter type formats](resource-manager-parameter-files.md#parameter-type-formats).
+
 ## Variables
 
 In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
@@ -90,8 +102,8 @@ The following example shows the available options for defining a variable:
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -118,7 +130,7 @@ For examples of how to use variables, see [Variables in Azure Resource Manager t
 
 ## Functions
 
-Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
+Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expressions that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
 
 When defining a user function, there are some restrictions:
 
@@ -235,7 +247,7 @@ You define resources with the following structure:
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
-| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
+| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
 ## Outputs
@@ -338,7 +350,10 @@ For **outputs**, add a metadata object to the output value.
 
 You can't add a metadata object to user-defined functions.
 
-For inline comments, you can use `//` but this syntax doesn't work with all tools. You can't use Azure CLI to deploy the template with inline comments. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+
+> [!NOTE]
+> To deploy templates with comments by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
 ```json
 {
@@ -346,7 +361,7 @@ For inline comments, you can use `//` but this syntax doesn't work with all tool
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -359,6 +374,30 @@ In VS Code, you can set the language mode to JSON with comments. The inline comm
 1. Select **JSON with Comments**.
 
    ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
+
+## Multi-line strings
+
+You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+To deploy templates with multi-line strings by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
 ## Next steps
 

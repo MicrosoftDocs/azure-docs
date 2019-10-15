@@ -9,37 +9,35 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 6 - Classification: Predict flight delays using R
 
-This experiment uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes.
+This pipeline uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes. This problem can be approached as a classification problem, predicting two classes: delayed, or on time.
 
-This problem can be approached as a classification problem, predicting two classes -- delayed, or on time. To build a classifier, this model using a large number of examples from historic flight data.
+Here's the final pipeline graph for this sample:
 
-Here's the final experiment graph for this sample:
-
-[![Graph of the experiment](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 6 experiment:
+4. Select the **Open** button for the Sample 6 pipeline:
 
-    ![Open the experiment](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Open the pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## Get the data
 
-This experiment uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October  2013. Before uploading the data to the visual interface, it has been pre-processed as follows:
+This sample uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October 2013. The dataset has been pre-processed as follows:
 
 * Filtered to include the 70 busiest airports in the continental United States.
-* For canceled flights, relabeled as delayed by more than 15 mins.
+* Relabeled canceled flights as delayed by more than 15 mins.
 * Filtered out diverted flights.
 * Selected 14 columns.
 
-To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period of April-October 2013. Before uploading to Azure ML visual interface, it has been pre-processed as  follows:
+To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly, land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period as the flights dataset. It has been pre-processed as follows:
 
 * Weather station IDs were mapped to corresponding airport IDs.
 * Weather stations not associated with the 70 busiest airports were removed.
@@ -102,10 +100,10 @@ To build a model, you can use all the features available, or select a subset of 
 Create a model using the **Two-Class Logistic Regression** module and train it on the training dataset. 
 
 The result of the **Train Model** module is a trained classification model that can be used to score new samples to make predictions. Use the test set to generate scores from the trained models. Then use the **Evaluate Model** module to analyze and compare the quality of the models.
+pipeline
+After you run the pipeline, you can view the output from the **Score Model** module by clicking the output port and selecting **Visualize**. The output includes the scored labels and the probabilities for the labels.
 
-After you run the experiment, you can view the output from the **Score Model** module by clicking the output port and selecting **Visualize**. The output includes the scored labels and the probabilities for the labels.
-
-Finally, to test the quality of the results, add the **Evaluate Model** module to the experiment canvas, and connect the left input port to the output of the Score Model module. Run the experiment and view the output of the **Evaluate Model** module, by clicking the output port and selecting **Visualize**.
+Finally, to test the quality of the results, add the **Evaluate Model** module to the pipeline canvas, and connect the left input port to the output of the Score Model module. Run the pipeline and view the output of the **Evaluate Model** module, by clicking the output port and selecting **Visualize**.
 
 ## Evaluate
 The logistic regression model has AUC of 0.631 on the test set.
@@ -121,3 +119,4 @@ Explore the other samples available for the visual interface:
 - [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
+- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)

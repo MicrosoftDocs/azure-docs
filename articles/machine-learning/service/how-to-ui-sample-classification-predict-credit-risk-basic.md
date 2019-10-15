@@ -9,42 +9,41 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
 
-Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
+Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample pipeline a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the final experiment graph for this sample:
+Here's the final pipeline graph for this sample:
 
-![Graph of the experiment](media/how-to-ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
+![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 3 experiment:
+4. Select the **Open** button for the Sample 3 pipeline:
 
-    ![Open the experiment](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Open the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## Related sample
 
-[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced experiment that solves the same problem as this experiment. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
+[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md) provides an advanced pipeline that solves the same problem as this sample. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
+
 
 ## Data
 
-The sample uses the German Credit Card dataset from the UC Irvine repository.
-The dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+The sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
-## Experiment summary
+## Pipeline summary
 
-Follow these steps to create the experiment:
+Follow these steps to create the pipeline:
 
-1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
+1. Drag the German Credit Card UCI Data dataset module into the pipeline canvas.
 1. Add an **Edit Metadata** module so we can add meaningful names for each column.
 1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
@@ -71,3 +70,4 @@ Explore the other samples available for the visual interface:
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)

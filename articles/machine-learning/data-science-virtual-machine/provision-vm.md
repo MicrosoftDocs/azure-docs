@@ -19,6 +19,7 @@ Get up and running with a Windows Data Science Virtual Machine.
 ## Prerequisite
 
 To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 ## Create your DSVM
 
@@ -74,5 +75,4 @@ You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM
 * Read the article [Ten things you can do on the Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](https://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and on the desktop of the virtual machine.
-* Consult the appropriate [reference documentation](./reference-windows-vm.md) for this virtual machine.
 

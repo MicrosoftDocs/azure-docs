@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-auth-aks.md",
+      "redirect_url": "/azure/aks/cluster-container-registry-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
@@ -57,7 +62,12 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview#included",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-windows-vm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
       "redirect_document_id": false
     },
     {
@@ -741,20 +751,50 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-security.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys#securing-the-endpoint",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": false
-    },    
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/create-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/quickstarts/csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-csharp-sdk",
@@ -784,17 +824,17 @@
       "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/troubleshooting-runtime.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/upgrade-qnamaker-service.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#upgrade-qna-maker-sku",
       "redirect_document_id": false
-    },         
+    },
     {
       "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-vr-app-launcher.md",
       "redirect_url": "/azure/cognitive-services/Labs/Conversation-Learner/overview",
@@ -1224,11 +1264,6 @@
       "source_path": "articles/cognitive-services/bing-viusal-search/bing-spell-check-stats.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/management-groups/overview.md",
-      "redirect_url": "/azure/governance/management-groups/index",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
@@ -1888,6 +1923,16 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-traffic-analytics.md",
+      "redirect_url": "/azure/search/search-monitor-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/knowledge-store-howto.md",
+      "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false
     },
     {
@@ -3962,7 +4007,12 @@
     },
     {
       "source_path": "articles/resource-manager-api-authentication.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-api-authentication",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-api-authentication.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": false
     },
     {
@@ -5221,11 +5271,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-functions/durable/index.md",
-      "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-functions/durable-functions-bindings.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-bindings",
       "redirect_document_id": false
@@ -5406,10 +5451,35 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
@@ -11639,7 +11709,7 @@
       "source_path": "articles/event-hubs/event-hubs-role-based-access-control.md",
       "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
@@ -11834,12 +11904,12 @@
       "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
       "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
       "redirect_document_id": false
-	},
-	{
-		"source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
-		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
-		"redirect_document_id": false
-	},
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
@@ -14064,7 +14134,7 @@
       "source_path": "articles/service-bus-messaging/service-bus-role-based-access-control.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-managed-service-identity",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/service-bus-messaging/service-bus-amqp-apache.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
@@ -14371,6 +14441,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
@@ -14579,6 +14659,31 @@
       "source_path": "articles/cognitive-services/Bing-Custom-Search/supported-countries-markets.md",
       "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/language-support",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/paging-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/page-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/paging-news.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/paging-videos.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/paging-images.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-supported-languages.md",
@@ -17042,6 +17147,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md",
+      "redirect_url": "prepare-for-migration",
       "redirect_document_id": false
     },
     {
@@ -20614,7 +20724,7 @@
       "redirect_url": "/azure/virtual-machines/linux/quick-create-cli-nodejs",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/virtual-machines/linux/quick-create-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
       "redirect_document_id": false
@@ -20866,7 +20976,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/linux/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
@@ -22296,7 +22406,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/windows/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
@@ -22821,7 +22941,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/howto-power-bi-content-pack",
+      "redirect_url": "azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
@@ -22883,6 +23003,21 @@
       "source_path": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/howto-power-bi-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
@@ -24452,6 +24587,11 @@
     {
       "source_path": "articles/storage/storage-performance-checklist.md",
       "redirect_url": "/azure/storage/common/storage-performance-checklist",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-performance-checklist.md",
+      "redirect_url": "/azure/storage/blobs/storage-performance-checklist",
       "redirect_document_id": true
     },
     {
@@ -26244,7 +26384,7 @@
       "redirect_url": "/azure/security-center/security-center-alerts-data-services",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/security-center/security-center-enable-auditing-on-sql-databases.md",
       "redirect_url": "/azure/security-center/security-center-sql-service-recommendations",
       "redirect_document_id": false
@@ -26263,37 +26403,37 @@
       "source_path": "articles/security-center/security-center-incident-response.md",
       "redirect_url": "/azure/security-center/tutorial-security-incident",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/security-center/security-center-detection-capabilities.md",
       "redirect_url": "/azure/security-center/security-center-alerts-overview",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-enable-network-security-groups.md",
       "redirect_url": "/azure/security-center/security-center-network-recommendations",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-events-dashboard.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#events-dashboard---the-new-experience",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-search.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_search",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-customize-os-security-config.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityconfigurations",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/security-center/security-center-custom-alert.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
@@ -26766,8 +26906,13 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel-linux.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-provision-vnet.md",
@@ -26884,16 +27029,16 @@
       "redirect_url": "/azure/hdinsight/hadoop/submit-apache-hadoop-jobs-programmatically",
       "redirect_document_id": true
     },
-	{
-		"source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
-		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
-		"redirect_document_id": false
-	},
-	{
-		"source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
-		"redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
-		"redirect_document_id": false
-	},
+    {
+      "source_path": "articles/hdinsight/hdinsight-troubleshoot-hbase.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
       "redirect_url": "/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox",
@@ -27163,6 +27308,16 @@
       "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
       "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorial-explore-js-client-lib.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorial-create-tsi-sample-spa.md",
+      "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security-center/security-center-powerbi.md",
@@ -28006,7 +28161,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
       "redirect_document_id": false
     },
     {
@@ -28478,7 +28633,7 @@
       "source_path": "articles/api-management/api-management-security-attributes.md",
       "redirect_url": "/azure/api-management/api-management-security-controls",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service/app-service-security-attributes.md",
       "redirect_url": "/azure/app-service/app-service-security-controls",
@@ -28878,6 +29033,11 @@
       "source_path": "articles/mysql/concepts-compute-unit-and-storage.md",
       "redirect_url": "/azure/mysql/concepts-pricing-tiers",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/postgresql/concepts-service-tiers.md",
@@ -31601,7 +31761,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/CreateKB.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/create-knowledge-base",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
     },
     {
@@ -33162,11 +33322,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-language-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
-      "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
     {
@@ -35789,6 +35944,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-connect-powerbi-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-connect-powerbi",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
       "redirect_document_id": false
@@ -35826,172 +35986,172 @@
     {
       "source_path": "articles/monitoring/monitoring-solution-agenthealth.md",
       "redirect_url": "/azure/azure-monitor/insights/solution-agenthealth",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solution-office-365.md",
       "redirect_url": "/azure/azure-monitor/insights/solution-office-365",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-best-practices.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-best-practices",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-creating.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-creating",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-inventory.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-inventory",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-resources-automation.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-resources-automation",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-resources-searches-alerts.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-resources-searches-alerts",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-resources-views.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-resources-views",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-solution-file.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions-solution-file",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/key-vault/tutorial-web-application-keyvault.md",
       "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-solution-targeting.md",
       "redirect_url": "/azure/azure-monitor/insights/solution-targeting",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-insights-analyze.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-analyze",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-insights-onboard.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-onboard",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-insights-optout.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-optout",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-insights-overview.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-insights-troubleshoot.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-troubleshoot",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-overview.md",
       "redirect_url": "/azure/azure-monitor/insights/container-overview",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-container-agent-upgrade.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-faq.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-faq",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-health.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-health",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-known-issues.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-known-issues",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-log-search.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-log-search",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-maps.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-maps",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/insights/vminsights-onboard.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-overview.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-overview",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-performance.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-performance",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-vminsights-optout.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-optout",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-data-sources.md",
       "redirect_url": "/azure/azure-monitor/platform/data-sources",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-data-collection.md",
       "redirect_url": "/azure/azure-monitor/platform/data-collection",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-overview-azure-agents.md",
       "redirect_url": "/azure/azure-monitor/platform/agents-overview",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-runbook-datacollect.md",
       "redirect_url": "/azure/azure-monitor/platform/runbook-datacollect",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-service-map.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring/monitoring-service-map-scom.md",
       "redirect_url": "/azure/azure-monitor/insights/service-map-scom",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/video-indexer/connect-to-azure.md",
@@ -36802,17 +36962,17 @@
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
       "redirect_document_id": true
-	},
-	{
-		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
-		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-		"redirect_document_id": false
-	  },
-	  {
-		"source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
-		"redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
-		"redirect_document_id": false
-	  },
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot0.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/azure-diagnostics-schema-1dot2.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
@@ -37919,6 +38079,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/runbook-datacollect.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38416,7 +38581,7 @@
     {
       "source_path": "articles/aks/autoscaler.md",
       "redirect_url": "/azure/aks/cluster-autoscaler",
-      "redirect_document_id": "false"
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
@@ -39288,16 +39453,16 @@
       "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
-	{
-	  "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
-	  "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
-	  "redirect_document_id": false
-	},
-	{
-		"source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md",
-		"redirect_url": "/azure/cognitive-services/face/quickstarts/python-sdk#display-and-frame-faces",
-		"redirect_document_id": false
-	  },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
+      "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/quickstarts/python-sdk#display-and-frame-faces",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
@@ -39313,16 +39478,16 @@
       "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Tutorials/java-tutorial.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial",
       "redirect_document_id": false
     },
-	{
-		"source_path": "articles/cognitive-services/Computer-vision/Tutorials/javascript-tutorial.md",
-		"redirect_url": "https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial",
-		"redirect_document_id": false
-	  },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/javascript-tutorial.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/media-services/previous/media-services-hyperlapse-content.md",
       "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
@@ -41643,19 +41808,16 @@
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
       "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
       "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
@@ -41671,11 +41833,11 @@
       "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
       "redirect_document_id": false
     },
-		{
-			"source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
-			"redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
-			"redirect_document_id": true
-		},
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
@@ -41970,12 +42132,12 @@
       "source_path": "articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
       "redirect_url": "/azure/media-services/previous/media-services-managing-multiple-storage-accounts",
       "redirect_document_id": false
-	},
-	{
-		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
-		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
-		"redirect_document_id": false
-	  },
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/service-map-configure.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/media-services/previous/media-services-upload-files-with-aspera.md",
       "redirect_url": "/azure/media-services",
@@ -42021,7 +42183,7 @@
       "redirect_url": "/azure/sql-database/sql-database-paas-index",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/azure-monitor/app/sample-mscrm.md",
       "redirect_url": "/azure/azure-monitor/app/javascript",
       "redirect_document_id": false
@@ -42032,14 +42194,189 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/windows/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mysql/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-architecture-overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/iot/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/use-osba-pcf-app.md",
+      "redirect_url": "/azure/cloudfoundry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/azure-services-in-fedramp-auditscope.md",
+      "redirect_url": "/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/compliance-tic.md",
+      "redirect_url": "/azure/azure-government/compliance/compliance-tic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/secure-azure-computing-architecture.md",
+      "redirect_url": "/azure/azure-government/compliance/secure-azure-computing-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/network-security.md",
+      "redirect_url": "/azure/security/fundamentals/network-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/trust-center.md",
+      "redirect_url": "https://www.microsoft.com/trust-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/get-started-overview.md",
+      "redirect_url": "/azure/security/fundamentals/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/virtual-academy.md",
+      "redirect_url": "https://docs.microsoft.com/learn/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/application-architecture.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/iot-best-practices.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/response-center.md",
+      "redirect_url": "https://www.microsoft.com/msrc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/health-care-solution.md",
+      "redirect_url": "https://aka.ms/azureindustrysecurity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/channel-nine.md",
+      "redirect_url": "https://channel9.msdn.com/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-quick-reference-v1.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-quick-reference-v1",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-preparing-hard-drives-import.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-setting-properties-metadata-import.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-setting-properties-metadata-import",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-quick-reference.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-quick-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-creating-an-import-job.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-creating-an-import-job",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-creating-an-export-job.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-creating-an-export-job",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-retrieving-state-info-for-a-job.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-retrieving-state-info-for-a-job",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-enumerating-jobs.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-enumerating-jobs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-backing-up-drive-manifests.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-backing-up-drive-manifests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-diagnostics-and-error-recovery.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-diagnostics-and-error-recovery",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-file-format-manifest.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-manifest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-file-format-metadata-and-properties.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-file-format-log.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-file-format-log",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
+      "redirect_document_id": true
     }
   ]
 }

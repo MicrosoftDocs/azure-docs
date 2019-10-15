@@ -35,7 +35,7 @@ Typical metadata changes might include:
   
 ## Configure Edit Metadata
   
-1. In Azure Machine Learning, add the Edit Metadata module to your experiment and connect the dataset you want to update. You can find the dataset under **Data Transformation** in the **Manipulate** category.
+1. In Azure Machine Learning, add the Edit Metadata module to your pipeline and connect the dataset you want to update. You can find the dataset under **Data Transformation** in the **Manipulate** category.
   
 1. Select **Launch the column selector** and choose the column or set of columns to work with. You can choose columns individually by name or index, or you can choose a group of columns by type.  
   
@@ -89,7 +89,7 @@ Typical metadata changes might include:
   
     + All selected columns must be renamed. You can't omit or skip columns.  
   
-1. Run the experiment.  
+1. Run the pipeline.  
 
 ## Next steps
 

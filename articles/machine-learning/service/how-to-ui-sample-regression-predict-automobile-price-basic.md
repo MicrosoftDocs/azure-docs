@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 1 - Regression: Predict price
 
 Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
 
-This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+This pipeline trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
 The fundamental steps of a training machine learning model are:
 
@@ -25,21 +25,21 @@ The fundamental steps of a training machine learning model are:
 1. Train the model
 1. Evaluate the model
 
-Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
+Here's the final, completed graph of the pipeline. This article provides the rationale for all the modules so you can make similar decisions on your own.
 
-![Graph of the experiment](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Graph of the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 1 experiment:
+4. Select the **Open** button for the Sample 1 pipeline:
 
-    ![Open the experiment](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Open the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Get the data
 
-This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
+This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this sample is to predict the price of the car.
 
 ## Pre-process the data
 
@@ -53,7 +53,7 @@ Use the **Select Columns in Dataset** module to exclude normalized-losses that h
 
 Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
-Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.
+Since the goal of this sample is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this pipeline.
 
 Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
@@ -84,3 +84,4 @@ Explore the other samples available for the visual interface:
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)

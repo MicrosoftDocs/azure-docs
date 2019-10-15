@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: rkarlin
 
 ---
@@ -58,7 +58,6 @@ The following table displays roles and allowed actions in Azure Sentinel. An X i
 |--- |---|---|---|---|
 | Azure Sentinel reader | -- | -- | -- | X |
 | Azure Sentinel responder|--|--| X | X |
-| Azure Sentinel incident manager | -- | X | X | X |
 | Azure Sentinel contributor | -- | X | X | X |
 | Azure Sentinel contributor + Logic App contributor | X | X | X | X |
 

@@ -336,15 +336,12 @@ func initWebViewParams() {
 Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 
 ```swift
-    // Inside AppDelegate...
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+// Inside AppDelegate...
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-            return false
-        }
-        
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
-    }
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+}
+
 ```
 
 **If you are using Xcode 11**, you should place MSAL callback into the `SceneDelegate.swift` instead.

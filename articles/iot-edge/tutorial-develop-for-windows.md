@@ -129,7 +129,7 @@ The Azure IoT Edge Tools extension provides project templates for all supported 
    | ----- | ----- |
    | Visual Studio Template | Select **C# Module**. | 
    | Module Name | Accept the default **IotEdgeModule1**. | 
-   | Repository Url | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
+   | Repository Url | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the **Login server** value from the **Overview** page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
 
       ![Configure your project for target device, module type, and container registry](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -138,33 +138,38 @@ The Azure IoT Edge Tools extension provides project templates for all supported 
 Once your new project loads in the Visual Studio window, take a moment to familiarize yourself with the files that it created: 
 
 * An IoT Edge project called **CSharpTutorialApp**.
-    * The **Modules** folder contains pointers to the modules included in the project. In this case, it should be just IotEdgeModule1. 
-    * The **deployment.template.json** file is a template to help you create a deployment manifest. A *deployment manifest* is a file that defines exactly which modules you want deployed on a device, how they should be configured, and how they can communicate with each other and the cloud. 
+  * The **Modules** folder contains pointers to the modules included in the project. In this case, it should be just IotEdgeModule1. 
+  * The hidden **.env** file holds the credentials to your container registry. These credentials are shared with your IoT Edge device so that it has access to pull the container images.
+  * The **deployment.template.json** file is a template to help you create a deployment manifest. A *deployment manifest* is a file that defines exactly which modules you want deployed on a device, how they should be configured, and how they can communicate with each other and the cloud.
+    > [!TIP]
+    > In the registry credentials section, the address is autofilled from the information you provided when you created the solution. However, the username and password reference variables stored in the .env file. This is for security, as the .env file is git ignored, but the deployment template is not.
 * An IoT Edge module project called **IotEdgeModule1**.
-    * The **program.cs** file contains the default C# module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub. 
-    * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
+  * The **program.cs** file contains the default C# module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub. 
+  * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
 
 ### Provide your registry credentials to the IoT Edge agent
 
-The IoT Edge runtime needs your registry credentials to pull your container images onto the IoT Edge device. Add these credentials to the deployment template. 
+The IoT Edge runtime needs your registry credentials to pull your container images onto the IoT Edge device. The IoT Edge extension tries to pull your container registry information from Azure and populate it in the deployment template.
 
-1. Open the **deployment.template.json** file.
+1. Open the **deployment.template.json** file in your module solution.
 
-2. Find the **registryCredentials** property in the $edgeAgent desired properties. 
-
-3. Update the property with your credentials, following this format: 
+1. Find the **registryCredentials** property in the $edgeAgent desired properties and ensure it contains the correct information.
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. Save the deployment.template.json file. 
+1. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.)
+
+1. Add the **Username** and **Password** values that you copied from your Azure container registry.
+
+1. Save your changes to the .env file.
 
 ### Review the sample code
 

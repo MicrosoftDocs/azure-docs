@@ -91,11 +91,11 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the client ID that you saved when you registered your app in the portal earlier in the quickstart:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here`with the ***Bundle Id*** that you entered in the portal.
+> 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -117,11 +117,11 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here`with the ***Bundle Id*** that you used in the portal.
+> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -193,12 +193,9 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-             return false
-         }
-         
-         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
-     }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
 
  ```
 
@@ -266,7 +263,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
-> | `account` | The account a token is being requested for. This quickstart is a single account application, if you want to build a multi-account app you'll need to define logic to identify which account to use for token requests `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## Next steps
 

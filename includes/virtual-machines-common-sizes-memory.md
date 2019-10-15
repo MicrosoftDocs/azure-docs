@@ -195,6 +195,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+M-series sizes are based on the Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz	
+
 Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -234,6 +236,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+DSv2-series sizes are based on the Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000 / 64 (72) |6400 / 96 |2 / 1500 |
@@ -256,6 +260,8 @@ ACU: 210 - 250
 Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
+
+DSv2-series sizes are based on the Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
 
 | Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

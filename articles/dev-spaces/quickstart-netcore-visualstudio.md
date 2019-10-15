@@ -21,6 +21,11 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using Visual Studio.
 - Debug code running in your cluster using Visual Studio.
 
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio Code](quickstart-netcore.md)
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).

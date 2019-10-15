@@ -1,7 +1,7 @@
 ---
 title: "Visual interface example #4: Classification to predict  credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+description: This article shows you how to build a complex machine learning pipeline using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,36 +9,36 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
 
-This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
+This article shows you how to build a complex machine learning pipeline using the visual interface. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
 If you're just getting started with machine learning, you can take a look at the [basic classifier sample](how-to-ui-sample-classification-predict-credit-risk-basic.md) first.
 
-Here's the completed graph for this experiment:
+Here's the completed graph for this pipeline:
 
-[![Graph of the experiment](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 4 experiment:
+4. Select the **Open** button for the Sample 4 pipeline:
 
-    ![Open the experiment](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Open the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## Data
 
-This sample uses the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
-## Experiment summary
+## Pipeline summary
 
-In this experiment, you compare two different approaches for generating models to solve this problem:
+In this pipeline, you compare two different approaches for generating models to solve this problem:
 
 - Training with the original dataset.
 - Training with a replicated dataset.
@@ -47,9 +47,9 @@ With both approaches, you evaluate the models by using the test dataset with rep
 
 The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
 
-Here's the graph of the experiment:
+Here's the graph of the pipeline:
 
-[![Graph of the experiment](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Data processing
 
@@ -103,11 +103,11 @@ This sample uses the standard data science workflow to create, train, and test t
 1. Use **Train Model** to apply the algorithm to the data and create the actual model.
 1. Use **Score Model** to produce scores by using the test examples.
 
-The following diagram shows a portion of this experiment, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
+The following diagram shows a portion of this pipeline, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![Experiment graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Pipeline graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-In the evaluation stage of the experiment, you compute the accuracy of each of the four models. For this experiment, use **Evaluate Model** to compare examples that have the same misclassification cost.
+In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
 The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So you can use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
 
@@ -137,12 +137,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## Results
 
-To view the results of the experiment, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
+To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
 ![Visualize output](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 The first column lists the machine learning algorithm used to generate the model.
+
 The second column indicates the type of the training set.
+
 The third column contains the cost-sensitive accuracy value.
 
 From these results, you can see that the best accuracy is provided by the model that was created with **Two-Class Support Vector Machine** and trained on the replicated training dataset.
@@ -160,3 +162,4 @@ Explore the other samples available for the visual interface:
 - [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)

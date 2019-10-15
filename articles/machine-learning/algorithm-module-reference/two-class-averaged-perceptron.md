@@ -27,7 +27,7 @@ The simpler perceptron models are suited to learning linearly separable patterns
 
 ## How to configure Two-Class Averaged Perceptron
 
-1.  Add the **Two-Class Averaged Perceptron** module to your experiment.  
+1.  Add the **Two-Class Averaged Perceptron** module to your pipeline.  
 
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -41,7 +41,7 @@ The simpler perceptron models are suited to learning linearly separable patterns
   
      Stopping early often provides better generalization. Increasing the number of iterations improves fitting, at the risk of overfitting.
   
-5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.  
+5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the pipeline across runs.  
   
 1.  Connect a training dataset, and one of the training modules:
   
