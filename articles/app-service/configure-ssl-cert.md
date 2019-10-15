@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how create, upload, or import a private certificate or a public certificate into App Service. 
 
-Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-use-cert-in-code).
+Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-use-cert-in-code.md).
 
 The following table lists the options you have for adding certificates in App Service:
 
@@ -29,7 +29,7 @@ The following table lists the options you have for adding certificates in App Se
 | Purchase an App Service certificate | A private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. |
 | Import a Key Vault certificate | Useful if you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
-| Upload a public certificate | Public certificates are not used to secure custom domains, but you can load them into your code if you need them to to access remote resources. |
+| Upload a public certificate | Public certificates are not used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ To follow this how-to guide:
 
 ## Private certificate requirements
 
-The [free App Service managed certificate](#create-free-certificate) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
+The [free App Service managed certificate](#create-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
 * Contains private key at least 2048 bits long
@@ -58,7 +58,7 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 ## Create free certificate (Preview)
 
-The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully-functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
+The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
 - Supports only the [`www` DNS name that's mapped by a CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record) (for example, `www.contoso.com`).
 - Supports only the SNI binding.
@@ -79,18 +79,18 @@ When the operation completes, you see the certificate in the **Private Key Certi
 ![Create free certificate finished](./media/configure-ssl-cert/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
-> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding manually](configure-ssl-bindings.md#create-binding-manually).
+> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 >
 
 ## Import an App Service Certificate
 
-If you purchase an App Service Certificate from Azure, Azure manages the following:
+If you purchase an App Service Certificate from Azure, Azure manages the following tasks:
 
 - Takes care of the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
 - Maintains the certificate in [Azure Key Vault](../key-vault/key-vault-overview.md).
 - Manages certificate renewal (see [Renew certificate](#renew-certificate)).
-- If the certificate is imported into an App Service app, keeps the certificate synchronized automatically with the one in Key Vault.
+- Synchronize the certificate automatically with the imported copies in App Service apps.
 
 To purchase an App Service certificate, go to [Start certificate order](#start-certificate-order).
 
@@ -163,14 +163,14 @@ From the left navigation of your app, select **TLS/SSL settings** > **Private Ke
 
 ![Import App Service certificate in App Service](./media/configure-ssl-cert/import-app-service-cert.png)
 
-Select the certificate that you just purchased and click **OK**.
+Select the certificate that you just purchased and select **OK**.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
 ![Import App Service certificate finished](./media/configure-ssl-cert/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
-> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding manually](configure-ssl-bindings.md#create-binding-manually).
+> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 >
 
 ## Import a certificate from Key Vault
@@ -196,7 +196,7 @@ When the operation completes, you see the certificate in the **Private Key Certi
 ![Import Key Vault certificate finished](./media/configure-ssl-cert/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
-> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding manually](configure-ssl-bindings.md#create-binding-manually).
+> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 >
 
 ## Upload a private certificate
@@ -260,7 +260,7 @@ When the operation completes, you see the certificate in the **Private Key Certi
 ![Upload certificate finished](./media/configure-ssl-cert/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
-> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding manually](configure-ssl-bindings.md#create-binding-manually).
+> To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 >
 
 ## Upload a public certificate
@@ -277,7 +277,7 @@ Click **Upload**.
 
 ![Upload public certificate in App Service](./media/configure-ssl-cert/upload-public-cert.png)
 
-Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-use-cert-in-code.md#make-the-certificate-accessible).
+Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-use-cert-in-code.md#load-the-certificate).
 
 ## Manage App Service certificates
 
@@ -305,7 +305,7 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 
 ### Renew certificate
 
-To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a 1 year validity period.
+To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
@@ -343,7 +343,7 @@ The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contai
 
 ### Delete certificate 
 
-Deletion of an App Service certificate is final and irreversible. Any bindings in App Service with this certificate becomes invalid. Because of this, Azure puts a lock on the certificate to prevent accidental deletion. To delete an App Service certificate, you must first remove the delete lock on the certificate.
+Deletion of an App Service certificate is final and irreversible. Any binding in App Service with this certificate becomes invalid. To prevent accidental deletion, Azure puts a lock on the certificate. To delete an App Service certificate, you must first remove the delete lock on the certificate.
 
 Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Locks** in the left navigation.
 

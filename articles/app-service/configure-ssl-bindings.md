@@ -15,13 +15,13 @@ ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
-# Secure a custom DNS name with a SSL binding in Azure App Service
+# Secure a custom DNS name with an SSL binding in Azure App Service
 
 This article shows you how to secure your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating a certificate binding. When you're finished, you can access your App Service app at the `https://` endpoint for your custom DNS name (for example, `https://www.contoso.com`). 
 
 ![Web app with custom SSL certificate](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-To secure a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
+Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
 
 - [Add a private certificate to App Service](configure-ssl-add-cert.md) that satisfies all the [requirements for SSL bindings](configure-ssl-add-cert.md#private-certificate-requirements).
 -  Create an SSL binding to the corresponding custom domain. This second step is covered by this tutorial.
@@ -79,9 +79,7 @@ If your app has no certificate for the selected custom domain, then you have two
 
 ### Create binding
 
-You must bind an uploaded or imported certificate to a custom domain in your app. 
-
-Use the following table to help you configure the binding in the **TLS/SSL Binding** dialog, then click **Add Binding**.
+Use the following table to help you configure the SSL binding in the **TLS/SSL Binding** dialog, then click **Add Binding**.
 
 | Setting | Description |
 |-|-|
@@ -91,25 +89,25 @@ Use the following table to help you configure the binding in the **TLS/SSL Bindi
 
 Once the operation is complete, the custom domain's SSL state is changed to **Secure**.
 
-![Domain secured](./media/configure-ssl-bindings/secure-domain-finished.png)
+![SSL binding successful](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
 > A **Secure** state in the **Custom domains** means that it is secured with a certificate, but App Service doesn't check if the certificate is self-signed or expired, for example, which can also cause browsers to show an error or warning.
 
 ## Remap A record for IP SSL
 
-If you don't use IP-based SSL in your app, skip to [Test HTTPS for your custom domain](#test-https).
+If you don't use IP SSL in your app, skip to [Test HTTPS for your custom domain](#test-https).
 
-By default, your app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your app.
+By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app.
 
-If you have mapped an A record to your app, update your domain registry with this new, dedicated IP address.
+If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
 Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
 
 ## Test HTTPS
 
-All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
-to `https://<your.custom.domain>` to see that it serves up your app.
+In various browsers, browse
+to `https://<your.custom.domain>` to verify that it serves up your app.
 
 ![Portal navigation to Azure app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -120,7 +118,7 @@ to `https://<your.custom.domain>` to see that it serves up your app.
 
 ## Prevent IP changes
 
-Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+Your inbound IP address can change when you delete a binding, even if that binding is IP SSL. This is especially important when you renew a certificate that's already in an IP SSL binding. To avoid a change in your app's IP address, follow these steps in order:
 
 1. Upload the new certificate.
 2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.

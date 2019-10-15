@@ -31,7 +31,7 @@ When you let App Service manage your SSL certificates, you can maintain the cert
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Add a certificate to your app](configure-ssl-add-cert.md)
+- [Add a certificate to your app](configure-ssl-cert.md)
 
 ## Find the thumbprint
 
