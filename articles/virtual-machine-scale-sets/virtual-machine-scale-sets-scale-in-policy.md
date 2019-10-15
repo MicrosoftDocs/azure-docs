@@ -1,63 +1,49 @@
 ---
-title: Use custom scale-in policies with Azure virtual machine scale sets | Microsoft Docs
-description: Learn how to use custom scale-in policies with Azure virtual machine scale sets that use Autoscale configuration to manage instance count
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: avverma
-manager: vashan
-editor:
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: avverma
 
 ---
 
-# Use custom scale-in policies with Azure virtual machine scale sets (Preview)
+# Preview: Use custom scale-in policies with Azure virtual machine scale sets
 
 A virtual machine scale set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new Virtual Machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the VMSS workload evolves. 
 
 The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in. The Preview introduces three scale-in configurations: 
 
-1. NewestVM
-2. OldestVM
-3. Default
+1. Default
+2. NewestVM
+3. OldestVM
 
 ***This feature preview is under Microsoft NDA and no SLA is provided for the trial. Please do not use this preview feature on any production and/or critical environments.***
 
-## Default scale-in policy
+### Default scale-in policy
 
-By default, virtual machine scale set applies a ‘Default’ scale-in policy to determine which instance(s) will be scaled in. Under the ‘Default’ policy, VMs are selected for scale-in in the following order:
+By default, virtual machine scale set applies this policy to determine which instance(s) will be scaled in. With the *Default* policy, VMs are selected for scale-in in the following order:
 
-1. Balance virtual machines across Availability Zones (if the scale set is deployed in zonal configuration)
-2. Balance virtual machines across Fault Domains (best effort)
+1. Balance virtual machines across availability zones (if the scale set is deployed in zonal configuration)
+2. Balance virtual machines across fault domains (best effort)
 3. Delete virtual machine with the highest instance ID
 
 Users do not need to specify a scale-in policy if they just want the default ordering to be followed.
 
-Note that balancing across AZs or FDs does not move instances across AZs or FDs. The balancing is achieved through deletion of virtual machines from the unbalanced AZs/FDs till all AZs/FDs have an equal distribution of VMs.
+Note that balancing across availability zones or fault domains does not move instances across availability zones or fault domains. The balancing is achieved through deletion of virtual machines from the unbalanced availability zones or fault domains till the distribution of virtual machines becomes balanced.
 
-## Other scale-in policies
+### NewestVM scale-in policy
 
-In addition to the ‘Default’ policy above, users can better control the order of scaling in through 2 additional policies:
+This policy will delete the newest created virtual machine in the scale set, after balancing VMs across availability zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
-1. NewestVM – This policy will delete the newest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
+### NewestVM scale-in policy
 
-2. OldestVM – This policy will delete the oldest created VM in the scale set, after balancing VMs across Availability Zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
+This policy will delete the oldest created virtual machine in the scale set, after balancing VMs across availability zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
 ## Enabling scale-in policy
 
 A scale-in policy is defined in the virtual machine scale set model. As noted in the sections above, a scale-in policy definition is needed when using the ‘NewestVM’ and ‘OldestVM’ policies. Virtual machine scale set will automatically use the ‘Default’ scale-in policy if there is no scale-in policy definition found on the scale set model. 
 
-A scale-in policy can be defined on the VMSS model in the following ways:
+A scale-in policy can be defined on the virtual machine scale set model in the following ways:
 
-### Through API
+### Using API
 
 Execute a PUT on the virtual machine scale set using VMSS API 2019-03-01:
 
@@ -75,7 +61,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 } 
 ```
 
-### Through Template
+### Using Template
 
 In your template, under “properties”, add the following:
 
@@ -97,7 +83,7 @@ The same process applies when using ‘NewestVM’ in the above scale-in policy.
 
 Modifying the scale-in policy follows the same process as applying the scale-in policy. For example, if in the above example, you want to change the policy from ‘OldestVM’ to ‘NewestVM’, you can do so by:
 
-### Through API
+### Using API
 
 Execute a PUT on the virtual machine scale set using VMSS API 2019-03-01:
 
@@ -115,7 +101,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 }
 ```
 
-### Through Template
+### Using Template
 
 In your template, under “properties”, modify the template as below and redeploy: 
 
@@ -142,7 +128,7 @@ A protected virtual machine can be manually deleted by the user at any time, reg
 
 The below examples demonstrate how a virtual machine scale set will select VMs to be deleted when a scale-in event is triggered. Virtual machines with the highest instance IDs are assumed to be the newest VMs in the scale set and the VMs with the smallest instance IDs are assumed to be the oldest VMs in the scale set. 
 
-### OldestVM
+### OldestVM scale-in policy
 
 | Event         | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
 |---------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -156,7 +142,7 @@ The below examples demonstrate how a virtual machine scale set will select VMs t
 
 For non-zonal virtual machine scale sets, the policy selects the oldest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion.
 
-### NewestVM
+### NewestVM scale-in policy
 
 | Event         | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
 |---------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
