@@ -74,7 +74,7 @@
   - name: Virtual machines
     items:
     - name: Create Shared Image Gallery
-      href: ansible-vm-create-from-shared-generalized-image
+      href: ansible-vm-create-from-shared-generalized-image.md
   - name: Virtual machine scale sets
     items:
     - name: Configure 
@@ -86,7 +86,7 @@
     - name: Update custom image
       href: ./ansible-vmss-update-image.md
     - name: Create Shared Image Gallery
-      href: ansible-vm-create-from-shared-generalized-image
+      href: ansible-vm-create-from-shared-generalized-image.md
   - name: Virtual network
     items:
     - name: Configure peering
