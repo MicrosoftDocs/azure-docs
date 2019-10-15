@@ -12,7 +12,8 @@
     href: tutorial-opendatasets-automl.md
   - name: Enrich an image classification model
     href: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context
-- name: How-to guides    
+- name: How-to guides 
+  items:   
   - name: Datasets in Azure Machine Learning
     href: /azure/machine-learning/service/how-to-create-register-datasets?context=azure/open-datasets/context/open-datasets-context        
 - name: Samples
