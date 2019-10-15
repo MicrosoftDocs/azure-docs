@@ -22,11 +22,11 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 
 ## Options
 
-|Option|Description|
-|---|---|
-|--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
-|-h, --help|Shows the help content for azcopy.|
-|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
+**--cap-mbps uint32**   Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+
+**-h, --help** Help for azcopy
+      
+**--output-type**  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
 ## See also
 
