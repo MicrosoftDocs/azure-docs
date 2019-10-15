@@ -15,17 +15,13 @@
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="portal"></a>I can't find the Bastion resource in the Azure portal. What should I do?
-
-Make sure that you are using the [Azure portal - Bastion link](https://aka.ms/BastionHost), not the regular Azure portal.
-
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine?
 
 You do NOT need a public IP on the Azure Virtual Machine that you are connecting to with the Azure Bastion service. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
-You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal - Bastion link](https://aka.ms/BastionHost) to access the Bastion flight of the portal. This will let you get RDP/SSH access to your virtual machine directly in the browser.
+You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
