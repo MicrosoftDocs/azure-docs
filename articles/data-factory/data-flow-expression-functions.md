@@ -1,6 +1,6 @@
 ---
-title: Expression functions in the Mapping Data Flow feature of Azure Data Factory
-description: Learn about expression functions in Mapping Data Flow.
+title: Expression functions in the mapping data flow feature of Azure Data Factory
+description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ---
 
-# Data transformation expressions in Mapping Data Flow 
+# Data transformation expressions in mapping data flow 
 
 
 
 ## Expression functions
 
-In Data Factory, use the expression language of the Mapping Data Flow feature to configure data transformations.
+In Data Factory, use the expression language of the mapping data flow feature to configure data transformations.
 
 ___
 ### <code>abs</code>
