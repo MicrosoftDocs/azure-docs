@@ -77,10 +77,6 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 
 Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT Hub. You are only charged once for that message, even if the message goes to multiple endpoints.
 
-## Availability
-
-This capability is available in all regions.
-
 ## Next steps
 
 Check out these articles for more information about routing messages to an IoT Hub:
