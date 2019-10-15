@@ -58,7 +58,7 @@ Azure network resources can be combined and managed through [Network Security Gr
 
 ### Are there caveats for using NSG Flow Logs?
 There are no pre-requisites for using NSG Flow Logs. However, there are two limitations
-- **1. Service Endpoints must not be present on your VNET**: NSG Flow Logs are emitted from agents on your VMs to Storage accounts. However, today you can only emit logs directly to storage accounts and cannot use a service endpoint added to your VNET.
+- **Service Endpoints must not be present on your VNET**: NSG Flow Logs are emitted from agents on your VMs to Storage accounts. However, today you can only emit logs directly to storage accounts and cannot use a service endpoint added to your VNET.
 
 There are two ways to fix this:
 
@@ -86,7 +86,7 @@ You can check the storage logs after a few minutes, you should see an updated Ti
 If the Microsoft.Storage service endpoints are a must, you will have to disable NSG Flow Logs.
 
 
-- **2. Storage Accounts must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
+- **Storage Accounts must not be firewalled**: Due to internal limitations, Storage accounts must be accessible through the public internet for NSG Flow Logs to work with them. Traffic will still be routed through Azure internally and you will not face extra egress charges.
 
 This issue is resolved by enabling "All networks" to access the storage account:
 
@@ -101,4 +101,4 @@ Both of these limitations are expected to be addressed by Jan 2020.
 Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
 ## Next Steps
- - Head over to our [documentation overview page](https://docs.microsoft.com/azure/network-watcher/) for some tutorials to get you started with Network Watcher. 
+ - Head over to our [documentation overview page](https://docs.microsoft.com/azure/network-watcher/) for some tutorials to get you started with Network Watcher.
