@@ -17,7 +17,7 @@ The virtual core (vCore) purchasing model provides several benefits:
 - Higher compute, memory, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
-- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premise deployments.
+- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
 
 ## Service tiers
 
