@@ -21,29 +21,34 @@
       items: 
       - name: Overview 
         href: sql-database-purchase-models.md
-      - name: vCore-based model
+      - name: vCore model
         href: sql-database-service-tiers-vcore.md
-      - name: DTU service tiers
+        items:
+        - name: Serverless
+          href: sql-database-serverless.md
+        - name: Azure Hybrid Benefit
+          href: sql-database-azure-hybrid-benefit.md
+        - name: Reserved capacity
+          href: sql-database-reserved-capacity.md
+      - name: DTU model
         href: sql-database-service-tiers-dtu.md
-      - name: Serverless compute tier
-        href: sql-database-serverless.md
-      - name: Prepay for reserved capacity
-        href: sql-database-reserved-capacity.md
-      - name: Migrate from Premium RS service tier
-        href: sql-database-service-tiers-prs.md
+      - name: Migrate from DTU to vCore
+        href: sql-database-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
         href: sql-database-service-tiers-general-purpose-business-critical.md
         displayName: provisioned compute tier  
-      - name: General purpose / Standard service tiers
+      - name: General purpose / Standard
         href: sql-database-service-tier-general-purpose.md
-      - name: Business critical / Premium service tiers
+      - name: Business critical / Premium
         href: sql-database-service-tier-business-critical.md
-      - name: Hyperscale service tier
+      - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
+      - name: Migrate from Premium RS
+        href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
   expanded: true
@@ -241,6 +246,8 @@
           href: sql-database-disaster-recovery.md
         - name: Recovery drills
           href: sql-database-disaster-recovery-drills.md
+        - name: Configure failover group
+          href: sql-database-configure-failover-group.md
 
   - name: Monitor and tune
     items:
@@ -492,7 +499,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-single-database-get-started.md
       - name: Using template
         displayName: Azure Resource Manager template, ARM
@@ -514,7 +521,7 @@
       href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
-    - name: Add to a failover group to Elastic pool
+    - name: Add elastic pool to a failover group
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
@@ -641,8 +648,6 @@
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
       href: sql-database-geo-replication-security-config.md
-    - name: Configure failover group
-      href: sql-database-configure-failover-group.md
     - name: Try in-memory features
       href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
@@ -727,7 +732,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-managed-instance-get-started.md
       - name: Using PowerShell
         href: scripts/sql-database-create-configure-managed-instance-powershell.md
@@ -754,6 +759,8 @@
         href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
+      - name: Add managed instance to a failover group
+        href: sql-database-managed-instance-failover-group-tutorial.md
 
   - name: Concepts
     items:

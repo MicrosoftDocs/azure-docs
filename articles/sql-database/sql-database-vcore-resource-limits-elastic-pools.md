@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 06/26/2019
+ms.reviewer: carlrab, sstein
+ms.date: 10/14/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -142,6 +142,34 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+
+### Fsv2-series compute generation (preview)
+
+|Compute size|GP_Fsv2_72|
+|:--- | --: |
+|Compute generation|Fsv2-series|
+|vCores|72|
+|Memory (GB)|136|
+|Max number DBs per pool|500|
+|??Columnstore support|??|
+|In-memory OLTP storage (GB)|N/A|
+|Max data size (GB)|4096|
+|Max log size (GB)|1024|
+|TempDB max data size (GB)|333|
+|??Storage type|??Remote SSD??|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
+|??Max data IOPS (??64 KB??)|36000|
+|??Max log rate (??MBps??)|30|
+|Max concurrent workers (requests)|3600|
+|Max concurrent sessions|30000|
+|??Number of replicas|1|
+|??Multi-AZ|N/A|
+|??Read Scale-out|N/A|
+|??Included backup storage|1X DB size|
+
+
+
+
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Business Critical service tier: Storage sizes and compute sizes
@@ -258,6 +286,32 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+### M-series compute generation (preview)
+
+|Compute size|GP_M_128|
+|:--- | --: |
+|Compute generation|M-series|
+|vCores|128|
+|Memory (GB)|3767|
+|Max number DBs per pool|100|
+|??Columnstore support|??|
+|In-memory OLTP storage (GB)|481|
+|Max data size (GB)|4096|
+|Max log size (GB)|2048|
+|TempDB max data size (GB)|4096|
+|??Storage type|??Remote SSD??|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
+|??Max data IOPS (??64 KB??)|204800|
+|??Max log rate (??MBps??)|192|
+|Max concurrent workers (requests)|12800|
+|Max concurrent sessions|30000|
+|??Number of replicas|1|
+|??Multi-AZ|N/A|
+|??Read Scale-out|N/A|
+|??Included backup storage|1X DB size|
+
+
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
