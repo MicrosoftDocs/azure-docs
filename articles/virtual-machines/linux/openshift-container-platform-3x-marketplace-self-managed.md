@@ -202,7 +202,7 @@ az group delete --name openshiftrg
 
 ## Next steps
 
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment in Azure](./openshift-troubleshooting.md)
-- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform)
-
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment in Azure](./openshift-container-platform-3x-troubleshooting.md)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com)
+- 

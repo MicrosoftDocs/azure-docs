@@ -169,5 +169,5 @@ This article covered the following topics:
 
 Next, deploy an OpenShift cluster:
 
-- [Deploy OpenShift Container Platform](./openshift-container-platform.md)
-- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-marketplace-self-managed.md)
+- [Deploy OpenShift Container Platform](./openshift-container-platform-3x.md)
+- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-container-platform-3x-marketplace-self-managed.md)

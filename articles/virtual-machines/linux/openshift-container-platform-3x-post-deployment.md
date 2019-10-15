@@ -205,4 +205,4 @@ To install OSBA on OpenShift, follow the instructions located here: https://gith
 
 ## Next steps
 
-- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com)
