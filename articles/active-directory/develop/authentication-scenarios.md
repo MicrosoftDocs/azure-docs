@@ -32,13 +32,13 @@ This article covers many of the authentication concepts you'll need to understan
 
 **Authorization** is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to AuthZ.
 
-Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you have multiple apps and need to add/remove users across them, apps can delegate that responsibility to a centralized identity provider.
+Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you have multiple apps and need to add or remove users across them, apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
-A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign-in from the enterprise's network. Azure AD authenticates users and provides access tokens. An access token is a security token that is issue by an authorization server. It contains information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
+A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. Azure AD authenticates users and provides access tokens. An access token is a security token that is issued by an authorization server. It contains information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
 
-The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. See [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md) for more details.
+The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. For more information, see [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
 
 ## Tenants
 
@@ -77,7 +77,7 @@ Access tokens are passed to a Web API as the bearer token in the `Authenticate` 
 
 Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Azure AD.
 
-For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Azure AD. Registering the app also  also allows you to:
+For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Azure AD. Registering the app also  allows you to:
 
 - customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
 - decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from Linked-In, Google, and so on.
@@ -118,7 +118,7 @@ In this provisioning flow:
 1. The Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B.
 1. The user receives the requested token.
 
-You can repeat this process for additional tenants. Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do via the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).
+You can repeat this process for additional tenants. Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent keep control over what the application is allowed to do via the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).
 
 ## Web app sign-in flow with Azure AD
 
