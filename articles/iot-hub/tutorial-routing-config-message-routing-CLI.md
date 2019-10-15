@@ -143,7 +143,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-To create a routing endpoint, you'll use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). To create the message route for the endpoint, you'll use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
 ### Route to a storage account
 
@@ -151,7 +151,7 @@ To create a routing endpoint, you'll use [az iot hub routing-endpoint create](/c
 
 First, set up the endpoint for the storage account, then set up the route. 
 
-These are the variables used:
+These are the variables used by the script that must be set within your Cloud Shell session:
 
 **storageConnectionString**: This value is retrieved from the storage account set up in the previous script. It is used by the message routing to access the storage account.
 
@@ -253,7 +253,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used:
+Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used by the script that must be set within your Cloud Shell session:
 
 **endpointName**: This field is the name identifying the endpoint. 
 

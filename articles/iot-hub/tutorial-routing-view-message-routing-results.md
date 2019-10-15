@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ## Rules for routing the messages
 
-These are the rules for the message routing; these were set up in Part 1 of this tutorial, and you'll see them work in this second part.
+These are the rules for the message routing; these were set up in Part 1 of this tutorial, and you see them work in this second part.
 
 |Value |Result|
 |------|------|
@@ -27,7 +27,7 @@ These are the rules for the message routing; these were set up in Part 1 of this
 |level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using Power BI.|
 
-Now you'll create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
+Now you create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
 
 ## Create a Logic App  
 
@@ -65,11 +65,11 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![Setting up the connection for the Service Bus queue](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
 
-   Select the Service Bus namespace. This tutorial uses **ContosoSBNamespace5906**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and select **Create**.
+   Select the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and select **Create**.
 
    ![Finishing setting up the connection](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
 
-6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue5906**) from the dropdown list. You can use the defaults for the rest of the fields.
+6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue**) from the dropdown list. You can use the defaults for the rest of the fields.
 
    ![The queue options](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
@@ -121,7 +121,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Subscription**: Select the Azure subscription you're using for this tutorial.
 
-   **IoT Hub**: Select the IoT hub. This tutorial uses **ContosoTestHub5906**.
+   **IoT Hub**: Select the IoT hub. This tutorial uses **ContosoTestHub**.
 
    **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
 
@@ -142,8 +142,6 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 2. In the **Outputs** pane, select **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
 
    **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
-
-   **Group workspace**: The Power BI workspace to use. You can leave it with "Authorize connection to load workspaces," or select one of your Power BI workspaces from the dropdown.
 
    **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
 
@@ -188,7 +186,7 @@ If you didn't download the files from the repository in Part 1 of this tutorial,
 Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{your hub name}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{your device key}` with the device key you saved earlier when setting up the simulated device. 
 
    ```csharp
-        static string s_myDeviceId = "contoso-test-device";
+        static string s_myDeviceId = "Contoso-Test-Device";
         static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
@@ -253,7 +251,7 @@ Now, with the application still running, set up the Power BI visualization to se
 
    A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
-6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same process for the first chart, but place **EventEnqueuedUtcTime** on the x-axis (**Axis**) and **humidity** on the y-axis (**Values**).
+6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same process for the first chart, placing **EventEnqueuedUtcTime** on the x-axis (**Axis**) and **humidity** on the y-axis (**Values**).
 
    ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
@@ -269,7 +267,11 @@ You can refresh the charts to see the most recent data by selecting the Refresh 
 
 ## Clean up resources 
 
-If you want to remove all of the Azure resources you've created through both parts of this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. You can delete the resource group in the portal, or with Azure CLI or PowerShell as described below.
+If you want to remove all of the Azure resources you've created through both parts of this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. You can also remove the Power BI resources and clear the emails sent during the tutorial.
+
+### Clean up resources in the Power BI visualization
+
+Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and select the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
 ### Use the Azure CLI to clean up resources
 
@@ -286,9 +288,6 @@ To remove the resource group, use the [Remove-AzResourceGroup](https://docs.micr
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-### Clean up resources in the Power BI visualization
-
-Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and select the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
 
 ### Clean up test emails
 

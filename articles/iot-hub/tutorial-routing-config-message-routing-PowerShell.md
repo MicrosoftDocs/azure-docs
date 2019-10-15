@@ -128,7 +128,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-To create a routing endpoint, you'll use [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). To create the messaging route for the endpoint, you'll use [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
+To create a routing endpoint, use [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). To create the messaging route for the endpoint, use [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
 
 ### Route to a storage account 
 
@@ -136,7 +136,7 @@ First, set up the endpoint for the storage account, then create the message rout
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-These are the variables used:
+These are the variables used by the script that must be set within your Cloud Shell session:
 
 **resourceGroup**: There are two occurrences of this field -- set both of them to your resource group.
 
@@ -228,7 +228,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used:
+Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used by the script that must be set within your Cloud Shell session:
 
 **endpointName**: This field is the name identifying the endpoint. 
 
