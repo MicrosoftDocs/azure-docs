@@ -38,9 +38,14 @@ In this walkthrough, you:
 - Python 3.4 or later, with `pip` installed and updated.
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of your namespace and event hub names to use later in this walkthrough. 
+  > [!NOTE]
+  > If you already have a storage container to use, you can enable Capture and select the storage container when you create the Event Hub. 
+  > 
 - Your Event Hubs shared access key name and primary key value. Find or create these values under **Shared access policies** on your Event Hubs page. The default access key name is **RootManageSharedAccessKey**. Copy the access key name and the primary key value to use later in this walkthrough. 
 
 ## Create an Azure Blob storage account and container
+
+Create a storage account and container to use for the capture. 
 
 1. Sign in to the [Azure portal][Azure portal].
 2. In the left navigation, select **Storage accounts**, and on the **Storage accounts** screen, select **Add**.
@@ -58,7 +63,7 @@ In this walkthrough, you:
 1. In the Azure portal, navigate to your event hub by selecting its Event Hubs Namespace from **All resources**, selecting **Event hubs** in the left navigation, and then selecting your event hub. 
 2. On the event hub **Overview** screen, select **Capture events**.
 3. On the **Capture** screen, select **On**. Then, under **Azure Storage Container**, select **Select Container**. 
-4. On the **Containers** screen, select the storage container you created in the previous section, and then select **Select**. 
+4. On the **Containers** screen, select the storage container you want to use, and then select **Select**. 
 5. On the **Capture** screen, select **Save changes**. 
 
 ## Create a Python script to send events to Event Hub
@@ -66,7 +71,7 @@ This script sends 200 events to your event hub. The events are simple environmen
 
 1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
 2. Create a new file called *sender.py*. 
-3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace>, \<access key name>, \<primary key value>, and \<eventhub>:
+3. Paste the following code into *sender.py*. Substitute your own values for the Event Hubs \<namespace>, \<AccessKeyName>, \<primary key value>, and \<eventhub>.
    
    ```python
    import uuid
@@ -94,7 +99,7 @@ This script sends 200 events to your event hub. The events are simple environmen
 This script reads the captured files and creates a file for each of your devices to write the data only for that device.
 
 1. In your Python editor, create a new file called *capturereader.py*. 
-2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storageaccount>, \<storage account access key>, and \<storagecontainer>:
+2. Paste the following code into *capturereader.py*. Substitute your saved values for your \<storageaccount>, \<storage account access key>, and \<storagecontainer>.
    
    ```python
    import os
@@ -152,7 +157,7 @@ This script reads the captured files and creates a file for each of your devices
    
    If you have an earlier version of `azure-storage` or `azure`, you might need to use the `--upgrade` option.
    
-   You might also need to run the following command. This command isn't necessary on most systems. 
+   You might also need to run the following command. Running this command isn't necessary on most systems. 
    
    ```cmd
    pip install cryptography
@@ -172,7 +177,7 @@ This script reads the captured files and creates a file for each of your devices
    python capturereader.py
    ```
 
-   The capture processor downloads all the non-empty blobs from the storage account container, writes the results as *.csv* files into the local directory, and then deletes the blobs from the storage container. 
+   The capture processor downloads all the non-empty blobs from the storage account container and writes the results as *.csv* files into the local directory. 
 
 ## Next steps
 
