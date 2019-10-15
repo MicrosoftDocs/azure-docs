@@ -23,11 +23,6 @@ There are two types of entities:
 
 Always begin with a machine-learned entity because that provides the widest range of data extraction choices.
 
-Entities:
-
-* [represent data](#entities-represent-data) to extract from utterance
-* are [optional but highly recommended](#entities-are-optional-but-highly-recommended)
-
 ## Entity compared to intent
 
 The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. A client application _may_ need the entity to perform its task. 
@@ -59,11 +54,7 @@ Designing for decomposition allows LUIS to return a deep degree of entity resolu
 
 ### Machine-learned entities are primary data collections
 
-Machine-learned entities are the top-level data unit. Subcomponents are child entities of machine-learned entities. These can be any entity type: 
-
-* prebuilt entities
-* machine-learned entities
-* non-machine-learned entities such as regular-expression and list entities
+Machine-learned entities are the top-level data unit. Subcomponents are child entities of machine-learned entities. 
 
 **Constraints** are exact-text matching entities that apply rules to identify and extract data. **Descriptors** are features applied to boost the relevance of the words or phrases for the prediction.
 
@@ -78,13 +69,13 @@ Machine-learned entities are the top-level data unit. Subcomponents are child en
 
 Choose the entity based on how the data should be extracted and how it should be represented after it is extracted.
 
-|Entity type|Purpose|Example<br>Response|
-|--|--|--|
-|[**Machine-learned**](#composite-entity)|Parent grouping of entities, regardless of entity type. Machine-learned entities learn from context in the utterance. This makes variation of placement in example utterances significant. Marked in the example utterance on the **Intent** page of the LUIS portal.|✔|
-|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|✔|
-|[**Pattern.any**](#patternany-entity)|Entity where end of entity is difficult to determine. Marked in the pattern template on the **Patterns** page of the LUIS portal.|✔|
-|[**Prebuilt**](#prebuilt-entity)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|✔|
-|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|✔|
+|Entity type|Purpose|
+|--|--|
+|[**Machine-learned**](#composite-entity)|Parent grouping of entities, regardless of entity type. Machine-learned entities learn from context in the utterance. This makes variation of placement in example utterances significant. |
+|[**List**](#list-entity)|List of items and their synonyms extracted with **exact text match**.|
+|[**Pattern.any**](#patternany-entity)|Entity where end of entity is difficult to determine. |
+|[**Prebuilt**](#prebuilt-entity)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
+|[**Regular Expression**](#regular-expression-entity)|Uses regular expression for **exact text match**.|
 
 ### Entity role defines context
 

@@ -32,9 +32,9 @@ The following list includes best practices for LUIS apps:
 
 |Do|Don't|
 |--|--|
-|[Define distinct intents](#do-define-distinct-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents) |
+|[Define distinct intents](#do-define-distinct-intents)<br>[Add descriptors to intents](#do-add-descriptors-to-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents)<br>[Use few or simple entities](#dont-use-few-or-simple-entites) |
 |[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
-|[Build your app iteratively with versions](#do-build-the-app-iteratively-with-version)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Build your app iteratively with versions](#do-build-your-app-iteratively-with-versions)<br>[Build entities for model decomposition](#do-build-for-model-decomposition)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add patterns in later iterations](#do-add-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Balance your utterances across all intents](#balance-your-utterances-across-all-intents) except the None intent.<br>[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create descriptors with all possible values](#dont-create-descriptors-with-all-the-possible-values)|
 |[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add too many patterns](#dont-add-many-patterns)|
@@ -54,6 +54,10 @@ Consider the following example utterances:
 
 `Book a flight` and `Book a hotel` use the same vocabulary of `book a `. This format is the same so it should be the same intent with the different words of `flight` and `hotel` as extracted entities. 
 
+## Do add descriptors to intents
+
+Descriptors help describe features for an intent. A descriptor can be a phrase list of words that are significant to that intent or an entity that is significant to that intent. 
+
 ## Do find sweet spot for intents
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this flip/flop doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
@@ -62,6 +66,16 @@ Use prediction data from LUIS to determine if your intents are overlapping. Over
 ## Do build your app iteratively with versions
 
 Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version. 
+
+## Do build for model decomposition
+
+Start by identifying complete phrases you want to extract in an utterance. This is your machine-learned entity. Then decompose the phase into its parts. This includes adding more entities, along with descriptors and constraints. 
+
+For example if you want to extract an address, the top machine-learned entity could be called `Address`. While creating the address, identify some of its subcomponents such as street address, city, state, and postal code. 
+
+Continue decomposing those elements by **constraining** the postal code to a regular expression. Decompose the street address into parts of a street number (using a prebuilt number), a street name, and a street type. The street type can be described with a **descriptor** list such as avenue, circle, road, and lane.
+
+The V3 authoring API allows for model decomposition. 
 
 ## Do add patterns in later iterations
 
@@ -121,6 +135,10 @@ Keep a separate set of utterances that aren't used as [example utterances](luis-
 ## Don't add many example utterances to intents
 
 After the app is published, only add utterances from active learning in the development lifecycle process. If utterances are too similar, add a pattern. 
+
+## Don't use few or simple entities
+
+Entities are built for data extraction and prediction. It is important that each intent have machine-learned entities that describe the data in the intent. This helps LUIS predict the intent, even if your client application doesn't need to use the extracted entity. 
 
 ## Don't use LUIS as a training platform
 
