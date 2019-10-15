@@ -1,7 +1,7 @@
 ---
 title: What are open datasets? Curated public datasets
-titleSuffix: Azure Open Datasets (preview)
-description: Learn about Azure Open Datasets (preview), curated datasets from the public domain that are ready to use in machine learning and analytics solutions. Datasets include public data such as weather, census, holidays, and location to help you enrich predictive solutions.
+titleSuffix: Azure Open Datasets
+description: Learn about Azure Open Datasets, curated datasets from the public domain that are ready to use in machine learning and analytics solutions. Datasets include public data such as weather, census, holidays, and location to help you enrich predictive solutions.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
@@ -9,7 +9,7 @@ ms.author: cgronlun
 ms.date: 05/02/2019
 ---
 
-# What are Azure Open Datasets (preview) and how can you use them?
+# What are Azure Open Datasets and how can you use them?
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are readily available to Azure Databricks, Machine Learning service, and Machine Learning Studio. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
 
