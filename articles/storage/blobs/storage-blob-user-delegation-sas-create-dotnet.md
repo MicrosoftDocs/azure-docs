@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -44,12 +44,12 @@ Additionally, provide the scope for the role assignment. The service principal w
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 
-The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Contributor** role to it with account scope
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
@@ -75,7 +75,7 @@ The Azure Identity client library reads values from three environment variables 
 |Environment variable|Value
 |-|-
 |`AZURE_CLIENT_ID`|The app ID for the service principal
-|`AZURE_TENANT_ID`|The service principal's Azure AD tenant ID
+|`AZURE_TENANT_ID`|The tenant ID for the Azure Active Directory
 |`AZURE_CLIENT_SECRET`|The password generated for the service principal
 
 > [!IMPORTANT]

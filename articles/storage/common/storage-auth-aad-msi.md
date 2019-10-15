@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -17,6 +17,9 @@ ms.subservice: common
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 This article shows how to authorize access to blob or queue data with a managed identity from an Azure VM.
+
+Use a managed identity to create a blob
+Use a service principal to create a blob from dev env
 
 ## Enable managed identities on a VM
 
@@ -38,9 +41,54 @@ For more information about assigning RBAC roles, see one of the following articl
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
-## Azure Storage resource ID
+## Install the preview packages
 
-[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+The examples in this article use the latest preview version of the Azure Storage client library for Blob storage. To install the preview package, run the following command from the NuGet package manager console:
+
+```
+Install-Package Azure.Storage.Blobs -IncludePrerelease
+```
+
+The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal. The authenticated security principal can then create the user delegation SAS. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+```
+Install-Package Azure.Identity -IncludePrerelease
+```
+
+## Create a service principal
+
+To authenticate with Azure AD credentials via the Azure Identity client library, use either a service principal or a managed identity as the security principal, depending on where your code is running. If your code is running in a development environment, use a service principal for testing purposes. If your code is running in Azure, use a managed identity. This article assumes that you are running code from the development environment, and shows how to use a service principal to create the user delegation SAS.
+
+To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+
+Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+
+If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
+
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Contributor** role to it with account scope
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Contributor" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+The `az ad sp create-for-rbac` command returns a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
+
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
+```
+
+> [!IMPORTANT]
+> RBAC role assignments may take a few minutes to propagate.
+
 
 ## .NET code example: Create a block blob
 
