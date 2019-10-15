@@ -62,7 +62,12 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview#included",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-windows-vm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
       "redirect_document_id": false
     },
     {
@@ -1918,6 +1923,11 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-traffic-analytics.md",
+      "redirect_url": "/azure/search/search-monitor-usage",
       "redirect_document_id": false
     },
     {
