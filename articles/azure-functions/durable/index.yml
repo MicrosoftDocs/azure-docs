@@ -52,19 +52,7 @@ landingContent:
         links:
           - text: Watch how to get started
             url: https://azure.microsoft.com/en-us/resources/videos/azure-friday-durable-functions-in-azure-functions/
- 
-  # Card (optional)
-  - title: How it works 
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Orchestrations
-            url: durable-functions-orchestrations.md
-          - text: Stateful entities
-            url: durable-functions-entities.md
-          - text: Task hubs
-            url: durable-functions-task-hubs.md
- 
+          
   # Card
   - title: Application patterns
     linkLists:
@@ -81,7 +69,7 @@ landingContent:
           - text: Human interaction
             url: durable-functions-phone-verification.md
           - text: Aggregator
-            url: ../supported-languages.md
+            url: durable-functions-entities.md
 
   # Card
   - title: Performance and monitoring
