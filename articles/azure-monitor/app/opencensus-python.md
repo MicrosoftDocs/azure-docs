@@ -19,7 +19,7 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustments.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
 
 
 
@@ -35,28 +35,28 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
    ![Adding an Application Insights resource](./media/opencensus-python/0001-create-resource.png)
 
-   A configuration box appears. Use the following table to fill out the input fields.
+1. A configuration box appears. Use the following table to fill out the input fields.
 
-    | Settings        | Value           | Description  |
+   | Setting        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally unique value | Name that identifies the app you're monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host Application Insights data |
    | **Location** | East US | A location near you, or near where your app is hosted |
 
-2. Select **Create**.
+1. Select **Create**.
 
 ## Instrument with the OpenCensus Python SDK for Azure Monitor
 
-1. Install the OpenCensus Azure Monitor exporters:
+Install the OpenCensus Azure Monitor exporters:
 
-    ```console
-    python -m pip install opencensus-ext-azure
-    ```
+```console
+python -m pip install opencensus-ext-azure
+```
 
-    > [!NOTE]
-    > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
+> [!NOTE]
+> The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-2. The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more details on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
 
 ### Trace
 
@@ -127,7 +127,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
 ### Metrics
 
-1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects Enter.
+1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user presses Enter.
 
     ```python
     from datetime import datetime
@@ -167,7 +167,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
     if __name__ == "__main__":
         main()
     ```
-2. Running the code will repeatedly prompt you to press Enter. A metric is created to track the number of times Enter is pressed. With each entry, the value will be incremented and the metric information will be displayed in the console. The information includes the current value and the current timestamp when the metric was updated.
+2. Running the code will repeatedly prompt you to press Enter. A metric is created to track the number of times Enter is pressed. With each entry, the value will be incremented and the metric information will be displayed in the console. The information includes the current value and the current time stamp when the metric was updated.
 
     ```
     Press enter.
@@ -249,7 +249,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
         main()
     ```
 
-2.  The code will continuously ask for a value to be entered. A log entry is emitted for every entered value that contains the value.
+2.  The code will continuously ask for a value to be entered. A log entry is emitted for every entered value.
 
     ```
     Enter a value: 24
@@ -291,7 +291,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
 ## Start monitoring in the Azure portal
 
-1. You can now reopen the Application Insights **Overview** pane in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. You can now reopen the Application Insights **Overview** pane in the Azure portal, to view details about your currently running application. Select **Live Metrics Stream**.
 
    ![Screenshot of the overview pane with "Live Metrics Stream" selected in a red box](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
@@ -303,11 +303,13 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
    ![Application map](media/opencensus-python/application-map.png)
 
-3. Select **Investigate Performance** to analyze performance in detail and determine the root cause of slow performance.
+3. Select **Investigate performance** to analyze performance in detail and determine the root cause of slow performance.
 
    ![Screenshot of performance details](./media/opencensus-python/0008-performance.png)
 
-4. To open the end-to-end experience for transaction details, select **Samples**, and then select any of the samples that appear in the right pane. Although our sample app shows just a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+4. To open the end-to-end experience for transaction details, select **Samples**, and then select any of the samples that appear in the right pane. 
+
+   Although our sample app shows just a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
 
    ![Screenshot of the end-to-end transaction interface](./media/opencensus-python/0009-end-to-end-transaction.png)
 
