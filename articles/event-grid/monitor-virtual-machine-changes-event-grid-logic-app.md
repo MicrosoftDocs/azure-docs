@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
   This tutorial uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
-* A [virtual machine](https://azure.microsoft.com/services/virtual-machines). If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
+* A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
 ## Create blank logic app
 
@@ -62,7 +62,7 @@ In this tutorial, you learn how to:
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
-   | **Resource group** | Yes | <*Azure-resource-group*> | Select the same Azure resource group for all the services in this tutorial. |
+   | **Resource group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
    | **Location** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
    |||
 
@@ -78,7 +78,7 @@ In this tutorial, you learn how to:
 
 Now add the Event Grid trigger, which you use to monitor the resource group for your virtual machine.
 
-1. On the designer, in the search box, enter `event grid` as your filter. From the triggers list, select this trigger: **When a resource event occurs**
+1. On the designer, in the search box, enter `event grid` as your filter. From the triggers list, select the **When a resource event occurs** trigger.
 
    ![Select this trigger: "On a resource event"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
@@ -87,25 +87,23 @@ Now add the Event Grid trigger, which you use to monitor the resource group for 
    ![Sign in with your Azure credentials](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > If you're signed in with a personal Microsoft account, 
-   > such as @outlook.com or @hotmail.com, 
-   > the Event Grid trigger might not appear correctly. 
-   > As a workaround, select [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
-   > or authenticate as a member of the Azure Active Directory 
-   > that's associated with your Azure subscription, for example, 
-   > *user-name*@emailoutlook.onmicrosoft.com.
+   > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
+   > the Event Grid trigger might not appear correctly. As a workaround, select 
+   > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
+   > or authenticate as a member of the Azure Active Directory that's associated with 
+   > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
 
-1. Now subscribe your logic app to publisher events. Provide the details about your event subscription as described in the following table, for example:
+1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:
 
    ![Provide details for event subscription](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
-   | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription that's associated with the event publisher. For this tutorial, select the Azure subscription name for your virtual machine. |
-   | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For this tutorial, select this value to monitor Azure resource groups: <p><p>`Microsoft.Resources.ResourceGroups` |
+   | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription that's associated with the *event publisher*. For this tutorial, select the Azure subscription name for your virtual machine. |
+   | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For more information about Azure resource types, see [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). For this tutorial, select the `Microsoft.Resources.ResourceGroups` value to monitor Azure resource groups. If you wanted to monitor only virtual machines,  |
    | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the Azure resource name for the event publisher. This list varies based on the resource type that you selected. For this tutorial, select the name for the Azure resource group that includes your virtual machine. |
-   | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to your event grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see these topics: <p><p>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) <br>- [Azure Event Grid event schema for resource groups](../event-grid/event-schema-resource-groups.md) |
-   | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | * **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>* **Subscription Name**: For this tutorial, provide a unique name for your event subscription. |
+   | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to your event grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see these topics: <p><p>- [Azure Event Grid event schema for resource groups](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) |
+   | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | * **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>* **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
    |||
 
 1. Save your logic app. On the designer toolbar, select **Save**. To collapse and hide an action's details in your logic app, select the action's title bar.
@@ -118,7 +116,7 @@ Your logic app is now live and listens to events from the event grid, but doesn'
 
 ## Add a condition
 
-If you want to run your logic app workflow only when a specific event happens, add a condition that checks for virtual machine "write" operations. When this condition is true, your logic app sends you email with details about the updated virtual machine.
+If you want to your logic app to run only when a specific event or operation happens, add a condition that checks for the `Microsoft.Compute/virtualMachines/write` operation. When this condition is true, your logic app sends you email with details about the updated virtual machine.
 
 1. In Logic App Designer, under the event grid trigger, select **New step**.
 
@@ -130,51 +128,51 @@ If you want to run your logic app workflow only when a specific event happens, a
 
    The Logic App Designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
 
-   ![Empty condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
+   ![An empty condition appears](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
 1. Rename the condition title to `If a virtual machine in your resource group has changed`. On the condition's title bar, select the ellipses (**...**) button, and select **Rename**.
 
-   ![Rename condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
+   ![Rename the condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
 1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Event Grid event schema](../event-grid/event-schema.md).
 
    1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, select **Expression**.
 
-      ![Select "Expression"](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
+      ![Select "Expression" to open the expression editor](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
 
-   1. In the expression editor, enter this expression, and select **OK**:
+   1. In the expression editor, enter this expression, which returns the operation name from the trigger, and select **OK**:
 
       `triggerBody()?['data']['operationName']`
 
       For example:
 
-      ![Select "Expression"](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
+      ![Enter expression to extract operation name](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
-   1. In the right box, enter this value:
+   1. In the right box, enter this value, which is the specific operation that you to monitor:
 
       `Microsoft.Compute/virtualMachines/write`
 
    Your finished condition now looks like this example:
 
-   ![Completed condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+   ![Completed condition that compares the operation](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
    If you switch from design view to code view and back to design view, the expression that you specified in the condition resolves to the **data.operationName** token:
 
-   ![Resolved condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+   ![Resolved tokens in condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
 
 1. Save your logic app.
 
 ## Send email notifications
 
-Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) so that you get an email when the specified condition is true.
+Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) so that you can receive an email when the specified condition is true.
 
 1. In the condition's **If true** box, select **Add an action**.
 
    ![Add action for when condition is true](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. In the search box, enter "send an email" as your filter. Based on your email provider, find and select the matching connector. Then select the "send email" action for your connector. For example:
+1. Under **Choose an action**, in the search box, enter `send an email` as your filter. Based on your email provider, find and select the matching connector. Then select the "send email" action for your connector. For example:
 
    * For an Azure work or school account, select the Office 365 Outlook connector.
 
@@ -182,28 +180,28 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    * For Gmail accounts, select the Gmail connector.
 
-   This tutorial continues with the Office 365 Outlook connector. If you use a different provider, the steps remain the same, but your UI might appear slightly different. 
+   This tutorial continues with the Office 365 Outlook connector. If you use a different provider, the steps remain the same, but your UI might appear slightly different.
 
    ![Select "send email" action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
 1. If you don't already have a connection for your email provider, sign in to your email account when you're asked for authentication.
 
-1. Rename the send email title to this title: `Send email when virtual machine updated`
+1. Rename the send email action to this title: `Send email when virtual machine updated`
 
-1. Provide details for the email as specified in the following table:
+1. Provide information about the email as specified in the following table:
 
-   ![Empty email action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Provide information about email action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > To select from results from previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 
+   > To select output from the previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 
    > or select **Add dynamic content**. For more results, select **See more** for each section in the list. 
    > To close the dynamic content list, select **Add dynamic content** again.
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
    | **To** | Yes | <*recipient\@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
-   | **Subject** | Yes | Resource updated: **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
-   | **Body** | Yes | Resource: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource that fired the event, event type, event timestamp, and event ID for the update. For this tutorial, the resource is the Azure resource group selected in the trigger. <p>To add blank lines in your content, press Shift + Enter. |
+   | **Subject** | Yes | `Resource updated:` **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
+   | **Body** | Yes | `Resource:` **Topic** <p>`Event type:` **Event Type**<p>`Event ID:` **ID**<p>`Time:` **Event Time** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource that fired the event, event type, event timestamp, and event ID for the update. For this tutorial, the resource is the Azure resource group selected in the trigger. <p>To add blank lines in your content, press Shift + Enter. |
    ||||
 
    > [!NOTE]
