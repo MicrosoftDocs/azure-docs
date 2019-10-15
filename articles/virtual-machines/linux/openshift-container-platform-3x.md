@@ -1,6 +1,6 @@
 ---
-title: Deploy OpenShift Container Platform in Azure | Microsoft Docs
-description: Deploy OpenShift Container Platform in Azure.
+title: Deploy OpenShift Container Platform 3.11 in Azure | Microsoft Docs
+description: Deploy OpenShift Container Platform 3.11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,13 +14,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
-# Deploy OpenShift Container Platform in Azure
+# Deploy OpenShift Container Platform 3.11 in Azure
 
-You can use one of several methods to deploy OpenShift Container Platform in Azure:
+You can use one of several methods to deploy OpenShift Container Platform 3.11 in Azure:
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
@@ -30,7 +30,7 @@ For all options, a Red Hat subscription is required. During the deployment, the 
 Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
 
 
-## Deploy using the OpenShift Container Platform Resource Manager template
+## Deploy using the OpenShift Container Platform Resource Manager 3.11 template
 
 ### Private Clusters
 
@@ -348,6 +348,6 @@ az group delete --name openshiftrg
 
 ## Next steps
 
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment in Azure](./openshift-troubleshooting.md)
-- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment in Azure](./openshift-container-platform-3x-troubleshooting.md)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com)
