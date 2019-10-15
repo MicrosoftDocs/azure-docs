@@ -19,11 +19,7 @@ This article shows you how to deploy the Azure Blob Storage on IoT module, which
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
 
 ## Prerequisites
-
-To complete this tutorial, you will need:-
-
-* **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up.
-* **Azure Function module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Azure Functions module](deploy-func-webhook-module-portal.md) article if you don't have this set up. This module will act as the subscriber.
+Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-local.md) tutorial before you do this tutorial. 
 
 ## Select your IoT Edge device
 
