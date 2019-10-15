@@ -16,10 +16,6 @@ ms.author: erhopf
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for C++ on Windows Desktop.
 
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
-
-## System requirements
-
 ## Prerequisites
 
 This quickstart requires:
