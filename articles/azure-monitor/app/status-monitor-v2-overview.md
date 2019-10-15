@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 09/16/2019
 ms.author: tilee
 ---
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
