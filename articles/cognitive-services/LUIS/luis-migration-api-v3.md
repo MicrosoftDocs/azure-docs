@@ -45,7 +45,7 @@ V3 made the following changes as part of the move to GA:
     * Measurable unit key name from `units` to `unit`
 
 * Request body JSON change:
-    * from `overridePredictions` to `preferExternalEntities`
+    * from `preferExternalEntities` to `preferExternalEntities`
     * optional `score` parameter for external entities
 
 * Response body JSON changes:
@@ -77,11 +77,11 @@ The format of the V3 endpoint HTTP call has changed.
 
 If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
 
-|VERSION|METHOD|URL|
+|PREDICTION API VERSION|METHOD|URL|
 |--|--|--|
 |V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
 |V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
 |V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valid values for `SLOT-NAME`|
@@ -97,7 +97,7 @@ The V3 API has different query string parameters.
 
 |Param name|Type|Version|Default|Purpose|
 |--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Store query in log file.| 
+|`log`|boolean|V2 & V3|false|Store query in log file. Default value is false.| 
 |`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 |`show-all-intents`|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
@@ -112,7 +112,7 @@ The V3 API has different query string parameters.
     "query":"your utterance here",
     "options":{
         "datetimeReference": "2019-05-05T12:00:00",
-        "overridePredictions": true
+        "preferExternalEntities": true
     },
     "externalEntities":[],
     "dynamicLists":[]
@@ -124,7 +124,7 @@ The V3 API has different query string parameters.
 |`dynamicLists`|array|V3 only|Not required.|[Dynamic lists](#dynamic-lists-passed-in-at-prediction-time) allow you to extend an existing trained and published list entity, already in the LUIS app.|
 |`externalEntities`|array|V3 only|Not required.|[External entities](#external-entities-passed-in-at-prediction-time) give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. |
 |`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). The format for the datetimeReference is [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.overridePredictions`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
+|`options.preferExternalEntities`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
 |`query`|string|V3 only|Required.|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 
 
@@ -343,7 +343,7 @@ The prediction response includes that external entity, with all the other predic
 
 ### Override existing model predictions
 
-The `overridePredictions` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
+The `preferExternalEntities` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
 
 For example, consider the query `today I'm free`. LUIS detects `today` as a datetimeV2 with the following response:
 
@@ -374,7 +374,7 @@ If the user sends the external entity:
 }
 ```
 
-If the `overridePredictions` is set to `false`, LUIS returns a response as if the external entity were not sent. 
+If the `preferExternalEntities` is set to `false`, LUIS returns a response as if the external entity were not sent. 
 
 ```JSON
 "datetimeV2": [
@@ -390,7 +390,7 @@ If the `overridePredictions` is set to `false`, LUIS returns a response as if th
 ]
 ```
 
-If the `overridePredictions` is set to `true`, LUIS returns a response including:
+If the `preferExternalEntities` is set to `true`, LUIS returns a response including:
 
 ```JSON
 "datetimeV2": [

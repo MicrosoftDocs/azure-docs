@@ -17,9 +17,7 @@ ms.author: diberry
 
 The authoring APIs are updated, for V3, to allow for [model decomposition with machine-learned entities](luis-concept-data-extraction.md). 
 
-Adding model decomposition is provided so you can choose to migrate your app's authoring and prediction at different times. 
-
-You can author in V3 from the APIs. The same app can also choose to use V2 or V3 prediction endpoint responses. You do not have to have the same version of API for authoring and prediction endpoint response.
+You can author in the V2 or preview V3 APIS. The same app can also choose to use V2 or V3 prediction endpoint responses. You do not have to have the same version of API for authoring and prediction endpoint response.
 
 The LUIS portal uses the V3 authoring APIs exclusively.
 

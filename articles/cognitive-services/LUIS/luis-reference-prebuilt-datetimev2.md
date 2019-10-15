@@ -263,6 +263,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
                     "resolution" :[
                         { "start": "2019-05-02", "end": "2019-05-05"},
                         { "start": "2020-05-02", "end": "2020-05-05" }
+                    ]
                 }
             ]
         }
@@ -438,7 +439,7 @@ DatetimeV2 JSON response has changed in the API V3. The following example shows 
 
 Changes from API V2:
 * `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
-* The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
+* The `datetimeV2.value` property has been renamed to `datetimeV2.timex`.
 
 The following utterance and its partial JSON response is shown below.
 
