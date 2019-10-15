@@ -45,8 +45,7 @@ If you're new to Partner Center, follow the instructions in this section to crea
   > [!NOTE]
   > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](https://docs.microsoft.com//azure/marketplace/partner-center-portal/company-work-accounts).
 
-3. Agree to terms and conditions of the Microsoft Office Store Agreement.
-4. Provide your publisher profile. Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the Microsoft Partner Network. After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
+3. Provide your publisher profile. Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the Microsoft Partner Network. After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
 5. Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers in AppSource.
 
 After you've confirmed your publisher profile information, agree to the terms and conditions and create your Partner Center account by selecting **Accept and continue**.
