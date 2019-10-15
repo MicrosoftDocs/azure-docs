@@ -17,62 +17,30 @@ Once the Bastion service is provisioned/deployed in your virtual network, you ca
 
 ## <a name="monitor"></a>Monitor remote sessions
 
-1. In the [Azure portal](azure portal), navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
-   ![diagnostics settings](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
+   ![diagnostics settings](./media/session-monitoring/1.png)
+2. On the **Sessions** page, you can see the on-going remote sessions on the right side.
 
-   ![add diagnostic setting](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. On the **Diagnostics settings** page, select the type of storage account to be used for storing diagnostics logs.
+   ![add diagnostic setting](./media/session-monitoring/2.png)
+3. Select **Refresh** to see the updated list of remote sessions. Clicking Refresh will fetch the latest monitoring information from Azure Bastion and refresh it on the portal.
 
-   ![select storage location](./media/diagnostic-logs/3add-storage-account.png)
-4. When you complete the settings, it will look similar to this example:
+   ![select storage location](./media/session-monitoring/3.png)
 
-   ![example settings](./media/diagnostic-logs/4example-settings.png)
+## <a name="view"></a>Delete or Force Disconnect an on-going remote session
 
-## <a name="view"></a>View diagnostics log
+Once you see a list of on-going remote session in Azure Bastion monitoring experience, you can select a set of session(s) and force disconnect them.  Below are the steps using which you can delete remote sessions from Azure Bastion:
 
-To access your diagnostics logs, you can directly use the storage account that you specified while enabling the diagnostics settings.
+1. Navigate to your Azure Bastion resource and select “Sessions” from the Azure Bastion blade.
 
-1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
+   ![diagnostics settings](./media/session-monitoring/1-1.png)
+2. As you select Sessions, you will see a list of remote sessions in Portal for your Azure Bastion deployment.
 
-   ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. As you navigate to inside the container, you see various folders in your blog.  These folders indicate the resource hierarchy for your Azure Bastion resource.
+   ![add diagnostic setting](./media/session-monitoring/1-2.png)
+3. Select a specific remote session and select the three ellipses on the right-side end of the session row in the UI and select Delete.
 
-   ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
-3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The ‘y=’, ‘m=’, ‘d=’, ‘h=’ and ‘m=’ indicate the year, month, day, hour, and minute respectively for the diagnostic logs.
-
-   ![select storage location](./media/diagnostic-logs/3-resource-location.png)
-4. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
-
-5. Download the json file from your storage blob container.  An example entry from the json file is shown below for reference:
-
-   ```json
-   { 
-   "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
-   "operationName":"Microsoft.Network/BastionHost/connect",
-   "category":"BastionAuditLogs",
-   "level":"Informational",
-   "location":"eastus",
-   "properties":{ 
-      "userName":"<username>",
-      "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
-      "clientIpAddress":"131.107.159.86",
-      "clientPort":24039,
-      "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"<subscripionID>",
-      "message":"Successfully Connected.",
-      "resourceType":"VM",
-      "targetVMIPAddress":"172.16.1.5",
-      "tunnelId":"<tunnelID>"
-   },
-   "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
-   "Region":"eastus",
-   "CustomerSubscriptionId":"<subscripionID>"
-   }
-   ```
+   ![select storage location](./media/session-monitoring/1-3.png)
+4. As you select Delete, the remote session will be disconnected, and the user will be shown a “You have been disconnected” message in the remote session.
 
 ## Next steps
 
