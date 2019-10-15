@@ -52,9 +52,9 @@ If you would like your VMs in your low-priority scale set to be deleted when the
 ## Deploying low-priority VMs in scale sets
 
 To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
-- [Azure portal](#use-the-azure-portal)
-- [Azure CLI](#use-the-azure-cli)
-- [Azure PowerShell](#use-azure-powershell)
+- [Azure portal](#portal)
+- [Azure CLI](#azure-cli)
+- [Azure PowerShell](#powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
 ## Portal

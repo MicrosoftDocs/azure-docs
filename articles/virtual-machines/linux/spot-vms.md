@@ -26,4 +26,4 @@ ms.author: cynthn
 
 
 ## Next steps
-You can also deploy a [scale set with spot VM instances](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-spot.md).
+You can also deploy a [scale set with spot VM instances](../../virtual-machine-scale-sets/use-spot.md).
