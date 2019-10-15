@@ -20,7 +20,7 @@ Azure Security Center provides unified security management and advanced threat p
 ## Pricing tiers
 Security Center is offered in two tiers:
 
-- The **Free** tier is automatically enabled on all Azure subscriptions, and provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
+- The **Free** tier is enabled on all your Azure subscriptions once you visit the Azure Security Center dashboard in the Azure Portal for the first time, or if enabled progremmaticaly via API. The free tier provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 - The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. You can try the Standard tier for free. Security Center Standard supports Azure resources including VMs, Virtual machine scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center Standard you can opt out of support based on resource type. 
 
 
@@ -43,7 +43,7 @@ To get the Standard tier:
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
 >
 >
 
@@ -59,7 +59,7 @@ Security Center offers enhanced security and threat protection for your hybrid c
 In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier’s enhanced security and advanced threat protection, see:
 
 - [Advanced threat detection](security-center-threat-report.md)
-- [Just in time VM access control](security-center-just-in-time.md)
+- [Just-in-time VM access control](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

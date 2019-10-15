@@ -1,6 +1,6 @@
 ---
-title: Aggregate transformation in Mapping Data Flow - Azure Data Factory | Microsoft Docs
-description: Learn how to aggregate data at scale in Azure Data Factory with the Mapping Data Flow Aggregate transformation.
+title: Aggregate transformation in mapping data flow - Azure Data Factory | Microsoft Docs
+description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ---
 
-# Aggregate transformation in Mapping Data Flow 
+# Aggregate transformation in mapping data flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 The Aggregate transformation is where you'll define aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT which can be grouped by existing or computed columns.
 
@@ -39,6 +39,19 @@ Aggregate transformations are closely equivalent to SQL aggregate select queries
 * Use an aggregate function to include that additional column, such as Last() or First()
 * Re-join the columns before your Aggregate using the [Self Join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
+## Data flow script
+
+![Aggregate data flow script](media/data-flow/aggdfs1.png "Aggregate data flow script")
+
+* ```MoviesYear```: Derived Column defining year and title columns
+* ```AvgComedyRatingByYear```: Aggregate transformation for average rating of comedies grouped by year
+* ```avgrating```: Name of new column being created to hold the aggregated value
+
+```
+MoviesYear aggregate(groupBy(year),
+	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
+```
+  
 ## Next steps
 
 * Define window-based aggregation using the [Window transformation](data-flow-window.md)

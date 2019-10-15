@@ -168,7 +168,7 @@ An open-restricted content key policy may be used when you want to issue license
 
 With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token (SWT) in the license/key request. This token must be issued by an STS. 
 
-You can use Azure AD as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
+You can use Azure AD as an STS or deploy a [custom STS](#using-a-custom-sts). The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
 
 * The token is valid. 
 * The claims in the token match those configured for the license or key.
@@ -255,4 +255,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Storage side encryption](storage-account-concept.md#storage-side-encryption)
 * [Frequently asked questions](frequently-asked-questions.md)
-
+* [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

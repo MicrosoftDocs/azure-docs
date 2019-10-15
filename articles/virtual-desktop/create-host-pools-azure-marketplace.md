@@ -1,6 +1,6 @@
 ---
-title: Create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace - Azure
-description: How to create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace.
+title: Create a Windows Virtual Desktop host pool by using the Azure Marketplace - Azure
+description: How to create a Windows Virtual Desktop host pool by using the Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create a host pool by using the Azure Marketplace
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 This tutorial describes how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering. The tasks include:
 
@@ -75,7 +75,7 @@ For the **Virtual machine settings** blade:
 3. Select the virtual network that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
-### Windows Virtual Desktop Preview tenant information
+### Windows Virtual Desktop tenant information
 
 For the **Windows Virtual Desktop tenant information** blade:
 

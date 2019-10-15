@@ -54,7 +54,7 @@
   - name: Handle hit highlighting
     href: hit-highlighting.md
   - name: Page through results
-    href: paging-webpages.md
+    href: paging-search-results.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7

@@ -71,11 +71,11 @@ For an overview of Identity Governance and entitlement management, watch the fol
 Here are the types of resources you can manage access to with entitlement management:
 
 - Azure AD security groups
-- Office 365 groups
+- Office 365 Groups
 - Azure AD enterprise applications, including SaaS application and custom-integrated applications that support federation or provisioning
 - SharePoint Online site collections and sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Office 365 groups.  For example:
+You can also control access to other resources that rely upon Azure AD security groups or Office 365 Groups.  For example:
 
 - You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
 - You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
@@ -120,8 +120,8 @@ To better understand entitlement management and its documentation, you should re
 | Term or concept | Description |
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
-| access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
-| access request | A request to access an access package. A request typically goes through a workflow. |
+| access package | A bundle of resources that a team or project needs and is governed with policies. An access package is always contained in a catalog. |
+| access request | A request to access the resources in an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
 | catalog | A container of related resources and access packages. |
 | General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |

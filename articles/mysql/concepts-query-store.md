@@ -1,6 +1,6 @@
----
+﻿---
 title: Query Store in Azure Database for MySQL
-description: This article describes the Query Store feature in Azure Database for MySQL
+description: Learn about the Query Store feature in Azure Database for MySQL to help you track performance over time.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -9,7 +9,7 @@ ms.date: 06/27/2019
 ---
 # Monitor Azure Database for MySQL performance with Query Store
 
-**Applies to:** Azure Database for MySQL 5.7
+**Applies to:** Azure Database for MySQL 5.7
 
 > [!IMPORTANT]
 > Query Store is in preview.
@@ -31,14 +31,14 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 ### Enable Query Store using the Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for MySQL server.
-1. Select **Server Parameters** in the **Settings** section of the menu.
+1. Select **Server Parameters** in the **Settings** section of the menu.
 1. Search for the query_store_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+1. Set the value to ALL and **Save**.
 
 To enable wait statistics in your Query Store:
 
 1. Search for the query_store_wait_sampling_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+1. Set the value to ALL and **Save**.
 
 Allow up to 20 minutes for the first batch of data to persist in the mysql database.
 
@@ -72,8 +72,8 @@ Here are some examples of how you can gain more insights into your workload usin
 | **Observation** | **Action** |
 |---|---|
 |High Lock waits | Check the query texts for the affected queries and identify the target entities. Look in Query Store for other queries modifying the same entity, which is executed frequently and/or have high duration. After identifying these queries, consider changing the application logic to improve concurrency, or use a less restrictive isolation level. |
-|High Buffer IO waits | Find the queries with a high number of physical reads in Query Store. If they match the queries with high IO waits, consider introducing an index on the underlying entity, to do seeks instead of scans. This would minimize the IO overhead of the queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations for this server that would optimize the queries. |
-|High Memory waits | Find the top memory consuming queries in Query Store. These queries are probably delaying further progress of the affected queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations that would optimize these queries.|
+|High Buffer IO waits | Find the queries with a high number of physical reads in Query Store. If they match the queries with high IO waits, consider introducing an index on the underlying entity, to do seeks instead of scans. This would minimize the IO overhead of the queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations for this server that would optimize the queries. |
+|High Memory waits | Find the top memory consuming queries in Query Store. These queries are probably delaying further progress of the affected queries. Check the **Performance Recommendations** for your server in the portal to see if there are index recommendations that would optimize these queries.|
 
 ## Configuration options
 
@@ -102,7 +102,7 @@ Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-confi
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
