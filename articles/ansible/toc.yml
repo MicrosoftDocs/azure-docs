@@ -81,6 +81,8 @@
       href: ./ansible-auto-scale-vmss.md
     - name: Update custom image
       href: ./ansible-vmss-update-image.md
+    - name: Create Shared Image Gallery
+      href: ansible-vm-create-from-shared-generalized-image
   - name: Virtual network
     items:
     - name: Configure peering
