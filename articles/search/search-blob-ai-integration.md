@@ -44,7 +44,7 @@ Once you add Azure Search to your storage account, you can follow the standard p
 
 In the following sections, we'll explore more components and concepts.
 
-## Use Blob indexers
+## Begin with Blob indexers
 
 AI enrichment is an add-on to an indexing pipeline, and in Azure Search, those pipelines are built on top of an *indexer*. An indexer is a data-source-aware subservice equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. Indexers are often used by themselves for import, separate from AI, but if you want to build an AI enrichment pipeline, you will need an indexer and a skillset to go with it. In this section, we'll focus on the indexer itself.
 
@@ -72,7 +72,7 @@ Built-in skills backed by Cognitive Services require an [attached Cognitive Serv
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 
-## Order of operations
+<!-- ## Order of operations
 
 Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
@@ -84,18 +84,21 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Use Language Detection to determine if content is English or another language.
 1. Use Text Translator to get all text into a common language.
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
-1. Use Text Merger to reconstitute the document from the smaller chunks..
+1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
+## How to use AI-enriched content
 
-## Outputs and use cases
+The output of AI enrichment is either a search index on Azure Search, or a knowledge store in Azure Storage.
 
-An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created values in several ways.
+In Azure Search, a search index is used for interactive exploration using free text and filtered queries in a client app. Enriched documents created through AI are formatted in JSON and indexed in the same way all documents are indexed in Azure Search, leveraging all of the benefits an indexer provides. For example, during indexing, the blob indexer refers to configuration parameters and settings to utilize any field mappings or change detection logic. Such settings are fully available to regular indexing and AI enriched workloads. Post-indexing, when content is stored on Azure Search, you can build rich queries and filter expressions to understand your content.
 
-The output formations are a search index on Azure Search, or a knowledge store in Azure Storage.
+In Azure Storage, a knowledge store has two manifestations: a blob container, or tables in Table storage. 
 
-In Azure Search, enriched documents are formatted in JSON and can be indexed in the same way all documents are indexed, with the benefits an indexer provides. Fields from enriched documents are mapped to an index schema. During indexing, the blob indexer refers to configuration parameters and settings to utilize any field mappings or change detection logic that you've specified. Post-indexing, when content is stored on Azure Search, you can build rich queries and filter expressions to understand your content.
++ A blob container captures enriched documents in their entirety, which is useful if you want to feed into other processes. 
 
-In Azure Storage, a knowledge store has two manifestations: a blob container, or tables in Table storage. A blob container captures enriched documents in their entirety, which is useful if you want to feed into other processes. In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table storage become the data source for further visualization and exploration.
++ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table storage become the data source for further visualization and exploration.
+
+An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created content, regardless of which output structure you use.
 
 ## Next steps
 
