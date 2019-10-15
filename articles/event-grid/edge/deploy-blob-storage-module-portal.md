@@ -249,5 +249,5 @@ For descriptions of properties in the BlobCreated and BlobDeleted events, see [E
 See the following articles:
 
 - [Filer Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
-- [Recommended practices for consuming Blob Storage events](../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+- [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
 - [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
