@@ -1,6 +1,6 @@
 ---
-title: Sample - ISO 27001 Shared Services blueprint - Overview
-description: Overview and architecture of the ISO 27001 Shared Services blueprint sample.
+title: ISO 27001 Shared Services blueprint sample - Overview
+description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers asses specific ISO 27001 controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019

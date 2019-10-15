@@ -8,7 +8,7 @@ ms.date: 06/10/2019
 ms.author: tisande
 
 ---
-# FROM clause
+# FROM clause in Azure Cosmos DB
 
 The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
 
