@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 # What's new in Personalizer
@@ -16,6 +16,11 @@ ms.author: diberry
 Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
 
 ## Release notes 
+
+### November 2019 - Ignite Conference
+
+* Personalizer is generally available (GA)
+* Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) with entire lifecycle
 
 ### May 6, 2019 - //Build Conference
 
