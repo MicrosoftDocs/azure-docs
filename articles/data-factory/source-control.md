@@ -20,6 +20,9 @@ The Azure Data Factory user interface experience (UX) has two experiences availa
 - Author directly with the Data Factory service
 - Author with Azure Repos Git or GitHub integration
 
+> [!NOTE]
+> Only authoring directly with the Data Factory service is supported in the Azure Government Cloud.
+
 ## Author directly with the Data Factory service
 
 While authoring directly with the Data Factory service, the only way to save changes is via the **Publish All** button. Once clicked, all changes that you made are published directly to the Data Factory service. 
