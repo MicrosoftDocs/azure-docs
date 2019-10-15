@@ -40,7 +40,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. In your favorite text editor or IDE, create a new python file. Add the following imports.
 
-    [!code-python[import statement block](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
+    [!code-python[import statements](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
 
 2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
