@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Get help with your system
