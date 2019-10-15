@@ -14,11 +14,9 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK C++ (Linux) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for
+This guide shows how to install the [Speech SDK](speech-sdk.md) for Linux
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## System requirements
 
