@@ -16,7 +16,7 @@ ms.subservice: common
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-This article shows how to authorize access to blob or queue data with a managed identity from an Azure VM.
+This article shows how to authorize access to blob or queue data with a managed identity from an Azure VM. It also shows how to create and use a service principal so that you can test your code from the development environment before you deploy it to Azure. The service principal mimics the managed identity in the development environment.
 
 Use a managed identity to create a blob
 Use a service principal to create a blob from dev env
@@ -49,11 +49,13 @@ The examples in this article use the latest preview version of the Azure Storage
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal. The authenticated security principal can then create the user delegation SAS. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal and gets a token. Your code then uses that token to authorize Azure Storage operations. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 
 ```
 Install-Package Azure.Identity -IncludePrerelease
 ```
+
+The Azure Identity client library uses a managed identity to authenticate when your code is running in Azure. To test your code in the development environment, before you deploy to Azure, you must create a service principal for authentication.  
 
 ## Create a service principal
 
