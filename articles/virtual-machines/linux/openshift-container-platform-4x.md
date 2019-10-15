@@ -35,7 +35,6 @@ Deployment of OpenShift Container Platform (OCP) 4.2 is now supported in Azure v
 | Issue Description | Contact Point |
 |-------------------|---------------|
 | Azure specific issues (AAD, SP, Azure Subscription, etc.)                              | Microsoft |
-|----------------------------------------------------------------------------------------|-----------|
 | OpenShift-specific issues (Installation failures / errors, Red Hat subscription, etc.) |  Red Hat  |
 
 
