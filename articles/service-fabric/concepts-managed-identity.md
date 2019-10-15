@@ -74,3 +74,4 @@ The following scenarios are not supported or not recommended; note these actions
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Declaring and using application secrets as KeyVaultReferences](./service-fabric-keyvault-references.md) 
