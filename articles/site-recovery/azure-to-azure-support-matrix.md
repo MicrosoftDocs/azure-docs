@@ -5,13 +5,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
 
 ---
 # Support matrix for replicating Azure VMs from one region to another
 
-This article summarizes support and prerequisites when you set of disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## Deployment method support
@@ -27,7 +27,7 @@ This article summarizes support and prerequisites when you set of disaster recov
 ## Resource support
 
 **Resource action** | **Details**
---- | --- | ---
+--- | --- 
 **Move vaults across resource groups** | Not supported
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after the VM is replicating, you need to disable and then re-enable replication for the VM.
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
@@ -53,7 +53,7 @@ Restricted Regions reserved for in-country disaster recovery |Germany North rese
 >[!NOTE]
 >
 > - For **Brazil South**, you can replicate and fail over to these regions: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
-> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances.
+> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported.
 > - You can work within regions for which you have appropriate access.
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region.
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region.
@@ -79,15 +79,16 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 **Operating system** | **Details**
 --- | ---
-Windows Server 2019 | Server Core, Server with Desktop Experience
-Windows Server 2016  | Server Core, Server with Desktop Experience
-Windows Server 2012 R2 |
-Windows Server 2012 |
-Windows Server 2008 R2 | Running SP1 or later
-Windows 10 (x64) |
-Windows 8.1 (x64) |
-Windows 8 (x64) |
-Windows 7 (x64) | Running SP1 or later (Windows 7 RTM is not supported)
+Windows Server 2019 | Supported for Server Core, Server with Desktop Experience.
+Windows Server 2016  | Supported Server Core, Server with Desktop Experience.
+Windows Server 2012 R2 | Supported.
+Windows Server 2012 | Supported.
+Windows Server 2008 R2 with SP1/SP2 | Supported.<br/><br/> From version 9.30.x.x of the Mobility service extension for Azure VMs, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows Server 2008 R2 SP1/SP2.  If these updates aren't installed the agent extension might not install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows Server 2008 with SP2 | From version 9.30.x.x of the Mobility service extension for Azure VMs, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4493730) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows Server 2008 with SP2.  If these updates aren't installed the agent extension might not install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows 10 (x64) | Supported.
+Windows 8.1 (x64) | Supported.
+Windows 8 (x64) | Supported.
+Windows 7 (x64) with SP1 onwards | From version 9.30.x.x of the Mobility service extension for Azure VMs, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  If these updates aren't installed the agent extension might not install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
 #### Linux
 

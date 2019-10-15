@@ -1,5 +1,5 @@
 ---
-title: Create Python app on Linux - Azure App Service | Microsoft Docs
+title: 'Quickstart: Create Python app on Linux - Azure App Service'
 description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
+ms.custom: seo-python-october2019
 
 experimental: true
 experiment_id: 1e304dc9-5add-4b
 ---
 # Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
+In this article, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
 
 ![Run a sample Python app in App Service in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
