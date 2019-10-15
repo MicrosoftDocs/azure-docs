@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/15/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -35,11 +35,11 @@ There are several things to consider when cloning an IoT hub.
 
 * Do not remove the original resources before creating and verifying the cloned version. Once you remove a hub, it's gone forever, and there is no way to recover it to check the settings or data to make sure you had replicated them correctly.
 
-* Many resources require globally unique names, so you must use different names for the cloned versions. Also use a different name for the resource group to which the cloned hub belongs. 
+* Many resources require globally unique names, so you must use different names for the cloned versions. You also should use a different name for the resource group to which the cloned hub belongs. 
 
 * Data for the original IoT hub is not migrated. This includes telemetry messages, cloud-to-device (C2D) commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated. 
 
-* For data or messages routed to Azure Storage, you can leave the data in the original storage account, or transfer that data to a new storage account in the new region. For more information on moving data in Blob storage, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
+* For data or messages routed to Azure Storage, you can leave the data in the original storage account, transfer that data to a new storage account in the new region, or leave the old data in place and create a new storage account in the new location for the new data. For more information on moving data in Blob storage, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 * Data for Event Hubs and for Service Bus Topics and Queues can not be migrated. This is point-in-time data and is not stored after the messages are processed.
 
@@ -296,7 +296,7 @@ It now validates your template and deploys your cloned hub.
 
 ## Managing the devices registered to the IoT hub
 
-Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. This application targets .NET Core, so you can run it on either Windows or Linux.
+Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. This application targets .NET Core, so you can run it on either Windows or Linux. You can download the sample, retrieve your connection strings as needed, set the flags for which bits you want to run, and run it. 
 
 ### The sample code, explained
 
@@ -304,25 +304,21 @@ Now that you have your clone up and running, you need to copy all of the devices
 
 1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You can use VSCode or Visual Studio to edit the code if needed.
 
-1. **Program.cs** calls ImportExportDevicesSample.cs, which contains the code for various import/export procedures.
+1. **Program.cs** calls ImportExportDevicesSample.cs, which contains the code for various import/export procedures. There are five variables at the top that you can set:
 
-1. **ImportExportDevicesSample** has multiple methods. Comment out the method calls you don't want to run. Note especially that there are two calls that enable you to remove all devices from the source and/or destination hub. Be very sure that's what you want when you run one of those, because there is no going back. Once the devices are deleted, they are gone. Here's what's in this class:
+*   addDevices -- set this to true if you want to add virtual devices that are generated for you. Also set numToAdd to how man you want to add. The maximum number of devices you can register to a hub is one million.
 
-    **RunSampleAsync** -- this is the driving method where you comment out the bits you don't want to run. 
+*   copyDevices -- set this to true to copy the devices from one hub to another. 
 
-    **CopyAllDevicesToNewHub** -- this copies all the devices from one hub to another. In our case, it is used to copy the devices from the original hub to the clone. 
+*   deleteSourceDevices -- set this to true to delete all of the devices registered to the source hub. We recommending waiting until you are certain all of the devices have been transferred before you run this.
 
-    **GenerateAndAddDevices** -- for testing -- this generates new devices with random device names, complete with encryption keys, and registers those new devices with the original hub. You could use this for testing -- create a hub, generate 100 devices on it, clone the hub, then copy those 100 devices to the clone and check out the results. 
+*   deleteDestDevices -- set this to true to delete all of the devices registered to the destination hub (the clone). You might want to do this if you want to copy the devices more than once. 
 
-    **ExportDevices** -- this exports the list of devices from the IoT Hub to a file in blob storage. You could use this to view the list of registered devices, or to back up your existing devices before making bulk changes to your identity registry.
-
-    **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub. Use this with care. There are two of these -- one for the source hub and one for the destination hub.
-
-In general, all of the method calls should be commented out in **RunSampleAsync** except for **CopyAllDevicesToNewHub**. 
+This sample runs **RunSampleAsync** in the class **ImportExportDevicesSample**, which checks the flags and runs the bits where the flag is true. 
 
 ### Run the sample code
 
-You can run the application by setting environment variables and then running the application in Visual Studio or from the command line. You can also pass in the variables as arguments on the command line. We'll look at how to use environment variables. 
+You can run the application by setting environment variables and then running the application in Visual Studio or from the command line. You can also pass in the environment variables as arguments on the command line. We'll look at how to use environment variables. 
 
 #### Set the environment variables
 
@@ -356,7 +352,7 @@ For Linux, this is how the environment variables are defined:
    
 1. Under the Settings section, select **Access keys** and copy one of the connection strings. Put the connection string in your text file for the appropriate SET command. 
 
-Now that your environment variables are ready, let's set them and run the application.
+Now that your environment variables are collected and ready, let's set them and run the application.
 
 #### Running the sample application
 
@@ -364,7 +360,7 @@ Now that your environment variables are ready, let's set them and run the applic
 
 1. Copy the commands that set the environment variables, one at a time, and paste them into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it shows your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
 
-1.  Make sure the methods you don't want to run (such as DeleteAllDevicesFromHub) are commented out in ImportExportDevicesSample.cs. 
+1.  Make sure the variables at the top of Program.cs are set correctly. 
 
 1. To run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables. Also, change to the folder where the IoTHubServiceSamples.sln file resides before running this command.
 
