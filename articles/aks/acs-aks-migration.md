@@ -11,11 +11,19 @@ ms.author: mlearned
 ms.custom: mvc
 ---
 
-# Migrate from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
+# Migrate from Non-Azure Kubernetes Service (AKS) cluster to AKS
 
-This article helps you plan and execute a successful migration between Azure Container Service (ACS) with Kubernetes and Azure Kubernetes Service (AKS). To help you make key decisions, this guide details the differences between ACS and AKS and provides an overview of the migration process.
+This article helps you plan and execute a successful migration from a cluster not hosted in Azure Kubernetes Service (AKS) to one hosted in AKS. To help you make key decisions, this guide details the differences between non-AKS and AKS clusters and provides an overview of the migration process.
 
-## Differences between ACS and AKS
+The scenarios where you want to utilize this document are:
+
+* Migrating from Azure Container Service (ACS) to AKS
+* Migrating from AKS Engine to AKS
+* Migrating AKS Cluster using Availability Sets to Virtual Machine Scale Sets
+
+## Differences between Kubernetes clusters
+
+### ACS vs AKS
 
 ACS and AKS differ in some key areas that affect migration. Before any migration, you should review and plan to address the following differences:
 
@@ -28,11 +36,26 @@ ACS and AKS differ in some key areas that affect migration. Before any migration
 * AKS supports a limited set of [regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * AKS is a managed service with a hosted Kubernetes control plane. You might need to modify your applications if you've previously modified the configuration of your ACS masters.
 
+### AKS Engine vs AKS
+
+### AKS with Availability Sets vs Virtual Machine Scale Sets
+
 ## Differences between Kubernetes versions
 
 If you're migrating to a newer version of Kubernetes, review the following resources to understand the Kubernetes versioning strategies:
 
 * [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions)
+
+## Reusable Resources
+
+When migrating clusters, the following Azure resources should not need any additional efforts beyond allowing connections from the new cluster.
+
+* Azure Container Registry
+* Log Analytics
+* Application Insights
+* Traffic Manager
+* Storage Account
+* External Databases
 
 ## Migration considerations
 
@@ -57,6 +80,8 @@ For complex applications, you'll typically migrate over time rather than all at 
 
 To complete the migration, you'll want to point clients to the new services that are running on AKS. We recommend that you redirect traffic by updating DNS to point to the Load Balancer that sits in front of your AKS cluster.
 
+* __TODO__ Go into detail about using Traffic Manager or Azure Front Door
+
 ### Stateless applications
 
 Stateless application migration is the most straightforward case. You'll apply your YAML definitions to the new cluster, make sure everything works as expected, and redirect traffic to activate your new cluster.
@@ -64,6 +89,8 @@ Stateless application migration is the most straightforward case. You'll apply y
 ### Stateful applications
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
+
+__TODO__ Too generic.  Needs work
 
 #### Highly available applications
 
