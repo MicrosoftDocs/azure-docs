@@ -20,7 +20,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ---
 
-# Tutorial: Push notifications to specific Windows devices running Universal Windows Platform applications
+# Tutorial: Send notifications to specific devices running Universal Windows Platform applications
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
