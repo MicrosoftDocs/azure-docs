@@ -28,17 +28,15 @@ In order to make a connection, the following roles are required:
 
 ## <a name="rdp"></a>Connect using RDP
 
-1. Use [this link](https://aka.ms/BastionHost) to open the portal page for Azure Bastion. Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
+1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
 
-    ![VM connect](./media/bastion-connect-vm-rdp/connect.png)
+   ![VM connect](./media/bastion-connect-vm-rdp/connect.png)
+1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md).
 
-1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md). If you do not see **Bastion** listed, you have not opened the right portal. Open the portal using this [Bastion portal link](https://aka.ms/BastionHost).
-
-    ![VM connect](./media/bastion-connect-vm-rdp/bastion.png)
-
+   ![VM connect](./media/bastion-connect-vm-rdp/bastion.png)
 1. On the Bastion tab, the username and password for your virtual machine, then click **Connect**. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
-    ![VM connect](./media/bastion-connect-vm-rdp/443rdp.png)
+   ![VM connect](./media/bastion-connect-vm-rdp/443rdp.png)
  
 ## Next steps
 
