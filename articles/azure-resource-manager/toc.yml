@@ -228,8 +228,6 @@
       href: resource-group-delete.md
     - name: Lock resources
       href: resource-group-lock-resources.md
-    - name: Authentication API to access subscriptions
-      href: resource-manager-api-authentication.md
     - name: Create EA subscriptions
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
