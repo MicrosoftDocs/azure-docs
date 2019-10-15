@@ -1,6 +1,6 @@
 ---
 title: Azure Managed Application deployment template artifact reference
-description: This article is a reference to deployment template artifact.
+description: Provides an example of the deployment template artifact for Azure Managed Applications.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
