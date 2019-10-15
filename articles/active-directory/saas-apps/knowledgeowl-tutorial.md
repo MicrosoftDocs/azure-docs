@@ -82,13 +82,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	| |
+	| | |
 	|-|-|
 	| `https://app.knowledgeowl.com/sp`|
 	| `https://app.knowledgeowl.com/sp/id/<unique ID>`|
 
 	b. In the **Reply URL** text box, type a URL using the following pattern:
-	| |
+	| | |
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-	| |
+	| | |
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
