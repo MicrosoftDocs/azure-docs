@@ -41,7 +41,7 @@ Make sure to test you retry logic. For example, try to execute your code while s
 
 ## Connect efficiently to Azure Database for MySQL
 
-Database connections are a limited resource, so making sensible use of connection pooling to access Azure Database for MySQL optimizes performance. The below section explains how to use connection pooling or persistent connections to more effectively access Azure Database for MySQL.
+Database connections are a limited resource, so making effective use of connection pooling to access Azure Database for MySQL optimizes performance. The below section explains how to use connection pooling or persistent connections to more effectively access Azure Database for MySQL.
 
 ## Access databases by using connection pooling (recommended)
 
@@ -50,13 +50,13 @@ Managing database connections can have a significant impact on the performance o
 For better illustration, this article provides [a piece of sample code](http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/documents/MySQLConnectionPool.java) that uses JAVA as an example. For more information, see [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
-> The server configures a timeout mechanism to close a connection that has been in an idle state for some time to free up resources. Be sure to set up the verification system to ensure the effectiveness of persistent connections when you are using them. For more information, see [Configure verification systems on the client side to ensure the effectiveness of persistent connections]().
+> The server configures a timeout mechanism to close a connection that has been in an idle state for some time to free up resources. Be sure to set up the verification system to ensure the effectiveness of persistent connections when you are using them. For more information, see [Configure verification systems on the client side to ensure the effectiveness of persistent connections](https://review.docs.microsoft.com/azure/mysql/concepts-connectivity?branch=pr-en-us-91864#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
 
 ## Configure verification mechanisms in clients to confirm the effectiveness of persistent connections
 
 The server configures a timeout mechanism to close a connection that’s been in an idle state for some time to free up resources. When the client accesses the database again, it’s equivalent to creating a new connection request between the client and the server. To ensure the effectiveness of connections during the process of using them, configure a verification mechanism on the client. As shown in the following example, you can use Tomcat JDBC connection pooling to configure this verification mechanism.
 
-By setting the TestOnBorrow parameter, when there's a new request, the connection pool automatically verifies the effectiveness of any available connections that are idle before returning the idle connections. If such a connection is effective, it's directly returned. If it's not effective, the connection pool withdraws the connection. The connection pool then creates a new, effective connection and returns it. This process ensures the speed of access to the database. This ensures the speed of access to the database.
+By setting the TestOnBorrow parameter, when there's a new request, the connection pool automatically verifies the effectiveness of any available connections that are idle before returning the idle connections. If such a connection is effective, it's directly returned. If it's not effective, the connection pool withdraws the connection. The connection pool then creates a new effective connection and returns it. This process ensures that database is accessed efficiently. 
 
 For information on the specific settings, see the [JDBC connection pool official introduction document](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). You mainly need to set the following three parameters: TestOnBorrow (set to true), ValidationQuery (set to SELECT 1), and ValidationQueryTimeout (set to 1). The specific sample code is shown here:
 
