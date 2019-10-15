@@ -130,29 +130,29 @@ The below examples demonstrate how a virtual machine scale set will select VMs t
 
 ### OldestVM scale-in policy
 
-| Event         | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
-|---------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Initial       | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Scale-in      | 3, 4, 5, 10            | **2**, 6, 9, 11        | 1, 7, 8                | Choose between Zone 1 and 2, even though Zone 3 has the oldest VM. Delete VM2 from Zone 2 as it is the oldest VM in that zone.   |
-| Scale-in      | **3**, 4, 5, 10        | 6, 9, 11               | 1, 7, 8                | Choose Zone 1 even though Zone 3 has the oldest VM. Delete VM3 from Zone 1 as it is the oldest VM in that zone.                  |
-| Scale-in      | 4, 5, 10               | 6, 9, 11               | **1**, 7, 8            | Zones are balanced. Delete VM1 in Zone 3 as it is the oldest VM  in the scale set.                                               |
-| Scale-in      | **4**, 5, 10           | 6, 9, 11               | 7, 8                   | Choose between Zone 1 and Zone 2. Delete VM4 in Zone 1 as it is the oldest VM across the two Zones.                              |
-| Scale-in      | 5, 10                  | **6**, 9, 11           | 7, 8                   | Choose Zone 2 even though Zone 1 has the oldest VM. Delete VM6 in Zone 1 as it is the oldest VM in that zone.                    |
-| Scale-in      | **5**, 10              | 9, 11                  | 7, 8                   | Zones are balanced. Delete VM5 in Zone 1 as it is the oldest VM in the scale set.                                                |
+| Event                 | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
+|-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Scale-in              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Choose between Zone 1 and 2, even though Zone 3 has the oldest VM. Delete VM2 from Zone 2 as it is the oldest VM in that zone.   |
+| Scale-in              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Choose Zone 1 even though Zone 3 has the oldest VM. Delete VM3 from Zone 1 as it is the oldest VM in that zone.                  |
+| Scale-in              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Zones are balanced. Delete VM1 in Zone 3 as it is the oldest VM  in the scale set.                                               |
+| Scale-in              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Choose between Zone 1 and Zone 2. Delete VM4 in Zone 1 as it is the oldest VM across the two Zones.                              |
+| Scale-in              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Choose Zone 2 even though Zone 1 has the oldest VM. Delete VM6 in Zone 1 as it is the oldest VM in that zone.                    |
+| Scale-in              | ***5***, 10            | 9, 11                  | 7, 8                   | Zones are balanced. Delete VM5 in Zone 1 as it is the oldest VM in the scale set.                                                |
 
 For non-zonal virtual machine scale sets, the policy selects the oldest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion.
 
 ### NewestVM scale-in policy
 
-| Event         | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
-|---------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Initial       | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Scale-in      | 3, 4, 5, 10            | 2, 6, 9, **11**        | 1, 7, 8                | Choose between Zone 1 and 2. Delete VM11 from Zone 2 as it is the newest VM across the two zones.                                |
-| Scale-in      | 3, 4, 5, **10**        | 2, 6, 9                | 1, 7, 8                | Choose Zone 1 as it has more VMs than the other two zones. Delete VM10 from Zone 1 as it is the newest VM in that Zone.          |
-| Scale-in      | 3, 4, 5                | 2, 6, **9**            | 1, 7, 8                | Zones are balanced. Delete VM9 in Zone 2 as it is the newest VM in the scale set.                                                |
-| Scale-in      | 3, 4, 5                | 2, 6                   | 1, 7, **8**            | Choose between Zone 1 and Zone 3. Delete VM8 in Zone 3 as it is the newest VM in that Zone.                                      |
-| Scale-in      | 3, 4, **5**            | 2, 6                   | 1, 7                   | Choose Zone 1 even though Zone 3 has the newest VM. Delete VM5 in Zone 1 as it is the newest VM in that Zone.                    |
-| Scale-in      | 3, 4                   | 2, 6                   | 1, 7                   | Zones are balanced. Delete VM7 in Zone 3 as it is the newest VM in the scale set.                                                |
+| Event                 | Instance IDs in Zone1  | Instance IDs in Zone2  | Instance IDs in Zone3  | Scale-in Selection                                                                                                               |
+|-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Scale-in              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Choose between Zone 1 and 2. Delete VM11 from Zone 2 as it is the newest VM across the two zones.                                |
+| Scale-in              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Choose Zone 1 as it has more VMs than the other two zones. Delete VM10 from Zone 1 as it is the newest VM in that Zone.          |
+| Scale-in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zones are balanced. Delete VM9 in Zone 2 as it is the newest VM in the scale set.                                                |
+| Scale-in              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Choose between Zone 1 and Zone 3. Delete VM8 in Zone 3 as it is the newest VM in that Zone.                                      |
+| Scale-in              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Choose Zone 1 even though Zone 3 has the newest VM. Delete VM5 in Zone 1 as it is the newest VM in that Zone.                    |
+| Scale-in              | 3, 4                   | 2, 6                   | 1, 7                   | Zones are balanced. Delete VM7 in Zone 3 as it is the newest VM in the scale set.                                                |
 
 For non-zonal virtual machine scale sets, the policy selects the newest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion. 
 
