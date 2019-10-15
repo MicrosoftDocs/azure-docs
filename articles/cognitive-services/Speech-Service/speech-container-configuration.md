@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/15/2019
 ms.author: dapine
 ---
 
@@ -210,6 +210,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
+ModelVoice={MODEL_VOICE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -223,6 +224,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
+ModelVoice={MODEL_VOICE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

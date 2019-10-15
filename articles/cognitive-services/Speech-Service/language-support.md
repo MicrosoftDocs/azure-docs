@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/15/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -21,7 +21,7 @@ Different languages are supported for different Speech Services functions. The f
 
 Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
 
-  Code | Language | Supported | Customizable
+  Locale | Language | Supported | Customizable
  ------|----------|---------------------|---------------------
  ar-EG | Arabic (Egypt), modern standard | Yes | Yes
  ca-ES | Catalan | Yes | No
