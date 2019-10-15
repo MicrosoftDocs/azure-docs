@@ -46,10 +46,13 @@ Verify that you have met the following criteria before beginning your configurat
    ![Create WAN](./media/virtual-wan-point-to-site-portal/createwan.png)
 4. On the Create WAN page, fill in the following fields.
 
-   * **Name** - Select the Name that you want to call your WAN.
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource Group** - Create new or use existing.
-   * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   **Name** - Select the Name that you want to call your WAN.
+
+   **Subscription** - Select the subscription that you want to use.
+
+   **Resource Group** - Create new or use existing.
+
+   **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
 5. Click **Create** to create the WAN.
 
 ## <a name="site"></a>2. Create an empty virtual hub
@@ -60,15 +63,15 @@ Verify that you have met the following criteria before beginning your configurat
 2. On the create virtual hub page, fill in the following fields.
 
    **Region** - Select the region that you want to deploy the virtual hub in.
-   
+
    **Name** - Enter the name that you want to call your virtual hub.
-   
+
    **Hub private address space** - The hub's address range in CIDR notation.
-   
+
    ![new site](media/virtual-wan-point-to-site-portal/hub2.jpg)  
 3. Click **Review + create**
 4. On the **validation passed** page, click **create**
-   
+
 ## <a name="site"></a>3. Create a P2S configuration
 
 A P2S configuration defines the parameters for connecting remote clients.
@@ -80,10 +83,13 @@ A P2S configuration defines the parameters for connecting remote clients.
    ![new site](media/virtual-wan-point-to-site-portal/p2s1.jpg)
 4. On the **Create new user VPN configuration** page, fill in the following fields:
 
-   *  **Configuration name** - This is the name by which you want to refer to your configuration.
-   *  **Tunnel type** - The protocol to use for the tunnel.
-   *  **Root Certificate Name** - A descriptive name for the certificate.
-   *  **Public Certificate Data** - Base-64 encoded X.509 certificate data.
+   **Configuration name** - This is the name by which you want to refer to your configuration.
+
+   **Tunnel type** - The protocol to use for the tunnel.
+
+   **Root Certificate Name** - A descriptive name for the certificate.
+
+   **Public Certificate Data** - Base-64 encoded X.509 certificate data.
   
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Click **Create** to create the configuration.
