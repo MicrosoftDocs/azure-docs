@@ -52,7 +52,7 @@ If you need to add resources to an access package, you should check whether the 
 
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, Teams, applications, and SharePoint sites.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, teams, applications, and SharePoint sites.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -66,18 +66,18 @@ A resource role is a collection of permissions associated with a resource. The w
 
     ![Access package - Add resource roles](./media/entitlement-management-access-package-resources/resource-roles-add.png)
 
-1. Depending on whether you want to add a group, Team, application, or SharePoint site, perform the steps in one of the following resource role sections.
+1. Depending on whether you want to add a group, team, application, or SharePoint site, perform the steps in one of the following resource role sections.
 
-## Add a group or Team resource role
+## Add a group or team resource role
 
-You can have entitlement management automatically add users to a group or a Microsoft Team when they are assigned an access package. 
+You can have entitlement management automatically add users to a group or a team in Microsoft Teams when they are assigned an access package. 
 
-- When a group or Team is part of an access package and a user is assigned to that access package, the user is added to that group or Team, if not already present.
-- When a user's access package assignment expires, they are removed from the group or Team, unless they currently have an assignment to another access package that includes that same group or Team.
+- When a group or team is part of an access package and a user is assigned to that access package, the user is added to that group or team, if not already present.
+- When a user's access package assignment expires, they are removed from the group or team, unless they currently have an assignment to another access package that includes that same group or team.
 
-You can select any [Azure AD security group or Office 365 group](../fundamentals/active-directory-groups-create-azure-portal.md).  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
+You can select any [Azure AD security group or Office 365 group](../fundamentals/active-directory-groups-create-azure-portal.md). Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
 
-- When a user, including a guest, is added as a member to a group or Team, they can see all the other members of that group or Team.
+- When a user, including a guest, is added as a member to a group or team, they can see all the other members of that group or team.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
@@ -85,30 +85,30 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 1. On the **Add resource roles to access package** page, click **Groups and Teams** to open the Select groups pane.
 
-1. Select the groups and Teams you want to include in the access package.
+1. Select the groups and teams you want to include in the access package.
 
     ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-resources/group-select.png)
 
 1. Click **Select**.
 
-    Once you select the group or Team, the **Sub type** column will list one of the following subtypes:
+    Once you select the group or team, the **Sub type** column will list one of the following subtypes:
 
     |  |  |
     | --- | --- |
     | Security | Used for granting access to resources. |
     | Distribution | Used for sending notifications to a group of people. |
-    | O365 | Office 365 group that is not Teams enabled. Used for collaboration between users, both inside and outside your company. |
-    | Team | Office 365 group that is Teams enabled. Used for collaboration between users, both inside and outside your company. |
+    | O365 | Office 365 group that is not Teams-enabled. Used for collaboration between users, both inside and outside your company. |
+    | Team | Office 365 group that is Teams-enabled. Used for collaboration between users, both inside and outside your company. |
 
 1. In the **Role** list, select **Owner** or **Member**.
 
     You typically select the Member role. If you select the Owner role, that will allow users to add or remove other members or owners.
 
-    ![Access package - Add resource role for a group or Team](./media/entitlement-management-access-package-resources/group-role.png)
+    ![Access package - Add resource role for a group or team](./media/entitlement-management-access-package-resources/group-role.png)
 
 1. Click **Add**.
 
-    Any users with existing assignments to the access package will automatically become members of this group or Team when it is added.
+    Any users with existing assignments to the access package will automatically become members of this group or team when it is added.
 
 ## Add an application resource role
 
@@ -180,6 +180,8 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 ## When changes are applied
 
 In entitlement management, Azure AD will process bulk changes for assignment and resources in your access packages several times a day. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Azure AD, plus the amount of time it takes to propagate those changes to other Microsoft Online Services or connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Azure AD, after which other Azure AD components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role. You can monitor the progress through the Azure AD audit log, the Azure AD provisioning log, and the SharePoint site audit logs.
+
+When you remove a member of a team, they are removed from the Office 365 group as well. Removal from the team's chat functionality can take approximately two hours. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
 
 ## Next steps
 
