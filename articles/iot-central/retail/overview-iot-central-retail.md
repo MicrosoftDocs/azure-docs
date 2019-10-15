@@ -10,6 +10,6 @@ services: iot-central
 manager: eliotgra
 ---
 
-# Building retail solutions with Azure IoT Central
+# Building Retail IoT solutions with Azure IoT Central
 
 Learn to build retail solutions with Azure IoT Central using application templates.

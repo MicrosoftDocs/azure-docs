@@ -124,8 +124,9 @@ will be created.
 
 Modify is used to add, update, or remove tags on a resource during creation or update. A common
 example is updating tags on resources such as costCenter. A Modify policy should always have `mode`
-set to _Indexed_. Existing non-compliant resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
-A single Modify rule can have any number of operations.
+set to _Indexed_ unless the target resource is a resource group. Existing non-compliant resources
+can be remediated with a [remediation task](../how-to/remediate-resources.md). A single Modify rule
+can have any number of operations.
 
 > [!IMPORTANT]
 > Modify is currently only for use with tags. If you are managing tags, it's recommended to use

@@ -23,7 +23,7 @@ IoT Plug and Play Preview enables solution developers to integrate devices with 
 
 You can reuse interfaces across device capability models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/core/overview-iot-central.md), and other Azure services remain the same.
 
 Solutions built on IoT Hub or IoT Central can benefit from IoT Plug and Play.
 
@@ -45,7 +45,7 @@ IoT Plug and Play is useful for two types of developers:
 
 As a solution developer, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. You can use either of the following Azure services:
 
-- [IoT Central](../iot-central/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
+- [IoT Central](../iot-central/core/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
 - [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
 
 You can find IoT Plug and Play devices through the Azure Certified for IoT device catalog. Each IoT Plug and Play device in the catalog has been validated, and has a device capability model. View the device capability model to understand the device's functionality or use it to simulate the device in Azure IoT Central.
