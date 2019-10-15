@@ -4,8 +4,8 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
+ms.date: 15/10/2019
+ms.author: hamusa
 ---
 
 # Assessment calculations in Azure Migrate
@@ -96,10 +96,10 @@ For performance-based sizing, Server Assessment starts with the disks attached t
 
 **Performance data collection steps:**
 
-1. For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval. For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
-1. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to  Server Assessment.
-1. Server Assessment stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Server Assessment uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing.
-1. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
+1. For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval. For Hyper-V VMs, the real-time sample point is collected at every 30-second interval. For physical servers, the real-time sample point is collected at every 5-minute interval.
+2. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to  Server Assessment.
+3. Server Assessment stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Server Assessment uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing.
+4. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
