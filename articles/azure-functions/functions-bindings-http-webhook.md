@@ -527,7 +527,7 @@ This example reads the body of a POST request. The request body gets automatical
 
 ## Trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HTTPTrigger` attribute is available to configure the function.
+In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
 
 You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration).
 
