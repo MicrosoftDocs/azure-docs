@@ -42,6 +42,6 @@ IPv6 is supported on Basic Public IPs only with “dynamic” allocation that me
 As a best practice, we recommend that you use Standard Public IPs and Standard Load Balancers for your IPv6 applications.
 
 ## Next steps
-- Reserve a public [IPv6 address prefix](virtual-network-ipv6-reserve-public-ip-address-prefix.md)
+- Reserve a public [IPv6 address prefix](ipv6-reserve-public-ip-address-prefix.md)
 - Learn more about [IPv6 addresses](ipv6-overview.md).
 - Learn about [how to create and use public IPs](virtual-network-public-ip-address.md) (both IPv4 and IPv6) in Azure.
