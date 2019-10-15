@@ -21,6 +21,8 @@
   items:
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
+  - name: Security defaults
+    href: concept-conditional-access-security-defaults.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
   - name: Conditions
