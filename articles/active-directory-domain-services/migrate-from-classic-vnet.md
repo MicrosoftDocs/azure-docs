@@ -182,11 +182,22 @@ Azure PowerShell is used to prepare the Azure AD DS managed domain for migration
 
 To prepare the Azure AD DS managed domain for migration, complete the following steps:
 
-1. Run the `Migrate-Aadds.ps1` script using the *-Prepare* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain, such as *contoso.onmicrosoft.com*:
+1. Download the PowerShell migration script from the PowerShell gallery. The PowerShell migration script is a digitally signed by the Azure AD engineering team.
+1. Create a variable to hold the credentials for by the migration script using the [Get-Credential][get-credential] cmdlet.
+
+    The user account you specify needs *global administrator* privileges in your Azure AD tenant to enable Azure AD DS and then *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+
+    When prompted, enter an appropriate user account and password:
+
+    ```powershell
+    $creds = Get-Credential
+    ```
+
+1. Now run the migrations script, `Migrate-Aadds.ps1`, using the *-Prepare* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain, such as *contoso.com*:
 
     ```powershell
     \Migrate-Aadds.ps1 `
-        -Prepare -ManagedDomainFqdn contoso.onmicrosoft.com `
+        -Prepare -ManagedDomainFqdn contoso.com `
         -Credentials $creds​
     ```
 
@@ -194,7 +205,7 @@ To prepare the Azure AD DS managed domain for migration, complete the following 
 
 With the Azure AD DS managed domain prepared and backed up, the domain can be migrated. This step recreates the Azure AD Domain Services domain controller VMs using the Resource Manager deployment model. This step can take 1 to 3 hours to complete.
 
-Run the `Migrate-Aadds.ps1` script using the *-Commit* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in the previous section, such as *contoso.onmicrosoft.com*:
+Run the `Migrate-Aadds.ps1` script using the *-Commit* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in the previous section, such as *contoso.com*:
 
 Specify the target resource group that contains the virtual network you want to migrate Azure AD DS to, such as *myResourceGroup*. Provide the target virtual network, such as *myVnet*, and the subnet, such as *DomainServices*.
 
@@ -203,7 +214,7 @@ After this command runs, you can't then roll back:
 ```powershell
 .\Migrate-Aadds.ps1 `
     -Commit `
-    -ManagedDomainFqdn contoso.onmicrosoft.com `
+    -ManagedDomainFqdn contoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -282,12 +293,12 @@ Azure AD DS creates a network security group that opens up the ports needed for 
 
 If PowerShell cmdlet to prepare for migration in step 2 fails, the Azure AD DS managed domain can roll back to the original configuration. This roll back requires the original Classic virtual network.
 
-Run the `Migrate-Aadds.ps1` script using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.onmicrosoft.com*:
+Run the `Migrate-Aadds.ps1` script using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.com*:
 
 ```powershell
-.\Migrate-Aadds `
+.\Migrate-Aadds.ps1 `
     -Abort `
-    -ManagedDomainFqdn contoso.onmicrosoft.com `
+    -ManagedDomainFqdn contoso.com `
     -Credentials $creds​
 ```
 
@@ -333,4 +344,4 @@ With your Azure AD DS managed domain migrated to the Resource Manager deployment
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
-
+[get-credential]: /powershell/module/microsoft.powershell.security/get-credential
