@@ -135,7 +135,7 @@ When your encoding job is done, the output asset will contain the files generate
 
 1. In the Azure portal, navigate to the storage account associated with your Media Services account. 
 1. Find the container with the name of your output asset. 
-1. In the container find the .ism file and click **Edit blob** (in the right window). 
+1. In the container, find the .ism file and click **Edit blob** (in the right window). 
 1. Edit the .ism file by adding the information about the uploaded audio-only MP4 file (AAC codec) containing descriptive audio and press **Save** when done.
 
     To signal the descriptive audio tracks, you need to add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate" />` to the .ism file for a specific audio track, as shown in the following example.
