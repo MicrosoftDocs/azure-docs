@@ -35934,6 +35934,14 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-connect-pnp-device-pnp.md",
+      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_document_id": false
+    },
+
+
+
+    {
       "source_path": "articles/iot-central/howto-generate-connection-string.md",
       "redirect_url": "/azure/iot-central",
       "redirect_document_id": false

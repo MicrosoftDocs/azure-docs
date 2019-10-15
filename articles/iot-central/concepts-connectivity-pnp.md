@@ -33,7 +33,7 @@ This article describes the following use cases:
 - [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 - [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
 - [Connect without first registering devices](#connect-without-registering-devices)
-- [Connect devices using IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Connect devices using IoT Plug and Play features](#connect-devices-with-iot-plug-and-play)
 
 ## Connect a single device
 
@@ -155,8 +155,6 @@ Below is the format of the additional payload the device would send during the D
           }
 ```
 
-To learn more about connecting an IoT Plug and Play device, see how to [Connect an IoT Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
 > [!NOTE]
 > Note that the Auto-Approve option should be enabled for devices to automatically connect, discover the model and start sending data.
 
@@ -226,6 +224,5 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Now that you've learned about device connectivity in Azure IoT Central, here are the suggested next steps:
 
-- [Connect an IoT Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a DevKit device](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [C SDK: Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
