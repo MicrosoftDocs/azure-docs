@@ -162,7 +162,7 @@ For non-zonal virtual machine scale sets, the policy selects the oldest VM acros
 | Scale-in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zones are balanced. Delete VM9 in Zone 2 as it is the newest VM in the scale set.                                                |
 | Scale-in              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Choose between Zone 1 and Zone 3. Delete VM8 in Zone 3 as it is the newest VM in that Zone.                                      |
 | Scale-in              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Choose Zone 1 even though Zone 3 has the newest VM. Delete VM5 in Zone 1 as it is the newest VM in that Zone.                    |
-| Scale-in              | 3, 4                   | 2, 6                   | 1, 7                   | Zones are balanced. Delete VM7 in Zone 3 as it is the newest VM in the scale set.                                                |
+| Scale-in              | 3, 4                   | 2, 6                   | 1, ***7***             | Zones are balanced. Delete VM7 in Zone 3 as it is the newest VM in the scale set.                                                |
 
 For non-zonal virtual machine scale sets, the policy selects the newest VM across the scale set for deletion. Any “protected” VM will be skipped for deletion. 
 
