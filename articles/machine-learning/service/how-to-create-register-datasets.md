@@ -166,8 +166,7 @@ The following steps and animation shows how to create a dataset in the Azure Mac
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
->[!Important]
-> The functionality in this studio, https://ml.azure.com, is **accessible from Enterprise SKU workspaces only**. [Learn more about SKUs and upgrading](overview-what-is-azure-ml.md#sku). 
+[!INCLUDE [aml-applies-to-enterprise-sku-inline](../../../includes/aml-applies-to-enterprise-sku-inline.md)] 
 
 To create a TabularDataset in the studio:
 1. Sign in at https://ml.azure.com.
