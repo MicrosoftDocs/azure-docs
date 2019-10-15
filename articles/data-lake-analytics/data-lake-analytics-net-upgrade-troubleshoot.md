@@ -17,7 +17,7 @@ The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v
 
 This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL vertex (the default runtime) will now always be 4.7.2.  There isn't a side-by-side option for .NET Framework versions.
 
-After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
+After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly was generated for.
 
 - If your assembly DLLs are generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics.
 - You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.  
@@ -97,3 +97,10 @@ The most common backwards-incompatibilities that the checker is likely to identi
   - In the .NET framework 4.6.2 and earlier versions, the DataContractJsonSerializer did not serialize some special control characters, such as \b, \f, and \t, in a way that was compatible with the ECMAScript V6 and V8 standards. Starting with the .NET Framework 4.7, serialization of these control characters is compatible with ECMAScript V6 and V8.
   - Impacted Libraries: System.Runtime.Serialization.Json
   - Suggested Action: Ensure same behavior with DataContractJsonSerializer
+
+## Next steps  
+
+- [Run U-SQL script on your local machine using Visual Studio](data-lake-analytics-data-lake-tools-local-run.md)
+- [Run U-SQL and debug locally in Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
+- [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
+- [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport)
