@@ -40,7 +40,7 @@ To follow this how-to guide:
 
 ## Private certificate requirements
 
-The [free App Service managed certificate](#create-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
+The [free App Service managed certificate](#create-a-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
 * Contains private key at least 2048 bits long
@@ -56,7 +56,7 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## Create free certificate (Preview)
+## Create a free certificate (Preview)
 
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 

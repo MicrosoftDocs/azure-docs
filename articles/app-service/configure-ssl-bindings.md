@@ -23,7 +23,7 @@ This article shows you how to secure your [App Service app](https://docs.microso
 
 Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
 
-- [Add a private certificate to App Service](configure-ssl-add-cert.md) that satisfies all the [requirements for SSL bindings](configure-ssl-add-cert.md#private-certificate-requirements).
+- [Add a private certificate to App Service](configure-ssl-cert.md) that satisfies all the [requirements for SSL bindings](configure-ssl-cert.md#private-certificate-requirements).
 -  Create an SSL binding to the corresponding custom domain. This second step is covered by this tutorial.
 
 In this tutorial, you learn how to:
@@ -44,7 +44,7 @@ To follow this how-to guide:
 - [Add a private certificate to your app](configure-ssl-cert.md)
 
 > [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service managed certificate](configure-ssl-cert.md#create-free-certificate-preview) (Preview).
+> The easiest way to add a private certificate is to [create a free App Service managed certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -75,7 +75,7 @@ If your app has no certificate for the selected custom domain, then you have two
 - **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-cert.md#import-an-app-service-certificate), then select this option here.
 
 > [!NOTE]
-> You can also [Create a free certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview) or [Import a Key Vault certificate](configure-ssl-cert.md#import-a-key-vault-certificate), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
+> You can also [Create a free certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview) or [Import a Key Vault certificate](configure-ssl-cert.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
 
 ### Create binding
 
