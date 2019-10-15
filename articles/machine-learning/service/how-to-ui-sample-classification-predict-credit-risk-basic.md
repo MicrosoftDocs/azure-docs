@@ -13,6 +13,7 @@ ms.date: 05/10/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 

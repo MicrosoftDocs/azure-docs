@@ -13,6 +13,7 @@ ms.date: 07/02/2019
 ---
 
 # Sample 6 - Classification: Predict flight delays using R
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 This experiment uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes.
 

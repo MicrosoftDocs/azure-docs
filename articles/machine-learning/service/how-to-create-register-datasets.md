@@ -166,9 +166,7 @@ The following steps and animation shows how to create a dataset in the Azure Mac
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
-[!INCLUDE [aml-applies-to-enterprise-sku-inline](../../../includes/aml-applies-to-enterprise-sku-inline.md)] 
-
-To create a TabularDataset in the studio:
+To create a dataset in the studio:
 1. Sign in at https://ml.azure.com.
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls.

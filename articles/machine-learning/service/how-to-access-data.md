@@ -91,7 +91,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 We recommend Azure Blob Container. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
 
 ### Using Azure Machine Learning studio 
-[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
+
 Create a new datastore in a few steps in Azure Machine Learning studio.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).

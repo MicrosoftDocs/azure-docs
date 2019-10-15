@@ -13,6 +13,7 @@ ms.date: 05/10/2019
 ---
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 This article shows you how to build a complex machine learning experiment using the designer. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
