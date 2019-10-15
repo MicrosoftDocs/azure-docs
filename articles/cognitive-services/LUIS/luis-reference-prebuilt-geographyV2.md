@@ -41,28 +41,59 @@ The following JSON is with the `verbose` parameter set to `false`:
 ```json
 "entities": {
     "geographyV2": [
-        "the sphinx",
-        "gizah",
-        "egypt",
-        "africa",
-        "texas"
+        {
+            "value": "the sphinx",
+            "type": "poi"
+        },
+        {
+            "value": "gizah",
+            "type": "city"
+        },
+        {
+            "value": "egypt",
+            "type": "countryRegion"
+        },
+        {
+            "value": "africa",
+            "type": "continent"
+        },
+        {
+            "value": "texas",
+            "type": "state"
+        }
     ]
 }
 ```
+
+In the preceding JSON, `poi` is an abbreviation for **Point of Interest**.
 
 #### [V3 verbose response](#tab/V3-verbose)
 
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-
 "entities": {
     "geographyV2": [
-        "the sphinx",
-        "gizah",
-        "egypt",
-        "africa",
-        "texas"
+        {
+            "value": "the sphinx",
+            "type": "poi"
+        },
+        {
+            "value": "gizah",
+            "type": "city"
+        },
+        {
+            "value": "egypt",
+            "type": "countryRegion"
+        },
+        {
+            "value": "africa",
+            "type": "continent"
+        },
+        {
+            "value": "texas",
+            "type": "state"
+        }
     ],
     "$instance": {
         "geographyV2": [
