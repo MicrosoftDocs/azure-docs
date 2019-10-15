@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 10/15/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,13 +20,6 @@ ms.collection: M365-identity-device-management
 Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
 
 Managing customized Conditional Access policies requires an Azure AD Premium license.
-
-> [!CAUTION]
-> Baseline protection policies are being deprecated. 
->
-> Disabled baseline policies have been automatically been removed from Azure portal and can no longer be enabled. Any enabled baseline policies will be visible in Azure Portal and will continue to be enforced in your environment until January 31st, 2020. 
-> 
-> Organizations must migrate to [Security Defaults](concept-conditional-access-security-defaults.md) or create [custom Conditional Access policies](concept-conditional-access-policy-common.md) to enable similar security settings before January 31st, 2020. 
 
 ## Baseline policies
 
@@ -86,10 +79,6 @@ Organizations use a variety of Azure services and manage them from Azure Resourc
 Using any of these tools to perform resource management is a highly privileged action. These tools can alter subscription-wide configurations, such as service settings and subscription billing.
 
 To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
-
-## Enabling
-
-Organizations must migrate to [Security Defaults](concept-conditional-access-security-defaults.md) or create [custom Conditional Access policies](concept-conditional-access-policy-common.md) to enable similar security settings before January 31st, 2020.
 
 ## Next steps
 

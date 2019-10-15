@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 10/15/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Blocking Legacy Authentication
+# Blocking legacy authentication
  
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. Legacy authentication is a term that refers to an authentication request made by:
 
@@ -95,3 +95,4 @@ Steps for enabling modern authentication can be found in the following articles:
 
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [How to use Modern Authentication (ADAL) with Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [Block legacy authentication](block-legacy-authentication.md)

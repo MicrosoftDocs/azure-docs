@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 10/15/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # What are security defaults?
 
-Managing security can be difficult when common identity-related attacks such as password spray, replay, and phishing, are becoming more and more popular. Creating a simpler way to make your organization more secured from these common attacks is the goal of security defaults in Azure Active Directory (AD). Security defaults make it easier to be secure and helps protect your organization from common attacks. Security defaults contains pre-configured security settings for these common attacks. Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost.
+Managing security can be difficult when common identity-related attacks such as password spray, replay, and phishing, are becoming more and more popular. Creating a simpler way to make your organization more secured from these common attacks is the goal of security defaults in Azure Active Directory (AD). Security defaults make it easier to be secure and helps protect your organization from common attacks. Security defaults contain pre-configured security settings for these common attacks. Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost.
 
-![Screenshot of the new security defaults UX]()
+![Screenshot of the new security defaults UX](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
  
 The following security configurations will be turned on in your tenant. 
 
@@ -31,11 +31,11 @@ We understand that some users may be out of office and/or will not be logging in
 
 ## MFA Enforcement
 
-### Protecting Administrators
+### Protecting administrators
 
 Users with access to privileged accounts have increased access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication.
 
-Once MFA registration has been completed, the following eight Azure AD administrator roles will be required to perform MFA every single time they sign-in.
+Once MFA registration has been completed, the following nine Azure AD administrator roles will be required to perform MFA every single time they sign-in.
 
 - Global administrator
 - SharePoint administrator
@@ -47,11 +47,11 @@ Once MFA registration has been completed, the following eight Azure AD administr
 - User administrator
 - Authentication Administrator
 
-### Protecting All Users
+### Protecting all users
 
 We tend to think that administrator accounts are the only accounts that need protection with multi-factor authentication (MFA). Administrators have broad access to sensitive information and can make changes to subscription-wide settings. However, bad actors tend to target end users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory to perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification, such as multi factor authentication (MFA) for everyone. Once MFA registration has been completed, users will be prompted for MFA whenever necessary.
 
-### Blocking Legacy Authentication
+### Blocking legacy authentication
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. Legacy authentication is a term that refers to an authentication request made by:
 
@@ -60,7 +60,7 @@ To give your users easy access to your cloud apps, Azure Active Directory (Azure
 
 Today, the majority of all compromising sign-in attempts come from legacy authentication. Legacy authentication does not support multi-factor authentication (MFA). Even if you have an MFA policy enabled on your directory, a bad actor can authenticate using a legacy protocol and bypass MFA. Once security defaults are enabled in your tenant, all authentication requests made by a legacy protocol to any will be blocked. Security defaults do not block Exchange ActiveSync.
 
-### Protecting Privileged Actions
+### Protecting privileged actions
 
 Organizations use a variety of Azure services managed through the Azure Resource Manager API including:
 
@@ -72,7 +72,7 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 Once security defaults are enabled in your tenant, any user accessing the Azure portal, Azure PowerShell, or Azure CLI will be required to complete multi-factor authentication. This policy applies to all users accessing Azure Resource Manager, regardless of if they’re an administrator or a user. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed. No 14-day MFA registration period will be provided.
 
-## Deployment Considerations
+## Deployment considerations
 
 The following are some additional considerations related to deployment of security defaults for your tenant.
 
@@ -81,11 +81,13 @@ The following are some additional considerations related to deployment of securi
 Legacy authentication protocols (IMAP, SMTP, POP3, etc.) are used by mail clients to make authentication requests. These protocols do not support MFA. Most of the account compromises seen by Microsoft are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an administrative account and bad actors can’t bypass MFA, security defaults blocks all authentication requests made to administrator accounts from legacy protocols.
 
 > [!WARNING]
-> Before you enable this setting, make sure your administrators aren’t using legacy authentication protocols. See the article, [How to move away from legacy authentication]() for more information.
+> Before you enable this setting, make sure your administrators aren’t using legacy authentication protocols. For more information, see the article [How to move away from legacy authentication](concept-conditional-access-block-legacy-authentication.md).
 
 ### Conditional Access
 
 Conditional Access can be used to configure policies that provide the same behavior enabled by security defaults. If you are using Conditional Access and have Conditional Access policies enabled in your environment, security defaults will not be available to you. If you have a license that provides Conditional Access but don’t have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable CA policies.
+
+![Security defaults or Conditional Access not both](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
 
 Here are step-by-step guides on how Conditional Access can be used to configure equivalent policies:
 
@@ -97,10 +99,10 @@ Here are step-by-step guides on how Conditional Access can be used to configure 
 
 To enable security defaults in your directory:
 
-1. Sign into the Azure portal as a security administrator, Conditional Access administrator, or global administrator.
-1. Browse to Azure Active Directory > Properties
-1. Scroll down to the bottom of the screen. Click on the link that says Manage security defaults Configuration. This should open an additional context pane
-1. Set the security defaults toggle to On.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**
+1. Select **Manage security defaults**
+1. Set the **Enable security defaults** toggle to **Yes**.
 1. Click Save.
 
 ## Next steps
@@ -108,4 +110,3 @@ To enable security defaults in your directory:
 [Common Conditional Access policies](concept-conditional-access-policy-common.md)
 
 [What is Conditional Access?](overview.md)
-
