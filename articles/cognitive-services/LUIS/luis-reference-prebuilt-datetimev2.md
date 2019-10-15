@@ -36,7 +36,11 @@ The following utterance and its partial JSON response is shown below.
             "values": [
                 {
                     "timex": "2019-05-02T08",
-                    "value": "2019-05-02 08:00:00"
+                    "resolution": [
+                        {
+                            "value": "2019-05-02 08:00:00"
+                        }
+                    ]
                 }
             ]
         }
@@ -47,6 +51,7 @@ The following utterance and its partial JSON response is shown below.
 #### [V3 verbose response](#tab/1-2)
 
 ```json
+
 "entities": {
     "datetimeV2": [
         {
@@ -54,7 +59,11 @@ The following utterance and its partial JSON response is shown below.
             "values": [
                 {
                     "timex": "2019-05-02T08",
-                    "value": "2019-05-02 08:00:00"
+                    "resolution": [
+                        {
+                            "value": "2019-05-02 08:00:00"
+                        }
+                    ]
                 }
             ]
         }
@@ -160,6 +169,11 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 ## Date resolution example
 
+
+The following utterance and its partial JSON response is shown below.
+
+`May 2nd`
+
 #### [V3 response](#tab/2-1)
 
 ```json
@@ -171,9 +185,12 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
                 {
                     "timex": "XXXX-05-02",
                     "resolution": [
-                        
-                        { "value": "2019-05-02" },
-                        { "value": "2020-05-02" }
+                        {
+                            "value": "2019-05-02"
+                        },
+                        {
+                            "value": "2020-05-02"
+                        }
                     ]
                 }
             ]
@@ -193,8 +210,12 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
                 {
                     "timex": "XXXX-05-02",
                     "resolution": [
-                        { "value": "2019-05-02"} ,
-                        { "value": "2020-05-02"}
+                        {
+                            "value": "2019-05-02"
+                        },
+                        {
+                            "value": "2020-05-02"
+                        }
                     ]
                 }
             ]
@@ -204,7 +225,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
         "datetimeV2": [
             {
                 "type": "builtin.datetimeV2.date",
-                "text": "may 2nd",
+                "text": "May 2nd",
                 "startIndex": 0,
                 "length": 7,
                 "modelTypeId": 2,
@@ -250,9 +271,14 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance `May 2nd to May 5th`, LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
 
+The following utterance and its partial JSON response is shown below.
+
+`May 2nd to May 5th`
+
 #### [V3 response](#tab/3-1)
 
 ```json
+
 "entities": {
     "datetimeV2": [
         {
@@ -260,9 +286,15 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
             "values": [
                 {
                     "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "resolution" :[
-                        { "start": "2019-05-02", "end": "2019-05-05"},
-                        { "start": "2020-05-02", "end": "2020-05-05" }
+                    "resolution": [
+                        {
+                            "start": "2019-05-02",
+                            "end": "2019-05-05"
+                        },
+                        {
+                            "start": "2020-05-02",
+                            "end": "2020-05-05"
+                        }
                     ]
                 }
             ]
@@ -275,6 +307,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 #### [V3 verbose response](#tab/3-2)
 
 ```json
+
 "entities": {
     "datetimeV2": [
         {
@@ -282,9 +315,15 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
             "values": [
                 {
                     "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-                    "resolution" :[
-                        { "start": "2019-05-02", "end": "2019-05-05"},
-                        { "start": "2020-05-02", "end": "2020-05-05" }
+                    "resolution": [
+                        {
+                            "start": "2019-05-02",
+                            "end": "2019-05-05"
+                        },
+                        {
+                            "start": "2020-05-02",
+                            "end": "2020-05-05"
+                        }
                     ]
                 }
             ]
@@ -336,6 +375,9 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance `Tuesday to Thursday`. In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
+The following utterance and its partial JSON response is shown below.
+
+`Tuesday to Thursday`
 
 #### [V3 response](#tab/4-1)
 
@@ -348,13 +390,13 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
                 {
                     "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
                     "resolution": [
-                        {                         
-                            "start": "2019-10-01",
-                            "end": "2019-10-03"
-                        },
                         {
                             "start": "2019-10-08",
                             "end": "2019-10-10"
+                        },
+                        {
+                            "start": "2019-10-15",
+                            "end": "2019-10-17"
                         }
                     ]
                 }
@@ -375,13 +417,13 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
                 {
                     "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
                     "resolution": [
-                        {                         
-                            "start": "2019-10-01",
-                            "end": "2019-10-03"
-                        },
                         {
                             "start": "2019-10-08",
                             "end": "2019-10-10"
+                        },
+                        {
+                            "start": "2019-10-15",
+                            "end": "2019-10-17"
                         }
                     ]
                 }
@@ -450,6 +492,7 @@ The following utterance and its partial JSON response is shown below.
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```JSON
+
 "entities": {
     "datetimeV2": [
         {
@@ -474,6 +517,7 @@ The following JSON is with the `verbose` parameter set to `false`:
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
+
 "entities": {
     "datetimeV2": [
         {
@@ -495,9 +539,9 @@ The following JSON is with the `verbose` parameter set to `true`:
         "datetimeV2": [
             {
                 "type": "builtin.datetimeV2.timerange",
-                "text": "6pm to 7pm",
+                "text": "from 6pm to 7pm",
                 "startIndex": 0,
-                "length": 10,
+                "length": 15,
                 "modelTypeId": 2,
                 "modelType": "Prebuilt Entity Extractor",
                 "recognitionSources": [
@@ -506,6 +550,7 @@ The following JSON is with the `verbose` parameter set to `true`:
             }
         ]
     }
+}
 ```
 #### [V2 response](#tab/5-3)
 
@@ -534,6 +579,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 
 ## Time resolution example
 
+The following utterance and its partial JSON response is shown below.
+
+`8am`
+
 #### [V3 response](#tab/6-1)
 
 ```json
@@ -545,7 +594,9 @@ The following JSON is with the `verbose` parameter set to `true`:
                 {
                     "timex": "T08",
                     "resolution": [
-                        { "value": "08:00:00" }
+                        {
+                            "value": "08:00:00"
+                        }
                     ]
                 }
             ]
@@ -564,7 +615,9 @@ The following JSON is with the `verbose` parameter set to `true`:
                 {
                     "timex": "T08",
                     "resolution": [
-                        { "value": "08:00:00" }
+                        {
+                            "value": "08:00:00"
+                        }
                     ]
                 }
             ]
@@ -577,6 +630,93 @@ The following JSON is with the `verbose` parameter set to `true`:
                 "text": "8am",
                 "startIndex": 0,
                 "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/6-3)
+
+```json
+"entities": [
+  {
+    "entity": "8am",
+    "type": "builtin.datetimeV2.time",
+    "startIndex": 0,
+    "endIndex": 2,
+    "resolution": {
+      "values": [
+        {
+          "timex": "T08",
+          "type": "time",
+          "value": "08:00:00"
+        }
+      ]
+    }
+  }
+]
+```
+
+* * * 
+
+## Set resolution example
+
+The following utterance and its partial JSON response is shown below.
+
+`I'll leave weekly`
+
+#### [V3 response](#tab/6-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "set",
+            "values": [
+                {
+                    "timex": "P1W",
+                    "resolution": [
+                        {
+                            "value": "not resolved"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+#### [V3 verbose response](#tab/6-2)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "set",
+            "values": [
+                {
+                    "timex": "P1W",
+                    "resolution": [
+                        {
+                            "value": "not resolved"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.set",
+                "text": "weekly",
+                "startIndex": 11,
+                "length": 6,
                 "modelTypeId": 2,
                 "modelType": "Prebuilt Entity Extractor",
                 "recognitionSources": [
