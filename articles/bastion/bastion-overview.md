@@ -19,7 +19,7 @@ The Azure Bastion service is a new fully platform-managed PaaS service that you 
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
+> Now the Bastion service available in the Portal Mode, if you want to enable the Bastion mode you should configure the Subnet name as “Manage subnet configuration” and the prefix is /27.
 
 ## Architecture
 
