@@ -11,11 +11,11 @@ ms.date: 10/15/2019
 
 # Aggregate transformation in mapping data flow 
 
-The Aggregate transformation define aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT which can be grouped by existing or computed columns.
+The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT are grouped by existing or computed columns.
 
 ## Group by
 
-Select an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select the desired column from the dropdown. To create a new computed column, hover over the clause and click **Computed column**. This opens the [data flow expression builder](concepts-data-flow-expression-builder.md). Once you create your computed column, enter the output column name under the **Name as** field. If you wish to add an additional group by clause, hover over an existing clause and click the plus icon.
+Select an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select it from the dropdown. To create a new computed column, hover over the clause and click **Computed column**. This opens the [data flow expression builder](concepts-data-flow-expression-builder.md). Once you create your computed column, enter the output column name under the **Name as** field. If you wish to add an additional group by clause, hover over an existing clause and click the plus icon.
 
 ![Aggregate transformation group by settings](media/data-flow/agg.png "Aggregate transformation group by settings")
 
@@ -35,7 +35,7 @@ Each aggregation expression must contain at least one aggregate function.
 
 ## Reconnect rows and columns
 
-Aggregate transformations are similar to SQL aggregate select queries. Columns that aren't included in your group by clause or aggregate functions will not flow through to the output of your aggregate transformation. If you wish to include other columns in your aggregated output, you must do one of the following:
+Aggregate transformations are similar to SQL aggregate select queries. Columns that aren't included in your group by clause or aggregate functions won't flow through to the output of your aggregate transformation. If you wish to include other columns in your aggregated output, do one of the following methods:
 
 1. Use an aggregate function such as `last()` or `first()` to include that additional column.
 1. Rejoin the columns to your output stream using the [self join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
@@ -63,13 +63,13 @@ Aggregate transformations are similar to SQL aggregate select queries. Columns t
 
 ### Example
 
-The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` which evaluates to the average of column `Rating` casted to an integer. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the following:
+The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the following:
 
 ![Group by example](media/data-flow/aggScript1.png "Group by example")
 
 ![Aggregate example](media/data-flow/aggScript2.png "Aggregate example")
 
-The data flow script for this transformation would look like the following:
+The data flow script for this transformation is in the snippet below.
 
 ```
 MoviesYear aggregate(
