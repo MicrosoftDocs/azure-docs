@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Create and manage Azure IoT Central applications as a CSP | Microsoft Docs
+title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
 description: As a CSP, how to create an Azure IoT Central application on behalf of your customer.
 services: iot-central
 ms.service: iot-central
@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: philmea
 ---
 
-# As a CSP, create and manage an Azure IoT Central Application on behalf of your customer
+# Create and manage an Azure IoT Central application from the CSP portal
 
 The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller program. Its intent is to provide our channel partners with a one-stop program to resell all Microsoft Commercial Online Services. Learn more about the [Cloud Solution Provider program](https://partner.microsoft.com/cloud-solution-provider).
 

@@ -1,6 +1,6 @@
 ---
-title: Manage your application preferences on IoT Central | Microsoft Docs
-description: How to manage your application and personal preferences on IoT Central
+title: Manage your personal preferences on IoT Central | Microsoft Docs
+description: How to manage your personal application preferences on IoT Central
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Manage your application preferences
+# Manage your personal application preferences
 
 *This article applies to operators, builders, and administrators.*
 
