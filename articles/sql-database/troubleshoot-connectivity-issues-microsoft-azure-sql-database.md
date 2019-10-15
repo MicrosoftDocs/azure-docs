@@ -148,7 +148,7 @@ For more information, see [Managing databases and logins in Azure SQL Database](
 
 ``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
 
-### Cannot connect to < server name >``
+### Cannot connect to < server name >
 
 **Detailed error**
 
@@ -170,7 +170,7 @@ As a best practice, make sure that retry logic is in place. For more information
 
 ## Connection terminated because of a system-defined limit
 
-### Error 10928: Resource ID: %d.
+### Error 10928: Resource ID: %d
 
 **Detailed error**
 
@@ -202,7 +202,7 @@ For more information about dynamic management views, see [System dynamic managem
 
 For more information about this error message, see  [SQL Database resource limits for Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
-### Error 10929: Resource ID: 1.
+### Error 10929: Resource ID: 1
 
 **Detailed error**
 
@@ -246,11 +246,11 @@ The following steps can either help you work around the problem or provide you w
    ```
 
 2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting. 
-3. If the database is already past the maximum supported size for your edition, try one of the following steps:
+3. If the database is already past the maximum supported size for your edition, try one or more of the following steps:
    - Perform normal database cleanup activities. For example, clean up the unwanted data by using truncate/delete, or move data out by using SQL Server Integration Services (SSIS) or the bulk copy program (bcp) utility.
    - Partition or delete data, drop indexes, or consult the documentation for possible resolutions.
 
-          - For database scaling, see [Scale single database resources](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) and [Scale elastic pool resources](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
+   - For database scaling, see [Scale single database resources](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) and [Scale elastic pool resources](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
 
 ### Error 40549: Session is terminated because you have a long-running transaction
 
