@@ -37,7 +37,41 @@ The following restrictions apply when using Run Command:
 > [!NOTE]
 > To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
-## Run a command
+## Available commands
+
+This table shows the list of commands available for Windows VMs. The **RunPowerShellScript** command can be used to run any custom script you want. When using Azure CLI or PowerShell to run a command, the value you provide for the `--command-id` or `-CommandId` parameter must be one of the values listed below. When you specify a value that is not an available command, you receive the error.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Name**|**Description**|
+|---|---|
+|**RunPowerShellScript**|Executes a PowerShell script|
+|**EnableRemotePS**|Configures the machine to enable remote PowerShell.|
+|**EnableAdminAccount**|Checks if the local Administrator account is disabled, and if so enables it.|
+|**IPConfig**| Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.|
+|**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.|
+|**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate.|
+|**SetRDPPort**|Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.|
+
+## Azure CLI
+
+The following is an example using the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
+
+```azurecli-interactive
+# script.ps1
+#   param(
+#       [string]$arg1,
+#       [string]$arg2
+#   )
+#   Write-Host This is a sample script with parameters $arg1 and $arg2
+
+az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-resource-group \
+    --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
+```
+
+## Azure portal
 
 Navigate to a VM in [Azure](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You are presented with a list of the available commands to run on the VM.
 
@@ -52,30 +86,15 @@ Once the command is chosen, click **Run** to run the script. The script runs and
 
 ![Run command script output](./media/run-command/run-command-script-output.png)
 
-## Commands
-
-This table shows the list of commands available for Windows VMs. The **RunPowerShellScript** command can be used to run any custom script you want.
-
-|**Name**|**Description**|
-|---|---|
-|**RunPowerShellScript**|Executes a PowerShell script|
-|**EnableRemotePS**|Configures the machine to enable remote PowerShell.|
-|**EnableAdminAccount**|Checks if the local Administrator account is disabled, and if so enables it.|
-|**IPConfig**| Shows detailed information for the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.|
-|**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if machine is part of a domain or modifies the settings to default values.|
-|**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.|
-|**SetRDPPort**|Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.|
-
 ## PowerShell
 
 The following is an example using the [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
-
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## Limiting access to Run Command
+## Limiting access to Run command
 
 Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission at the subscription level, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
 
@@ -85,4 +104,4 @@ You can use one of the [built-in](../../role-based-access-control/built-in-roles
 
 ## Next steps
 
-See, [Run scripts in your Windows VM](run-scripts-in-vm.md) to learn about other ways to run scripts and commands remotely in your VM.
+See [Run scripts in your Windows VM](run-scripts-in-vm.md) to learn about other ways to run scripts and commands remotely in your VM.
