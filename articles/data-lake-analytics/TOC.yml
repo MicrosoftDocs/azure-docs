@@ -130,7 +130,7 @@
       href: understand-spark-for-U-SQL-overview.md 
     - name: Understand Spark Data
       href: data-lake-analytics-understand-spark-data.md
-    - name: understand Spark to U-SQL code
+    - name: Understand Spark to U-SQL code
       href: data-lake-analytics-understand-spark-u-sql-code.md
 - name: Reference
   items:

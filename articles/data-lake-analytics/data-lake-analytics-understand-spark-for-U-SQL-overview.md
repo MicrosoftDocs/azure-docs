@@ -28,11 +28,11 @@ Microsoft supports several Analytics services such as [Azure Databricks](../azur
       - [Azure HDInsight Hive](../hdinsight/hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md)
       This means you are going to translate your U-SQL scripts to Apache Hive.
       - Apache Spark Engines such as [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) or [Azure Databricks](../azure-databricks/what-is-azure-databricks.md)
-      This means you are going to translate your U-SQL scripts to Spark. For more information, see [Migration of code](migrate-code.md).
+      This means you are going to translate your U-SQL scripts to Spark. For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md)
 
-Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) cluster services and not serverless job-services like Azure Data Lake Analytics. Therefore, you will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs.  Also, these services are not supporting to scale user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Migration of code](migrate-code.md).
+Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) cluster services and not serverless job-services like Azure Data Lake Analytics. Therefore, you will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs.  Also, these services are not supporting to scale user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md)
 
 ## Next steps
 
-* For more information, see [Understand how to migrate data formats](migrate-data-formats.md).
+* For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
 * Learn about [.NET for Apache Spark](https://docs.microsoft.com/en-us/dotnet/spark/what-is-apache-spark-dotnet)

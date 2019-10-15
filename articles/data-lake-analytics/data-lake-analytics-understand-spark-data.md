@@ -45,4 +45,4 @@ After this transformation, you copy the data as outlined in the chapter [Move "u
 
 ## Next steps
 
-* For more information, see [Migration of code](migrate-code.md)
+* For more information, see [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)

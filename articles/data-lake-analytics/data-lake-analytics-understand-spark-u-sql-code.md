@@ -137,7 +137,7 @@ Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns 
 
 One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
 
-Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](migrate-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
+Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](data-lake-analytics-understand-spark-data.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
 
 The U-SQL code objects such as views, TVFs, stored procedures, and assemblies can be modeled through code functions and libraries in Spark and referenced using the host language's function and procedural abstraction mechanisms (for example, through importing Python modules or referencing Scala functions).
 
@@ -171,7 +171,7 @@ U-SQL also offers a variety of other features and concepts, such as federated qu
 
 ### Federated Queries against SQL Server databases/external tables
 
-U-SQL provides data source and external tables as well as direct queries against SQL Server databases in Azure. While Spark does not offer the same object abstractions, it provides [SQL connectors](../sql-database/sql-database-spark-connector) that can be used to query SQL Server databases.
+U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../sql-database/sql-database-spark-connector) that can be used to query SQL databases.
 
 ### U-SQL parameters and variables
 
