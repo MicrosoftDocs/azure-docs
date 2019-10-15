@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
 ---
 
@@ -435,5 +435,6 @@ Azure Monitor for VMs health supports SMS and email notifications when alerts ar
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM performance](vminsights-performance.md).
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
+
 - To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
