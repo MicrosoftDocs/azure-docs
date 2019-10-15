@@ -117,19 +117,19 @@ To see information about the pod, we'll use the [kubectl describe pod][kubectl-d
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio-scenario-routing-show-proxy-bash.md)]
+[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio-scenario-routing-show-proxy-bash.md)]
+[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - routing scenario - show autoinjected proxy](includes/servicemesh/istio-scenario-routing-show-proxy-powershell.md)]
+[!INCLUDE [PowerShell - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-powershell.md)]
 
 ::: zone-end
 
@@ -203,19 +203,19 @@ You can visualize the switching between the two versions of the `voting-analytic
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-bash.md)]
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-bash.md)]
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-powershell.md)]
+[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
 
 ::: zone-end
 
@@ -266,19 +266,19 @@ You can visualize that you are now only routed to version `1.1` of your `voting-
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-bash.md)]
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-bash.md)]
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio-scenario-routing-loop-results-powershell.md)]
+[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
 
 ::: zone-end
 
@@ -302,19 +302,19 @@ This set of commands provide information about the access to the specified servi
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio-scenario-routing-verify-mtls-bash.md)]
+[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio-scenario-routing-verify-mtls-bash.md)]
+[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio-scenario-routing-verify-mtls-powershell.md)]
+[!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-powershell.md)]
 
 ::: zone-end
 

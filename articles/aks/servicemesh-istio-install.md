@@ -43,19 +43,19 @@ This article separates the Istio installation guidance into several discrete ste
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Linux - download and install client binary](includes/servicemesh/istio-install-client-binary-linux.md)]
+[!INCLUDE [Linux - download and install client binary](includes/servicemesh/istio/install-client-binary-linux.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [MacOS - download and install client binary](includes/servicemesh/istio-install-client-binary-macos.md)]
+[!INCLUDE [MacOS - download and install client binary](includes/servicemesh/istio/install-client-binary-macos.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [Windows - download and install client binary](includes/servicemesh/istio-install-client-binary-windows.md)]
+[!INCLUDE [Windows - download and install client binary](includes/servicemesh/istio/install-client-binary-windows.md)]
 
 ::: zone-end
 
@@ -95,19 +95,19 @@ Now that we've confirmed the successful completion of the jobs, let's verify tha
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio-install-check-crd-count-bash.md)]
+[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio/install-check-crd-count-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio-install-check-crd-count-bash.md)]
+[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio/install-check-crd-count-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - check CRD count](includes/servicemesh/istio-install-check-crd-count-powershell.md)]
+[!INCLUDE [PowerShell - check CRD count](includes/servicemesh/istio/install-check-crd-count-powershell.md)]
 
 ::: zone-end
 
@@ -121,19 +121,19 @@ Before we can install the Istio components, we must create the secrets for both 
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - create secrets for Grafana and Kiali](includes/servicemesh/istio-install-create-secrets-bash.md)]
+[!INCLUDE [Bash - create secrets for Grafana and Kiali](includes/servicemesh/istio/install-create-secrets-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash check for CRDs](includes/servicemesh/istio-install-create-secrets-bash.md)]
+[!INCLUDE [Bash check for CRDs](includes/servicemesh/istio/install-create-secrets-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell check for CRDs](includes/servicemesh/istio-install-create-secrets-powershell.md)]
+[!INCLUDE [PowerShell check for CRDs](includes/servicemesh/istio/install-create-secrets-powershell.md)]
 
 ::: zone-end
 
@@ -161,19 +161,19 @@ Now that we've successfully created the Grafana and Kiali secrets in our AKS clu
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio-install-components-bash.md)]
+[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio/install-components-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio-install-components-bash.md)]
+[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio/install-components-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - install Istio components](includes/servicemesh/istio-install-components-powershell.md)]
+[!INCLUDE [PowerShell - install Istio components](includes/servicemesh/istio/install-components-powershell.md)]
 
 ::: zone-end
 
@@ -320,19 +320,19 @@ The above commands delete all the Istio components and namespace, but we are sti
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-bash.md)]
+[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-bash.md)]
+[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio-uninstall-powershell.md)]
+[!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-powershell.md)]
 
 ::: zone-end
 

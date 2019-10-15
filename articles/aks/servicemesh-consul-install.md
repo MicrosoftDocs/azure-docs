@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: dastrebe
+zone_pivot_groups: client-operating-system
 ---
 
 # Install and use Consul in Azure Kubernetes Service (AKS)

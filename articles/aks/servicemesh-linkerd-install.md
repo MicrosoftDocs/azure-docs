@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/9/2019
 ms.author: pabouwer
+zone_pivot_groups: client-operating-system
 ---
 
 # Install Linkerd in Azure Kubernetes Service (AKS)
