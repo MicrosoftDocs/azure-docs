@@ -285,7 +285,7 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 
 ## Next steps
-In this tutorial, you published events by using Curl so that quickly test the scenario. To use Azure Blob Storage as a publisher of events, see [React to Blob Storage events on IoT Edge](deploy-blob-storage-module-portal.md)
+In this tutorial, you published events by using Curl so that you can quickly test the scenario. To use Azure Blob Storage as a publisher of events, see [React to Blob Storage events on IoT Edge](deploy-blob-storage-module-portal.md)
 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 

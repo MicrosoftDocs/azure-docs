@@ -35,8 +35,6 @@ landingContent:
             url: advanced-filtering.md
           - text: Delivery and retry
             url: delivery-retry.md
-          - text: Security and authentication
-            url: security-authentication.md
   # Card
   - title: Scenarios
     linkLists:
@@ -51,14 +49,18 @@ landingContent:
           - text: Forward events to Azure IoT Hub
             url: forward-events-event-grid-cloud.md            
   # Card
-  - title: Deploy modules to IoT Edge device
+  - title: Security
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Security and authentication
+            url: security-authentication.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Event Grid module
-            url: deploy-event-grid-portal.md    
-          - text: Deploy Azure Functions module
-            url: deploy-func-webhook-module-portal.md            
-          - text: Deploy Azure Blob Storage module (Preview)
-            url: deploy-blob-storage-module-portal.md
+          - text: Configure client authentication
+            url: configure-client-auth.md  
+          - text: Configure webhook subscriber authentication
+            url: configure-webhook-subscriber-auth.md  
+          - text: Configure identity authentication
+            url: configure-identity-auth.md
   

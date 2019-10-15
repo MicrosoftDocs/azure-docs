@@ -12,6 +12,8 @@
     href: forward-events-event-grid-cloud.md
   - name: Forward events to Azure IoT Hub
     href: forward-events-iothub.md
+  - name: React to Blob Storage events locally
+    href: deploy-blob-storage-module-portal.md    
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -42,14 +44,6 @@
     href: configure-webhook-subscriber-auth.md  
   - name: Configure identity authentication
     href: configure-identity-auth.md
-  - name: Deploy modules
-    items: 
-    - name: Deploy Event Grid IoT Edge module
-      href: deploy-event-grid-portal.md
-    - name: Deploy Azure Functions module
-      href: deploy-func-webhook-module-portal.md
-    - name: Deploy Azure Blob Storage module
-      href: deploy-blob-storage-module-portal.md
 - name: Reference
   items:
   - name: REST API
