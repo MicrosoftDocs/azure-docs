@@ -29,10 +29,6 @@ If your administrator creates a custom theme for your application, this page inc
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
-## Prepare and upload image
-
-To change the application image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
 ## Copy an application
 
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
