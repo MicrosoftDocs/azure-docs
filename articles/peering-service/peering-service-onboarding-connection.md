@@ -17,7 +17,7 @@ ms.author: v-meravi
 
 Peering Service is a networking service that improves internet access to Microsoft Public services such as Office 35, Dynamics 365, SaaS services running on Azure or any Microsoft services accessible via public IP Azure. 
 
-As it works on the partnership program with certified Service Providers, you can on-board the service by reaching out to them with no requirements from Microsoft. Further, the customer is not required to do any registration process with Microsoft.
+As the Peering Service works on the partnership program with certified Service Providers, you can on-board the service by reaching out to them with no requirements from Microsoft. Further, the customer is not required to do any registration process with Microsoft.
 
 To onboard the service, do the following:
 
@@ -32,4 +32,4 @@ Action plans are described as below:
 
 ## Next steps
 
-To onboard the Peering Service connection telemetry see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
+To onboard the Peering Service connection telemetry, see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).

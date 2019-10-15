@@ -16,7 +16,7 @@ ms.author: ypitsch
 
 **Q. What is Peering Service?**
 
-A. Peering Service is a networking service that aims at improving customer’s internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services running on Azure or any Microsoft services accessible via public IP Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity by meeting the technical requirements in terms of resiliency, geo redundancy and optimal routing (shortest paths and no intermediates in the routing path). 
+A. Peering Service is a networking service that aims at improving customer’s internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services running on Azure, or any Microsoft services accessible via public IP Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity by meeting the technical requirements in terms of resiliency, geo redundancy, and optimal routing (shortest paths and no intermediates in the routing path). 
 
 **Q. What Peering Service isn’t about?** 
 
@@ -58,11 +58,11 @@ Additionally, customers can overwrite and optimize Peering Service ISP per geogr
 
 **Q. What is Peering Service telemetry?**
 
-A. In addition to Peering Service enabled service, customers can opt for internet telemetry such as route analytics to monitor networking latency and performance in accessing Microsoft network. This can be achieved by registering peering service in Azure Portal. 
+A. In addition to Peering Service enabled service, customers can opt for internet telemetry such as route analytics to monitor networking latency and performance in accessing Microsoft network. This capability can be achieved by registering peering service in Azure portal. 
 
 **Q. From customer perspective, what is the benefit of buying Microsoft Peering Service from ISP?** 
 
-A. Customers are assured that they are accessing Microsoft using a carrier with well-established connectivity with Microsoft and that the carrier is following Microsoft connectivity guidelines. By choosing a  partner they are guaranteed to choose market leaders in their region.  
+A. Customers are assured that they are accessing Microsoft using a carrier with well-established connectivity with Microsoft and that the carrier is following Microsoft connectivity guidelines. By choosing a  partner, they are guaranteed to choose market leaders in their region.  
 
 **Q. Who are Peering Service partners?**
 
@@ -83,7 +83,7 @@ A. Billing model is comprised of the following:
 
 • Microsoft - Microsoft charge customers for their products and service   
 
-Note - There is no networking data transfer bill for Microsoft SaaS (e.g. O365). 
+Note - There is no networking data transfer bill for Microsoft SaaS (for instance,O365). 
 
 **Q. How are customers charged for registering the Peering Service?** 
 
@@ -103,10 +103,10 @@ Learn about [Peering Service connection](peering-service-faq.md).
 
 To find a service provider. See [Peering Service partners and locations](peering-service-location-partners.md).
 
-To onboard the Peering Service connection see [Peering Service connection](peering-service-onboarding-connection.md).
+To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-connection.md).
 
-To onboard the Peering Service connection telemetry see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
+To onboard the Peering Service connection telemetry, see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
 
-To register the connection see [Peering Service connection](peering-service-azure-portal).
+To register the connection, see [Peering Service connection](peering-service-azure-portal).
 
-To measure the telemetry see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).

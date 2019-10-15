@@ -14,17 +14,17 @@ ms.author: v-meravi
 
 # What is Peering Service? 
 
-Peering Service is a networking service that aims at improving customer’s internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services running on Azure or any Microsoft services accessible via public IP Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity subject to technical requirements in terms of resiliency, geo redundancy and optimal routing (shortest paths and no intermediates in the routing path). 
+Peering Service is a networking service that aims at improving customer’s internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services, or any Microsoft services accessible via public IP Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity subject to technical requirements in terms of resiliency, geo redundancy, and optimal routing (shortest paths and no intermediates in the routing path). 
 
-By selecting Peering Service, an end user is selecting a Service Provider [SP], which is well connected to Microsoft through high capacity connections. These capacity connections are optimized for high throughput, better latency at an edge location that is closer to the user. Moreover, these  capacity connections are engineered for High Availability.
+By selecting Peering Service, an end user is selecting a Service Provider(SP), which is well connected to Microsoft through high capacity connections. These capacity connections are optimized for high throughput, better latency at an edge location that is closer to the user. Moreover, these  capacity connections are engineered for High Availability.
 
 ![optimal internet](./media/peering-service-about/peering-service-what.png)
 
-Customers can also opt for Peering Service telemetry such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service in the Azure Portal.  
+Customers can also opt for Peering Service telemetry such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service in the Azure portal.  
 
-To utilize the Peering Service, customer is not required to register with Microsoft.The only requirement is to reach out to a [certified Service Provider](peering-service-location-partners.md) to procure the service. However, to opt for Peering Service telemetry, the customer must register for the same in the Azure Portal.  
+To use the Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [certified Service Provider](peering-service-location-partners.md) to procure the service. However, to opt for Peering Service telemetry, the customer must register for the same in the Azure portal.  
 
-To know how to register a Peering Service please refer [here](peering-service-azure-portal.md).  
+To know how to register a Peering Service, refer [here](peering-service-azure-portal.md).  
 
 
 ## What Peering Service isn't about?
@@ -43,7 +43,7 @@ To know how to register a Peering Service please refer [here](peering-service-az
 
 Office 365, Dynamics 365,  and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The Microsoft Global Network has edge locations around the world where it can connect to an end user via their Service Provider (SP).  
 
-Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Edge locations on the Microsoft Global Network. 
+Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge locations on the Microsoft Global Network. 
 
 ![first mile ](./media/peering-service-about/peering-service-background-final.png)
 
@@ -53,7 +53,7 @@ Microsoft ensures the networking traffic egressing from the prefixes registered 
 
 ## Why Peering Service? 
 
-Enterprises looking for “Internet first” access to the cloud or considering SD SD-WAN architecture or with high usage of Microsoft SaaS services need robust and performant internet connectivity. Peering Service enables the customers to make that transition happen. Microsoft and Service Providers have partnered to deliver reliable and performance centric public connectivity to the Microsoft cloud. Some of the key customer features are listed below:
+Enterprises looking for “Internet first” access to the cloud or considering SD SD-WAN architecture or with high usage of Microsoft SaaS services need robust and performant internet connectivity. Peering Service enables the customers to make that transition happen. Microsoft and Service Providers have partnered to deliver reliable and performance-centric public connectivity to the Microsoft cloud. Some of the key customer features are listed below:
 
  -	Connect to Microsoft cloud through preferable Service Provider.
  -	Best Internet routing to Microsoft Cloud Services to achieve optimal performance.
@@ -68,9 +68,9 @@ Enterprises looking for “Internet first” access to the cloud or considering 
    - Each peering location is provisioned with redundant and diverse peering links.
 
 - **Geo Redundancy**
-   - Microsoft peers with Service Provider at multiple metro locations so that if one of the edge nodes has a degraded performance, the traffic routes to Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN based routing policies for optimal performance. 
+   - Microsoft peers with Service Provider at multiple metro locations so that if one of the edge nodes has a degraded performance, the traffic routes to Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance. 
 
-   - Ensures to use the shortest routing path by always choosing the nearest Edge POP to the end user and ensures the customer is one hop away from Microsoft​.  
+   - Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one hop away from Microsoft​.  
  
 ![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
 
@@ -87,7 +87,7 @@ Enterprises looking for “Internet first” access to the cloud or considering 
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze the end user traffic and routing, and provides the following capabilities:  
+   Service monitoring is offered to analyze the end-user traffic and routing, and provides the following capabilities:  
 
       - **Internet route anomalies detection** 
           
@@ -109,14 +109,14 @@ Enterprises looking for “Internet first” access to the cloud or considering 
 
 ## Next steps
 
-Learn about [Peering Service connection](peering-service-faq.md).
+To learn about peering Service concepts, see [Peering Service connection](peering-service-faq.md).
 
-To find a service provider. See [Peering Service partners and locations](peering-service-location-partners.md).
+To find a service provider, see [Peering Service partners and locations](peering-service-location-partners.md).
 
-To onboard the Peering Service connection see [Peering Service connection](peering-service-onboarding-connection.md).
+To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-connection.md).
 
-To onboard the Peering Service connection telemetry see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
+To onboard the Peering Service connection telemetry, see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
 
-To register the connection using Azure portal see [Peering Service connection](peering-service-azure-portal).
+To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal).
 
-To measure the telemetry see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).

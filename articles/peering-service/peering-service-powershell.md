@@ -112,6 +112,6 @@ Remove-AzPeeringServicePrefix -ResourceGroupName  "Building40" -Name "prefix1" -
 
 Learn about [Peering Service connection](peering-service-faq.md).
 
-To learn more about Peering Service concepts see [Peering Service Connection](peering-service-connection.md).
+To learn more about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
 
-To learn more about Peering Service telemetry concepts see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).
+To learn more about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).

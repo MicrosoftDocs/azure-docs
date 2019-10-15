@@ -32,7 +32,7 @@ Customer can establish a single connection or multiple connections as per the re
 
 ![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
 
-**Scenario** - Let’s say the enterprise X is spread across different geographic locations as shown in the screen above. Here, customer is required to provide a logical name, the MAPS-certified Service Provider (SP) customer’s physical location, and IP prefixes that are allocated by the SP’s in order to establish a connection. Likewise, for different geographic locations, connection must be established by specifying the variables.
+**Scenario** - Let’s say the enterprise X is spread across different geographic locations as shown in the screen above. Here, customer is required to provide a logical name, certified Service Provider(SP) name,customer’s physical location, and IP prefixes that are allocated by the SP’s in order to establish a connection. Likewise, for different geographic locations, connection must be established by specifying the variables.
 
 > [!Note]
 >For preview, State level filtration is considered for the customer’s physical location when the connection is geo-located in the United States.
@@ -40,4 +40,4 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## Next steps
 
-To learn step by step process on how to register the Peering Service see [Register the Peering Service](peering-service-azure-portal.md).
+To learn step by step process on how to register the Peering Service, see [Register the Peering Service](peering-service-azure-portal.md).

@@ -39,6 +39,6 @@ To view the latency report for the registered prefix, do the following:
 
 ## Next steps
 
-To learn about connection. See [Peering Service connection](peering-service-connection.md).
+To learn about connection, see [Peering Service connection](peering-service-connection.md).
 
-To learn about connection telemetry. See [Peering Service connection](peering-service-connection-telemetry.md).
+To learn about connection telemetry, see [Peering Service connection](peering-service-connection-telemetry.md).
