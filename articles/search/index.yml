@@ -59,8 +59,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use AI with blob data
-            url: cognitive-search-tutorial-blob.md
+          - text: Use AI to understand blob data
+            url: search-blob-ai-integration.md
           - text: Add full text search to blob data
             url: search-blob-storage-integration.md
           - text: Store AI enrichments

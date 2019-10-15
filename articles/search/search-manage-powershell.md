@@ -35,8 +35,8 @@ PowerShell cannot be used to change the name, region, or tier of your service. D
 While there are no dedicated PowerShell commands for content management, you can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
 
 Other tasks not supported through PowerShell or any other API (portal-only) include:
-+ [Attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for [AI-enriched indexing](cognitive-search-concept-intro.md). A cognitive service is attached to a skillset, not a subscription or service.
-+ [Add-on monitoring solutions](search-monitor-usage.md#add-on-monitoring-solutions) or [search traffic analytics](search-traffic-analytics.md) used for monitoring Azure Cognitive Search.
++ [Attach a cognitive services resource](cognitive-search-attach-cognitive-services.md) for [AI-enriched indexing](cognitive-search-concept-intro.md). A cognitive service is attached to a skillset, not a subscription or service.
++ [Add-on monitoring solutions](search-monitor-usage.md#add-on-monitoring-solutions) for monitoring Azure Search.
 
 <a name="check-versions-and-load"></a>
 
