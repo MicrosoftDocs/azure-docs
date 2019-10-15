@@ -1,7 +1,7 @@
 ---
-title: Handling of transient connectivity errors for Azure Database for MySQL | Microsoft Docs
-description: Learn how to handle  transient connectivity errors for Azure Database for MySQL.
-keywords: mysql connection,connection string,connectivity issues,transient error,connection error
+title: Handle transient errors and connect efficiently to Azure Database for MySQL | Microsoft Docs
+description: Learn how to handle  transient connectivity errors and connect efficiently to Azure Database for MySQL.
+keywords: mysql connection,connection string,connectivity issues,transient error,connection error,connect efficiently
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ---
 
-# Handling of transient connectivity errors for Azure Database for MySQL
+# Handle transient errors and connect efficiently to Azure Database for MySQL
 
-This article describes how to handle transient errors connecting to  Azure Database for MySQL.
+This article describes how to handle transient errors and connect efficiently to  Azure Database for MySQL.
 
 ## Transient errors
 
@@ -38,6 +38,72 @@ One way of doing this, is to generate a unique ID on the client that is used for
 When your program communicates with Azure Database for MySQL through third-party middleware, ask the vendor whether the middleware contains retry logic for transient errors.
 
 Make sure to test you retry logic. For example, try to execute your code while scaling up or down the compute resources of you Azure Database for MySQL server. Your application should handle the brief downtime that is encountered during this operation without any problems.
+
+## Connect efficiently to Azure Database for MySQL
+
+Database connections are a limited resource, so making sensible use of connection pooling to access Azure Database for MySQL optimizes performance. The below section explains how to use connection pooling or persistent connections to more effectively access Azure Database for MySQL.
+
+## Access databases by using connection pooling (recommended)
+
+Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goals should be to reduce the number of times connections are established and to avoid putting the time for establishing connections in key code paths. We strongly recommend that you use database connection pooling or persistent connections to connect to Azure Database for MySQL. Database connection pooling handles the creation, management, and allocation of database connections. When a program requests a database connection, it prioritizes the allocation of existing idle database connections, rather than the creation of a new connection. After the program has finished using the database connection, the connection is recovered in preparation for further use, rather than simply being closed down.
+
+For better illustration, this article provides [a piece of sample code](http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/documents/MySQLConnectionPool.java) that uses JAVA as an example. For more information, see [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
+
+> [!NOTE]
+> The server configures a timeout mechanism to close a connection that has been in an idle state for some time to free up resources. Be sure to set up the verification system to ensure the effectiveness of persistent connections when you are using them. For more information, see [Configure verification systems on the client side to ensure the effectiveness of persistent connections]().
+
+## Configure verification mechanisms in clients to confirm the effectiveness of persistent connections
+
+The server configures a timeout mechanism to close a connection that’s been in an idle state for some time to free up resources. When the client accesses the database again, it’s equivalent to creating a new connection request between the client and the server. To ensure the effectiveness of connections during the process of using them, configure a verification mechanism on the client. As shown in the following example, you can use Tomcat JDBC connection pooling to configure this verification mechanism.
+
+By setting the TestOnBorrow parameter, when there's a new request, the connection pool automatically verifies the effectiveness of any available connections that are idle before returning the idle connections. If such a connection is effective, it's directly returned. If it's not effective, the connection pool withdraws the connection. The connection pool then creates a new, effective connection and returns it. This process ensures the speed of access to the database. This ensures the speed of access to the database.
+
+For information on the specific settings, see the [JDBC connection pool official introduction document](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). You mainly need to set the following three parameters: TestOnBorrow (set to true), ValidationQuery (set to SELECT 1), and ValidationQueryTimeout (set to 1). The specific sample code is shown here:
+
+```
+public class SimpleTestOnBorrowExample {
+      public static void main(String[] args) throws Exception {
+          PoolProperties p = new PoolProperties();
+          p.setUrl("jdbc:mysql://localhost:3306/mysql");
+          p.setDriverClassName("com.mysql.jdbc.Driver");
+          p.setUsername("root");
+          p.setPassword("password");
+            // The indication of whether objects will be validated by the idle object evictor (if any). 
+            // If an object fails to validate, it will be dropped from the pool. 
+            // NOTE - for a true value to have any effect, the validationQuery or validatorClassName parameter must be set to a non-null string. 
+          p.setTestOnBorrow(true); 
+
+            // The SQL query that will be used to validate connections from this pool before returning them to the caller.
+            // If specified, this query does not have to return any data, it just can't throw a SQLException.
+          p.setValidationQuery("SELECT 1");
+
+            // The timeout in seconds before a connection validation queries fail. 
+            // This works by calling java.sql.Statement.setQueryTimeout(seconds) on the statement that executes the validationQuery. 
+            // The pool itself doesn't timeout the query, it is still up to the JDBC driver to enforce query timeouts. 
+            // A value less than or equal to zero will disable this feature.
+          p.setValidationQueryTimeout(1);
+            // set other usefull pool properties.
+          DataSource datasource = new DataSource();
+          datasource.setPoolProperties(p);
+
+          Connection con = null;
+          try {
+            con = datasource.getConnection();
+            // execute your query here
+          } finally {
+            if (con!=null) try {con.close();}catch (Exception ignore) {}
+          }
+      }
+  }
+```
+
+## Access databases by using persistent connections (recommended)
+
+The concept of persistent connections is similar to that of connection pooling. Replacing short connections with persistent connections requires only minor changes to the code, but it has a major effect in terms of improving performance in many typical application scenarios.
+
+## Access databases by using wait and retry mechanisms with short connections
+
+If you have resource limitations, we strongly recommend that you use database pooling or persistent connections to access databases. If you use short connections and experience connection failures when you approach the upper limit on the number of concurrent connections, you can try connecting multiple times. You can set an appropriate wait time, with a shorter wait time after the first attempt. Thereafter, you can try waiting for events multiple times.
 
 ## Next steps
 
