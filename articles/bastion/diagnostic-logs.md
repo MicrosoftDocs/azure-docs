@@ -17,7 +17,7 @@ As users connect to workloads using Azure Bastion, Bastion can log diagnostics o
 
 ## <a name="enable"></a>Enable the diagnostics log
 
-1. In the  [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
+1. In the  [Azure portal for Bastion](https://aka.ms/BastionHost), navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
    ![diagnostics settings](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.

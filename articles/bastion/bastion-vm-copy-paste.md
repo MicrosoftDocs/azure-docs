@@ -6,19 +6,15 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
 ---
 
-# Copy and paste to a virtual machine: Azure Bastion (Preview)
+# Copy and paste to a virtual machine: Azure Bastion
 
 This article helps you copy and paste text to and from virtual machines when using Azure Bastion. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
 
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
 
@@ -28,7 +24,7 @@ Only text copy/paste is supported. For direct copy and paste, your browser may p
 
 ## <a name="to"></a>Copy to a remote session
 
-After connecting to the virtual machine using the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview:
+After you connect to the virtual machine using the [Azure portal for Bastion](https://aka.ms/BastionHost), complete the following steps:
 
 1. Copy the text/content from the local device into local clipboard.
 1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows. The arrows are located on the left center of the session.
@@ -44,7 +40,7 @@ After connecting to the virtual machine using the [Azure portal](https://aka.ms/
 
 ## <a name="from"></a>Copy from a remote session
 
-After connecting to the virtual machine using the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview:
+After you connect to the virtual machine using the [Azure portal for Bastion](https://aka.ms/BastionHost), complete the following steps:
 
 1. Copy the text/content from the remote session into remote clipboard (using Ctrl-C).
 

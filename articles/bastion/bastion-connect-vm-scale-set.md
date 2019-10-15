@@ -17,11 +17,11 @@ This article shows you how to securely and seamlessly RDP to your Windows virtua
 
 ## Before you begin
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the virtual machine scale set resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to a virtual machine scale set instance in this virtual network. In this preview, Bastion assumes that you are using RDP to connect to a Windows virtual machine scale set, and SSH to connect to your Linux virtual machine scale set. For information about connection to a Linux VM, see [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
+Make sure that you have set up an Azure Bastion host for the virtual network in which the virtual machine scale set resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to a virtual machine scale set instance in this virtual network. Bastion assumes that you are using RDP to connect to a Windows virtual machine scale set, and SSH to connect to your Linux virtual machine scale set. For information about connection to a Linux VM, see [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
 
 ## <a name="rdp"></a>Connect using RDP
 
-1. Use [this link](https://aka.ms/BastionHost) to open the preview portal page for Azure Bastion. In the Azure portal for the Bastion preview, navigate to the virtual machine scale set that you want to connect to.
+1. Use [this link](https://aka.ms/BastionHost) to open the portal page for Azure Bastion. Navigate to the virtual machine scale set that you want to connect to.
 
     ![navigate](./media/bastion-connect-vm-scale-set/1.png)
 
