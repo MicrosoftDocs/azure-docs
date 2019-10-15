@@ -40,7 +40,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. In your favorite text editor or IDE, create a new python file. Add the following imports.
 
-    [!code-python[import statements](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
+    [!code-python[import statement block](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
 
 2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
@@ -85,11 +85,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
-## Load your time series data and send the request
+## Send the request
 
-1. Load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
+1. Call the anomaly detection methods created above.
 
-[!code-python[File load and method calls](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=fileLoad)]
+[!code-python[Method calls](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=methodCalls)]
 
 ### Example response
 
