@@ -100,7 +100,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
     It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
-## Publish Create and Delete Events
+## Publish created and deleted Events
 
 1. This module automatically creates topic **MicrosoftStorage**. Verify that it exists
     ```sh
@@ -175,7 +175,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
 2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
-## Verify Event Delivery
+## Verify event delivery
 
 
 ### Verify BlobCreated event delivery
@@ -239,7 +239,7 @@ Keep the default routes, and select **Next** to continue to the review section
           ]
     ```
 
-<< End of tutprial>>
+Congratulations! You have completed the tutorial. The following sections provide details on the event properties.
 
 ### Event properties
 Here's the list of supported event properties and their types and descriptions. 
@@ -259,8 +259,8 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| api | string | The operation that triggered the event. For details, <ul><li></li></ul>|
-| clientRequestId | string | a client-provided request id for the storage API operation. This id can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| api | string | The operation that triggered the event. It can be one of the following values: <ul><li>BlobCreated - allowed values are: `PutBlob` and `PutBlockList`</li><li>BlobDeleted - allowed values are `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete`. <p>The `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. </p><p>`AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired.</p></li></ul>|
+| clientRequestId | string | a client-provided request id for the storage API operation. This id can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. For details, see [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | string | Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
@@ -268,14 +268,6 @@ The data object has the following properties:
 | blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
 | url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
 
-## API values
-
-The `api` values for BlobCreated and BlobDeleted events:
-
-| Event | API Values | Extra Notes |
-| ----- | ----- | ----- |
-| BlobCreated | `PutBlob` and `PutBlockList` | &nbsp; |
-| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
 
 
 ## Next steps
