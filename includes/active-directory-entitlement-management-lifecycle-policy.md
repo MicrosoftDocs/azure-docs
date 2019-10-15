@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
 ---
