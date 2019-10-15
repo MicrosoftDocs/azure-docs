@@ -74,17 +74,17 @@ To help determine which integration option to use for your application, refer to
 <sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
 <sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
 
-## Azure AD Provisioning Service
+## Azure AD Provisioning Service (SCIM)
 
-The Azure AD provisioning services uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint.
+The Azure AD provisioning services uses [SCIM](https://aka.ms/SCIMOverview, a protocol supported by many identity providers (IdPs). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint.
 
 For more information on how the Azure AD Provisioning Service users SCIM, see: 
+
+* [Learn more about the SCIM standard](https://aka.ms/SCIMOverview)
 
 * [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Understand the Azure AD SCIM implementation](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Build a SCIM endpoint using Microsoft CLI Libraries](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## Microsoft Graph for Provisioning
 
