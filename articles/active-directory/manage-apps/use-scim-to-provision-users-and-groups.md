@@ -452,6 +452,21 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 *HTTP/1.1 204 No Content*
 
+###### Request
+*GET /Users/5171a35d82074e068ce2* 
+
+###### Response
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:Error"
+    ],
+    "status": "404",
+    "detail": "Resource 23B51B0E5D7AE9110A49411D@7cca31655d49f3640a494224 not found"
+}
+```
+
 ### Group Operations
 
 * Groups shall always be created with an empty members list.
