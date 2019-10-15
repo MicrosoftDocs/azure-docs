@@ -69,10 +69,7 @@ Depending on how your client is built, it can use one (or several) of the authen
 |[On-behalf-of flow](v1-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
 |[Client credentials](v1-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
 
-**Notes**:
-
 Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims. 
-
 
 Now that you have an overview of the basics, read on to understand the identity app model and API, how provisioning works in Microsoft identity platform, and links to detailed info about the common scenarios that Microsoft identity platform supports.
 
