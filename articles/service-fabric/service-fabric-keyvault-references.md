@@ -60,7 +60,8 @@ A common challenge when building cloud applications is how to securely store sec
             ]
     ```
 
-        >[!NOTE] It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
+        > [!NOTE] 
+        > It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
     ```json
         {
             "name": "EncryptionCertificateThumbprint",
@@ -112,7 +113,8 @@ Let's say the application needs to read the backend database password stored in 
         // dbPassword to connect to DB
     }
     ```
-    >[!NOTE] For the container scenario, you can use the MountPoint to control where the `secrets` will be mounted.
+    > [!NOTE] 
+    > For the container scenario, you can use the MountPoint to control where the `secrets` will be mounted.
 
 ## Keyvault secret as environment variable
 
