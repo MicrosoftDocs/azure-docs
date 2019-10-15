@@ -25,16 +25,16 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 
 ## General
 ### Q: What is Azure Synapse Analytics
-A: Azure Synapse is an integrated data platform for BI, AI and continuous intelligence. It connects various Analytics runtimes such as SQL and Spark through a single platform that provides a unified way to:
-- Secure your analytics resources: network, managing single sign-on  access to pool, data and development artifacts.
+A: Azure Synapse is an integrated data platform for BI, AI, and continuous intelligence. It connects various Analytics runtimes such as SQL and Spark through a single platform that provides a unified way to:
+- Secure your analytics resources: network, managing single sign-on  access to pool, data, and development artifacts.
 - Easily Monitor and quickly optimize, react and debug  events happening in your workspace activities at any layer
 - Manage your metadata across engines. Create a Spark table and it will be automatically available in your SQL Analytics databases
-- Interact with the data through a unified user experience. Arcadia Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts and Data Scientists into the same platform with Synapse Studio.
+- Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts and Data Scientists on the same platform.
 
 ### Q: How do I get started with Azure Synapse Analytics?
-A: To start using Azure Synapse Analytics, simply create a Synapse workspace (it is free!) and create the resources that you want under that workspace. You can follow one of our quick start tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts into our repository. If you need to connect to public dataset, create a new linked service with the following attributes:
+A: To start using Azure Synapse Analytics, create a Synapse workspace (it is free!) and create the resources that you want under that workspace. You can follow one of our quick start tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts into our repository. If you need to connect to public dataset, create a new linked service with the following attributes:
 - azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (simply right **""**)
+- azure_storage_sas_token = "" (write **""**)
 
 ### Q: What are the main components of Azure Synapse Analytics?
 A: Azure Synapse has the following capabilities:
@@ -45,7 +45,7 @@ A: Azure Synapse has the following capabilities:
 - Studio to access all of these capabilities through a single Web UI
 
 ### Q: How does Azure Synapse Analytics relate to Azure SQL Data Warehouse?
-A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform that combines data exploration, ingestion, transformation, preparation and serving analytics layer. Azure Synapse enables enterprises to bring for the first time various siloed organization 
+A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform. This platform combines data exploration, ingestion, transformation, preparation and serving analytics layer.  
 
 ## Use cases
 ### Q: What is a good use case for SQL Analytics Pool in Synapse
@@ -66,7 +66,7 @@ Another use case for Spark is for a Data Scientist to:
 
 ### Q: What is a good use case for SQL Analytics On-Demand in Synapse
 
-A: SQL Analytics Pool, previously called SQL Data Warehouse,  is a great tool for exploring the data with T-SQL. It is also a great tool for running Business Intelligence at a low cost if data is accessed infrequently. Another sue case is to provide a low-cost BI interface into the lake. With a relatively small dataset that needs to be cached, you can combine Power BI and SQL Analytics On-Demand to cache data that are accessed frequently and use a serverless SQL query engine to access the lake infrequently.
+A: SQL Analytics Pool, previously called SQL Data Warehouse,  is a great tool for exploring the data with T-SQL. It is also a great tool for running Business Intelligence at a low cost if data is accessed infrequently. Another sue case is to provide a low-cost BI interface into the lake. You can combine Power BI and SQL Analytics On-Demand to cache data that are accessed frequently and use SQL On-Demand, a serverless query engine, to access the lake infrequently.
 
 ### Q: What is a good use case for data flow in Synapse
 
@@ -75,7 +75,7 @@ A: Data flow allows data engineers to develop graphical data transformation logi
 ## Security and Access
 ### Q: What is the primary way to authenticate and give access to users 
 
-A: End to end single sign-on experience is very important in Azure Synapse Analytics. Therefore, managing and passing through the identity through a full AAD integration is a must. 
+A: End to end single sign-on experience is important in Azure Synapse Analytics. Therefore, managing and passing through the identity through a full AAD integration is a must. 
 
 ### Q: How do I get access to files and folders in the ADLSg2?
 
