@@ -184,9 +184,9 @@ To complete the creation process, register your datasets with a workspace.
 Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
-titanic_ds = titanic_ds.register(workspace = workspace,
-                                 name = 'titanic_ds',
-                                 description = 'titanic training data')
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
 > [!Note]
@@ -200,14 +200,28 @@ Azure Open Datasets are curated public datasets that you can use to add scenario
 
 To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by it's own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
 
-Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a dataset from these types of classes, use the static `get()` function with an empty `TabularDataset` as a parameter. 
+Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a `TabularDataset` from these types of classes, use the constructor with no arguments. Then you can register the dataset 
 
 ```python
 from azureml.opendatasets import UsPopulationZip
-from azureml.data.tabular_dataset import TabularDataset
 
-tabular_init = TabularDataset()
-tabular_dataset = UsPopulationZip.get(tabular_init)
+tabular_dataset = UsPopulationZip()
+tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
+```
+
+Certain classes can be retrieved as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can only get a dataset using either the `get_tabular_dataset()` **or** `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes.
+
+```python
+from azureml.opendatasets import MNIST
+
+# MNIST class can return either TabularDataset or FileDataset
+tabular_dataset = MNIST.get_tabular_dataset()
+file_dataset = MNIST.get_file_dataset()
+
+from azureml.opendatasets import Diabetes
+
+# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 
 ## Version datasets
