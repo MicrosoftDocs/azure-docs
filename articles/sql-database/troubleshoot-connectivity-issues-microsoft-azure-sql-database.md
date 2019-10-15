@@ -69,7 +69,7 @@ To resolve this issue, make sure that port 1433 is open for outbound connections
 
 For more information, see [Configure the Windows Firewall to allow SQL Server access](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
-## Unable to login to the server (Errors 18456, 40531)
+## Unable to log in to the server (Errors 18456, 40531)
 
 ### Login failed for user '< User name >'
 
@@ -220,7 +220,7 @@ This is an engine throttling error, an indication that resource limits are being
 
 For more information about resource limits, see [Database server resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
-### Error 40544 : The database has reached its size quota
+### Error 40544: The database has reached its size quota
 
 **Detailed error**
 
@@ -339,7 +339,7 @@ When the exception is triggered by query issues, you'll notice a call stack that
   at AzureConnectionTest.Program.Main(String[] args)
   ClientConnectionId:<Client ID>
 ```
-For additional guidance on fine tuning performance, please see the following:
+For additional guidance on fine-tuning performance, please see the following:
 
 * [How to maintain Azure SQL indexes and statistics](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
 * [Manual tune query performance in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
