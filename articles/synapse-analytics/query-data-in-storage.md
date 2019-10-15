@@ -71,37 +71,37 @@ We need to create credential before you can run queries. This credential will be
 
 > Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
-**Code snippet on how to create credentials for a North Europe region**, run:
+**Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
 
 ```mssql
--- create credentials for csv container in demo storage account in North Europe region
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://partystoragenortheurblob.blob.core.windows.net/csv')
-DROP CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/csv]
+-- create credentials for CSV container in our demo storage account
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
+DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
 Go
 
-CREATE CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/csv]  
+CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'st=2019-06-02T09%3A29%3A00Z&se=2020-05-10T09%3A29%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=8GW0IxkkM3uLVzRUEPvJgDxknV%2BdITxuGhFImhzN6tQ%3D'
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 Go
 
--- create credentials for parquet container in demo storage account in North Europe region
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://partystoragenortheurblob.blob.core.windows.net/parquet')
-DROP CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/parquet]
+-- create credentials for JSON container in our demo storage account
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
+DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
 Go
 
-CREATE CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/parquet]  
+CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'st=2019-06-02T09%3A30%3A00Z&se=2020-05-10T09%3A30%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=%2FOhnvDIFhBLh3%2FlbRxRpQT6lMMC7RpTtCAYFWiaUYA8%3D'
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 Go
 
--- create credentials for json container in demo storage account in North Europe region
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://partystoragenortheurblob.blob.core.windows.net/json')
-DROP CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/json]
+-- create credentials for PARQUET container in our demo storage account
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
+DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
 Go
 
-CREATE CREDENTIAL [https://partystoragenortheurblob.blob.core.windows.net/json]  
+CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'st=2019-08-01T09%3A11%3A00Z&se=2021-08-01T09%3A11%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=VX9kCqt2yTmqU5MzxhLVWh5uhg%2BTFGeqlycgjJOlTx8%3D'
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 Go
 ```
 
@@ -109,12 +109,6 @@ Go
 
 Demo data contains following data sets:
 
-# TODO: SAMPLES
-**New SAMPLES**
-- NYC Taxi & Limousine Commission - yellow taxi trip records
-  - Parquet format
-
-**From GITHUB Samples**
 - NYC Taxi - Yellow Taxi Trip Records - part of public NYC data set 
   - CSV format
   - Parquet format
@@ -144,17 +138,17 @@ Now you are ready to start with following quickstarts:
 
 1. [Querying single CSV file](querying-single-csv-file.md)
 
-1. [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
+2. [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md)
 
-1. [Querying specific files](querying-specific-files.md)
+3. [Querying specific files](querying-specific-files.md)
 
-1. [Querying Parquet files](querying-parquet-files.md)
+4. [Querying Parquet files](querying-parquet-files.md)
 
-1. [Creating and using views](creating-and-using-views.md)
+5. [Creating and using views](creating-and-using-views.md)
 
-1. [Querying JSON files](querying-json-files.md)
+6. [Querying JSON files](querying-json-files.md)
 
-1. [Querying Parquet nested types](querying-parquet-nested-types.md)
+7. [Querying Parquet nested types](querying-parquet-nested-types.md)
 
 
 Advance to the next article to learn how to query single CSV file.
