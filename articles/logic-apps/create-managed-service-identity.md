@@ -13,7 +13,7 @@ ms.date: 10/11/2019
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
 
-To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager.
 
 Your logic app can use managed identities only in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). This article shows how to set up and use the system-assigned managed identity for your logic app. For limits on managed identities in logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity). For more information about the authentication types where available in triggers and actions, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -159,25 +159,27 @@ These steps show how to use the managed identity with a trigger or action throug
 
 1. If you haven't done so yet, add the trigger or action [that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-   For this example, suppose you want to call an [Azure service that supports managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager, by using an [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action). To authenticate the requests that the HTTP action sends to the Azure service, the HTTP action can use the system-assigned identity that's enabled for your logic app.
+   For example, suppose that you want to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity, but the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can use the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) to run the operation or any other [Blob Service REST API operations](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs). For authentication, the HTTP action can use the system-assigned identity that you enabled for your logic app. The HTTP action also uses these properties to specify the resource that you want to access:
+
+   * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes at least the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. If the resource is in a different subscription, the URI property includes those values too.
+
+   * The **Queries** property specifies any query parameters that you need to include in the request, such as a specific API version when required or a parameter that identifies a specific operation.
+
+   So, to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
+
+   * **Method**: Specifies the `PUT` operation.
+
+   * **URI**: Specifies the resource ID for Azure Storage blobs under a different subscription in the Azure Global (public) environment and uses this syntax: `https://{storage-account-name}.blob.net/subscriptions/{resource-subscription-ID}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-container-name}/blobServices/{blob-name}`
+
+   * **Queries**: Specifies `comp` as the query parameter name and `snapshot` as the parameter value.
 
    ![Add HTTP action to call an Azure service](./media/create-managed-service-identity/http-action-example.png)
 
-   In an HTTP trigger or action, the **URI** property specifies the HTTP or HTTPS endpoint URL that you use to call the target service. This URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the HTTP operation.
+   The request that the HTTP action sends uses this:
 
-   `https://{service-resource-ID}/subscriptions/{subscription-ID}?api-version={REST-API-version}`
+   `PUT https://storageaccount.blob.net/subscriptons/XXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/fabrikam-storage-rg/providers/Microsoft.Storage/storageAccounts/fabrikamstorageaccount/blobServices/email-content?comp=snapshot`
 
-   For example, this URI specifies the resource ID for Azure Resource Manager in the Azure Global (public) environment.
-
-   `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2016-06-01`
-
-   To access a specific resource, the URI syntax uses a fully qualified resource ID:
-
-   `https://{service-resource-ID}/{fully-qualified-resource-ID}?api-version={REST-API-version}`
-
-   For example, to access an Azure virtual machine resource:
-
-   `https://management.azure.com/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/Fabrikam-RG/providers/Microsoft.Compute/virtualMachines/FabVM0001?api-version=2016-06-01`
+   For more information about the available REST API operations in Azure, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
 
 1. From the **Authentication** list, select **Managed Identity**.
 
