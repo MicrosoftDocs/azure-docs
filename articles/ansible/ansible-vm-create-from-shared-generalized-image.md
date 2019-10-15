@@ -14,7 +14,7 @@ ms.date: 10/14/2019
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
-[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. Handy if you have a large number of managed images that you need to maintain and share throughout your company. You can share your custom image across subscriptions, between Active Directory (AD) tenants; and replicate to multiple regions for quicker scaling of your deployments.
+[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. Handy if you have a large number of managed images that you need to maintain and share throughout your company. Custom images can be shared across subscriptions and between Azure Active Directory tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -257,7 +257,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 04a-create-vm-using-generalized-image.yml
 ```
 
-## Create a VM scale sets based on the generalized image
+## Create a virtual machine scale sets based on the generalized image
 
 You can also create a virtual machine scale set based on the generalized image. Run `05a-create-vmss-using-generalized-image.yml` to do so.
 
