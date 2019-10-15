@@ -13,7 +13,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 06/06/2019
+ms.date: 09/20/2019
 ms.author: cynthn
 ---
 # Workloads on Azure Virtual Machines
@@ -29,4 +29,4 @@ Virtual machines in Azure can support many workloads. Each workload can have spe
 
 **Next steps**
 
-Get to know Azure VMs with the Azure VM quickstart guides for [Linux](../linux/quick-create-cli-nodejs.md) and [Windows](../windows/quick-create-powershell.md).
+Get to know Azure VMs with the Azure VM quickstart guides for [Linux](../linux/quick-create-cli.md) and [Windows](../windows/quick-create-powershell.md).

@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as autoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://arxiv.org/abs/1705.05355).
+Automated machine learning, also referred to as automated ML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://arxiv.org/abs/1705.05355).
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. The service then iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.
 
@@ -31,6 +31,13 @@ Data scientists, analysts and developers across industries can use automated ML 
 + Save time and resources
 + Leverage data science best practices
 + Provide agile problem-solving
+
+The following table lists common automated ML use cases. 
+
+Classification| Regression | Time series forecasting
+---|---|---
+[Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[Material Durability Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
 
 ## How automated ML works
 
@@ -113,6 +120,36 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to 5 models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
+
+## <a name="imbalance"></a> Imbalanced data
+
+Imbalanced data is commonly found in data for machine learning classification scenarios, and refers to data that contains a disproportionate ratio of observations in each class. This imbalance can lead to a falsely perceived positive effect of a model's accuracy, because the input data has bias towards one class, which results in the trained model to mimic that bias. 
+
+As part of its goal of simplifying the machine learning workflow, automated ML has built in capabilities to help deal with imbalanced data such as, 
+
+- A **weight column**: automated ML supports a weighted column as input, causing rows in the data to be weighted up or down, which can make a class more or less “important”. See this [notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 
+
+- The algorithms used by automated ML can properly handle imbalance of up to 20:1, meaning the most common class can have 20 times more rows in the data than the least common class.
+
+### Identify models with imbalanced data
+
+As classification algorithms are commonly evaluated by accuracy, checking a model's accuracy score is a good way to identify if it was impacted by imbalanced data. Did it have really high accuracy or really low accuracy for certain classes?
+
+In addition, automated ML runs generate the following charts automatically, which can help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
+
+Chart| Description
+---|---
+[Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
+[Precision-recall](how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
+[ROC Curves](how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
+
+### Handle imbalanced data 
+
+The following techniques are additional options to handle imbalanced data outside of automated ML. 
+
+- Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
+
+- Use a performance metric that deals better with imbalanced data. For example, the F1 score is a weighted average of precision and recall. Precision measures a classifier’s exactness-- low precision indicates a high number of false positives--, while recall measures a classifier’s completeness-- low recall indicates a high number of false negatives. 
 
 ## Use with ONNX in C# apps
 

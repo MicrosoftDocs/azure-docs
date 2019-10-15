@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -13,6 +13,21 @@ ms.author: raynew
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
+
+## Update to servicing stack update/SHA-2
+
+For disaster recovery of Azure VMs to a secondary region, or on-premises VMware VMs or physical servers to Azure, note the following:
+
+- From version 9.30.x.x of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
+- Install the update and SHA-2 in accordance with the linked KB.
+- Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+
+**Operating system** | **Azure VM** | **VMware VM/physical machine**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Servicing stack update](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
 
 ## Supported updates
 
@@ -67,7 +82,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.
+Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.<br/><br/> This is supported for Hyper-V VMs with or without System Center VMM.
 
 
 ## Updates (August 2019)
@@ -105,7 +120,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 
 ### General
 
-Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+Site Recovery now supports the use of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
 
 ### VMware to Azure disaster recovery
 

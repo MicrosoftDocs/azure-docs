@@ -28,7 +28,7 @@ In contrast with rebuilds that take an index offline, *data refresh* runs as a b
 | Update or delete an analyzer definition in an index | You cannot delete or change an existing analyzer configuration (analyzer, tokenizer, token filter, or char filter) in the index unless you rebuild the entire index. |
 | Add a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
 | Delete a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practical, you can modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, when you apply a schema that omits the field in question. |
-| Switch tiers | If you require more capacity, there is no in-place upgrade. A new service is created at the new capacity point, and indexes must be built from scratch on the new service. |
+| Switch tiers | If you require more capacity, there is no in-place upgrade in the Azure portal. A new service must be created, and indexes must be built from scratch on the new service. To help automate this process, you can use the **index-backup-restore** sample code in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). This app will backup your index to a series of JSON files, and then recreate the index in a search service you specify.|
 
 Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild:
 

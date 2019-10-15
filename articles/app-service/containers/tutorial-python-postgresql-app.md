@@ -1,5 +1,5 @@
 ---
-title: Python (Django) web app with PostgreSQL on Linux - Azure App Service | Microsoft Docs
+title: 'Tutorial: Python (Django) web app with PostgreSQL on Linux - Azure App Service'
 description: Learn how to run a data-driven Python (Django) web app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -11,8 +11,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: [mvc, seodec18, seo-python-october2019]
 ---
 # Build a Python (Django) web app with PostgreSQL in Azure App Service
 
@@ -32,7 +31,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Before creating an Azure Database for PostgreSQL, please check [which compute generation is available in your region](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
 
-You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps in this article on macOS, Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

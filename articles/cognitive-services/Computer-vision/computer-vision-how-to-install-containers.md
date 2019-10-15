@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/03/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -39,8 +39,6 @@ You must meet the following prerequisites before using the containers:
 ## Request access to the private container registry
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
-
-[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### The host computer
 
@@ -338,7 +336,9 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 ## Troubleshooting
 
-If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

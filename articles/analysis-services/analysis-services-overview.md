@@ -2,10 +2,9 @@
 title: What is Azure Analysis Services | Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -49,7 +48,7 @@ The tier is recommended for production solutions with smaller tabular models, li
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
-|B2    |    80     |    20     |
+|B2    |    80     |    16     |
 
 ### Standard tier
 
@@ -145,7 +144,7 @@ Tabular models in Azure Analysis Services support a wide variety of data sources
 
 ## Compatibility level
 
-Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for Analysis Services tabular models](analysis-services-compat-level.md).
+Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## Your data is secure
@@ -222,7 +221,7 @@ Modern data exploration and visualization tools like Power BI, Excel, Reporting 
 
 ## Monitoring and diagnostics
 
-Azure Analysis Services is integrated with Azure metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [Azure resource diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
+Azure Analysis Services is integrated with Azure metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [Azure resource diagnostic logs](../azure-monitor/platform/resource-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
 
 Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Based on SQL syntax, DMVs interface schema rowsets that return metadata and monitoring information about server instance.
 

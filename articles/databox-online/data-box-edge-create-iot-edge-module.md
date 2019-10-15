@@ -176,7 +176,7 @@ Create a C# solution template that you can customize with your own code.
     }
     ```
 
-6. Remove the code for **Pipe message method** and in its place, insert the code for **FileCopy**.
+6. Remove the code for **PipeMessage method** and in its place, insert the code for **FileCopy**.
 
     ```
         /// <summary>
