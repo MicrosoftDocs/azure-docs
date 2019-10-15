@@ -67,7 +67,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.
+Storage account | Site Recovery now supports the use of storage accounts with firewall enabled for Hyper-V to Azure disaster recovery.  You can select firewall-enabled storage accounts as a target account, or for cache storage. If you use firewall-enabled account, make sure that you enable the option to allow trusted Microsoft services.<br/><br/> This is supported for Hyper-V VMs with or without System Center VMM.
 
 
 ## Updates (August 2019)

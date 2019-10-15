@@ -1,5 +1,5 @@
 - name: SQL Data Warehouse Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is SQL Data Warehouse?
@@ -135,16 +135,30 @@
         href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
       - name: Alter
         href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+      - name: Check view overhead
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest
     - name: Ordered clustered columnstore index
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
+      - name: Create table
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+      - name: CTAS   
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+      - name: Create and change index
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and- 
     - name: Result set caching
       items:
+      - name: Overview 
+        href: sql-data-warehouse-result-set-caching-overview.md
       - name: Set for a database
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
       - name: Set for a session 
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+      - name: Check cache size 
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest
+      - name: Clean up cache
+        href: https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest
     - name: Tables
       items:
       - name: Overview

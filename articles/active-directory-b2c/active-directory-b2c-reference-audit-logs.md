@@ -108,10 +108,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 
 ### Create client secret
 
-1. Under **API ACCESS**, select **Keys**.
-1. Enter a description for the key in the **Key description** box. For example, *Audit Log Key*.
-1. Select a validity **Duration**, then select **Save**.
-1. Record the key's **VALUE**. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 You now have an application with the required API access, an application ID, and a key that you can use in your automation scripts. See the PowerShell script section later in this article for an example of how you can get activity events with a script.
 
