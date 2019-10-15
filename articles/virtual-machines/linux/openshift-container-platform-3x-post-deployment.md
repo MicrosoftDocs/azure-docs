@@ -1,6 +1,6 @@
 ---
-title: OpenShift on Azure post-deployment tasks | Microsoft Docs
-description: Additional tasks for after an OpenShift cluster has been deployed. 
+title: OpenShift Container Platform 3.11 in Azure post-deployment tasks | Microsoft Docs
+description: Additional tasks for after an OpenShift Container Platform 3.11 cluster has been deployed. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 10/14/2019
 ms.author: haroldw
 ---
 
@@ -205,4 +205,4 @@ To install OSBA on OpenShift, follow the instructions located here: https://gith
 
 ## Next steps
 
-- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com)
