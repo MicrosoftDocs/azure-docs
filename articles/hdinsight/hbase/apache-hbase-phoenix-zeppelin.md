@@ -1,5 +1,5 @@
 ---
-title: Execute Apache Base queries in Azure HDInsight with Apache Phoenix
+title: Run Apache Base queries in Azure HDInsight with Apache Phoenix
 description: Learn how to use Apache Zeppelin to run Apache Base queries with Phoenix.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -15,6 +15,8 @@ ms.date: 10/10/2019
 Apache Phoenix is an open source, massively parallel relational database layer built on HBase. Phoenix allows you to use SQL like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, upset rows individually and in bulk. Phoenix uses NOSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase.
 
 Apache Zeppelin is open source Web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala and many other languages. It helps data developers & data scientists in developing, organizing, executing, and sharing data code and visualizing results without referring to the command line or needing the cluster details.
+
+HDInsight users can use Apache Zeppelin to query Phoenix tables. Apache Zeppelin is integrated with HDInsight cluster and there are no additional steps to use it. Simply create a Zeppelin Notebook with JDBC interpreter and start writing your Phoenix SQL queries
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. Create an HBase table. Enter the following command and then press **Shift + Enter**:
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     CREATE TABLE Company (
     	company_id INTEGER PRIMARY KEY,
@@ -53,7 +55,7 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. View created tables.
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     SELECT DISTINCT table_name
     FROM SYSTEM.CATALOG
@@ -62,7 +64,7 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. Insert values in the table.
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
     UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
@@ -70,21 +72,21 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. Query the table.
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     SELECT * FROM dbo.Company;
     ```
 
 1. Delete a record.
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     DELETE FROM dbo.Company WHERE COMPANY_ID=1;
     ```
 
 1. Drop the table.
 
-    ```phoenix
+    ```sql
     %jdbc(phoenix)
     DROP TABLE dbo.Company;
     ```
