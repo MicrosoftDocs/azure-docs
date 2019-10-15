@@ -76,7 +76,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 2. Select **Move**. The following screenshot shows the management options for a storage account.
 
     ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
-3. Select **Move to another resource group** or **Moeve to another subscription** depending on your needs.
+3. Select **Move to another resource group** or **Move to another subscription** depending on your needs.
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
