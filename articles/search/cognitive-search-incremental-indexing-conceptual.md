@@ -55,7 +55,11 @@ The lifecycle of the cache is managed by the indexer. If the cache property in t
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
+    }
 }
 
 ```

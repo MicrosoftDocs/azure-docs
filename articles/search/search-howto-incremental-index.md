@@ -40,13 +40,31 @@ Using a API client construct a GET request to get the current configuration of t
 
 ### Step 2: Update the indexer definition
 
-Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account.
+Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account. 
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### Enable reporocessing
+
+You can optionally set the `enableReprocessing` boolean property within the cache which is by default set to true. The `enableReprocessing` flag allows you to control the behavior of your indexer. In scenarios where you want the indexer to prioritize adding new documents to the index, you would set the flag to false. Once your indexer is caught up with the new documents, flipping the flag to true would then allow the indexer to start driving existing documents to eventual consistency. During the period when the `enableReprocessing` flag is set to false, the indexer only writes to the cache but will not process any existing documents based on identified changes to the enrichment pipeline.
 
 ### Step 3: Reset the indexer
 
