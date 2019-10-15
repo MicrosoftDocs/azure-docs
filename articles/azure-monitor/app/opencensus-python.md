@@ -1,5 +1,5 @@
 ---
-title: Monitor Python applications with Azure Monitor (preview) | Microsoft Docs
+title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 services: application-insights
 keywords:
@@ -12,7 +12,7 @@ ms.reviewer: mbullwin
 manager: carmonm
 ---
 
-# Set up Azure Monitor for your Python application (preview)
+# Set up Azure Monitor for your Python application
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
 
@@ -45,7 +45,7 @@ First you have to create an Application Insights resource in Azure Monitor, whic
 
 1. Select **Create**.
 
-## Instrument with the OpenCensus Python SDK for Azure Monitor
+## Instrument with OpenCensus Python SDK for Azure Monitor
 
 Install the OpenCensus Azure Monitor exporters:
 
@@ -338,7 +338,6 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 ## Next steps
 
-* [API summary](./../../azure-monitor/app/api-custom-events-metrics.md)
 * [Application map](./../../azure-monitor/app/app-map.md)
 * [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
 
