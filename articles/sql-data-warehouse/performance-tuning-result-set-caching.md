@@ -1,5 +1,5 @@
 ---
-title: Result set caching in Azure SQL Data Warehouse | Microsoft Docs
+title: Performance tuning with result set caching | Microsoft Docs
 description: Feature overview  
 services: sql-data-warehouse
 author: XiaoyuMSFT
