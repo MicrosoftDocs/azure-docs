@@ -33,7 +33,7 @@ Note that balancing across availability zones or fault domains does not move ins
 
 This policy will delete the newest created virtual machine in the scale set, after balancing VMs across availability zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
-### NewestVM scale-in policy
+### OldestVM scale-in policy
 
 This policy will delete the oldest created virtual machine in the scale set, after balancing VMs across availability zones (for zonal deployments). Enabling this policy requires a configuration change on the virtual machine scale set model.
 
