@@ -11,7 +11,7 @@ ms.date: 10/15/2019
 
 # Aggregate transformation in mapping data flow 
 
-The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT are grouped by existing or computed columns.
+The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns.
 
 ## Group by
 
@@ -63,7 +63,7 @@ Aggregate transformations are similar to SQL aggregate select queries. Columns t
 
 ### Example
 
-The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the following:
+The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the below image:
 
 ![Group by example](media/data-flow/aggScript1.png "Group by example")
 
