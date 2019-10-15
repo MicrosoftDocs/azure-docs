@@ -26,6 +26,10 @@ Common Blob storage event scenarios include image or video processing, search in
 ## Prerequisites
 Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-local.md) tutorial before you do this tutorial. 
 
+> [!NOTE]
+> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled"`. 
+
+
 ## Select your IoT Edge device
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
@@ -235,17 +239,11 @@ Keep the default routes, and select **Next** to continue to the review section
             }
           ]
     ```
-## API values and event properties
 
-The `api` values for BlobCreated and BlobDeleted events:
-
-| Event | API Values | Extra Notes |
-| ----- | ----- | ----- |
-| BlobCreated | `PutBlob` and `PutBlockList` | &nbsp; |
-| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
+<< End of tutprial>>
 
 ### Event properties
-Here's the list of event properties and their types and descriptions. 
+Here's the list of supported event properties and their types and descriptions. 
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -262,30 +260,34 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| api | string | The operation that triggered the event. |
+| api | string | The operation that triggered the event. For details, <ul><li></li></ul>|
 | clientRequestId | string | a client-provided request id for the storage API operation. This id can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | string | Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
 | blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
-| contentOffset | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
-| destinationUrl |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
-| sourceUrl |string | The url of the file that exists prior to the operation. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name prior to the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
-| recursive | string | `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
-| sequencer | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
-| storageDiagnostics | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
+
+## API values
+
+The `api` values for BlobCreated and BlobDeleted events:
+
+| Event | API Values | Extra Notes |
+| ----- | ----- | ----- |
+| BlobCreated | `PutBlob` and `PutBlockList` | &nbsp; |
+| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
+
 
 ## Next steps
+See the following articles from the Blob Storage documentation:
+
+- [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
+- [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+
 In this tutorial, you published events by creating or deleting blobs in an Azure Blob Storage. See the other tutorials to learn how to forward events to cloud (Azure Event Hub or Azure IoT Hub): 
 
 - [Forward events to Azure Event Grid](forward-events-event-grid-cloud.md)
 - [Forward events to Azure IoT Hub](forward-events-iothub.md)
 
-Also, see the following articles from the Blob Storage documentation:
-
-- [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
-- [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
-- Forward events to cloud
 
