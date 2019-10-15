@@ -26,7 +26,7 @@ Sample application has two parts:
 
 
 
-## Create a skeleton of our Web App
+## Create a skeleton of our web app
 
 We will use a Node.js express app to serve a index.html page that contains JS code that authenticates to Azure AD and obtains the token for the Azure API for FHIR endpoint and then list the patients in a nice table format.
 
@@ -98,9 +98,10 @@ Here we will use a sample JS code to authenticate to Azure AD and obtain the tok
 
 first we configure MSAL library and Azure AD configuration. 
 
-**Note:** In real world scenario we would store initialization information in a separate file and not hard-code it.
+>[!NOTE]
+>**Note:** In real world scenario we would store initialization information in a separate file and not hard-code it.>
 
-``` javascript
+```javascript
         var msalConfig = {
         auth: {
             clientId: '<copy your Application ID here>',
@@ -205,6 +206,7 @@ If you are using Node.js:
     npm install
     node server.js
 ```
+
 2. Open a web browser and go to http://localhost:30662/.
 3. Select Sign In to start the sign-in, and then call Azure API for FHIR.
 

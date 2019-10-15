@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Setup development environment
+title: Tutorial - Setup development environment for Azure API for FHIR
 description: This tutorial explains how to set up a development environment for Azure API for FHIR (node.js/JS)
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -33,7 +33,7 @@ Before beginning this tutorial, you should have the following prerequisites in p
 * [Visual Studio Code](https://code.visualstudio.com/) installed or any other editor.
 * [Node.js and npm](https://nodejs.org/) installed on computer
 
-## Scenario Architecture
+## Scenario architecture
 
 In this scenario we assume that the FHIR service, Azure AD application, and Azure AD users are all in the same Azure     subscription.
 

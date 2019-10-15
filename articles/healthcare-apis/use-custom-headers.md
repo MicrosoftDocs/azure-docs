@@ -1,6 +1,6 @@
 ---
 title: Using custom headers to add data to audit logs is Azure API for FHIR
-description: This article describes how to ddd data to audit logs via custom HTTP headers.
+description: This article describes how to add data to audit logs via custom HTTP headers.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -28,8 +28,8 @@ There are several ways to use custom headers when calling APIs. For example:
 * Originating organization
 * Client system details (EHR, patient portal)
 
----
-> **_Note:_** Be aware, that the information sent in custom headers will be stored in Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information (PHI/PII information) before adding them to custom headers.  
+>[!NOTE]
+>**_Note:_** Be aware, that the information sent in custom headers will be stored in Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information (PHI/PII information) before adding them to custom headers.  
 
 ## How to use custom headers
 
