@@ -175,34 +175,31 @@ These steps show how to use the managed identity with a trigger or action throug
 
    ![Add HTTP action to call an Azure service](./media/create-managed-service-identity/http-action-example.png)
 
-   The request that the HTTP action sends uses this:
+   Here is the request that the HTTP action creates and sends:
 
    `PUT https://storageaccount.blob.net/subscriptons/XXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/fabrikam-storage-rg/providers/Microsoft.Storage/storageAccounts/fabrikamstorageaccount/blobServices/email-content?comp=snapshot`
 
-   For more information about the available REST API operations in Azure, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
+   For more information about the available Azure REST API operations, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
 
-1. From the **Authentication** list, select **Managed Identity**.
+1. From the **Authentication** list, select **Managed Identity**. If the [**Authentication** property is supported](logic-apps-securing-a-logic-app.md#add-authentication-outbound) but hidden, open the **Add new parameter** list, and select **Authentication**.
 
    > [!NOTE]
-   > The Authentication property is hidden in some triggers and actions that support selecting an authentication type. 
-   > To make the Authentication property visible in the trigger or action, open the **Add new parameter** list, 
-   > and select **Authentication**.
+   > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. If you don't specify a value, then by default, the property uses the `https://management.azure.com/` resource ID, which is for Azure Resource Manager. Make sure that you set this value to the target resource ID that you want to use.
+1. After you select **Managed Identity**, the **Audience** property appears for some triggers and actions. If the **Audience** property is supported but hidden, open the **Add new parameter** list, and select **Audience**.
 
-   > [!NOTE]
-   > If the **Audience** property doesn't appear, open the **Add new parameter** list, and select **Audience**.
-
-   This example sets the **Audience** property to `https://storageaccount.blob.core.windows.net
-
-   ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+1. Make sure that you set the **Audience** value to the resource ID for the target resource or service. Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
    > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory expects, 
    > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
    > a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+   This example sets the **Audience** property to `https://storageaccount.blob.core.windows.net`:
+
+   ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
 <a name="remove-identity"></a>
 
