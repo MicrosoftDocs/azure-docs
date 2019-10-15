@@ -16,7 +16,7 @@ Update Management provides the ability to target a dynamic group of Azure or Non
 
 ## Azure machines
 
-These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
+These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group:
 
 * Subscription
 * Resource groups
@@ -35,6 +35,6 @@ For Non-Azure machines, saved searches also referred to as computer groups are u
 
 ![Select groups](./media/automation-update-management/select-groups-2.png)
 
-## Next Steps
+## Next steps
 
 After creating a dynamic group, you can [Create an Update Deployment](automation-tutorial-update-management.md)

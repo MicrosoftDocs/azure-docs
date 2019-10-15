@@ -99,7 +99,7 @@ Get-AzureRmVm | Select Name
 ```
 
 > [!NOTE]
-> `Connect-AzureRMAccount -Identity` works for a HRW using a system assigned identity and a single user assigned identity. If you need to use multiple user assigned identities on the HRW, you must specify the `-AccountId` parameter to select the specific user assigned identity.
+> `Connect-AzureRMAccount -Identity` works for a Hybrid Runbook Worker using a system assigned identity and a single user assigned identity. If you need to use multiple user assigned identities on the HRW, you must specify the `-AccountId` parameter to select the specific user assigned identity.
 
 ### <a name="runas-script"></a>Automation Run As account
 

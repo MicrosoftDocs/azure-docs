@@ -66,7 +66,7 @@ In addition to your standard runbook parameters, an additional parameter is prov
 |Property  |Description  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | The name of the Software Update Configuration        |
-|SoftwareUpdateConfigurationRunId     | The unique id for the run.        |
+|SoftwareUpdateConfigurationRunId     | The unique ID for the run.        |
 |SoftwareUpdateConfigurationSettings     | A collection of properties related to the Software Update Configuration         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment         |
 |SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the "maintenance window"          |

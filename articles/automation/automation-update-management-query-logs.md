@@ -258,7 +258,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## Next Steps
+## Next steps
 
 * Use log searches in [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
