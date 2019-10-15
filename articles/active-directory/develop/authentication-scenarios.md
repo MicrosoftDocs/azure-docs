@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/09/2019
+ms.date: 10/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 ## What is authentication
 
-This article covers most of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected Web APIs.
+This article covers many of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected Web APIs.
 
 **Authentication** is the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN.
 
@@ -36,9 +36,9 @@ Instead of creating apps that each maintain their own username and password info
 
 Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
-A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign-in from the enterprise's network. Azure AD authenticates users and provides access tokens that contain information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
+A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign-in from the enterprise's network. Azure AD authenticates users and provides access tokens. An access token is a security token that is issue by an authorization server. It contains information about the user and the app for which the token is intended, which can be used to access Web APIs and other protected resources.
 
-The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly.
+The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. See [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md) for more details.
 
 ## Tenants
 
@@ -50,7 +50,7 @@ Azure AD also provides Azure Active Directory B2C so that organizations can  sig
 
 ### Security tokens
 
-Security tokens contain information about users and apps. Azure AD uses JSon based tokens (JWTs) that contain claims. Applications can use claims for various tasks, including:
+Security tokens contain information about users and apps. Azure AD uses JSon based tokens (JWTs) that contain claims. A claim provides assertions about one entity to another. Applications can use claims for various tasks such as:
 
 * Validating the token
 * Identifying the subject's directory tenant
@@ -77,7 +77,7 @@ Access tokens are passed to a Web API as the bearer token in the `Authenticate` 
 
 Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Azure AD.
 
-For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. Registering applications with Azure AD enables you to:
+For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Azure AD. Registering the app also  also allows you to:
 
 - customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
 - decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from Linked-In, Google, and so on.
@@ -91,18 +91,20 @@ Once registered, the application will be given a GUID that the app shares with A
 
 The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
-Identify the app by the authentication protocols it supports by providing all the identifiers, URLs, secrets, and related information that are needed to authenticate. The Microsoft identity platform:
+**Identify the app by the authentication protocols it supports and provide all the identifiers, URLs, secrets, and related information that are needed to authenticate.**
+The Microsoft identity platform:
 
 * Holds all the data required to support authentication at runtime.
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
 * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
 
-**Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants** The Microsoft identity platform:
+**Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants**
+Consent is the process of a resource owner granting authorization to a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
 
 * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
 * Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
 
-In the Microsoft identity platform, an **application object** describes an application as an abstract entity. At deployment time, the Microsoft identity platform uses an application object as a blueprint to create a **service principal**, which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through **consent**.
+In the Microsoft identity platform, an **application object** describes an application as an abstract entity. At deployment time, the Microsoft identity platform uses the application object as a blueprint to create a **service principal**, which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through **consent**.
 
 The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants (A and B). Tenant A owns the application. Tenant B is instantiating the application via a service principal.  
 
@@ -166,5 +168,6 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 
 ## Next steps
 
+See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
 See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
 See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.

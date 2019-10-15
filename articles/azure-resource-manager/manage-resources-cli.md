@@ -1,6 +1,6 @@
 ---
 title: Manage Azure resources by using Azure CLI | Microsoft Docs
-description: Use Azure CLI and Azure Resource Manage to manage your resources. 
+description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -23,7 +23,7 @@ Other articles about managing resources:
 
 ## Deploy resources to an existing resource group
 
-You can deploy Azure resources directly by using Azure PowerShell, or deploy a Resource Manager template to create Azure resources.
+You can deploy Azure resources directly by using Azure CLI, or deploy a Resource Manager template to create Azure resources.
 
 ### Deploy a resource
 

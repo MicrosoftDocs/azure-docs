@@ -21,26 +21,15 @@ ms.author: dalek
 > [!NOTE]
 > This article describes how to understand and control your costs for Application Insights.  A related article, [Monitoring usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
+Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article we review what drives your application monitoring costs and how you can proactively monitor and control them.
+
+If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
 
 ## Pricing model
 
-The pricing for [Azure Application Insights][start] is a Pay-As-You-Go model, based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. 
+The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. There is no data volume charge for using the [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
-### Data volume details
-
-* Data volume is the number of bytes of telemetry received by Application Insights. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. For [tabular data imported to Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), data volume is measured as the uncompressed size of files that are sent to Application Insights.
-* Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
-* [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
-
-> [!NOTE]
-> All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].
-
-### Multi-step web tests
-
-[Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
-
-There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
+[Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
 ## Estimating the costs to manage your application 
 
@@ -52,7 +41,7 @@ There are two approaches to address this: use of default monitoring and adaptive
 
 With the ASP.NET SDK's [adaptive sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of 5 events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application (since the sampling is done local to each node.) 
 
-For SDKs which don't support adaptive sampling, you can employ [ingestion sampling)[https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling] which samples when the data is receved by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) to reduce the traffic sent from your web server and web browsers
+For SDKs which don't support adaptive sampling, you can employ [ingestion sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) which samples when the data is receved by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) to reduce the traffic sent from your web server and web browsers
 
 ### Learn from what similar customers collect
 
@@ -60,7 +49,7 @@ In the Azure Monitoring Pricing calculator for Application Insights, if you enab
 
 ## Understand your usage and estimate costs
 
-Application Insights makes it easy to understand what your costs are likely to be based on recent usage patterns. To get started, in the Azure portal, for the Application Insights resource, go to the **Usage and estimated costs** page:
+Application Insights makes it easy to understand what your costs are likely to be based on recent usage patterns. To get started, in the Azure portal, for the Application Insights resource, go to the **Usage and estimated costs** page: 
 
 ![Choose pricing](./media/pricing/pricing-001.png)
 
@@ -69,6 +58,8 @@ B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/
 C. View data volume trends for the past month.  
 D. Enable data ingestion [sampling](../../azure-monitor/app/sampling.md).   
 E. Set the daily data volume cap.  
+
+(Note that all prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].)
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type". 
 
@@ -180,7 +171,7 @@ To change the retention, from your Application Insights resource, go to the **Us
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
 
-The retention can also be [set via ARM](https://docs.microsoft.com/azure/azure-monitor/app/powershell) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via ARM. 
+The retention can also be [set programatically using Powershell](https://docs.microsoft.com/azure/azure-monitor/app/powershell#set-the-data-retention) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. 
 
 When billing begins for longer retention in early December 2019, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. 
 Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/). Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
