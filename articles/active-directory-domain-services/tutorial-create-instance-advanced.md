@@ -221,10 +221,10 @@ In this tutorial, you learned how to:
 > * Add administrative users to domain management
 > * Enable user accounts for Azure AD DS and generate password hashes
 
-Before you domain-join VMs and deploy applications that use the Azure AD DS managed domain, configure an Azure virtual network for application workloads.
+To see this managed domain in action, create and join a virtual machine to the domain.
 
 > [!div class="nextstepaction"]
-> [Configure Azure virtual network for application workloads to use your managed domain](tutorial-configure-networking.md)
+> [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
 
 <!-- INTERNAL LINKS -->
 [tutorial-create-instance]: tutorial-create-instance.md
