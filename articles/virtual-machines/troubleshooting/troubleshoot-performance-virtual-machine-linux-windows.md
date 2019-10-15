@@ -19,7 +19,9 @@ ms.author: v-miegge
 
 # Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
 
-This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
+This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both Windows and Linux VM’s in Azure.
+
+This article will walkthrough using monitoring to diagnose Performance bottlenecks.
 
 ## Enabling monitoring
 
@@ -31,32 +33,55 @@ To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to ce
  
 ### Enable VM diagnostics through microsoft Azure portal
 
-To enable VM diagnostics, go to the VM, click **Settings**, and then click **Diagnostics**.
+To enable VM diagnostics:
 
-![Click Settings, then Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Go to the VM
+2. Click **Diagnostics Settings**
+3. Select the storage account and click **Enable guest-level monitoring**.
+
+   ![Click Settings, then Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+You can check the storage account used for Diagnostics setup from **Agent** tab under **Diagnostics Settings**.
+
+![Check storage account](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### Enable storage account diagnostics through Azure portal
 
-First, identify which storage account (or accounts) your VM is using by selecting the VM. Click **Settings**, and then click **Disks**:
+Storage is a very important tier when we intend to analyze IO performance for a Virtual Machine in Azure. For storage related metrics we need to enable diagnostics as an additional step. This could also be enabled, if we only want to analyze the storage related counters.
 
-![Click Settings, then Disks](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identify which storage account (or accounts) your VM is using by selecting the VM. Click **Settings**, and then click **Disks**:
 
-In the portal, go to the storage account (or accounts) for the VM and work through the following steps:
+   ![Click Settings, then Disks](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Select Blob Metrics](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Select **All Settings**.
-2. Turn Diagnostics On.
-3. Select **Blob* Metrics** and set retention to **30** days.
-4. Save the changes.
+2. In the portal, go to the storage account (or accounts) for the VM and work through the following steps:
+
+   1. Click overview for the Storage account you found with step above.
+   2. Default metrics would be shown. 
+
+    ![Default metrics](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Click on any of the metrics, which will show another blade with more options to configure and add metrics.
+
+   ![Add metrics](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+To configure these options:
+
+1.	Select **Metrics**.
+2.	Select the **Resource** (storage account).
+3.	Select the **Namespace**
+4.	Select **Metric**.
+5.	Select the type of **Aggregation**
+6.	You can pin this view on dashboard.
 
 ## Observing bottlenecks
+
+Once we are through the initial setup process for needed metrics, and post enabling the diagnostics for VM and related Storage account, we can shift to analysis phase.
 
 ### Accessing the monitoring
 
 Select the Azure VM you want to investigate and select **Monitoring**.
 
-![Select Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Select Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### Timelines of observation
 
@@ -64,7 +89,7 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### Check for CPU bottleneck
 
-![Check for CPU Bottleneck](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Check for CPU Bottleneck](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Edit the Graph.
 2. Set the time Range.
@@ -131,7 +156,7 @@ Note that we don't have counters for Zone Redundant and Premium Storage Accounts
 
 To work on the below items, go into the storage account for the VM in the portal:
 
-![Viewing Storage Account Diagnostics in Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Viewing Storage Account Diagnostics in Monitoring](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Edit the Monitoring Graph.
 2. Set the time range.
