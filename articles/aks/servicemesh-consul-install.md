@@ -92,7 +92,7 @@ Use Helm and the downloaded `consul-helm` chart to install the Consul components
 
 ::: zone-end
 
-The `Consul` Helm chart deploys a number of objects. You can see the list from the output of your `helm install` command above. The deployment of the Consul components can take 4 to 5 minutes to complete, depending on your cluster environment.
+The `Consul` Helm chart deploys a number of objects. You can see the list from the output of your `helm install` command above. The deployment of the Consul components can take around 3 minutes to complete, depending on your cluster environment.
 
 At this point, you've deployed Consul to your AKS cluster. To ensure that we have a successful deployment of Consul, let's move on to the next section to validate the Consul installation.
 
