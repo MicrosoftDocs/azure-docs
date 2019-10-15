@@ -32,8 +32,8 @@ landingContent:
             url: durable-functions-types-features-overview.md
       - linkListType: video
         links:
-          - text: Break through the serverless barriers
-            url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+          - text: Serverless actors, orchestrations, and stateful functions
+            url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
 
   # Card (optional)
   - title: Get started
