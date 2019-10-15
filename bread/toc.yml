@@ -692,6 +692,9 @@
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/
+  - name: SQL Database Edge
+    tocHref: /azure/sql-database-edge/
+    topicHref: /azure/sql-database-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
