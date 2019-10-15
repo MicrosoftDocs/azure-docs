@@ -41,8 +41,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Onboarding Peering Service
-            url: peering-service-onboarding-peering-service.md
+          - text: Onboarding Peering Service connection
+            url: peering-service-onboarding-connection.md
+          - text: Onboarding Peering Service connection telemetry
+            url: peering-service-onboarding-connection-telemetry.md
           - text: Register Peering Service - Azure Portal
             url: peering-service-azure-portal.md
 

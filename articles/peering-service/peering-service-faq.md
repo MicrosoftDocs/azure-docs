@@ -107,6 +107,6 @@ To onboard the Peering Service connection, see [Peering Service connection](peer
 
 To onboard the Peering Service connection telemetry, see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
 
-To register the connection, see [Peering Service connection](peering-service-azure-portal).
+To register the connection, see [Peering Service connection](peering-service-azure-portal.md).
 
 To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
