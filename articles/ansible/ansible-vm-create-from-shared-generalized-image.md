@@ -14,7 +14,7 @@ ms.date: 10/14/2019
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
-[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. Handy if you have a large number of managed images that you need to maintain and share throughout your company. Custom images can be shared across subscriptions and between Azure Active Directory tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
+[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. This feature is beneficial for scenarios where many images are maintained and shared. Custom images can be shared across subscriptions and between Azure Active Directory tenants. Images can also be replicated to multiple regions for quicker deployment scaling.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
