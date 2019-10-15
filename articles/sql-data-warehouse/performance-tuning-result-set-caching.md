@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: nidejaco;  
 ---
 
-# Result set caching in Azure SQL Data Warehouse
+# Performance tuning with result set caching  
 When result set caching is enabled, Azure SQL Data Warehouse automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
 
 ## Key commands
