@@ -98,8 +98,8 @@ Here we will use a sample JS code to authenticate to Azure AD and obtain the tok
 
 first we configure MSAL library and Azure AD configuration. 
 
->[!NOTE]
->**Note:** In real world scenario we would store initialization information in a separate file and not hard-code it.>
+> [!NOTE]
+> In a real world scenario, store the initialization information in a separate file. Don't hard-code the information.
 
 ```javascript
         var msalConfig = {
@@ -202,12 +202,12 @@ If you are using Node.js:
 
 1. To start the server, run the following command from the project directory:
 
-```
-    npm install
-    node server.js
-```
+   ```
+       npm install
+       node server.js
+   ```
 
 2. Open a web browser and go to http://localhost:30662/.
 3. Select Sign In to start the sign-in, and then call Azure API for FHIR.
 
-After you sign-in you should see all the patient resources listed.
+After you sign in, you should see all the patient resources listed.
