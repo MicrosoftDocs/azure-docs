@@ -1,6 +1,6 @@
 ---
 title: 'Enable and work with Azure Bastion diagnostic logs  | Microsoft Docs'
-description: In this article, learn how enable and work with Azure Bastion diagnostic logs.
+description: In this article, learn how to enable and work with Azure Bastion diagnostic logs.
 services: bastion
 author: cherylmc
 
