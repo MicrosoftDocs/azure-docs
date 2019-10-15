@@ -64,7 +64,7 @@ In Azure AD entitlement management, you can see who has requested access package
 
 ## Reprocess a request
 
-If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and its completed date is less than one week.
+If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
