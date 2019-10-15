@@ -34904,6 +34904,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-factory/concepts-data-flow-reference-node.md",
+      "redirect_url": "/azure/data-factory/data-flow-join",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/linux/ansible-create-complete-vm.md",
       "redirect_url": "/azure/virtual-machines/linux/ansible-create-vm",
       "redirect_document_id": true
