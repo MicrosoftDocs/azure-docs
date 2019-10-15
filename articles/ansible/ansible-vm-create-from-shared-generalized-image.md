@@ -36,7 +36,7 @@ ms.date: 10/14/2019
 
 There are two ways to get the complete set of sample playbooks:
 
-- [Download the SIG folder](https://github.com/Azure-Samples/ansible-playbooks/blob/master/sig_generalized_image) and save it to your local machine.
+- [Download the SIG folder](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) and save it to your local machine.
 - Create a new file for each section and copy the sample playbook in it.
 
 The `vars.yml` file contains the variables used by all sample playbooks for this tutorial. You can edit the file to provide unique names and values.
