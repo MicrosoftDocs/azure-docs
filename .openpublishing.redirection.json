@@ -15786,11 +15786,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
-      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
