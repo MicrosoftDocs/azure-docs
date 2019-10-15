@@ -151,9 +151,10 @@ Get read-only keys for a Cosmos account.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## List connection strings
@@ -165,9 +166,10 @@ Get the connection strings for a Cosmos account.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## Regenerate account key
@@ -177,7 +179,7 @@ Regenerate a new key for a Cosmos account.
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary

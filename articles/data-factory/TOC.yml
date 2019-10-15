@@ -80,7 +80,7 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform data using Mapping Data Flow
+  - name: Transform data using mapping data flow
     href: tutorial-data-flow.md
   - name: Transform data in cloud
     items:
@@ -143,7 +143,7 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Mapping Data Flows
+  - name: Mapping data flows
     items:
     - name: Mapping data flow overview
       href: concepts-data-flow-overview.md
@@ -616,7 +616,7 @@
       href: data-migration-guidance-hdfs-azure-storage.md
     - name: Migrate data from on-premises Netezza server to Azure
       href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using Mapping Data Flow
+  - name: Transformation using mapping data flow
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
