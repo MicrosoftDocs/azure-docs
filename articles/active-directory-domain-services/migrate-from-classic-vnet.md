@@ -299,12 +299,16 @@ To restore the Azure AD DS managed domain from backup, [open a support case tick
 
 ## Troubleshooting
 
-* Input isn’t being accepted
-* Different failure problems
-* Cannot log into domain [won’t auth]
-* Cannot log into domain [locked out]
+If you have problems after migration to the Resource Manager deployment model, review some of the following common troubleshooting areas:
+
+* [Troubleshoot domain-join problems][troubleshoot-domain-join]
+* [Troubleshoot account lockout problems][troubleshoot-account-lockout]
+* [Troubleshoot account sign-in problems][troubleshoot-sign-in]
+* [Troubleshoot secure LDAP connectivity problems][tshoot-ldaps]
 
 ## Next steps
+
+With your Azure AD DS managed domain migrated to the Resource Manager deployment model, [create and domain-join a Windows VM][join-windows] and then [install management tools][tutorial-create-management-vm].
 
 <!-- INTERNAL LINKS -->
 [azure-bastion]: ../bastion/bastion-overview.md
@@ -323,3 +327,10 @@ To restore the Azure AD DS managed domain from backup, [open a support case tick
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
 [migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[join-windows]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[troubleshoot-domain-join]: troubleshoot-domain-join.md
+[troubleshoot-account-lockout]: troubleshoot-account-lockout.md
+[troubleshoot-sign-in]: troubleshoot-sign-in.md
+[tshoot-ldaps]: tshoot-ldaps.md
+
