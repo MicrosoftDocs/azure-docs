@@ -2,8 +2,8 @@
 
 title: Abstract-Container security in Microsoft Azure
 description: Abstract for the Container security in Microsoft Azure white paper.
-author: TomShinder
-ms.author: TomSh
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 09/05/2018
 ms.topic: article
 ms.service: security
