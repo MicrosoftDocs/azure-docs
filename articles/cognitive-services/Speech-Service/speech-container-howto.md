@@ -372,7 +372,6 @@ containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
-ModelVoice={MODEL_VOICE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
