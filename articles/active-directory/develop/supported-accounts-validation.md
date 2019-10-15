@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Validation differences by supported account types (SignInAudience) - Microsoft identity platform
+title: Validation differences by supported account types (SignInAudience) - Microsoft identity platform / Azure Active Directory
 description: Learn about the validation differences of various properties for different supported account types when registering your app with the Microsoft identity platform.
 author: SureshJa
 ms.author: sureshja
@@ -46,4 +46,5 @@ See the following table for the validation differences of various properties for
 
 ## Next steps
 
+- Learn about [Application registration](app-objects-and-service-principals.md)
 - Learn about the [Application manifest](reference-app-manifest.md)
