@@ -51,7 +51,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 ## View schedules in calendar
 You can see the scheduled dates and times highlighted in the calendar view as shown in the following image:
 
-![Schedules in the calendar view](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Schedules in the calendar view](../media/how-to-create-schedules/schedules-calendar.png)
 
 Select the **Today** button in the top-right corner to switch to current date in the calendar. Select **left arrow** to switch to the previous week and **right arrow** to switch to the next week in the calendar. 
 
