@@ -34,7 +34,7 @@ The module takes an untrained clustering model that you have already configured 
 
     If a label is available, you can either use it as a feature, or leave it out.  
   
-6. Select the option, **Check for Append or Uncheck for Result Only**, if you want to output the training data together with the new cluster label.
+6. Select the option, **Check for append or uncheck for result only**, if you want to output the training data together with the new cluster label.
 
     If you deselect this option, only the cluster assignments are output. 
 

@@ -35,7 +35,7 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
     > [!TIP]
     > To reduce the number of columns that are written to the interface from the cluster predictions, use [Select columns in the dataset](select-columns-in-dataset.md), and select a subset of the columns. 
     
-4. Leave the **Check for Append or Uncheck for Result Only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
+4. Leave the **Check for append or uncheck for result only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
   
     If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   

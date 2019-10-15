@@ -9,11 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
 ---
-# Tune Model Hyperparameters
-
-This article describes how to use the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module in Azure Machine Learning designer, to determine the optimum hyperparameters for a given machine learning model. The module builds and tests multiple models, using different combinations of settings, and compares metrics over all models to get the combination of settings. 
 
 The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the properties pane. Basically, this module performs a *parameter sweep* over the specified parameter settings, and learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
@@ -37,7 +33,11 @@ Generally, learning the optimal hyperparameters for a given machine learning mod
 
 This section describes how to perform a basic parameter sweep, which trains a model by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module.
 
+<<<<<<< HEAD
 1.  Add the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module to your pipeline in the designer.
+=======
+1.  Add the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module to your experiment in the designer.
+>>>>>>> c857d58a122... add 2 moudules; change some paras
 
 2.  Connect an untrained model to the leftmost input. 
 
@@ -73,7 +73,11 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 9.  For **Random seed**, type a number to use when initializing the parameter sweep. 
 
+<<<<<<< HEAD
 10. Run the pipeline.
+=======
+10. Run the experiment.
+>>>>>>> c857d58a122... add 2 moudules; change some paras
 
 ## Results of hyperparameter tuning
 
@@ -83,7 +87,11 @@ When training is complete:
 
     All accuracy metrics applicable to the model type are output, but the metric that you selected for ranking determines which model is considered "best".
 
+<<<<<<< HEAD
 + To use the model for scoring in other pipelines, without having to repeat the tuning process, right-click the model output and select **Save as Trained Model**. 
+=======
++ To use the model for scoring in other experiments, without having to repeat the tuning process, right-click the model output and select **Save as Trained Model**. 
+>>>>>>> c857d58a122... add 2 moudules; change some paras
 
 
 ## Technical notes
@@ -110,7 +118,11 @@ Iterating over many combinations of settings can be time-consuming, so the modul
 + Limit the parameter space
 + Limit both the numer of iterations and the parameter space
 
+<<<<<<< HEAD
 We recommend that you pipeline with the settings to determine the most efficient method of training on a particular dataset and model.
+=======
+We recommend that you experiment with the settings to determine the most efficient method of training on a particular dataset and model.
+>>>>>>> c857d58a122... add 2 moudules; change some paras
 
 ### Choosing an evaluation metric
 
@@ -144,7 +156,11 @@ A report containing the accuracy for each model is presented at the end so that 
 
 ### Modules that do not support a parameter sweep
 
+<<<<<<< HEAD
 Almost all learners in Azure Machine Learning support cross-validation with an integrated parameter sweep, which lets you choose the parameters to pipeline with. If the learner doesn't support setting a range of values, you can still use it in cross-validation. In this case, some range of allowed values is selected for the sweep. 
+=======
+Almost all learners in Azure Machine Learning support cross-validation with an integrated parameter sweep, which lets you choose the parameters to experiment with. If the learner doesn't support setting a range of values, you can still use it in cross-validation. In this case, some range of allowed values is selected for the sweep. 
+>>>>>>> c857d58a122... add 2 moudules; change some paras
 
 
 ## Next steps
