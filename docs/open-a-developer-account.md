@@ -55,18 +55,18 @@ After you've confirmed your publisher profile information, agree to the terms an
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
 ### Create an account using existing Microsoft Partner Center enrollments
-If you already have an enrollment in Microsoft Partner Center, create your account using these steps:
+If you already have an enrollment in Microsoft Partner Center, to create your account:
 
 - Sign in to Partner Center using your existing credentials
 - Enter your publishing profile information.
-- Make sure to have your account information handy.
 
-Enrolled in a developer program
-If you're already enrolled in a Partner Center developer program, use this section to create your account directly from Partner Center.
+Make sure to have your account information handy.
 
- Note
+#### Enrolled in a developer program
+If you're already enrolled in a Partner Center developer program, create your account directly from Partner Center.
 
-To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a Company account. If you signed up with an Individual account, your Office Store enrollment will appear under a new account.
+> [!NOTE]
+> To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. If you signed up with an individual account, your Office Store enrollment will appear under a new account.
 
 Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
 
