@@ -22,6 +22,7 @@ This article extends the sample found in [Getting started with Elastic Database 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -36,6 +37,7 @@ Here you create a shard map manager along with several shards, followed by inser
    ![command prompt](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
+
 3. The [Azure portal](https://portal.azure.com) should show three new databases:
 
    ![Visual Studio confirmation](./media/sql-database-elastic-query-getting-started/portal.png)
@@ -44,78 +46,64 @@ Here you create a shard map manager along with several shards, followed by inser
 
 Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
 
-## Creates a custom collection and add all databases in the server to the custom collection target with the exception of master
+## Create a custom collection and add all databases (except master)
 
-   ```powershell
-    $customCollectionName = "dbs_in_server"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $ResourceGroupName = "ddove_samples"
-    $ServerName = "samples"
-    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
-    $dbsinserver | %{
-    $currentdb = $_.DatabaseName
-    $ErrorActionPreference = "Stop"
-    Write-Output ""
+```powershell
+$customCollectionName = "<collectionName>"
+New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-    Try
-    {
-       New-AzureSqlJobTarget -ServerName $ServerName -DatabaseName $currentdb | Write-Output
+$resourceGroupName = "<resourceGroupName>"
+$serverName = "<serverName>"
+$DBsInServer = Get-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName
+$DBsInServer | %{
+    $currentDB = $_.DatabaseName
+    $errorActionPreference = "Stop"
+
+    try {
+        New-AzureSqlJobTarget -ServerName $serverName -DatabaseName $currentDB | Write-Output
     }
-    Catch
-    {
-        $ErrorMessage = $_.Exception.Message
-        $ErrorCategory = $_.CategoryInfo.Reason
+    catch {
+        $errorMessage = $_.Exception.Message
+        $errorCategory = $_.CategoryInfo.Reason
 
-        if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
-        {
-             Write-Host $currentdb "is already a database target."
+        if ($errorCategory -eq 'UniqueConstraintViolatedException') {
+            Write-Host $currentDB "is already a database target."
         }
-
-        else
-        {
-            throw $_
-        }
-
-    }
-
-    Try
-    {
-        if ($currentdb -eq "master")
-        {
-            Write-Host $currentdb "will not be added custom collection target" $CustomCollectionName "."
-        }
-
-        else
-        {
-            Add-AzureSqlJobChildTarget -CustomCollectionName $CustomCollectionName -ServerName $ServerName -DatabaseName $currentdb
-            Write-Host $currentdb "was added to" $CustomCollectionName "."
-        }
-
-    }
-    Catch
-    {
-        $ErrorMessage = $_.Exception.Message
-        $ErrorCategory = $_.CategoryInfo.Reason
-
-        if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
-        {
-             Write-Host $currentdb "is already in the custom collection target" $CustomCollectionName"."
-        }
-
-        else
-        {
+        else {
             throw $_
         }
     }
-    $ErrorActionPreference = "Continue"
-   }
-   ```
+
+    try {
+        if ($currentDB -eq "master") {
+            Write-Host $currentDB "will not be added custom collection target" $customCollectionName "."
+        }
+        else {
+            Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -ServerName $serverName -DatabaseName $currentDB
+            Write-Host $currentDB "was added to" $customCollectionName "."
+        }
+    }
+    catch {
+        $errorMessage = $_.Exception.Message
+        $errorCategory = $_.CategoryInfo.Reason
+
+        if ($errorCategory -eq 'UniqueConstraintViolatedException') {
+            Write-Host $currentDB "is already in the custom collection target" $customCollectionName"."
+        }
+        else {
+            throw $_
+        }
+    }
+
+    $errorActionPreference = "Continue"
+    }
+```
 
 ## Create a T-SQL Script for execution across databases
 
-   ```powershell
-    $scriptName = "NewTable"
-    $scriptCommandText = "
+```powershell
+$scriptName = "<scriptName>"
+$scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
     BEGIN
         CREATE TABLE Test(
@@ -127,43 +115,42 @@ Here we would usually create a shard map target, using the **New-AzureSqlJobTarg
     INSERT INTO Test(InsertionTime) VALUES (sysutcdatetime());
     GO"
 
-    $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
-    Write-Output $script
-   ```
+$script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
+Write-Output $script
+```
 
 ## Create the job to execute a script across the custom group of databases
 
-   ```powershell
-    $jobName = "create on server dbs"
-    $scriptName = "NewTable"
-    $customCollectionName = "dbs_in_server"
-    $credentialName = "ddove66"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
-    Write-Output $job
-   ```
+```powershell
+$jobName = "<jobName>"
+$scriptName = "<scriptName>"
+$customCollectionName = "<collectionName>"
+$credentialName = "<credentialName>"
+
+$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
+Write-Output $job
+```
 
 ## Execute the job
 
-The following PowerShell script can be used to execute an existing job:
+```powershell
+$jobName = "<jobName>"
 
-Update the following variable to reflect the desired job name to have executed:
-
-   ```powershell
-    $jobName = "create on server dbs"
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
-    Write-Output $jobExecution
-   ```
+$jobExecution = Start-AzureSqlJobExecution -JobName $jobName
+Write-Output $jobExecution
+```
 
 ## Retrieve the state of a single job execution
 
 Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.
 
-   ```powershell
-    $jobExecutionId = "{Job Execution Id}"
-    $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
-    Write-Output $jobExecutions
-   ```
+```powershell
+$jobExecutionId = "<jobExecutionId>"
+
+$jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
+Write-Output $jobExecutions
+```
 
 ## View the state across multiple job executions
 
@@ -171,91 +158,93 @@ The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that ca
 
 Retrieve all active top-level job executions:
 
-   ```powershell
-    Get-AzureSqlJobExecution
-   ```
+```powershell
+Get-AzureSqlJobExecution
+```
 
 Retrieve all top-level job executions, including inactive job executions:
 
-   ```powershell
-    Get-AzureSqlJobExecution -IncludeInactive
-   ```
+```powershell
+Get-AzureSqlJobExecution -IncludeInactive
+```
 
 Retrieve all child job executions of a provided job execution ID, including inactive job executions:
 
-   ```powershell
-    $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
-   ```
+```powershell
+$parentJobExecutionId = "<jobExecutionId>"
+Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
+```
 
 Retrieve all job executions created using a schedule / job combination, including inactive jobs:
 
-   ```powershell
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
-   ```
+```powershell
+$jobName = "<jobName>"
+$scheduleName = "<scheduleName>"
+
+Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
+```
 
 Retrieve all jobs targeting a specified shard map, including inactive jobs:
 
-   ```powershell
-    $shardMapServerName = "{Shard Map Server Name}"
-    $shardMapDatabaseName = "{Shard Map Database Name}"
-    $shardMapName = "{Shard Map Name}"
-    $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
-   ```
+```powershell
+$shardMapServerName = "<shardMapServerName>"
+$shardMapDatabaseName = "<shardMapDatabaseName>"
+$shardMapName = "<shardMapName>"
+$target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
+
+Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
+```
 
 Retrieve all jobs targeting a specified custom collection, including inactive jobs:
 
-   ```powershell
-    $customCollectionName = "{Custom Collection Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
-   ```
+```powershell
+$customCollectionName = "<customCollectionName>"
+$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+
+Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
+```
 
 Retrieve the list of job task executions within a specific job execution:
 
-   ```powershell
-    $jobExecutionId = "{Job Execution Id}"
-    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Write-Output $jobTaskExecutions
-   ```
+```powershell
+$jobExecutionId = "<jobExecutionId>"
+
+$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+Write-Output $jobTaskExecutions
+```
 
 Retrieve job task execution details:
 
 The following PowerShell script can be used to view the details of a job task execution, which is particularly useful when debugging execution failures.
 
-   ```powershell
-    $jobTaskExecutionId = "{Job Task Execution Id}"
-    $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
-    Write-Output $jobTaskExecution
-   ```
+```powershell
+$jobTaskExecutionId = "<jobTaskExecutionId>"
+
+$jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
+Write-Output $jobTaskExecution
+```
 
 ## Retrieve failures within job task executions
 
 The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property. If a job task execution failed, the Lifecycle property is set to *Failed* and the Message property is set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
 
-   ```powershell
-    $jobExecutionId = "{Job Execution Id}"
-    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Foreach($jobTaskExecution in $jobTaskExecutions)
-        {
-        if($jobTaskExecution.Lifecycle -ne 'Succeeded')
-            {
-            Write-Output $jobTaskExecution
-            }
-        }
-   ```
+```powershell
+$jobExecutionId = "<jobExecutionId>"
+$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+
+foreach($jobTaskExecution in $jobTaskExecutions) {
+    if($jobTaskExecution.Lifecycle -ne 'Succeeded') {
+        Write-Output $jobTaskExecution
+    }
+}
+```
 
 ## Waiting for a job execution to complete
 
-The following PowerShell script can be used to wait for a job task to complete:
-
-   ```powershell
-    $jobExecutionId = "{Job Execution Id}"
-    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
-   ```
+```powershell
+$jobExecutionId = "<jobExecutionId>"
+Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
+```
 
 ## Create a custom execution policy
 
@@ -281,31 +270,35 @@ The default execution policy uses the following values:
 
 Create the desired execution policy:
 
-   ```powershell
-    $executionPolicyName = "{Execution Policy Name}"
-    $initialRetryInterval = New-TimeSpan -Seconds 10
-    $jobTimeout = New-TimeSpan -Minutes 30
-    $maximumAttempts = 999999
-    $maximumRetryInterval = New-TimeSpan -Minutes 1
-    $retryIntervalBackoffCoefficient = 1.5
-    $executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-    Write-Output $executionPolicy
-   ```
+```powershell
+$executionPolicyName = "<executionPolicyName>"
+$initialRetryInterval = New-TimeSpan -Seconds 10
+$jobTimeout = New-TimeSpan -Minutes 30
+$maximumAttempts = 999999
+$maximumRetryInterval = New-TimeSpan -Minutes 1
+$retryIntervalBackoffCoefficient = 1.5
+
+$executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName `
+    -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts `
+    -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+Write-Output $executionPolicy
+```
 
 ### Update a custom execution policy
 
-Update the desired execution policy to update:
+```powershell
+$executionPolicyName = "<executionPolicyName>"
+$initialRetryInterval = New-TimeSpan -Seconds 15
+$jobTimeout = New-TimeSpan -Minutes 30
+$maximumAttempts = 999999
+$maximumRetryInterval = New-TimeSpan -Minutes 1
+$retryIntervalBackoffCoefficient = 1.5
 
-   ```powershell
-    $executionPolicyName = "{Execution Policy Name}"
-    $initialRetryInterval = New-TimeSpan -Seconds 15
-    $jobTimeout = New-TimeSpan -Minutes 30
-    $maximumAttempts = 999999
-    $maximumRetryInterval = New-TimeSpan -Minutes 1
-    $retryIntervalBackoffCoefficient = 1.5
-    $updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-    Write-Output $updatedExecutionPolicy
-   ```
+$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName `
+    -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts `
+    -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+Write-Output $updatedExecutionPolicy
+```
 
 ## Cancel a job
 
@@ -320,10 +313,10 @@ If a job cancellation is requested for a parent job, the cancellation request is
 
 To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
 
-   ```powershell
-    $jobExecutionId = "{Job Execution Id}"
-    Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
-   ```
+```powershell
+$jobExecutionId = "<jobExecutionId>"
+Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
+```
 
 ## Delete a job by name and the job's history
 
@@ -333,10 +326,10 @@ Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executio
 
 To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **JobName** parameter.
 
-   ```powershell
-    $jobName = "{Job Name}"
-    Remove-AzureSqlJob -JobName $jobName
-   ```
+```powershell
+$jobName = "<jobName>"
+Remove-AzureSqlJob -JobName $jobName
+```
 
 ## Create a custom database target
 
@@ -344,11 +337,12 @@ Custom database targets can be defined in Elastic Database jobs which can be use
 
 Set the following variables to reflect the desired database information:
 
-   ```powershell
-    $databaseName = "{Database Name}"
-    $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
-   ```
+```powershell
+$databaseName = "<databaseName>"
+$databaseServerName = "<serverName>"
+
+New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
+```
 
 ## Create a custom database collection target
 
@@ -356,10 +350,10 @@ A custom database collection target can be defined to enable execution across mu
 
 Set the following variables to reflect the desired custom collection target configuration:
 
-   ```powershell
-    $customCollectionName = "{Custom Database Collection Name}"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-   ```
+```powershell
+$customCollectionName = "<customDatabaseCollectionName>"
+New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+```
 
 ### Add databases to a custom database collection target
 
@@ -367,37 +361,40 @@ Database targets can be associated with custom database collection targets to cr
 
 Add the desired database to a specific custom collection:
 
-   ```powershell
-    $serverName = "{Database Server Name}"
-    $databaseName = "{Database Name}"
-    $customCollectionName = "{Custom Database Collection Name}"
-    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
-   ```
+```powershell
+$serverName = "<databaseServerName>"
+$databaseName = "<databaseName>"
+$customCollectionName = "<customDatabaseCollectionName>"
+
+Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
+```
 
 #### Review the databases within a custom database collection target
 
 Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target.
 
-   ```powershell
-    $customCollectionName = "{Custom Database Collection Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
-    Write-Output $childTargets
-   ```
+```powershell
+$customCollectionName = "<customDatabaseCollectionName>"
+
+$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+$childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
+Write-Output $childTargets
+```
 
 ### Create a job to execute a script across a custom database collection target
 
 Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs expands the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
 
-   ```powershell
-    $jobName = "{Job Name}"
-    $scriptName = "{Script Name}"
-    $customCollectionName = "{Custom Collection Name}"
-    $credentialName = "{Credential Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
-    Write-Output $job
-   ```
+```powershell
+$jobName = "<jobName>"
+$scriptName = "<scriptName>"
+$customCollectionName = "<customCollectionName>"
+$credentialName = "<credentialName>"
+
+$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
+Write-Output $job
+```
 
 ## Data collection across databases
 
@@ -409,69 +406,69 @@ The following PowerShell script can be used to execute a script collecting its r
 
 Set the following to reflect the desired script, credentials, and execution target:
 
-   ```powershell
-    $jobName = "{Job Name}"
-    $scriptName = "{Script Name}"
-    $executionCredentialName = "{Execution Credential Name}"
-    $customCollectionName = "{Custom Collection Name}"
-    $destinationCredentialName = "{Destination Credential Name}"
-    $destinationServerName = "{Destination Server Name}"
-    $destinationDatabaseName = "{Destination Database Name}"
-    $destinationSchemaName = "{Destination Schema Name}"
-    $destinationTableName = "{Destination Table Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-   ```
+```powershell
+$jobName = "<jobName>"
+$scriptName = "<scriptName>"
+$executionCredentialName = "<executionCredentialName>"
+$customCollectionName = "<customCollectionName>"
+$destinationCredentialName = "<destinationCredentialName>"
+$destinationServerName = "<destinationServerName>"
+$destinationDatabaseName = "<destinationDatabaseName>"
+$destinationSchemaName = "<destinationSchemaName>"
+$destinationTableName = "<destinationTableName>"
+
+$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+```
 
 ### Create and start a job for data collection scenarios
 
-   ```powershell
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
-    Write-Output $job
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
-    Write-Output $jobExecution
-   ```
+```powershell
+$job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName `
+    -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName `
+    -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName `
+    -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
+Write-Output $job
+
+$jobExecution = Start-AzureSqlJobExecution -JobName $jobName
+Write-Output $jobExecution
+```
 
 ## Create a schedule for job execution using a job trigger
 
-The following PowerShell script can be used to create a reoccurring schedule. This script uses a one minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
+The following PowerShell script can be used to create a reoccurring schedule. This script uses a one minute interval, but **New-AzureSqlJobSchedule** also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
 
-Create a new schedule:
+```powershell
+$scheduleName = "<scheduleName>"
+$minuteInterval = 1
+$startTime = (Get-Date).ToUniversalTime()
 
-   ```powershell
-    $scheduleName = "Every one minute"
-    $minuteInterval = 1
-    $startTime = (Get-Date).ToUniversalTime()
-    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime
-    Write-Output $schedule
-   ```
-
-### Create a job trigger to have a job executed on a time schedule
+$schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime
+Write-Output $schedule
+```
 
 A job trigger can be defined to have a job executed according to a time schedule. The following PowerShell script can be used to create a job trigger.
 
-Set the following variables to correspond to the desired job and schedule:
+```powershell
+$jobName = "<jobName>"
+$scheduleName = "<scheduleName>"
 
-   ```powershell
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
-    Write-Output $jobTrigger
-   ```
-
-### Remove a scheduled association to stop job from executing on schedule
+$jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
+Write-Output $jobTrigger
+```
 
 To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.
 Remove a job trigger to stop a job from being executed according to a schedule using the **Remove-AzureSqlJobTrigger** cmdlet.
 
-   ```powershell
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
-   ```
+```powershell
+$jobName = "<jobName>"
+$scheduleName = "<scheduleName>"
+
+Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
+```
 
 ## Import elastic database query results to Excel
 
- You can import the results from of a query to an Excel file.
+You can import the results from of a query to an Excel file.
 
 1. Launch Excel 2013.
 2. Navigate to the **Data** ribbon.

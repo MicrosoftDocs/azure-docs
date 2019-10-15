@@ -21,15 +21,14 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 > [!NOTE]
 > A paused SQL Data Warehouse must be resumed before key rotations.
->
 
 > [!IMPORTANT]
-> **Do Not Delete** previous versions of the key after a rollover.  When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups. 
->
+> **Do Not Delete** previous versions of the key after a rollover.  When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups.
 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -41,80 +40,57 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 Manual key rotation uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
 
->[!NOTE]
->The combined length for the key vault name and key name cannot exceed 94 characters.
+> [!NOTE]
+> The combined length for the key vault name and key name cannot exceed 94 characters.
 
-   ```powershell
-   # Add a new key to Key Vault
-   Add-AzKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
+```powershell
+# Add a new key to Key Vault
+Add-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName> -Destination <HardwareOrSoftware>
 
-   # Add the new key from Key Vault to the server
-   Add-AzSqlServerKeyVaultKey `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
+# Add the new key from Key Vault to the server
+Add-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
   
-   <# Set the key as the TDE protector for all resources under the server #>
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type AzureKeyVault `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
-   ```
+# Set the key as the TDE protector for all resources under the server
+Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
+```
 
 ## Option 2: Manual rotation
 
-The option uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. 
+The option uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault.
 
->[!NOTE]
->The combined length for the key vault name and key name cannot exceed 94 characters.
->
+> [!NOTE]
+> The combined length for the key vault name and key name cannot exceed 94 characters.
 
-   ```powershell
-   # Add a new key to Key Vault
-   Add-AzKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
+```powershell
+# Add a new key to Key Vault
+Add-AzKeyVaultKey -VaultName <KeyVaultName> `
+   -Name <KeyVaultKeyName> -Destination <HardwareOrSoftware>
 
-   # Add the new key from Key Vault to the server
-   Add-AzSqlServerKeyVaultKey `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>   
-  
-   <# Set the key as the TDE protector for all resources 
-   under the server #>
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type AzureKeyVault `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
-   ```
+# Add the new key from Key Vault to the server
+Add-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
+
+# Set the key as the TDE protector for all resources under the server
+Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault `
+   -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
+```
   
 ## Other useful PowerShell cmdlets
 
 - To switch the TDE protector from Microsoft-managed to BYOK mode, use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
 
    ```powershell
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type AzureKeyVault `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
+   Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault `
+    -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
 - To switch the TDE protector from BYOK mode to Microsoft-managed, use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
 
    ```powershell
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type ServiceManaged `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName> 
-   ``` 
+   Set-AzSqlServerTransparentDataEncryptionProtector -Type ServiceManaged `
+    -ServerName <LogicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
+   ```
 
 ## Next steps
 

@@ -153,12 +153,13 @@ The following JSON file is the template that is used in this article. The templa
 
     Unless it is specified, use the default values.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
-    * **Location**: select a location.  For example, **Central US**.
-    * **Admin User**: specify a SQL database server administrator username.
-    * **Admin Password**: specify an administrator password. 
-    * **I agree to the terms and conditions state above**: Select.
+    - **Subscription**: select an Azure subscription.
+    - **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    - **Location**: select a location.  For example, **Central US**.
+    - **Admin User**: specify a SQL database server administrator username.
+    - **Admin Password**: specify an administrator password.
+    - **I agree to the terms and conditions state above**: Select.
+
 3. Select **Purchase**.
 
 ## Query the database
@@ -174,12 +175,12 @@ To delete the resource group by using Azure CLI or Azure Powershell:
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group delete --name $resourceGroupName 
+az group delete --name $resourceGroupName
 ```
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName 
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## Next steps

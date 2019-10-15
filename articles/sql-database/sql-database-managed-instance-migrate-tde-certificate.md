@@ -31,6 +31,7 @@ For an alternative option using fully managed service for seamless migration of 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -40,12 +41,13 @@ To complete the steps in this article, you need the following prerequisites:
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
 - Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
-  Run the following commands in PowerShell to install/update the PowerShell module:
 
-   ```powershell
-   Install-Module -Name Az.Sql
-   Update-Module -Name Az.Sql
-   ```
+Run the following commands in PowerShell to install/update the PowerShell module:
+
+```powershell
+Install-Module -Name Az.Sql
+Update-Module -Name Az.Sql
+```
 
 ## Export TDE certificate to a Personal Information Exchange (.pfx) file
 
@@ -89,7 +91,7 @@ Use the following steps to export certificate with SQL Server Management Studio 
 
 4. Use PowerShell console to copy certificate information from a pair of newly created files to a Personal Information Exchange (.pfx) file, using Pvk2Pfx tool:
 
-   ```powershell
+   ```cmd
    .\pvk2pfx -pvk c:/full_path/TDE_Cert.pvk  -pi "<SomeStrongPassword>" -spc c:/full_path/TDE_Cert.cer -pfx c:/full_path/TDE_Cert.pfx
    ```
 
@@ -99,7 +101,7 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 
 1. Open PowerShell console and execute the following command to open Certificates snap-in of Microsoft Management Console:
 
-   ```powershell
+   ```cmd
    certlm
    ```
 
@@ -132,7 +134,8 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<resourceGroupName>" `
+       -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 The certificate is now available to the specified Managed Instance and backup of corresponding TDE protected database can be restored successfully.

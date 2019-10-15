@@ -18,6 +18,7 @@ ms.date: 04/18/2019
 This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -27,8 +28,7 @@ After initially picking the number of vCores or DTUs, you can scale a single dat
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
+[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -77,19 +77,17 @@ Next, click on the button labeled **Cancel this operation**.
 
 #### PowerShell
 
-From a PowerShell command prompt, set the `$ResourceGroupName`, `$ServerName`, and `$DatabaseName`, and then run the following command:
+From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, and `$databaseName`, and then run the following command:
 
-```PowerShell
-$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($OperationName))
-    {
-        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
-        "Operation " + $OperationName + " has been canceled"
-    }
-    else
-    {
-        "No service tier change or compute rescaling operation found"
-    }
+```powershell
+$operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
+if(-not [string]::IsNullOrEmpty($operationName)) {
+    (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
+        "Operation " + $operationName + " has been canceled"
+}
+else {
+    "No service tier change or compute rescaling operation found"
+}
 ```
 
 ### Additional considerations when changing service tier or rescaling compute size

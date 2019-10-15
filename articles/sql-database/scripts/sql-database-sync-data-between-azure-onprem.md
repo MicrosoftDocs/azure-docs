@@ -31,12 +31,12 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 ## Sample script
 
 ```powershell-interactive
-# prerequisites: 
+# prerequisites:
 # 1. Create an Azure SQL Database from AdventureWorksLT sample database as hub database
 # 2. Create an Azure SQL Database in the same region as sync database
 # 3. Create an on premises SQL Server Database as member database
 # 4. Update the parameters below before running the sample
-#
+
 using namespace Microsoft.Azure.Commands.Sql.DataSync.Model
 using namespace System.Collections.Generic
 
@@ -95,9 +95,8 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
                              "[SalesLT].[ProductDescription]"
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
-
-Connect-AzAccount 
-select-Azsubscription -SubscriptionId $SubscriptionId
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
@@ -105,31 +104,25 @@ select-Azsubscription -SubscriptionId $SubscriptionId
 # $PWord = ConvertTo-SecureString -String "password" -AsPlainText -Force
 # $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $PWord
 
-$Credential = $Host.ui.PromptForCredential("Need credential", 
-              "Please enter your user name and password for server "+$ServerName+".database.windows.net", 
-              "", 
+$Credential = $Host.ui.PromptForCredential("Need credential",
+              "Please enter your user name and password for server "+$ServerName+".database.windows.net",
+              "",
               "")
 
- #Create a new Sync Agent
- Write-Host "Creating new Sync Agent "
- New-AzSqlSyncAgent -ResourceGroupName $ResourceGroupName  `
-                               -ServerName  $ServerName  `
-                               -SyncDatabaseName $SyncDatabaseName `
-                              -SyncAgentName $SyncAgentName
-
+#Create a new Sync Agent
+Write-Host "Creating new Sync Agent "
+New-AzSqlSyncAgent -ResourceGroupName $ResourceGroupName -ServerName  $ServerName  `
+    -SyncDatabaseName $SyncDatabaseName -SyncAgentName $SyncAgentName
 
 #Generate Agent Key
 Write-Host "Generating Agent Key"
-$AgentKey = New-AzSqlSyncAgentKey -ResourceGroupName $ResourceGroupName   `
-                              -ServerName  $ServerName  `
-                              -SyncAgentName $SyncAgentName
- Write-Host "Use your agent key to configure the sync agent. Do this before proceeding"
+$AgentKey = New-AzSqlSyncAgentKey -ResourceGroupName $ResourceGroupName -ServerName  $ServerName -SyncAgentName $SyncAgentName
+Write-Host "Use your agent key to configure the sync agent. Do this before proceeding"
 $agentkey
-                  
+
 #DO THE FOLLOWING BEFORE THE NEXT STEP
 #Install the on-premises sync agent on your machine and register the sync agent using the agent key generated above to bring the sync agent online.
 #Add the SQL server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
-
 
 # Create a new sync group
 Write-Host "Creating Sync Group"$SyncGroupName
@@ -148,22 +141,19 @@ New-AzSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
 #$Password = ConvertTo-SecureString -String "password" -AsPlainText -Force
 #$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $Password
 
-$Credential = $Host.ui.PromptForCredential("Need credential", 
-              "Please enter your user name and password for server "+$MemberServerName, 
-              "", 
+$Credential = $Host.ui.PromptForCredential("Need credential",
+              "Please enter your user name and password for server "+$MemberServerName,
+              "",
               "")
 
-#Get Information from sync Agent 
+#Get Information from sync Agent
 #Confirm that your SQL Server was configured
 #Note the Database ID, you will use this as SqlServerDatabaseID for the next step.
 $SyncAgentInfo = Get-AzSqlSyncAgentLinkedDatabase -ResourceGroupName $ResourceGroupName   `
-                              -ServerName  $ServerName  `
-                              -SyncAgentName $SyncAgentName
+    -ServerName  $ServerName -SyncAgentName $SyncAgentName
 
 # Add a new sync member
 Write-Host "Adding member"$SyncMemberName" to the sync group"
-
-
 
 New-AzSqlSyncMember -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName -Name $SyncMemberName -MemberDatabaseType $MemberDatabaseType -SyncAgentResourceGroupName SyncAgentResourceGroupName -SyncAgentServerName $SyncAgentServerName -SyncAgentName $SyncAgentName  -SyncDirection $SyncDirection -SqlServerDatabaseID  $SyncAgentInfo.DatabaseId
 
@@ -171,11 +161,8 @@ New-AzSqlSyncMember -ResourceGroupName $ResourceGroupName -ServerName $ServerNam
 # Specify the -SyncMemberName parameter if you want to refresh schema from the member database
 Write-Host "Refreshing database schema from hub database"
 $StartTime= Get-Date
-Update-AzSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
-                              -ServerName $ServerName `
-                              -DatabaseName $DatabaseName `
-                              -SyncGroupName $SyncGroupName
-
+Update-AzSqlSyncSchema -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+    -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName
 
 #Waiting for successful refresh
 
@@ -185,73 +172,59 @@ $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
 $IsSucceeded = $false
-While ($IsSucceeded -eq $false)
-{
+while ($IsSucceeded -eq $false) {
     Start-Sleep -s 10
     $timer=$timer+10
     $Details = Get-AzSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
-    if ($Details.LastUpdateTime -gt $StartTime)
-      {
+    if ($Details.LastUpdateTime -gt $StartTime) {
         Write-Host "Refresh was successful"
         $IsSucceeded = $true
-      }
-    if ($timer -eq $timeout) 
-      {
-              Write-Host "Refresh timed out"
+    }
+    if ($timer -eq $timeout) {
+        Write-Host "Refresh timed out"
         break;
-      }
+    }
 }
 
-
-# Get the database schema 
+# Get the database schema
 Write-Host "Adding tables and columns to the sync schema"
-$databaseSchema = Get-AzSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
-                                             -ServerName $ServerName `
-                                             -DatabaseName $DatabaseName `
-                                             -SyncGroupName $SyncGroupName `
+$databaseSchema = Get-AzSqlSyncSchema -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+    -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName `
 
-$databaseSchema | ConvertTo-Json -depth 5 -Compress | Out-File "C:\Users\OnPremiseServer\AppData\Local\Temp\syncSchema.json"     
+$databaseSchema | ConvertTo-Json -depth 5 -Compress | Out-File "C:\Users\OnPremiseServer\AppData\Local\Temp\syncSchema.json"
+
 $newSchema = [AzureSqlSyncGroupSchemaModel]::new()
 $newSchema.Tables = [List[AzureSqlSyncGroupSchemaTableModel]]::new();
 
 # Add columns and tables to the sync schema
-foreach ($tableSchema in $databaseSchema.Tables)
-{
+foreach ($tableSchema in $databaseSchema.Tables) {
     $newTableSchema = [AzureSqlSyncGroupSchemaTableModel]::new()
     $newTableSchema.QuotedName = $tableSchema.QuotedName
     $newTableSchema.Columns = [List[AzureSqlSyncGroupSchemaColumnModel]]::new();
     $addAllColumns = $false
-    if ($MetadataList.Contains($tableSchema.QuotedName))
-    {
-        if ($tableSchema.HasError)
-        {
+    if ($MetadataList.Contains($tableSchema.QuotedName)) {
+        if ($tableSchema.HasError) {
             $fullTableName = $tableSchema.QuotedName
             Write-Host "Can't add table $fullTableName to the sync schema" -foregroundcolor "Red"
             Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
             continue;
         }
-        else
-        {
+        else {
             $addAllColumns = $true
         }
     }
-    foreach($columnSchema in $tableSchema.Columns)
-    {
+    foreach($columnSchema in $tableSchema.Columns) {
         $fullColumnName = $tableSchema.QuotedName + "." + $columnSchema.QuotedName
-        if ($addAllColumns -or $MetadataList.Contains($fullColumnName))
-        {
-            if ((-not $addAllColumns) -and $tableSchema.HasError)
-            {
+        if ($addAllColumns -or $MetadataList.Contains($fullColumnName)) {
+            if ((-not $addAllColumns) -and $tableSchema.HasError) {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
                 Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
             }
-            elseif ((-not $addAllColumns) -and $columnSchema.HasError)
-            {
+            elseif ((-not $addAllColumns) -and $columnSchema.HasError) {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
                 Write-Host $columnSchema.ErrorId -foregroundcolor "Red"
             }
-            else
-            {
+            else {
                 Write-Host "Adding"$fullColumnName" to the sync schema"
                 $newColumnSchema = [AzureSqlSyncGroupSchemaColumnModel]::new()
                 $newColumnSchema.QuotedName = $columnSchema.QuotedName
@@ -261,8 +234,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             }
         }
     }
-    if ($newTableSchema.Columns.Count -gt 0)
-    {
+    if ($newTableSchema.Columns.Count -gt 0) {
         $newSchema.Tables.Add($newTableSchema)
     }
 }
@@ -278,40 +250,29 @@ $schemaString | Out-File $TempFile
 
 # Update sync schema
 Write-Host "Updating the sync schema"
-Update-AzSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
-                            -ServerName $ServerName `
-                            -DatabaseName $DatabaseName `
-                            -Name $SyncGroupName `
-                            -Schema $TempFile
+Update-AzSqlSyncGroup -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+    -DatabaseName $DatabaseName -Name $SyncGroupName -Schema $TempFile
 
 $SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
-Start-AzSqlSyncGroupSync  -ResourceGroupName $ResourceGroupName `
-                               -ServerName $ServerName `
-                               -DatabaseName $DatabaseName `
-                               -SyncGroupName $SyncGroupName
+Start-AzSqlSyncGroupSync -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+    -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName
 
 # Check the sync log and wait until the first sync succeeded
 Write-Host "Check the sync log"
 $IsSucceeded = $false
-For ($i = 0; ($i -lt 300) -and (-not $IsSucceeded); $i = $i + 10)
-{
+for ($i = 0; ($i -lt 300) -and (-not $IsSucceeded); $i = $i + 10) {
     Start-Sleep -s 10
     $SyncLogEndTime = Get-Date
-    $SyncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
-                                           -ServerName $ServerName `
-                                           -DatabaseName $DatabaseName `
-                                           -SyncGroupName $SyncGroupName `
-                                           -StartTime $SyncLogStartTime.ToUniversalTime() `
-                                           -EndTime $SyncLogEndTime.ToUniversalTime()
-    if ($SynclogList.Length -gt 0)
-    {
-        foreach ($SyncLog in $SyncLogList)
-        {
-            if ($SyncLog.Details.Contains("Sync completed successfully"))
-            {
+    $SyncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+        -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName `
+        -StartTime $SyncLogStartTime.ToUniversalTime() -EndTime $SyncLogEndTime.ToUniversalTime()
+
+    if ($SynclogList.Length -gt 0) {
+        foreach ($SyncLog in $SyncLogList) {
+            if ($SyncLog.Details.Contains("Sync completed successfully")) {
                 Write-Host $SyncLog.TimeStamp : $SyncLog.Details
                 $IsSucceeded = $true
             }
@@ -319,8 +280,7 @@ For ($i = 0; ($i -lt 300) -and (-not $IsSucceeded); $i = $i + 10)
     }
 }
 
-if ($IsSucceeded)
-{
+if ($IsSucceeded) {
     # Enable scheduled sync
     Write-Host "Enable the scheduled sync with 300 seconds interval"
     Update-AzSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
@@ -329,8 +289,7 @@ if ($IsSucceeded)
                                 -Name $SyncGroupName `
                                 -IntervalInSeconds $IntervalInSeconds
 }
-else
-{
+else {
     # Output all log if sync doesn't succeed in 300 seconds
     $SyncLogEndTime = Get-Date
     $SyncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
@@ -339,18 +298,16 @@ else
                                            -SyncGroupName $SyncGroupName `
                                            -StartTime $SyncLogStartTime.ToUniversalTime() `
                                            -EndTime $SyncLogEndTime.ToUniversalTime()
-    if ($SynclogList.Length -gt 0)
-    {
-        foreach ($SyncLog in $SyncLogList)
-        {
+    if ($SynclogList.Length -gt 0) {
+        foreach ($SyncLog in $SyncLogList) {
             Write-Host $SyncLog.TimeStamp : $SyncLog.Details
         }
     }
 }
-# Clean up deployment 
+
+# Clean up deployment
 # Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 # Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
-
 ```
 
 ## Clean up deployment
@@ -387,20 +344,20 @@ Additional SQL Database PowerShell script samples can be found in [Azure SQL Dat
 
 For more info about SQL Data Sync, see:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
--   Set up Data Sync
+- Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
+- Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-database-get-started-sql-data-sync.md)
     - With PowerShell
-        -  [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
--   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
--   Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
--   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
--   Update the sync schema
-    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)
-    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](sql-database-sync-update-schema.md)
+        - [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
+- Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
+- Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
+- Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
+- Update the sync schema
+    - With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)
+    - With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](sql-database-sync-update-schema.md)
 
 For more info about SQL Database, see:
 
--   [SQL Database Overview](../sql-database-technical-overview.md)
--   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+- [SQL Database Overview](../sql-database-technical-overview.md)
+- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

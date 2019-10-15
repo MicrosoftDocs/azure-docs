@@ -23,6 +23,7 @@ This article describes different types of storage space for single and pooled da
 ## Overview
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -51,7 +52,7 @@ However, the following APIs also measure the size of space allocated for databas
 The SQL Database service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [reclaim unused allocated space](#reclaim-unused-allocated-space).
 
 > [!NOTE]
-> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance. 
+> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
 
 ## Understanding types of storage space for a database
 
@@ -99,7 +100,7 @@ FROM sys.database_files
 GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
- 
+
 ### Database data max size
 
 Modify the following query to return the database data max size.  Units of the query result are in bytes.
@@ -148,29 +149,19 @@ The query results for determining the space allocated for each database in the p
 The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) to install.
 
 ```powershell
-# Resource group name
-$resourceGroupName = "rg1" 
-# Server name
-$serverName = "ls2" 
-# Elastic pool name
-$poolName = "ep1"
-# User name for server
-$userName = "name"
-# Password for server
-$password = "password"
+$resourceGroupName = "<resourceGroupName>"
+$serverName = "<serverName>"
+$poolName = "<poolName>"
+$userName = "<userName>"
+$password = "<password>"
 
-# Get list of databases in elastic pool
-$databasesInPool = Get-AzSqlElasticPoolDatabase `
-    -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName `
-    -ElasticPoolName $poolName
+# get list of databases in elastic pool
+$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName -ElasticPoolName $poolName
 $databaseStorageMetrics = @()
 
-# For each database in the elastic pool,
-# get its space allocated in MB and space allocated unused in MB.
-  
-foreach ($database in $databasesInPool)
-{
+# for each database in the elastic pool, get space allocated in MB and space allocated unused in MB
+foreach ($database in $databasesInPool) {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `
     SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, `
     SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB `
@@ -185,7 +176,8 @@ foreach ($database in $databasesInPool)
         -Password $password `
         -Query $sqlCommand)
 }
-# Display databases in descending order of space allocated unused
+
+# display databases in descending order of space allocated unused
 Write-Output "`n" "ElasticPoolName: $poolName"
 Write-Output $databaseStorageMetrics | Sort `
     -Property DatabaseDataSpaceAllocatedUnusedInMB `
@@ -222,20 +214,19 @@ DBCC SHRINKDATABASE (N'db1')
 
 This command can impact database performance while it is running, and if possible should be run during periods of low usage.  
 
-For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### Auto-shrink
 
 Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
 To enable auto shrink, modify the name of the database in the following command.
 
-
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options. 
+For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options.
 
 ### Rebuild indexes
 
