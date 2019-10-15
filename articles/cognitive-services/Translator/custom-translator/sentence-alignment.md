@@ -43,7 +43,7 @@ alignments.
 
 For a training to succeed, the table below shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher quality models.
 
-| Document type   | Suggested minimum extracted sentence count | Maximum aligned sentence count |
+| Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|
 | Training   | 10,000                                     | No upper limit                 |
 | Tuning*     | 5,000                                      | 2,500                          |
