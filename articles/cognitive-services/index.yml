@@ -89,9 +89,9 @@ conceptualContent:
         - url: ./speech/home.md
           itemType: overview
           text: Bing Speech (Retiring)
-        - url: ./translator-speech/overview.md
-          itemType: overview
-          text: Translator Speech (Retiring)
+#        - url: ./translator-speech/overview.md
+#          itemType: overview
+#          text: Translator Speech (Retiring)
     - title: Decision 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
