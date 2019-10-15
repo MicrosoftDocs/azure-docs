@@ -41,10 +41,10 @@ landingContent:
         links:
           - text: Create your first access package that helps users to request access they need
             url: entitlement-management-access-package-first.md
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
-          - text: Edit and manage an existing access package
-            url: entitlement-management-access-package-edit.md
+          - text: Delegation and roles
+            url: entitlement-management-delegate.md
   
   # Card
   - title: Recertify access to groups, apps, and privileged roles
