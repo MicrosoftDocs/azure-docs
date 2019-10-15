@@ -544,7 +544,7 @@ public static Task<IActionResult> Run(
 }
 ```
 
-For a complete example, see [Trigger - C# example](#trigger---example).
+For a complete example, see the [trigger example](#trigger---example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -577,6 +577,8 @@ public HttpResponseMessage<String> HttpTrigger(
     ...
 }
 ```
+
+For a complete example, see the [trigger example](#trigger---example).
 
 ---
 
@@ -640,7 +642,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # [JavaScript](#tab/javascript)
 
-For JavaScript functions, the Functions runtime provides the request body from the `context` object. For more information, see the [JavaScript trigger example](#trigger---example).
+In Node, the Functions runtime provides the request body from the `context` object. For more information, see the [JavaScript trigger example](#trigger---example).
 
 The following example shows how to read route parameters from `context.bindingData`.
 
@@ -659,19 +661,11 @@ module.exports = function (context, req) {
 }
 ```
 
-By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
-
-```json
-{
-    "http": {
-    "routePrefix": ""
-    }
-}
-```
-
 # [Python](#tab/python)
 
-**TODO**
+The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
+
+Route parameters are defined via the `route` property in the *function.json* file.
 
 ```json
 {
@@ -697,6 +691,8 @@ By default, all function routes are prefixed with *api*. You can also customize 
 }
 ```
 
+Once defined, the route parameters are available to the function by calling the `route_params` method.
+
 ```python
 import logging
 
@@ -713,7 +709,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # [Java](#tab/java)
 
-**TODO**
+The function execution context is properties as declared in the `HttpTrigger` attribute. The attribute allows you to define route parameters, authorization levels, HTTP verbs and the incoming request instance.
+
+Route parameters are defined via the `HttpTrigger` attribute.
 
 ```java
 package com.function;
@@ -739,6 +737,16 @@ public class HttpTriggerJava {
 ```
 
 ---
+
+By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+
+```json
+{
+    "http": {
+    "routePrefix": ""
+    }
+}
+```
 
 ### Working with client identities
 
