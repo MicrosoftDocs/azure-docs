@@ -30,8 +30,6 @@ Model decomposition has the following parts:
         * descriptors provided by features 
         * constraints provided by non-machine-learned entities such as (regular expressions and lists)
 
-Subcomponents are 
-
 [add conceptual image]
 
 ## V2 Authoring models
