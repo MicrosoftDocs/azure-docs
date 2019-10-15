@@ -87,11 +87,9 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 ### Run the pipeline
 
-At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the pipeline.
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't apear, you first need to run the pipeline.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
-
-After the compute target is available, the pipeline runs. When the run is complete, a green check mark appears on each module.
 
 ### Visualize the data
 
@@ -103,15 +101,13 @@ Now that you have run your initial pipeline, you can visualize the data to under
 
 1. Select the graph icon to visualize the data.
 
-
-
 1. Select the different columns in the data window to view information about that column.
 
     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns. There are 205 rows and 26 columns in this dataset.
 
     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the right.
 
-    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
+    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.png)](./media/ui-tutorial-automobile-price-train-score/preview-data.png#lightbox)
 
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
@@ -144,7 +140,7 @@ First, remove the **normalized-losses** column completely.
 
 1. Select the **Select Columns in Dataset** 
 
-1. In the **Properties** pane type "Exclude normalized losses." in the **Comment** box.
+1. In the **Properties**, select **Parameters** > **Comment** and enter "Exclude normalized losses.".
 
 ### Clean missing data
 
@@ -156,7 +152,7 @@ When you train a model, you have to do something about the data that is missing.
 
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
-1. In the **Properties** pane type "Remove missing value rows." in the **Comment** box.  
+1. In the **Properties** pane enter "Remove missing value rows." in the **Comment** box.  
 
     Your pipeline should now look something like this:
     
@@ -180,7 +176,7 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Select the **Split Data** module. In the Properties pane, set the **Fraction of rows in the first output dataset** to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
-1. In the **Properties** pane type "Split the dataset into training set(0.7) and test set(0.3)" in the **Comment** box.
+1. In the **Properties** pane enter "Split the dataset into training set(0.7) and test set(0.3)." in the **Comment** box.
 
 ### Train the model
 
@@ -188,7 +184,7 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. To select the learning algorithm, clear your module palette search box.
 
-1. Expand the **Machine Learning**. This displays several categories of modules that can be used to initialize machine learning algorithms.
+1. Expand **Machine Learning Algorithms**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
 1. For this pipeline, select **Regression** > **Linear Regression** and drag it to the pipeline canvas.
 
@@ -196,7 +192,9 @@ Train the model by giving it a set of data that includes the price. The model sc
 
     ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
 
-1. Select the **Train Model** module. In the Properties pane, select **Edit column** selector and then type **price** next to **Column names**. Price is the value that your model is going to predict
+1. Select the **Train Model** module. In the Properties pane, select **Edit column** selector
+
+1. In the **Label column** dialog, expand the drop down and select **Column names**. In the text box, enter **price**. Price is the value that your model is going to predict.
 
     Your pipeline should look like this:
 
@@ -212,15 +210,13 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
     ![Screenshot showing the correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
 
-1. Run the pipeline using the compute resource you created earlier.
+1. Run the pipeline using the experiment you created earlier.
 
-1. View the output from the **Score Model** module by selecting the **Score Model** module. Then, in the **Properties** pane, select **Output** > **Visualize**. The output shows the predicted values for price and the known values from the test data.
+1. View the output from the **Score Model** module by selecting the **Score Model** module. Then, in the **Properties** pane, select **Outputs** > **Visualize**. The output shows the predicted values for price and the known values from the test data.
 
     ![Screenshot of the output visualization highlighting the "Scored Label" column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. To view the output from the **Evaluate Model** module select the **Score Model** module. Then, in the **Properties** pane, select **Output** > **Visualize**, and then select **Visualize**.
-
-    ![Screenshot showing the evaluation results for the final pipeline.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
 The following statistics are shown for your model:
 
