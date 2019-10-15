@@ -1,5 +1,5 @@
 ---
-title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
+title: Deploy to Azure Kubernetes Service using Jenkins and the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
+ms.date: 10/09/2019
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern

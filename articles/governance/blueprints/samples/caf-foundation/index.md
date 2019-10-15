@@ -1,5 +1,5 @@
 ---
-title: Samples - CAF Foundation blueprint - Overview
+title: CAF Foundation blueprint sample - Overview
 description: Overview and architecture of the CAF Foundation blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
