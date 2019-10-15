@@ -189,8 +189,26 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
->[!Note]
+> [!Note]
 > Datasets created via the Azure Machine Learning studio are automatically registered to the workspace.
+
+## Create datasets with Azure Open Datasets
+
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the workspace UI.
+
+### Using the SDK
+
+To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by it's own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
+
+Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a dataset from these types of classes, use the static `get()` function with an empty `TabularDataset` as a parameter. 
+
+```python
+from azureml.opendatasets import UsPopulationZip
+from azureml.data.tabular_dataset import TabularDataset
+
+tabular_init = TabularDataset()
+tabular_dataset = UsPopulationZip.get(tabular_init)
+```
 
 ## Version datasets
 
