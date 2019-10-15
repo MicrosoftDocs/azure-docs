@@ -25,7 +25,6 @@ Deployment of OpenShift Container Platform (OCP) 4.2 is now supported in Azure v
 
 ## Notes 
 
- - The Service Principal needed to install and run OCP 4.x in Azure must be granted Application.ReadWrite.OwnedBy permission for Azure Active Directory Graph which will need Admin Consent by the Tenant Administrator
  - An Azure Active Directory (AAD) Service Principal (SP) is required to install and run OCP 4.x in Azure
      - The SP must be granted the API permission of **Application.ReadWrite.OwnedBy** for Azure Active Directory Graph
      - An AAD Tenant Administrator must grant Admin Consent for this API permission to take effect
