@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Add a web API application to your Azure Active Directory B2C tenant
 
- Register web API resources in your tenant so that they can accept and respond to requests by client applications that present an access token. This article shows you how to register application in Azure Active Directory B2C (Azure AD B2C).
+ Register web API resources in your tenant so that they can accept and respond to requests by client applications that present an access token. This article shows you how to register a web API in Azure Active Directory B2C (Azure AD B2C).
 
 #### [Applications](#tab/portal/)
 
@@ -41,7 +41,7 @@ ms.subservice: B2C
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in your web API's code.
 
-Next, enable the implicit grant flow:
+If you have an application that implements the implicit grant flow, for example a JavaScript-based single-page application (SPA), you can enable the flow by following these steps:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
