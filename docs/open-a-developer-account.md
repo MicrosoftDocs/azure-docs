@@ -68,23 +68,20 @@ If you're already enrolled in a Partner Center developer program, create your ac
 > [!NOTE]
 > To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. If you signed up with an individual account, your Office Store enrollment will appear under a new account.
 
-Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
+> Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
 
-Sign into Partner Center with your Microsoft Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
+Sign in to Partner Center with your Microsoft Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
 
 After you sign in, use the following steps to finish setting up your account:
 
-From Partner Center, select Settings > Developer Settings > Programs > Get Started, and enter your work e-mail address.
+- From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work e-mail address.
+- Complete the details on the publisher profile page.
+- Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
 
-Complete the details on the publisher profile page.
+> [!IMPORTANT]
+> You must be authorized to act on your company's behalf in order to accept these terms.
 
-Read the terms and conditions in the Microsoft Office Store Agreement, and then select Accept and continue to complete your enrollment.
-
- Important
-
-You must be authorized to act on your company's behalf in order to accept these terms.
-
-Once enrolled, you're taken to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select Settings > Developer Settings > Programs, you'll see that Office Store is listed as registered.
+After you're enrolled, you're directed to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Office Store is listed as registered.
 
 ## Create your Partner Center developer account
 
