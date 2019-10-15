@@ -23,12 +23,12 @@ LUIS supports _model decomposition_ with the V3 authoring APIs, breaking down th
 
 Model decomposition has the following parts:
 
-* intents
-    * descriptors provided by features
-* machine-learned entities
-    * subcomponents (also machine-learned entities)
-        * descriptors provided by features 
-        * constraints provided by non-machine-learned entities such as (regular expressions and lists)
+* [intents](#intents-classify-utterances)
+    * [descriptors](#descriptors-are-features) provided by features
+* [machine-learned entities](#machine-learned-entities)
+    * [subcomponents](#entity-subcomponents-help-extract-data) (also machine-learned entities)
+        * [descriptors](#descriptors-are-features) provided by features 
+        * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as (regular expressions and lists)
 
 [add conceptual image]
 
@@ -56,7 +56,9 @@ An entity represents a unit of data you want extracted from the utterance.
 
 A machine-learned entity is a top-level entity. It can have subcomponents and each subcomponent can have constraints and descriptors. 
 
-Use a machine-learned entity to define a single unit of information within an utterance. 
+**Use a machine-learned entity to**:
+
+* define a single unit of information within an utterance. 
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data.
 
@@ -65,7 +67,9 @@ An example of a machine-learned entity is an order for a plane ticket. Conceptua
 
 A subcomponent is a machine-learned child entity within a machine-learned parent entity. 
 
-Use the subcomponent to decompose the parts of the machine-learned entity (parent entity).
+**Use the subcomponent to**:
+
+* decompose the parts of the machine-learned entity (parent entity).
 
 Continuing the example of a plane ticket, there can be many pieces of data to extract, such as:
 * quantity of tickets
@@ -85,7 +89,8 @@ You design how the data is matched and extracted by which models you choose and 
 
 A constraint is a text-matching rule, provided by a non-machine-learned entity such as the regular expression entity or a list entity. The constraint is applied at prediction time to limit the prediction and provide entity resolution needed by the client application. You define these rules while authoring the subcomponent. 
 
-Use a constraint when you know the exact text to extract.
+**Use a constraint**:
+* when you know the exact text to extract.
 
 Constraints include:
 
@@ -131,7 +136,7 @@ A descriptor is a signals that enable you to explain some characteristics of the
 * phrase lists
 * entities 
 
-Use a descriptor when you want to:
+**Use a descriptor when you want to**:
 
 * boost the significance of words and phrases identified by the descriptor
 * have LUIS recommend new text or phrases to recommend for the descriptor
