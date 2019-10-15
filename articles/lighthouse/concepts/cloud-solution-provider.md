@@ -1,5 +1,5 @@
 ---
-title: Azure Lighthouse and the Cloud Solution Provider program
+title: Cloud Solution Provider program considerations
 description: When using Azure delegated resource management, it’s important to consider security and access control.
 author: JnHs
 ms.service: lighthouse

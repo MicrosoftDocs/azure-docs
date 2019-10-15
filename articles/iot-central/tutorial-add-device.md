@@ -15,15 +15,12 @@ manager: peterpr
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application. 
-_*You do not need your own external device to complete this tutorial. The "real device" will be built as a coded application running in the command-line environment._ 
+This tutorial shows you how to add and configure a *real device* to your Microsoft Azure IoT Central application. In this tutorial, you code the real device using Node.js and run the code on a desktop machine. You don't need a separate IoT device such as a Raspberry Pi or MXChip IoT DevKit device to complete this tutorial.
 
 This tutorial is made up of two parts:
 
 * First, as an operator, you learn how to add and configure a real device in your Azure IoT Central application. At the end of this part, you retrieve a connection string to use in the second part.
 * Then, as a device developer, you learn about the code in your real device. You add the connection string from the first part to the sample code.
-
-
 
 In this tutorial, you learn how to:
 
@@ -94,7 +91,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-1. On the **Device Connection** page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You'll use these values later in this tutorial.
+1. On the **Device Connection** page, make a note of the **Scope ID**, **Device ID**, and **Primary Key** values. You use these values later in this tutorial.
 
    ![Connection details](media/tutorial-add-device/device-connect.png)
 
