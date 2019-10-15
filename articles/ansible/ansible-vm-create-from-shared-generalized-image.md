@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create VM/VMSS from Shared Image Gallery using Ansible | Microsoft Docs
+title: Tutorial - Create Azure VM or VMSS from Shared Image Gallery using Ansible
 description: Learn how to use Ansible to create VM/VMSS based on a generalized image in Shared Image Gallery.
 keywords: ansible, azure, devops, bash, playbook, VM/VMSS, shared image gallery
 ms.topic: tutorial
@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.date: 10/14/2019
 ---
 
-# Tutorial: Create VM/VMSS from Shared Image Gallery using Ansible
+# Tutorial: Create Azure VM or VMSS from Shared Image Gallery using Ansible
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
-[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share and organize custom managed images easily. Handy if you have a large number of managed images that you need to maintain and share throughout your company. You can share your custom image across subscriptions, between Active Directory (AD) tenants; and replicate to multiple regions for quicker scaling of your deployments.
+[Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) is a service that allows you to manage, share, and organize custom-managed images easily. Handy if you have a large number of managed images that you need to maintain and share throughout your company. You can share your custom image across subscriptions, between Active Directory (AD) tenants; and replicate to multiple regions for quicker scaling of your deployments.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -24,7 +24,7 @@ ms.date: 10/14/2019
 > * Create a Shared Image Gallery
 > * Create a Shared Image and Image Version
 > * Create a VM using the generalized image
-> * Create a VMSS using the generalized image
+> * Create a virtual machine scale set using the generalized image
 > * Get information about your Shared Image Gallery, Image and version.
 
 ## Prerequisites
@@ -39,12 +39,12 @@ There are two ways to get the complete set of sample playbooks:
 - [Download the SIG folder](https://github.com/Azure-Samples/ansible-playbooks/blob/master/sig_generalized_image) and save it to your local machine.
 - Create a new file for each section and copy the sample playbook in it.
 
-Note that `vars.yml` contains the variables used by all sample playbooks for this tutorial. You can edit the file to provide unique names/values.
+The `vars.yml` file contains the variables used by all sample playbooks for this tutorial. You can edit the file to provide unique names and values.
 
 The first sample playbook `00-prerequisites.yml` creates what's necessary to complete this tutorial:
-- A resource group which is a logical container in which Azure resources are deployed and managed.
+- A resource group, which is a logical container in which Azure resources are deployed and managed.
 - A virtual network; subnet; public IP address and network interface card for the VM.
-- A source Virtual Machine which is used for creating the generalized image.
+- A source Virtual Machine, which is used for creating the generalized image.
 
 ```yml
 - hosts: localhost
@@ -99,17 +99,17 @@ The first sample playbook `00-prerequisites.yml` creates what's necessary to com
           version: latest
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 00-prerequisites.yml
 ```
 
-In [Azure Portal](https://portol.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you just created.
+In the [Azure portal](https://portol.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you created.
 
 ## Generalize the VM and create a custom image
 
-The next playbook, `01a-create-generalized-image.yml`, generalized the source VM created in previous step and then create a custom image based on it.
+The next playbook, `01a-create-generalized-image.yml`, generalizes the source VM created in previous step and then create a custom image based on it.
 
 ```yml
 - hosts: localhost
@@ -131,7 +131,7 @@ The next playbook, `01a-create-generalized-image.yml`, generalized the source VM
         source: "{{ source_vm_name }}"
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 01a-create-generalized-image.yml
@@ -158,7 +158,7 @@ The image gallery is the repository for sharing and managing images. The sample 
         description: This is the gallery description.
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 02-create-shared-image-gallery.yml
@@ -170,7 +170,7 @@ You now see a new gallery, `myGallery`, in your resource group.
 
 The next playbook, `03a-create-shared-image-generalized.yml` creates an image definition and an image version.
 
-Image definition includes the image type (Windows or Linux), release notes, and minimum and maximum memory requirements. Image version is the version of the image. Gallery, image definition, and image version helps you organize images in logical groups. 
+Image definitions include the image type (Windows or Linux), release notes, and minimum and maximum memory requirements. Image version is the version of the image. Gallery, image definition, and image version help you organize images in logical groups. 
 
 ```yml
 - hosts: localhost
@@ -220,7 +220,7 @@ Image definition includes the image type (Windows or Linux), release notes, and 
         var: output
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 03a-create-shared-image-generalized.yml
@@ -251,7 +251,7 @@ Finally, run `04a-create-vm-using-generalized-image.yml` to create a VM based on
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 04a-create-vm-using-generalized-image.yml
@@ -259,7 +259,7 @@ ansible-playbook 04a-create-vm-using-generalized-image.yml
 
 ## Create a VM scale sets based on the generalized image
 
-You can also create a VMSS based on the generalized image. Run `05a-create-vmss-using-generalized-image.yml` to do so.
+You can also create a virtual machine scale set based on the generalized image. Run `05a-create-vmss-using-generalized-image.yml` to do so.
 
 ```yml
 - hosts: localhost
@@ -284,7 +284,7 @@ You can also create a VMSS based on the generalized image. Run `05a-create-vmss-
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 05a-create-vmss-using-generalized-image.yml
@@ -318,7 +318,7 @@ You can get information about the gallery, image definition and version by runni
       name: "{{ shared_image_version }}"
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 06-get-info.yml
@@ -326,7 +326,7 @@ ansible-playbook 06-get-info.yml
 
 ## Delete Shared Image
 
-To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml`. Note that you have to delete resources in reverse order. Start by deleting the image version. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
+To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml`. You must delete resources in reverse order. Start by deleting the image version. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
 
 ```yml
 - hosts: localhost
@@ -357,7 +357,7 @@ To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml
       state: absent
 ```
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook 07-delete-gallery.yml
@@ -390,7 +390,7 @@ Here are some key notes to consider when working with the sample playbook:
 - Replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 - All resources within the two specified resource groups will be deleted.
 
-Run the playbook using the ansible-playbook command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml
