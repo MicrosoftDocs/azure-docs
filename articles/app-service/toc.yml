@@ -47,8 +47,8 @@
     href: app-service-web-tutorial-rest-api.md
   - name: Map custom domain
     href: app-service-web-tutorial-custom-domain.md
-  - name: Bind SSL certificate
-    href: configure-ssl-cert.md
+  - name: Secure domain with SSL
+    href: configure-ssl-bindings.md
   - name: Add CDN
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
@@ -263,7 +263,7 @@
         href: faq-availability-performance-application-issues.md
       - name: Deployment FAQ
         href: faq-deployment.md
-      - name: Open source technologies FAQ
+      - name: Open-source technologies FAQ
         href: faq-open-source-technologies.md
       - name: Configuration and management FAQ
         href: faq-configuration-and-management.md
