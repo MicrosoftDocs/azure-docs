@@ -13,7 +13,9 @@ services: event-grid
 
 # Tutorial: Deploy Azure Blob Storage on IoT Edge module (Preview)
 
-This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid
+This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid. 
+
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 > [!CAUTION]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
@@ -171,6 +173,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
 ## Verify Event Delivery
 
+
 ### Verify BlobCreated event delivery
 
 1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. 
@@ -231,7 +234,20 @@ Keep the default routes, and select **Next** to continue to the review section
             }
           ]
     ```
+## API values and event properties
+
+The `api` values for BlobCreated and BlobDeleted events:
+
+| Event | API Values | Extra Notes |
+| ----- | ----- | ----- |
+| BlobCreated | `PutBlob` and `PutBlockList` | &nbsp; |
+| BlobDeleted | `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete` | `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. `AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired. |
+
+For descriptions of properties in the BlobCreated and BlobDeleted events, see [Event Properties](../event-schema-blob-storage.md#event-properties).
 
 ## Next steps
+See the following articles:
 
-Next, learn more about [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
+- [Filer Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
+- [Recommended practices for consuming Blob Storage events](../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+- [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
