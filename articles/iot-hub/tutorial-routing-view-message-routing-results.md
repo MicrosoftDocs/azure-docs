@@ -19,15 +19,15 @@ ms.custom: mvc
 
 ## Rules for routing the messages
 
-These are the rules for the message routing; these were set up in part 1 of this tutorial, and you see them work in this second part.
+These are the rules for the message routing; these were set up in Part 1 of this tutorial, and you'll see them work in this second part.
 
-|value |Result|
+|Value |Result|
 |------|------|
 |level="storage" |Write to Azure Storage.|
 |level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using Power BI.|
 
-Now you create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
+Now you'll create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
 
 ## Create a Logic App  
 
