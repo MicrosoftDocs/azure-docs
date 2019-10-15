@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -31,13 +31,13 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
+1. Locate your existing Azure Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
 1. Select the **Overview** page. Locate the **Time Series Insights explorer URL** and open the link.  
 
-   View the explorer for your TSI environment.
+   View the explorer for your Time Series Insights environment.
 
-1. Expand the environment selector in the TSI explorer. Choose the active environment. Select the reference data icon on the upper right in the explorer page.
+1. Expand the environment selector in the Time Series Insights explorer. Choose the active environment. Select the reference data icon on the upper right in the explorer page.
 
    [![Add reference data](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
@@ -46,12 +46,14 @@ Reference data is not joined retroactively. Thus, only current and future ingres
    [![Add data set](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
 1. On the **New reference data set** page, choose the format of the data:
+
    - Choose **CSV** for comma-delimited data. The first row is treated as a header row.
-   - Choose **JSON Array** for javascript object notation (JSON) formatted data.
+   - Choose **JSON Array** for JavaScript object notation (JSON) formatted data.
 
    [![Choose data format.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
 1. Provide the data, using one of the two methods:
+
    - Paste the data into the text editor. Then, select **Parse reference data** button.
    - Select **Choose File** button to add data from a local text file.
 

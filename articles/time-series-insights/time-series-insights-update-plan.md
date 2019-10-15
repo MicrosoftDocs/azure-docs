@@ -2,7 +2,7 @@
 title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Plan your Azure Time Series Insights Preview environment.
 author: deepakpalled
-ms.author: diego.viso
+ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.service: time-series-insights
@@ -77,7 +77,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
 
-For more information, see [Shape events](./time-series-insights-send-events.md#json).
+For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -25,17 +25,17 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Best practices
 
-To get started with Time Series Insights, it’s best if you know how much data you expect to push by the minute and how long you need to store your data.  
+To get started with Azure Time Series Insights, it’s best if you know how much data you expect to push by the minute and how long you need to store your data.  
 
 For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 To best plan your Time Series Insights environment for long-term success, consider the following attributes:
 
-- <a href="#storage-capacity">Storage capacity</a>
-- <a href="#data-retention">Data retention period</a>
-- <a href="#ingress-capacity">Ingress capacity</a>
-- <a href="#shape-your-events">Shaping your events</a>
-- <a href="#ensure-that-you-have-reference-data">Ensuring that you have reference data in place</a>
+- [Storage capacity](#storage-capacity)
+- [Data retention period](#data-retention)
+- [Ingress capacity](#ingress-capacity)
+- [Shaping your events](#shape-your-events)
+- [Ensuring that you have reference data in place](#ensure-that-you-have-reference-data)
 
 ## Storage capacity
 
@@ -43,15 +43,17 @@ By default, Time Series Insights retains data based on the amount of storage you
 
 ## Data retention
 
-You can change the **Data retention time** setting in your Time Series Insights environment. You can enable up to 400 days of retention. 
+You can change the **Data retention time** setting in your Azure Time Series Insights environment. You can enable up to 400 days of retention. 
 
-Time Series Insights has two modes. One mode optimizes for ensuring that your environment has the most up-to-date data. This mode is on, by default. 
+Azure Time Series Insights has two modes:
 
-The other mode optimizes for ensuring that retention limits are met. In the second mode, ingress is paused if the overall storage capacity of the environment is met. 
+* One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
+* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when its selected as the **Storage limit exceeded behavior**. 
 
 You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
 
-You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
+> [!IMPORTANT]
+> You can configure a maximum of 400 days of data retention in your Azure Time Series Insights GA environment.
 
 ### Configure data retention
 
@@ -68,7 +70,7 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 ## Ingress capacity
 
-The second area to focus on for planning your Time Series Insights environment is ingress capacity. Ingress capacity is a derivative of the per-minute allocation.
+The second area to focus on when planning your Time Series Insights environment is *ingress capacity*. Ingress capacity is a derivative of the per-minute allocation.
 
 From a throttling perspective, an ingressed data packet that has a packet size of 32 KB is treated as 32 events, each 1 KB in size. The maximum allowed event size is 32 KB. Data packets larger than 32 KB are truncated.
 

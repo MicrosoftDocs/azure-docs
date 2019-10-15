@@ -1,9 +1,9 @@
 ﻿---
 title: 'Azure Time Series Insights Preview use cases | Microsoft Docs'
 description: Understand Azure Time Series Insights Preview use cases.
-aauthor: deepakpalled
-ms.author: cshankar
-manager: samgeo
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
