@@ -25,7 +25,7 @@ The scale-in policy feature provides users a way to configure the order in which
 2. NewestVM
 3. OldestVM
 
-***This feature preview is under Microsoft Non Disclosure Agreement and no SLA is provided for the trial. Please do not use this preview feature on any production and/or critical environments.***
+[!NOTE]***This preview feature is provided without a service level agreement, and it's not recommended for production workloads.***
 
 ### Default scale-in policy
 
