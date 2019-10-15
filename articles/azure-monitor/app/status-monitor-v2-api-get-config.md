@@ -1,6 +1,6 @@
 ---
-title: "Azure Status Monitor v2 API reference: Get config | Microsoft Docs"
-description: Status Monitor v2 API reference. Get-ApplicationInsightsMonitoringConfig. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
+title: "Azure Application Insights Agent API reference: Get config | Microsoft Docs"
+description: Application Insights Agent API reference. Get-ApplicationInsightsMonitoringConfig. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Get-ApplicationInsightsMonitoringConfig
+# Application Insights Agent API: Get-ApplicationInsightsMonitoringConfig
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -60,6 +60,6 @@ Filters:
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
  
- Do more with Status Monitor v2:
- - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Do more with Application Insights Agent:
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
  - Make changes to the config by using the [Set config](status-monitor-v2-api-set-config.md) cmdlet.
