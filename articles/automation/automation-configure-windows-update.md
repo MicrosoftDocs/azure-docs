@@ -16,7 +16,7 @@ Azure Update Management relies on Windows Update to download and install Windows
 
 ## Pre-download updates
 
-To configure automatic downloading of updates in Group Policy, set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) to **3**. This setting enables downloads of the required updates in the background, but it doesn't install them. In this way, Update Management remains in control of schedules but updates can be downloaded outside the Update Management maintenance window. This behavior prevents "Maintenance window exceeded" errors in Update Management.
+To configure automatic downloading of updates in Group Policy, set the [Configure Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) to **3**. This setting enables downloads of the required updates in the background, but it doesn't install them. In this way, Update Management remains in control of schedules, but updates can be downloaded outside the Update Management maintenance window. This behavior prevents "Maintenance window exceeded" errors in Update Management.
 
 You can also turn on this setting by running the following PowerShell command on a system that you want to configure for auto-downloading of updates:
 
