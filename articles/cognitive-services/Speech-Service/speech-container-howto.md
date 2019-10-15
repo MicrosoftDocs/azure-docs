@@ -394,107 +394,16 @@ This command:
 
 ## Query the container's prediction endpoint
 
-# [Speech-to-text](#tab/stt)
-
 | Container | Endpoint |
 |--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
+| Speech-to-text or Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
+| Text-to-speech or Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
 
-The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](index.yml).
+[!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
-By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
+### Text-to-speech or Custom Text-to-speech
 
-#### For C#
-
-Change from using this Azure-cloud initialization call:
-
-```csharp
-var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-to this call using the container endpoint:
-
-```csharp
-var config = SpeechConfig.FromEndpoint(
-    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
-    "YourSubscriptionKey");
-```
-
-#### For Python
-
-Change from using this Azure-cloud initialization call
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, region=service_region)
-```
-
-to this call using the container endpoint:
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
-```
-
-# [Custom Speech-to-text](#tab/cstt)
-
-| Container | Endpoint |
-|--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
-
-The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](index.yml).
-
-By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
-
-#### For C#
-
-Change from using this Azure-cloud initialization call:
-
-```csharp
-var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-to this call using the container endpoint:
-
-```csharp
-var config = SpeechConfig.FromEndpoint(
-    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
-    "YourSubscriptionKey");
-```
-
-#### For Python
-
-Change from using this Azure-cloud initialization call
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, region=service_region)
-```
-
-to this call using the container endpoint:
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
-```
-
-# [Text-to-speech](#tab/tts)
-
-| Container | Endpoint |
-|--|--|
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
-
-The container provides REST endpoint APIs that can be found [here](rest-text-to-speech.md) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
-
-# [Custom Text-to-speech](#tab/ctts)
-
-| Container | Endpoint |
-|--|--|
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
-
-The container provides REST endpoint APIs that can be found [here](rest-text-to-speech.md) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
-
-***
+[!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
