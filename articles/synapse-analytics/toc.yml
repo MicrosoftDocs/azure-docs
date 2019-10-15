@@ -6,10 +6,10 @@
     href: overview-what-is.md
   - name: Who can benefit from Synapse Analytics
     href: overview-who-can-benefit-from-synapse-analytics.md
-  # - name: Cheat sheet 
-  #   href: article-template.md
-  # - name: FAQ
-  #   href: article-template.md
+  - name: Cheat sheet 
+    href: overview-cheat-sheet.md
+  - name: FAQ
+    href: overview-faq.md
 - name: Release notes
   items:
   - name: Recent release
