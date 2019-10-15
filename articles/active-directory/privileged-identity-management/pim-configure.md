@@ -4,7 +4,7 @@ description: Provides an overview of Azure AD Privileged Identity Management (PI
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -72,7 +72,7 @@ Privileged Identity Management supports the following scenarios:
 - View the status of your request to activate
 - Complete your task in Azure AD if activation was approved
 
-## Terms in Privileged Identity Management
+## Terminology
 
 To better understand Privileged Identity Management and its documentation, you should review the following terms.
 
