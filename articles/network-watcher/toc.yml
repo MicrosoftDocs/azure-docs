@@ -173,7 +173,7 @@
 - name: Resources
   items:
   - name: Network Watcher FAQs
-    href: network-watcher-faq.md
+    href: frequently-asked-questions.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
