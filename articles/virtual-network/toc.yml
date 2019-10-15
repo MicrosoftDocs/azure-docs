@@ -62,7 +62,7 @@
   - name: IPv6 for Azure VNet
     href: ipv6-overview.md
   - name: Public IPv6 address prefix
-    href: virtual-network-ipv6-public-ip-address-prefix.md
+    href: ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Backend Connectivity Interoperability
@@ -258,7 +258,7 @@
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
     - name: Public IPv6 address prefix
-      href: virtual-network-ipv6-reserve-public-ip-address-prefix.md    
+      href: ipv6-reserve-public-ip-address-prefix.md    
   - name: Move across regions
     items:
     - name: Network security groups - Portal

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.date: 10/15/2019
 ms.author: kumud
 ---
 
@@ -23,13 +23,13 @@ IPv6 for Azure Virtual Network (VNet) enables you to host applications in Azure 
 
 You can create a public IPv6 address using Azure PowerShell with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) as follows:
 ```azurepowershell  
- $myOwnIPv6Address = New-AzPublicIpAddress  \
- -name PIPv6_WestUS  \
- -ResourceGroup MyRG \
- -Location "West US" \
- -Sku Standard \
- -allocationMethod static \
- -IpAddressVersion IPv6 
+ $myOwnIPv6Address = New-AzPublicIpAddress `
+ -name PIPv6_WestUS `
+ -ResourceGroup MyRG `
+ -Location "West US" `
+ -Sku Standard `
+ -allocationMethod static `
+ -IpAddressVersion IPv6
  ```
 
 ### Azure CLI
@@ -37,12 +37,12 @@ You can create a public IPv6 address using Azure PowerShell with [New-AzPublicIp
 You can create a public IPv6 address using Azure CLI with [az network public-ip create](/cli/azure/network/public-ip) as follows:
   
 ```azurecli
- az network public-ip create `
- --name dsPublicIP_v6  `
- --resource-group UpgradeInPlace_CLI_RG1  `
- --location WestUS `
- --sku Standard  `
- --allocation-method static  `
+ az network public-ip create \
+ --name dsPublicIP_v6 \
+ --resource-group UpgradeInPlace_CLI_RG1 \
+ --location WestUS \
+ --sku Standard  \
+ --allocation-method static  \
  --version IPv6
 ```
  
@@ -53,13 +53,13 @@ To create a IPv6 Prefix, add the IP address family of IPv6 to the same command u
 
 You can create a public IPv6 address using Azure CLI with [az network public-ip create](/powershell/module/az.network/new-azpublicipprefix) as follows:
 ```azurepowershell  
- $myOwnIPv6Prefix = New-AzPublicIpPrefix \
- -name IPv6PrefixWestUS \
- -ResourceGroupName MyRG \
- -Location "West US" \
- -Sku Standard \
- -IpAddressVersion IPv6 \
- -PrefixLength 125 
+ $myOwnIPv6Prefix = New-AzPublicIpPrefix `
+ -name IPv6PrefixWestUS `
+ -ResourceGroupName MyRG `
+ -Location "West US" `
+ -Sku Standard `
+ -IpAddressVersion IPv6 `
+ -PrefixLength 125
 ```
 
 ### Azure CLI
@@ -67,11 +67,11 @@ You can create a public IPv6 address using Azure CLI with [az network public-ip 
 You can create a public IPv6 address using Azure CLI as follows:
 
 ```azurecli  
-az network public-ip prefix create `
---name IPv6PrefixWestUS    `
---resource-group MyRG  `
---location WestUS `
---version IPv6  `
+az network public-ip prefix create \
+--name IPv6PrefixWestUS \
+--resource-group MyRG \
+--location WestUS \
+--version IPv6 \
 --length 125
 ```
  
@@ -84,12 +84,12 @@ az network public-ip prefix create `
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \
- -name PIPv6_fromPrefix \
- -ResourceGroup DsStdLb04 \
- -Location "West Central US" \
- -Sku Standard \
- -allocationMethod static \
- -IpAddressVersion IPv6 \
+ -name PIPv6_fromPrefix `
+ -ResourceGroup DsStdLb04 `
+ -Location "West Central US" `
+ -Sku Standard `
+ -allocationMethod static `
+ -IpAddressVersion IPv6 `
  -PublicIpPrefix $myOwnIPv6Prefix
 ```
 
@@ -97,13 +97,13 @@ az network public-ip prefix create `
 The following example assumes that a prefix was created and stored in a CLI variable named: *IPv6PrefixWestUS*.
 
 ```azurecli 
-az network public-ip create `
---name dsPublicIP_v6  `
---resource-group UpgradeInPlace_CLI_RG1  `
---location WestUS `
---sku Standard  `
---allocation-method static  `
---version IPv6 `
+az network public-ip create \
+--name dsPublicIP_v6 \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--location WestUS \
+--sku Standard \
+--allocation-method static \
+--version IPv6 \
 --public-ip-prefix  IPv6PrefixWestUS
 ```
 
