@@ -85,15 +85,15 @@ Here is a quick comparison.
 || Machine Learning Studio | Azure Machine Learning:<br/>Visual interface|
 |---| --- | --- |
 || Generally available (GA) | In preview|
-|Drag-n-drop interface| Yes | Yes|
-|Experiment| Scale (10GB training data size) | Scale with compute target |
+|Drag-and-drop interface| Yes | Yes|
+|Experiment| Scale (10GB training data limit) | Scale with compute target|
 |Modules for interface| Many | Initial set of popular modules|
 |Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
 |Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
-|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint|
-|ML Ops| Not supported | Yes |
+|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|
+|ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
 |Model| Proprietary format. Can not be used outside of Studio | Standard format, various depends on the training job|
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and workspace landing page.) |
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the Python SDK and workspace landing page.) |
 
 Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
