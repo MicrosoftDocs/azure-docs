@@ -19,11 +19,11 @@ Azure Search enables content enrichment through AI cognitive skills and custom s
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases.
+Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
 The knowledge store supports three types of projections:
 
-+ **Tables**: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
++ **Tables**: For data that are best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
@@ -38,7 +38,7 @@ In some cases, you will need to project your enriched data in different shapes t
 ### Mutual exclusivity
 
 All content projected into a single group is independent of data projected into other projection groups.
-This implies that you can have the same data shaped differently, yet repeated in each projection group.
+This independence implies that you can have the same data shaped differently, yet repeated in each projection group.
 
 ### Relatedness
 
@@ -54,11 +54,11 @@ When you have a new shape defined that contains all the elements you need to pro
 
 ## Projection slicing
 
-When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This allows you to define a single node in a shaper skill that can be the source for all of your projections.
+When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a shaper skill that can be the source for all of your projections.
 
 ## Table projections
 
-Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing change the cardinality between table relationship. 
+Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
 
 You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
 
@@ -72,7 +72,7 @@ Each table requires three properties:
 
 + generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This is usually the output of a shaper, but could be the output of any of the skills.
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
 
 Here is an example of table projections.
 
@@ -109,7 +109,7 @@ Here is an example of table projections.
 
 As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
-The following illustration is a reference to the Caselaw exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
 ![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
 
@@ -159,7 +159,7 @@ Generating an object projection requires a few object-specific attributes:
 
 ## File projection
 
-File projections are very similar to object projections and only act on the `normalized_images` collection. Similar to object projections file projects are saved in the blob container with folder prefix of the base64 encoded value of the document id. File projections cannot share the same container as object projections and need to be projected into a different container.
+File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
 
 ```json
 {
@@ -195,13 +195,13 @@ File projections are very similar to object projections and only act on the `nor
 
 ## Projection lifecycle
 
-Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and re-indexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you have configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and reindexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you've configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
 
 ## Using projections
 
 After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can very easily create a set of visualizations on your data leveraging the relationships within.
+For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
 Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 
