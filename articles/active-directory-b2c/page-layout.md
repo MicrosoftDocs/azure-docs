@@ -69,7 +69,7 @@ Page layout packages are periodically updated to include fixes and improvements 
   - Accessibility fixes
   - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. Scenarios include:
       - Use this on your CSS link to load the CSS at the same time as your HTML so that it doesn't 'flicker' between loading the files
-      - This attribute allows you to control the order which your Script tages are fetched and executed before the page load
+      - This attribute allows you to control the order in which your Script tags are fetched and executed before the page load
   - Email field is now 'type=email' and mobile keyboards will provide the correct suggestions
   - Support for Chrome translate
 - Unified and self-asserted page
