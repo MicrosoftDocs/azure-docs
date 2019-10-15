@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
@@ -21,7 +21,8 @@ The following table provides a list of compute environments supported by Data Fa
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Service](#azure-machine-learning-service-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -348,8 +349,8 @@ See following topics if you are new to Azure Batch service:
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
-## Azure Machine Learning linked service
-You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
+## Azure Machine Learning Studio linked service
+You create an Azure Machine Learning Studio linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
 ### Example
 
@@ -379,11 +380,55 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | Type                   | The type property should be set to: **AzureML**. | Yes                                      |
 | mlEndpoint             | The batch scoring URL.                   | Yes                                      |
 | apiKey                 | The published workspace model’s API.     | Yes                                      |
-| updateResourceEndpoint | The Update Resource URL for an Azure ML Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
+| updateResourceEndpoint | The Update Resource URL for an Azure Machine Learning Web Service endpoint used to update the predictive Web Service with trained model file | No                                       |
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
+
+## Azure Machine Learning Service linked service
+You create an Azure Machine Learning Service linked service to connect an Azure Machine Learning service workspace to a data factory.
+
+> [!NOTE]
+> Currently only service principal authentication is supported for the Azure Machine Learning Service linked service.
+
+### Example
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Properties
+| Property               | Description                              | Required                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |
+| subscriptionId         | Azure subscription ID              | Yes                                      |
+| resourceGroupName      | name | Yes                                      |
+| mlWorkspaceName        | Azure Machine Learning Service workspace name | Yes  |
+| servicePrincipalId     | Specify the application's client ID.     | No |
+| servicePrincipalKey    | Specify the application's key.           | No |
+| tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified | No |
+| connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |    
 
 ## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
@@ -404,7 +449,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {
@@ -422,7 +467,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription id                    | No                                       |
+| subscriptionId       | Azure subscription ID                    | No                                       |
 | resourceGroupName    | Azure resource group name                | No                                       |
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
@@ -432,7 +477,9 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 
 
 ## Azure Databricks linked service
-You can create **Azure Databricks linked service** to register Databricks workspace that you will use to run the Databricks workloads(notebooks).
+You can create **Azure Databricks linked service** to register Databricks workspace that you will use to run the Databricks workloads(notebook, jar, python). 
+> [!IMPORTANT]
+> Databricks linked services supports [Instance pools](https://aka.ms/instance-pools). 
 
 ### Example - Using new job cluster in Databricks
 
@@ -484,6 +531,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
 | accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Yes                                       |
 | existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
+| instancePoolId    | Instance Pool ID of an existing pool in databricks workspace.  | No  |
 | newClusterVersion    | The Spark version of the cluster. It will create a job cluster in databricks. | No  |
 | newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like “1” means numOfWorker is 1 or “1:10” means auto-scale from 1 as min and 10 as max.  | No                |
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads  This field is required for new cluster                | No               |
