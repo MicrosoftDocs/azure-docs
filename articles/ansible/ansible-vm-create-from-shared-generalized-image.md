@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Create Azure VM or VMSS from Shared Image Gallery using Ansible
-description: Learn how to use Ansible to create VM/VMSS based on a generalized image in Shared Image Gallery.
-keywords: ansible, azure, devops, bash, playbook, VM/VMSS, shared image gallery
+title: Tutorial - Create a VM or virtual machine scale set from the Azure Shared Image Gallery using Ansible
+description: Learn how to use Ansible to create VM or virtual machine scale set based on a generalized image in Shared Image Gallery.
+keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, shared image gallery
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 10/14/2019
 ---
 
-# Tutorial: Create Azure VM or VMSS from Shared Image Gallery using Ansible
+# Tutorial: Create a VM or virtual machine scale set from the Azure Shared Image Gallery using Ansible
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
@@ -268,7 +268,7 @@ You can also create a virtual machine scale set based on the generalized image. 
     - ./vars.yml
 
   tasks:
-  - name: Create VMSS using shared image
+  - name: Create a virtual machine scale set using a shared image
     azure_rm_virtualmachinescaleset:
       resource_group: "{{ resource_group }}"
       name: "{{ vmss_name }}"
@@ -292,7 +292,7 @@ ansible-playbook 05a-create-vmss-using-generalized-image.yml
 
 ## Get information about the gallery
 
-You can get information about the gallery, image definition and version by running `06-get-info.yml`.
+You can get information about the gallery, image definition, and version by running `06-get-info.yml`.
 
 ```yml
 - hosts: localhost
@@ -326,7 +326,7 @@ ansible-playbook 06-get-info.yml
 
 ## Delete Shared Image
 
-To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml`. You must delete resources in reverse order. Start by deleting the image version. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
+To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml`. Delete resources in reverse order. Start by deleting the image version. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
 
 ```yml
 - hosts: localhost
