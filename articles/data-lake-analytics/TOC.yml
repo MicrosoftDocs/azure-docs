@@ -124,6 +124,14 @@
       href: data-lake-analytics-runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
       href: data-lake-analytics-net-upgrade-troubleshoot.md
+  - name: Understand Spark for U-SQL developers
+    items:
+    - name: Overview
+      href: understand-spark-for-U-SQL-overview.md 
+    - name: Understand Spark Data
+      href: data-lake-analytics-understand-spark-data.md
+    - name: understand Spark to U-SQL code
+      href: data-lake-analytics-understand-spark-u-sql-code.md
 - name: Reference
   items:
   - name: Azure PowerShell
