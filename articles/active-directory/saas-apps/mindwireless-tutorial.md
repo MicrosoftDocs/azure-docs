@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/15/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -61,10 +61,10 @@ Configure and test Azure AD SSO with mindWireless using a test user called **B.S
 To configure and test Azure AD SSO with mindWireless, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure mindWireless SSO](#configure-mindwireless-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create mindWireless test user](#create-mindwireless-test-user)** - to have a counterpart of B.Simon in mindWireless that is linked to the Azure AD representation of user.
+    * **[Create mindWireless test user](#create-mindwireless-test-user)** - to have a counterpart of B.Simon in mindWireless that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -88,7 +88,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [mindWireless Client support team](mailto:sdulloor@mindwireless.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **User Attributes** section, the claim **Employee ID** and the value of the claim that is **user.employeeid** will be pre populated. Here the user mapping from Azure AD to mindWireless is done on the EmployeeID value but you can map it to a different value also based on your application settings. You can work with the [mindWireless support team](mailto:sdulloor@mindwireless.com) to get the correct identifier of a user and map that value with the **Employee ID** claim.
+1. mindWireless application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, mindWireless application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+    | Name | Namespace  |  Source Attribute|
+	| -------------- | --------------- | ----------------|
+	| Employee ID | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`| user.employeeid |
+
+    > [!NOTE]
+    > The claim name always be **Employee ID** and the value of which we have mapped to **user.employeeid**, which contains the EmployeeID of the user. Here the user mapping from Azure AD to mindWireless is done on the EmployeeID but you can map it to a different value also based on your application settings. You can work with the [mindWireless support team](mailto:sdulloor@mindwireless.com) first to use the correct identifier of a user and map that value with the **Employee ID** claim.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
