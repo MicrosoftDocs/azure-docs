@@ -81,16 +81,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
 	| Environment | URL pattern |
 	| -- | -- |
 	| Production | `https://www.neogov.com/` |
 	| Sandbox | `https://www.uat.neogov.net/` |
+	| | |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+
 	| Environment | URL pattern |
 	| -- | -- |
 	| Production | `https://login.neogov.com/authentication/saml/consumer` |
 	| Sandbox | `https://login.uat.neogov.net/authentication/saml/consumer` |
+	| | |
 
 1. NEOGOV application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes,  where as **nameidentifier** is mapped with **user.userprincipalname**. NEOGOV application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
