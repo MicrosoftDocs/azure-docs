@@ -15,7 +15,7 @@ ms.date: 09/25/2019
 ms.author: juliako
 ---
 
-# Signal descriptive audio
+# Signal descriptive audio tracks
 
 You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
 
