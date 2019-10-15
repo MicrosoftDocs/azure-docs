@@ -79,4 +79,4 @@ For more troubleshooting help, try these resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [ADF Mapping Data Flows Performance Guide](concepts-data-flow-performance.md)
+*  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)
