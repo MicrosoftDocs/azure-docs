@@ -80,10 +80,10 @@ A P2S configuration defines the parameters for connecting remote clients.
    ![new site](media/virtual-wan-point-to-site-portal/p2s1.jpg)
 4.On the **Create new user VPN configuration** page, fill in the following fields:
 
-  *  **Configuration name** - This is the name by which you want to refer to your configuration.
-  *  **Tunnel type** - The protocol to use for the tunnel.
-  *  **Root Certificate Name** - A descriptive name for the certificate.
-  *  **Public Certificate Data** - Base-64 encoded X.509 certificate data.
+   *  **Configuration name** - This is the name by which you want to refer to your configuration.
+   *  **Tunnel type** - The protocol to use for the tunnel.
+   *  **Root Certificate Name** - A descriptive name for the certificate.
+   *  **Public Certificate Data** - Base-64 encoded X.509 certificate data.
   
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5.Click **Create** to create the configuration.
