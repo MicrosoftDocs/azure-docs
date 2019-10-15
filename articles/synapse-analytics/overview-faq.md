@@ -1,7 +1,7 @@
 ---
-title: FAQ #Required; update as needed page title displayed in search results. Include the brand.
-description: #Required; Add article description that is displayed in search results.
-services: azure-synapse-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+title: FAQ - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
+description: FAQ for Azure Synapse Analytics #Required; Add article description that is displayed in search results.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: ArnoMicrosoft #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# FAQ 
+# Azure Synapse Analytics frequently asked questions
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
@@ -32,7 +32,7 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 - Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts and Data Scientists on the same platform.
 
 ### Q: How do I get started with Azure Synapse Analytics?
-A: To start using Azure Synapse Analytics, create a Synapse workspace (it is free!) and create the resources that you want under that workspace. You can follow one of our quick start tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts into our repository. If you need to connect to public dataset, create a new linked service with the following attributes:
+A: To start using Azure Synapse Analytics, create a Synapse workspace (it is free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials that will walk you through simple use case. You can also find sample notebooks and SQL scripts into our repository. If you need to connect to public dataset, create a new linked service with the following attributes:
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""**)
 
@@ -50,7 +50,7 @@ A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an a
 ## Use cases
 ### Q: What is a good use case for SQL Analytics Pool in Synapse
 
-A: SQL Analytics Pool is the heart of your data warehouse needs. It is the leading data warehouse solution in [price/performance](https://azure.microsoft.com/en-us/services/sql-data-warehouse/compare/). SQL Analytics Pool is the industry-leading cloud data warehouse solution because you can:
+A: SQL Analytics Pool is the heart of your data warehouse needs. It is the leading data warehouse solution in [price/performance](https://azure.microsoft.com/services/sql-data-warehouse/compare/). SQL Analytics Pool is the industry-leading cloud data warehouse solution because you can:
 - serve a large and mixed variety of workloads without impact in performance thanks to high concurrency and workload isolation
 - secure your data easily through advanced features ranging from network security to fine-grain access
 - benefit from a wide range of eco-system 
@@ -79,7 +79,7 @@ A: End to end single sign-on experience is important in Azure Synapse Analytics.
 
 ### Q: How do I get access to files and folders in the ADLSg2?
 
-A: Access to files and folders is currently managed through ADLSg2. An interface in the Synapse Studio will be soon available. For more information, visit the page [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
+A: Access to files and folders is currently managed through ADLSg2. For more information, visit the page [here](../storage/blobs/data-lake-storage-access-control.md).
 
 ### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics?
 

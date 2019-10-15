@@ -1,7 +1,7 @@
 ---
-title: Cheat Sheet #Required; update as needed page title displayed in search results. Include the brand.
-description: #Required; Add article description that is displayed in search results.
-services: azure-synapse-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+title: Cheat Sheet - Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
+description: Reference guide walking user through Azure Synapse Analytics #Required; Add article description that is displayed in search results.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: ArnoMicrosoft #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# Cheat Sheet 
+# Azure Synapse Analytics cheat sheet
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
@@ -29,7 +29,7 @@ Azure Synapse Analytics cheat sheet will guide you through the basic concepts of
 
 ## Concepts
 | Nouns and verbs                         | What it does       |
-|:---                                 |:---:                 |
+|:---                                 |:---                 |
 | **Synapse Workspace** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLSg2 account and file system (for storing temporary data). A workspace is under a resource group. |
 | **SQL Analytics**   | Can do SQL Analytics with pools and with on-demand  |
 | **SQL pool**   | 0-to-N SQL provisioned resources with their corresponding databases can be deployed in a workspace. Each SQL pool has an associated database. A SQL pool can be scaled, paused and resumed manually or automatically through Azure function. A SQL pool can scale from 100 DWU up to 30,000 DWU.       |
@@ -51,4 +51,4 @@ Azure Synapse Analytics cheat sheet will guide you through the basic concepts of
 |**Dataset**|  Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service|
 
 
-## Commands
+<!---## Commands
