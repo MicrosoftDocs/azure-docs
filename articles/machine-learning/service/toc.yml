@@ -300,7 +300,7 @@
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
   - name: ML SDK (R)
     displayName: api, core, package, R, class
-    href: https://github.com/Azure/azureml-sdk-for-r
+    href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
