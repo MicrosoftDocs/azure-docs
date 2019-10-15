@@ -34,4 +34,6 @@ The table in this article provide information on the Peering Service connectivit
 
 For more information about Peering Service, see the [Peering Service FAQ](peering-service-faq.md).
 
-For more information on how to onboard Peering Service, see the [Onboarding Peering Service](peering-service-onboarding-peering-service.md).
+For more information on how to onboard Peering Service, see the [Onboarding Peering Service](peering-service-onboarding-connection.md).
+
+For more information on how to onboard Peering Service connection telemetry, see the [Onboarding Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).

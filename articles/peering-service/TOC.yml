@@ -16,8 +16,10 @@
   items:
   - name: Register Peering Service
     items:
-      - name: Onboarding
-        href: peering-service-onboarding-peering-service.md
+      - name: Onboarding Peering Service connection
+        href: peering-service-onboarding-connection.md
+      - name: Onboarding Peering Service connection telemetry
+        href: peering-service-onboarding-connection-telemetry.md
       - name: Azure Portal
         href: peering-service-azure-portal.md
       - name: Azure PowerShell
