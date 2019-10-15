@@ -10,7 +10,7 @@
     items:
     - name: Azure portal
       href: bastion-create-host-portal.md
-    -name: Azure PowerShell
+    - name: Azure PowerShell
       href: bastion-create-host-ps.md
   - name: Connect to a virtual machine
     items:
