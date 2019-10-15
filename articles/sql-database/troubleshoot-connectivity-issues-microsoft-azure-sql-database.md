@@ -47,7 +47,7 @@ To resolve this issue, try the steps (in the order presented) in the [Steps to f
 
 ``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
 
-### Error 10053: A transport-level error has occurred when receiving results from the server.
+### Error 10053: A transport-level error has occurred when receiving results from the server
 
 **Detailed error**
 
@@ -130,31 +130,31 @@ For more information, see [Managing databases and logins in Azure SQL Database](
 
 ## Connection timeout expired errors
 
-### System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.
+### System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired
 
 **Detailed error**
 
 ``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
 
-### System.Data.SqlClient.SqlException (0x80131904): Timeout expired.
+### System.Data.SqlClient.SqlException (0x80131904): Timeout expired
 
 **Detailed error**
 
 ``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
 
-### System.Data.Entity.Core.EntityException: The underlying provider failed on Open.
+### System.Data.Entity.Core.EntityException: The underlying provider failed on Open
 
 **Detailed error**
 
 ``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
 
-### Cannot connect to < server name >.``
+### Cannot connect to < server name >``
 
 **Detailed error**
 
 ``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
 
-These exceptions can occur either because of connection or query issues. To confirm this error is because of connectivity issues, check the section below titled **Confirm whether the error is due to a connectivity issue**:
+These exceptions can occur either because of connection or query issues. To confirm that this error is caused by connectivity issues, see [Confirm whether an error is caused by a connectivity issue](#confirm-whether-an-error-is-caused-by-a-connectivity-issue).
 
 Connection timeouts occur because the application can't connect to the server. To resolve this issue, try the steps (in the order presented) in the [Steps to fix common connection issues](#steps-to-fix-common-connection-issues) section.
 
