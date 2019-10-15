@@ -45,7 +45,7 @@ Database connections are a limited resource, so making effective use of connecti
 
 ## Access databases by using connection pooling (recommended)
 
-Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths. We strongly recommend to use database connection pooling or persistent connections to connect to Azure Database for MySQL. Database connection pooling handles the creation, management, and allocation of database connections. When a program requests a database connection, it prioritizes the allocation of existing idle database connections, rather than the creation of a new connection. After the program has finished using the database connection, the connection is recovered in preparation for further use, rather than simply being closed down.
+Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths. We strongly recommend using database connection pooling or persistent connections to connect to Azure Database for MySQL. Database connection pooling handles the creation, management, and allocation of database connections. When a program requests a database connection, it prioritizes the allocation of existing idle database connections, rather than the creation of a new connection. After the program has finished using the database connection, the connection is recovered in preparation for further use, rather than simply being closed down.
 
 For better illustration, this article provides [a piece of sample code](./sample-scripts-java-connection-pooling.md) that uses JAVA as an example. For more information, see [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
 
@@ -58,15 +58,15 @@ The concept of persistent connections is similar to that of connection pooling. 
 
 ## Access databases by using wait and retry mechanism with short connections
 
-If you have resource limitations, we strongly recommend that you use database pooling or persistent connections to access databases. If you use short connections and experience connection failures when you approach the upper limit on the number of concurrent connections,you can try wait and retry mechanism. You can set an appropriate wait time, with a shorter wait time after the first attempt. Thereafter, you can try waiting for events multiple times.
+If you have resource limitations, we strongly recommend that you use database pooling or persistent connections to access databases. If your application use short connections and experience connection failures when you approach the upper limit on the number of concurrent connections,you can try wait and retry mechanism. You can set an appropriate wait time, with a shorter wait time after the first attempt. Thereafter, you can try waiting for events multiple times.
 
 ## Configure verification mechanisms in clients to confirm the effectiveness of persistent connections
 
 The server configures a timeout mechanism to close a connection that’s been in an idle state for some time to free up resources. When the client accesses the database again, it’s equivalent to creating a new connection request between the client and the server. To ensure the effectiveness of connections during the process of using them, configure a verification mechanism on the client. As shown in the following example, you can use Tomcat JDBC connection pooling to configure this verification mechanism.
 
-By setting the TestOnBorrow parameter, when there's a new request, the connection pool automatically verifies the effectiveness of any available connections that are idle before returning the idle connections. If such a connection is effective, it's directly returned. If it's not effective, the connection pool withdraws the connection. The connection pool then creates a new effective connection and returns it. This process ensures that database is accessed efficiently. 
+By setting the TestOnBorrow parameter, when there's a new request, the connection pool automatically verifies the effectiveness of any available idle connections. If such a connection is effective, its directly returned otherwise connection pool withdraws the connection. The connection pool then creates a new effective connection and returns it. This process ensures that database is accessed efficiently. 
 
-For information on the specific settings, see the [JDBC connection pool official introduction document](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). You mainly need to set the following three parameters: TestOnBorrow (set to true), ValidationQuery (set to SELECT 1), and ValidationQueryTimeout (set to 1). The specific sample code is shown here:
+For information on the specific settings, see the [JDBC connection pool official introduction document](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). You mainly need to set the following three parameters: TestOnBorrow (set to true), ValidationQuery (set to SELECT 1), and ValidationQueryTimeout (set to 1). The specific sample code is shown below:
 
 ```
 public class SimpleTestOnBorrowExample {
