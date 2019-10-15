@@ -71,31 +71,23 @@ The V2 prediction API will not be deprecated for at least 9 months after the V3 
 
 ## Endpoint URL changes 
 
-### Changes by slot name
+### Changes by slot name and version name
 
 The format of the V3 endpoint HTTP call has changed.
 
-|METHOD|URL|
-|--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|||
+If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
+
+|VERSION|METHOD|URL|
+|--|--|--|
+|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valid values for `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
-
-### Changes by version ID
-
-If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
-
-
-|METHOD|URL|
-|--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
-|||
 
 ## Request changes 
 
@@ -113,7 +105,7 @@ The V3 API has different query string parameters.
 |`datetimeReference`|string|V3|-|[Timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applied to datetimeV2 entities. Replaces `timezoneOffset` from V2.|
 
 
-### POST body
+### V3 POST body
 
 ```JSON
 {
