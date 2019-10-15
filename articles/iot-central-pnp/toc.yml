@@ -69,9 +69,9 @@
               href: ../iot-central/howto-export-data-event-hubs-service-bus-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
             - name: Export to Blob Storage
               href: ../iot-central/howto-export-data-blob-storage-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: Create custom rules
+        - name: Create custom rules using Azure Functions and SendGrid
           href: ../iot-central/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: Create custom analytics
+        - name: Create custom analytics with Databricks
           href: ../iot-central/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Visualize your data in Power BI
           href: ../iot-central/howto-connect-powerbi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
