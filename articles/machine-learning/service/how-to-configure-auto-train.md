@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a Pandas DataFrame, or Azure's Dataset, DatsetDefinition, or TabularDataset formats. Below are some examples:
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a Pandas DataFrame or an Azure Machine Learning dataset. The following code examples demonstrate how to store the data in these formats. [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 * TabularDataset
 * Pandas dataframe
