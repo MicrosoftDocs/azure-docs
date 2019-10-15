@@ -73,7 +73,7 @@ High-level steps involved in this example migration scenario include the followi
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
 1. Migrate the Azure AD DS managed domain using the steps outlined in this article.
 1. Test and confirm a successful migration, then delete the Classic virtual network.
-1. Move additional Classic resources using the steps outlined in this article.
+1. [Move additional Classic resources like VMs][migrate-iaas].
 
 > [!NOTE]
 > We don't recommend converting the Classic virtual network to a Resource Manager network. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
@@ -89,7 +89,7 @@ High-level steps involved in this example migration scenario include the followi
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
 1. Migrate the Azure AD DS managed domain using the steps outlined in this article.
 1. Set up virtual network peering between the Classic virtual network and the new Resource Manager virtual network.
-1. Later, migrate the additional resources from the classic virtual network as needed.
+1. Later, [migrate the additional resources][migrate-iaas] from the classic virtual network as needed.
 
 ## Before you begin
 
@@ -285,7 +285,6 @@ If PowerShell cmdlet to prepare for migration in step 2 fails, the Azure AD DS m
 Run the `Migrate-Aadds.ps1` script using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.onmicrosoft.com*:
 
 ```powershell
-
 .\Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.onmicrosoft.com `
