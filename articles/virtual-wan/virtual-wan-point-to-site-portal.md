@@ -46,10 +46,10 @@ Verify that you have met the following criteria before beginning your configurat
    ![Create WAN](./media/virtual-wan-point-to-site-portal/createwan.png)
 4. On the Create WAN page, fill in the following fields.
 
-  * **Name** - Select the Name that you want to call your WAN.
-  * **Subscription** - Select the subscription that you want to use.
-  * **Resource Group** - Create new or use existing.
-  * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   * **Name** - Select the Name that you want to call your WAN.
+   * **Subscription** - Select the subscription that you want to use.
+   * **Resource Group** - Create new or use existing.
+   * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
 5. Click **Create** to create the WAN.
 
 ## <a name="site"></a>2. Create an empty virtual hub
@@ -94,20 +94,20 @@ A P2S configuration defines the parameters for connecting remote clients.
 2. Select the hub that you want to associate the vpn server configuration to and click **...**
 
    ![new site](media/virtual-wan-point-to-site-portal/p2s4.jpg)
-3. Click **Edit virtual hub**. 
+3. Click **Edit virtual hub**.
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 6. Click **Confirm**
-7. The operation will can take upto 30 minutes to complete.
+7. The operation will can take up to 30 minutes to complete.
 
 ## <a name="device"></a>6. Download VPN profile
 
 Use the VPN profile to configure your clients.
 
 1. On the page for your virtual WAN, click **User VPN configurations**.
-2. At the top of the  page, click **Download user VPN config**. 
+2. At the top of the  page, click **Download user VPN config**.
 3. Once the file has finished creating, you can click the link to download it.
 4. Use the profile file to configure the VPN clients.
 
