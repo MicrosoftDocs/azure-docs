@@ -3,7 +3,7 @@ title: Work with large data sets
 description: Understand how to get and control large data sets while working with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 ---
@@ -92,7 +92,7 @@ value is used with the same query and subscription values to get the next set of
 matched the query.
 
 The following examples show how to **skip** the first 3000 records and return the **first** 1000
-records after those skipped with Azure CLI and Azure PowerShell:
+records after those records skipped with Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -108,6 +108,99 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query)
 in the REST API docs.
+
+## Formatting results
+
+Results of a Resource Graph query are provided in two formats, _Table_ and _ObjectArray_. The format
+is configured with the **resultFormat** parameter as part of the request options. The _Table_ format
+is the default value for **resultFormat**.
+
+Results from Azure CLI are provided in JSON by default. Results in Azure PowerShell are a
+**PSCustomObject** by default, but they can quickly be converted to JSON using the `ConvertTo-Json`
+cmdlet. For other SDKs, the query results can be configured to output the _ObjectArray_ format.
+
+### Format - Table
+
+The default format, _Table_, returns results in a JSON format designed to highlight the column
+design and row values of the properties returned by the query. This format closely resembles data as
+defined in a structured table or spreadsheet with the columns identified first and then each row
+representing data aligned to those columns.
+
+Here is a sample of a query result with the _Table_ formatting:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### Format - ObjectArray
+
+The _ObjectArray_ format also returns results in a JSON format. However, this design aligns to the
+key/value pair relationship common in JSON where the column and the row data are matched in array
+groups.
+
+Here is a sample of a query result with the _ObjectArray_ formatting:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+Here are some examples of setting **resultFormat** to use the _ObjectArray_ format:
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## Next steps
 
