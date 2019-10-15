@@ -37,7 +37,7 @@ The following restrictions apply when using Run Command:
 > [!NOTE]
 > To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
-## Commands
+## Available Commands
 
 This table shows the list of commands available for Windows VMs. The **RunPowerShellScript** command can be used to run any custom script you want. When using Azure CLI or PowerShell to run a command, the value you provide for the `--command-id` or `-CommandId` parameter must be one of the values listed below. When you specify a value that is not an available command, you receive the error.
 
