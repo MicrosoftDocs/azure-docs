@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2019
+ms.date: 10/1/2019
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ If the Log Analytics workspace that's referenced by the solution isn't already c
 * Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
-### Install the ServiceMap and InfrastructureInsights solutions
+### Install the ServiceMap solutios
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
 If you don't know how to deploy resources by using a template, see:
@@ -358,7 +358,8 @@ Failed: (0)
 
 Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
  
-- To learn how to use the health feature, see [View Azure Monitor for VMs health](vminsights-health.md). 
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md). 
+
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
