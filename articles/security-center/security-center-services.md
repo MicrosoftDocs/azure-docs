@@ -50,7 +50,7 @@ The following sections show Security Center features that are available for thei
 |[Endpoint protection assessment](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Free|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party vulnerability assessment|✔|X|X|✔|X|X|Free|
-|[Network security assessment]()|✔|✔|X|✔|✔|X|Free|
+|[Network security assessment](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Free|
 
 ### Supported endpoint protection solutions <a name="endpoint-supported"></a>
 

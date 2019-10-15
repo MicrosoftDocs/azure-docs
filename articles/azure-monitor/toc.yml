@@ -217,7 +217,7 @@
           href: app/asp-net-troubleshoot-no-data.md
       - name: Codeless monitoring
         items: 
-        - name: Azure VM and Azure virtual machine scale set
+        - name: Azure VM and scale set
           href: app/azure-vm-vmss-apps.md
         - name: Azure App Service
           displayname: App Service, web app, PaaS, Azure web app
@@ -231,10 +231,10 @@
         - name: Kubernetes applications
           displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
           href: app/kubernetes.md
-        - name: Status Monitor 
+        - name: Status Monitor (legacy)
           displayname: IIS monitoring, on premises monitoring, on prem, 
           href: app/monitor-performance-live-website-now.md
-        - name: Status Monitor v2 
+        - name: On-Premises servers
           items:
           - name: Overview
             displayname: IIS monitoring, on premises monitoring, on prem, 
