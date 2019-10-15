@@ -130,4 +130,6 @@ Review the overview of [collection of metrics and logs with Azure Monitor](../pl
 
 ## Next steps
 
-Learn how to use [Workbooks](vminsights-workbooks.md) that are included with Azure Monitor for VMs to further analyze performance and network metrics.  
+- Learn how to use [Workbooks](vminsights-workbooks.md) that are included with Azure Monitor for VMs to further analyze performance and network metrics.  
+
+- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
