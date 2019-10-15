@@ -63,7 +63,7 @@ Some common customization options include, but aren't limited to:
 - OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 - RHEL image reference (variable in azuredeploy.json)
 
-For the steps to deploy using the Azure CLI, follow the appropriate section in the [OpenShift Container Platform](./openshift-container-platform.md) section or the [OKD](./openshift-okd.md) section.
+For the steps to deploy using the Azure CLI, follow the appropriate section in the [OpenShift Container Platform](./openshift-container-platform-3x.md) section or the [OKD](./openshift-okd.md) section.
 
 ## Next steps
 
