@@ -12,7 +12,7 @@ ms.date: 10/13/2019
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-In this tutorial, you configure your IoT Central retail monitoring application to export telemetry collected from the devices. You then create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
+In the two previous tutorials, you created and customized an IoT Central application using  the **Store Analytics - Condition Monitoring** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -64,8 +64,6 @@ Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use
 1. On the home page for your **Event Hubs Namespace** in the portal, select **+ Event Hub**.
 1. On the **Create Event Hub** page, enter _store-telemetry_ as the name, and then select **Create**.
 
-<!-- TODO - do I need to make a note of the key here? -->
-
 ## Configure data export
 
 Now you have an event hub, you can configure your **Store Analytics - Condition Monitoring** application to export telemetry from the connected devices. The following steps show you how to configure the export:
@@ -94,12 +92,12 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 1. Enter _Sensor #1_ as the **Dataset name**.
 1. Enter the three **Values from stream** in following table:
 
-    | Value name | Value type |
-    | ---------- | ---------- |
-    | Timestamp  | DateTime   |
-    | Humidity   | Number     |
-    | Temperature | Number    |
-    
+    | Value name  | Value type |
+    | ----------- | ---------- |
+    | Timestamp   | DateTime   |
+    | Humidity    | Number     |
+    | Temperature | Number     |
+
 1. Switch **Historic data analysis** on.
 1. Select **Create** and then **Done**.
 1. Create two more streaming datasets called **Sensor #2** and **Sensor #3** with the same schema as the **Sensor #1** streaming dataset.
@@ -225,20 +223,20 @@ To add the logic to your logic app design, select **Code view**:
         },
         "Switch_by_DeviceID": {
             "cases": {
-                "Simulator_#1": {
+                "Sensor_#1": {
                     "actions": {
                     },
-                    "case": "envsim-001"
+                    "case": "sensor-001"
                 },
-                "Simulator_#2": {
+                "Sensor_#2": {
                     "actions": {
                     },
-                    "case": "envsim-002"
+                    "case": "sensor-002"
                 },
-                "Simulator_#3": {
+                "Sensor_#3": {
                     "actions": {
                      },
-                    "case": "envsim-003"
+                    "case": "sensor-003"
                 }
             },
             "default": {
@@ -259,7 +257,7 @@ To add the logic to your logic app design, select **Code view**:
     ```
 
 1. Select **Save** and then select **Designer** to see the visual version of the logic you added.
-1. Select **Switch by DeviceID** to expand the action. Then select **Simulator #1**, and select **Add an action**.
+1. Select **Switch by DeviceID** to expand the action. Then select **Sensor #1**, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
 1. Select **Sign in** and follow the prompts to sign in to your Power BI account.
@@ -271,7 +269,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Timestamp** field, and then select **iothub-enqueuedtime** from the **Dynamic content** list.
     * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humid**.
     * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
-1. Select the **Simulator #2** action, and select **Add an action**.
+1. Select the **Sensor #2** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
 1. In the **Add rows to a dataset 2** action:
@@ -282,7 +280,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Timestamp** field, and then select **iothub-enqueuedtime** from the **Dynamic content** list.
     * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humid**.
     * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
-1. Select the **Simulator #3** action, and select **Add an action**.
+1. Select the **Sensor #3** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
 1. In the **Add rows to a dataset 3** action:
@@ -315,8 +313,8 @@ Now you have telemetry flowing from your IoT Central application through your ev
     * Add **Temperature** and **Humidity** as values.
     * Choose 10 minutes as the time window to display.
 1. Select **Next**.
-1. On the **Details** step, enter **Simulator #1** as the title. Then select **Apply**.
-1. Add two more tiles to display the telemetry for **Simulator #2** and **Simulator #3**.
+1. On the **Details** step, enter **Sensor #1** as the title. Then select **Apply**.
+1. Add two more tiles to display the telemetry for **Sensor #2** and **Sensor #3**.
 
 ## Clean up resources
 
