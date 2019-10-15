@@ -258,7 +258,7 @@ journalctl -u iotedge --no-pager --no-full
 Run an automated check for the most common configuration and networking errors: 
 
 ```bash
-iotedge check
+sudo iotedge check
 ```
 
 And, list running modules:
