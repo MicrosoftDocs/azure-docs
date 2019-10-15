@@ -30,6 +30,10 @@ Deployment of OpenShift Container Platform (OCP) 4.2 is now supported in Azure v
      - An AAD Tenant Administrator must grant Admin Consent for this API permission to take effect
      - The SP must be granted **Contributor** and **User Access Administrator** roles to the subscription
  - The installation model for OCP 4.x is different than 3.x and there are no Azure Resource Manager templates available for deploying OCP 4.x in Azure
+ - If issues are encountered during the installation process, contact the appropriate company (Microsoft or Red Hat0)
+     - Azure specific issues: AAD, SP, Azure Subscription, etc. = Contact Microsoft
+     - OpenShift specific issues: Installation failures / errors, Red Hat subscription, etc. = Contact Red Hat
+
 
 ## Next steps
 
