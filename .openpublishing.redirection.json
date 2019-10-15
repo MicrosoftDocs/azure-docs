@@ -62,7 +62,12 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-overview.md",
-      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview#included",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/reference-windows-vm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/tools-included",
       "redirect_document_id": false
     },
     {
@@ -1071,6 +1076,51 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/languages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/languages-reference.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/reference.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/tutorial-translator-speech-csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -1918,6 +1968,11 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-traffic-analytics.md",
+      "redirect_url": "/azure/search/search-monitor-usage",
       "redirect_document_id": false
     },
     {
