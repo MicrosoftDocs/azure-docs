@@ -24,10 +24,6 @@ macOS 10.13 and above
 
 ## Install Speech SDK
 
-The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
-
-Download and install the SDK as follows:
-
 1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following:
 
    ```sh
