@@ -283,6 +283,8 @@
           href: sql-database-xevent-code-event-file.md
         - name: Extended events - ring buffer
           href: sql-database-xevent-code-ring-buffer.md
+    - name: Hyperscale performance diagnostics
+      href: sql-database-hyperscale-performance-diagnostics.md
 
   - name: Scalability
     items:
