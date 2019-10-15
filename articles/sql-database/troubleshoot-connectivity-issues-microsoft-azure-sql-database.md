@@ -18,7 +18,7 @@ You receive error messages when the connection to Azure SQL Database fails. Thes
 
 **Detailed error**
 
-``40613: Database <DBname> on server <server name> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '<Tracing ID>'.``
+``40613: Database <DBname> on server < server name > is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '< Tracing ID >'.``
 
 To resolve this issue:
 
@@ -33,7 +33,7 @@ The issue occurs if the application can't connect to the server.
 
 To resolve this issue, try the steps (in the order presented) in the [Steps to fix common connection issues](#steps-to-fix-common-connection-issues) section.
 
-## The server was not found or was not accessible (Errors 26, 40, 10053)
+## The server was not found or was not accessible (errors 26, 40, 10053)
 
 ### Error 26: Error Locating Server/Instance Specified
 
@@ -57,7 +57,7 @@ These errors occur because the application can't connect to the server.
 
 To resolve this issue, try the steps (in the order presented) in the [Steps to fix common connection issues](#steps-to-fix-common-connection-issues) section.
 
-## Cannot connect to < servername > due to firewall issues
+## Cannot connect to <servername> due to firewall issues
 
 ### Error 40615: Cannot connect to < servername >
 
@@ -69,7 +69,7 @@ To resolve this issue, make sure that port 1433 is open for outbound connections
 
 For more information, see [Configure the Windows Firewall to allow SQL Server access](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
-## Unable to log in to the server (Errors 18456, 40531)
+## Unable to log in to the server (errors 18456, 40531)
 
 ### Login failed for user '< User name >'
 
@@ -192,11 +192,11 @@ To work around this issue, try one of the following methods:
   2. Determine the **input buffer** for the head blocker.
   3. Tune the head blocker query.
 
-    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
 
-* If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to one of the new Preview editions (such as the [Standard or Premium editions](https://azure.microsoft.com/pricing/details/sql-database/)).
+* If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to one of the new Preview editions (such as the [Standard or Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)).
 
-For more information about SQL Database pricing options, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+For more information about SQL Database pricing options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 For more information about dynamic management views, see [System dynamic management views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
@@ -208,7 +208,7 @@ For more information about this error message, see  [SQL Database resource limit
 
 ``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
 
-For more information about this error, see [Error messages for SQL Database client programs](https://docs.microsoft.com/azure/sql-database/sql-database-develop-error-messages)
+For more information about this error, see [Error messages for SQL Database client programs](https://docs.microsoft.com/azure/sql-database/sql-database-develop-error-messages).
 
 ### Error 40501: The service is currently busy
 
@@ -270,7 +270,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -307,7 +307,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
 
 
 ### Cannot open database "master" requested by the login. The login failed.
@@ -339,7 +339,7 @@ When the exception is triggered by query issues, you'll notice a call stack that
   at AzureConnectionTest.Program.Main(String[] args)
   ClientConnectionId:<Client ID>
 ```
-For additional guidance on fine-tuning performance, please see the following:
+For additional guidance on fine-tuning performance, see the following resources:
 
 * [How to maintain Azure SQL indexes and statistics](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
 * [Manual tune query performance in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
@@ -353,16 +353,16 @@ For additional guidance on fine-tuning performance, please see the following:
 2. Check the application’s connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
 See [Get SQL Server connection information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds. 
-4. Test the connectivity between the application server and the Azure SQL database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, and telnet. For more information, see [Troubleshooting SQL Server connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
+4. Test the connectivity between the application server and the Azure SQL database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, or telnet. For more information, see [Troubleshooting SQL Server connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
 
    > [!NOTE]
-   > As a troubleshooting step, you can also test the connectivity on a different client computer.
+   > As a troubleshooting step, you can also test connectivity on a different client computer.
 
 5. As a best practice, make sure that the retry logic is in place. For more information about retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
 If these steps don't resolve your problem, try to collect more data and then contact support. If your application is a cloud service, enable logging. This step returns a UTC time stamp of the failure. Additionally, SQL Azure returns the tracing ID. [Microsoft Customer Support Services](http://azure.microsoft.com/support/options/) can use this information. 
 
-For more information about how to enable logging, see [Enable diagnostics logging for web apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
+For more information about how to enable logging, see [Enable diagnostics logging for apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 
 **Related documents**
 
