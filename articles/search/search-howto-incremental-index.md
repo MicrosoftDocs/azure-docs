@@ -17,7 +17,7 @@ ms.custom: seonov2019
 # Incrementally indexing documents with Azure Search
 
 This article shows how to use Azure Search to incrementally index documents from any of the supported data sources. 
-If you are not familiar with setting up indexers in Azure search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md)
+If you're not familiar with setting up indexers in Azure search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
 First, it explains the basics of setting up and configuring incremental indexing. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Setting up incremental indexing
@@ -34,7 +34,7 @@ Here, we demonstrate the flow to adding incremental indexing to an existing inde
 
 ### Step 1: Get the indexer
 
-Using a API client construct a GET request to get the current configuration of the indexer you want to add incremental indexing to.
+Using an API client construct a GET request to get the current configuration of the indexer to which you want to add incremental indexing.
  
     GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-preview
     Content-Type: application/json
@@ -42,7 +42,7 @@ Using a API client construct a GET request to get the current configuration of t
 
 ### Step 2: Update the indexer definition
 
-Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property, `storageConnectionString` which is the connection string to the storage account.
+Edit the response from the GET request to add the `cache` property to the indexer. The cache object requires only a single property,  that is the connection string to the storage account.
 
 ```json
     "cache": {
@@ -53,7 +53,7 @@ Edit the response from the GET request to add the `cache` property to the indexe
 ### Step 3: Reset the indexer
 
 > [!NOTE]
-> This will result in all documents in your datasource being processed again. All cognitive enrichments will be re-run on all documents.
+> Resetting the indexer will result in all documents in your datasource being processed again. All cognitive enrichments will be re-run on all documents.
 >
 
 A reset of the indexer is required when setting up incremental indexing for existing indexers to ensure that all documents are in a consistent state. Reset the indexer via the portal or using the REST API.
@@ -79,19 +79,19 @@ Update the indexer definition with a PUT request, the body of the request should
         }
     }
 
-If you now issue another GET request on the indexer, the response from the service will include a `cacheId` property in the cache object. This is the container name that will contain all the cached results and intermediate state of each document processed by this indexer.
+If you now issue another GET request on the indexer, the response from the service will include a `cacheId` property in the cache object. The `cacheId` is the name of the container that will contain all the cached results and intermediate state of each document processed by this indexer.
 
 ### Set up incremental indexing for a new indexer
 
-Setting up incremental indexing for a new indexer, simply include the cache property in the indexer definition payload. Ensure you are using the `2019-05-06-preview` version of the API.
+To set up incremental indexing for a new indexer, include the cache property in the indexer definition payload. Ensure you are using the `2019-05-06-preview` version of the API.
 
 ## Overriding incremental indexing
 
-When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases you will need to override this behavior to ensure that the indexer does not perform additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you do not want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made, for instance, if you redeploy a custom skill with a new model and want the skill rerun on all your documents.
+When configured, incremental indexing tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you will need to override this behavior to ensure that the indexer does not perform additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you would not want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
 
 ### Override reset requirement
 
-When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires a indexer reset. If you are making a change to the indexer pipeline and do not want the change tracking to invalidate the cache, you will need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or datasource.
+When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires an indexer reset. If you are making a change to the indexer pipeline and do not want the change tracking to invalidate the cache, you will need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or datasource.
 
 ### Override change detection
 
