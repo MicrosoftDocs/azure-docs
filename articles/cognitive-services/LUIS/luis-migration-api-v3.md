@@ -18,7 +18,7 @@ ms.author: diberry
 
 The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
-**Generally available status** - this V3 API include significant JSON request and/or response changes from V2.
+**Generally available status** - this V3 API include significant JSON request and response changes from V2 API.
 
 The V3 API provides the following new features:
 
@@ -53,11 +53,15 @@ V3 made the following changes as part of the move to GA:
 
 ## Not supported
 
-* Bing Spell Check API is not supported
+* Bing Spell Check API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections
+
+## Bot Framework and Azure Bot Service client applications
+
+Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released. 
 
 ## V2 API Deprecation 
 
-The V2 prediction API will not be deprecated for at least 9 months after the V3 preview. 
+The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8rd, 2020. 
 
 ## Endpoint URL changes 
 
