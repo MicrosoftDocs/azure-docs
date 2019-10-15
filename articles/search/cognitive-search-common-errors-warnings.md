@@ -145,7 +145,7 @@ The document was read and processed, but due to a mismatch in the configuration 
 | An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
 | An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
 
-In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that help track down the source of the mismatch in the document that the indexer has processed.
+In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
