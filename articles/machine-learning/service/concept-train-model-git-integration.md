@@ -12,13 +12,13 @@ ms.date: 10/11/2019
 ---
 # Git integration for Azure Machine Learning
 
-[Git](https://git-scm.com/) is a popular version control system that allows you to share and collaborate your projects. When you use a local git repository for your machine learning project, submitting a training run to Azure Machine Learning automatically tracks information such as the repository, branch, and current commit.
+[Git](https://git-scm.com/) is a popular version control system that allows you to share and collaborate your projects. When submitting a training job to Azure Machine Learning, if the training files are stored in a local git repository then information about the repo is tracked as part of the training process.
 
 Since Azure Machine Learning tracks information from a local git repo, it isn't tied to any specific central repository. Your repository can be cloned from GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
 
-## What is logged?
+## How does git integration work?
 
-When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. Along with these files, information from your git repository is recorded in the following properties for the training run:
+When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
 
 | Property | Description |
 | ----- | ----- |
@@ -32,9 +32,11 @@ When you submit a training run from the Python SDK or Machine Learning CLI, the 
 
 This information is sent for runs that use an estimator, machine learning pipeline, or script run.
 
+If your training files are not located in a git repository on your development environment, or the `git` command is not available, then no git-related information is tracked.
+
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure Portal, Python SDK, and CLI.
+The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and CLI. 
 
 ### Azure portal
 
@@ -43,7 +45,7 @@ The git information is stored in the properties for a training run. You can view
 1. Select one of the runs from the __RUN NUMBER__ column.
 1. Select __Logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
-The logged information contains text similar to the following:
+The logged information contains text similar to the following JSON:
 
 ```json
 "properties": {
