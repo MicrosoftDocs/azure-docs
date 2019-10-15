@@ -1,50 +1,32 @@
 - name: Event Grid IoT Edge Documentation
-  href: 
+  href: index.yml
 - name: Switch to Azure Event Grid documentation
   href: ../overview.md 
 - name: Tutorials
   items:
-  - name: Publish and subscribe locally
-    items:
-    - name: Deploy Event Grid IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Deploy Azure Functions
-      href: deploy-func-webhook-module-portal.md
-    - name: Deploy Azure Blob Storage on IoT Edge
-      href: deploy-blob-storage-module-portal.md
-    - name: Publish and Subscribe
-      href: pub-sub-events-webhook-local.md
-  - name: Publish and subscribe to the cloud
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: pub-sub-events-webhook-cloud.md
-  - name: Forward to Azure Event Grid
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: forward-events-event-grid-cloud.md
-  - name: Forward to Azure IoT Edge Hub and Azure IoT Hub
-    items:
-    - name: Deploy Event Grid Azure IoT Edge
-      href: deploy-event-grid-portal.md
-    - name: Publish and Subscribe
-      href: forward-events-iothub.md
+  - name: Publish and subscribe to events locally
+    href: pub-sub-events-webhook-local.md
+  - name: Publish and subscribe to events in cloud
+    href: pub-sub-events-webhook-cloud.md
+  - name: Forward events to Azure Event Grid
+    href: forward-events-event-grid-cloud.md
+  - name: Forward events to Azure IoT Hub
+    href: forward-events-iothub.md
+  - name: React to Blob Storage events locally
+    href: deploy-blob-storage-module-portal.md    
 - name: Concepts
   items:
-  - name: Event Grid Concepts
+  - name: Event Grid concepts
     href: concepts.md
-  - name: Security and Authentication
+  - name: Security and authentication
     href: security-authentication.md
-  - name: Event Schemas
+  - name: Event schemas
     href: event-schemas.md
-  - name: Delivery and Retry
+  - name: Delivery and retry
     href: delivery-retry.md
-  - name: Output Batching
+  - name: Output batching
     href: delivery-output-batching.md
-  - name: Advanced Filtering
+  - name: Advanced filtering
     href: advanced-filtering.md
 - name: How-to guides
   items:
@@ -68,5 +50,5 @@
     href: api.md
   - name: Configure Event Grid
     href: configure-event-grid.md
-  - name: Module Twin Configuration Schema
+  - name: Module Twin configuration schema
     href: twin-json.md

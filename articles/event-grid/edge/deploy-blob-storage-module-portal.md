@@ -13,17 +13,21 @@ services: event-grid
 
 # Tutorial: Deploy Azure Blob Storage on IoT Edge module (Preview)
 
-This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid
+This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid. 
 
-> [!CAUTION]
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+
+For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
+
+> [!WARNING]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
 
 ## Prerequisites
+Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-local.md) tutorial before you do this tutorial. 
 
-To complete this tutorial, you will need:-
+> [!NOTE]
+> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled"`. If you followed the prerequisite tutorial, it should be already set. 
 
-* **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up.
-* **Azure Function module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Azure Functions module](deploy-func-webhook-module-portal.md) article if you don't have this set up. This module will act as the subscriber.
 
 ## Select your IoT Edge device
 
@@ -72,8 +76,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
 
    - Replace `<event grid module name>` with the name of your Event Grid module.
-       - If you followed [Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) tutorial then the value is **eventgridmodule**
-
    - Replace `<storage mount>` according to your container operating system.
      - For Linux containers, **my-volume:/blobroot**
      - For Windows containers,**my-volume:C:/BlobRoot**
@@ -98,7 +100,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
     It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
-## Publish Create and Delete Events
+## Publish created and deleted Events
 
 1. This module automatically creates topic **MicrosoftStorage**. Verify that it exists
     ```sh
@@ -173,69 +175,110 @@ Keep the default routes, and select **Next** to continue to the review section
 
 2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
-## Verify Event Delivery
+## Verify event delivery
+
 
 ### Verify BlobCreated event delivery
 
 1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. 
 2. Check out the subscriber logs for create event. Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-Sample Output:
+    Sample Output:
 
-```json
-        Received event data [
-        {
-          "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
-          "topic": "MicrosoftStorage",
-          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
-          "eventType": "Microsoft.Storage.BlobCreated",
-          "eventTime": "2019-10-01T21:35:17.7219554Z",
-          "dataVersion": "1.0",
-          "metadataVersion": "1",
-          "data": {
-            "api": "PutBlob",
-            "clientRequestId": "00000000-0000-0000-0000-000000000000",
-            "requestId": "ef1c387b-4c3c-4ac0-8e04-ff73c859bfdc",
-            "eTag": "0x8D746B740DA21FB",
-            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
-            "contentType": "image/jpeg",
-            "contentLength": 858129,
-            "blobType": "BlockBlob"
-          }
-        }
-      ]
-```
+    ```json
+            Received event data [
+            {
+              "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
+              "topic": "MicrosoftStorage",
+              "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
+              "eventType": "Microsoft.Storage.BlobCreated",
+              "eventTime": "2019-10-01T21:35:17.7219554Z",
+              "dataVersion": "1.0",
+              "metadataVersion": "1",
+              "data": {
+                "api": "PutBlob",
+                "clientRequestId": "00000000-0000-0000-0000-000000000000",
+                "requestId": "ef1c387b-4c3c-4ac0-8e04-ff73c859bfdc",
+                "eTag": "0x8D746B740DA21FB",
+                "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
+                "contentType": "image/jpeg",
+                "contentLength": 858129,
+                "blobType": "BlockBlob"
+              }
+            }
+          ]
+    ```
 ### Verify BlobDeleted event delivery
 
 1. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. 
 2. Check out the subscriber logs for delete event. Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-Sample Output:
+    Sample Output:
+    
+    ```json
+            Received event data [
+            {
+              "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
+              "topic": "MicrosoftStorage",
+              "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
+              "eventType": "Microsoft.Storage.BlobDeleted",
+              "eventTime": "2019-10-01T21:36:09.2562941Z",
+              "dataVersion": "1.0",
+              "metadataVersion": "1",
+              "data": {
+                "api": "DeleteBlob",
+                "clientRequestId": "00000000-0000-0000-0000-000000000000",
+                "requestId": "2996bbfb-c819-4d02-92b1-c468cc67d8c6",
+                "eTag": "0x8D746B740DA21FB",
+                "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
+                "contentType": "image/jpeg",
+                "contentLength": 858129,
+                "blobType": "BlockBlob"
+              }
+            }
+          ]
+    ```
 
-```json
-        Received event data [
-        {
-          "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
-          "topic": "MicrosoftStorage",
-          "subject": "/blobServices/default/containers/cont1/blobs/Team.jpg",
-          "eventType": "Microsoft.Storage.BlobDeleted",
-          "eventTime": "2019-10-01T21:36:09.2562941Z",
-          "dataVersion": "1.0",
-          "metadataVersion": "1",
-          "data": {
-            "api": "DeleteBlob",
-            "clientRequestId": "00000000-0000-0000-0000-000000000000",
-            "requestId": "2996bbfb-c819-4d02-92b1-c468cc67d8c6",
-            "eTag": "0x8D746B740DA21FB",
-            "url": "http://azureblobstorageoniotedge:11002/myaccount/cont1/Team.jpg",
-            "contentType": "image/jpeg",
-            "contentLength": 858129,
-            "blobType": "BlockBlob"
-          }
-        }
-      ]
-```
+Congratulations! You have completed the tutorial. The following sections provide details on the event properties.
+
+### Event properties
+Here's the list of supported event properties and their types and descriptions. 
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
+| subject | string | Publisher-defined path to the event subject. |
+| eventType | string | One of the registered event types for this event source. |
+| eventTime | string | The time the event is generated based on the provider's UTC time. |
+| id | string | Unique identifier for the event. |
+| data | object | Blob storage event data. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| api | string | The operation that triggered the event. It can be one of the following values: <ul><li>BlobCreated - allowed values are: `PutBlob` and `PutBlockList`</li><li>BlobDeleted - allowed values are `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete`. <p>The `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. </p><p>`AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired.</p></li></ul>|
+| clientRequestId | string | a client-provided request id for the storage API operation. This id can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. For details, see [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | The value that you can use to perform operations conditionally. |
+| contentType | string | The content type specified for the blob. |
+| contentLength | integer | The size of the blob in bytes. |
+| blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
+| url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
+
+
 
 ## Next steps
+See the following articles from the Blob Storage documentation:
 
-Next, learn more about [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
+- [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
+- [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+
+In this tutorial, you published events by creating or deleting blobs in an Azure Blob Storage. See the other tutorials to learn how to forward events to cloud (Azure Event Hub or Azure IoT Hub): 
+
+- [Forward events to Azure Event Grid](forward-events-event-grid-cloud.md)
+- [Forward events to Azure IoT Hub](forward-events-iothub.md)
+
+

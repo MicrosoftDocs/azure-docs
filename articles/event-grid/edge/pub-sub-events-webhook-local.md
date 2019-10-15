@@ -18,12 +18,107 @@ This article walks you through all the steps needed to publish and subscribe to 
 > [!NOTE]
 > To learn about Azure Event Grid topics and subscriptions, see [Event Grid Concepts](concepts.md).
 
-## Prerequisites
+## Deploy Event Grid IoT Edge module
 
-To complete this tutorial, you'll need:
+There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from the Azure portal.
 
-- **Azure Event Grid module on An IoT Edge device**. If you don't have this set up already, follow steps in the [Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article.
-- **Azure Function subscriber module on the same IoT Edge Device**. If you haven't deployed this module already, follow steps in the [Deploy Azure Function IoT Edge module](deploy-func-webhook-module-portal.md) article. 
+>[!NOTE]
+> In this tutorial, you will deploy the Event Grid module without persistence. It means that any topics and subscriptions you create in this tutorial will be deleted when you redeploy the module. For more information on how to setup persistence, see the following articles: [Persist state in Linux](persist-state-linux.md) or [Persist state in Windows](persist-state-windows.md). For production workloads, we recommend that you install the Event Grid module with persistence.
+
+
+### Select your IoT Edge device
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Navigate to your IoT Hub.
+1. Select **IoT Edge** from the menu in the **Automatic Device Management** section. 
+1. Click on the ID of the target device from the list of devices
+1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section.
+
+### Configure a deployment manifest
+
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually.  It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+
+### Add modules
+
+1. In the **Deployment Modules** section, select **Add**
+1. From the types of modules in the drop-down list, select **IoT Edge Module**
+1. Provide the name, image, container create options of the container:
+
+   * **Name**: eventgridmodule
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Container Create Options**:
+
+    ```json
+        {
+          "Env": [
+           "inbound:serverAuth:tlsPolicy=enabled",
+            "inbound:clientAuth:clientCert:enabled=false",
+            "outbound:webhook:httpsOnly=false"
+          ],
+          "HostConfig": {
+            "PortBindings": {
+              "4438/tcp": [
+                {
+                    "HostPort": "4438"
+                }
+              ]
+            }
+          }
+        }
+    ```    
+ 1. Click **Save**
+ 1. Continue to the next section to add the Azure Functions module before deploying them together.
+
+    >[!IMPORTANT]
+    > In this tutorial, you will deploy the Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable the client authentication and allow only HTTPs subscribers. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    
+
+## Deploy Azure Function IoT Edge module
+
+This section shows you how to deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
+
+>[!IMPORTANT]
+>In this section, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
+
+
+### Add modules
+
+1. In the **Deployment Modules** section, select **Add** again. 
+1. From the types of modules in the drop-down list, select **IoT Edge Module**
+1. Provide the name, image, and container create options of the container:
+
+   * **Name**: subscriber
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
+   * **Container Create Options**:
+
+       ```json
+            {
+              "HostConfig": {
+                "PortBindings": {
+                  "80/tcp": [
+                    {
+                      "HostPort": "8080"
+                    }
+                  ]
+                }
+              }
+            }
+       ```
+
+1. Click **Save**
+1. Click **Next** to continue to the routes section
+
+ ### Setup routes
+
+Keep the default routes, and select **Next** to continue to the review section
+
+### Submit the deployment request
+
+1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see both the modules: **eventgridmodule** and **subscriber** listed in the JSON. 
+1. Review your deployment information, then select **Submit**. After you submit the deployment, you return to the **device** page.
+1. In the **Modules section**, verify that both **eventgrid** and **subscriber** modules are listed. And, verify that the **Specified in deployment** and **Reported by device** columns are set to **Yes**.
+
+    It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
 ## Create a topic
 
@@ -190,11 +285,13 @@ Subscribers can register for events published to a topic. To receive any event, 
     ```
 * Delete the subscriber module from your IoT Edge device.
 
-## Next steps
 
+## Next steps
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
-*Create/update subscription with [filters](advanced-filtering.md).
-*Enable persistence of Event Grid module on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
-*Follow [documentation](configure-client-auth.md) to configure client authentication
-*Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
+- Create/update subscription with [filters](advanced-filtering.md).
+- Enable persistence of Event Grid module on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+- Follow [documentation](configure-client-auth.md) to configure client authentication
+- Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
+- [React to Blob Storage events on IoT Edge](deploy-blob-storage-module-portal.md)
+
