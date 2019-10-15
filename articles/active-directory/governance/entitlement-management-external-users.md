@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/26/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -49,9 +49,9 @@ The following diagram and steps provide an overview of how external users are gr
 
 ![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
-1. You send a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) to your contact at the external organization that they can share with their users to request the access package.
+1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
 1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
 
@@ -61,7 +61,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If an [allow list or a deny list](../b2b/allow-deny-list.md) is defined, the list setting will be applied.
 
-1. The guest user is assigned access to all of the resources in the access package. It can take some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When are changes applied](entitlement-management-access-package-edit.md#when-are-changes-applied).
+1. The guest user is assigned access to all of the resources in the access package. It can take some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When changes are applied](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
 1. The external user receives an email indicating that their access was [delivered](entitlement-management-process.md).
 
@@ -112,6 +112,6 @@ You can also change this setting after you have created the catalog.
 
 ## Next steps
 
-- [Policy: For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)
+- [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
 - [Create and manage a catalog](entitlement-management-catalog-create.md)
 - [Delegate tasks](entitlement-management-delegate.md)
