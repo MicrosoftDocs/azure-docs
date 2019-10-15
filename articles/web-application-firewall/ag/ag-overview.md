@@ -4,7 +4,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/28/2019
+ms.date: 10/16/2019
 ms.author: victorh
 ms.topic: overview
 ---
@@ -64,7 +64,10 @@ For more information, see [Web application firewall CRS rule groups and rules](a
 The Application Gateway WAF can be configured to run in the following two modes:
 
 * **Detection mode**: Monitors and logs all threat alerts. You turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You must also make sure that the WAF log is selected and turned on. Web application firewall doesn't block incoming requests when it's operating in Detection mode.
-* **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is terminated. Prevention mode records such attacks in the WAF logs.
+* **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
+
+> [!NOTE]
+> It is recommended that you run a newly deployed WAF in Detection mode for a short period of time in a production environment. This provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) prior to transition to Prevention mode. This can help reduce the occurrence of unexpected blocked traffic.
 
 ### Anomaly Scoring mode
 
@@ -88,7 +91,7 @@ There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *C
 
 ### WAF monitoring
 
-Monitoring the health of your application gateway is important. Monitoring the health of your WAF and the applications that it protects is supported by integration with Azure Security Center, Azure Monitor, and Azure Monitor logs.
+Monitoring the health of your application gateway is important. Monitoring the health of your WAF and the applications that it protects are supported by integration with Azure Security Center, Azure Monitor, and Azure Monitor logs.
 
 ![Diagram of Application Gateway WAF diagnostics](../media/ag-overview/diagnostics.png)
 
