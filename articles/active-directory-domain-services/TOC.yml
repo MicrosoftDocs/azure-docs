@@ -65,7 +65,7 @@
           href: notifications.md
         - name: Delete a managed domain
           href: delete-aadds.md
-        - name: Migrate from a Classic deployment
+        - name: Migrate from a Classic deployment (preview)
           href: migrate-from-classic-vnet.md
     - name: Secure Azure AD DS
       items:
