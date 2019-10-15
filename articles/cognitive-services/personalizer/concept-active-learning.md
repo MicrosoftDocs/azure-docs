@@ -1,5 +1,5 @@
 ---
-title: Active learning - Personalizer
+title: Active and Inactive Events - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 
 services: cognitive-services
@@ -12,38 +12,28 @@ ms.date: 05/30/2019
 ms.author: diberry
 ---
 
-# Active learning and learning policies 
+# Active and Inactive Events
 
-When your application calls the Rank API, you receive a rank of the content. Business logic can use this rank to determine if the content should be display to the user. When you display the ranked content, that is an _active_ rank event. When your application does not display that ranked content, that is an _inactive_ rank event. 
+When your application calls the Rank API, you receive which Action the application should show in the rewardActionId field.  From that moment, Personalizer will be expecting a Reward call with the same eventId. The reward score will be used to train the model that will be used for future Rank calls. If no Reward call is received for the eventId, a defaul reward will be applied. Default rewards are established in the Azure Portal.
 
-Active rank event information is returned to Personalizer. This information is used to continue training the model through the current learning policy.
-
-## Active events
-
-Active events should always be shown to the user and the reward call should be returned to close the learning loop. 
-
-### Inactive events 
-
-Inactive events shouldn't change the underlying model because the user wasn't given a chance to choose from the ranked content.
-
-## Don't train with inactive rank events 
-
-For some applications, you may need to call the Rank API without knowing yet if your application will display the results to the user. 
-
-This happens when:
+In some cases, the application may need to call Rank bore it even knows if the result will be used or displayedn to the user. This may happen in situations where, for example, the page render of promoted content gets overwritten with a marketing campaign. If the result of the Rank call was never used and the user never got to see it, it would be incorrect to train it with any reward at all, zero or otherwise.
+Typically this happens when:
 
 * You may be pre-rendering some UI that the user may or may not get to see. 
 * Your application may be doing predictive personalization in which Rank calls are made with less real-time context and their output may or may not be used by the application. 
 
-### Disable active learning for inactive rank events during Rank call
+In these cases, the correct way to use Personalizer is by calling Rank requesting the event to be _inactive_. Personalizer will not expect a reward for this event, and will not apply a default reward either. 
+Letr in your business logic, if the application uses the information from the rank call, all you need to do is _activate_ the event. From the moment the event is active, Personalizer will expect a reward for the event or apply a default reward if no explicit call gets made to the Reward API.
 
-To disabling automatic learning, call Rank with `learningEnabled = False`.
+## Getting Inactive Events
 
-Learning for an inactive event is implicitly activated if you send a reward for the Rank.
+To disable training for an event, call Rank with `learningEnabled = False`.
 
-## Learning policies
+Learning for an inactive event is implicitly activated if you send a reward for the eventId, or call the `activate` API for that eventId.
 
-Learning policy determines the specific *hyperparameters* of the model training. Two models of the same data, trained on different learning policies, will behave differently.
+# Learning Settings
+
+Learning settings determines the specific *hyperparameters* of the model training. Two models of the same data, trained on different learning settings, will end up being different.
 
 ### Importing and exporting Learning Policies
 
