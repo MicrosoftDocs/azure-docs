@@ -43,8 +43,7 @@ Before reading rest of the article make sure to check following articles:
 SELECT name
 FROM sys.credentials 
 WHERE 
-	name = 'https://partystoragenortheurblob.blob.core.windows.net/csv'
-	OR name = 'https://partystoragewestusblob.blob.core.windows.net/csv'
+	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
 If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
@@ -81,8 +80,7 @@ SELECT
 	SUM(passenger_count) AS passengers_total,
 	COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/*.*', 
-	--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/*.*', 
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
 		FORMAT = 'CSV', 
 		FIRSTROW = 2
 	)
@@ -124,8 +122,7 @@ SELECT
 	payment_type,  
 	SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
-	BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv', 
-	--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv', 
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
 		FORMAT = 'CSV', 
 		FIRSTROW = 2
 	)
@@ -174,8 +171,7 @@ SELECT
 	SUM(passenger_count) AS passengers_total,
 	COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/', 
-	--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/', 
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
 		FORMAT = 'CSV', 
 		FIRSTROW = 2
 	)
@@ -218,8 +214,7 @@ SELECT
 	SUM(passenger_count) AS passengers_total,
 	COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/t*i/', 
-	--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/t*i/', 
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
 		FORMAT = 'CSV', 
 		FIRSTROW = 2
 	)
@@ -267,8 +262,7 @@ SELECT
 	SUM(passenger_count) AS passengers_total,
 	COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv', 
-	--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv', 
+	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
 		FORMAT = 'CSV', 
 		FIRSTROW = 2
 	)

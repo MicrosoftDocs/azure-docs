@@ -45,8 +45,7 @@ Before reading rest of the article make sure to check following articles:
 SELECT name
 FROM sys.credentials 
 WHERE 
-	name = 'https://partystoragenortheurblob.blob.core.windows.net/csv'
-	OR name = 'https://partystoragewestusblob.blob.core.windows.net/csv'
+	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
 If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
@@ -64,8 +63,7 @@ SELECT
 	r.filename() AS [filename]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	)
@@ -103,8 +101,7 @@ SELECT
 	r.filename() AS [filename]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	)
@@ -152,8 +149,7 @@ SELECT
 	r.filepath() AS filepath
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	)
@@ -193,8 +189,7 @@ SELECT
 	,r.filepath(2) AS [month]
 	,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv',
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	)

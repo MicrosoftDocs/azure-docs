@@ -45,8 +45,7 @@ Before reading rest of the article make sure to check following articles:
 SELECT name
 FROM sys.credentials 
 WHERE 
-	name = 'https://partystoragenortheurblob.blob.core.windows.net/csv'
-	OR name = 'https://partystoragewestusblob.blob.core.windows.net/csv'
+	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
 If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
@@ -87,8 +86,7 @@ SELECT
 		COUNT(*) AS cnt
 FROM  
 	OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/parquet/taxi/*/*/*', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/parquet/taxi/*/*/*', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*', 
 		FORMAT='PARQUET'
 	) WITH (
 		pickup_datetime DATETIME2, 
@@ -117,8 +115,7 @@ SELECT
 	COUNT_BIG(*)
 FROM  
 	OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
 		FORMAT='PARQUET'
 	) AS nyc
 ```
@@ -139,8 +136,7 @@ SELECT
 	SUM(fare_amount) AS fare_total
 FROM  
 	OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet', 
 		FORMAT='PARQUET'
 	) AS nyc
 WHERE 

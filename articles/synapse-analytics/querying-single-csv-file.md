@@ -43,8 +43,7 @@ Before reading rest of the article make sure to check following articles:
 SELECT name
 FROM sys.credentials 
 WHERE 
-	name = 'https://partystoragenortheurblob.blob.core.windows.net/csv'
-	OR name = 'https://partystoragewestusblob.blob.core.windows.net/csv'
+	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
 If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
@@ -61,8 +60,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population/population.csv', 
---		BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
  		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '\n'
@@ -89,8 +87,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population-unix/population.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population-unix/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv', 
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '0x0a'
@@ -120,8 +117,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population-unix-hdr/population.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population-unix-hdr/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '0x0a', 
@@ -151,8 +147,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '0x0a', 
@@ -185,8 +180,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '0x0a', 
@@ -218,8 +212,7 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv', 
-		--BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
 		FORMAT = 'CSV', 
 		FIELDTERMINATOR ='\t', 
 		ROWTERMINATOR = '0x0a', 
@@ -250,8 +243,7 @@ Following query returns number of distinct country names in file, specifying onl
 SELECT 
 	COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-		BULK 'https://partystoragenortheurblob.blob.core.windows.net/csv/population/population.csv', 
---		BULK 'https://partystoragewestusblob.blob.core.windows.net/csv/population/population.csv', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
  		FORMAT = 'CSV', 
 		FIELDTERMINATOR =',', 
 		ROWTERMINATOR = '\n'
