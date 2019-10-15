@@ -256,7 +256,6 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['sqlalchemy'])
 ```
 
-
 ## Where to find dependency data
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
