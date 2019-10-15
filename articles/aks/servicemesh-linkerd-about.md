@@ -89,7 +89,7 @@ The following documentation describes how you can install Linkerd on Azure Kuber
 You can also further explore Linkerd features and architecture:
 
 - [Linkerd Features][linkerd-features]
-- [Lnkerd Architecture][linkerd-architecture]
+- [Linkerd Architecture][linkerd-architecture]
 
 <!-- LINKS - external -->
 [linkerd]: https://linkerd.io/2/overview/
