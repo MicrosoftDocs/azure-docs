@@ -192,7 +192,7 @@ To work around this issue, try one of the following methods:
   2. Determine the **input buffer** for the head blocker.
   3. Tune the head blocker query.
 
-    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+    For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 * If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to one of the new Preview editions (such as the [Standard or Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -270,7 +270,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -307,7 +307,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 
 ### Cannot open database "master" requested by the login. The login failed.
@@ -319,7 +319,7 @@ To resolve this issue, follow these steps:
 1. On the login screen of SSMS, select **Options**, and then select **Connection Properties**. 
 2. In the **Connect to database** field, enter the user’s default database name as the default login database, and then select **Connect**.
 
-   ![cannot-open-database-master.png](media/troubleshoot-connectivity-issues-microsoft-azure-sql-database/cannot-open-database-master.png)
+   ![Connection properties](media/troubleshoot-connectivity-issues-microsoft-azure-sql-database/cannot-open-database-master.png)
 
 ## Confirm whether an error is caused by a connectivity issue
 
