@@ -31,7 +31,7 @@ Bastion is available in the following Azure public regions:
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [Azure portal - Bastiob](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal, not the regular Azure portal.
+1. From the home page in the [Azure portal - Bastion](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal, not the regular Azure portal.
 
 1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
