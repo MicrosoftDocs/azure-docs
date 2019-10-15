@@ -45,21 +45,22 @@ If you're new to Partner Center, follow the instructions in this section to crea
   > [!NOTE]
   > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](https://docs.microsoft.com//azure/marketplace/partner-center-portal/company-work-accounts).
 
-3. Provide your publisher profile. Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the Microsoft Partner Network. After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
-5. Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers in AppSource.
-
-After you've confirmed your publisher profile information, agree to the terms and conditions and create your Partner Center account by selecting **Accept and continue**.
+3. Provide your publisher profile. Your publisher profile includes your company info, publisher info, and contact info.
+4. After you've confirmed your publisher profile information, agree to the terms and conditions in the Microsoft Office Agreement and select **Accept and continue** to create your Partner Center account.
 
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
-### Create an account using existing Microsoft Partner Center enrollments
-If you already have an enrollment in Microsoft Partner Center, to create your account:
+If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Elect an account, and your Office enrollmnent will be associated with the same accounts.
 
-- Sign in to Partner Center using your existing credentials
-- Enter your publishing profile information.
+### Create an account using an existing Partner Center enrollment
+If you already have an enrollment in Partner Center, to create your account:
 
-Make sure to have your account information handy.
+- Sign in to Partner Center using your existing credentials.
+- Cick the gear icon, and then choose **Developer settings** > **Programs**.
+- On the Your Programs page, in the Office Store tile, choose **Get Started**.
+- Complete the details on the publisher profile page.
+- Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
 
 #### Enrolled in a developer program
 If you're already enrolled in a Partner Center developer program, create your account directly from Partner Center.
@@ -81,35 +82,7 @@ After you sign in, use the following steps to finish setting up your account:
 
 After you're enrolled, you're directed to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Office Store is listed as registered.
 
-## Create your Partner Center developer account
+## Next steps
+Now you're ready to [submit your solutions to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
-To create your account:
-
-1. On the [Partner Center Programs](https://partner.microsoft.com/dashboard/account/programs) page, under **Recommended programs for you**, Choose the **Get Started** link under Office Add-ins.
-2. On the Get started page, choose **Sign in with a work account**.
-3. Sign in with your work or school account. This links your work email account domain to your Partner Center account. 
-
-    > [!NOTE]
-    > When you link your account domain to your Partner Center account, you will be able to [add additional users](manage-account-users.md) to your account.
-
-4. Choose whether you want Microsoft to share your information with select partners, and then select **Next**.
-4. Provide your company, publisher, and contact information, and select **Accept and continue**.
-    > [!Important]
-    > When you choose **Accept and continue**, you also agree to the terms and conditions of the [Office Store Application Provider Agreement]().
-
-Now you're ready to [submit your solutions](use-partner-center-to-submit-to-appsource.md) via Partner Center.
-
-## See also
-
-- [Submit your Office solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
-
-<!--
-Source content: [Opening a developer account](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account)
-
-1.	Account signup process
-2.	Additional guidelines for company accounts
-3.	MSFT account security
-4.	Closing your accounts
-
--->
 
