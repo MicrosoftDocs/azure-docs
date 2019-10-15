@@ -17,15 +17,13 @@ ms.author: magoedte
 
 # Manage access to log data and workspaces in Azure Monitor
 
-Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
-This article explains how to manage access to logs and to administer the workspaces that contain them, including:
+This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
-* How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
-
-* How to grant access to the workspace using workspace permissions.
-
-* How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
+* The workspace using workspace permissions.
+* Users who need access to log data from specific resources using Azure role-based access control (RBAC).
+* Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 ## Configure access control mode
 
@@ -145,15 +143,15 @@ The Log Analytics Reader role includes the following Azure actions:
 
 Members of the *Log Analytics Contributor* role can:
 
-* Read all monitoring data as Log Analytics Reader can
-* Creating and configuring Automation accounts
-* Adding and removing management solutions
+* Read all monitoring data the Log Analytics Reader can
+* Create and configure Automation accounts
+* Add and remove management solutions
 
     > [!NOTE]
     > In order to successfully perform the last two actions, this permission needs to be granted at the resource group or subscription level.
 
-* Reading storage account keys
-* Configure collection of logs from Azure Storage
+* Read storage account keys
+* Configure the collection of logs from Azure Storage
 * Edit monitoring settings for Azure resources, including
   * Adding the VM extension to VMs
   * Configuring Azure diagnostics on all Azure resources

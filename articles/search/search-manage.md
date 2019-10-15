@@ -49,7 +49,7 @@ In terms of general information about your service, you can obtain information i
 
 * In the portal, on the service dashboard, through notifications, properties, and status messages.
 * Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services), or status on index resource usage.
-* Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
+
 
 <a id="sub-5"></a>
 

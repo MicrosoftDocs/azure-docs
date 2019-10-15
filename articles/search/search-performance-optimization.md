@@ -90,11 +90,6 @@ If you are using the Azure Cognitive Search REST API to [push content in your Az
 
    ![Cross-tab of services by region, with central Traffic Manager][3]
 
-## Monitor performance
-Azure Cognitive Search offers the ability to analyze and monitor the performance of your service through [search traffic analytics](search-traffic-analytics.md). When you enable this functionality and add instrumentation to your client app, you can optionally log the individual search operations as well as aggregated metrics to an Azure Storage account that can then be processed for analysis or visualized in Power BI. Metrics captures this way provide performance statistics such as average number of queries or query response times. In addition, the operation logging allows you to drill into details of specific search operations.
-
-Traffic analytics is useful for understanding latency rates from that Azure Cognitive Search perspective. Since the query performance metrics logged are based on the time a query takes to be fully processed in Azure Cognitive Search (from the time it is requested to when it is sent out), you are able to use this to determine if latency issues are from the Azure Cognitive Search service side or outside of the service, such as from network latency.  
-
 ## Next steps
 To learn more about the pricing tiers and services limits for each one, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
 

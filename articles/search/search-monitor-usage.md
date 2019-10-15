@@ -54,7 +54,6 @@ The following table compares options for storing logs and adding in-depth monito
 
 | Resource | Used for |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Logged events and query metrics, based on the schemas below, correlated with user events in your app. This is the only solution that takes user actions or signals into account, mapping events from user-initiated search, as opposed to filter requests submitted by application code. To use this approach, copy-paste instrumentation code into your source files to route request information to Application Insights. For more information, see [Search traffic analytics](search-traffic-analytics.md). |
 | [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Log Analytics workspace. You can run queries against a workspace to return detailed information from the log. For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view file contents.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
@@ -132,7 +131,7 @@ Metrics are captured for query requests.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource id |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource ID |
 | metricName |string |"Latency" |the name of the metric |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |the operation's timestamp |
 | average |int |64 |The average value of the raw samples in the metric time interval |
