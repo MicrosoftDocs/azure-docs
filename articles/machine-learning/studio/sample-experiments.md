@@ -1,7 +1,7 @@
 ---
 title: Kickstart your experiments from examples
-titleSuffix: Azure Machine Learning Studio
-description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio @Classic@
+description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio @Classic@.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,11 +12,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
 ---
-# Create Azure Machine Learning Studio experiments from working examples in Azure AI Gallery
+# Create Azure Machine Learning Studio @Classic@ experiments from working examples in Azure AI Gallery
 
 Learn how to start with example experiments from [Azure AI Gallery](https://gallery.azure.ai/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
-The gallery has example experiments by the Microsoft Azure Machine Learning Studio team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
+The gallery has example experiments by the Microsoft Azure Machine Learning Studio @Classic@ team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -39,17 +39,17 @@ To browse all experiments:
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/sample-experiments/search-for-experiments.png)
 4. Click an experiment to learn more about it.
-5. To run and/or modify the experiment, click **Open in Studio** on the experiment's page. <br></br>
+5. To run and/or modify the experiment, click **Open in Studio @Classic@** on the experiment's page. <br></br>
 
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
 ## Create a new experiment using an example as a template
-You also can create a new experiment in Machine Learning Studio using a Gallery example as a template.
+You also can create a new experiment in Machine Learning Studio @Classic@ using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the example content and click one.
 
-A new experiment is created in your Machine Learning Studio workspace using the example experiment as a template.
+A new experiment is created in your Machine Learning Studio @Classic@ workspace using the example experiment as a template.
 
 ## Next steps
 * [Import data from various sources](import-data.md)

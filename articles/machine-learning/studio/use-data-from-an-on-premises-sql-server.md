@@ -1,7 +1,7 @@
 ---
 title: On-premises SQL Server
-titleSuffix: Azure Machine Learning Studio
-description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio @Classic@
+description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning Studio @Classic@.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,13 +12,13 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
 ---
-# Perform analytics with Azure Machine Learning Studio using an on-premises SQL Server database
+# Perform analytics with Azure Machine Learning Studio @Classic@ using an on-premises SQL Server database
 
-Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs.
+Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio @Classic@ now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio @Classic@ can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
 This article provides an overview of how to ingress on-premises SQL
-server data into Azure Machine Learning Studio. It assumes that you're familiar
-with Studio concepts like workspaces, modules, datasets,
+server data into Azure Machine Learning Studio @Classic@. It assumes that you're familiar
+with Studio @Classic@ concepts like workspaces, modules, datasets,
 experiments, *etc.*.
 
 > [!NOTE]
@@ -34,8 +34,8 @@ experiments, *etc.*.
 
 
 ## Install the Data Factory Self-hosted Integration Runtime
-To access an on-premises SQL Server database in Azure Machine Learning Studio, you need
-to download and install the Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio, you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
+To access an on-premises SQL Server database in Azure Machine Learning Studio @Classic@, you need
+to download and install the Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio @Classic@, you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
 gateway** dialog described below.
 
 
@@ -57,13 +57,13 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 * You configure an IRs for only one workspace at a time. Currently, IRs can’t be shared across workspaces.
 * You can configure multiple IRs for a single workspace. For example, you may want to use an IR that's connected to your test data sources during development and a production IR when you're ready to operationalize.
 * The IR does not need to be on the same machine as the data source. But staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the IR on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
-* If you already have an IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning Studio on another computer.
+* If you already have an IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning Studio @Classic@ on another computer.
 
   > [!NOTE]
   > You can't run Data Factory Self-hosted Integration Runtime and Power BI Gateway on the same computer.
   >
   >
-* You need to use the Data Factory Self-hosted Integration Runtime for Azure Machine Learning Studio even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Factory Self-hosted Integration Runtime to establish connectivity between Machine Learning and the data source.
+* You need to use the Data Factory Self-hosted Integration Runtime for Azure Machine Learning Studio @Classic@ even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Factory Self-hosted Integration Runtime to establish connectivity between Machine Learning and the data source.
 
 You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
@@ -87,7 +87,7 @@ The first step is to create and set up the gateway to access your
 on-premises SQL database.
 
 1. Log in to [Azure Machine Learning
-    Studio](https://studio.azureml.net/Home/) and select the workspace
+    Studio @Classic@](https://studio.azureml.net/Home/) and select the workspace
     that you want to work in.
 2. Click the **SETTINGS** blade on the left, and then click the **DATA
     GATEWAYS** tab at the top.
@@ -136,7 +136,7 @@ on-premises SQL database.
 
       ![Data Management Gateway Manager](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-      Azure Machine Learning Studio also gets updated when the registration is successful.
+      Azure Machine Learning Studio @Classic@ also gets updated when the registration is successful.
 
     ![Gateway registration successful](./media/use-data-from-an-on-premises-sql-server/gateway-registered.png)
 11. In the **Download and register data gateway** dialog, click the
@@ -167,13 +167,13 @@ on-premises SQL database.
 
     ![Enable verbose logging](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-This completes the gateway setup process in Azure Machine Learning Studio.
+This completes the gateway setup process in Azure Machine Learning Studio @Classic@.
 You're now ready to use your on-premises data.
 
-You can create and set up multiple gateways in Studio for each
+You can create and set up multiple gateways in Studio @Classic@ for each
 workspace. For example, you may have a gateway that you want to connect
 to your test data sources during development, and a different gateway
-for your production data sources. Azure Machine Learning Studio gives you the
+for your production data sources. Azure Machine Learning Studio @Classic@ gives you the
 flexibility to set up multiple gateways depending upon your corporate
 environment. Currently you can’t share a gateway between workspaces and
 only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
@@ -182,11 +182,11 @@ only one gateway can be installed on a single computer. For more information, se
 After you set up the gateway, you can add an **Import Data** module to
 an experiment that inputs the data from the on-premises SQL Server database.
 
-1. In Machine Learning Studio, select the **EXPERIMENTS** tab, click
+1. In Machine Learning Studio @Classic@, select the **EXPERIMENTS** tab, click
    **+NEW** in the lower-left corner, and select **Blank Experiment**
    (or select one of several sample experiments available).
 2. Find and drag the **Import Data** module to the experiment canvas.
-3. Click **Save as** below the canvas. Enter "Azure Machine Learning Studio
+3. Click **Save as** below the canvas. Enter "Azure Machine Learning Studio @Classic@
    On-Premises SQL Server Tutorial" for the experiment name, select the
    workspace, and click the **OK** check mark.
 
@@ -207,7 +207,7 @@ an experiment that inputs the data from the on-premises SQL Server database.
 
    ![Enter database credentials](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   The message "values required" changes to "values set" with a green check mark. You only need to enter the credentials once unless the database information or password changes. Azure Machine Learning Studio uses the certificate you provided when you installed the gateway to encrypt the credentials in the cloud. Azure never stores on-premises credentials without encryption.
+   The message "values required" changes to "values set" with a green check mark. You only need to enter the credentials once unless the database information or password changes. Azure Machine Learning Studio @Classic@ uses the certificate you provided when you installed the gateway to encrypt the credentials in the cloud. Azure never stores on-premises credentials without encryption.
 
    ![Import Data module properties](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Click **RUN** to run the experiment.

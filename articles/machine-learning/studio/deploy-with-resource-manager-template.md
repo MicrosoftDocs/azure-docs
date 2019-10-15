@@ -1,7 +1,7 @@
 ---
-title: Deploy Studio workspace with Azure Resource Manager
-titleSuffix: Azure Machine Learning Studio
-description: How to deploy a workspace for Azure Machine Learning Studio using Azure Resource Manager template
+title: Deploy Studio @Classic@ workspace with Azure Resource Manager
+titleSuffix: Azure Machine Learning Studio @Classic@
+description: How to deploy a workspace for Azure Machine Learning Studio @Classic@ using Azure Resource Manager template
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,14 +12,14 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
 ---
-# Deploy Azure Machine Learning Studio Workspace Using Azure Resource Manager
+# Deploy Azure Machine Learning Studio @Classic@ Workspace Using Azure Resource Manager
 
-Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Studio Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Studio Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Studio @Classic@ Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Studio @Classic@ Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Step-by-step: create a Machine Learning Workspace
-We will create an Azure resource group, then deploy a new Azure storage account and a new Azure Machine Learning Studio Workspace using a Resource Manager template. Once the deployment is complete, we will print out important information about the workspaces that were created (the primary key, the workspaceID, and the URL to the workspace).
+We will create an Azure resource group, then deploy a new Azure storage account and a new Azure Machine Learning Studio @Classic@ Workspace using a Resource Manager template. Once the deployment is complete, we will print out important information about the workspaces that were created (the primary key, the workspaceID, and the URL to the workspace).
 
 ### Create an Azure Resource Manager template
 
@@ -132,7 +132,7 @@ Another way to retrieve tokens of existing workspace is to use the Invoke-AzReso
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning Studio](https://aka.ms/amlps).
+After the workspace is provisioned, you can also automate many Azure Machine Learning Studio @Classic@ tasks using the [PowerShell Module for Azure Machine Learning Studio @Classic@](https://aka.ms/amlps).
 
 ## Next steps
 

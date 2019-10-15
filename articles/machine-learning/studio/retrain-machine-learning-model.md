@@ -1,7 +1,7 @@
 ---
 title: Retrain and deploy a web service
-titleSuffix: Azure Machine Learning Studio
-description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio @Classic@
+description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio @Classic@.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -14,9 +14,9 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
-Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio. If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
+Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio @Classic@. If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
 
-This article assumes you already have a predictive web service deployed. If you don't already have a predictive web service, [learn how to deploy a Studio web service here.](publish-a-machine-learning-web-service.md)
+This article assumes you already have a predictive web service deployed. If you don't already have a predictive web service, [learn how to deploy a Studio @Classic@ web service here.](publish-a-machine-learning-web-service.md)
 
 You'll follow these steps to retrain and deploy a machine learning new web service:
 
@@ -54,7 +54,7 @@ For this example, we're using C# to create the retraining application. You can a
 
 Use the following steps to call the retraining APIs:
 
-1. Create a C# console application in Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+1. Create a C# console application in Visual Studio @Classic@: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 1. Sign in to the Machine Learning Web Services portal.
 1. Click the web service that you're working with.
 1. Click **Consume**.

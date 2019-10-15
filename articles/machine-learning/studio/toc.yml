@@ -1,9 +1,9 @@
-- name: Machine Learning Studio Documentation 
+- name: Machine Learning Studio @Classic@ Documentation 
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Machine Learning Studio
+  - name: Machine Learning Studio @Classic@
     displayName: overview
     href: what-is-ml-studio.md
   - name: Compare our ML products
@@ -153,11 +153,11 @@
       href: azure-ml-customer-churn-scenario.md
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
-    - name: Migrate analytics from Excel to Studio
+    - name: Migrate analytics from Excel to Studio @Classic@
       href: linear-regression-in-azure.md
   - name: Delete & export customer data
     items:
-    - name: Studio data
+    - name: Studio @Classic@ data
       displayName: export
       href: export-delete-personal-data-dsr.md
     - name: Gallery data

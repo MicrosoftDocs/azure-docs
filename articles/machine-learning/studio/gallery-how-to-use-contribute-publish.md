@@ -1,6 +1,6 @@
 ---
 title: Azure AI Gallery
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio @Classic@
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning
@@ -21,10 +21,10 @@ The Gallery has a variety of resources that you can use to develop your own anal
 
 The Azure AI Gallery contains a number of different resources that have been contributed by Microsoft and members of the data science community. These include:
 
-* **Experiments** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
+* **Experiments** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio @Classic@. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 * **Tutorials** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 * **Collections** - A collection allows you to group together experiments, APIs, and other Gallery resources that address a specific solution or concept.
-* **Custom Modules** - You can download custom modules into your Studio workspace to use in your own experiments.
+* **Custom Modules** - You can download custom modules into your Studio @Classic@ workspace to use in your own experiments.
 * **Jupyter Notebooks** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
 ## Discover and contribute
@@ -45,24 +45,24 @@ You can contribute **experiments**, **tutorials**, and **collections** to the Ga
 
 ## Download experiments, modules, notebooks
 
-You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio workspace to use in developing your own solutions.
+You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio @Classic@ workspace to use in developing your own solutions.
 
 To download a resource from within the AI Gallery:
 
 1. Open the resource in AI Gallery.
-1. Click **Open in Studio**.
+1. Click **Open in Studio @Classic@**.
 
 ![Open an item from the AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-To download a resource from within Studio:
+To download a resource from within Studio @Classic@:
 
-1. In Studio, select **NEW**.
+1. In Studio @Classic@, select **NEW**.
 1. Select **Module**, **Experiment**, or **Notebook**.
 1. Browse or search to find a Gallery resource.
-1. Point your mouse at the resource, and then select **Open in Studio**.
-    ![Open Gallery experiment from inside Machine Learning Studio](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
+1. Point your mouse at the resource, and then select **Open in Studio @Classic@**.
+    ![Open Gallery experiment from inside Machine Learning Studio @Classic@](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Once the resource is in your workspace, you can customize and use it as you would anything that you create in Studio.
+Once the resource is in your workspace, you can customize and use it as you would anything that you create in Studio @Classic@.
 
 To use an imported custom module:
 
@@ -72,12 +72,12 @@ To use an imported custom module:
 
 ## Contribute experiments
 
-To demonstrate analytics techniques, or to give others a jump-start on their solutions, you can contribute **experiments** you've developed in Studio.
+To demonstrate analytics techniques, or to give others a jump-start on their solutions, you can contribute **experiments** you've developed in Studio @Classic@.
 As others come across your contribution in the Gallery, you can follow the number of views and downloads of your contribution.
 Users can also add comments and share your contributions with other members of the data science community.
 And you can log in with a discussion tool such as Disqus to receive notifications for comments on your contributions.
 
-1. Open your experiment in Studio.
+1. Open your experiment in Studio @Classic@.
 
 1. In the list of actions below the experiment canvas, select **Publish to Gallery**.
 
@@ -96,7 +96,7 @@ And you can log in with a discussion tool such as Disqus to receive notification
    You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
 
    > [!TIP]
-   > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor (such as [Visual Studio Code](https://aka.ms/vscode)), then copy and paste the completed documentation into the text box in the Gallery.
+   > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor (such as [Visual Studio @Classic@ Code](https://aka.ms/vscode)), then copy and paste the completed documentation into the text box in the Gallery.
 
 1. On the **Image Selection** page, choose a thumbnail image for your experiment. The thumbnail image appears at the top of the experiment details page and in the experiment tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or select a stock image from the Gallery.
 
@@ -109,7 +109,7 @@ And you can log in with a discussion tool such as Disqus to receive notification
 
 ### Update your experiment
 
-If you need to, you can make changes to the workflow (modules, parameters, and so on) in an experiment that you published to the Gallery. In Machine Learning Studio, make any changes you'd like to make to the experiment, and then publish again. Your published experiment will be updated with your changes.
+If you need to, you can make changes to the workflow (modules, parameters, and so on) in an experiment that you published to the Gallery. In Machine Learning Studio @Classic@, make any changes you'd like to make to the experiment, and then publish again. Your published experiment will be updated with your changes.
 
 You can change any of the following information for your experiment directly in the Gallery:
 
