@@ -17,6 +17,10 @@ ms.author: diberry
 
 Language understanding provides several types of models. Some models can be used in more than one way. 
 
+## V3 Authoring uses machine teaching
+
+LUIS allows people to easily teach concepts to a machine. The machine can then build models (functional approximations of concepts such as classifiers and extractors) that can be used to power intelligent applications. While LUIS is powered by machine learning, understanding of machine learning is not necessary to use it. Instead, machine teachers communicate concepts to LUIS by showing positive and negative examples of the concept and explaining how a concept should be modeled using other related concepts. Teachers can also improve LUIS's model interactively by identifying and fixing the prediction mistakes. 
+
 ## V3 Authoring model decomposition
 
 LUIS supports _model decomposition_ with the V3 authoring APIs, breaking down the model into smaller parts. This allows you to build your models with confidence in how the various parts are constructed and predicted.
@@ -38,7 +42,7 @@ LUIS supports composite entities with the V2 authoring APIs. This provides simil
 
 ## Intents classify utterances
 
-Intents classify groups of example utterances. The example utterances are used to train the LUIS app. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents.
+An intent classifies example utterances to teach LUIS about the intent. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents.
 
 Consider an app that needs to determine a user's intention to order a book and an app that needs the shipping address for the customer. This app has two intents: `OrderBook` and `ShippingLocation`.
 
@@ -54,14 +58,16 @@ An entity represents a unit of data you want extracted from the utterance.
 
 ### Machine-learned entities
 
-A machine-learned entity is a top-level entity. It can have subcomponents and each subcomponent can have constraints and descriptors. 
+A machine-learned entity is a top-level entity containing subcomponents, which are also machine-learned entities. 
 
-**Use a machine-learned entity to**:
+**Use a machine-learned entity**:
 
-* define a single unit of information within an utterance. 
+* when the subcomponents are needed by the client application
+* to help the machine learning algorithm decompose entities
+
+Each subcomponent can have constraints and descriptors. 
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data.
-
 
 ### Entity subcomponents help extract data
 

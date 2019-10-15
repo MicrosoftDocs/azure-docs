@@ -24,7 +24,9 @@ There are several key types, depending on what service you want to work with and
 
 ## Non-Azure resources for LUIS
 
-When you first start using LUIS, a starter resource is created for you. This resource provides:
+### Starter key
+
+When you first start using LUIS, a **starter key** is created for you. This resource provides:
 
 * free authoring service requests through the LUIS portal or APIs (including SDKs)
 * free 1,000 prediction endpoint requests per month through a browser, API, or SDKs
@@ -33,6 +35,7 @@ When you first start using LUIS, a starter resource is created for you. This res
 
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
 LUIS allows three types of Azure resources: 
  
@@ -40,14 +43,14 @@ LUIS allows three types of Azure resources:
 |--|--|--|--|
 |[Authoring key](#programmatic-key)|Authoring, training, publishing, testing. Create a LUIS authoring key if you intend to programmatically author LUIS apps.<br><br>The purpose of the `LUIS.Authoring` key is to allow you to:<br>* programmatically manage Language Understanding apps and models, including training, and publishing<br> * control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |[Prediction key](#prediction-endpoint-runtime-key)| Query prediction endpoint requests. Create a LUIS prediction key before your client app requests predictions beyond the 1,000 requests provided by the starter resource. |`LUIS`|`Cognitive Services`|
-|[Cognitive Service multi-service resource key](../cognitive-services-apis-create-account-cli?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
+|[Cognitive Service multi-service resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
 
 When the resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app in the LUIS portal.
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
 > [!CAUTION]
-> For convenience, many of the samples use the [Starter key](#starter-prediction-endpoint-runtime-key) because it provides a few free prediction endpoint calls in its [quota](luis-boundaries.md#key-limits).  
+> For convenience, many of the samples use the [Starter key](#starter-key) because it provides a few free prediction endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 
 ### Query prediction resources
@@ -118,6 +121,8 @@ The owner and all contributors have access to author the app.
 |Publish|
 |Review endpoint utterances for [active learning](luis-how-to-review-endpoint-utterances.md)|
 |Train|
+
+<a name="prediction-endpoint-runtime-key"></a>
 
 ### Prediction endpoint runtime access
 

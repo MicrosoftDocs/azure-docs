@@ -24,6 +24,9 @@ Once your app is [published](luis-how-to-publish-app.md), use the development li
 
 Do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using [active learning](luis-concept-review-endpoint-utterances.md). 
 
+
+
+
 ## Do and Don't
 The following list includes best practices for LUIS apps:
 
@@ -31,7 +34,7 @@ The following list includes best practices for LUIS apps:
 |--|--|
 |[Define distinct intents](#do-define-distinct-intents) |[Add many example utterances to intents](#dont-add-many-example-utterances-to-intents) |
 |[Find a sweet spot between too generic and too specific for each intent](#do-find-sweet-spot-for-intents)|[Use LUIS as a training platform](#dont-use-luis-as-a-training-platform)|
-|[Build your app iteratively with versions](#do-build-the-app-iteratively)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Build your app iteratively with versions](#do-build-the-app-iteratively-with-version)|[Add many example utterances of the same format, ignoring other formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Add patterns in later iterations](#do-add-patterns-in-later-iterations)|[Mix the definition of intents and entities](#dont-mix-the-definition-of-intents-and-entities)|
 |[Balance your utterances across all intents](#balance-your-utterances-across-all-intents) except the None intent.<br>[Add example utterances to None intent](#do-add-example-utterances-to-none-intent)|[Create descriptors with all possible values](#dont-create-descriptors-with-all-the-possible-values)|
 |[Leverage the suggest feature for active learning](#do-leverage-the-suggest-feature-for-active-learning)|[Add too many patterns](#dont-add-many-patterns)|
@@ -54,6 +57,8 @@ Consider the following example utterances:
 ## Do find sweet spot for intents
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this flip/flop doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
+<a name="#do-build-the-app-iteratively></a>
+
 ## Do build your app iteratively with versions
 
 Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version. 
@@ -90,6 +95,8 @@ For more information:
 * Concept: [Patterns improve prediction accuracy](luis-concept-patterns.md)
 * How-to: [How to add Patterns to improve prediction accuracy](luis-how-to-model-intent-pattern.md)
 -->
+
+<a name="balance-your-utterances-across-all-intents"></a>
 
 ## Do balance your utterances across all intents
 

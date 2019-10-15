@@ -18,18 +18,22 @@ In machine learning, a *feature* is a distinguishing trait or attribute of data 
 
 ## Features in Language Understanding
 
-Features in Language Understanding include: 
+Features, also known as descriptors, describe clues to help Language Understanding identify the example utterances. Features include: 
 
 * Phrase list as a feature to intents or entities
 * Entities as features to intents or entities
 
 Features should be considered as a necessary part of your schema for model decomposition. 
 
+## What is a phrase list
+
+A phrase list is a list of words, phrases, numbers or other characters that help identify the concept you are trying to identify. The list is case-insensitive. 
+
 ## When to use a phrase list
 
-With a phrase list, LUIS considers context and generalizes to identify items that are similar to, but not an exact text match. If you need your LUIS app to be able to generalize and identify new items in a category, use a phrase list. 
+With a phrase list, LUIS considers context and generalizes to identify items that are similar to, but not an exact text match. If you need your LUIS app to be able to generalize and identify new items, use a phrase list. 
 
-When you want to be able to recognize new instances, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use a machine-learned entity. Then create a phrase list (of words and phrases) that helps LUIS find other words similar to the entity. This phrase list guides LUIS to recognize examples by adding additional significance to the value of those words. 
+When you want to be able to recognize new instances, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, start with a machine-learned entity. Then create a phrase list that helps LUIS find other words similar to the entity. This phrase list guides LUIS to recognize examples by adding additional significance to the value of those words. 
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. 
 
