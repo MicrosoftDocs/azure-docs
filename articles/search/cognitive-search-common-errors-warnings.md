@@ -62,6 +62,7 @@ The document was read and processed, but the indexer could not add it to the sea
 | --- | --- | --- |
 | A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
+| Document contains too many objects in collections | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 
 ### Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.
 One or more of the values passed into the optional `languageCode` input of a downstream skill is not supported. This can occur if you are passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
