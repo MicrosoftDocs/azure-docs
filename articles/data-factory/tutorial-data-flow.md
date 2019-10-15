@@ -1,6 +1,6 @@
 ---
-title: Transform data using a Mapping Data Flow in Azure Data Factory | Microsoft Docs
-description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with Mapping Data Flow
+title: Transform data using a mapping data flow in Azure Data Factory | Microsoft Docs
+description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ---
 
-# Transform data using Mapping Data Flows
+# Transform data using mapping data flows
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using Mapping Data Flow. The configuration pattern in this tutorial can be expanded upon when transforming data using Mapping Data Flow
+In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
 In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create a pipeline with a Data Flow activity.
-> * Build a Mapping Data Flow with four transformations. 
+> * Build a mapping data flow with four transformations. 
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
 
@@ -193,7 +193,7 @@ The pipeline in this tutorial runs a data flow that aggregates the average ratin
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create a pipeline with a Data Flow activity.
-> * Build a Mapping Data Flow with four transformations. 
+> * Build a mapping data flow with four transformations. 
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
 
