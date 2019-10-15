@@ -223,7 +223,7 @@
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Use spot instance
-      href: virtual-machine-scale-sets-use-spot.md
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks
