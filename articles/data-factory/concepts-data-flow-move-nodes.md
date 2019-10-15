@@ -10,7 +10,7 @@ ms.date: 10/04/2018
 
 # Mapping Data Flow Move Nodes
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Aggregate Transformation options](media/data-flow/agghead.png "aggregator header")
 

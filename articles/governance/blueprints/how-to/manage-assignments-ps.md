@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # How to manage assignments with PowerShell
 

@@ -723,7 +723,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
 ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-You may obtain function keys programmatically by using [Key management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### API key authorization
 
@@ -736,8 +736,7 @@ The key can be included in a query string variable named `code`, as above. It ca
 You can allow anonymous requests, which do not require keys. You can also require that the master key be used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#trigger---configuration).
 
 > [!NOTE]
-> When running functions locally, authorization is disabled regardless of the specified authentication level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced.
-
+> When running functions locally, authorization is disabled regardless of the specified authentication level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### Secure an HTTP endpoint in production

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CakeHR | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and CakeHR.
 services: active-directory
@@ -136,11 +136,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your CakeHR company site as an administrator.
 
-2. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
+2. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
 
     ![CakeHR configuration](./media/cakehr-tutorial/config01.png)
 
-3. From the left side of the menu bar, click on **INTEGRATIONS** > **SAML SSO** and perform the following steps:
+3. From the left side of the menu bar, click on **INTEGRATIONS** > **SAML SSO** and perform the following steps:
 
      ![CakeHR configuration](./media/cakehr-tutorial/config02.png)
 
@@ -162,7 +162,7 @@ To enable Azure AD users to sign in to CakeHR, they must be provisioned into Cak
 
 1. Sign in to CakeHR as a Security Administrator.
 
-2. From the left side of the menu bar, click on **COMPANY** > **ADD**.
+2. From the left side of the menu bar, click on **COMPANY** > **ADD**.
 
     ![CakeHR configuration](./media/cakehr-tutorial/config03.png)
 

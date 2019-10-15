@@ -117,6 +117,8 @@ Before the Power BI mobile app can connect and access Report Services, you must 
    When configuring the app for Power BI Mobile **Android**, add the following Redirect URIs of type Public Client (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
    > The Redirect URIs must be added for the application to work correctly. If you are configuring the app for both Power BI Mobile iOS and Android, add the following Redirect URI of type Public Client (Mobile & Desktop) to the list of Redirect URIs configured for iOS: `urn:ietf:wg:oauth:2.0:oob`.
