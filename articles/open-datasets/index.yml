@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: Build a regression model with automated machine learning
             url: tutorial-opendatasets-automl.md
+          - text: Enrich an image classification model in Azure Machine Learning
+            url: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context            
 
 # REFERENCE
   - title: Explore reference content
