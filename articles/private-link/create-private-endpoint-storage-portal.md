@@ -181,6 +181,7 @@ In this section, you will connect privately to the storage account using the Pri
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
+    ```
 3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 4. Select **Storage accounts** with the right-click.
 5. Select **Connect to an azure storage**.
