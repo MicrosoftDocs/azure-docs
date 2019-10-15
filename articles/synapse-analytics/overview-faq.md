@@ -50,8 +50,8 @@ A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an a
 ## Use cases
 ### Q: What is a good use case for SQL Analytics Pool in Synapse
 
-A: SQL Analytics Pool is the heart of your data warehouse needs. It is the leading data warehouse solution in [price/performance](https://azure.microsoft.com/en-us/services/sql-data-warehouse/compare/). SQL Analytics Pool is the industry leading cloud data warehouse solution because you can:
-- serve a large and mixed varieties of workloads without impact in performance thanks to high concurrency and workload isolation
+A: SQL Analytics Pool is the heart of your data warehouse needs. It is the leading data warehouse solution in [price/performance](https://azure.microsoft.com/en-us/services/sql-data-warehouse/compare/). SQL Analytics Pool is the industry-leading cloud data warehouse solution because you can:
+- serve a large and mixed variety of workloads without impact in performance thanks to high concurrency and workload isolation
 - secure your data easily through advanced features ranging from network security to fine-grain access
 - benefit from a wide range of eco-system 
 
@@ -81,7 +81,7 @@ A: End to end single sign-on experience is important in Azure Synapse Analytics.
 
 A: Access to files and folders is currently managed through ADLSg2. An interface in the Synapse Studio will be soon available. For more information, visit the page [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control).
 
-### Q: Can I use third party business intelligence tools to access Azure Synapse Analytics?
+### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics?
 
 A: Yes, you can use your third-party business applications, like Tableau and Power BI, to connect to SQL Analytics pool and SQL Analytics On-Demand. Spark supports IntelliJ.
 
