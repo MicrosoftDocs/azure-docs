@@ -20,15 +20,17 @@ ms.custom: mvc
 ---
 # Tutorial: Use Key Vault references in an ASP.NET Core app
 
-In this tutorial, you learn how to use the Azure App Configuration service together with Azure Key Vault. These are complementary services which are used side by side in most application deployments.
+In this tutorial, you learn how to use the Azure App Configuration service together with Azure Key Vault. App Configuration and Key Vault are complementary services used side by side in most application deployments.
 
-To help you use the services together, App Configuration can create keys that reference values stored in Key Vault. When App Configuration does this, it stores the URI to the Key Vault value rather than the value itself. Your application retrieves the value of this key using the App Configuration client provider, just like it does for any other key stored in App Configuration. The client provider recognizes the key as a Key Vault reference and uses Key Vault to retrieve the value.
+App Configuration helps you use the services together by creating keys that reference values stored in Key Vault. When App Configuration creates such keys, it stores URIs to Key Vault values rather than the values themselves.
+
+Your application uses the App Configuration client provider to retrieve the Key Vault values, just as it does for any other keys stored in App Configuration. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
 
 Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services don't communicate directly.
 
-This tutorial shows how you can implement Key Vault references in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent cross-platform app that's available for the Windows, macOS, and Linux operating systems.
+You can use any code editor to do the steps in this tutorial. For example, [Visual Studio Code](https://code.visualstudio.com/) is a cross-platform code editor that's available for the Windows, macOS, and Linux operating systems.
 
 In this tutorial, you learn how to:
 
@@ -44,14 +46,14 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 ## Create a vault
 
-1. Select the **Create a resource** option in the upper left corner of the Azure portal
+1. Select the **Create a resource** option in the upper-left corner of the Azure portal.
 
     ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
-1. Go to Search and enter **Key Vault**.
+1. In the search box, enter **Key Vault**.
 1. From the results list, select **Key Vault**.
-1. In the **Key Vault** section, select **Create**.
-1. In the **Create key vault** section, provide the following information:
-    - A unique name is required. In the **Name** box, enter **Contoso-vault2**.
+1. On the **Key Vault** pane, select **Create**.
+1. On the **Create key vault** pane, provide the following information:
+    - In the **Name** box, enter **Contoso-vault2**. The name must be unique.
     - In **Subscription**, choose a subscription.
     - Under **Resource Group**, select **Create new** and enter a resource group name.
     - In the **Location** drop-down menu, choose a location.
@@ -64,7 +66,7 @@ At this point, your Azure account is the only one authorized to access this new 
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message** and you store the value of **Hello from Key Vault** in it.
+To add a secret to the vault, you need to take just a few additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message**, and you store the value "Hello from Key Vault" in it.
 
 1. On the **Key Vault** properties pages, select **Secrets**.
 1. Select **Generate/Import**.
@@ -77,13 +79,13 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 ## Add a Key Vault reference to App Configuration
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
 1. Select **Configuration Explorer**.
 
 1. Select **+ Create** > **Key vault reference**, and then enter or select the following values:
     - **Key**: Select **TestApp:Settings:KeyVaultMessage**.
-    - **Label**: Leave blank.
+    - **Label**: Leave this value blank.
     - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to those in the key vault you created in the previous section.
     - **Secret**: Select the secret named **Message** that you created in the previous section.
 
@@ -95,7 +97,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
     ```
 
-    This operation will return the following series of key/value pairs:
+    This operation returns the following series of key/value pairs:
 
     ```console
     {
@@ -118,7 +120,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Add secrets for *clientId* and *clientSecret* to Secrets Manager. These commands must be executed in the same directory as the *.csproj* file.
+1. In the following commands, add secrets in place of *clientId* and *clientSecret* to Secrets Manager. The commands must be run in the same directory as the *.csproj* file.
 
     ```
     dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
@@ -130,14 +132,14 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 ## Update your code to use a Key Vault reference
 
-1. Open *Program.cs*, and add references to the required packages.
+1. Open *Program.cs*, and add references to the following required packages:
 
     ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `UseAzureKeyVault` option, passing in a new `KeyVaultClient` reference to your Key Vault.
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `UseAzureKeyVault` option to pass in a new `KeyVaultClient` reference to your Key Vault.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -160,7 +162,9 @@ To add a secret to the vault, you just need to take a couple of additional steps
             .UseStartup<Startup>();
     ```
 
-1. After you've passed the `KeyVaultClient` reference to the `UseAzureKeyVault` method when initializing the connection to App Configuration, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys. To see this process in action, open *Index.cshtml* in the **Views** > **Home** directory. Replace its contents with the following code:
+1. When you initialized the connection to App Configuration, you passed the `KeyVaultClient` reference to the `UseAzureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
+
+    To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -180,7 +184,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    You access the value of the Key Vault reference "TestApp:Settings:KeyVaultMessage" in the same way as the configuration value for "TestApp:Settings:Message".
+    You access the value of the Key Vault reference **TestApp:Settings:KeyVaultMessage** in the same way as for the configuration value of **TestApp:Settings:Message**.
 
 ## Build and run the app locally
 
@@ -190,16 +194,15 @@ To add a secret to the vault, you just need to take a couple of additional steps
     dotnet build
     ```
 
-2. After the build is successfully completed, run the following command to run the web app locally:
+1. After the build is successfully completed, use the following command to run the web app locally:
 
     ```
     dotnet run
     ```
 
-3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+1. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
-    ![Quickstart app launch local](./media/key-vault-reference-launch-local.png)
-
+    ![Quickstart local app launch](./media/key-vault-reference-launch-local.png)
 
 ## Clean up resources
 
@@ -207,7 +210,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+In this tutorial, you added an Azure-managed service identity to streamline access to App Configuration and to improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
