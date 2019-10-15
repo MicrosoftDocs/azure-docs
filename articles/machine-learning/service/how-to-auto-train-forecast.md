@@ -13,6 +13,7 @@ ms.date: 06/20/2019
 ---
 
 # Auto-train a time-series forecast model
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
 

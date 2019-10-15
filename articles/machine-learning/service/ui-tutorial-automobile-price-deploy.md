@@ -13,6 +13,8 @@ ms.date: 07/11/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the designer
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 

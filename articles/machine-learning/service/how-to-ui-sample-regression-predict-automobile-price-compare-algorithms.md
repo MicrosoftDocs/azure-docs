@@ -13,6 +13,7 @@ ms.date: 05/10/2019
 ---
 
 # Sample 2 - Regression: Predict price and compare algorithms
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a complex machine learning experiment without writing a single line of code using the designer. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
 

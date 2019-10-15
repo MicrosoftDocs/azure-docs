@@ -13,6 +13,7 @@ ms.date: 09/25/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both Azure Machine Learning studio and the SDK.
 
@@ -21,7 +22,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Clone the tutorials notebook to your folder in the workspace.
-> * Create a cloud-based Jupyter notebook VM with Azure Machine Learning Python SDK installed and pre-configured.
+> * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -68,11 +69,9 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
 
-1. On the top bar, select a Notebook VM to use to run the notebook. These VMs are pre-configured with everything you need to run Azure Machine Learning. You can select a VM created by any user of your workspace. 
+1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with everything you need to run Azure Machine Learning. You can select a VM created by any user of your workspace. 
 
-1. If no VMs are found, select **+ New VM** to create the VM.
-
-    ![Create a VM](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+1. If no VMs are found, select **+ Add Compute** to create the VM.
 
     1. When you create a VM, provide a name.  The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
 

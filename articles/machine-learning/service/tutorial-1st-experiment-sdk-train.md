@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train your first ML model"
+title: "Tutorial: Train your first Azure ML model in Python"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
@@ -13,6 +13,8 @@ ms.date: 09/03/2019
 ---
 
 # Tutorial: Train your first ML model
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
@@ -191,15 +193,7 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-If you used a compute instance, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Compute**.
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

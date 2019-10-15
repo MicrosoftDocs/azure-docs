@@ -10,13 +10,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/22/2019
+ms.date: 10/15/2019
 
 ---
 
 # Create and access datasets (preview) in Azure Machine Learning
 
-In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+In this article, you learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
 With Azure Machine Learning datasets, you can:
 
@@ -43,7 +45,7 @@ To create and work with datasets, you need:
 
 Datasets are categorized into two types based on how users consume them in training.
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or spark DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
 
 * [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public urls. This provides you with the ability to download or mount the files to your compute. The files can be of any format, which enables a wider range of machine learning scenarios including deep learning.
 
@@ -51,11 +53,13 @@ To find out more about upcoming API changes, see [here](https://aka.ms/tabular-d
 
 ## Create datasets
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred. Both TabularDatasets and FileDatasets can be created using the Python SDK or workspace landing page (preview). 
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
 
-To create Datasets from an [Azure datastore](how-to-access-data.md):
+### Using the SDK
+
+To create Datasets from an [Azure datastore](how-to-access-data.md) using the Python SDK:
 
 * Verify you have `contributor` or `owner` access to the registered Azure datastore.
 
@@ -75,11 +79,9 @@ workspace = Workspace.from_config()
 datastore = Datastore.get(workspace, datastore_name)
 ```
 
-### Create TabularDatasets
+#### Create a TabularDataset
 
-TabularDatasets can be created via the SDK or by using Azure Machine Learning studio. A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time.
-
-#### Using the SDK
+TabularDatasets can be created via the SDK or by using Azure Machine Learning studio. A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a time series trait, which allows for easy and efficient filtering by time.
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -116,10 +118,13 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](https://aka.ms/azureml-tsd-notebook).
+
+In TabularDatasets a timestamp can be specified from a column in the data or the path pattern data is stored in to enable a time series trait, which allows for easy and efficient filtering by time.
+
+Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to specify your time stamp column and enable filtering by time. More examples and details can be found [here](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
-# create a TabularDataset with timeseries trait
+# create a TabularDataset with time series trait
 datastore_paths = [(datastore, 'weather/*/*/*/data.parquet')]
 
 # get a coarse timestamp column from the path pattern
@@ -128,24 +133,14 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods
+# filter with time-series-trait-specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Using the Azure Machine Learning studio
-
-Sign in to [Azure Machine Learning studio](https://ml.azure.com) to create a dataset via the web experience. Currently, the studio only supports the creation of TabularDatasets.
-
-The following animation shows how to create a dataset in the studio.
-
-First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
-
-![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-### Create FileDatasets
+#### Create a FileDataset
 
 Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
 
@@ -165,6 +160,20 @@ web_paths = [
            ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+
+#### On the web 
+The following steps and animation shows how to create a dataset in the Azure Machine Learning studio, https://ml.azure.com.
+
+![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
+To create a dataset in the studio:
+1. Sign in at https://ml.azure.com.
+1. Select **Datasets** in the **Assets** section of the left pane. 
+1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls.
+1. Select **Tabular** or **File** for Dataset type.
+1. Select **Next** to review the **Settings and preview** and the **Schema** forms; they are intelligently populated based on file type. 
+    Use these forms to further configure your dataset prior to creation.  
+1. Select **Done** to complete your dataset creation.
 
 ## Register datasets
 

@@ -13,6 +13,7 @@ ms.date: 05/10/2019
 ---
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a complex machine learning experiment without writing a single line of code using the designer.
 

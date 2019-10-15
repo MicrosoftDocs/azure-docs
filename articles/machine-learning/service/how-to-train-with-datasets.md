@@ -15,6 +15,7 @@ ms.date: 09/25/2019
 ---
 
 # Train with datasets (preview) in Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in remote experiment training runs without worrying about connection strings or data paths.
 

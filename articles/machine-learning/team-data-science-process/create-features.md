@@ -31,8 +31,6 @@ To create features for data in specific environments, see the following articles
 * [Create features for data in SQL Server](create-features-sql-server.md)
 * [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Create features from your data - feature engineering
 The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
 

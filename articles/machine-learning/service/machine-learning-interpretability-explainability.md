@@ -14,6 +14,7 @@ ms.date: 06/21/2019
 ---
 
 # Model interpretability with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to explain why your model made the predictions it did with the various interpretability packages of the Azure Machine Learning Python SDK.
 

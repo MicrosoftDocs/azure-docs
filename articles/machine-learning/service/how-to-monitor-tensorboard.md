@@ -12,6 +12,7 @@ ms.date: 06/28/2019
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
@@ -28,7 +29,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
 * The code in this how-to can be run in either of the following environments: 
 
-    * Azure Machine Learning Notebook VM - no downloads or installation necessary
+    * Azure Machine Learning compute instance - no downloads or installation necessary
 
         * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 

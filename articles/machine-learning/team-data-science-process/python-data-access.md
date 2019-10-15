@@ -22,8 +22,6 @@ This topic provides instructions on how to:
 * access intermediate datasets from experiments
 * use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## <a name="prerequisites"></a>Prerequisites
 The Python client library has been tested under the following environments:
 

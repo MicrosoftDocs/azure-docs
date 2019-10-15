@@ -31,7 +31,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 ## Launch Jupyter web interface
 
-1. On your workspace page in Azure Machine Learning studio, select **Notebook VMs** on the left.
+1. On your workspace page in Azure Machine Learning studio, select **Compute** on the left.
 
 1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
 
@@ -41,7 +41,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
 
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
+   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the compute instance itself.  If you delete the compute instance, you'll still keep all your work.  When you create a new compute instance later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
 1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
@@ -193,19 +193,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the notebook VM
+### Stop the compute instance
 
-If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
-
-1. In your workspace, select **Notebook VMs**.
-
-   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. From the list, select the VM.
-
-1. Select **Stop**.
-
-1. When you're ready to use the server again, select **Start**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

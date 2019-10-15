@@ -51,7 +51,7 @@ You can use Azure Machine Learning Compute for training and for batch inferencin
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
 
-You can create Azure Machine Learning Compute instances in your workspace in [In Azure Machine Learning studio](https://ml.azure.com), with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
+You can create Azure Machine Learning Compute clusters in your workspace in [In Azure Machine Learning studio](https://ml.azure.com), with the SDK, or with the CLI. When created it is automatically part of your workspace unlike other kinds of compute targets.
 
 ## Unmanaged compute
 

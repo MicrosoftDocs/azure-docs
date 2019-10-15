@@ -13,6 +13,7 @@ ms.date: 05/10/2019
 ---
 
 # Sample 1 - Regression: Predict price
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning regression model without writing a single line of code using the designer.
 
