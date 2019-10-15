@@ -26,7 +26,7 @@ For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage o
 Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-local.md) tutorial before you do this tutorial. 
 
 > [!NOTE]
-> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled"`. 
+> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled"`. If you followed the prerequisite tutorial, it should be already set. 
 
 
 ## Select your IoT Edge device
