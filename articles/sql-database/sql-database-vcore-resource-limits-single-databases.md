@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 08/29/2019
+ms.date: 10/14/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model
 
@@ -122,6 +122,31 @@ You can set the service tier, compute size, and storage amount for a single data
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+### Fsv2-series compute generation (preview)
+
+|Compute size|GP_Fsv2_72|
+|:--- | --: |
+|Compute generation|Fsv2-series|
+|vCores|72|
+|Memory (GB)|136|
+|??Columnstore support|??|
+|In-memory OLTP storage (GB)|N/A|
+|Max data size (GB)|4096|
+|Max log size (GB)|1024|
+|TempDB max data size (GB)|333|
+|??Storage type|??Remote SSD??|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
+|??Max data IOPS (??64 KB??)|36000|
+|??Max log rate (??MBps??)|30|
+|Max concurrent workers (requests)|3600|
+|Max concurrent sessions|30000|
+|??Number of replicas|1|
+|??Multi-AZ|N/A|
+|??Read Scale-out|N/A|
+|??Included backup storage|1X DB size|
+
+
 
 ## General Purpose service tier for serverless compute
 
@@ -275,6 +300,32 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+
+### M-series compute generation (preview)
+
+|Compute size|GP_M_128|
+|:--- | --: |
+|Compute generation|M-series|
+|vCores|128|
+|Memory (GB)|3767|
+|??Columnstore support|??|
+|In-memory OLTP storage (GB)|481|
+|Max data size (GB)|4096|
+|Max log size (GB)|2048|
+|TempDB max data size (GB)|4096|
+|??Storage type|??Remote SSD??|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
+|??Max data IOPS (??64 KB??)|204800|
+|??Max log rate (??MBps??)|192|
+|Max concurrent workers (requests)|12800|
+|Max concurrent sessions|30000|
+|??Number of replicas|1|
+|??Multi-AZ|N/A|
+|??Read Scale-out|N/A|
+|??Included backup storage|1X DB size|
+
+
 
 ## Hyperscale service tier for provisioned compute
 

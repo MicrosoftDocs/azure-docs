@@ -21,29 +21,33 @@
       items: 
       - name: Overview 
         href: sql-database-purchase-models.md
-      - name: vCore-based model
+      - name: vCore model
         href: sql-database-service-tiers-vcore.md
         items:
-        - name: Serverless compute tier
+        - name: Serverless
           href: sql-database-serverless.md
-        - name: Prepay for reserved capacity
+        - name: Azure Hybrid Benefit
+          href: sql-database-azure-hybrid-benefit.md
+        - name: Reserved capacity
           href: sql-database-reserved-capacity.md
-      - name: DTU service tiers
+      - name: DTU model
         href: sql-database-service-tiers-dtu.md
+      - name: Migrate from DTU to vCore
+        href: sql-database-dtu-to-vcore.md
     - name: Compute & storage
       items:
       - name: Overview
         href: sql-database-service-tiers-general-purpose-business-critical.md
         displayName: provisioned compute tier  
-      - name: General purpose / Standard service tiers
+      - name: General purpose / Standard
         href: sql-database-service-tier-general-purpose.md
-      - name: Business critical / Premium service tiers
+      - name: Business critical / Premium
         href: sql-database-service-tier-business-critical.md
-      - name: Hyperscale service tier
+      - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
-      - name: Migrate from Premium RS service tier
+      - name: Migrate from Premium RS
         href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
