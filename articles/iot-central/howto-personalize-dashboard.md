@@ -51,4 +51,4 @@ You can edit your personal dashboards and delete those you no longer need:
 Now that you've learned how to create and manage personal dashboards, you can:
 
 > [!div class="nextstepaction"]
-> [Learn how to manage your application preferences](howto-manage-preferences.md)
+> [Learn how to manage your personal application preferences](howto-manage-preferences.md)
