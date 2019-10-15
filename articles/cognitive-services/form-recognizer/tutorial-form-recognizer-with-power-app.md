@@ -19,13 +19,17 @@ In this tutorial, you create a Flow in PowerApps that uses Form Recognizer from 
 Here's what this tutorial covers:
 
 > [!div class="checklist"]
-> * Get Azure subscription keys
-> * Set up your development environment and install dependencies
-> * Create a Flask app
-> * Use the Translator Text API to translate text
-> * Use Text Analytics to analyze positive/negative sentiment of input text and translations
-> * Use Speech Services to convert translated text into synthesized speech
+> * Request access for Form Recognizer
+> * Meet the prerequisites
+> * Create an Azure Storage blob container
+> * Upload sample data to the Azure blob container
+> * Create a Form Recognizer resource
+> * Create a Flow in PowerApps
 > * Run your Flask app locally
+
+## Understand the scenario
+
+TBD 
 
 ## Request access for Form Recognizer
 
@@ -50,6 +54,8 @@ You use this container to upload sample data that is required to train the model
 
 Download the sample data that we use in this tutorial from [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Upload this sample data to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) on how to upload data to a container.
 
+
+
 Copy the URL to the container. You will need this later in this tutorial. If you created the storage account and the container with the same names as listed in this tutorial, the URL will be *https://formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
 ## Create a Form Recognizer resource
@@ -58,7 +64,15 @@ Copy the URL to the container. You will need this later in this tutorial. If you
 
 ## Create a Flow in PowerApps using Form Recognizer
 
-You can use Microsoft Flow to create logic that performs one or more tasks when an event occurs. In this tutorial, you create a flow that is triggered by uploading a reciept that you want to analyze.
+You can use Microsoft Flow to create logic that performs one or more tasks when an event occurs. In this tutorial, you create a flow that is triggered by uploading a reciept that you want to analyze. In this flow, you will perform the following tasks:
+* Configure the flow to trigger manually when you upload a receipt.
+* Configure the flow to use a Form Recognizer **Train Model** operation to train a model using the sample data that you uploaded to the Azure blob storage.
+* Configure the flow to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the receipt that you provide to this flow based on the model that it trained earlier.
+* Delete the model.
+
+Let's start!
+
+### Create a Flow 
 
 1. Sign in to [PowerApps](http://www.web.powerapps.com).
 
@@ -86,18 +100,44 @@ You can use Microsoft Flow to create logic that performs one or more tasks when 
     > [!div class="mx-imgBorder"]
     > ![Enter Flow name](media/tutorial-form-recognizer-with-power-app/name-file-input.png)
 
-1. Select **New step**, and under **Choose an action**, select **Form Recognizer**. Under the actions that are available for Form Recognizer, select **Train Model**.
+### Configure the flow to use Form Recognizer Train Model operation
+
+Before you can use the Form Recognizer service to analyze receipts, you need to train a model by providing it some sample receipts data that the model can analyze and learn from.
+
+1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Train Model**.
 
     ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/add-form-recognizer-flow.png)
 
-1. Before you can use the Form Recognizer service to analyze receipts, you need to train a model by providing it some sample receipts data that the model can analyze and learn from. So, under the **Train Model** step, for **Source**, enter the URL for the container where you uploaded the sample data, and then select **Save**.
+1. In the **Train Model** dialog box, for **Source**, enter the URL for the container where you uploaded the sample data, and then select **Save**.
 
     > [!div class="mx-imgBorder"]
     > ![Enter Flow name](media/tutorial-form-recognizer-with-power-app/source-for-train-model.png)
 
-1. Once the model is trained, you can now use the model to analyze the receipt. To analyze the receipt, you need to 
+1. Click **Save**.
 
-## Integrate Form Recognizer in Flow
+### Configure the flow to use the Form Recognizer Analyze Form operation
+
+In this section, you add the **Analyze Form** operation to the flow. This operation use the already trained model to anlayze a new receipt that is provided to flow.
+
+1.  Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
+
+    ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/add-form-flow-analyze-form.png)
+
+1. In the **Analyze Form** dialog box, do the following:
+
+    1. Click the **Model ID** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **modelId**. By doing this you provide the flow application with the model ID of the model you trained in the last section.
+
+        ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/analyze-form-model-id.png)
+
+    2. Click the **Document** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **Input Data**. By doing this you configure the flow to use the sample receipt file that is used to trigger this flow. 
+
+        ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/analyze-form-input-data.png)
+
+1. Click **Save**.
+
+### Extract the table information from the receipt
+
+### Delete the model
 
 ## Test your Flow
 
