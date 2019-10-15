@@ -5,7 +5,8 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
