@@ -66,6 +66,8 @@
     href: how-to-set-up-appliance-vmware.md
   - name: Deploy a Hyper-V appliance
     href: how-to-set-up-appliance-hyper-v.md
+  - name: Discover applications, roles and features
+    href: how-to-discover-applications.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
@@ -73,7 +75,7 @@
   - name: Group machines for assessment
     href: how-to-create-a-group.md
   - name: Group machines using dependency visualization
-    href: how-to-create-group-machine-dependencies.md 
+    href: how-to-create-group-machine-dependencies.md
   - name: Create an assessment
     href: how-to-create-assessment.md
   - name: Assess a SQL Server database
