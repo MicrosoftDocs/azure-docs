@@ -11,7 +11,7 @@
   - name: Regression with automated machine learning
     href: tutorial-opendatasets-automl.md
   - name: Enrich an image classification model
-    href: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context
+    href: /azure/machine-learning/service/tutorial-train-models-with-aml.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
 - name: How-to guides 
   items:   
   - name: Datasets in Azure Machine Learning
