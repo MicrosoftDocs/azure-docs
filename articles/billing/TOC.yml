@@ -126,7 +126,7 @@
   - name: Edit profile
     href: billing-how-to-change-azure-account-profile.md
   - name: Open banking and strong customer authentication
-    href: billing-open-banking-strong-customer-authentication.md 
+    href: billing-open-banking-strong-customer-authentication.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Grant access to billing
@@ -195,8 +195,6 @@
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create additional subscription
     href: billing-create-subscription.md
-  - name: Create additional subscription - Microsoft Customer Agreement
-    href: billing-mca-create-subscription.md
   - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
