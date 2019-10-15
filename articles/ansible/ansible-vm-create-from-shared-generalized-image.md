@@ -22,10 +22,10 @@ ms.date: 10/14/2019
 >
 > * Create a generalized VM and custom image
 > * Create a Shared Image Gallery
-> * Create a Shared Image and Image Version
+> * Create a shared image and image version
 > * Create a VM using the generalized image
 > * Create a virtual machine scale set using the generalized image
-> * Get information about your Shared Image Gallery, Image and version.
+> * Get information about your Shared Image Gallery, image and version.
 
 ## Prerequisites
 
@@ -166,7 +166,7 @@ ansible-playbook 02-create-shared-image-gallery.yml
 
 You now see a new gallery, `myGallery`, in your resource group.
 
-## Create a Shared Image and Image Version
+## Create a shared image and image version
 
 The next playbook, `03a-create-shared-image-generalized.yml` creates an image definition and an image version.
 
@@ -191,9 +191,9 @@ Image definitions include the image type (Windows or Linux), release notes, and 
           publisher: myPublisherName
           offer: myOfferName
           sku: mySkuName
-        description: Image Description
+        description: Image description
     
-    - name: Create or update a simple gallery Image Version.
+    - name: Create or update a simple gallery image version.
       azure_rm_galleryimageversion:
         resource_group: "{{ resource_group }}"
         gallery_name: "{{ shared_gallery_name }}"
@@ -305,12 +305,12 @@ You can get information about the gallery, image definition, and version by runn
     azure_rm_gallery_info:
       resource_group: "{{ resource_group }}"
       name: "{{ shared_gallery_name }}"
-  - name: Get Shared Image Information
+  - name: Get shared image information
     azure_rm_galleryimage_info:
       resource_group: "{{ resource_group }}"
       gallery_name: "{{ shared_gallery_name }}"
       name: "{{ shared_image_name }}"
-  - name: Get Gallery Image Version Information
+  - name: Get Shared Image Gallery image version information
     azure_rm_galleryimageversion_info:
       resource_group: "{{ resource_group }}"
       gallery_name: "{{ shared_gallery_name }}"
@@ -324,7 +324,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 06-get-info.yml
 ```
 
-## Delete Shared Image
+## Delete the shared image
 
 To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml`. Delete resources in reverse order. Start by deleting the image version. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery.
 
@@ -335,7 +335,7 @@ To delete the gallery resources, refer to sample playbook `07-delete-gallery.yml
     - ./vars.yml
 
   tasks:
-  - name: Delete gallery Image Version.
+  - name: Delete gallery image version.
     azure_rm_galleryimageversion:
       resource_group: "{{ resource_group }}"
       gallery_name: "{{ shared_gallery_name }}"
