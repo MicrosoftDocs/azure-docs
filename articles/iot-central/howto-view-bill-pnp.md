@@ -1,6 +1,6 @@
 ---
-title: View your bill and convert trial to pay as you go in Azure IoT Central application | Microsoft Docs
-description: As an administrator, learn how to view your bill and covert from trial to pay as you go in your Azure IoT Central application
+title: Manage your bill and convert trial to pay as you go in Azure IoT Central application | Microsoft Docs
+description: As an administrator, learn how to manage your bill and covert from trial to pay as you go in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
 ms.date: 07/26/2019
@@ -10,11 +10,11 @@ services: iot-central
 manager: philmea
 ---
 
-# View your bill in an IoT Central application
+# Manage your bill in an IoT Central application
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as an administrator, you can view your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
+This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
@@ -47,4 +47,4 @@ To complete this self-service process, follow these steps:
 
 ## Next steps
 
-Now that you've learned about how to view your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+Now that you've learned about how to manage your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
