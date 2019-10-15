@@ -44,7 +44,7 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
-#### [Azure portal](#tab/portal/)
+#### [Applications](#tab/portal/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -54,7 +54,7 @@ In the second tutorial that you completed as part of the prerequisites, you regi
 1. Select **Save**.
 1. On the properties page, record the **Application ID**. You use the app ID in a later step when you update the code in the single-page web application.
 
-#### [Azure portal (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/portal-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.

@@ -31,7 +31,7 @@ You need the following resources in place before continuing with the steps in th
 
 When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
-#### [Azure portal](#tab/portal/)
+#### [Applications](#tab/portal/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -39,7 +39,7 @@ When you secure an API in Azure API Management with Azure AD B2C, you need sever
 1. Under **Manage**, select **Applications**.
 1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
 
-#### [Azure portal (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/portal-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.

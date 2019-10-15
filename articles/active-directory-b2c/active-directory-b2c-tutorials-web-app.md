@@ -37,7 +37,7 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 
 ### Add a redirect URI (reply URL)
 
-#### [Azure portal](#tab/portal/)
+#### [Applications](#tab/portal/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -47,7 +47,7 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 1. Select **Save**.
 1. On the properties page, record the application ID for use in a later step when you configure the web application.
 
-#### [Azure portal (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/portal-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
