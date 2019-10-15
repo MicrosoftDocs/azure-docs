@@ -7,11 +7,6 @@
     items:
       - name: Manage account settings and profile
         href: manage-account-settings-and-profile.md
-  - name: Manage account users
-    href: manage-account-users.md
-    items:
-    - name: Associate Azure AD with your account
-      href: associate-azure-ad-with-partner-center.md
   - name: Optimize add-in placement and ranking in AppSource
     href: optimize-for-store-discovery.md
   - name: License your add-ins
