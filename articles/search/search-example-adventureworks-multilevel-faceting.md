@@ -5,7 +5,7 @@ description: Learn how to build faceting structures for multi-level taxonomies, 
 
 author: HeidiSteen
 manager: nitinme
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist

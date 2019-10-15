@@ -6,7 +6,7 @@ description: Create a synonym map to expand the scope of a search query on an Az
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

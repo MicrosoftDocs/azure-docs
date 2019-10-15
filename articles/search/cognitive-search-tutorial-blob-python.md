@@ -6,7 +6,7 @@ description: Step through an example of data extraction, natural language, and i
 manager: nitinme
 author: LisaLeib
 ms.author: v-lilei
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/04/2019

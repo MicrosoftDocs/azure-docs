@@ -6,7 +6,7 @@ description: An api-key controls access to the service endpoint. Admin keys gran
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

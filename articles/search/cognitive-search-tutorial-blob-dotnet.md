@@ -6,7 +6,7 @@ description: Step through an example of data extraction, natural language, and i
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

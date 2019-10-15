@@ -6,7 +6,7 @@ description: Add new elements, update existing elements or documents, or delete 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

@@ -7,7 +7,7 @@ description: Crawl unstructured text in Azure Blob storage for Azure Cognitive S
 manager: nitinme
 author: mgottein 
 ms.author: magottei
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

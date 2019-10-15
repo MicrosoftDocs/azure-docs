@@ -6,7 +6,7 @@ description: Break text into chunks or pages of text based on length in an AI en
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

@@ -6,7 +6,7 @@ description: Enable encrypted connections and configure the firewall to allow co
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

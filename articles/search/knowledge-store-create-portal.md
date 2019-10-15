@@ -6,7 +6,7 @@ description: Create an Azure Cognitive Search knowledge store for persisting out
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 ---

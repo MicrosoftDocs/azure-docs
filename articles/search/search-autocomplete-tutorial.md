@@ -6,7 +6,7 @@ description: Enable typeahead query actions in Azure Cognitive Search by creatin
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.

@@ -6,7 +6,7 @@ description: Boost search rank scores for Azure Cognitive Search results by addi
 manager: nitinme
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 translation.priority.mt:

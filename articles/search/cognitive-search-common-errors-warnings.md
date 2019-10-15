@@ -6,7 +6,7 @@ description: This article provides information and solutions to common errors an
 manager: nitinme
 author: amotley
 ms.author: abmotley
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

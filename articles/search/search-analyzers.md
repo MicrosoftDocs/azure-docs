@@ -6,7 +6,7 @@ description: Assign analyzers to searchable text fields in an index to replace d
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

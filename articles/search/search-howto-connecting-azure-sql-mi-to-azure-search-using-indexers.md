@@ -6,7 +6,7 @@ description: Enable public endpoint to allow connections to SQL Managed Instance
 manager: nitinme
 author: vl8163264128
 ms.author: victliu
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

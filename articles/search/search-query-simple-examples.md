@@ -6,7 +6,7 @@ description: Learn by example by running queries based on the simple syntax for 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

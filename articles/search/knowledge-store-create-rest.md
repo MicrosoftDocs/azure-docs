@@ -6,7 +6,7 @@ description: Use the REST API and Postman to create an Azure Cognitive Search kn
 author: lobrien
 manager: nitinme
 ms.author: laobri
-ms.service: search
+ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/04/2019
 ---

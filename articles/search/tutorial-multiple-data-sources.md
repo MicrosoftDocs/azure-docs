@@ -6,7 +6,7 @@ description: Learn how to import data from multiple data sources into a single A
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

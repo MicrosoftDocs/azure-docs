@@ -7,7 +7,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

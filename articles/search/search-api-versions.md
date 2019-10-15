@@ -6,7 +6,7 @@ description: Version policy for Azure Cognitive Search REST APIs and the client 
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---

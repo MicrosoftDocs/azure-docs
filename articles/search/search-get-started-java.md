@@ -7,7 +7,7 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.devlang: java
-ms.service: search
+ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/04/2019
 ---
