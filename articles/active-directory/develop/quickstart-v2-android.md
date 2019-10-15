@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2019
+ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform endpoint.
@@ -26,8 +26,6 @@ This quickstart uses a code sample to demonstrate an Android application that si
 
 Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can share tokens with your application.
 
-As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
-
 ![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
@@ -39,7 +37,92 @@ As a convenience, the code sample comes with a default `redirect_uri` preconfigu
 
 [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
 
-## Step 2: Run the sample app
+-----------------------------------------------------------
+
+> [!div renderon="portal" class="sxs-lookup"]
+> ## Step 2: Register your application
+> 
+> To register an application object, and add that application object's registration information to the sample project manually, follow these steps:
+> 
+> 1. Go to the [Azure portal](https://aka.ms/MobileAppReg).
+> 1. Open the [App registrations blade](https://portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and click **+New registration**.
+> 1. Enter a **Name** for your app registration and then, without setting a Redirect URI, click **Register**.
+> 1. In the **Manage** section, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select **Try out the new experience** near the top of the blade to see this screen)
+> 1. Enter your project's **Package Name**, which is `com.azuresamples.msalandroidapp`.
+> 1. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash**, and copy the KeyTool command to use for the platform you're using to develop your Android app.
+
+ >  > [!Note]
+ >  > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command.  You'll need keytool, and the OpenSSL\bin directory, in your path.
+
+> 1. Run the keytool command you copied from the portal in a terminal window.
+> 1. Enter the generated signature hash into the Portal under **Signature hash**.
+> 1. Click `Configure` and make a copy of the **MSAL Configuration**. You'll copy and paste this into a config file in the next step. Click **Done**.
+> 
+> ## Step 3: Add your app registration
+> 
+> 1. Open the sample project in Android Studio.
+> 1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**.  Paste the contents of the MSAL Configuration. This adds the client ID, tenant ID, and redirect_uri from the portal. It will look something like this, but with the values filled in for the client ID, tenant ID, and redirect_uri:
+> 
+>     ```json
+>     {
+>       "client_id" : "<your_client_id_here>",
+>       "authorization_user_agent" : "DEFAULT",
+>       "redirect_uri" : "<your_redirect_uri_here>",
+>       "account_mode" : "MULTIPLE",
+>       "broker_redirect_uri_registered": true,
+>       "authorities" : [
+>         {
+>           "type": "AAD",
+>           "audience": {
+>             "type": "AzureADandPersonalMicrosoftAccount",
+>             "tenant_id": "common"
+>           }
+>         }
+>       ]
+>     }
+>     ```
+> 
+> 1. Open **app** > **res** > **raw**, open **auth_config_single_account.json**, and paste the contents of the MSAL Configuration. It will look like the **auth_config_multiple_account.json** file above.
+> 1. In **app** > **manifests** > **AndroidManifest.xml**, find the `BrowserTabActivity` activity. This entry allows Microsoft to call back to your application after it completes the authentication:
+> 
+>     ```xml
+>     ...
+>     <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+>                 <intent-filter>
+>                     <action android:name="android.intent.action.VIEW" />
+>     
+>                     <category android:name="android.intent.category.DEFAULT" />
+>                     <category android:name="android.intent.category.BROWSABLE" />
+>     
+>                     <!--
+>                         Add in your scheme/host from registered redirect URI
+>                         note that the leading "/" is required for android:path
+>                         For Example:
+>                         <data
+>                             android:host="com.azuresamples.msalandroidapp"
+>                             android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
+>                             android:scheme="msauth" />
+>                     -->
+>     
+>                     <data
+>                         android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
+>                         android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
+>                         android:scheme="msauth" />
+>                 </intent-filter>
+>             </activity>
+>     ```
+>     
+> 1. Substitute the package name with what you registered in the Azure portal for the `android:host=` value.  In this case, it will be: `com.azuresamples.msalandroidapp`.
+> 
+>     > [!IMPORTANT]
+>     > The **android:path** value **must** have a leading "/" character, or you'll get a red line beneath the value and the sample app won't run.
+>      
+> 1. Substitute the key hash you got by running keytool earlier and entered in the Azure portal, for the `android:path=` value. The Signature Hash should not be URL encoded.
+
+------------------------------------------------------------
+
+
+## Step 4: Run the sample app
 
 Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
 
@@ -72,7 +155,7 @@ The code is organized into fragments that show how to write a single and multipl
 
 We'll now look at these files in more detail and call out the MSAL-specific code in each.
 
-### Add MSAL to the app
+### Adding MSAL to the app
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
