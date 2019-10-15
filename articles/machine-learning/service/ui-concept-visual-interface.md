@@ -13,6 +13,7 @@ ms.date: 05/15/2019
 ---
 
 # What is Azure Machine Learning designer? 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 The designer for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 

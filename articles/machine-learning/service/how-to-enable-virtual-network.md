@@ -14,6 +14,7 @@ ms.date: 08/05/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you'll learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet).
 
