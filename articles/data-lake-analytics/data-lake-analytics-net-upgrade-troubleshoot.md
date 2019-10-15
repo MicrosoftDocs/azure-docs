@@ -30,11 +30,11 @@ Check for the potential of backwards-compatibility breaking issues by running th
 
 Note: The tool doesn't detect actual breaking changes but only identifies called APIs that may, for certain inputs, cause issues. So if you get notified of an issue, your code may still be fine but you should now check in more details.
 
-1. Run the backwards-compatibility checker on your .NET DLLs either by
+1. Run the backwards-compatibility checker on your .NET DLLs either using:
    1. Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-   1. For 4.7.2. compatibility, only read isRetargeting == True breaking changes.
-2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common ones are listed below), you can further check by
+   1. For 4.7.2. compatibility, only *isRetargeting == True* are breaking changes.
+2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common ones are listed below), you can further check using:
    1. Analyzing your code and identifying if your code is passing values to the impacted APIs
    1. Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
 3. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).
