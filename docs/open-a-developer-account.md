@@ -99,7 +99,7 @@ To create your account:
     > [!Important]
     > When you choose **Accept and continue**, you also agree to the terms and conditions of the [Office Store Application Provider Agreement]().
 
-Now you're ready to [submit your solutions](use-partner-center-to-submit-to-appsource) via Partner Center.
+Now you're ready to [submit your solutions](use-partner-center-to-submit-to-appsource.md) via Partner Center.
 
 ## See also
 
