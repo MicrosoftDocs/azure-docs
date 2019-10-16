@@ -55,7 +55,7 @@ To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to
 - [Azure portal](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Azure Resource Manager templates](#use-azure-resource-manager-templates)
+- [Azure Resource Manager templates](#resource-manager-templates)
 
 ## Portal
 
