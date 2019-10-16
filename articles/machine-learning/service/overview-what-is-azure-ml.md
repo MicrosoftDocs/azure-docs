@@ -21,9 +21,12 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-## What is Azure Machine Learning?
 
-Azure Machine Learning provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
+## About Azure Machine Learning
+
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
+
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 Explore and prepare data, train and test models, and deploy them using rich tools such as:
 + The [designer](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
