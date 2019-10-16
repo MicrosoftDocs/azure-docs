@@ -180,7 +180,7 @@ The following command removes the Azure AD administrator for the managed instanc
 Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
 ```
 
-### CLI  
+### CLI for SQL managed instance
 
 You can also provision an Azure AD admin for SQL managed instance by calling the following CLI commands:
 
@@ -285,7 +285,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
-### CLI  
+### CLI for Azure SQL Database and SQL Data Warehouse
 
 You can also provision an Azure AD admin by calling the following CLI commands:
 
