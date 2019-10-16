@@ -167,7 +167,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure Portal under *Advanced Settings*. 
+The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
 
 ```azurecli
 az vm extension set \
