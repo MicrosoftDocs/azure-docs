@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Session monitoring and management for Azure Bastion
 
-Once the Bastion service is provisioned/deployed in your virtual network, you can use it to seamlessly connect to any VM in this virtual network. As users connect to workloads, Azure Bastion can be used to monitor the remote sessions and take quick management actions. Azure Bastion session monitoring lets you view which users are connected to which VMs from what IPs and since when, apart from other details. The session management experience lets you select an ongoing session and force-disconnect or delete a session to disconnect a user from that ongoing session.
+Once the Bastion service is provisioned and deployed in your virtual network, you can use it to seamlessly connect to any VM in this virtual network. As users connect to workloads, Azure Bastion can be used to monitor the remote sessions and take quick management actions. Azure Bastion session monitoring lets you view which users are connected to which VMs. It shows the IP that the user connected from, how long they have been connected, and when they connected. The session management experience lets you select an ongoing session and force-disconnect or delete a session in order to disconnect the user from the ongoing session.
 
 ## <a name="monitor"></a>Monitor remote sessions
 
@@ -27,9 +27,9 @@ Once the Bastion service is provisioned/deployed in your virtual network, you ca
 
    ![refresh](./media/session-monitoring/refresh.png)
 
-## <a name="view"></a>Delete or Force Disconnect an on-going remote session
+## <a name="view"></a>Delete or force-disconnect an ongoing remote session
 
-You can select a set of session(s) and force disconnect them.  The following steps show you how to delete remote sessions:
+You can select a set of session(s) and force-disconnect them. The following steps show you how to delete remote sessions:
 
 1. Navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
