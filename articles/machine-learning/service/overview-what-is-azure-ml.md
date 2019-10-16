@@ -21,33 +21,33 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-## What is Azure Machine Learning?
+## About Azure Machine Learning
 
-Azure Machine Learning provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
-
-Explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ The [designer](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
-+ [Jupyter notebooks](https://jupyter.org) in which you use the [Python SDK](https://docs.microsoft.com/azure/machine-learning) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
-+ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
-+ [Visual Studio Code extension](how-to-vscode-tools.md)
-
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="sku"></a>Basic vs Enterprise edition
+This service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical machine learnign to deep learning, supervised and unsupervised learning.
+
+Train, test, and deploy your models with rich tools such as:
++ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy models
++ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
++ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
++ [Visual Studio Code extension](how-to-vscode-tools.md)
+
+## <a name="sku"></a>Basic vs enterprise editions
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
 + Basic (generally available)
 + Enterprise (preview)
 
-These editions make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. You assign the edition when you create a workspace and it determines the functionality to which you have access. 
+These editions determine to which machine learning tools developers and data scientists have access from their workspace.   Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-Learn more about what's available in each edition on the [pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+You assign the edition whenever you create a workspace. You can also [upgrade any Basic workspaces to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+
 Customers are responsible for costs incurred on underlying compute during this time. 
 
-You can [upgrade existing workspaces from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade). 
-
-## What can I do with Azure Machine Learning?
+## What can I do with the service?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
 
