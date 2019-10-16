@@ -17,7 +17,7 @@ ms.author: v-meravi
 
 Microsoft has partnered with Internet Service Providers [ISP], Internet Exchange Providers [IXP] and, Software Defined Cloud Interconnect [SDCI] providers to provide reliable and performant internet connectivity subject to technical requirements in terms of resiliency, geo redundancy and optimal routing (shortest paths and no intermediates in the routing path). 
 
-The table in this article provide information on the Peering Service connectivity partners and their associated market.
+The table in this article provides information on the Peering Service connectivity partners and their associated market.
 
 | **Partners** | **Market**|
 |-----------|---------|
