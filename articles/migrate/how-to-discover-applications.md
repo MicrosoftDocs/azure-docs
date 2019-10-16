@@ -12,7 +12,7 @@ ms.author: snehaa
 
 This article describes how to discover applications, roles, and features on on-premises servers, using Azure Migrate: Server Assessment.
 
-Discovering app, role, and features inventory of on-premises machines helps you to identify and plan a migration path tailored for your on-premises workloads. 
+Discovering the inventory of apps, and roles/features running on your on-premises machines helps you to identify and plan a migration path to Azure that's tailored for your workloads. 
 
 App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs to be installed on machines and VMs. Server Assessment uses the Azure Migrate appliance to perform discovery along with machine guest credentials. The appliance remotely accesses machines using WMI and SSH calls. 
 
