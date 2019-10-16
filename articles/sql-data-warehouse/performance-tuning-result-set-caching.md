@@ -33,6 +33,8 @@ Once result set caching is turned ON for a database, results are cached for all 
 
 Queries with large result sets (for example, > 1 million rows) may experience slower performance during the first run when the result cache is being created.
 
+Row level security is not supported by result set caching.  
+
 ## When cached results are used
 
 Cached result set is reused for a query if all of the following requirements are all met:
