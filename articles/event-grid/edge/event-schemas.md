@@ -1,5 +1,5 @@
 ---
-title: Event schemas - Azure Event Grid IoT Edge | Microsoft Docs 
+title: Event schemas — Azure Event Grid IoT Edge | Microsoft Docs 
 description: Event schemas in Event Grid on IoT Edge.  
 author: VidyaKukke
 manager: rajarv
@@ -17,15 +17,16 @@ Event Grid module accepts and delivers events in JSON format. There are currentl
 
 * **EventGridSchema**
 * **CustomSchema**
+* **CloudEventSchema**
 
-You can configure the schema that a publisher needs to conform to during topic creation. If unspecified, it defaults to **EventGridSchema**. Events that don't conform to the expected schema will be rejected.
+You can configure the schema that a publisher must conform to during topic creation. If unspecified, it defaults to **EventGridSchema**. Events that don't conform to the expected schema will be rejected.
 
-Subscribers can also configure the schema in which they want the events delivered. If unspecified, default will be topic's schema.
+Subscribers can also configure the schema in which they want the events delivered. If unspecified, default is topic's schema.
 Currently subscriber delivery schema has to match its topic's input schema. 
 
 ## EventGrid schema
 
-EventGrid schema consists of a set of required properties that a publishing entity needs to conform to. Each publisher has to populate the top-level fields.
+EventGrid schema consists of a set of required properties that a publishing entity must conform to. Each publisher has to populate the top-level fields.
 
 ```json
 [
@@ -59,7 +60,7 @@ All events have the following top-level data:
 | dataVersion | string | Yes | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-### Example - EventGrid schema event
+### Example — EventGrid schema event
 
 ```json
 [
@@ -85,7 +86,7 @@ In custom schema, there are no mandatory properties that are enforced like the E
 
 No mandatory properties. It's up to the publishing entity to determine the payload.
 
-### Example - Custom Schema Event
+### Example — Custom Schema Event
 
 ```json
 [
@@ -96,4 +97,29 @@ No mandatory properties. It's up to the publishing entity to determine the paylo
     }
   }
 ]
+```
+
+## CloudEvent schema
+
+In addition to the above schemas, Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. It is part of [CNCF](https://www.cncf.io/) and currently available version is 1.0-rc1.
+
+### CloudEvent schema properties
+
+Refer to [CloudEvents specification](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) on the mandatory envelope properties.
+
+### Example — cloud event
+```json
+[{
+       "id": "1807",
+       "type": "recordInserted",
+       "source": "myapp/vehicles/motorcycles",
+       "time": "2017-08-10T21:03:07+00:00",
+       "datacontenttype": "application/json",
+       "data": {
+            "make": "Ducati",
+            "model": "Monster"
+        },
+        "dataVersion": "1.0",
+        "specVersion": "1.0-rc1"
+}]
 ```
