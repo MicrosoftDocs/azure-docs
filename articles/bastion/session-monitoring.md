@@ -20,27 +20,27 @@ Once the Bastion service is provisioned/deployed in your virtual network, you ca
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
    ![sessions](./media/session-monitoring/sessions.png)
-2. On the **Sessions** page, you can see the on-going remote sessions on the right side.
+2. On the **Sessions** page, you can see the ongoing remote sessions on the right side.
 
    ![view session](./media/session-monitoring/view-session.png)
-3. Select **Refresh** to see the updated list of remote sessions. Clicking Refresh will fetch the latest monitoring information from Azure Bastion and refresh it on the portal.
+3. Select **Refresh** to see the updated list of remote sessions. When you select Refresh, Azure Bastion will fetch the latest monitoring information and refresh it in the portal.
 
    ![refresh](./media/session-monitoring/refresh.png)
 
 ## <a name="view"></a>Delete or Force Disconnect an on-going remote session
 
-Once you see a list of on-going remote session in Azure Bastion monitoring experience, you can select a set of session(s) and force disconnect them.  Below are the steps using which you can delete remote sessions from Azure Bastion:
+You can select a set of session(s) and force disconnect them.  The following steps show you how to delete remote sessions:
 
-1. Navigate to your Azure Bastion resource and select “Sessions” from the Azure Bastion blade.
+1. Navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
    ![navigate](./media/session-monitoring/navigate.png)
-2. As you select Sessions, you will see a list of remote sessions in Portal for your Azure Bastion deployment.
+2. After you select Sessions, you see a list of remote sessions.
 
    ![list sessions](./media/session-monitoring/list.png)
-3. Select a specific remote session and select the three ellipses on the right-side end of the session row in the UI and select Delete.
+3. Select a specific remote session, then select the three ellipses on the right-side end of the session row, and then select **Delete**.
 
    ![delete](./media/session-monitoring/delete.png)
-4. As you select Delete, the remote session will be disconnected, and the user will be shown a “You have been disconnected” message in the remote session.
+4. When you select Delete, the remote session will be disconnected and the user will be shown a "You have been disconnected" message in the remote session.
 
    ![disconnect](./media/session-monitoring/disconnect.png)
 
