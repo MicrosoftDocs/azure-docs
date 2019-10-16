@@ -57,7 +57,7 @@ landingContent:
         links:
           - text: Use AI to understand blob data
             url: search-blob-ai-integration.md
-          - text: Add full text search to blob data
+          - text: Search your blob content
             url: search-blob-storage-integration.md
           - text: Store AI enrichments
             url: knowledge-store-create-portal.md
