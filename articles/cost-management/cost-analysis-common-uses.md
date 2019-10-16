@@ -109,4 +109,4 @@ View the net accumulated charges over time to understand overall expenditures fo
 
 ## Next steps
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
-- Read the [Cost Management documentation](index.yml)
+- Read the [Cost Management documentation](index.yml).
