@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 10/17/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -232,9 +232,9 @@ Configure diagnostics to record data into the ApplicationGatewayAccessLog, Appli
 
 ## Create and Link a Web Application Firewall Policy
 
-All of the WAF customizations and settings live in a separate object, called a WAF Policy, that must be associated with your Application Gateway. To create a WAF Policy, see ![Create a WAF Policy](create-waf-policy-ag.md). Once it's been created, you can then associate the Policy to your WAF (or an individual listener) from the WAF Policy in the "Associated Application Gateways" tab. 
+All of the WAF customizations and settings live in a separate object, called a WAF Policy, that must be associated with your Application Gateway. To create a WAF Policy, see [Create a WAF Policy](create-waf-policy-ag.md). Once it's been created, you can then associate the Policy to your WAF (or an individual listener) from the WAF Policy in the "Associated Application Gateways" tab. 
 
-(Add screenshot here)
+![Associated application gateways](../media/application-gateway-web-application-firewall-portal/associated-application-gateways.png)
 
 ## Test the application gateway
 
