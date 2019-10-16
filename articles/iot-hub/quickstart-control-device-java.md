@@ -73,7 +73,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyJavaDevice**: This is the name of the device you're registering. It's recommended to use **MyJavaDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyJavaDevice**: This is the name of the device you're registering. It's recommended to use **MyJavaDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -95,7 +95,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You'll use this value later in the quickstart.
+    You use this value later in the quickstart.
 
 ## Retrieve the service connection string
 
@@ -111,7 +111,7 @@ Make a note of the service connection string, which looks like:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-You'll use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
+You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 

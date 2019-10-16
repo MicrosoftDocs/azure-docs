@@ -77,7 +77,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyDevice**: This is the name for the device you're registering. It's recommended to use **MyDevice** as shown. If you choose a different name for your device, you'll also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyDevice**: This is the name for the device you're registering. It's recommended to use **MyDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
