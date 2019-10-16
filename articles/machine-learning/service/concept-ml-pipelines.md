@@ -108,13 +108,13 @@ An Azure ML pipeline is associated with an Azure Machine Learning workspace and 
 
 In Azure Machine Learning, a compute target is the environment in which an ML phase occurs. The software environment may be a Remote VM, Azure Machine Learning Compute, Azure Databricks, Azure Batch, and so on. The hardware environment can also vary greatly, depending on GPU support, memory, storage, and so forth. You may specify the compute target for each step, which gives you fine-grained control over costs. You can use more- or less- powerful resources for the specific action, data volume, and performance needs of your project. 
 
-## How do I build pipelines using the Azure Machine Learning visual interface?
+## How do I build pipelines using the Azure Machine Learning designer?
 
-Developers who prefer a visual design surface can use the Azure Machine Learning visual interface to create pipelines. You can access this tool from the **Visual Interface** selection on the homepage of your workspace.  The visual interface allows you to drag and drop steps onto the design surface. For rapid development, you can use existing modules across the spectrum of ML tasks; existing modules cover everything from data transformation to algorithm selection to training to deployment. Or you can create a fully custom pipeline by combining your own steps defined in Python scripts.
+Developers who prefer a visual design surface can use the Azure Machine Learning designer to create pipelines. You can access this tool from the **Designer** selection on the homepage of your workspace.  The designer allows you to drag and drop steps onto the design surface. For rapid development, you can use existing modules across the spectrum of ML tasks; existing modules cover everything from data transformation to algorithm selection to training to deployment. Or you can create a fully custom pipeline by combining your own steps defined in Python scripts.
 
 When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
  
-![Azure Machine Learning visual interface example](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning designer example](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### Understanding the execution graph
 
