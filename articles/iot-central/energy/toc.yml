@@ -26,12 +26,10 @@
   items:
     - name: Connect devices
       items:
-        - name: Connect an IoT Plug and Play device
-          href: ../core/howto-connect-pnp-device-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Prepare and connect an MXChip IoT DevKit
           href: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Prepare and connect a Rigado Cascade 500
-          href: ../retail/howto-connect-rigado-cascade-500-pnp.md
+          href: ../core/howto-connect-rigado-cascade-500-pnp.md
         - name: Monitor device connectivity using command line
           href: ../core/howto-use-iotc-explorer.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Manage devices
@@ -59,15 +57,15 @@
         - name: Export your data
           items:
             - name: Export to Event Hubs and Service Bus
-              href: ../core/howto-export-data-event-hubs-service-bus-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+              href: ../core/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
             - name: Export to Blob Storage
-              href: ../core/howto-export-data-blob-storage-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+              href: ../core/howto-export-data-blob-storage.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Create custom rules
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Create custom analytics
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Visualize your data in Power BI
-          href: ../core/howto-connect-powerbi-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-connect-powerbi.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Connect other IoT clouds
           href: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Administration

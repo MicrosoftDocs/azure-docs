@@ -80,7 +80,7 @@ conceptualContent:
         - url: ./core/howto-create-event-rules-pnp.md
           itemType: how-to-guide
           text: Create an event rule
-        - url: ./core/howto-export-data-blob-storage-pnp.md
+        - url: ./core/howto-export-data-blob-storage.md
           itemType: how-to-guide
           text: Export to Blob Storage
       footerLink: 
@@ -107,7 +107,7 @@ productDirectory:
           text: 3 - Export data and visualize insights
     # Card
     - title: Build for health
-      imageSrc: ./health/media/index/iot-central.svg
+      imageSrc: ./healthcare/media/index/iot-central.svg
       links:
         - url: ./healthcare/overview-iot-central-healthcare.md
           text: Build healthcare solutions with IoT Central

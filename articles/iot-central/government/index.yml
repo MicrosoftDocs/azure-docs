@@ -84,13 +84,13 @@ landingContent:
           - text: Create an email action
             url: ../core/index.yml
           - text: Export to Blob Storage
-            url: ../core/howto-export-data-blob-storage-pnp.md
+            url: ../core/howto-export-data-blob-storage.md
           - text: Use the IoT Central Public APIs
             url: ../core/index.yml                        
       - linkListType: how-to-guide
         links:
           - text: Export to Event Hubs and Service Bus
-            url: ../core/howto-export-data-event-hubs-service-bus-pnp.md
+            url: ../core/howto-export-data-event-hubs-service-bus.md
           - text: Create a rule on an Edge device
             url: ../core/index.yml
           - text: Create custom rules
