@@ -109,9 +109,9 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across zones in the highest available configuration when you create a cluster specifying the `--node-zones` parameter.
+Create a cluster with the [az aks create][az-aks-create] command and specify the `--node-zones` parameter to define which zones worker nodes should deploy to. When zones are defined at cluster creation, the AKS control plane will also spread across zones in the highest available configuration. If zones are not defined at cluster creation the AKS control plane will not be zone aware.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools (currently in preview in AKS) using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
+You can add additional node pools to an existing cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for the new pool to be spread across zones as well. The zones for a cluster or node pool can only be defined at create time, so you can not change the zones defined for a node pool or the AKS control plane components after they're deployed.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The AKS control plane components are also distributed across zones in the highest available configuration since they're defined as part of the cluster create process.
 
