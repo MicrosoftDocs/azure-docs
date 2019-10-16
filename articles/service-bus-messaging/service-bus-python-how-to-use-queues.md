@@ -17,7 +17,7 @@ ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
 ---
-# How to use Service Bus queues with Python
+# Tutorial: Use Azure Service Bus queues with Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
