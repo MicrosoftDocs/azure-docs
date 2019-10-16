@@ -44,9 +44,9 @@ var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 string location = "West Europe";
 string locationSmallCase = "westeurope";
+string azureResourceTemplatePath = @"xxxxxxxxx\template.json";//path to the Azure Resource Manager template json from the previous section
 
-
-string deploymentName = "e2eexa2";
+string deploymentName = "e2eexample";
 string resourceGroupName = deploymentName + "resourcegroup";
 string eventHubName = deploymentName + "eventhub";
 string eventHubNamespaceName = eventHubName + "ns";
@@ -69,7 +69,7 @@ await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(resourceGroupN
 Console.WriteLine(
     "Step 2: create a blob storage, a container in the storage account, an event hub, an azure data explorer cluster, and database by using an Azure Resource Manager template.");
 var parameters = $"{{\"eventHubNamespaceName\":{{\"value\":\"{eventHubNamespaceName}\"}},\"eventHubName\":{{\"value\":\"{eventHubName}\"}},\"storageAccountName\":{{\"value\":\"{storageAccountName}\"}},\"containerName\":{{\"value\":\"{storageContainerName}\"}},\"kustoClusterName\":{{\"value\":\"{kustoClusterName}\"}},\"kustoDatabaseName\":{{\"value\":\"{kustoDatabaseName}\"}}}}";
-string template = File.ReadAllText(@"C:\Users\lugoldbe\PycharmProjects\Test\template.json", Encoding.UTF8);
+string template = File.ReadAllText(azureResourceTemplatePath, Encoding.UTF8);
 await resourceManagementClient.Deployments.CreateOrUpdateAsync(resourceGroupName, deploymentName,
     new Deployment(new DeploymentProperties(DeploymentMode.Incremental, template: template,
         parameters: parameters)));
@@ -93,7 +93,7 @@ await eventGridClient.EventSubscriptions.CreateOrUpdateAsync(storageResourceId, 
         }
     });
 
-Console.WriteLine("Step 4: create a table and column mapping in Azure Data Explorer database.");
+Console.WriteLine("Step 4: create a table (with three columns, EventTime, EventId, and EventSummary) and column mapping in Azure Data Explorer database.");
 var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
 var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(kustoUri)
 {
@@ -130,7 +130,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
     kustoClient.ExecuteControlCommand(command);
 }
 
-Console.WriteLine("Step 5: add data connection.");
+Console.WriteLine("Step 5: add a event grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.");
 var kustoManagementClient = new KustoManagementClient(serviceCreds)
 {
     SubscriptionId = subscriptionId

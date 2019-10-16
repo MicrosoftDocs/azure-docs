@@ -58,14 +58,10 @@ client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Client Secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-credentials = ServicePrincipalCredentials(
-        client_id=client_id,
-        secret=client_secret,
-        tenant=tenant_id
-    )
 location = "West Europe"
 location_small_case = "westeurope"
-
+#path to the Azure Resource Manager template json from the previous section
+azure_resource_template_path = "xxxxxxxxx/template.json";
 
 deployment_name = 'e2eexample'
 resource_group_name = deployment_name + "resourcegroup"
@@ -98,8 +94,7 @@ resource_client.resource_groups.create_or_update(
 
 print('Step 2: create a blob storage, a container in the storage account, an event hub, an azure data explorer cluster, and database by using an Azure Resource Manager template.')
 #Read the Azure Resource Manager template
-template_path = os.path.join(os.path.dirname(__file__), 'template.json')
-with open(template_path, 'r') as template_file_fd:
+with open(azure_resource_template_path, 'r') as template_file_fd:
     template = json.load(template_file_fd)
 
 parameters = {
@@ -117,6 +112,7 @@ deployment_properties = {
     'parameters': parameters
 }
 
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.deployments.create_or_update(
     resource_group_name,
     deployment_name,
@@ -143,7 +139,7 @@ event_client.event_subscriptions.create_or_update(storage_resource_id, event_gri
 })
 
 
-print('Step 4: create a table and column mapping in Azure Data Explorer database.')
+print('Step 4: create a table (with three columns, EventTime, EventId, and EventSummary) and column mapping in Azure Data Explorer database.')
 kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
 database_name = kusto_database_name
 kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
@@ -156,10 +152,10 @@ create_column_mapping_command = ".create table " + kusto_table_name + " ingestio
 kusto_client.execute_mgmt(database_name, create_column_mapping_command)
 
 
-print('Step 5: add data connection.')
+print('Step 5: add a event grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 data_connections = kusto_management_client.data_connections
-#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=kusto_cluster_name, database_name=kusto_database_name, data_connection_name=kusto_data_connection_name,
                                            parameters=EventGridDataConnection(storage_account_resource_id=storage_resource_id,
                                                                               event_hub_resource_id=event_hub_resource_id, consumer_group="$Default", location=location, table_name=kusto_table_name, mapping_rule_name=kusto_column_mapping_name, data_format="csv"))
@@ -201,7 +197,9 @@ print(response.primary_results[0].rows_count)
 To delete the resource group and clean up resources, use the following command:
 
 ```python
-resource_client.resource_groups.delete(resource_group_name=resource_group_name)
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = resource_client.resource_groups.delete(resource_group_name=resource_group_name)
+poller.wait()
 ```
 
 ## Next steps
