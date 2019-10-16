@@ -150,7 +150,9 @@
       - name: CTAS   
         href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Create and change index
-        href: /sql/t-sql/statements/create-index-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and- 
+        href: https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest 
+      - name: Rebuild 
+        href: https://docs.microsoft.com/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver15 
     - name: Result set caching
       items:
       - name: Performance tuning guidance 
