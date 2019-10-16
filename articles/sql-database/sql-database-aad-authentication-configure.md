@@ -285,7 +285,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
-### CLI for Azure SQL Database and SQL Data Warehouse
+### CLI for Azure SQL Database and Azure SQL Data Warehouse
 
 You can also provision an Azure AD admin by calling the following CLI commands:
 
