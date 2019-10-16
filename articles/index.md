@@ -191,6 +191,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL database for the edge</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
@@ -3203,7 +3204,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure SQL Database Edge</h3>
-                                                    <p>Azure SQL Database Edge is a relational database engine optimized for IoT and Edge deployments.</p>
+                                                    <p>Relational database engine optimized for IoT and Edge deployments.</p>
                                                 </div>
                                             </div>
                                         </div>
