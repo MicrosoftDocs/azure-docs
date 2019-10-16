@@ -34719,6 +34719,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-administrators.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-azure.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-end-users.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-legacy-auth.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
       "redirect_url": "/azure/active-directory/identity-protection/enable",
       "redirect_document_id": true
@@ -34901,6 +34921,11 @@
     {
       "source_path": "articles/data-factory/data-factory-monitor-oms.md",
       "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/data-factory/concepts-data-flow-reference-node.md",
+      "redirect_url": "/azure/data-factory/data-flow-join",
       "redirect_document_id": true
     },
     {
@@ -42437,6 +42462,36 @@
       "source_path": "articles/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-network-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-network-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-serverless-platform-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-functions-serverless-platform-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-container-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/container-security-in-microsoft-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-operational-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-operational-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-develop-secure-apps.md",
+      "redirect_url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/storage-overview.md",
+      "redirect_url": "/azure/storage/common/storage-security-guide",
+      "redirect_document_id": false
     }
   ]
 }

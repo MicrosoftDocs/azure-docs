@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Exists transformation
+title: Azure Data Factory mapping data flow Exists transformation
 description: How to check for existing rows using data factory mapping data flows with Exists transformation
 author: kromerm
 ms.author: makromer
