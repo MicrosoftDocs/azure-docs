@@ -17,7 +17,7 @@ As users connect to workloads using Azure Bastion, Bastion can log diagnostics o
 
 ## <a name="enable"></a>Enable the diagnostics log
 
-1. In the  [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
    ![diagnostics settings](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
@@ -37,7 +37,7 @@ To access your diagnostics logs, you can directly use the storage account that y
 1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
 
    ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. As you navigate to inside the container, you see various folders in your blog.  These folders indicate the resource hierarchy for your Azure Bastion resource.
+2. As you navigate to inside the container, you see various folders in your blog. These folders indicate the resource hierarchy for your Azure Bastion resource.
 
    ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
 3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The ‘y=’, ‘m=’, ‘d=’, ‘h=’ and ‘m=’ indicate the year, month, day, hour, and minute respectively for the diagnostic logs.
@@ -45,7 +45,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    ![select storage location](./media/diagnostic-logs/3-resource-location.png)
 4. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
 
-5. Download the json file from your storage blob container.  An example entry from the json file is shown below for reference:
+5. Download the json file from your storage blob container. An example entry from the json file is shown below for reference:
 
    ```json
    { 
