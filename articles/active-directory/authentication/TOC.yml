@@ -131,6 +131,8 @@
     href: howto-password-smart-lockout.md
   - name: Passwordless
     items: 
+      - name: Deploying passwordless
+        href: howto-authentication-passwordless-deployment.md
       - name: Passwordless security keys
         href: howto-authentication-passwordless-security-key.md
       - name: Passwordless phone sign-in
