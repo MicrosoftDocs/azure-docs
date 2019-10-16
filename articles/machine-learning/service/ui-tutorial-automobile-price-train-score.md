@@ -87,7 +87,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 ### Run the pipeline
 
-At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't apear, you first need to run the pipeline.
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't appear, you first need to run the pipeline.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
