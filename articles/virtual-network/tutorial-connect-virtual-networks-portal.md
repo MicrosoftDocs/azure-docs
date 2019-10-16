@@ -115,6 +115,8 @@ Create a VM in each virtual network so that you can communicate between them in 
     |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1** under **Choose subnet**.|
     
     ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+   
+6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
  
 6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
 
