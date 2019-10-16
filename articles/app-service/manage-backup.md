@@ -105,11 +105,10 @@ Once the storage account and container is configured, you can initiate a manual 
 ## Configure automated backups
 1. In the **Backup Configuration** page, set **Scheduled backup** to **On**. 
    
-    ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and select **OK**.
-   
     ![Enable automated backups][SetAutomatedBackupOn]
 
+2. Configure the backup schedule as desired and select **OK**.
+   
 <a name="partialbackups"></a>
 
 ## Configure Partial Backups
