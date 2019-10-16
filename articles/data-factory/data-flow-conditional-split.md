@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Conditional Split Transformation
+title: Azure Data Factory mapping data flow Conditional Split Transformation
 description: Azure Data Factory Data Flow Conditional Split Transformation
 author: kromerm
 ms.author: makromer
