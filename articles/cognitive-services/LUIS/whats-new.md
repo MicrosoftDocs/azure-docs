@@ -20,21 +20,20 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### November 4, 2019 - Ignite
 
-* [Language Support]
-    * [Hindi](luis-language-support.md)
 * [LUIS portal](https://www.luis.ai)
     * New authoring experience
 * New capabilities and concepts
     * [Decomposition with models](luis-concept-entity-types.md)
-    * Constraints and descriptors for intents and entities   
-    * Subcomponents of machine-learned entities
-* [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
+        * Constraints and descriptors for intents and entities   
+        * Subcomponents of machine-learned entities
 * API - Prediction endpoint runtime
     * V3 API is now generally available (GA)
     * Japanese prebuilt age, currency, number, percentage are not support in V3
     * Italian prebuilt age, currency, dimension, number, percentage resolution changed from V2
 * Import and export `.lu` file format from [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
+* New Language Support
+    * [Hindi](luis-language-support.md)
 
 ### September 3, 2019
 
