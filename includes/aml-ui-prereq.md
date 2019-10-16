@@ -20,4 +20,4 @@ ms.date: 05/06/2019
 
     The interface webpage opens in a new browser page.  
 
-You can also access the visual interface from your [workspace landing page (preview)](https://ml.azure.com).
+You can also access the visual interface from the [Azure Machine Learning studio](https://ml.azure.com).
