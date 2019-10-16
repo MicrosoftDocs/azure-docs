@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/12/2019
+ms.date: 10/14/2019
 ms.author: mayg
 ---
 
@@ -29,8 +29,9 @@ If you used a template to create your virtual machines, ensure that each virtual
 - If a vCenter server manages the virtual machines to which you'll fail back, make sure that you have the [required permissions](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) for discovery of VMs on vCenter servers.
 - Delete snapshots on the master target server before you reprotect. If snapshots are present on the on-premises master target or on the virtual machine, reprotection fails. The snapshots on the virtual machine are automatically merged during a reprotect job.
 - All virtual machines of a replication group must be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems currently isn't supported for reprotect and failback to on-premises. This is because the master target must be of the same operating system as the virtual machine. All the virtual machines of a replication group must have the same master target. 
-- A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. Make sure that you make regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
-- Reprotection and failback require a site-to-site (S2S) VPN to replicate data. Provide the network so that the failed-over virtual machines in Azure can reach (ping) the on-premises configuration server. You also might want to deploy a process server in the Azure network of the failed-over virtual machine. This process server must also be able to communicate with the on-premises configuration server.
+- A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. Make sure that you make regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works. 
+- Reprotection and failback require a site-to-site (S2S) VPN or ExpressRoute private peering to replicate data. Provide the network so that the failed-over virtual machines in Azure can reach (ping) the on-premises configuration server. You need to deploy a process server in the Azure network of the failed-over virtual machine(s). This process server must also be able to communicate with the on-premises Configuration Server and Master Target Server.
+- In case the IP addresses of replicated items were retained on failover, S2S or ExpressRoute connectivity should be established between Azure virtual machines and the failback NIC of the configuration server. Note that IP address retention requires configuration server to have two NICs - one for source machines connectivity and one for Azure failback connectivity. This is to avoid overlap of subnet address ranges of the source and failed over virtual machines.
 - Make sure that you open the following ports for failover and failback:
 
     ![Ports for failover and failback](./media/vmware-azure-reprotect/failover-failback.png)
@@ -39,12 +40,11 @@ If you used a template to create your virtual machines, ensure that each virtual
 
 ## Deploy a process server in Azure
 
-You might need a process server in Azure before you fail back to your on-premises site:
-- The process server receives data from the protected virtual machine in Azure, and then sends data to the on-premises site.
-- A low-latency network is required between the process server and the protected virtual machine. In general, you need to consider latency when deciding whether you need a process server in Azure:
-    - If you have an Azure ExpressRoute connection set up, you can use an on-premises process server to send data because the latency between the virtual machine and the process server is low.
-    - However, if you have only a S2S VPN, we recommend deploying the process server in Azure.
-    - We recommend using an Azure-based process server during failback. The replication performance is higher if the process server is closer to the replicating virtual machine (the failed-over machine in Azure). For a proof of concept, you can use the on-premises process server and ExpressRoute with private peering.
+You need a process server in Azure before you fail back to your on-premises site:
+
+- The process server receives data from the protected virtual machine(s) in Azure, and then sends data to the on-premises site.
+- A low-latency network is required between the process server and the protected virtual machine. Hence, it is recommended that you deploy a process server in Azure. The replication performance is higher if the process server is closer to the replicating virtual machine (the failed-over machine in Azure). 
+- For a proof of concept, you can use the on-premises process server and ExpressRoute with private peering.
 
 To deploy a process server in Azure:
 

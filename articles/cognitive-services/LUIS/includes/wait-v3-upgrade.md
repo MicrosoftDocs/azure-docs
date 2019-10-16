@@ -6,9 +6,9 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
 > [!Caution]
-> This document has not been updated with text and screenshots for the new LUIS portal. 
+> This document has not been updated with text and screenshots for the latest LUIS portal. 
