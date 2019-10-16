@@ -98,7 +98,7 @@ Request headers include:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Required request header</em>.<br/>Specifies the content type of the payload. Accepted values are <code>application/json; charset=UTF-8</code>.</td>
+    <td><em>Required request header</em>.<br/>Specifies the content type of the payload.<br/> Accepted values are <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
