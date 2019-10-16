@@ -196,7 +196,7 @@ To prepare the Azure AD DS managed domain for migration, complete the following 
 1. Now run the migrations script, `Migrate-Aadds.ps1`, using the *-Prepare* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain, such as *contoso.com*:
 
     ```powershell
-    \Migrate-Aadds.ps1 `
+    .\Migrate-Aadds.ps1 `
         -Prepare -ManagedDomainFqdn contoso.com `
         -Credentials $creds​
     ```
