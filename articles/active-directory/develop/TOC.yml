@@ -221,82 +221,92 @@
           href: scenario-mobile-production.md      
     - name: Microsoft Authentication Library (MSAL)
       items:
-        - name: Overview
-          href: msal-overview.md
-        - name: Migration from ADAL
-          items:
-          - name: Migrate to MSAL.NET
-            href: msal-net-migration.md
-          - name: Migrate to MSAL.js
-            href: msal-compare-msal-js-and-adal-js.md
-          - name: Migrate to MSAL for iOS and MacOS
-            href: migrate-objc-adal-msal.md
-          - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
-            href: msal-net-migration-ios-broker.md
-        - name: Supported authentication flows
-          href: msal-authentication-flows.md
+      - name: Overview
+        href: msal-overview.md
+      - name: Accounts & tenant profiles (Android)
+        href: accounts-overview.md
+      - name: Authorization agents (Android)
+        href: authorization-agents.md
+      - name: Brokered auth (Android)
+        href: brokered-auth.md
+      - name: Migration
+        items:
+        - name: Migrate to MSAL.NET
+          href: msal-net-migration.md
+        - name: Migrate to MSAL.js
+          href: msal-compare-msal-js-and-adal-js.md
+        - name: Migrate to MSAL.Android
+          href: migrate-android-adal-msal.md
+        - name: Migrate to MSAL.iOS and MacOS
+          href: migrate-objc-adal-msal.md
+        - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
+          href: msal-net-migration-ios-broker.md
+      - name: Supported authentication flows
+        href: msal-authentication-flows.md
+      - name: Single and multi account public client apps (Android)
+        href: single-multi-account.md
+      - name: Acquire and cache tokens
+        items:
         - name: Acquire and cache tokens
-          items:
-          - name: Acquire and cache tokens
-            href: msal-acquire-cache-tokens.md
-          - name: Scopes for v1.0 apps
-            href: msal-v1-app-scopes.md
+          href: msal-acquire-cache-tokens.md
+        - name: Scopes for v1.0 apps
+          href: msal-v1-app-scopes.md
+      - name: Client applications
+        items:
         - name: Client applications
+          href: msal-client-applications.md
+        - name: Application configuration (.NET)
+          href: msal-client-application-configuration.md
+        - name: Initialize applications (.NET)
+          href: msal-net-initializing-client-applications.md
+        - name: Client assertions (.NET)
+          href: msal-net-client-assertions.md
+        - name: Initialize applications (JS)
+          href: msal-js-initializing-client-applications.md
+      - name: Handle errors and exceptions
+        href: msal-handling-exceptions.md        
+      - name: Logging
+        href: msal-logging.md
+      - name: Single sign-on
+        items:
+        - name: Single sign-on with MSAL.js
+          href: msal-js-sso.md
+        - name: Single sign-on with MSAL for iOS and macOS
           items:
-          - name: Client applications
-            href: msal-client-applications.md
-          - name: Application configuration
-            href: msal-client-application-configuration.md
-          - name: Initialize applications (.NET)
-            href: msal-net-initializing-client-applications.md
-          - name: Client assertions (.NET)
-            href: msal-net-client-assertions.md
-          - name: Initialize applications (JS)
-            href: msal-js-initializing-client-applications.md
-        - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md        
-        - name: Logging
-          href: msal-logging.md
-        - name: Single sign-on
-          items:
-          - name: Single sign-on with MSAL.js
-            href: msal-js-sso.md
-          - name: Single sign-on with MSAL for iOS and macOS
+          - name: SSO between MSAL apps
+            href: single-sign-on-macos-ios.md
+          - name: SSO between ADAL and MSAL apps
+            href: sso-between-adal-msal-apps-macos-ios.md
+      - name: Integrate with ADFS
+        items:
+        - name: ADFS support in MSAL.NET
+          href: msal-net-adfs-support.md
+      - name: Integrate with Azure AD B2C
+        items:
+        - name: Android
+          href: msal-android-b2c.md
+        - name: JavaScript
+          href: msal-b2c-overview.md
+        - name: .NET
+          href: msal-net-aad-b2c-considerations.md
+        - name: iOS and macOS
+          href: config-authority.md#b2c
+      - name: Considerations and known issues
+        items:
+          - name: MSAL.NET
             items:
-            - name: SSO between MSAL apps
-              href: single-sign-on-macos-ios.md
-            - name: SSO between ADAL and MSAL apps
-              href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Integrate with ADFS
-          items:
-          - name: ADFS support in MSAL.NET
-            href: msal-net-adfs-support.md
-        - name: Integrate with Azure AD B2C
-          items:
-          - name: JavaScript
-            href: msal-b2c-overview.md
-          - name: .NET
-            href: msal-net-aad-b2c-considerations.md
-          - name: iOS and macOS
-            href: config-authority.md#b2c
-        - name: Considerations and known issues
-          items:
-            - name: MSAL.NET
-              items:
-              - name: Web browsers
-                href: msal-net-web-browsers.md              
-            - name: MSAL.js
-              items:
-              - name: Considerations using IE
-                href: msal-js-use-ie-browser.md
-              - name: Known issues- IE and Microsoft Edge
-                href: msal-js-known-issues-ie-edge-browsers.md
-              - name: Known issues- Safari 
-                href: msal-js-known-issues-safari-browser.md
-            - name: MSAL for iOS and macOS
-              items:
-              - name: SSL issues
-                href: ssl-issues.md
+            - name: Web browsers
+              href: msal-net-web-browsers.md              
+          - name: MSAL.js
+            items:
+            - name: Considerations using IE
+              href: msal-js-use-ie-browser.md
+            - name: Known issues- IE and Microsoft Edge
+              href: msal-js-known-issues-ie-edge-browsers.md
+            - name: Known issues- Safari 
+              href: msal-js-known-issues-safari-browser.md
+          - name: MSAL for iOS and macOS SSL issues
+            href: ssl-issues.md
     - name: Authentication protocol
       items:
       - name: Application types and OAuth2.0
@@ -335,6 +345,8 @@
         href: active-directory-how-applications-are-added.md
       - name: Redirect URI/reply URL restrictions and limitations
         href: reply-url.md
+      - name: Validation differences by supported account types
+        href: supported-accounts-validation.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -354,6 +366,12 @@
         href: authentication-national-cloud.md
       - name: Authentication
         href: msal-national-cloud.md
+    - name: Automatic user provisioning (SCIM)
+      items:
+      - name: What is automatic user provisioning?
+        href: /azure/active-directory/manage-apps/user-provisioning
+      - name: Building and integrating a SCIM endpoint
+        href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
   - name: How-to guides
     items:
     - name: Authentication
@@ -449,6 +467,8 @@
       href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Application manifest
       href: reference-app-manifest.md
+    - name: Android MSAL configuration file
+      href: msal-configuration.md
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
@@ -535,7 +555,7 @@
     - name: Authentication
       items:
       - name: Authentication basics
-        href: authentication-scenarios.md
+        href: v1-authentication-scenarios.md
       - name: OAuth 2.0 and OpenID Connect protocols
         items:
         - name: OpenID Connect

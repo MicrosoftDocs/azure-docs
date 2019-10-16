@@ -74,14 +74,24 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
 The VM needs some additional packages to join the VM to the Azure AD DS managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## Join VM to the managed domain
 
 Now that the required packages are installed on the VM, join the VM to the Azure AD DS managed domain.
-
+ 
+  **RHEL 7**
+	 
 1. Use the `realm discover` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
@@ -89,7 +99,7 @@ Now that the required packages are installed on the VM, join the VM to the Azure
     ```
 
    If the `realm discover` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
-
+   
     * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
@@ -97,10 +107,10 @@ Now that the required packages are installed on the VM, join the VM to the Azure
 1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
     Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
-
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
 1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@CONTOSO.COM`:
 
@@ -114,7 +124,108 @@ It takes a few moments to join the VM to the Azure AD DS managed domain. The fol
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. Use the `adcli info` command to discover the Azure AD DS managed domain. The following example discovers the realm *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+	
+   If the `adcli info` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
+   
+    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
+    * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
+
+1. First, join the domain using the `adcli join` command, this command will also creates the keytab to authenticate the machine. Use a user account that's a member of the *AAD DC Administrators* group. 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `contoso.com` Active Directory domain. 
+   Make sure that `CONTOSO.COM` is replaced by your own domain name :
+
+    Open the `/ect/krb5.conf` file with an editor:
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    Update the `krb5.conf` file to match the following sample :
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   Create the `/etc/sssd/sssd.conf` file :
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    Update the `sssd.conf` file to match the following sample :
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. Make sure `/etc/sssd/sssd.conf` permissions are 600 and is owned by root user:
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. Use `authconfig` to instruct the VM about the AD Linux integration :
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+	
+1. Start and enable the sssd service :
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 If your VM can't successfully complete the domain-join process, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
+
+Now check if you can query user AD information using `getent`
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## Allow password authentication for SSH
 
@@ -136,8 +247,16 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. To apply the changes and let users sign in using a password, restart the SSH service:
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## Grant the 'AAD DC Administrators' group sudo privileges

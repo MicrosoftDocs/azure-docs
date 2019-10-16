@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion (Preview)
@@ -41,7 +41,7 @@ If you apply NSGs to the **AzureBastionSubnet**, allow the following two service
 
 * **GatewayManager (Resource Manager only)**: This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify GatewayManager for the value, traffic is allowed or denied to GatewayManager.  If you are creating NSGs on the AzureBastionSubnet, enable the GatewayManager tag for inbound traffic.
 
-* **AzureCloud (Resource Manager only)**: This tag denotes the IP address space for Azure including all datacenter public IP addresses. If you specify AzureCloud for the value, traffic is allowed or denied to Azure public IP addresses. If you want to allow access only to AzureCloud in a specific region, you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify AzureCloud.EastUS as a service tag. If you are creating NSGs on the AzureBastionSubnet, enable the AzureCloud tag for outbound traffic.
+* **AzureCloud (Resource Manager only)**: This tag denotes the IP address space for Azure including all datacenter public IP addresses. If you specify AzureCloud for the value, traffic is allowed or denied to Azure public IP addresses. If you want to allow access only to AzureCloud in a specific region, you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify AzureCloud.EastUS as a service tag. If you are creating NSGs on the AzureBastionSubnet, enable the AzureCloud tag for outbound traffic. If you open Port 443 for inbound to the Internet, you shouldn't need to enable the AzureCloud tag for inbound traffic.
 
 ## Next steps
 
