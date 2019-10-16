@@ -1,19 +1,21 @@
 ---
-title: Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge | Microsoft Docs
-description: Learn about Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge
+title: Machine learning and artificial intelligence with ONNX in Azure SQL Database Edge Preview | Microsoft Docs
+description: Learn about machine learning and artificial intelligence with ONNX in SQL Database Edge
 keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
-author: stevestein
+author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 10/16/2019
 ---
 
-# Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge Preview
+# Machine learning and artificial intelligence with ONNX in SQL Database Edge Preview
 
-Machine Learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
+Machine learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
+
+## Getting ONNX models
 
 There are several ways that you can obtain a model in the ONNX format, including:
 

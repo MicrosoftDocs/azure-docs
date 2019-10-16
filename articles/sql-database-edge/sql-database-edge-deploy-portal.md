@@ -5,7 +5,7 @@ keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
-author: stevestein
+author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 10/16/2019
@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 
 # Deploy Azure SQL Database Edge Preview
 
-Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Database Edge module through Azure IoT Edge using the Azure portal.
+Azure SQL Database Edge Preview is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Database Edge module through Azure IoT Edge using the Azure portal.
 
 ## Before you begin
 
@@ -22,20 +22,20 @@ Azure SQL Database Edge Preview is an optimized relational database engine geare
 * Submit a request [here](https://azure.microsoft.com/services/sql-database-edge/#contact), to have the subscription enabled for deployment of SQL Database Edge.
 * Create an [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Register an [IoT Edge Device from the Azure portal](../iot-edge/how-to-register-device-portal.md).
-* Prepare the edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
+* Prepare the IoT Edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
 
 > [!NOTE]
-> To deploy an Azure Linux VM as an Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
+> To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
 
 ## Deploy SQL Database Edge Module from Azure Marketplace
 
-Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure SQL Database Edge can be deployed to an Edge device through the marketplace.
+Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure SQL Database Edge can be deployed to an edge device through the marketplace.
 
-1. Find the Azure SQL Database Edge module on the Azure Marketplace.<br>
+1. Find the Azure SQL Database Edge module on the Azure Marketplace.<br><br>
 
    :::image type="content" source="media/sql-database-edge-deploy-portal/find-offer-marketplace.png" alt-text="SQL Database Edge in MarketPlace":::
 
-2. Pick the software plan that best matches your requirements and click **Create**. For more information on the editions and software plans refer [here](Insert link to overview page section on Editions).<br>
+2. Pick the software plan that best matches your requirements and click **Create**. <br><br>
 
    :::image type="content" source="media/sql-database-edge-deploy-portal/pick-correct-plan.png" alt-text="Pick the correct software plan":::
 
@@ -44,7 +44,7 @@ Azure Marketplace is an online applications and services marketplace where you c
    |**Field**  |**Description**  |
    |---------|---------|
    |Subscription  |  The Azure subscription under which the IoT Hub was created |
-   |IoT Hub   |  Name of the IoT Hub where the IoT Edge Device is registered and then select "Deploy to a device" option|
+   |IoT Hub   |  Name of the IoT Hub where the IoT Edge device is registered and then select "Deploy to a device" option|
    |IoT Edge Device Name  |  Name of the IoT Edge device where SQL Database Edge would be deployed |
 
 4. On the **Set Modules** page, navigate to the section on deployment modules and click **Configure** against the SQL Database Edge module. 
@@ -106,11 +106,11 @@ Azure Marketplace is an online applications and services marketplace where you c
 8. On the **IoT Edge Custom Modules** pane, set *Restart Policy* to always and *Desired Status* to running.
 9. On the **IoT Edge Custom Modules** pane, click **Save**.
 10. On the **Set modules** page click **Next**.
-11. On the **Specify Route (optional)** of the **Set Modules** page, specify the routes for module to module or module to Edge Hub communication see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
+11. On the **Specify Route (optional)** of the **Set Modules** page, specify the routes for module to module or module to IoT Edge Hub communication see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
 12. Click **Next**.
 13. Click **Submit**.
 
-In this quickstart, you deployed a SQL Database Edge Module on an Edge device.
+In this quickstart, you deployed a SQL Database Edge Module on an IoT Edge device.
 
 ## Next Steps
 

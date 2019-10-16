@@ -5,7 +5,7 @@ keywords: introduction to sql database edge,what is sql database edge, sql datab
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
-author: stevestein
+author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 10/16/2019
@@ -13,9 +13,9 @@ ms.date: 10/16/2019
 
 # What is Azure SQL Database Edge Preview?
 
-Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Database Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
+Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Database Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
-Azure SQL Database Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Database Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same makes application portability between Edge, data centers and cloud straight forward.
+Azure SQL Database Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Database Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
 ## Deployment Models
 
