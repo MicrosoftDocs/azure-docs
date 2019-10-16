@@ -36,7 +36,7 @@ The following architecture diagram demonstrates how the various components withi
 ![Overview of Linkerd components and architecture.](media/servicemesh/linkerd/about-architecture.png)
 
 
-## Selection Criteria
+## Selection criteria
 
 It's important to understand and consider the following areas when evaluating Linkerd for your workloads:
 
@@ -45,7 +45,7 @@ It's important to understand and consider the following areas when evaluating Li
 - [Scenarios](#scenarios)
 
 
-### Design Principles
+### Design principles
 
 The following design principles [guide][design-principles] the Linkerd project:
 

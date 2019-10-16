@@ -64,7 +64,7 @@ Each of the service meshes have a natural fit and focus on supporting specific s
 - **Supported Compute** - Kubernetes, virtual machines
 - **Multi-cluster** - gateways, federation
 
-## Selection Criteria
+## Selection criteria
 
 Before you select a service mesh, ensure that you understand your requirements and the reasons for installing a service mesh. Try asking the following questions.
 

@@ -221,7 +221,7 @@ control-plane-version
 Status check results are √
 ```
 
-## Access the Dashboard
+## Access the dashboard
 
 Linkerd comes with a dashboard that provides insight into the service mesh and workloads. To access the dashboard, use the `linkerd dashboard` command. This command leverages [kubectl port-forward][kubectl-port-forward] to create a secure connection between your client machine and the relevant pods in your AKS cluster. It will then automatically open the dashboard in your default browser.
 

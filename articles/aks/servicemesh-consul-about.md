@@ -30,7 +30,7 @@ The following architecture diagram demonstrates how the various components withi
 ![Overview of Consul components and architecture.](media/servicemesh/consul/about-architecture.png)
 
 
-## Selection Criteria
+## Selection criteria
 
 It's important to understand and consider the following areas when evaluating Linkerd for your workloads:
 
@@ -39,7 +39,7 @@ It's important to understand and consider the following areas when evaluating Li
 - [Scenarios](#scenarios)
 
 
-### Consul Principles
+### Consul principles
 
 The following principles [guide][consul-principles] the Consul project:
 

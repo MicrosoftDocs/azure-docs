@@ -35,7 +35,7 @@ The following architecture diagram demonstrates how the various components withi
 ![Overview of Istio components and architecture.](media/servicemesh/istio/about-architecture.png)
 
 
-## Selection Criteria
+## Selection criteria
 
 It's important to understand and consider the following areas when evaluating Istio for your workloads:
 
@@ -44,7 +44,7 @@ It's important to understand and consider the following areas when evaluating Is
 - [Scenarios](#scenarios)
 
 
-### Design Goals
+### Design goals
 
 The following design goals [guide][design-goals] the Istio project:
 
