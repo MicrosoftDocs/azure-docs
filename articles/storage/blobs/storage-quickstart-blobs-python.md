@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a blob in object storage with Python | Microsoft Docs
+title: 'Quickstart: Create a blob in Azure Blob storage with Python'
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,11 +7,12 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: seo-python-october2019
 ---
 
-# Quickstart: Upload, download, and list blobs with Python
+# Quickstart: Upload, download, and list blobs in Azure Blob storage with Python
 
-In this quickstart, you use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. Blobs in Azure Storage are different from file shares, schema-less tables, and message queues.  For more info, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
+In this article, you use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. Blobs in Azure Storage are different from file shares, schema-less tables, and message queues.  For more info, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -178,7 +179,7 @@ for blob in generator:
 
 
 Download blobs to your local disk using the `get_blob_to_path` method.
-The following code downloads the blob you uploaded previously. The system appends *_DOWNLOADED* to the blob name so you can see both files on your local disk.”
+The following code downloads the blob you uploaded previously. The system appends *_DOWNLOADED* to the blob name so you can see both files on your local disk.
 
 ```python
 # Download the blob(s).

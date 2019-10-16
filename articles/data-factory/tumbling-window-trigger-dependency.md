@@ -154,6 +154,10 @@ If you click on 'View Trigger Dependencies', you can see the status of the depen
 
 ![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
 
+For a more visual to view the trigger dependency schedule, select the Gantt view.
+
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitor dependencies")
+
 ## Next steps
 
 * Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)

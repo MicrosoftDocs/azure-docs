@@ -23,9 +23,9 @@
     href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
-  - name: About Azure Files
+  - name: Planning for an Azure Files deployment
     href: storage-files-planning.md
-  - name: About Azure File Sync
+  - name: Planning for an Azure File Sync deployment
     href: storage-sync-files-planning.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
@@ -53,7 +53,7 @@
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure Storage security
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Storage account encryption
+    - name: Azure Storage encryption
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure AD authentication over SMB
       href: storage-files-active-directory-overview.md
@@ -183,6 +183,8 @@
     items:
     - name: Blobs, Queues, and Files (version 12.x - preview)
       href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
+    - name: Blobs, Queues, and Files (version 8)
+      href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
     - name: Storage Resource Provider
       href: /java/api/overview/azure/storage/management
   - name: Node.js
@@ -282,8 +284,10 @@
       href: https://www.nuget.org/packages/Azure.Storage.Files/
     - name: Azure Configuration Manager
       href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
-    - name: Azure Storage Data Movement Library
+    - name: Azure Storage Data Movement library
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
+    - name: Storage Resource Provider library
+      href: https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/
   - name: Source code
     items:
     - name: .NET
@@ -297,7 +301,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: /dotnet/api/overview/azure/storage/management
+        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

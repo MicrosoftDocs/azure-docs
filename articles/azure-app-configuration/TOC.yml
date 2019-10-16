@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: Java Spring
+          href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
   items:
     - name: Enable dynamic configuration in ASP.NET Core
@@ -33,8 +35,12 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Use feature flags in a .NET Core app
       href: use-feature-flags-dotnet-core.md
+    - name: Use feature flags in a Spring Boot app
+      href: use-feature-flags-spring-boot.md
     - name: Manage feature flags
       href: manage-feature-flags.md
+    - name: Use Key Vault references in ASP.NET Core
+      href: use-key-vault-references-dotnet-core.md
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
 - name: Samples
@@ -95,6 +101,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2091601
 - name: Resources
   items:
+    - name: Pricing
+      href: https://azure.microsoft.com/en-us/pricing/details/app-configuration/
     - name: Videos
       items:
         - name: Getting started

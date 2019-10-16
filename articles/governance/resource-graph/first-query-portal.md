@@ -3,10 +3,9 @@ title: Run your first query using Azure Resource Graph Explorer
 description: This article walks you through the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
@@ -29,8 +28,8 @@ following these steps to run your first Resource Graph query:
 
 1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
 
-1. In the **Query 1** portion of the window, enter the query `project name, type | limit 5` and
-   select **Run query**.
+1. In the **Query 1** portion of the window, enter the query
+   `Resources | project name, type | limit 5` and select **Run query**.
 
    > [!NOTE]
    > As this query example doesn't provide a sort modifier such as `order by`, running this query
@@ -41,7 +40,7 @@ following these steps to run your first Resource Graph query:
    displayed under this tab.
 
 1. Update the query to `order by` the **Name** property:
-   `project name, type | limit 5 | order by name asc`. Then, select **Run query**.
+   `Resources | project name, type | limit 5 | order by name asc`. Then, select **Run query**.
 
    > [!NOTE]
    > Just as with the first query, running this query multiple times is likely to yield a different
@@ -50,7 +49,8 @@ following these steps to run your first Resource Graph query:
    > them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five
-   results: `project name, type | order by name asc | limit 5`. Then, select **Run query**.
+   results: `Resources | project name, type | order by name asc | limit 5`. Then, select **Run
+   query**.
 
 When the final query is run several times, assuming that nothing in your environment is changing,
 the results returned are consistent and as expected -- ordered by the **Name** property, but still
@@ -79,7 +79,8 @@ let's create a visualization from the Resource Graph query.
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

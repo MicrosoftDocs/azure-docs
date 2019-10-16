@@ -73,27 +73,18 @@ Log in to the Azure portal at https://portal.azure.com.
 
     |Setting|Value|
     |---|---|
-    |Name|myVirtualNetwork1-myVirtualNetwork2|
+    |Name of the peering from myVirtualNetwork1 to remote virtual network|myVirtualNetwork1-myVirtualNetwork2 - When the page first loads, you'll see the phrase "remote virtual network" here. After you choose the remote virtual network, the phrase "remote virtual network" will be replaced with the name of the remote virtual network.|
     |Subscription| Select your subscription.|
-    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2**. You can select a virtual network in the same region or in a different region.|
+    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2 (myResourceGroup)**. You can select a virtual network in the same region or in a different region.|
+    |Name of the peering from myVirtualNetwork2 to myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    The **PEERING STATUS** is *Initiated*, as shown in the following picture:
+    The **PEERING STATUS** is *Connected*, as shown in the following picture:
 
-    ![Peering status](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![Peering status](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     If you don't see the status, refresh your browser.
-
-4. In the **Search** box at the top of the Azure portal, begin typing *MyVirtualNetwork2*. When **myVirtualNetwork2** appears in the search results, select it.
-5. Complete steps 2-3 again, with the following changes, and then select **OK**:
-
-    |Setting|Value|
-    |---|---|
-    |Name|myVirtualNetwork2-myVirtualNetwork1|
-    |Virtual network|myVirtualNetwork1|
-
-    The **PEERING STATUS** is *Connected*. Azure also changed the peering status for the *myVirtualNetwork2-myVirtualNetwork1* peering from *Initiated* to *Connected.* Virtual network peering is not fully established until the peering status for both virtual networks is *Connected.* 
 
 ## Create virtual machines
 
@@ -121,8 +112,12 @@ Create a VM in each virtual network so that you can communicate between them in 
     |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1**.|
     |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1**.|
     
- 
-6. Select the **Review + Create** button in the lower, left-hand corner to start the VM deployment.
+
+    ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+   
+6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
+
+7. Select the **Review + Create** button in the lower, left-hand corner to start the VM deployment.
 
 ### Create the second VM
 

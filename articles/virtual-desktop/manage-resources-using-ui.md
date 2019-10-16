@@ -1,6 +1,6 @@
 ---
 title: Deploy management tool - Azure
-description: How to install a user interface tool to manage Windows Virtual Desktop preview resources.
+description: How to install a user interface tool to manage Windows Virtual Desktop resources.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,16 +11,22 @@ ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
 
-The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop Preview resources. In this tutorial, you'll learn how to deploy and connect to the management tool.
+The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In this tutorial, you'll learn how to deploy and connect to the management tool.
 
 >[!NOTE]
->These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+>These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Important considerations
 
 Since the app requires consent to interact with Windows Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
 
 This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
+
+To following browsers are compatible with the management tool:
+- Google Chrome 68 or later
+- Microsoft Edge 40.15063 or later
+- Mozilla Firefox 52.0 or later
+- Safari 10 or later (macOS only)
 
 ## What you need to run the Azure Resource Manager template
 
