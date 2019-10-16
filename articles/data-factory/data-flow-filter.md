@@ -11,7 +11,7 @@ ms.date: 10/16/2019
 
 # Filter transformation in mapping data flow
 
-The Filter transforms allows row filtering based upon a condition. The output stream include all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
+The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
 
 ## Configuration
 
