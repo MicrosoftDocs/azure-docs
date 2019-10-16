@@ -1,12 +1,11 @@
 ---
 title: Install Consul in Azure Kubernetes Service (AKS)
 description: Learn how to install and use Consul to create a service mesh in an Azure Kubernetes Service (AKS) cluster
-services: container-service
 author: dstrebel
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ---

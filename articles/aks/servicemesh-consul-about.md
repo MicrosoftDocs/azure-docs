@@ -1,12 +1,11 @@
 ---
 title: Overview of Consul
 description: Obtain an overview of Consul
-services: container-service
 author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/9/2019
+ms.date: 10/09/2019
 ms.author: pabouwer
 ---
 

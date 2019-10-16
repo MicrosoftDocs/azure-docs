@@ -1,12 +1,11 @@
 ---
 title: Overview of Istio
 description: Obtain an overview of Istio
-services: container-service
 author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/9/2019
+ms.date: 10/09/2019
 ms.author: pabouwer
 ---
 
