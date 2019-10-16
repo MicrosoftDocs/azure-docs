@@ -62,6 +62,7 @@ A common challenge when building cloud applications is how to securely store sec
 
         > [!NOTE] 
         > It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
+
     ```json
         {
             "name": "EncryptionCertificateThumbprint",
@@ -145,6 +146,6 @@ reference as container repository password.
 
 - The keyvault needs to be in the same subscription as your service fabric cluster. 
 
-## Next Steps
+## Next steps
 
 * [Azure KeyVault Documentation](https://docs.microsoft.com/azure/key-vault/)
