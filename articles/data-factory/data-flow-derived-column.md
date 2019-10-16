@@ -43,7 +43,7 @@ To add additional derived columns, hover over an existing derived column and cli
 
 The below example is a derived column named `CleanData` that takes an incoming stream `MoviesYear` and creates two derived columns. The first derived column replaces column `Rating` with Rating's value as an integer type. The second derived column is a pattern that matches each column whose name starts with 'movies'. For each matched column, it creates a column `movie` that is equal to the value of the matched column prefixed with 'movie_'. In the Data Factory UX, this transformation looks like the below image:
 
-![Derive example](media/data-flow/deriveScript1.png "Derive example")
+![Derive example](media/data-flow/derive-script1.png "Derive example")
 
 The data flow script for this transformation is in the snippet below:
 

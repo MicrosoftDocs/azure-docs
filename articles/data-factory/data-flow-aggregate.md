@@ -37,8 +37,8 @@ Each aggregation expression must contain at least one aggregate function.
 
 Aggregate transformations are similar to SQL aggregate select queries. Columns that aren't included in your group by clause or aggregate functions won't flow through to the output of your aggregate transformation. If you wish to include other columns in your aggregated output, do one of the following methods:
 
-1. Use an aggregate function such as `last()` or `first()` to include that additional column.
-1. Rejoin the columns to your output stream using the [self join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+* Use an aggregate function such as `last()` or `first()` to include that additional column.
+* Rejoin the columns to your output stream using the [self join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## Data flow script
 
@@ -65,9 +65,9 @@ Aggregate transformations are similar to SQL aggregate select queries. Columns t
 
 The below example takes an incoming stream `MoviesYear` and groups rows by column `year`. The transformation creates an aggregate column `avgrating` that evaluates to the average of column `Rating`. This aggregate transformation is named `AvgComedyRatingsByYear`. In the Data Factory UX, this transformation looks like the below image:
 
-![Group by example](media/data-flow/aggScript1.png "Group by example")
+![Group by example](media/data-flow/agg-script1.png "Group by example")
 
-![Aggregate example](media/data-flow/aggScript2.png "Aggregate example")
+![Aggregate example](media/data-flow/agg-script2.png "Aggregate example")
 
 The data flow script for this transformation is in the snippet below.
 
