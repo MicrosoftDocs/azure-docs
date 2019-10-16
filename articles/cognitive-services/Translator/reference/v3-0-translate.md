@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/15/2019
+ms.date: 10/16/2019
 ms.author: swmachan
 ---
 
@@ -98,7 +98,7 @@ Request headers include:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Required request header</em>.<br/>Specifies the content type of the payload. Possible values are: <code>application/json</code>. Make sure to include the encoding <code>charset=UTF-8</code>.</td>
+    <td><em>Required request header</em>.<br/>Specifies the content type of the payload. Accepted values are <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
