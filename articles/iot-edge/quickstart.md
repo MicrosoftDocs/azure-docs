@@ -46,7 +46,7 @@ Cloud resources:
 * A resource group to manage all the resources you use in this quickstart.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus2
+   az group create --name IoTEdgeResources --location southeastasia
    ```
 
 IoT Edge device:
