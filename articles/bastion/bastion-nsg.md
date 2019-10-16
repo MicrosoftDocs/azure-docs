@@ -25,7 +25,7 @@ In this diagram:
 
 ## <a name="nsg"></a>Network security groups
 
-This section shows you the network traffic between the user and Azure Bastion, and through to Target VMs in your virtual network:
+This section shows you the network traffic between the user and Azure Bastion, and through to target VMs in your virtual network:
 
 ### AzureBastionSubnet
 
@@ -38,8 +38,8 @@ Azure Bastion is deployed specifically to the AzureBastionSubnet.
 
 * **Egress Traffic:**
 
-   * **Egress Traffic to Target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22.
-   * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs, etc.). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
+   * **Egress Traffic to target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22.
+   * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
 
 * **Target VM Subnet:** This is the subnet that contains the target virtual machine that you want to RDP/SSH to.
 
@@ -53,7 +53,8 @@ If you create and apply an NSG to ***AzureBastionSubnet***, make sure you have a
 * **Diagnostics logging and others:** Outbound on 443 to AzureCloud. Regional tags within this service tag are not supported yet.
 * **Target VM:** Outbound for 3389 and 22 to VirtualNetwork
 
-An NSG rule example is available for reference in a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+An NSG rule example is available for reference in this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+
 ## Next steps
 
 For more information about Azure Bastion, see the [FAQ](bastion-faq.md).
