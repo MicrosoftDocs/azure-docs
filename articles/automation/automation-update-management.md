@@ -53,7 +53,7 @@ You can deploy and install software updates on computers that require the update
 
 The scheduled deployment defines which target computers receive the applicable updates. It does so either by explicitly specifying certain computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is used only to determine which machines get the management packs that enable the solution.
 
-You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. Twenty minutes of the maintenance window is reserved for reboots, if one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
+You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. Twenty minutes of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don’t require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
@@ -168,7 +168,7 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 megabytes (MB) per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage.
 
-## <a name="ports"></a>Network Planning
+## <a name="ports"></a>Network planning
 
 The following addresses are required specifically for Update Management. Communication to these addresses occurs over port 443.
 
@@ -179,13 +179,13 @@ The following addresses are required specifically for Update Management. Communi
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS Key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-For Red Hat Linux machines, see [the IPs for the RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-We recommend that you use the addresses listed when defining exceptions. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and it reflects the currently deployed ranges and any upcoming changes to the IP ranges.
+We recommend that you use the addresses listed when defining exceptions. For IP addresses, you can download [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and it reflects the currently deployed ranges and any upcoming changes to the IP ranges.
 
 Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that don't have internet access.
 
@@ -193,9 +193,9 @@ Follow the instructions in [Connect computers without internet access](../azure-
 
 In your Automation account, select **Update Management** to view the status of your machines.
 
-This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE COLUMN**, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can see if the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you learn what steps to take to correct the problem.
+This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE** column, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can check the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you take steps to correct the problem.
 
-To run a log search that returns information about the machine, update, or deployment, select the item in the list. The **Log Search** pane opens with a query for the item selected:
+To run a log search that returns information about the machine, update, or deployment, select the corresponding item in the list. The **Log Search** pane opens with a query for the item selected:
 
 ![Update Management default view](media/automation-update-management/update-management-view.png)
 
@@ -227,15 +227,15 @@ The following tables list the update classifications in Update Management, with 
 |Classification  |Description  |
 |---------|---------|
 |Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
-|Other updates     | All other updates that aren't critical in nature or aren't security updates.        |
+|Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
 
-For Linux, Update Management can distinguish between critical and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available out of the box. If you have CentOS machines configured in a way to return security data for the following command, Update Management will be able to patch based on classifications.
+For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured in a way to return security data for the following command, Update Management can patch based on classifications.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-There's currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
 ## Integrate with System Center Configuration Manager
 
@@ -253,27 +253,25 @@ The following sections explain potential issues with Linux patching.
 
 ### Unexpected OS-level upgrades
 
-On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur via packages. This might lead to Update Management runs where the OS version number changes. Because Update Management uses the same methods to update packages that an administrator would use locally on the Linux computer, this behavior is intentional.
+On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur through packages. This might lead to Update Management runs where the OS version number changes. Because Update Management uses the same methods to update packages that an administrator would use locally on the Linux computer, this behavior is intentional.
 
-To avoid updating the OS version via Update Management runs, use the **Exclusion** feature.
+To avoid updating the OS version through Update Management runs, use the **Exclusion** feature.
 
 In Red Hat Enterprise Linux, the package name to exclude is redhat-release-server.x86_64.
 
 ![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
 
-### Critical / security patches aren't applied
+### Critical/security patches aren't applied
 
 When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to the machine that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
 
-Because Update Management performs update enrichment in the cloud, some updates can be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied.
+Because Update Management performs update enrichment in the cloud, some updates can be flagged in Update Management as having a security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having a security impact on that machine and therefore the updates aren't applied. However, Update Management might still report that machine as non-compliant because it has additional information about the relevant update.
 
-However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
+Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting *only* **Other updates** as the classification can cause some security updates to also be installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
 
-Deploying updates by update classification doesn't work on CentOS out of the box. To properly deploy updates for CentOS, select all classifications to ensure updates are applied. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
+### <a name="multi-tenant"></a>Cross-tenant update deployments
 
-### <a name="multi-tenant"></a>Cross-tenant Update Deployments
-
-If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll have to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the `-ForUpdate` switch to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet and pass the machines in the other tenant to the `-NonAzureComputer` parameter. The following example shows an example on how to do this:
 
 ```azurepowershell-interactive
@@ -299,11 +297,10 @@ To begin patching systems, you need to enable the Update Management solution. Th
 
 Continue to the tutorial to learn how to manage updates for your Windows VMs.
 
-> [!div class="nextstepaction"]
-> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
+ [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
 
 * Use log searches in [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
 
-* To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)
-* To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)
+* To learn how to interact with Update Management through the REST API, see [Software update configurations](/rest/api/automation/softwareupdateconfigurations).
+* To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md).
