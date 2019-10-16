@@ -393,12 +393,12 @@ This command:
 
 ## Query the container's prediction endpoint
 
-| Container | Endpoint |
-|--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
-| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
-| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
+| Container | Endpoint | Protocol |
+|--|--|--|
+| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS/S |
+| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS/S |
+| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP/S |
+| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP/S |
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
