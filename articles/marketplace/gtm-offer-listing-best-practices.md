@@ -33,7 +33,7 @@ The tables in this section provide suggestions for creating and engaging marketp
 
 Azure Marketplace and Microsoft AppSource are storefronts that serve different and unique customer requirements. Choose the right storefront and categories for each offer to target your customers by role. 
 
-You may select up to two categories and two subcategories for an offer. The categories and subcategories listed below are available in both storefronts.  Make sure your category selection is aligned with the intended audience, as well as your offer description and value proposition.
+You may select up to two categories and two subcategories for an offer. The categories and subcategories listed below are available in both storefronts.  Make sure your category selection is aligned with the intended audience, offer description, and value proposition of your offer.
 
 | **Industry**    | **Subindustry**  | 
 | :------------------- | :-------------------|
