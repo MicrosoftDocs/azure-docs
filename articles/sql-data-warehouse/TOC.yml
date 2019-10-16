@@ -73,6 +73,8 @@
       items:
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      - name: Private Link
+        href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Virtual network service endpoints
         href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Authentication
@@ -95,6 +97,8 @@
         href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data protection
       items:
+      - name: Dynamic data masking
+        href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Transparent Data Encryption (TDE) overview
         href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
@@ -149,8 +153,8 @@
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and- 
     - name: Result set caching
       items:
-      - name: Overview 
-        href: sql-data-warehouse-result-set-caching-overview.md
+      - name: Performance tuning guidance 
+        href: performance-tuning-result-set-caching.md
       - name: Set for a database
         href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
       - name: Set for a session 

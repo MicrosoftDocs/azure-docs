@@ -35,20 +35,6 @@
     href: policy-samples.md
 - name: Concepts
   items:
-  - name: NAT gateway
-    items:
-     - name: Overview
-       items:
-        - name: About NAT gateway
-          href: nat-service-overview.md
-     - name: Quickstarts
-       items:
-        - name: Create a NAT Gateway - Azure CLI
-          href: quickstart-create-nat-gateway-cli.md
-     - name: Tutorials
-       items:
-        - name: Create and validate NAT gateway - Azure CLI
-          href: tutorial-create-validate-nat-gateway-cli.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
@@ -248,6 +234,8 @@
       items:
       - name: Subnets
         href: virtual-network-manage-subnet.md
+      - name: Subnet delegation
+        href: manage-subnet-delegation.md
       - name: Peerings
         href: virtual-network-manage-peering.md
       - name: DDoS protection
