@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/16/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -20,6 +20,8 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### November 4, 2019 - Ignite
 
+* [Language Support]
+    * [Hindi](luis-langague-support.md)
 * [LUIS portal](https://www.luis.ai)
     * New authoring experience
 * New capabilities and concepts
@@ -32,8 +34,6 @@ Learn what's new in the service. These items may release notes, videos, blog pos
     * Japanese prebuilt age, currency, number, percentage are not support in V3
     * Italian prebuilt age, currency, dimension, number, percentage resolution changed from V2
 * Import and export `.lu` file format from [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) 
-
-
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
 
 ### September 3, 2019
