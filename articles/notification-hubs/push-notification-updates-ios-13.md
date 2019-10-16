@@ -63,7 +63,7 @@ To help you during this transition, when Azure Notification Hubs detects a notif
 
 Another minor change, but one that requires a change to the backend application that sends notifications, is the requirement that for background notifications the `apns-priority` header must now be set to 5. Many applications set the `apns-priority` header to 10 (indicating immediate delivery), or don't set it and get the default value (which is also 10).
 
-This is no longer allowed for background notifications, so you must set the value for each request. Apple will not deliver background notifications if this value is missing. For example:
+Setting this value to 10 is no longer allowed for background notifications, and you must set the value for each request. Apple will not deliver background notifications if this value is missing. For example:
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
