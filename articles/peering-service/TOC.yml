@@ -8,7 +8,7 @@
   items:
   - name: Location and Partners
     href: peering-service-location-partners.md
-  - name: Connections
+  - name: Connection
     href: peering-service-connection.md
   - name: Connection Telemetry
     href: peering-service-connection-telemetry.md
@@ -22,12 +22,16 @@
         href: peering-service-azure-portal.md
       - name: Azure PowerShell
         href: peering-service-powershell.md
-  - name: Measure Connection Telemetry 
+      - name: Azure CLI
+        href: peering-service-CLI.md
+  - name: Measure Connection telemetry 
     href: peering-service-measure-connection-telemetry.md
 - name: Reference
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.network
+  - name: Azure CLI
+    href: /cli/azure/network
 - name: Resources
   items:
   - name: Azure roadmap

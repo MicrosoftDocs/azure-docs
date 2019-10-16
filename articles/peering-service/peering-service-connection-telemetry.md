@@ -13,17 +13,17 @@ ms.author: v-meravi
 ---
 # Peering Service connection telemetry
 
-Connection telemetry is the insights collected for a Peering Service connection. Customers can obtain the telemetry for the Peering Service connection by registering the connection into the Azure portal. Connection telemetry feature provides prefix security, and insights into the network latency. 
+Connection telemetry is the insights collected for a *Peering Service* connection. Customers can obtain the telemetry for the *Peering Service* connection by registering the connection into the Azure portal. This feature provides prefix security, and insights into the network latency.
 
 ## Preview Scope
 
-Connection telemetry comprises of the following scopes:  
+Connection telemetry is composed of the following scopes:  
 
-**Latency measurement**
+- **Latency measurement**
 
-Measures the latency from the client to the Microsoft edge for the registered prefixes.
+Measures the latency from the client to the Microsoft Edge for the registered prefixes.
 
-**Route (prefix) monitoring and protection** 
+- **Route(prefix) monitoring and protection** 
 
 Monitors routing path for any suspicious activity and captures the same in the event logs. For instance, event logs are created for some of the factors specified below: 
 

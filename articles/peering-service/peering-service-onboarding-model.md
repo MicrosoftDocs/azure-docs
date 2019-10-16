@@ -15,7 +15,7 @@ ms.author: v-meravi
 
 # Onboarding Peering Service model
 
-Onboarding process comprises of two models as listed below:
+Onboarding process comprised of two models as listed below:
 
  - Onboarding Peering Service connection
 
@@ -25,14 +25,14 @@ Action plans for the above listed models are described as below:
 
 | **Step** | **Action**| **What you get**| **Costs**|
 |-----------|---------|---------|---------|
-|1|Customer to provision the connectivity from a certified partner (no interaction with Microsoft) ​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |Connectivity costs from the Service Provider offering​. No additional data transfer costs from Microsoft​ |
-|2 (Optional)|Customer registers locations into the Azure portal​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |15 per /24 prefix per month​ ​ 
+|1|Customer to provision the connectivity from a connectivity partner (no interaction with Microsoft).​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |Connectivity costs from the Service Provider offering​.No additional data transfer costs from Microsoft​. |
+|2 (Optional)|Customer registers locations into the Azure portal.​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​.  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |15 per /24 prefix per month​.| ​
 
 ## Onboarding Peering Service connection
 
-To onboard the Peering Service connection, do the following:
+To onboard the *Peering Service* connection, do the following:
 
-- Work with Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
+- Work with Internet Service provider or Internet Exchange Partner to obtain *Peering Service* to connect your network with Microsoft network.
 
 - Ensure the connectivity providers are partnered with Microsoft.
 

@@ -14,11 +14,11 @@ ms.author: v-meravi
 
 # Register the Peering Service using the Azure portal
 
-Peering Service is a networking service that improves internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services running on Azure or any Microsoft services accessible via public IP Azure. In this article, you will learn how to register a Peering Service.
+*Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet
 
-In this article, you will learn how to cerate a Peering Service connection.
+In this article, you will learn how to cerate a *Peering Service* connection.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 ## Pre-requisites  
 
@@ -32,9 +32,9 @@ A valid and active Microsoft Azure account. This account is required to set up t
 
    - Ensure the connectivity providers are certified.
 
-### Registering your subscription with the resource provider and feature flag
+### Register your subscription with the resource provider and feature flag
 
-Before proceeding to the steps of registering the Peering Service, you need to register your subscription with the resource provider and feature flag.  
+Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag. The PowerShell commands are specified below:
 
 ```PowerShellCopy
 Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
@@ -49,28 +49,29 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
 ## Register the Peering Service connection
 
-1. To register the Peering Service connection, click **Create a resource > Peering Service** as depicted below: 
+1. To register the *Peering Service* connection, click **Create a resource > Peering Service** as depicted below: 
 
 ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)
  
-2.	**Basics** - Now, provide the following details in the Basics tab of the Create a peering service connection page. 
+2.	**Basics** - Now, provide the following details in the **Basics** tab of the **Create a peering service connection** page. 
  
 3.	Choose the **Subscription**  and the **Resource group** associated with the subscription as shown in the screen below:
 
-4.	Next, provide a **Name** to which the Peering Service instance should be registered.
+> [!div class="mx-imgBorder"]
+> ![Register Peering Service](./media/peering-service-portal/peering-servicebasics.png)
+
+4.	Next, provide a **Name** to which the *Peering Service* instance should be registered.
  
-5.	Now, click on the **Next: Configuration**  button at the bottom. Doing so, Configuration page appears.
+5.	Now, click on the **Next: Configuration** button at the bottom.**Configuration** page appears.
 
 ## Configure the Peering Service connection
 
-1.	In the **Configuration**  page, choose the location to which the **Peering Service** must be enabled by choosing the same from the **Peering service location** drop-down list.
+1.	In the **Configuration**  page, choose the location to which the *Peering Service* must be enabled by choosing the same from the **Peering service location** drop-down list.
 
 2.	Now, choose the service provider from whom the Peering Service must be obtained by choosing provider name from the **Peering service provider**  drop-down list.
  
 3.	**Prefixes –** 
-Clicking on the **Create new**  under Prefixes, text boxes appear. Now, provide **Name** of the prefix resource and the **Prefix** that is associated with the Service Provider.
-
-4.	Provide a name to the prefix resource in the **Name** text box and provide the prefix range in the **Prefixes** text box that is associated with the service provider.
+Clicking on the **Create new prefix** at the bottom of the **Prefixes** section, text boxes appear. Now, provide **NAME** of the prefix resource and the **PREFIXES** associated with the Service Provider.
 
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
