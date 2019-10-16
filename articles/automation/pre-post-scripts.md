@@ -1,6 +1,6 @@
 ---
-title: Configure pre and post scripts on your Update Management deployment in Azure
-description: This article describes how to configure and manage pre and post scripts for update deployments
+title: Configure pre and post-scripts on your Update Management deployment in Azure
+description: This article describes how to configure and manage pre and post-scripts for update deployments
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -10,9 +10,9 @@ ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Manage pre and post scripts
+# Manage pre and post-scripts
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post-scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post-scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
@@ -20,7 +20,7 @@ For a runbook to be used as a pre or post script, the runbook needs to be import
 
 ## Using a pre/post script
 
-To use a pre and or post script in an Update Deployment, start by creating an Update Deployment. Select **Pre-scripts + Post Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.  
+To use a pre and or post script in an Update Deployment, start by creating an Update Deployment. Select **Pre-scripts + Post Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.
 
 ![Select scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -38,13 +38,13 @@ When your Update Deployment is complete, you can go to **Update deployments** to
 
 ![Update results](./media/pre-post-scripts/update-results.png)
 
-By clicking into the update deployment run, you're provided additional details to the pre and post scripts. A link to the script source at the time of the run is provided.
+By clicking into the update deployment run, you're provided additional details to the pre and post-scripts. A link to the script source at the time of the run is provided.
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
 ## Passing parameters
 
-When you configure pre and post scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre and Post scripts support the following types:
+When you configure pre and post-scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre and Post-scripts support the following types:
 
 * [char]
 * [byte]
@@ -66,7 +66,7 @@ In addition to your standard runbook parameters, an additional parameter is prov
 |Property  |Description  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | The name of the Software Update Configuration        |
-|SoftwareUpdateConfigurationRunId     | The unique id for the run.        |
+|SoftwareUpdateConfigurationRunId     | The unique ID for the run.        |
 |SoftwareUpdateConfigurationSettings     | A collection of properties related to the Software Update Configuration         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment         |
 |SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the "maintenance window"          |
@@ -98,7 +98,7 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ], 
+         ],
          "nonAzureComputerNames":[
             "box1.contoso.com",
             "box2.contoso.com"
@@ -115,7 +115,7 @@ A full example with all properties can be found at: [Software Update Configurati
 
 ## Stopping a deployment
 
-If you want to stop a deployment based on a Pre script, you must [throw](automation-runbook-execution.md#throw) an exception. If you don't throw an exception, the deployment and Post script will still run. The [example runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in the gallery shows how you can do this. The following is a snippet from that runbook.
+If you want to stop a deployment based on a pre-script, you must [throw](automation-runbook-execution.md#throw) an exception. If you don't throw an exception, the deployment and Post script will still run. The code snippet below shows how to throw an exception.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -124,16 +124,15 @@ foreach($summary in $finalStatus)
 {
     if ($summary.Type -eq "Error")
     {
-        #We must throw in order to fail the patch deployment.  
+        #We must throw in order to fail the patch deployment.
         throw $summary.Summary
     }
 }
 ```
 
-
 ## Samples
 
-Samples for pre and post scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), or imported through the Azure portal. To import them through the portal, in your Automation Account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
+Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or imported through the Azure portal. To import them through the portal, in your Automation Account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
 ![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -148,66 +147,66 @@ Or you can search for them by their script name as seen in the following list:
 > [!IMPORTANT]
 > After you import the runbooks, you must **Publish** them before they can be used. To do that find the runbook in your Automation Account, select **Edit**, and click **Publish**.
 
-The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure and handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
+The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post-scripts. The necessary logic for authenticating with Azure and handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
 
 ```powershell
-<# 
-.SYNOPSIS 
- Barebones script for Update Management Pre/Post 
- 
-.DESCRIPTION 
-  This script is intended to be run as a part of Update Management Pre/Post scripts.  
-  It requires a RunAs account. 
- 
-.PARAMETER SoftwareUpdateConfigurationRunContext 
-  This is a system variable which is automatically passed in by Update Management during a deployment. 
-#> 
- 
-param( 
-    [string]$SoftwareUpdateConfigurationRunContext 
-) 
-#region BoilerplateAuthentication 
-#This requires a RunAs account 
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection' 
- 
-Add-AzureRmAccount ` 
-    -ServicePrincipal ` 
-    -TenantId $ServicePrincipalConnection.TenantId ` 
-    -ApplicationId $ServicePrincipalConnection.ApplicationId ` 
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint 
- 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID 
-#endregion BoilerplateAuthentication 
- 
-#If you wish to use the run context, it must be converted from JSON 
-$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
-#Access the properties of the SoftwareUpdateConfigurationRunContext 
+<#
+.SYNOPSIS
+ Barebones script for Update Management Pre/Post
+
+.DESCRIPTION
+  This script is intended to be run as a part of Update Management Pre/Post scripts.
+  It requires a RunAs account.
+
+.PARAMETER SoftwareUpdateConfigurationRunContext
+  This is a system variable which is automatically passed in by Update Management during a deployment.
+#>
+
+param(
+    [string]$SoftwareUpdateConfigurationRunContext
+)
+#region BoilerplateAuthentication
+#This requires a RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+#endregion BoilerplateAuthentication
+
+#If you wish to use the run context, it must be converted from JSON
+$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
+#Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
-$runId = $context.SoftwareUpdateConfigurationRunId 
- 
-Write-Output $context 
- 
-#Example: How to create and write to a variable using the pre-script: 
-<# 
-#Create variable named after this run so it can be retrieved 
-New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false 
-#Set value of variable  
-Set-AutomationVariable –Name $runId -Value $vmIds 
-#> 
- 
-#Example: How to retrieve information from a variable set during the pre-script 
-<# 
-$variable = Get-AutomationVariable -Name $runId 
-#>      
+$runId = $context.SoftwareUpdateConfigurationRunId
+
+Write-Output $context
+
+#Example: How to create and write to a variable using the pre-script:
+<#
+#Create variable named after this run so it can be retrieved
+New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+#Set value of variable
+Set-AutomationVariable –Name $runId -Value $vmIds
+#>
+
+#Example: How to retrieve information from a variable set during the pre-script
+<#
+$variable = Get-AutomationVariable -Name $runId
+#>
 ```
 
 ## Interacting with machines
 
-Pre and post tasks run as a runbook in your Automation Account and not directly on the machines in your deployment. Pre and post tasks also run in the Azure context and don't have access to Non-Azure machines. The following sections show how you can interact with the machines directly whether they're an Azure VM or a Non-Azure machine:
+Pre and post-tasks run as a runbook in your Automation Account and not directly on the machines in your deployment. Pre and post-tasks also run in the Azure context and don't have access to Non-Azure machines. The following sections show how you can interact with the machines directly whether they're an Azure VM or a Non-Azure machine:
 
 ### Interacting with Azure machines
 
-Pre and post tasks are run as runbooks and don't natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
+Pre and post-tasks are run as runbooks and don't natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
 
 * A Run As account
 * A runbook you want to run
@@ -216,14 +215,14 @@ To interact with Azure machines, you should use the [Invoke-AzureRmVMRunCommand]
 
 ### Interacting with Non-Azure machines
 
-Pre and post tasks run in the Azure context and don't have access to Non-Azure machines. To interact with the Non-Azure machines, you must have the following items:
+Pre and post-tasks run in the Azure context and don't have access to Non-Azure machines. To interact with the Non-Azure machines, you must have the following items:
 
 * A Run As account
 * Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * Parent runbook
 
-To interact with Non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. For an example of how to do this, see the runbook example [Update Management - Run Script Locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+To interact with Non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. For an example, see the runbook example [Update Management - Run Script Locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## Abort patch deployment
 
@@ -232,14 +231,14 @@ If your pre script returns an error, you may want to abort your deployment. To d
 ```powershell
 if (<My custom error logic>)
 {
-    #Throw an error to fail the patch deployment.  
+    #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
 ```
 
 ## Known issues
 
-* You can't pass a boolean, objects, or arrays to parameters when using pre and post scripts. The runbook will fail. For a complete list of supported types, see [parameters](#passing-parameters).
+* You can't pass a boolean, objects, or arrays to parameters when using pre and post-scripts. The runbook will fail. For a complete list of supported types, see [parameters](#passing-parameters).
 
 ## Next steps
 

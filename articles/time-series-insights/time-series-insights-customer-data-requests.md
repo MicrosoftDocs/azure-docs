@@ -63,7 +63,7 @@ For more information, see [Configuring retention in Time Series Insights](time-s
 
 ## Next steps
 
-* Read more about [granting data access to your TSI environment](./time-series-insights-data-access.md).
+* Read more about [granting data access to your Azure Time Series Insights environment](./time-series-insights-data-access.md).
 
 * View the [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 

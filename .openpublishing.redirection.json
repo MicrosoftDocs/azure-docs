@@ -1076,6 +1076,51 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/languages.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/languages-reference.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/reference.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator-speech/tutorial-translator-speech-csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -3773,6 +3818,11 @@
     {
       "source_path": "articles/billing-subscription-become-disable.md",
       "redirect_url": "/azure/billing/billing-subscription-become-disable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/billing-mca-setup-account.md",
+      "redirect_url": "/azure/billing/mca-setup-account",
       "redirect_document_id": false
     },
     {
@@ -26155,6 +26205,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/billing/billing-understand-free-service-meter-mapping.md",
+      "redirect_url": "/azure/billing/billing-check-free-service-usage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
       "redirect_document_id": false
@@ -27302,6 +27357,11 @@
     {
       "source_path": "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md",
       "redirect_url": "/azure/active-directory/active-directory-how-subscriptions-associated-directory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/billing/billing-mca-create-subscription.md",
+      "redirect_url": "/azure/billing/billing-create-subscription",
       "redirect_document_id": false
     },
     {
@@ -34841,6 +34901,11 @@
     {
       "source_path": "articles/data-factory/data-factory-monitor-oms.md",
       "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/data-factory/concepts-data-flow-reference-node.md",
+      "redirect_url": "/azure/data-factory/data-flow-join",
       "redirect_document_id": true
     },
     {

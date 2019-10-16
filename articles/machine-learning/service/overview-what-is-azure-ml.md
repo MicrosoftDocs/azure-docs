@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/16/2019
+ms.date: 10/20/2019
 ms.custom: seodec18
 ---
 
@@ -21,37 +21,25 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-## What is Azure Machine Learning?
+## About Azure Machine Learning
 
-Azure Machine Learning provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
-
-Explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ The [designer](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
-+ [Jupyter notebooks](https://jupyter.org) in which you use the [Python SDK](https://docs.microsoft.com/azure/machine-learning) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
-+ R scripts or notebooks in which you use the [R SDK](https://github.com/Azure/azureml-sdk-for-r) to write your own code
-+ [Visual Studio Code extension](how-to-vscode-tools.md)
-
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="sku"></a>Basic vs Enterprise edition
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
-Azure Machine Learning offers two editions tailored for your machine learning needs:
-+ Basic edition (generally available)
-+ Enterprise edition (preview)
+Train, test, and deploy your models with rich tools such as:
++ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy models
++ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
++ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
++ [Visual Studio Code extension](how-to-vscode-tools.md)
 
-These editions make it easy for developers and data scientists to accelerate their end-to-end machine learning lifecycle. When creating a workspace, you assign it an edition. The edition determines the functionality to which you have access. 
-
-Learn more about what's in each edition on the [pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
-Customers are responsible for costs incurred on underlying compute during this time. 
-
-You can [upgrade existing workspaces from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade). 
-
-## What can I do with Azure Machine Learning?
+## What can I do with the service?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
 
-Azure Machine Learning provides all the tools you need for your machine learning workflow such as Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> and <a href="https://github.com/Azure/azureml-sdk-for-r" target="_blank">SDK for R</a>. The service also interoperates with popular opensource tools, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, and <a href="https://pytorch.org" target="_blank">PyTorch</a>.  You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
+Azure Machine Learning provides all the tools you need for your machine learning workflow such as Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> and <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK for R</a>. The service also interoperates with popular open-source tools, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, and <a href="https://pytorch.org" target="_blank">PyTorch</a>.  You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
@@ -65,11 +53,20 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free training, try:
 
-+ Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
-  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
-  
-+ The [drag-n-drop experimenting in the designer](ui-tutorial-automobile-price-train-score.md).
++ **Azure Machine Learning designer**
+
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
+
+  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
+
   ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
+
++ **Automated machine learning UI**
+
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+
+  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
 
 ### Deploy & operationalize (MLOps)
 
@@ -87,6 +84,26 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 * Run batch scoring tasks
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
+
+## <a name="sku"></a>Basic & enterprise editions
+
+Azure Machine Learning offers two editions tailored for your machine learning needs:
++ Basic (generally available)
++ Enterprise (preview)
+
+These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
+
+Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+
+You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+
+Customers are responsible for costs incurred on underlying compute during this time. 
+
+## Free trial
+
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+
+You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Or [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
 
 ## How does Azure Machine Learning differ from Studio?
 
@@ -109,11 +126,6 @@ Try out the designer with [Tutorial: Predict automobile price with the designer]
 > [!NOTE]
 > Models created in Studio can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
-## Free trial
-
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-
-You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Or [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
 
 ## Next steps
 
@@ -122,7 +134,6 @@ You get credits to spend on Azure services. After they're used up, you can keep 
   + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
-
 
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.

@@ -12,6 +12,7 @@ ms.date: 10/14/2019
 ---
 
 # Tutorial: Get started with Azure Machine Learning and its R SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning SDK for R. This tutorial is **part one of a two-part tutorial series**, and covers R environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Machine Learning studio and the SDK.
 
@@ -64,10 +65,10 @@ In this tutorial, you completed these tasks:
 * Created and configured a compute instance in your workspace.
 * Started RStudio on the compute instance.
 
-In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
+In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.Rmd` to train a machine learning model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train your first model](tutorial-1st-experiment-r-train-model.md)
 
 > [!IMPORTANT]
-> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
+> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
