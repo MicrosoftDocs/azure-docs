@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/14/2019
+ms.date: 10/16/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -50,7 +50,7 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 ## Provision an Azure Active Directory administrator for your Managed Instance
 
 > [!IMPORTANT]
-> Only follow these steps if you are provisioning a Managed Instance. This operation can only be executed by Global/Company administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
+> Only follow these steps if you are provisioning a Managed Instance. This operation can only be executed by Global/Company administrator or a Privileged Role Administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
 
 Your Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant permissions to Managed Instance to read Azure AD. There are two ways to do it: from Portal and PowerShell. The following steps both methods.
 
@@ -68,7 +68,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ```powershell
     # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
-    # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
+    # Can be executed only by a "Company Administrator", "Global Administrator", or "Privileged Role Administrator" type of user.
 
     $aadTenant = "<YourTenantId>" # Enter your tenant ID
     $managedInstanceName = "MyManagedInstance"
@@ -145,6 +145,54 @@ After provisioning an Azure AD admin for your Managed Instance, you can begin to
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
 
+### PowerShell for SQL managed instance
+
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). To provision an Azure AD admin, execute the following Azure PowerShell commands:
+
+- Connect-AzAccount
+- Select-AzSubscription
+
+Cmdlets used to provision and manage Azure AD admin for SQL managed instance:
+
+| Cmdlet name | Description |
+| --- | --- |
+| [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Provisions an Azure AD administrator for SQL managed instance in the current subscription. (Must be from the current subscription)|
+| [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Removes an Azure AD administrator for SQL managed instance in the current subscription. |
+| [Get-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlinstanceactivedirectoryadministrator) |Returns information about an Azure AD administrator for SQL managed instance in the current subscription.|
+
+### PowerShell examples for managed instance
+
+The following command gets information about an Azure AD administrator for a managed instance named ManagedInstance01 that is associated with a resource group named ResourceGroup01.
+
+```powershell
+Get-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01"
+```
+
+The following command provisions an Azure AD administrator group named DBAs for the managed instance named ManagedInstance01. This server is associated with resource group ResourceGroup01.
+
+```powershell
+Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -DisplayName "DBAs" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353b"
+```
+
+The following command removes the Azure AD administrator for the managed instance named ManagedInstanceName01 associated with the resource group ResourceGroup01.
+
+```powershell
+Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
+```
+
+### CLI  
+
+You can also provision an Azure AD admin for SQL managed instance by calling the following CLI commands:
+
+| Command | Description |
+| --- | --- |
+|[az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) |Provisions an Azure Active Directory administrator for SQL managed instance. (Must be from the current subscription) |
+|[az sql mi ad-admin delete](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) |Removes an Azure Active Directory administrator for SQL managed instance. |
+|[az sql mi ad-admin list](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) |Returns information about an Azure Active Directory administrator currently configured for SQL managed instance. |
+|[az sql mi ad-admin update](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) |Updates the Active Directory administrator for a SQL managed instance. |
+
+For more information about CLI commands, see [az sql mi](https://docs.microsoft.com/cli/azure/sql/mi). 
+
 ## Provision an Azure Active Directory administrator for your Azure SQL Database server
 
 > [!IMPORTANT]
@@ -181,25 +229,24 @@ The process of changing the administrator may take several minutes. Then the new
 
 To later remove an Admin, at the top of the **Active Directory admin** page, select **Remove admin**, and then select **Save**.
 
-### PowerShell
+### PowerShell for Azure SQL Database
 
 To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). To provision an Azure AD admin, execute the following Azure PowerShell commands:
 
 - Connect-AzAccount
 - Select-AzSubscription
 
-Cmdlets used to provision and manage Azure AD admin:
+Cmdlets used to provision and manage Azure AD admin for Azure SQL Database and Azure SQL Data Warehouse:
 
 | Cmdlet name | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
-| [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Provisions an Azure AD administrator for SQL managed instance in the current subscription. (Must be from the current subscription)|
-| [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Removes an Azure AD administrator for SQL managed instance in the current subscription. |
-| [Get-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlinstanceactivedirectoryadministrator) |Returns information about an Azure AD administrator for SQL managed instance in the current subscription.|
 
 Use PowerShell command get-help to see more information for each of these commands. For example, ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
+
+### PowerShell examples for Azure SQL Database and Azure SQL Data Warehouse
 
 The following script provisions an Azure AD administrator group named **DBA_Group** (object ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) for the **demo_server** server in a resource group named **Group-23**:
 
@@ -238,24 +285,6 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
-The following command gets information about an Azure AD administrator for a managed instance named ManagedInstance01 that is associated with a resource group named ResourceGroup01.
-
-```powershell
-Get-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01"
-```
-
-The following command provisions an Azure AD administrator group named DBAs for the managed instance named ManagedInstance01. This server is associated with resource group ResourceGroup01.
-
-```powershell
-Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -DisplayName "DBAs" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353b"
-```
-
-The following command removes the Azure AD administrator for the managed instance named ManagedInstanceName01 associated with the resource group ResourceGroup01.
-
-```powershell
-Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
-```
-
 ### CLI  
 
 You can also provision an Azure AD admin by calling the following CLI commands:
@@ -266,12 +295,8 @@ You can also provision an Azure AD admin by calling the following CLI commands:
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
 |[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
 |[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Updates the Active Directory administrator for an Azure SQL server or Azure SQL Data Warehouse. |
-|[az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-mi-ad-admin-create) |Provisions an Azure Active Directory administrator for SQL managed instance. (Must be from the current subscription) |
-|[az sql mi ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-mi-ad-admin-delete) |Removes an Azure Active Directory administrator for SQL managed instance. |
-|[az sql mi ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-mi-ad-admin-list) |Returns information about an Azure Active Directory administrator currently configured for SQL managed instance. |
-|[az sql mi ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-mi-ad-admin-update) |Updates the Active Directory administrator for a SQL managed instance. |
 
-For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
+For more information about CLI commands, see [az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## Configure your client computers
 
