@@ -15,12 +15,15 @@ ms.custom: seodec18
 
 Azure Disk Encryption provides volume encryption for the OS and data disks of your virtual machines, helping protect and safeguard your data to meet organizational security and compliance commitments. To learn more, see [Azure Disk Encryption: Linux VMs](../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption: Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)  
 
-Azure Disk Encryption can be applied to Virtual Machine Scale Sets as well.
+Azure Disk Encryption can also be applied to Windows and Linux virtual machine scale sets, in these instances:
+- Scale sets created with managed disks. Azure Disk encryption is not supported for native (or unmanaged) disk scale sets.
+- OS and data volumes in Windows scale sets.
+- Data volumes in Linux scale sets. OS disk encryption is NOT supported at present for Linux scale sets.
+
+You can learn the fundamentals of Azure Disk Encryption for VMSS in just a few minutes with the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md) or the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-powershell.md) tutorials.
 
 ## Next Steps
 
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-ps.md)
-- [Encrypt a virtual machine scale sets using the Azure Resource Manager](virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Encrypt a virtual machine scale sets using the Azure Resource Manager](disk-encryption-azure-resource-manager.md)
 - [Create and configure a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)
 - [Use Azure Disk Encryption with virtual machine scale set extension sequencing](disk-encryption-extension-sequencing.md)

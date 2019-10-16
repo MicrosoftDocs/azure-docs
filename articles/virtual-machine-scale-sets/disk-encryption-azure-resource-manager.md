@@ -37,8 +37,7 @@ Then follow these steps:
 ## Next Steps
 
 - [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-ps.md)
-- [Encrypt a virtual machine scale sets using the Azure Resource Manager](virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
+- [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
 - [Create and configure a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)
 - [Use Azure Disk Encryption with virtual machine scale set extension sequencing](disk-encryption-extension-sequencing.md)

@@ -155,6 +155,6 @@ For a more in-depth template, see:
 - Learn more about extension sequencing: [Sequence extension provisioning in virtual machine scale sets](virtual-machine-scale-sets-extension-sequencing.md).
 - Learn more about the `provisionAfterExtensions` property: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
 - [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
+- [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
 - [Create and configure a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)

@@ -216,9 +216,9 @@
     - name: Encrypt disks in scale sets
       items:
       - name: Use PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+        href: disk-encryption-powershell.md
       - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        href: disk-encryption-cli.md
       - name: Use Azure Resource Manager templates
         href: disk-encryption-azure-resource-manager.md
       - name: Extension sequencing
