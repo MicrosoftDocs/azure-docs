@@ -25,7 +25,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 This service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical machine learnign to deep learning, supervised and unsupervised learning.
 
@@ -54,17 +54,20 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free training, try:
 
-**Automated machine learning UI**
++ **Azure Machine Learning designer**
 
-Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
 
-[![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-**The designer**
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
 
-You can [drag-n-drop modules to experiment with the designer](ui-tutorial-automobile-price-train-score.md).
++ **Automated machine learning UI**
 
-![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+
+  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
 
 ### Deploy & operationalize (MLOps)
 
@@ -91,7 +94,7 @@ Azure Machine Learning offers two editions tailored for your machine learning ne
 
 These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
 
-Basic level workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
 
