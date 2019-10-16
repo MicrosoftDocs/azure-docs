@@ -405,6 +405,10 @@ If the values are **NO**, it could be due:
 - Alternate Login ID
 - HTTP Proxy not found
 
+## Hybrid devices health checker script
+
+[Hybrid Azure AD Joined Devices Health Checker](https://gallery.technet.microsoft.com/Hybrid-Azure-AD-Joined-0ea7e778) script helps to perform basic health check steps to verify the hybrid status when troubleshooting Hybrid Azure AD joined devices.
+
 ## Known issues
 - Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
  
