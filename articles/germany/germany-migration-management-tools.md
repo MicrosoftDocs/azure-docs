@@ -74,8 +74,8 @@ For more information about Site Recovery and to learn how to migrate VMs from Az
 Refresh your knowledge by completing these step-by-step tutorials:
 
 - [Azure-to-Azure disaster recovery](../site-recovery/azure-to-azure-about-networking.md)
-- [VMware-to-Azure disaster recovery](../site-recovery/vmware-physical-large-deployment.md)
-- [Hyper-V-to-Azure disaster recovery](../site-recovery/site-recovery-manage-network-interfaces-on-premises-to-azure.md)
+- [VMware-to-Azure disaster recovery](../site-recovery/site-recovery-deployment-planner.md)
+- [Hyper-V-to-Azure disaster recovery](../site-recovery/hyper-v-deployment-planner-overview.md)
 
 ## Azure policies
 
