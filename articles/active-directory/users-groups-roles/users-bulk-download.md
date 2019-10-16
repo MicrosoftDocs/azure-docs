@@ -32,37 +32,37 @@ To download the list of users from the Azure AD admin center, you must be signed
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
 
-The download file will contain the filtered list of users.
+   The download file will contain the filtered list of users.
 
-The following user attributes will be included: 
+   The following user attributes will be included: 
 
-- userPrincipalName
-- displayName
-- surname
-- mail
-- givenName
-- objectId
-- userType
-- jobTitle
-- department
-- manager
-- accountEnabled
-- usageLocation
-- streetAddress
-- state
-- country
-- physicalDeliveryOfficeName
-- city
-- postalCode
-- telephoneNumber
-- mobile
-- authenticationPhoneNumber
-- authenticationAlternativePhoneNumber
-- authenticationEmail
-- alternateEmailAddress
-- ageGroup
-- consentProvidedForMinor
-- legalAgeGroupClassification
+   - userPrincipalName
+   - displayName
+   - surname
+   - mail
+   - givenName
+   - objectId
+   - userType
+   - jobTitle
+   - department
+   - manager
+   - accountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - country
+   - physicalDeliveryOfficeName
+   - city
+   - postalCode
+   - telephoneNumber
+   - mobile
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## Check status
 
