@@ -87,6 +87,7 @@ The configuration to control SAS key-based authentication is
 | Possible Value(s) | Description  |
 | ----------------  | ------------ |
 | true | Allows SAS key-based authentication. Requires **inbound:clientAuth:sasKeys:key1** or **inbound:clientAuth:sasKeys:key2**
+| false | Default. SAS Key based authentication is disabled.
 
  **inbound:clientAuth:sasKeys:key1** and **inbound:clientAuth:sasKeys:key2**
  are keys that you configure the Event Grid module to check against incoming requests. At least one of the keys needs to be configured. Client making the request will need to present the key as part of the request header '**aeg-sas-key**'. If both the keys are configured, the client can present either one of the keys.
