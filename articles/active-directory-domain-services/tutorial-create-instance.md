@@ -106,6 +106,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
+1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
 1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
