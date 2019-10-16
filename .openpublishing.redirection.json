@@ -42492,6 +42492,11 @@
       "source_path": "articles/security/fundamentals/storage-overview.md",
       "redirect_url": "/azure/storage/common/storage-security-guide",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/global-admin.md",
+      "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
+      "redirect_document_id": false
     }
   ]
 }
