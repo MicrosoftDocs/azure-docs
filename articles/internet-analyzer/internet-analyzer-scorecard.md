@@ -5,7 +5,7 @@ services: internet-analyzer
 author: megan-beatty
 
 ms.service: internet-analyzer
-ms.topic: conceptual
+ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ---
@@ -16,32 +16,32 @@ The scorecard tab contains the aggregated and analyzed results from all of your 
 The scorecard tab can be found in the Internet Analyzer resource menu. 
 
 
-# Scorecard Components 
+## Scorecard Components 
 
-## Filters: 
+**Filters:**
 * ***Test:*** Select the test that you’d like to view results for - each test has its own scorecard. Test data will appear once there is enough data to complete the analysis – in most cases, this should be within 24 hours. 
 * ***Time period & end date:*** Three scorecards are generated daily – each scorecard reflects a different aggregation period – that day, the seven days prior (week), and the 30 days prior (month). Use the “End Date” filter to select the last day of the time period you want to see. 
 * ***Country:*** For each country that you have end users, a scorecard is generated. The global filter is representative of all your end users.  
 
 
-# Scorecard Values 
+## Scorecard Values 
 
-## Measurement Counts 
+**Measurement Counts**
 Answer question - What are these numbers representative of? 
 
-## Percentiles 
+**Percentiles**
 Answer question - what does P50, P75, and P90 mean? 
 
-## Deltas 
+**Deltas**
 Answer question - how is delta calculated? 
 
-## Confidence Interval 
+**Confidence Interval**
 Answer question - how should I think about the CI values? 
 
-## Time series 
+**Time series**
 How should I interpret this chart? What anomalies should I expect to see? 
 
 
-# Next Steps
+## Next Steps
 
 To learn more, see our [Internet Analyzer Overview](internet-analyzer-overview.md).

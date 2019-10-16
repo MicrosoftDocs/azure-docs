@@ -5,7 +5,7 @@ services: internet-analyzer
 author: megan-beatty
 
 ms.service: internet-analyzer
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 # Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end-users. 

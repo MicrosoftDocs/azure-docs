@@ -5,7 +5,7 @@ services: internet-analyzer
 author: megan-beatty
 
 ms.service: internet-analyzer
-ms.topic: conceptual
+ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ---
