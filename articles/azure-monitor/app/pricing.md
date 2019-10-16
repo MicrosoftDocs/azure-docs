@@ -35,7 +35,7 @@ The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model
 
 If you're not yet using Application Insights, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Application Insights. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Application Insights from the Type dropdown.  Here you can enter the number of GB of data you expect to collect per month, so they question is how much data will Application Insights collect monitoring your application. 
 
-There are two approaches to address this: use of default monitoring and adaptive sampling which is available in the ASP.NET SDK, or estimate you likely data ingestion based on what other similar customers have seen. 
+There are two approaches to address this: use of default monitoring and adaptive sampling which is available in the ASP.NET SDK, or estimate your likely data ingestion based on what other similar customers have seen. 
 
 ### Data collection when using sampling
 
