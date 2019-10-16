@@ -23,7 +23,7 @@ Assessing using import is useful in the following scenarios:
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
-> * Add servers to Azure Migrate by uploading server information in a .CSV file. 
+> * Import servers to Azure Migrate by uploading server information in a .CSV file. 
 > * Add configuration and performance data for these servers to Azure Migrate.
 > * Group discovered servers, and assess the server group.
 > * Review the assessment.
@@ -79,10 +79,10 @@ Set up a new Azure Migrate project as follows.
 
 Azure Migrate: Server Assessment requires server information to be provided in a .CSV template.
 
-- The .CSV file enables to provide server metadata and performance data values to Azure Migrate Server Assessment.
-- To prepare the .CSV file, you:
+- The .CSV file enables to provide server metadata and performance data to Azure Migrate Server Assessment.
+- To prepare the .CSV file:
     - Download the template for .CSV file.
-    - Populate the .CSV file with the required data. Note that only select values are mandatory.
+    - Populate the .CSV file with the required data. Note that not all values are mandatory.
 - You can upload server information multiple times. A total of 20,000 servers can be added via .CSV. A maximum of 10,000 servers can be added in a single file
 
 ### Download the template
@@ -96,18 +96,18 @@ Azure Migrate: Server Assessment requires server information to be provided in a
 
 ### Populate server information
 
-Following are details on each field in the .CSV template. To gather this data, leverage any on-premise solutions for management like CMDBs, VMware vSphere inventory export options. Download this [example file](https://go.microsoft.com/fwlink/?linkid=2108405) to review the sample data for each field.
+Following are details on each field in the .CSV template. To gather this data, consider exporting it from tools you use to manage on-premise servers such as CMDBs, VMware vSphere. Download this [example file](https://go.microsoft.com/fwlink/?linkid=2108405) to review the sample data for each field.
 
 **Field name** | **Mandatory / Optional** | **Details**
 --- | --- | ---
-Server name | Mandatory | Server name or fully qualified domain name
+Server name | Mandatory | Server name. <br/> It is recommended the fully qualified domain name is specified. 
 IP address | Optional | IP address of server
 Cores | Mandatory | No. of processor cores allocated to the machine
 Memory (in MB) | Mandatory | Total RAM allocated to the server, in MB
 OS name | Mandatory | Operating System of the server. Refer to the following section to know more on providing OS names.
 OS version | Optional | Operating System version of the server
-Number of disks | Optional | No. of disks. This is not required if individual disk details are provided
-Disk 1 size (in GB) | Optional | Maximum size of disk
+Number of disks | Optional | No. of disks. This is not required if individual disk details are provided.
+Disk 1 size (in GB) | Optional | Maximum size of disk <br/> Add disk details for a second disk by adding an column in the template called "Disk 2 size". In this way, you can add upto 8 disks.
 Disk 1 read ops (operations per second) | Optional | Disk read operations per second
 Disk 1 write ops (operations per second) | Optional | Disk write operations per second
 Disk 1 read throughput (MB per second) | Optional | Data read from the disk per second in MBPS
@@ -120,24 +120,24 @@ Total disks read throughput | Optional | Data read from the disk per second in M
 Total disks write throughput | Optional | Data written to disk per second in MBPS
 Network In throughput | Optional | Data received per second by the server in MBPS
 Network Out throughput | Optional | Data transmitted per second by the srver in MBPS
-Firmware type | Optional | Firmware type of server
-Server Type | Optional | Physical or virtual
-Hypervisor | Optional | Hypervisor that the server is running on
+Firmware type | Optional | Firmware type of server. <br/> Permitted values in this field are "BIOS" or "UEFI"
+Server Type | Optional | Whether the server is physical or virtual. <br/> Permitted values in this field are "Physical" or "Virtual"
+Hypervisor | Optional | Hypervisor that the server is running on. <br/> Permitted values in this field are "VMware", "Hyper-V", "Xen", "AWS", "GCP", "Other"
 Hypervisor version number | Optional | Hypervisor version number
 Virtual machine ID | Optional | VM InstanceUUid in case of vCenter VM (or) Hyper-V VM Id in case of Hyper-V 
 Virtual machine manager ID | Optional | vCenter InstanceUUid in case of vCenter VM. Not needed for Hyper-V.
 MAC address | Optional | MAC address of server
 BIOS ID | Optional | BIOS ID of server
-Custom server ID | Optional | Reference to local unique IDs in on-premises infrastructure
-Application 1 name | Optional | Name of the workload running in the server. The application details have to be shown like for apps and roles
+Custom server ID | Optional | Reference to local unique IDs in on-premises infrastructure. <br/> This is useful if you would like to track the imported server using the ID. 
+Application 1 name | Optional | Name of the workload running in the server. The application details have to be shown like for apps and roles. <br/> Add details on a second application by adding an column in the template called "Application 2 name". In this way, you can add upto 5 applications.
 Application 1 type | Optional | Type of workload running in the server
-Application version | Optional | Version of the workload running on the server
+Application 1 version | Optional | Version of the workload running on the server
 Application 1 license expiry | Optional | License expiry of the workload if applicable
 Business unit | Optional | Business unit the server belongs to
 Business owner | Optional | Business unit owner
 Business application name | Optional | Name of the application the server belongs to
 Location | Optional | Data center the server is located in
-Groups | Optional | The server will be added to this Azure Migrate group
+Groups | Optional | The server will be added to the specified Azure Migrate group. <br/> If a group with the name already exists, the server will be added to the group. If not, a new group with the specified name is created and the server is added to the group.
 Server decommission date | Optional | Decommission date of physical server or the underlying physical server of the virtual server
 
 ### Populating Operating System information
@@ -209,6 +209,29 @@ Please ensure the OS names you provide match the name in the following list. The
     Windows Vista
     Windows Web Server 2008 R2
     Windows XP Professional
+    ```
+
+### Adding multiple disks
+
+Individual disk details are provided using the following fields. You can add upto 8 disks by adding more such columns. For example, you can specify size and throughput for a second disk by adding the columns: "Disk 2 size", "Disk 2 read ops", "Disk 2 write ops", "Disk 2 read throughput", "Disk 2 write througput"
+
+    ```
+    Disk 1 size
+    Disk 1 read ops
+    Disk 1 write ops
+    Disk 1 read throughput
+    Disk 1 write throughput
+    ```
+
+### Adding multiple applications
+
+Individual application details are provided using the following fields. You can add upto 5 applications by adding more such columns. For example, you can specify name and type for a second second by adding the columns: "Application 2 name", "Application 2 type"
+
+    ```
+    Application 1 name
+    Application 1 type
+    Application 1 version
+    Application 1 license expiry
     ```
 
 ## Upload the server information
@@ -313,7 +336,7 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 3. You can drill down to see details for specific VMs.
 
 > [!NOTE]
-> Confidence ratings are not assigned to assessments of machines imported into Azure Migrate. 
+> Confidence ratings are not assigned to assessments of servers imported using .CSV file into Azure Migrate. 
 
 ## Next steps
 
