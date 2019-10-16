@@ -12,7 +12,7 @@ ms.author: atsenthi
 
 # Managed Identity for Service Fabric Application (Preview)
 
-A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping credentials secure is an important task, since they never appear on developer workstations and are not checked into source control. The Managed Identity feature for Azure resources in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically-managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping credentials secure is an important task, since they never appear on developer workstations and are not checked into source control. The Managed Identity feature for Azure resources in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 The Managed Identity feature for Azure resources is free with Azure AD for Azure subscriptions. There is no additional cost.
 
@@ -41,7 +41,7 @@ The following terms are used throughout the Managed Identity for Azure resources
 
 ## Supported scenarios for Service Fabric applications
 
-Managed identities for Service Fabric is only supported in Azure deployed Service Fabric clusters, and only for applications deployed as Azure resources; an applications which is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
+Managed identities for Service Fabric is only supported in Azure deployed Service Fabric clusters, and only for applications deployed as Azure resources; an application which is not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
 
 1. Assign one or more managed identities to the application resource; an application may be assigned a single system-assigned identity, and/or up to 32 user-assigned identities, respectively.
 
@@ -58,7 +58,7 @@ The list of supported scenarios for the preview release is as follows:
 
 The following scenarios are not supported or not recommended; note these actions may not be blocked, but can lead to outages in your applications:
 
-   - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state which is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
+   - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state that is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
 
    - SF support for managed identities is not integrated at this time into the [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); the integration will be achieved by the end of the preview period for the managed identity feature.
 
@@ -74,3 +74,4 @@ The following scenarios are not supported or not recommended; note these actions
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Declaring and using application secrets as KeyVaultReferences](./service-fabric-keyvault-references.md) 
