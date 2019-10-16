@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 10/16/2019
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
@@ -60,6 +60,24 @@ In addition, there is correlation with other signals to check for supporting evi
 ### Anomaly detection
 
 Azure Security Center also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments and then rules are generated to define outlier conditions that could represent a security event.
+
+## How are alerts clasified?
+
+Security Center alerts are given a severity, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. 
+The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+
+> [!NOTE]
+> Alert severity is displayed differently in the portal and the REST API, the differences are noted in the list below.
+
+* **High:** There is a high probability that your resource is compromised. 
+You should look into it right away. Security Center has high confidence in both the malicious intent and in the findings used to issue the alert. For example, an alert that detects the execution of a known malicious tool such as Mimikatz, a common tool used for credential theft.
+* **Medium (Low in the REST API)**: This is probably a suspicious activity may indicate that a resource is compromised.
+Security Center’s confidence in the analytic or finding is medium and the confidence of the malicious intent is medium to high. These would usually be machine learning or anomaly based detections. For example, a sign in attempt from an anomalous location.
+* **Low (Information in the REST API)**: This might be a benign positive or a blocked attack.
+   * Security Center is not confident enough that the intent is malicious and the activity may be innocent. For example, log clear is an action that may happen when an attacker tries to hide their tracks, but in many cases is a routine operation performed by admins.
+   * Security Center doesn’t usually tell you when attacks were blocked, unless it’s an interesting case that we suggest you look into. 
+* **Informational (Silent in the REST API)**: You will only see informational alerts when you drill down into a security incident, or if you use the REST API with a specific alert ID. An incident is typically made up of a number of alerts, some of which may appear on their own to be only informational, but in the context of the other alerts may be worthy of a closer look. 
+ 
 
 ## Continuous monitoring and assessments
 
