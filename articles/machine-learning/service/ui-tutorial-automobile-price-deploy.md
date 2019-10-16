@@ -33,13 +33,11 @@ Before you deploy your pipeline as a web service, you first have to convert your
 
 1. Select **Publish** at the top of the pipeline canvas.
 
-1. In the Setup **Pipeline Run** dialog, select the drop-down arrow next to **PipelineEndpoint** and select **+New PipelineEndpoint**
+1. In the Setup **Pipeline Run** dialog, select the drop-down arrow underneath **PipelineEndpoint** and select **+New PipelineEndpoint**
 
 1. Select **Publish**
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
-
-    ![Animated gif showing the automatic conversion of a training pipeline to a predictive pipeline](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
     When you select **Create Predictive Pipeline**, several things happen:
     
@@ -50,9 +48,9 @@ Before you deploy your pipeline as a web service, you first have to convert your
     * The saved trained model is added back into the pipeline.
     * **Web Service Input** and **Web Service Output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
 
-    The **training pipeline** is still saved under the new tabs at the top of the pipeline canvas.
+    The **training pipeline** is still saved under the new tabs at the top of the pipeline canvas, and as a pipeline draft in visual interface.
 
-1. **Run** the pipeline using the same experiment you used in part 1.
+1. **Run** the pipeline using the same default compute and experiment you created in part 1.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
@@ -60,23 +58,41 @@ Your pipeline should now look like this:
 
 ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
+1. Select **Deploy**.
+
+## Create the inferencing cluster
+
+In the **Set up real-time endpoint** dialog that appears, you can select from existing Azure Kubernetes Service (AKS) clusters to deploy your model. If you don't already have an AKS cluster, use the follow instructions to create one now.
+
+1. Select **Compute** in the dialog to navigate to the **Compute** page.
+
+1. In the navigation ribbon, select **Inference Clusters** > **+ New**.
+
+1. In the inference cluster pane, configure a new Kubernetes Service.
+
+    Enter "aks-compute" for the **Compute name**.
+    
+    Select a nearby available **Region**.
+
+    Select **Create**.
+
+    > [!Note]
+    > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page
+    >
+
 ## Deploy the web service
+
+After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
 
 1. Select **Deploy** above the canvas.
 
 1. Select **Deploy new real-time endpoint**. 
 
-1. Name your real-time endpoint **"auto-price"**.
-
-1. Select the **Compute Target** that you'd like to run your web service.
+1. Select the aks-compute cluster you created as your **Compute target**.
 
     Currently, the visual interface only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
 
-    ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
-
-1. Select **Deploy**. You'll see the following notification when deployment completes. Deployment may take a few minutes.
-
-    ![Screenshot showing the confirmation message for a successful deployment.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+1. Select **Deploy**. You'll see a success notification above the canvas when deployment completes. Deployment may take a few minutes.
 
 ## Test the web service
 
