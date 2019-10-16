@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019]
 ---
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
@@ -106,7 +106,7 @@ When done, type `exit` to leave the SSH session.
 
 Use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM as the web address. The following example shows the default NGINX web site:
 
-![NGINX default Welcome page](./media/quick-create-cli/nginix-welcome-page.png)
+![View the NGINX welcome page](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## Clean up resources
 

@@ -18,7 +18,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you're finished, you see that the event data has been sent to the web app.
 
-![View results](./media/custom-event-quickstart/view-result.png)
+![Use Azure Event Grid viewer to verify that event data has been sent](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ az eventgrid event-subscription create \
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-![View subscription event](./media/custom-event-quickstart/view-subscription-event.png)
+![View the subscription validation code in Azure Event Grid viewer](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
 
 ## Send an event to your custom topic
 
