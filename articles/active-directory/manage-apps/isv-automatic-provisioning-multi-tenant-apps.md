@@ -76,7 +76,7 @@ To help determine which integration option to use for your application, refer to
 
 ## Azure AD Provisioning Service (SCIM)
 
-The Azure AD provisioning services uses [SCIM](https://aka.ms/SCIMOverview, a protocol supported by many identity providers (IdPs). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint.
+The Azure AD provisioning services uses [SCIM](https://aka.ms/SCIMOverview), an industry standard for provisioning supported by many identity providers (IdPs) as well as applications (e.g. Slack, G Suite, Dropbox). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint. Building a simple /User endpoint, you can enable provisioning without having to maintain your own sync engine. 
 
 For more information on how the Azure AD Provisioning Service users SCIM, see: 
 
@@ -101,16 +101,6 @@ Learn more about using Microsoft Graph for provisioning:
 * [Microsoft Graph Auth Overview](https://docs.microsoft.com/graph/auth/)
 
 * [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
-
-* [Use the Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)
-
-* [Microsoft Graph Explorer](https://aka.ms/ge) 
-
-* [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Best practices for working with Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Featured scenarios for Microsoft Graph](https://developer.microsoft.com/graph/examples)
 
 ## Using SAML JIT for provisioning
 
