@@ -21,7 +21,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ### November 4, 2019 - Ignite
 
 * [Language Support]
-    * [Hindi](luis-langague-support.md)
+    * [Hindi](luis-language-support.md)
 * [LUIS portal](https://www.luis.ai)
     * New authoring experience
 * New capabilities and concepts
