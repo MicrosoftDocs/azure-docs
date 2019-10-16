@@ -107,6 +107,8 @@
         href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
       - name: Resource Manager template
         href: ipv6-configure-standard-load-balancer-template-json.md
+    - name: IPv6 for VNet - In-place upgrade
+      href: ipv6-add-to-existing-vnet.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
