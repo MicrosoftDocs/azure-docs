@@ -20,6 +20,18 @@ ms.author: barclayn
 ---
 # Azure DDoS Protection: Best practices and reference architectures
 
+<!--
+"Retitle article, especially if best practices are removed due to benchmark articles and reference architecture is migrated
+Types of attacks - delete, services content has an article that describes types of attacks and we link to this article in Next steps
+Shared responsibility - delete
+Fundamental best practices - keep, right level of detail and doesn't seem to be covered in services content, may need to remove if benchmark articles cover information
+Azure offerings for DDoS protection - delete, this is covered in services content and we link to article in next steps, services content is likely to be more up to date
+Protection planning - keep(?) although this is covered in services content here: https://docs.microsoft.com/en-us/azure/virtual-network/manage-ddos-protection. 
+Testing through simulations - keep
+Components of a DDoS response strategy - keep
+DDoS Protection reference architectures - migrate to Architecture Center site under their reference architecturs?"
+-->
+
 This article is for IT decision makers and security personnel. It expects that you're familiar with Azure, networking, and security.
 
 Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. This article provides best practices for designing applications in Azure for resiliency against DDoS attacks.
