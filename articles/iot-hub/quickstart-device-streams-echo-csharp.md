@@ -117,6 +117,7 @@ dotnet run "{ServiceConnectionString}" "MyDevice"
 # In Windows
 dotnet run {ServiceConnectionString} MyDevice
 ```
+The application will wait for the device application to become available.
 
 > [!NOTE]
 > A timeout occurs if the device-side application doesn't respond in time.
