@@ -1,10 +1,10 @@
-- name: SQL Data Warehouse Documentation
+- name: Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse) Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is SQL Data Warehouse?
+  - name: What is Azure Synapse Analytics?
     href: sql-data-warehouse-overview-what-is.md
-  - name: SQL Data Warehouse architecture
+  - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -351,9 +351,9 @@
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-    - name: SQL DW language elements
+    - name: Azure Synapse Analytics TSQL language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
-    - name: SQL DW statements
+    - name: Azure Synapse Analytics TSQL statements
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
