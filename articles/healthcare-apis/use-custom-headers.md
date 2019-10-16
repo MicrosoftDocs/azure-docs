@@ -28,8 +28,8 @@ There are several ways to use custom headers when calling APIs. For example:
 * Originating organization
 * Client system details (EHR, patient portal)
 
->[!NOTE]
->**_Note:_** Be aware, that the information sent in custom headers will be stored in Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information (PHI/PII information) before adding them to custom headers.  
+> [!NOTE]
+> Be aware that the information sent in custom headers will be stored in Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any sensitive information (PHI/PII information) before adding it to custom headers.  
 
 ## How to use custom headers
 
