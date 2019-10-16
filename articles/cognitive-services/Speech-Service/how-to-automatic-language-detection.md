@@ -20,7 +20,7 @@ In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to con
 
 ## Automatic language detection with the Speech SDK
 
-Automatic language detection currently has a limit of two source languages on the service side that can be used for detection. Keep this in mind when construction your `AudoDetectSourceLanguageConfig` In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
+Automatic language detection currently has a services-side limit of two languages per detection. Keep this limitation in mind when construction your `AudoDetectSourceLanguageConfig` object. In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
 
 >[!TIP]
 > You can also specify a custom model to use when performing speech to text. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
