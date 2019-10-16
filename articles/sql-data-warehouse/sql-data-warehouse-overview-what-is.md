@@ -1,6 +1,6 @@
 ---
-title: What is Azure Synapse Analytics? | Microsoft Docs
-description: Azure Synapse Analytics provides Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for BI, machine learning, and AI needs.
+title: What is Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse?| Microsoft Docs
+description: Azure Synapse Analytics provides a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for BI, machine learning, and AI needs.
 services: sql-data-warehouse
 author: mlee3gsd 
 manager: craigg
@@ -12,7 +12,7 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# What is Azure Synapse Analytics?
+# What is Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse?
 
 Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
 
@@ -22,7 +22,7 @@ Azure Synapse Analytics has four components:
     - On-demand (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
-- Studio (Preview) : unified user experience.  (Preview)
+- Studio : unified user experience.  (Preview)
 
 
 ## SQL Analytics
