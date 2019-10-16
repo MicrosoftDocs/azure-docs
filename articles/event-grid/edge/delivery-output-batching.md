@@ -1,5 +1,5 @@
 ---
-title: Output batching - Azure Event Grid IoT Edge | Microsoft Docs 
+title: Output batching in Azure Event Grid IoT Edge | Microsoft Docs 
 description: Output batching in Event Grid on IoT Edge.
 author: HiteshMadan
 manager: rajarv
@@ -13,7 +13,7 @@ services: event-grid
 
 # Output batching
 
-Event Grid has support for delivering more than one event in a single delivery request. This feature makes it possible to increase the overall delivery throughput without paying the HTTP per-request overheads. Batching is turned off by default and can be turned on per-subscription.
+Event Grid has support to deliver more than one event in a single delivery request. This feature makes it possible to increase the overall delivery throughput without paying the HTTP per-request overheads. Batching is turned off by default and can be turned on per-subscription.
 
 > [!WARNING]
 > The maximum allowed duration to process each delivery request does not change, even though the subscriber code potentially has to do more work per batched request. Delivery timeout defaults to 60 seconds.
@@ -24,11 +24,11 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 
 * Maximum events per batch
 
-  This setting sets an upper limit on the number of events that will be added to a batched delivery request.
+  This setting sets an upper limit on the number of events that can be added to a batched delivery request.
 
 * Preferred Batch Size In Kilobytes
 
-  This knob is used to further control the max number of kilobytes that will be sent over per delivery request
+  This knob is used to further control the max number of kilobytes that can be sent over per delivery request
 
 ## Batching behavior
 
@@ -46,9 +46,9 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 
 * Default values
 
-  It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. Event Grid uses (configurable) default values if only one setting is set. See the following sections for the default values, and how to override them.
+  It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. If only one setting is set, Event Grid uses (configurable) default values. See the following sections for the default values, and how to override them.
 
-## Turning on output batching
+## Turn on output batching
 
 ```json
 {
@@ -79,9 +79,9 @@ The following deployment time settings control the maximum value allowed when cr
 
 ## Configuring runtime default values
 
-The following deployment time settings control the runtime default value of each knob when it is not specified in the Event Subscription. To reiterate - at least one knob must be set on the Event Subscription to turn on batching behavior.
+The following deployment time settings control the runtime default value of each knob when it isn't specified in the Event Subscription. To reiterate, at least one knob must be set on the Event Subscription to turn on batching behavior.
 
 | Property Name | Description |
-| -- | -- |
+| ------------- | ----------- |
 | `broker:defaultMaxBatchSizeInBytes` | Maximum delivery request size when only `MaxEventsPerBatch` is specified. Default `1_058_576`.
 | `broker:defaultMaxEventsPerBatch` | Maximum number of events to add to a batch when only `MaxBatchSizeInBytes` is specified. Default `10`.
