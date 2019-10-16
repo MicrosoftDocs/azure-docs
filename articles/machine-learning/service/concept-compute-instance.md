@@ -30,7 +30,7 @@ A compute instance is a single managed VM, optimized to be your development envi
 
 * Fully customizable: Broad support for Azure VM types including GPUs and persisted low-level customization makes advanced scenarios a breeze.
 
-##<a name="contents"></a>Tools and environments
+## <a name="contents"></a>Tools and environments
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace.
 
@@ -79,7 +79,7 @@ These tools and environments are installed on the compute instance:
 * Nginx
 * Azure Machine Learning samples
 
-Compute instances can be used as a compute target for training and inferencing.  For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+Compute instances are typically used as development environments.  However, they can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 ## Sharing
 
