@@ -8,6 +8,8 @@
   href: overview.md
   expanded: false
   items:
+  - name: Shared model of responsibility
+    href: shared-responsibility.md
   - name: Advanced threat detection
     displayName: vulnerability, virus, IDs, incident
     href: threat-detection.md
@@ -141,9 +143,6 @@
     - name: Best practices
       displayName: password, identity, active directory
       href: identity-management-best-practices.md
-    - name: Enforce MFA on subscription administrators
-      displayName: identity
-      href: global-admin.md
   - name: Network security
     displayName: firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf
     href: network-overview.md
