@@ -34719,6 +34719,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-administrators.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-azure.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-end-users.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-legacy-auth.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
       "redirect_url": "/azure/active-directory/identity-protection/enable",
       "redirect_document_id": true
