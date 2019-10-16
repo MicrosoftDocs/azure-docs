@@ -91,19 +91,19 @@ Follow these steps to remove a specific user from an Azure AD admin role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD roles**.
+1. Select **Azure AD roles**.
 
-1. Click **Members**.
+1. Select **Members**.
 
     ![Azure AD roles - Members list showing role and activation stat](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Click a role assignment you want to remove.
+1. Select the role assignment you want to remove.
 
-1. Click **More** and then click **Remove**.
+1. Select **More** and then **Remove**.
 
     ![Pane listing a user that has a permanent role with the More menu options open](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
-1. In the message that asks you to confirm, click **Yes**.
+1. When you're asked to confirm the action, select **Yes**.
 
     ![Message asking if you want to remove member from role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
