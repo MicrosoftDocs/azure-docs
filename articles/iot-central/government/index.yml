@@ -40,63 +40,63 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Set up a device template
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Connect a device
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Connect an Edge device
-            url: ./core/index.yml
+            url: ../core/index.yml
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
-            url: ./core/howto-connect-devkit.md
+            url: ../core/howto-connect-devkit.md
           - text: Connect other IoT clouds
-            url: ./core/howto-build-iotc-device-bridge.md
+            url: ../core/howto-build-iotc-device-bridge.md
   # Card (optional)
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Manage your devices
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Run a job
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Analyze your device data
-            url: ./core/index.yml
+            url: ../core/index.yml
       - linkListType: how-to-guide
         links:
           - text: Monitor device connectivity using command line
-            url: ./core/howto-use-iotc-explorer.md
+            url: ../core/howto-use-iotc-explorer.md
           - text: Version device template
-            url: ./core/howto-version-device-template.md
+            url: ../core/howto-version-device-template.md
           - text: Configure application dashboard
-            url: ./core/howto-configure-homepage.md
+            url: ../core/howto-configure-homepage.md
           - text: Create personal dashboards
-            url: ./core/howto-personalize-dashboard.md
+            url: ../core/howto-personalize-dashboard.md
   # Card (optional)
   - title: Transform
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create a rule
-            url: ./core/tutorial-configure-rules.md
+            url: ../core/tutorial-configure-rules.md
           - text: Create an email action
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Export to Blob Storage
-            url: ./core/howto-export-data-blob-storage-pnp.md
+            url: ../core/howto-export-data-blob-storage-pnp.md
           - text: Use the IoT Central Public APIs
-            url: ./core/index.yml                        
+            url: ../core/index.yml                        
       - linkListType: how-to-guide
         links:
           - text: Export to Event Hubs and Service Bus
-            url: ./core/howto-export-data-event-hubs-service-bus-pnp.md
+            url: ../core/howto-export-data-event-hubs-service-bus-pnp.md
           - text: Create a rule on an Edge device
-            url: ./core/index.yml
+            url: ../core/index.yml
           - text: Create custom rules
-            url: ./core/howto-create-custom-rules.md
+            url: ../core/howto-create-custom-rules.md
           - text: Create custom analytics
-            url: ./core/howto-create-custom-analytics.md
+            url: ../core/howto-create-custom-analytics.md
 
   # Card
   - title: Administration
