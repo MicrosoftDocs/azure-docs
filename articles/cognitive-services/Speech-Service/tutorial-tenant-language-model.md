@@ -63,7 +63,7 @@ After your admin has enabled Tenant Language Model for your organization, you ca
 
 1. Sign into the [Speech Studio](https://speech.microsoft.com/).
 2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model settings**.
-   ![Settings menu](media/tenant-language-model/tenant-language-settings.png)
+   ![Settings menu](media/tenant-language-model/tenant-laguage-settings.png)
 3. At this point you'll see a message letting you know if you are qualified to create a Tenant Language Model.
    > [!NOTE]
    > Office 365 enterprise customers in North America are eligible to create a Tenant Language Model (English). If you are a Customer Lockbox (CLB) or Customer Key (CK) customer, this feature isn't available. To determine if you are a Customer Lockbox or Customer Key customer, follow these instructions:
@@ -78,7 +78,7 @@ When your Tenant Language Model is ready, follow these steps to deploy your mode
 
 1. Click the **View model** button in confirmation email you received, or sign into the [Speech Studio](https://speech.microsoft.com/).
 2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model settings**.
-   ![Settings menu](media/tenant-language-model/tenant-language-settings.png)
+   ![Settings menu](media/tenant-language-model/tenant-laguage-settings.png)
 3. Click **Deploy**.
 4. When your model is ready, the status will change to **Succeeded**.
 
