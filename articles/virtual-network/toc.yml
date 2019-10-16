@@ -91,24 +91,28 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
-    - name: IPv6 for VNet - Basic Load Balancer
-      items: 
-      - name: Azure PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-      - name: Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-      - name: Resource Manager template
-        href: ipv6-configure-template-json.md
-    - name: IPv6 for VNet - Standard Load Balancer
-      items: 
-      - name: Azure PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-      - name: Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-      - name: Resource Manager template
-        href: ipv6-configure-standard-load-balancer-template-json.md
-    - name: IPv6 for VNet - In-place upgrade
-      href: ipv6-add-to-existing-vnet.md
+    - name: IPv6 for VNet
+      items:
+      - name: Basic Public Load Balancer
+        items:  
+        - name: Azure PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+        - name: Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+        - name: Resource Manager template
+          href: ipv6-configure-template-json.md
+      - name: In-place upgrade
+        href: ipv6-add-to-existing-vnet.md
+      - name: Standard Public Load Balancer
+        items: 
+        - name: Azure PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+        - name: Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+        - name: Resource Manager template
+          href: ipv6-configure-standard-load-balancer-template-json.md
+      - name: Standard Internal Load Balancer
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
     - name: Network security groups
       items:
       - name: Azure PowerShell

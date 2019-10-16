@@ -1,6 +1,6 @@
 ---
-title:  Set up a sink transformation in the Mapping Data Flow feature of Azure Data Factory 
-description: Learn how to set up a sink transformation in the Mapping Data Flow.
+title:  Set up a sink transformation in the mapping data flow feature of Azure Data Factory 
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
