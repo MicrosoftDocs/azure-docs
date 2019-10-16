@@ -44,7 +44,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection’s risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API beta version will stop returning data around **December 10, 2019**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
+In response to developer feedback, Azure AD Premium P2 subscribers can now perform complex queries on Azure AD Identity Protection’s risk detection data by using the new riskDetection API for Microsoft Graph. The existing [identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API beta version will stop returning data around **January 10, 2020**. If your organization is using the identityRiskEvent API, you should transition to the new riskDetection API.
 
 For more information about the new riskDetection API, see the [Risk detection API reference documentation](https://aka.ms/RiskDetectionsAPI).
 
