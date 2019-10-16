@@ -19,7 +19,7 @@ In this quickstart, you deploy an Azure Kubernetes Service (AKS) cluster using t
 
 If you want to use Windows Server containers (currently in preview in AKS), see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
 
-![Azure Voting App in action](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -228,7 +228,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Azure Voting App in action](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 When the AKS cluster was created, [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 

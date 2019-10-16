@@ -17,7 +17,7 @@ ms.custom: [mvc, seodec18, seo-python-october2019]
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python (Django) web app, using PostgreSQL as the database back-end. When you are done, you have a Django web application running in Azure App Service on Linux.
 
-![Python Django web app in App Service on Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Python Django web app in Azure App Service on Linux](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 In this tutorial, you learn how to:
 
@@ -138,7 +138,7 @@ Go to `http://localhost:8000` in a browser. You should see the message `No polls
 
 Go to `http://localhost:8000/admin` and sign in using the admin user you created in the last step. Select **Add** next to **Questions** and create a poll question with some choices.
 
-![Python Django application running locally](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Run Python Django app in App Services locally](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Go to `http://localhost:8000` again and see the poll question displayed.
 
@@ -267,7 +267,7 @@ Go to `http://localhost:8000` in again. You should see the message `No polls are
 
 Go to `http://localhost:8000/admin` and sign in using the admin user you created, and create a poll question like before.
 
-![Python Django application running in locally](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Run Python Django app in App Services locally](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Go to `http://localhost:8000` again and see the poll question displayed. Your app is now writing data to the database in Azure.
 
@@ -382,7 +382,7 @@ App Service detects a Django project in your repository by looking for a _wsgi.p
 
 Go to `<app-name>.azurewebsites.net` and sign in using same admin user you created. If you like, try creating some more poll questions.
 
-![Python Django application running in locally](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Run Python Django app in App Services in Azure](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **Congratulations!** You're running a Python (Django) web app in Azure App Service for Linux.
 
@@ -396,11 +396,11 @@ Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
 From the left menu, select **App Services**, then select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/tutorial-python-postgresql-app/app-resource.png)
+![Navigate to your Python Django app in the Azure portal](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service page in Azure portal](./media/tutorial-python-postgresql-app/app-mgmt.png)
+![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
