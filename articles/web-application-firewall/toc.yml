@@ -48,6 +48,8 @@
   items:
   - name: Application Gateway
     items:
+     - name: Create WAF policy
+       href: ./ag/create-waf-policy-ag.md
      - name: Configure Web Application Firewall
        items:
        - name: Azure PowerShell
