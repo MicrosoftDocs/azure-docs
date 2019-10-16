@@ -13,25 +13,25 @@ ms.author: pafarley
 
 ---
 
-# What's New in Form Recognizer?
+# What's new in Form Recognizer?
 
 This article highlights the major changes that come with new versions of the Form Recognizer API.
 
 > [!NOTE]
-> The quickstarts and guides in this document set always use the latest API version, unless they specify otherwise.
+> The quickstarts and guides in this doc set always use the latest API version, unless they specify otherwise.
 
 ## Form Recognizer 2.0 (preview)
 
 ### Custom model API changes
 
-All of the APIs for training and using custom models have been renamed, some method signatures are different, and some synchronous methods are asynchronous. The following are major changes:
+All of the APIs for training and using custom models have been renamed, and some synchronous methods are asynchronous. The following are major changes:
 
 * Training is now asynchronous. You initiate training through the **/custom/models** API call. This returns an operation ID, which can be passed into **custom/models/{modelID}** to return the training results.
 * Key/value extraction is now initiated by the **/custom/models/{modelID}/analyze** API call. This returns an operation ID, which can be passed into **custom/models/{modelID}/analyzeResults/{resultID}** to return the extraction results.
 
 ### Receipt API changes
 
-The APIs for reading sales receipts have been renamed, and some method signatures are different.
+The APIs for reading sales receipts have been renamed.
 
 * Receipt data extraction is now initiated by the **/prebuilt/receipt/analyze** API call. This returns an operation ID, which can be passed into **/prebuilt/receipt/analyzeResults/{resultID}** to return the extraction results.
 
