@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Surrogate Key Transformation
-description: How to use Azure Data Factory's Mapping Data Flow Surrogate Key Transformation to generate sequential key values
+title: Azure Data Factory mapping data flow Surrogate Key Transformation
+description: How to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ---
 
-# Mapping Data Flow Surrogate Key Transformation
+# Mapping data flow Surrogate Key Transformation
 
 
 
