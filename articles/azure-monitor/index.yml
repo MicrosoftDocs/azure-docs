@@ -118,9 +118,9 @@ landingContent:
             url: /rest/api/monitor
           - text: Log Analytics
             url: /rest/api/loganalytics
-          - text: Application Insights (GET operations only)
+          - text: Application Insights
             url: /rest/api/application-insights/  
-          - text: Application Insights IO site (migrating to previous location)
+          - text: Application Insights REST API sandbox
             url: https://dev.applicationinsights.io
 
 
