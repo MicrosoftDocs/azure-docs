@@ -50,7 +50,7 @@ The following tables list the update classifications in Update Management, with 
 |Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
 |Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
 
-For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data. (This granularity is is possible because of data enrichment in the cloud.) For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS doesn't have this information available in the RTM versions of the product. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications:
+For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data. (This granularity is possible because of data enrichment in the cloud.) For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS doesn't have this information available in the RTM versions of the product. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications:
 
 ```bash
 sudo yum -q --security check-update
