@@ -51,29 +51,29 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 ### Configuration 
 
 **Embed Client**
-1. To begin any test, the JavaScript client must be embedded in your web-facing application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will begin until this step is complete. 
+To begin any test, the JavaScript client must be embedded in your web-facing application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will begin until this step is complete. 
 
 **Setup Tests**
-2. Give your test a name in the **Test Name** box. The name must be unique to the profile and not contain any spaces. 
-3. Add a description for your test in the **Description** field. 
-4. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint of your choice.
+1. Give your test a name in the **Test Name** box. The name must be unique to the profile and not contain any spaces. 
+2. Add a description for your test in the **Description** field. 
+3. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint of your choice.
 
-    ***Preconfigured endpoints: single and multiple Azure region combinations***
-    * Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
-    * Next, select the type of a app or content delivery architecture you'd like to evaluate. 
+***Preconfigured endpoints: single and multiple Azure region combinations***
+* Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
+* Next, select the type of a app or content delivery architecture you'd like to evaluate. 
 
-        *Acceleration options:*
-        * Single Azure region: Site acceleration (Azure Front Door), static content caching (Azure CDN for Microsoft), or none. 
-        * Multiple Azure regions: Site acceleration (Azure Front Door), DNS routing (Azure Traffic Manager) 
+    *Acceleration options:*
+    * Single Azure region: Site acceleration (Azure Front Door), static content caching (Azure CDN for Microsoft), or none. 
+    * Multiple Azure regions: Site acceleration (Azure Front Door), DNS routing (Azure Traffic Manager) 
 
-    ***Custom endpoints***
-    * Download the one-pixel image provided on the page and embed it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 
-    * Paste the location of the one-pixel imagine in the portal. You must provide and HTTPS URL. 
-    * More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
+***Custom endpoints***
+* Download the one-pixel image provided on the page and embed it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 
+* Paste the location of the one-pixel imagine in the portal. You must provide and HTTPS URL. 
+* More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
 
-5. CLick **Add** to add the endpoint to your test. 
-6. Follow steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider when endpoint should be your control. 
-7. By default, tests will be set to **Enabled.** If the JavaScript client is already installed, this means your test will begin once you click **Review + create**. If **Enabled** is not selected, you will need to start your test from the *Configuration* tab.
+4. CLick **Add** to add the endpoint to your test. 
+5. Follow steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider when endpoint should be your control. 
+6. By default, tests will be set to **Enabled.** If the JavaScript client is already installed, this means your test will begin once you click **Review + create**. If **Enabled** is not selected, you will need to start your test from the *Configuration* tab.
 
 
 ## CLI
