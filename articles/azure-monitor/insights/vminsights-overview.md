@@ -21,7 +21,7 @@ Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual mach
 
 It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. Three key features deliver in-depth insight:
 
-- **Logical components of Azure VMs and VM scale sets that run Windows and Linux**: Are measured against pre-configured health criteria, and they alert you when the evaluated condition is met.  ​
+- **Logical components of Azure VMs and virtual machine scale sets that run Windows and Linux**: Are measured against pre-configured health criteria, and they alert you when the evaluated condition is met.  ​
 
 - **Pre-defined trending performance charts**: Display core performance metrics from the guest VM operating system.
 
