@@ -297,8 +297,8 @@ To begin patching systems, you need to enable the Update Management solution. Th
 
 Use the following tutorial to learn how to manage updates for your Windows VMs:
 
-[!div class="nextstepaction"]
->[Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
+> [!div class="nextstepaction"]
+> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
 
 * Use log searches in [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
