@@ -11,8 +11,8 @@ ms.date: 10/04/2019
 # Configure Hyperscale (Citus) high availability
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides high availability
-(HA) to avoid database downtime. However, with HA enabled a server group will
-use twice as many nodes as without HA, because each node gets a standby.
+(HA) to avoid database downtime. With HA enabled, every node in a server group
+will get a standby that can be promoted if the original node becomes unhealthy.
 
 > [!IMPORTANT]
 > Because HA doubles the number of servers in the group, it will also double
@@ -27,6 +27,10 @@ OFF:
 
 Click the "Save" button to apply your selection. Enabling HA can take some time
 as the server group provisions standbys and streams data to them.
+
+The **Overview** tab for the server group will list all nodes and their
+standbys, along with a **High availability** column indicating whether HA is
+enabled for each node.
 
 ## Next steps
 
