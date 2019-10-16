@@ -18,7 +18,7 @@ When moving a virtual network, you must also move its dependent resources. For V
 
 To move a virtual machine with a network interface card to a new subscription, you must move all dependent resources. Move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
 
-For more information, see [Scenario for move across subscriptions](resource-group-move-resources.md#scenario-for-move-across-subscriptions).
+For more information, see [Scenario for move across subscriptions](../resource-group-move-resources.md#scenario-for-move-across-subscriptions).
 
 ## Peered virtual network
 
