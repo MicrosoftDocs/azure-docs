@@ -18,7 +18,7 @@ The tables in this section provide suggestions for creating and engaging marketp
 ## Storefront offer details
 | Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer Name | Provide a strong title:<br> <ul> <li> Your app name should communicate the core value for your customers. </li> <li> Include search keywords in your app title to receive higher ranking in search engine results. </li> </ul> Follow a set title format for consulting service listings:<br>[Offer Name] : [Duration] [Offer Type] (for example, *Contoso: 2-Week Implementation*) <br><br> Adhere to brand guidelines:<br>Follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when you refer to Microsoft trademarks and the names of Microsoft software, products, and services. |
+| Offer Name | Provide a strong title:<br> <ul> <li> Your app name should communicate the core value for your customers. </li> <li> Include search keywords in your app title to receive higher ranking in search engine results. </li> </ul> Follow a set title format for consulting service listings:<br>[Offer Name: [Duration] [Offer Type] (for example, *Contoso: 2-Week Implementation*) <br><br> Adhere to brand guidelines:<br>Follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when you refer to Microsoft trademarks and the names of Microsoft software, products, and services. |
 | Offer Description | Provide a clear offer description:<br> <ul> <li> Clearly describe your offer's value proposition in the first few sentences of your description. </li> <li> Keep in mind that the first few sentences might be displayed in search engine results. </li> <li> Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. </li> <li> Use industry-specific vocabulary or benefit-based wording as much as possible.</li> <li> Additionally, Consulting Service listings must  clearly state the professional service you provide. </li></ul> Core components of your value proposition should include the following information:<ul><li>Description of the product.</li><li>Type of user that benefits from the product.</li><li>Customer need or pain that the product addresses.</li></ul> |
 
 ## Storefront listing details
@@ -33,9 +33,9 @@ The tables in this section provide suggestions for creating and engaging marketp
 
 Azure Marketplace and Microsoft AppSource are storefronts that serve different and unique customer requirements. Choose the right storefront and categories for each offer to target your customers by role. 
 
-You may select up to two categories and two subcategories for an offer. The categories and subcategories listed below are available in both storefronts.  Please make sure your category selection is aligned with the intended audience, as well as your offer description and value proposition.
+You may select up to two categories and two subcategories for an offer. The categories and subcategories listed below are available in both storefronts.  Make sure your category selection is aligned with the intended audience, as well as your offer description and value proposition.
 
-| **Industry**    | **Sub-industry**  | 
+| **Industry**    | **Subindustry**  | 
 | :------------------- | :-------------------|
 | *Automotive     | *Automotive |
 | Agriculture     | *Other - Unsegmented |
