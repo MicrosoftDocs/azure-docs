@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/25/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
