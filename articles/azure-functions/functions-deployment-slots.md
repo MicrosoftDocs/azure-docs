@@ -1,12 +1,9 @@
 ---
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: azure functions, functions
-
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
@@ -22,7 +19,7 @@ The following reflect how functions are affected by swapping slots:
 - If a function is running during a swap, execution continues and subsequent triggers are routed to the swapped app instance.
 
 > [!NOTE]
-> Slots are not available for the Linux Consumption plan.
+> Slots are currently not available for the Linux Consumption plan.
 
 ## Why use slots?
 
@@ -179,10 +176,10 @@ There are two levels of support for deployment slots:
 | OS/Hosting plan           | Level of support     |
 | ------------------------- | -------------------- |
 | Windows Consumption       | General availability |
-| Windows Premium (preview) | Preview              |
+| Windows Premium           | General availability  |
 | Windows Dedicated         | General availability |
 | Linux Consumption         | Unsupported          |
-| Linux Premium (preview)   | Preview              |
+| Linux Premium             | General availability  |
 | Linux Dedicated           | General availability |
 
 ## Next steps

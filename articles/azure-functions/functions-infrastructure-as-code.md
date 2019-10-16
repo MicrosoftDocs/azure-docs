@@ -1,15 +1,12 @@
 ---
 title: Automate resource deployment for a function app in Azure Functions | Microsoft Docs
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
-services: Functions
-documtationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
@@ -24,9 +21,6 @@ For more information about creating templates, see [Authoring Azure Resource Man
 For sample templates, see:
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
-
-> [!NOTE]
-> The Premium plan for Azure Functions hosting is currently in preview. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 ## Required resources
 
@@ -310,7 +304,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
 
 ### Create a Premium plan
 

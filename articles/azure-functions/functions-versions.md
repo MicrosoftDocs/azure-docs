@@ -1,11 +1,8 @@
 ---
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
-services: functions
-documentationcenter: 
 author: ggailey777
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
@@ -15,9 +12,6 @@ ms.author: glenga
 # Azure Functions runtime versions overview
 
  There are two major versions of the Azure Functions runtime: 1.x and 2.x. The current version where new feature work and improvements are being made is 2.x, though both are supported for production scenarios.  The following details some of the differences between the two, how you can create each version, and upgrade from 1.x to 2.x.
-
-> [!NOTE]
-> This article refers to the cloud service Azure Functions. For information about the preview product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
 
 ## Cross-platform development
 

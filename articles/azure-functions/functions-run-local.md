@@ -151,7 +151,7 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
-python (preview)
+python
 powershell (preview)
 ```
 

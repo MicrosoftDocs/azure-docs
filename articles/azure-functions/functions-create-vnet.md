@@ -1,9 +1,8 @@
 ---
 title: Integrate Azure Functions with an Azure virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
@@ -22,9 +21,6 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Connect the function app to the virtual network
 > * Create a function proxy to access WordPress resources
 > * Request a WordPress file from inside the virtual network
-
-> [!NOTE]  
-> This tutorial creates a function app in the Premium plan. This hosting plan is currently in preview. For more information, see [Premium plan].
 
 ## Topology
 
