@@ -45,7 +45,7 @@ If you have an Azure Machine Learning workspace, skip to the next section.
 
 ### Create a pipeline
 
-1. Open [Azure Machine Learning studio](https://ml.azure.com), sign-in if you are prompted to, and select the workspace you want to work with.
+1. Open [Azure Machine Learning studio](https://ml.azure.com), sign in if you are prompted to, and select the workspace you want to work with.
 
 1. In the studio, select **Visual Interface**.
 
@@ -65,6 +65,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
+<<<<<<< HEAD
 1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
 1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
@@ -85,6 +86,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. On the lower right, select **Save** to close the column selector.
 
+<<<<<<< HEAD
 ### Run the pipeline
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't appear, you first need to run the pipeline.
@@ -93,13 +95,15 @@ At any time, click the output port of a dataset or module to see what the data l
 
 ### Visualize the data
 
-Now that you have run your initial pipeline, you can visualize the data to understand more about the dataset you have.
+You can visualize the data to understand more about the dataset you have.
 
-1. Select the **Select Columns in Dataset**.
+1. Select the **Automobile price data (Raw)** module.
 
 1. In the **Properties** pane to the right of the canvas, select **Outputs**.
 
 1. Select the graph icon to visualize the data.
+
+    ![Visualize the data](./media/ui-tutorial-automobile-price-train-score/visualize-data.png)
 
 1. Select the different columns in the data window to view information about that column.
 
@@ -112,6 +116,22 @@ Now that you have run your initial pipeline, you can visualize the data to under
 ## Prepare data
 
 Typically, a dataset requires some preprocessing before it can be analyzed. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large number of missing values, so you'll exclude that column from the model altogether.
+
+1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
+
+1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
+
+1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
+
+    ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+
+1. Select the **Select Columns in Dataset** module.
+
+1. In the **Properties** pane to the right of the canvas, select **Edit column**.
+
+    In the **Select Columns** dialog, select **All columns** and include **All features**.
+
+1. On the lower right, select **Save** to close the column selector.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules in the visual interface.
@@ -150,7 +170,7 @@ When you train a model, you have to do something about the data that is missing.
 
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
-1. In the **Properties** pane enter "Remove missing value rows." in the **Comment** box.  
+1. In the Properties pane, enter "Remove missing value rows." in the **Comment** box.  
 
     Your pipeline should now look something like this:
     
@@ -174,7 +194,7 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Select the **Split Data** module. In the Properties pane, set the **Fraction of rows in the first output dataset** to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
-1. In the **Properties** pane enter "Split the dataset into training set(0.7) and test set(0.3)." in the **Comment** box.
+1. In the Properties pane, enter "Split the dataset into training set(0.7) and test set(0.3)." in the **Comment** box.
 
 ### Train the model
 
@@ -192,7 +212,7 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Select the **Train Model** module. In the Properties pane, select **Edit column** selector
 
-1. In the **Label column** dialog, expand the drop down and select **Column names**. In the text box, enter **price**. Price is the value that your model is going to predict.
+1. In the **Label column** dialog, expand the drop-down menu and select **Column names**. In the text box, enter **price**. Price is the value that your model is going to predict.
 
     Your pipeline should look like this:
 
@@ -208,7 +228,13 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
     ![Screenshot showing the correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
 
-1. Run the pipeline using the experiment you created earlier.
+### Run the pipeline
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+### View results
+
+After the run completes, you can view the results of the pipeline run. 
 
 1. View the output from the **Score Model** module by selecting the **Score Model** module. Then, in the **Properties** pane, select **Outputs** > **Visualize**. The output shows the predicted values for price and the known values from the test data.
 

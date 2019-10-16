@@ -7,12 +7,11 @@ ms.custom: "include file"
 ms.topic: "include"
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
+ms.date: 10/16/2019
 ---
 
 >[!IMPORTANT]
 >You can use the resources that you created as prerequisites for other Azure Machine Learning service tutorials and how-to articles.
-
 
 ### Delete everything
 
