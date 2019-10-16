@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
-description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax.
+title: Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax
+description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
