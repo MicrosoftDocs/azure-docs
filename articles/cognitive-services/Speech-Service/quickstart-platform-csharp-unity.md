@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for C# Unity platform setup - Speech Service'
+title: "Quickstart: Speech SDK for C# Unity platform setup - Speech Service"
 titleSuffix: Azure Cognitive Services
-description:  Use this guide to set up your platform for C# Unity with the Speech Services SDK.
+description: Use this guide to set up your platform for C# Unity with the Speech Services SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -33,9 +33,10 @@ This quickstart requires:
 
 To install the Speech SDK for Unity, follow these steps:
 
-1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage), and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears.
+1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage), and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears. You may need to create and open an empty project for this step to work.
 
    [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
+
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
@@ -44,6 +45,6 @@ You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+- [Quickstart: Recognize speech from a microphone]()
+- [Quickstart: Synthesize speech from a file]()
+- [Quickstart: Translate speech-to-text]()
