@@ -110,5 +110,5 @@ az network public-ip create \
 ```
 
 ## Next steps
-- Learn more about [IPv6 address prefix](ipv6-public-ip-address-prefix.md)
+- Learn more about [IPv6 address prefix](ipv6-public-ip-address-prefix.md).
 - Learn more about [IPv6 addresses](ipv6-overview.md).
