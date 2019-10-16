@@ -1,0 +1,149 @@
+### YamlMime:Hub 
+
+title: IoT Central documentation 
+summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. 
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: IoT Central documentation
+  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale.
+  ms.service: iot-central
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  manager: eliotgra
+  ms.date: 10/16/2019
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: What is IoT Central? 
+      itemType: overview # controls the icon image and super-title text 
+      url: ./core/overview-iot-central.md
+    - title: What are Application Templates? 
+      itemType: concept 
+      url: ./core/howto-use-app-templates.md
+    - title: Azure IoT Central Architecture
+      itemType: architecture
+      url: ./core/concepts-architecture.md
+    - title: Create a new application 
+      itemType: quickstart
+      url: ./core/quick-deploy-iot-central.md
+    - title: Define a device type and add a device 
+      itemType: tutorial
+      url: ./core/tutorial-add-device.md
+    - title: Monitor your devices
+      itemType: tutorial 
+      url: ./core/tutorial-monitor-devices.md
+
+conceptualContent: 
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items: 
+    - title: Get connected 
+      links: 
+        - url: ./core/howto-set-up-template-pnp.md
+          itemType: how-to-guide
+          text: Set up a device template 
+        - url: ./core/tutorial-add-device-pnp.md
+          itemType: tutorial
+          text: Connect an IoT Plug and Play device 
+        - url: ./core/index.yml
+          itemType: concept
+          text: Connect an Edge device
+      footerLink: 
+        url: ./core/index.yml
+        text: See more
+
+    - title: Stay connected
+      links: 
+        - url: ./core/howto-use-device-groups-pnp.md
+          itemType: how-to-guide
+          text: Use device groups
+        - url: ./core/howto-manage-devices-pnp.md
+          itemType: how-to-guide 
+          text: Manage your devices 
+        - url: ./core/howto-run-a-job.md
+          itemType: concept
+          text: how-to-guide 
+        - url: ./core/howto-create-analytics.md
+          itemType: how-to-guide
+          text: Analyze your device data
+      footerLink: 
+        url: ./core/index.yml
+        text: See more
+
+    - title: Transform 
+      links: 
+        - url: ./core/howto-create-telemetry-rules-pnp.md
+          itemType: how-to-guide
+          text: Create telemetry rule 
+        - url: ./core/howto-create-event-rules-pnp.md
+          itemType: how-to-guide
+          text: Create an event rule
+        - url: ./core/howto-export-data-blob-storage-pnp.md
+          itemType: how-to-guide
+          text: Export to Blob Storage
+      footerLink: 
+        url: ./core/index.yml
+        text: See more
+
+# productDirectory section (optional)
+productDirectory:
+  title: Get started building with industry application templates # < 60 chars (optional)
+  summary: Ready to build? Checkout our industry relevant application templates built for solution builders # < 160 chars (optional)
+  items:
+    # Card
+    - title: Build for Retail
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./retail/media/index/iot-central.svg
+      links:
+        - url: ./retail/overview-iot-central-retail.md
+          text: Building retail solutions with Azure IoT Central
+        - url: ./retail/tutorial-condition-monitor-create-app-pnp.md
+          text: 1- Create a retail application
+        - url: ./retail/tutorial-condition-monitor-customize-dashboard-pnp.md
+          text: 2 - Customize the operator dashboard
+        - url: ./retail/tutorial-condition-monitor-export-data-visualize-insights-pnp.md
+          text: 3 - Export data and visualize insights
+    # Card
+    - title: Build for health
+      imageSrc: ./health/media/index/iot-central.svg
+      links:
+        - url: ./healthcare/overview-iot-central-healthcare.md
+          text: Build healthcare solutions with IoT Central
+        - url: ./healthcare/tutorial-continuous-patient-monitoring.md
+          text: Create a continuous patient monitoring app
+        - url: ./healthcare/tutorial-health-data-triage.md
+          text: Build a health data triage dashboard
+    # Card
+    - title: Build for energy
+      imageSrc: ./energy/media/index/iot-central.svg
+      links:
+        - url: ./energy/overview-iot-central-energy.md
+          text: Build energy solutions with IoT Central
+        - url: ./energy/tutorial-smart-meter-analytics.md
+          text: Create a smart meter analytics app
+        - url: ./energy/tutorial-solar-pv-app.md
+          text: Create a solar PV monitoring app
+    # Card
+    - title: Build for government
+      imageSrc: ./government/media/index/iot-central.svg
+      links:
+      - url: ./government/overview-iot-central-government.md
+        text: Build government solutions with IoT Central
+      - url: ./government/tutorial-water-quality-monitoring.md
+        text: Create a water quality monitoring app
+      - url: ./government/tutorial-water-consumption-monitoring.md
+        text: Create a water consumption monitoring app
+      - url: ./government/tutorial-connected-waste-management.md
+        text: Create a connected waste management app
+
+additionalContent:
+  sections:
+    - items:
+      - title: IoT Central APIs
+        summary: Explore the IoT Central APIs.
+        url: https://docs.microsoft.com/en-us/rest/api/azure/
+      - title: Azure IoT Platform services
+        summary: Explore the set of Azure IoT developer services for building your own IoT solution.
+        url: https://docs.microsoft.com/azure/iot-fundamentals
