@@ -61,7 +61,7 @@ These tools and environments are installed on the compute instance:
     * `tqdm`
     * `joblib`
     * `nodejs`
-* [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)from PyPI including:
+* [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) from PyPI including:
     * `azureml-sdk[notebooks,contrib,automl,explain]`
     * `azureml-contrib-datadrift`
     * `azureml-telemetry`
