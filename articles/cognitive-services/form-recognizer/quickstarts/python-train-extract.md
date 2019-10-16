@@ -54,7 +54,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     body = {"source": source}
     try:
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models", body, headers)
+        conn.request("POST", "/formrecognizer/v2.0-preview/custom/models", body, headers)
         response = conn.getresponse()
         data = response.read()
         operationURL = "" + response.getheader("Location")
@@ -77,7 +77,7 @@ operationId = operationURL.split("operations/")[1]
 conn = http.client.HTTPSConnection('<Endpoint>')
 while True:
     try:
-        conn.request("GET", f"/formrecognizer/v1.0-preview/custom/models/{operationId}", "", headers)
+        conn.request("GET", f"/formrecognizer/v2.0-preview/custom/models/{operationId}", "", headers)
         responseString = conn.getresponse().read().decode('utf-8')
         responseDict = json.loads(responseString)
         conn.close()
@@ -186,7 +186,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
             data_bytes = f.read()  
         body = data_bytes
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models/" + model_id + "/analyze", body, headers)
+        conn.request("POST", "/formrecognizer/v2.0-preview/custom/models/" + model_id + "/analyze", body, headers)
         response = conn.getresponse()
         data = response.read()
         operationURL = "" + response.getheader("Location")
@@ -212,7 +212,7 @@ operationId = operationURL.split("operations/")[1]
 conn = http.client.HTTPSConnection('<Endpoint>')
 while True:
     try:
-        conn.request("GET", "/formrecognizer/v1.0-preview/custom/models/" + model_id + "/analyzeResults/" + operationId, "", headers)
+        conn.request("GET", "/formrecognizer/v2.0-preview/custom/models/" + model_id + "/analyzeResults/" + operationId, "", headers)
         responseString = conn.getresponse().read().decode('utf-8')
         responseDict = json.loads(responseString)
         conn.close()
