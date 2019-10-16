@@ -24,29 +24,12 @@ Form Recognizer allows you to train a model using five filled-in forms or an emp
 
 Form Recognizer Feedback Loop uses the new document Layout OCR to detect and extract printed and handwritten text from the forms and learns which values to extract from the forms. (and human input? TBD)
 
-## Where do I start?
-
-**Step 1:** Create a Form Recognizer resource in the Azure portal.
-
-**Step 2:** [Deploy the Form Recognizer Feedback Loop contaniers](Install-Container.md)
-
-**Step 3:** [Label forms, train and analyze forms using the Form Recognizer Sample UX](sampleUX-label-train-analyze.md)
-Click here to access the Sample UX on your container [Form Recognizer Sample UX](http://localhost:3005)
-
-**Step 4:** Follow a quickstart to use the REST API [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](fl-python-quickstart.md)
-
-**Step 5:** Review the REST APIs
-
-**Step 6:** Provide us feedback - e-mail Form Recognizer Contact Us (formrecog_contact@microsoft.com)
-
 You use the following APIs to train and extract structured data from forms.
 
 |||
 |---|---|
 | asyncTrain Model| Train a new model to analyze your forms by using the feedback loop and 10 forms of the same type. |
 | asyncAnalyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
-
-Explore the [REST API on your Form Recognizer Feedback Loop container](http://localhost:5005/swagger) to learn more. 
 
 ## Preview limits
 Note that you are a very early adopter of this technology, and we are still working on it. We know there are a few known issues, and some aspects of the service that could be tuned a bit – but we promise to work with you to make things work. If something does not feel quite right, please don’t hesitate to reach out to us. At this stage it is ok to overcommunicate. 
@@ -61,10 +44,8 @@ Customer Data will be used or otherwise processed only to provide Customer the O
 
 As with all the Cognitive Services, developers using the Form Understanding service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
-## Next steps
+## Next steps 
 
-Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
+**Step 4:** Follow a quickstart to use the REST API [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](fl-python-quickstart.md)
 
-* [Quickstart: Train a model and extract form data by using cURL](./quickstarts/curl-train-extract.md)
-* [Quickstart: Train a model and extract form data using the REST API with Python](./quickstarts/python-train-extract.md)
-
+**Step 5:** Review the REST APIs
