@@ -17,11 +17,11 @@ Searching across the variety of content types stored in Azure Blob storage can b
 
 ## What it means to add full text search to blob data
 
-Azure Search is a cloud search service that provides indexing and query engines that operate over user-defined indexes hosted on your search service. Co-locating your searchable content with the query engine in the cloud is necessary for performance, returning results at a speed expected by your users.
+Azure Search is a cloud search service that provides indexing and query engines that operate over user-defined indexes hosted on your search service. Co-locating your searchable content with the query engine in the cloud is necessary for performance, returning results at a speed users have come to expect from search queries.
 
 Azure Search integrates with Azure Blob storage at the indexing layer, importing your blob content as search documents that are indexed into *inverted indexes* and other query structures that support free form text queries and filter expressions. Because your blob content is indexed into a search index, access to blob content can leverage the full range of query features in Azure Search.
 
-Once the index is created and populated, it is entirely independent and isolated from your blob container, but you can re-rerun indexing operations to refresh your index. Timestamp information on individual blobs is used for change detection. Scheduled execution or on-demand indexing are the refresh mechanisms.
+Once the index is created and populated, it exists independetly of your blob container, but you can re-rerun indexing operations to refresh your index with changes to the underlying container. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
 
 Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text data. If your blobs contain images, you can add [AI enrichment to blob indexing ](search-blob-ai-integration.md) to create and extract text from images.
 
@@ -62,7 +62,7 @@ Azure Search can be configured to extract structured content found in blobs that
 
 The output of an indexing is a search index, used for interactive exploration using free text and filtered queries in a client app. For initial exploration and verification of content, we recommend starting with [Search Explorer](search-explorer.md) in the portal to examine document structure. You can use [simple query syntax](query-simple-syntax.md), [full query syntax](query-lucene-syntax.md), and [filter expression syntax](query-odata-filter-orderby-syntax.md) in Search explorer.
 
-A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first appliation in Azure Search](tutorial-csharp-create-first-app.md).
+A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Search](tutorial-csharp-create-first-app.md).
 
 ## Next steps
 
