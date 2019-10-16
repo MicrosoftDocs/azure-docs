@@ -13,5 +13,5 @@
   items:
   - name: Machine learning and artificial intelligence
     href: sql-database-edge-onnx-overview.md
-  - name: Stream analytics
+  - name: Stream Analytics jobs
     href: sql-database-edge-stream-analytics.md

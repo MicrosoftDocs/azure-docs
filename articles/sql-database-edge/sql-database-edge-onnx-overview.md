@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 10/16/2019
 ---
 
-# Machine Learning and Artificial Intelligence with Open Neural Network Exchange (ONNX) in SQL Database Edge
+# Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge
 
 Machine Learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format for ML models, allowing you to interchange models between various [ML frameworks and tools](https://onnx.ai/supported-tools).
 
@@ -28,3 +28,11 @@ There are several ways that you can obtain a model in the ONNX format, including
 > Not all ONNX versions are supported by SQL Server Machine Learning Services. We only support predicting numeric data types through the ONNX model and we will be introducing the support for other data types in the future.
 
 Once you have an ONNX model, you'll deploy the model in Azure SQL Database Edge, and then you can use native scoring with the [PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
+
+## Next steps
+
+- For pricing and availability-related details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
+- Request to enable Azure SQL Database Edge for your subscription.
+- To get started, see the following:
+  - [Deploy SQL Database Edge through Azure portal](sql-database-edge-deploy-portal.md)
+  - [Deploy a streaming job for Azure SQL Database Edge](sql-database-edge-stream-analytics.md)

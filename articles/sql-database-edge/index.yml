@@ -20,9 +20,29 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: About SQL Database Edge
+  - title: SQL Database Edge
     linkLists:
       - linkListType: overview
         links:
           - text: What is SQL Database Edge?
             url: sql-database-edge-overview.md
+
+  # Card 
+  - title: Deploy SQL Database Edge
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy SQL Database Edge?
+            url: sql-database-edge-deploy-portal.md
+
+  # Card 
+  - title: About SQL Database Edge
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Machine learning and artificial intelligence
+            url: sql-database-edge-onnx-overview.md
+          - text: Stream Analytics jobs
+            url: sql-database-edge-stream-analytics.md
+
+
