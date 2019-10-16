@@ -28,13 +28,13 @@ Select the script you want to use. In this example, we use the **UpdateManagemen
 
 Repeat this process for the **UpdateManagement-TurnOffVms** script. But when you choose the **Script type**, select **Post-Script**.
 
-The **Selected items** section now shows both your scripts selected. One is a pre-script and the other is a post-script.
+The **Selected items** section now shows both your scripts selected. One is a pre-script and the other is a post-script:
 
 ![Selected items](./media/pre-post-scripts/selected-items.png)
 
 Finish configuring your update deployment.
 
-When your update deployment is complete, you can go to **Update deployments** to view the results. As you can see, the status of the pre-script and post-script is provided.
+When your update deployment is complete, you can go to **Update deployments** to view the results. As you can see, the status is provided for the pre-script and post-script:
 
 ![Update results](./media/pre-post-scripts/update-results.png)
 
@@ -58,18 +58,21 @@ When you configure pre and post-scripts, you can pass in parameters just like sc
 
 If you need another object type, you can cast it to another type with your own logic in the runbook.
 
-In addition to your standard runbook parameters, another parameter is provided: **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post-script, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable.
+In addition to your standard runbook parameters, another parameter is provided: **SoftwareUpdateConfigurationRunContext**
 
+This parameter is a JSON string, and if you define the parameter in your pre or post-script, it's automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
+
+The following table shows you the properties that are provided in the variable.
 
 ### SoftwareUpdateConfigurationRunContext properties
 
 |Property  |Description  |
 |---------|---------|
-|SoftwareUpdateConfigurationName     | The name of the software update configuration        |
+|SoftwareUpdateConfigurationName     | The name of the software update configuration.        |
 |SoftwareUpdateConfigurationRunId     | The unique ID for the run.        |
 |SoftwareUpdateConfigurationSettings     | A collection of properties related to the software update configuration.         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment.         |
-|SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the *maintenance window*.          |
+|SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601; also called the *maintenance window*.          |
 |SoftwareUpdateConfigurationSettings.Windows     | A collection of properties related to Windows computers.         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | A list of KBs that are excluded from the update deployment.        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Update classifications selected for the update deployment.        |
@@ -107,7 +110,7 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
    }
 ```
 
-A full example with all properties can be found at: [Software update configurations – Get by name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
+A full example with all properties can be found at: [Get software update configuration by name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
 > The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause pre and post-scripts to run multiple times on the same machine. To work around this behavior, use `Sort-Object -Unique` to select only unique VM names in your script.
@@ -132,7 +135,7 @@ foreach($summary in $finalStatus)
 
 ## Samples
 
-Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your Automation Account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
+Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
 ![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -145,7 +148,7 @@ Or you can search for them by their script name, as shown in the following list:
 * Update Management - Run Script with Run Command
 
 > [!IMPORTANT]
-> After you import the runbooks, you must **Publish** them before they can be used. To do that, find the runbook in your automation account, select **Edit**, and select **Publish**.
+> After you import the runbooks, you must publish them before they can be used. To do that, find the runbook in your automation account, select **Edit**, and then select **Publish**.
 
 The samples are all based on the basic template that's defined in the following example. This template can be used to create your own runbook to use with pre and post-scripts. The necessary logic for authenticating with Azure and handling the `SoftwareUpdateConfigurationRunContext` parameter is included.
 
@@ -202,7 +205,7 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Interacting with machines
 
-Pre and post-script tasks run as a runbook in your automation account and not directly on the machines in your deployment. Pre and post-script tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
+Pre and post-tasks run as a runbook in your automation account and not directly on the machines in your deployment. Pre and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
 
 ### Interacting with Azure machines
 
@@ -211,18 +214,18 @@ Pre and post-tasks are run as runbooks and don't natively run on your Azure VMs 
 * A Run As account
 * A runbook you want to run
 
-To interact with Azure machines, you should use the [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management - Run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+To interact with Azure machines, you should use the [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management – run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### Interacting with Non-Azure machines
 
-Pre and post-script tasks run in the Azure context and don't have access to non-Azure machines. To interact with the non-Azure machines, you must have the following items:
+Pre and post-tasks run in the Azure context and don't have access to non-Azure machines. To interact with the non-Azure machines, you must have the following items:
 
 * A Run As account
 * Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * A parent runbook
 
-To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. For more info, see the runbook example [Update Management - Run Script Locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. For more info, see the runbook example [Update Management – run script locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## Abort patch deployment
 
@@ -238,7 +241,7 @@ if (<My custom error logic>)
 
 ## Known issues
 
-* You can't pass a boolean, objects, or arrays to parameters when you're using pre and post-scripts. If you do, the runbook fails. For a complete list of supported types, see [parameters](#passing-parameters).
+* You can't pass a boolean, objects, or arrays to parameters when you're using pre and post-scripts. If you do, the runbook fails. For a complete list of supported types, see [Passing parameters](#passing-parameters).
 
 ## Next steps
 
