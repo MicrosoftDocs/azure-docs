@@ -192,7 +192,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 **If using the above method to configure sampling, make sure to use ```aiOptions.EnableAdaptiveSampling = false;``` settings with AddApplicationInsightsTelemetry().**
 
-## Fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites
+## Fixed-rate sampling for ASP.NET, ASP.NET Core, Java websites and Python applications
 
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
@@ -331,7 +331,27 @@ The telemetry types that can be included or excluded from sampling are: Dependen
 
 <a name="other-web-pages"></a>
 
+### Configuring fixed-rate sampling in OpenCensus Python ###
 
+1. Instrument your application with the latest [OpenCensus Azure Monitor exporters](../../azure-monitor/app/opencensus-python.md).
+
+> [!NOTE]
+> Fixed-rate sampling is only available using the trace exporter. This means incoming and outgoing requests are the only types of telemetry where sampling can be configured.
+> 
+> 
+
+2. You may specify a `sampler` as part of your `Tracer` configuration. If no explicit sampler is provided, the ProbabilitySampler will be used by default. The ProbabilitySampler would use a rate of 1/10000 by default, meaning one out of every 10000 requests will be sent to Application Insights. If you want to specify a sampling rate, see below.
+
+3. When specifying a sampler, make sure your `Tracer` specifies a sampler with a sampling rate between 0.0 and 1.0 inclusive. A sampling rate of 1.0 represents 100%, meaning all of your requests will be sent as telemetry to Application Insights.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## Ingestion sampling
 

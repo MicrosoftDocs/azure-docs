@@ -1,6 +1,6 @@
 ---
-title: "Azure Status Monitor v2 API reference: Disable monitoring | Microsoft Docs"
-description: Status Monitor v2 API reference. Disable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
+title: "Azure Application Insights Agent API reference: Disable monitoring | Microsoft Docs"
+description: Application Insights Agent API reference. Disable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Disable-ApplicationInsightsMonitoring
+# Application Insights Agent API: Disable-ApplicationInsightsMonitoring
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -65,5 +65,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## Next steps
 
- Do more with Status Monitor v2:
- - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Do more with Application Insights Agent:
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
