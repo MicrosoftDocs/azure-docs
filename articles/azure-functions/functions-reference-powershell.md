@@ -400,7 +400,7 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 ## Dependency management
 
-Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.com) for managing dependecies. With dependency management enabled, the requirements.psd1 file is used to automatically download required modules. You enable this behavior by setting the `managedDependency` property to `true` in the root of the [host.json file](functions-host-json.md), as in the following example:
+Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.com) for managing dependencies. With dependency management enabled, the requirements.psd1 file is used to automatically download required modules. You enable this behavior by setting the `managedDependency` property to `true` in the root of the [host.json file](functions-host-json.md), as in the following example:
 
 ```json
 {
@@ -410,7 +410,7 @@ Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.c
 }
 ```
 
-When you create a new PowerShell functions project, dependency management is enabled by default, with the The Azure Az module is included. The maximum number of modules currently supported is 10. The supported syntax is _`MajorNumber`_`.*` or exact module version as shown in the following requirements.psd1 example:
+When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is _`MajorNumber`_`.*` or exact module version as shown in the following requirements.psd1 example:
 
 ```powershell
 @{
