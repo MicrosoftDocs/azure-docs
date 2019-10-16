@@ -12,7 +12,7 @@ manager: peterpr
 
 # Export your Azure IoT Central data(preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *This topic applies to administrators.*
 
@@ -36,7 +36,7 @@ Your export destination must exist before you configure your continuous data exp
 
 If you don't have an existing Event Hubs namespace to export to, follow these steps:
 
-1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../event-hubs/event-hubs-create.md).
+1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
 2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your pay-as-you-go IoT Central application. You connect using a connection string in this case.
 
@@ -46,7 +46,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 
 If you don't have an existing Service Bus namespace to export to, follow these steps:
 
-1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../service-bus-messaging/service-bus-create-namespace-portal.md).
+1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
 2. Choose a subscription. You can export data to other subscriptions that are not in the same subscription as your pay-as-you-go IoT Central application. You connect using a connection string in this case.
 
 3. Go to your Service Bus namespace, and select **+ Queue** or **+ Topic** at the top to create a queue or topic to export to.
@@ -57,7 +57,7 @@ When you choose Service Bus as an export destination, the queues and topics must
 
 If you don't have an existing Azure Storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
     - If you choose to export data to an Azure Data Lake Storage v2 storage account, you must choose **BlobStorage** as the **Account Kind**.
     - You can export data to storage accounts in subscriptions different than the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
@@ -122,7 +122,7 @@ Exported telemetry data contains the entirety of the message your devices sent t
 A new message is exported quickly after IoT Central receives the message from a device.
 
 - Each exported message in Event Hubs and Service Bus contains the full message the device sent in the body property in JSON format.
-- The exported files in blob storage use the same format as the message files exported by [IoT Hub message routing](../iot-hub/iot-hub-csharp-csharp-process-d2c.md) to blob storage. Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
+- The exported files in blob storage use the same format as the message files exported by [IoT Hub message routing](../../iot-hub/iot-hub-csharp-csharp-process-d2c.md) to blob storage. Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
 
 The devices that send the telemetry are represented by device IDs (see the following sections). To get the names of the devices, export device data and correlate each message by using the **connectionDeviceId** that matches the **deviceId** of the device message.
 

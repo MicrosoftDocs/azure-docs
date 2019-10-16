@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/31/2019
+ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -68,7 +68,7 @@ In an Azure IoT Central application, device templates define the behavior and ca
 
 In an IoT Central Preview application device template:
 
-- **Device capability models** specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces. For more information about device capability models, see the the [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) documentation.
+- **Device capability models** specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces. For more information about device capability models, see the [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) documentation.
 - **Cloud properties** specify the properties IoT Central stores for a device. These properties are only stored in IoT Central and are never sent to a device.
 - **Views** specify the dashboards and forms the builder creates to let the operator monitor and manage the devices.
 - **Customizations** let the builder override some of the definitions in the device capability model to make them more relevant to the IoT Central application.
@@ -77,7 +77,7 @@ An application can have one or more simulated and real devices based on each dev
 
 ## Data export
 
-In an Azure IoT Central application, you can [continuously export your data](howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to your own Azure Event Hubs and Azure Service Businstances. You can also periodically export your data to your Azure Blob storage account. IoT Central can export measurements, devices, and device templates.
+In an Azure IoT Central application, you can [continuously export your data](howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to your own Azure Event Hubs and Azure Service Bus instances. You can also periodically export your data to your Azure Blob storage account. IoT Central can export measurements, devices, and device templates.
 
 ## Batch device updates
 
