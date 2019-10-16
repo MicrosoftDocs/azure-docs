@@ -50,13 +50,13 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
 
-    ![New catalog pane](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![New catalog pane](./media/entitlement-management-shared/new-catalog.png)
 
 1. Click **Create** to create the catalog.
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
 
 **Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -128,7 +128,9 @@ You can edit the name and description for a catalog. Users see this information 
 
 1. On the catalog's **Overview** page, click **Edit**.
 
-1. Edit the catalog's name or description.
+1. Edit the catalog's name, description, or enabled settings.
+
+    ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Click **Save**.
 
