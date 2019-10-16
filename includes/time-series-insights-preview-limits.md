@@ -29,7 +29,7 @@ The following table summarizes several key differences between Azure Time Series
 
 ### Property limits
 
-Time Series Insights property limits have been increased to 1000 from a maximum cap of 800 in GA. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Preview Explorer](time-series-insights-update-explorer.md).
+Time Series Insights property limits have been increased to 1000 from a maximum cap of 800 in GA. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Maximum properties |
 | --- | --- |

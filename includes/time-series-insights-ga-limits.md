@@ -38,7 +38,7 @@ S2 SKU environments support substantially more events per month and have a signi
 
 ### Property limits
 
-GA property limits depend on the SKU environment that's selected. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Explorer](time-series-insights-explorer.md).
+GA property limits depend on the SKU environment that's selected. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
 
 | SKU | Maximum properties |
 | --- | --- |
