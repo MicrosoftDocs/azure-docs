@@ -35,6 +35,10 @@ The APIs for reading sales receipts have been renamed, and some method signature
 
 * Receipt data extraction is now initiated by the **/prebuilt/receipt/analyze** API call. This returns an operation ID, which can be passed into **/prebuilt/receipt/analyzeResults/{resultID}** to return the extraction results.
 
+### Output format changes
+
+The JSON responses for all API calls have new formats. Some keys and values are added, removed, or renamed. See the quickstarts or how-to guides for examples of the current JSON formats.
+
 ### Large data support
 
 Your training data set can now be up to 50 MB in size.
