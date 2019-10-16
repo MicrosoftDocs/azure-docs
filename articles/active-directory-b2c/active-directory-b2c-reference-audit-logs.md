@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -97,6 +97,18 @@ Follow these steps register an application, grant it the required Microsoft Grap
 
 ### Assign API access permissions
 
+#### [Applications](#tab/portal/)
+
+1. On the **Registered app** overview page, select **Settings**.
+1. Under **API ACCESS**, select **Required permissions**.
+1. Select **Add**, and then **Select an API**.
+1. Select **Microsoft Graph**, and then **Select**.
+1. Under **APPLICATION PERMISSIONS**, select **Read all audit log data**.
+1. Select the **Select** button, and then select **Done**.
+1. Select **Grant permissions**, and then select **Yes**.
+
+#### [App registrations (Preview)](#tab/portal-preview/)
+
 1. Under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **Microsoft APIs** tab.
@@ -108,6 +120,8 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
 1. Select **Accept**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for the *AuditLog.Read.All* permission. It might take a few minutes for the permissions to propagate.
+
+* * *
 
 ### Create client secret
 
