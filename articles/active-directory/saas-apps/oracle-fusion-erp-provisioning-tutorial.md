@@ -93,6 +93,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP, following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
+> [!NOTE]
+> To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
+
 ### To configure automatic user provisioning for Fuze in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
@@ -124,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Oracle Fusion ERP**.
 
 	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
-	
+
 9. Review the user attributes that are synchronized from Azure AD to Oracle Fusion ERP in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Oracle Fusion ERP for update operations. Select the **Save** button to commit any changes.
 
 	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
@@ -137,29 +140,28 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Oracle Fusion ERP Group Attributes](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Oracle Fusion ERP, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Oracle Fusion ERP, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Oracle Fusion ERP by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Oracle Fusion ERP by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Oracle Fusion ERP.
 
-	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
+	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
-* Oracle Fusion ERP does not define groups as groups but rather defines groups as roles.
-* Oracle Fusion ERP does not support long live tokens today.
-* Oracle Fusion ERP currently only supports a content-type of application/json. 
+* Groups in Oracle Fusion ERP are defined as roles.
+* Oracle Fusion ERP only supports Basic Authentication for SCIM Authentication today.
 
 ## Additional resources
 
