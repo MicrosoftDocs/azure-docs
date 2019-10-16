@@ -20,23 +20,23 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: SQL Database Edge
+  - title: SQL Database Edge Preview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is SQL Database Edge?
+          - text: What is SQL Database Edge Preview?
             url: sql-database-edge-overview.md
 
   # Card 
-  - title: Deploy SQL Database Edge
+  - title: Deploy SQL Database Edge Preview
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy SQL Database Edge?
+          - text: Deploy SQL Database Edge Preview?
             url: sql-database-edge-deploy-portal.md
 
   # Card 
-  - title: About SQL Database Edge
+  - title: About SQL Database Edge Preview
     linkLists:
       - linkListType: concept
         links:

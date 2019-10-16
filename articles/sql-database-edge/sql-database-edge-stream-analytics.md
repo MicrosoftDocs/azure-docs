@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 10/16/2019
 ---
 
-# Stream analytics and SQL Database Edge
+# Stream analytics and SQL Database Edge Preview
 
 This article provides detailed information about stream analytics and Azure SQL Database Edge Preview.
 
