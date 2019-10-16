@@ -22,7 +22,7 @@ You can use the Azure portal to increase or decrease capacity within a given pri
 
 However, changing the pricing tier SKU is not allowed. For example, an environment with an S1 pricing SKU cannot be converted into an S2, or vice versa.
 
-## SKU ingress rates and capacities
+## GA limits
 
 [!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 

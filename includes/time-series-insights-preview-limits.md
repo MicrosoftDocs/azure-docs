@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-The following table compares Azure Time Series Insights GA and Preview summarizing key differences.
+### GA and Preview comparison
 
-### GA and preview comparison
+The following table summarizes several key differences between Azure Time Series Insights GA and Preview instances.
 
 | | GA | Preview |
 | --- | --- | ---|
@@ -29,6 +29,8 @@ The following table compares Azure Time Series Insights GA and Preview summarizi
 
 ### Property limits
 
+Time Series Insights property limits have been increased to 1000 from a maximum cap of 800 in GA. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Preview Explorer](time-series-insights-update-explorer.md).
+
 | SKU | Maximum properties |
 | --- | --- |
 | Preview PAYG | 1000 properties (columns) |
@@ -37,4 +39,4 @@ The following table compares Azure Time Series Insights GA and Preview summarizi
 
 ### API limits
 
-REST API limits for TIme Series Insights Preview are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).
+REST API limits for Time Series Insights Preview are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).

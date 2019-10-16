@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-The following information summarizes key limits in Time Series Insights General Availability.
+The following summarizes key limits in General Availability.
 
 ### SKU ingress rates and capacities
 
-S1 and S2 SKU ingress rates and capacities are given as follows:
+S1 and S2 SKU ingress rates and capacities provide flexibility when configuring a new Time Series Insights environment.
 
 | S1 SKU capacity | Ingress rate | Maximum storage capacity
 | --- | --- | --- |
@@ -29,14 +29,16 @@ S1 and S2 SKU ingress rates and capacities are given as follows:
 > [!NOTE]
 > Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million) events per day ingress rate and 60 GB (60 million events) per month.
 
-The following table summarizes the ingress capacity per unit for each Time Series Insights SKU:
+S2 SKU environments support substantially more events per month and have a significantly higher ingress capacity.
 
 | SKU  | Event count per month  | Event size per month  | Event count per minute | Event size per minute  |
 |---------|---------|---------|---------|---------|
-|S1     |   30 million     |  30 GB     |  720    |  720 KB   |
-|S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
+| S1     |   30 million     |  30 GB     |  720    |  720 KB   |
+ |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
 ### Property limits
+
+GA property limits depend on the SKU environment that's selected. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Explorer](time-series-insights-explorer.md).
 
 | SKU | Maximum properties |
 | --- | --- |
@@ -45,4 +47,4 @@ The following table summarizes the ingress capacity per unit for each Time Serie
 
 ### API limits
 
-REST API limits for TIme Series Insights General Availability are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+REST API limits for Time Series Insights General Availability are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).

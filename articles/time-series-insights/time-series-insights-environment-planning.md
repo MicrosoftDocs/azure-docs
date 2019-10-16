@@ -106,7 +106,7 @@ For information about how to prevent throttling and latency, see [Mitigate laten
 It's important to ensure that the way you send events to Time Series Insights supports the size of the environment you are provisioning. (Conversely, you can map the size of the environment to how many events Time Series Insights reads and the size of each event.) It's also important to think about the attributes that you might want to use to slice and filter by when you query your data.
 
 > [!TIP]
-> Review the JSON shaping documentation in [Sending events](../time-series-insights/time-series-insights-send-events).
+> Review the JSON shaping documentation in [Sending events](time-series-insights-send-events.md).
 
 ## Ensure that you have reference data
 
@@ -115,7 +115,7 @@ A *reference dataset* is a collection of items that augment the events from your
 > [!NOTE]
 > Reference data isn't joined retroactively. Only current and future ingress data is matched and joined to the reference dataset after it's configured and uploaded. If you plan to send a large amount of historical data to Time Series Insights and don't first upload or create reference data in Time Series Insights, you might have to redo your work (hint: not fun).  
 
-To learn more about how to create, upload, and manage your reference data in Time Series Insights, see our [Reference dataset documentation](../time-series-insights/time-series-insights-add-reference-data-set).
+To learn more about how to create, upload, and manage your reference data in Time Series Insights, see our [Reference dataset documentation](time-series-insights-add-reference-data-set).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
