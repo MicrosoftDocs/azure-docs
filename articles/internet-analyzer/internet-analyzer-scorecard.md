@@ -6,7 +6,7 @@ author: megan-beatty
 
 ms.service: internet-analyzer
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/16/2019
 ms.author: mebeatty
 ---
 # Interpreting your scorecard

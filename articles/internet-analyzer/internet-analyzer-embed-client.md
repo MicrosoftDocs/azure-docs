@@ -5,8 +5,8 @@ services: internet-analyzer
 author: megan-beatty
 
 ms.service: internet-analyzer
-ms.topic: how-to
-ms.date: 11/04/2019
+ms.topic: how to
+ms.date: 10/16/2019
 ms.author: mebeatty
 # Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests. 
 

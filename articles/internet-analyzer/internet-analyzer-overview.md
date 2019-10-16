@@ -7,7 +7,7 @@ author: megan-beatty
 
 ms.service: internet-analyzer
 ms.topic: overview
-ms.date: 11/4/2019
+ms.date: 10/16/2019
 ms.author: mebeatty
 
 ---
