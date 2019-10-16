@@ -15,7 +15,7 @@ The container provides [REST-based endpoint APIs](../rest-text-to-speech.md). Th
 With the *Standard Text-to-speech* container, you should rely on the locale and voice of the image tag you downloaded. For example, if you downloaded the `latest` tag the default locale is `en-US` and the `JessaRUS` voice. The `{VOICE_NAME}` argument would then be [`en-US-JessaRUS`](../language-support.md#standard-voices). See the example SSML below:
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xml:lang="en-US">
     <voice name="en-US-JessaRUS">
         This text will get converted into synthesized speech.
     </voice>
@@ -29,7 +29,7 @@ However, for *Custom Text-to-speech* you'll need to obtain the **Voice / model**
 See the example SSML below:
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xml:lang="en-US">
     <voice name="custom-voice-model">
         This text will get converted into synthesized speech.
     </voice>
@@ -43,7 +43,7 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
  -H 'Accept: audio/*' \
  -H 'Content-Type: application/ssml+xml' \
  -H 'X-Microsoft-OutputFormat: riff-16khz-16bit-mono-pcm' \
- -d '<speak version="1.0" xml:lang="en"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>'
+ -d '<speak version="1.0" xml:lang="en-US"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>'
 ```
 
 This command:
