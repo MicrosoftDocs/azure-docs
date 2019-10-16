@@ -90,7 +90,11 @@ Before you deploy a VM and can use your NAT gateway, we need to create the virtu
 
 Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroup** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network vnet create \
     --resource-group myResourceGroupNAT \
     --location eastus2 \
@@ -104,7 +108,11 @@ Create a virtual network named **myVnet** with a subnet named **mySubnet** in th
 
 We'll configure the source subnet **mySubnet** in virtual network **myVnet** to use a specific NAT gateway resource **myNAT** with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet).  This command will activate the NAT service on the specified subnet.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network vnet subnet update \
     --resource-group myResourceGroupNAT \
     --vnet-name myVnet \
@@ -122,7 +130,11 @@ We'll now create a VM to use the NAT service.  This VM has a public IP to use as
 
 We create a public IP to be used to access the VM.  Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a public IP address resource named **myPublicIPVM** in **myResourceGroupNAT**.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network public-ip create \
     --resource-group myResourceGroupNAT \
     --name myPublicIPVM
@@ -133,7 +145,11 @@ We create a public IP to be used to access the VM.  Use [az network public-ip cr
 
 Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create a NSG resource named **myNSG** in **myResourceGroupNAT**.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network nsg create \
     --resource-group myResourceGroupNAT \
     --name myNSG 
@@ -143,7 +159,11 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
 
 We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a NSG rule named **ssh** in the NSG named **myNSG** in **myResourceGroupNAT**.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network nsg rule create \
     --resource-group myResourceGroupNAT \
     --nsg-name myNSG \
@@ -160,7 +180,11 @@ We create a rule in the NSG for SSH access to the source vm. Use [az network nsg
 
 Create a network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate with the Public IP address and the network security group. 
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network nic create \
     --resource-group myResourceGroupNAT \
     --name myNic \
@@ -174,7 +198,11 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
 
 Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We generate ssh keys for this VM and store the private key to use later.
 
+<<<<<<< HEAD
  ```azurepowershell-interactive
+=======
+ ```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az vm create \
     --resource-group myResourceGroupNAT \
     --name myVM \
@@ -189,7 +217,11 @@ Wait for the VM to finish deploying then proceed with the rest of the steps.
 
 First we need to discover the IP address of the VM you've created. To retrieve the public IP address of the VM, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
+<<<<<<< HEAD
 ```azurepowershell-interactive
+=======
+```azurecli-interactive
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az network public-ip show \
     --resource-group myResourceGroupNAT \
     --name myPublicIP \
@@ -214,7 +246,11 @@ You're now ready to use the NAT service.
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
+<<<<<<< HEAD
 ```azurepowershell-interactive 
+=======
+```azurecli-interactive 
+>>>>>>> dd91273892281896a900f198c473701d70b6a52a
   az group delete \
     --name myResourceGroupNAT
 ```
