@@ -5,12 +5,10 @@ services: vpn-gateway
 author: radwiv
 
 ms.service: vpn-gateway
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
 ---
-
-# Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections
 
 # About packet captures on VPN Gateway
 
@@ -64,4 +62,4 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## Next steps
 
-For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about.md)
+For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md)
