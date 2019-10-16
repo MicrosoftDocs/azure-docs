@@ -14,8 +14,8 @@ ms.author: mebeatty
 # Create an Internet Analyzer test (Preview)
 
 There are two ways to create an Internet Analyzer resource:
-* Using the Azure portal,
-* Using CLI. 
+* Using the Azure portal
+* Using CLI
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -24,8 +24,8 @@ There are two ways to create an Internet Analyzer resource:
 ## Before you begin
 
 The public preview is available to use globally; however, data storage is limited to the following Azure public regions:
-* US West 2, 
-* US East.
+* US West 2
+* US East
 
 
 ## Portal  
@@ -58,15 +58,15 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 3. Add a description for your test in the **Description** field. 
 4. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint of your choice.
 
-    #### Preconfigured endpoints: single and multiple Azure region combinations
+    ***Preconfigured endpoints: single and multiple Azure region combinations***
     * Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
     * Next, select the type of a app or content delivery architecture you'd like to evaluate. 
 
-        ***Acceleration options:***
+        *Acceleration options:*
         * Single Azure region: Site acceleration (Azure Front Door), static content caching (Azure CDN for Microsoft), or none. 
         * Multiple Azure regions: Site acceleration (Azure Front Door), DNS routing (Azure Traffic Manager) 
 
-    #### Custom endpoints
+    ***Custom endpoints***
     * Download the one-pixel image provided on the page and embed it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 
     * Paste the location of the one-pixel imagine in the portal. You must provide and HTTPS URL. 
     * More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
