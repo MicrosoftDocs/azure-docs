@@ -25,7 +25,7 @@ The following table compares Azure Time Series Insights GA and Preview summarizi
 | Signal reconstruction | No | Interpolation |
 | Production of derived time series | No | Yes, merges and joins |
 | Language flexibility | Non-composable | Composable |
-| Expression language | Predicate string | Time series expressions (Predicate strings, values, expressions, and functions) |
+| Expression language | Predicate string | Time series expressions (predicate strings, values, expressions, and functions) |
 
 ### Property limits
 

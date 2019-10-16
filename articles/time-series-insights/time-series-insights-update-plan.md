@@ -44,6 +44,10 @@ To start, you need three additional items:
 * An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
+## Review Preview limits
+
+[!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
+
 ## Configure Time Series IDs and Timestamp properties
 
 To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.

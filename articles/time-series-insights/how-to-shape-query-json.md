@@ -33,6 +33,9 @@ Think about how you send events to Time Series Insights. Namely, you always:
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
 
+> [!TIP]
+> Review [limits and planning](time-series-insights-update-plan.md) in Azure Time Series Insights Preview.
+
 The following guidance helps to ensure the best possible query performance:
 
 1. Don't use dynamic properties, such as a tag ID, as a property name. This use contributes to reaching the maximum properties limit.
