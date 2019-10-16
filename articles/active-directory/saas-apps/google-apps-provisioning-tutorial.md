@@ -25,6 +25,12 @@ The objective of this tutorial is to demonstrate the steps to be performed in G 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
+> [!NOTE]
+> The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
+- Added support for additional G Suite user and group attributes. 
+- Updated G Suite target attribute names to match what is defined [here]().
+- Updated default attribute mappings.
+
 ## Prerequisites
 
 To configure Azure AD integration with G Suite, you need the following items:
@@ -117,7 +123,7 @@ To configure G Suite for automatic user provisioning with Azure AD, you will nee
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in G Suite based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for G Suite , following the instructions provided in the [G Suite Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for G Suite , following the instructions provided in the [G Suite Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for G Suite in Azure AD:
 
