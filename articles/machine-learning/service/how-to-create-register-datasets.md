@@ -224,6 +224,22 @@ from azureml.opendatasets import Diabetes
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 
+### Using the UI
+
+You can also create datasets from Open Datasets classes using the UI. In your workspace, navigate to the **Datasets** tab under *Assets*. Click the **Create dataset** dropdown,and then click **From Open Datasets**.
+
+![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
+
+Next select a dataset by selecting the tile, optionally filtering using the search bar. Then click **Next**.
+
+![Choose dataset](media/how-to-create-register-datasets/open-datasets-2.png)
+
+Next choose a name to register the dataset, and optionally filter the data using the available filters. In this case for the public holidays dataset, you filter the time period to one year and the country code to only the US. Then click **Create**.
+
+![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
+
+The dataset is now created and available in your workspace under **Datasets**, and can be used in the same way as other datasets you have created.
+
 ## Version datasets
 
 You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider for versioning are: 
