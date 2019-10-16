@@ -60,28 +60,7 @@ These samples show how to use Azure Monitor to create alerts for subscriptions t
 | [deploy-azure-sentinel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-sentinel) | Deploys and enables Azure Sentinel on an existing Log Analytics workspace in a delegated subscription. |
 | [deploy-log-analytics-vm-extensions](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-log-analytics-vm-extensions) | These templates let you deploy Log Analytics VM extensions to your Windows & Linux VMs, connecting them to the designated Log Analytics workspace |
 
-
-
-Leaving out:
-create-multiple-rgs
-Creates multiple resource groups using a single Azure Resource Manager template.
-
-subscription-deployment
-This template deploys resources to an Azure subscription
-
-classic-alert
-Readme is blank
-
-policy-audit-delegation.json
-(no folder, no readme)
-
-| **Template** | **Description** |
-|---------|---------|
-| [create-multiple-rgs](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/create-multiple-rgs) | Creates multiple resource groups using a single Azure Resource Manager template. |
-
-
-
 ## Next steps
 
 - Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
-- Explore these samples in the [Azure Lighthouse samples repository](https://github.com/Azure/Azure-Lighthouse-samples/).
+- Explore the [Azure Lighthouse samples repository](https://github.com/Azure/Azure-Lighthouse-samples/).
