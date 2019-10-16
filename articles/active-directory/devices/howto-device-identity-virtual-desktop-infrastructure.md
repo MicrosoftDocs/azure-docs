@@ -56,13 +56,13 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   | Managed | Windows current | Persistent | No |
 |   |   |   | Non-Persistent | No |
 
-A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
+\* A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
 
-A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
+\*\* A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
 
-**Windows current** devices represent Windows 10, Windows Server 2016, and Windows Server 2019.
+\*\*\* **Windows current** devices represent Windows 10, Windows Server 2016, and Windows Server 2019.
 
-**Windows down-level** devices represent Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). For support information on Windows Server 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
+\*\*\*\* **Windows down-level** devices represent Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). For support information on Windows Server 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 ## Microsoft’s guidance
 
