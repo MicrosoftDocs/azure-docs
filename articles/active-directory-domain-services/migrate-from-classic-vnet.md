@@ -43,6 +43,8 @@ AFter migration, Azure AD DS provides many features that are only available for 
 * AD account lockout protection.
 * Email notifications of alerts on the Azure AD DS managed domain.
 * Audit logs using Azure Monitor.
+* Azure Files integration
+* HD Insights integration
 
 Azure AD DS managed domains that use a Resource Manager virtual network help you stay up-to-date with the latest new features. Support for Azure AD DS using Classic virtual networks is to be deprecated in the future.
 
@@ -50,7 +52,9 @@ Azure AD DS managed domains that use a Resource Manager virtual network help you
 
 Some common scenarios for migrating an Azure AD DS managed domain include the following examples.
 
-### Migrate Azure AD DS to an existing Resource Manager virtual network
+[!NOTE] Do not convert the classic virtual network until you have confirmed a successful migration. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
+
+### Migrate Azure AD DS to an existing Resource Manager virtual network (recommended)
 
 A common scenario is where you've already moved other existing Classic resources to a Resource Manager deployment model and virtual network. Peering is then used from the Resource Manager virtual network to the Classic virtual network that continues to run Azure AD DS. This approach lets the Resource Manager applications and services use the authentication and management functionality of the Azure AD DS managed domain in the Classic virtual network. Once migrated, all resources run using the Resource Manager deployment model and virtual network.
 
@@ -72,11 +76,9 @@ High-level steps involved in this example migration scenario include the followi
 
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
 1. Migrate the Azure AD DS managed domain using the steps outlined in this article.
-1. Test and confirm a successful migration, then delete the Classic virtual network.
-1. [Move additional Classic resources like VMs][migrate-iaas].
-
-> [!NOTE]
-> We don't recommend converting the Classic virtual network to a Resource Manager network. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
+1. Set up virtual network peering between the classic virtual network and resource manager network.
+1. Test and confirm a successful migration.
+1. [Move additional Classic resources like VMs][migrate-iaas]. 
 
 ### Migrate Azure AD DS but keep other resources on the Classic virtual network
 
@@ -97,6 +99,14 @@ As you prepare and then migrate an Azure AD DS managed domain, there are some co
 
 > [!IMPORTANT]
 > Read all of this migration article and guidance before you start the migration process. The migration process affects the availability of the Azure AD DS domain controllers for periods of time. Users, services, and applications can't authenticate against the managed domain during the migration process.
+
+### IP addresses
+
+The domain controller IP addresses for an Azure AD DS managed domain change after migration. This includes the public IP address for the secure LDAP endpoint. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network. 
+
+In the case of rollback, the IP addresses may change after rolling back.
+
+Azure AD DS typically uses the first two available IP addresses in the address range, but this isn't guaranteed. You can't currently specify the IP addresses to use after migration.
 
 ### Downtime
 
@@ -122,11 +132,7 @@ If you suspect that some accounts may be locked out after migration, the final m
 
 If the migration isn't successful, there's process to roll back or restore an Azure AD DS managed domain. Rollback is a self-service option to immediately return the state of the managed domain to before the migration attempt. Azure support engineers can also restore a managed domain from backup as a last resort. For more information, see [how to roll back or restore from a failed migration](#roll-back-and-restore).
 
-### IP addresses
 
-The domain controller IP addresses for an Azure AD DS managed domain change after migration. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network.
-
-Azure AD DS typically uses the first two available IP addresses in the address range, but this isn't guaranteed. You can't currently specify the IP addresses to use after migration.
 
 ### Restrictions on available virtual networks
 
@@ -291,7 +297,7 @@ Azure AD DS creates a network security group that opens up the ports needed for 
 
 ### Roll back
 
-If PowerShell cmdlet to prepare for migration in step 2 fails, the Azure AD DS managed domain can roll back to the original configuration. This roll back requires the original Classic virtual network.
+If PowerShell cmdlet to prepare for migration in step 2 fails, the Azure AD DS managed domain can roll back to the original configuration. This roll back requires the original Classic virtual network. Note that the IP addresses may still change after rollback.
 
 Run the `Migrate-Aadds.ps1` script using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.com*:
 
