@@ -19,13 +19,13 @@ Once the Bastion service is provisioned/deployed in your virtual network, you ca
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
-   ![diagnostics settings](./media/session-monitoring/1.png)
+   ![sessions](./media/session-monitoring/sessions.png)
 2. On the **Sessions** page, you can see the on-going remote sessions on the right side.
 
-   ![add diagnostic setting](./media/session-monitoring/2.png)
+   ![view session](./media/session-monitoring/view-session.png)
 3. Select **Refresh** to see the updated list of remote sessions. Clicking Refresh will fetch the latest monitoring information from Azure Bastion and refresh it on the portal.
 
-   ![select storage location](./media/session-monitoring/3.png)
+   ![refresh](./media/session-monitoring/refresh.png)
 
 ## <a name="view"></a>Delete or Force Disconnect an on-going remote session
 
@@ -33,14 +33,16 @@ Once you see a list of on-going remote session in Azure Bastion monitoring exper
 
 1. Navigate to your Azure Bastion resource and select “Sessions” from the Azure Bastion blade.
 
-   ![diagnostics settings](./media/session-monitoring/1-1.png)
+   ![navigate](./media/session-monitoring/navigate.png)
 2. As you select Sessions, you will see a list of remote sessions in Portal for your Azure Bastion deployment.
 
-   ![add diagnostic setting](./media/session-monitoring/1-2.png)
+   ![list sessions](./media/session-monitoring/list.png)
 3. Select a specific remote session and select the three ellipses on the right-side end of the session row in the UI and select Delete.
 
-   ![select storage location](./media/session-monitoring/1-3.png)
+   ![delete](./media/session-monitoring/delete.png)
 4. As you select Delete, the remote session will be disconnected, and the user will be shown a “You have been disconnected” message in the remote session.
+
+   ![disconnect](./media/session-monitoring/disconnect.png)
 
 ## Next steps
 
