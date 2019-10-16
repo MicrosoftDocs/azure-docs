@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: mebeatty
 ---
-# Azure Bastion FAQ (Preview)
+# Azure Internet Analyzer FAQ (Preview)
 
 This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily. 
 
