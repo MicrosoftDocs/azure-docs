@@ -14,7 +14,9 @@ ms.author: dapine
 
 # Install and run Speech Service containers
 
-Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available, the two standard containers are **Speech-to-text** and **Text-to-speech** and the two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
+Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
+
+Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
 
 > [!IMPORTANT]
 > All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). An announcement will be made when speech containers progress to General Availability (GA).
@@ -22,15 +24,15 @@ Speech containers enable customers to build a speech application architecture th
 | Function | Features | Latest |
 |--|--|--|
 | Speech-to-text | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.2.0 |
-| Custom-Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.0.0 |
-| Text-to-Speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.2.0 |
-| Custom-Text-to-Speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.0.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.0.0 |
+| Text-to-dpeech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.2.0 |
+| Custom Text-to-dpeech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.0.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Speech containers:
+The following prerequisites before using Speech containers:
 
 | Required | Purpose |
 |--|--|
@@ -40,7 +42,7 @@ You must meet the following prerequisites before using Speech containers:
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
+Fill out and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -62,7 +64,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Speech container.
+The following table describes the minimum and recommended allocation of resources for each Speech container.
 
 # [Speech-to-text](#tab/stt)
 
@@ -281,11 +283,11 @@ This command:
 
 # [Custom Speech-to-text](#tab/cstt)
 
-The *Custom Speech-to-text* container relies on a custom speech model, which has been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** and **Language** are required to run the container, and can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
+The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br><br>
 :::image type="content" source="media/custom-speech/custom-speech-model-training.png" alt-text="Custom speech training page":::
 
-Obtain the **Model ID**.Then use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the `Locale` argument. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the `docker run` command.
+Obtain the **Model ID**. Then use the [Speech-to-text language support](language-support.md#speech-to-text) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the `Locale` argument. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the `docker run` command.
 <br><br>
 :::image type="content" source="media/custom-speech/custom-speech-model-details.png" alt-text="Custom speech model details":::
 
@@ -319,7 +321,7 @@ This command:
 * Loads the *Custom Speech-to-Text* model from the volume input mount, for example *C:\CustomSpeech*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
-* If the custom model was already present (previously downloaded), it is used and the `ModelId` is ignored.
+* If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 # [Text-to-speech](#tab/tts)
@@ -343,11 +345,11 @@ This command:
 
 # [Custom Text-to-speech](#tab/ctts)
 
-The *Custom Text-to-speech* container relies on a custom voice model, which has been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** and **Language** are required to run the container, and can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
+The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** and **Language** are required to run the container. These values can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
 <br><br>
 :::image type="content" source="media/custom-voice/custom-voice-model-training.png" alt-text="Custom voice training page":::
 
-Obtain the **Model ID**. Then use the [Text-to-speech language support](language-support.md#text-to-speech) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the locale. For example, `English (United States)` would map to `en-US`, thus `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
+Obtain the **Model ID**. Then use the [Text-to-speech language support](language-support.md#text-to-speech) table to cross reference the model **Language** and obtain the **Locale**. Use the cross-referenced **Locale** as the locale. For example, `English (United States)` would map to `en-US`, then `en-US` would be used as the argument to the `Locale` parameter of the docker run command.
 <br><br>
 :::image type="content" source="media/custom-voice/custom-voice-model-details.png" alt-text="Custom voice model details":::
 
@@ -381,7 +383,7 @@ This command:
 * Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
-* If the custom model was already present (previously downloaded), it is used and the `ModelId` is ignored.
+* If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
@@ -393,8 +395,10 @@ This command:
 
 | Container | Endpoint |
 |--|--|
-| Speech-to-text or Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
-| Text-to-speech or Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
+| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
+| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` |
+| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
+| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` |
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
@@ -410,13 +414,13 @@ This command:
 
 ## Troubleshooting
 
-If you run the container with an output [mount](speech-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+When starting or running the container, you may experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so will allow the container to generate log files that are helpful when troubleshooting issues.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 
-The Speech containers send billing information to Azure, using a _Speech_ resource on your Azure account.
+The Speech containers send billing information to Azure, using a *Speech* resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
