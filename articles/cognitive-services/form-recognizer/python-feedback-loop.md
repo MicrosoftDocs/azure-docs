@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/16/2019
 ms.author: pafarley
 
 ---
 
 # Train a Form Recognizer model using the Feedback Loop REST API with Python
 
-In this quickstart, you'll use the Form Recognizer Feedback Loop REST API with Python to train a custom model and analyze forms.
+In this quickstart, you'll use the Form Recognizer Feedback Loop REST API with Python to train a custom model with manual input. See the [Feedback Loop conceptual guide](./feedback-loop.md) for an overview of this feature.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,19 +26,19 @@ To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least 11 forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
-## Train a Form Recognizer model
+## Set up training data
 
-First, you'll need to setup your training data and required training inputs for the feedback loop. You can create your training inputs using the Form Recognizer Sample UX. See [label forms](sampleUX-label-train-analyze.md#label-your-forms) guide for more information on using the sample UX to label forms.
+First you'll need to set up the required input data. The Feedback Loop feature has special input requirements beyond those needed to train a custom model. 
 
-### Input Data
+First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
 
-Form Recognizer feedback loop private preview container requires the input data to be stored in folders per form type on a blob container. For example if source data has 3 form types – invoice 1, invoice 2, invoice 3 the folder structure should be have 3 folders one for each type. 
-In order to train a model using the feedback loop Form Recognizer requires the following files as inputs in the subfolder:
-1.	**Source form** – the form to extract data from, supported types JPEG, PNG, BMP, PDF, or TIFF.
-2.	**Label file** per form
-3.	**OCR file** in the Form Recognizer read Layout OCR format output format 
+In order to train a model using the Feedback Loop, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
-For every subfolder per form type, form recognizer feedback loop expect the input files stored in the folder to have the following file names and convention - 
+1.	**Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
+1.	**OCR files** - JSON files that describe all of the readable text in each source form. in the Form Recognizer read Layout OCR format output format 
+1.	**Label files** - JSON files that describe data labels which a user has entered manually.
+
+All of these files should occupy the same sub-folder and be in the following format:
 
 * input_file1.pdf 
 * input_file1.pdf.ocr.json
@@ -46,62 +46,58 @@ For every subfolder per form type, form recognizer feedback loop expect the inpu
 * input_file2.pdf 
 * input_file2.pdf.ocr.json
 * input_file2.pdf.labels.json
+* ...
 
-|    |    |    |
-|--|--|--|
-| **Name** |**Description** | **Expected File Name** |
-| Source Form | the form to extract data from | {input_file1}.pdf |
-| OCR ouput | Computer Vision API v2.0 version outout of the source file | {input_file1.pdf}.ocr.json |
-| Label file | Labeling file | {input_file1.pdf}.labels.json |
+<!-- When labeling using the Form Recognizer Feedback Loop Sample UX, the sample UX creates these label and OCR files in the relevant blob container folder. -->
 
-When labeling using the Form Recognizer Feedback Loop Sample UX, the sample UX creates these label and OCR files in the relevant blob container folder. 
+### Create the OCR output files
 
-#### OCR Output file 
+OCR result files are needed for the service to consider the corresponding input files in Feedback Loop training. To obtain OCR results for a given source form, follow the steps below:
 
-For each source form file, the service expects the name of its corresponding OCR file to be its original input file name appended by “.ocr.json”. For feedback loop training, OCR result files are currenlty mandatory for the corresponding input file to be considered during training. If you would like to obtain the OCR results directly and not via the sample UX please follow the below steps and save the corresponding JSON output to the input subfolder. 
+* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Location** header.
+* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyzeOperations/{id}** API, using operation ID from the previous step.
+* Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format: 
 
-There are 2 steps in calling the [read Layout API](http://localhost:7005) -  
-**Step 1**
-Call the /formrecognizer/v2.0-preview/readLayout/asyncAnalyze on the read Layout container with the input file as part of the request body. 
+    ```json
+    {
+        "status": "Succeeded",
+        "createdDateTime": "2019-09-24T20:20:51.1234794+00:00",
+        "lastUpdatedDateTime": "2019-09-24T20:20:52.6971409+00:00",
+        "analyzeResult": {
+            "version": "2.0",
+            "readResults": [
+                {
+                    "page": 1,
+                    "angle": -0.11,
+                    "width": 8.5,
+                    "height": 11,
+                    "unit": "inch",
+                    "language": "en",
+                    "lines": [
+                        {
+                            "boundingBox": [2.8267,1.0367,5.6733,1.0367,5.6733,1.21,2.8267,1.21],
+                            "text": "Credit Card Authorization Form",
+                            "words": [
+                                {
+                                    "boundingBox": [2.8499,1.0392,3.4099,1.0387,3.4089,1.2095,2.8503,1.2038],
+                                    "text": "Credit",
+                                    "confidence": 0.992
+                                },
+                                {
+                                    "boundingBox": [3.4422,1.0387,3.873,1.0385,3.8708,1.2124,3.4411,1.2098],
+                                    "text": "Card",
+                                    "confidence": 0.995
+                                },
+                                ...
+    ```
 
-**Step 2** 
-Call the /formrecognizer/v2.0-preview/readLayout/asyncAnalyzeOperations/{id} with the operation ID received from step 1 
-to retrieve the OCR results and write the returned stream into the OCR result file. The OCR JSON output should have the following format: 
+### Create the label files
 
-```json
-{
-    "status": "Succeeded",
-    "createdDateTime": "2019-09-24T20:20:51.1234794+00:00",
-    "lastUpdatedDateTime": "2019-09-24T20:20:52.6971409+00:00",
-    "analyzeResult": {
-        "version": "2.0-preview",
-        "readResults": [
-            {
-                "page": 1,
-                "angle": -0.11,
-                "width": 8.5,
-                "height": 11,
-                "unit": "inch",
-                "language": "en",
-                "lines": [
-                    {
-                        "boundingBox": [2.8267,1.0367,5.6733,1.0367,5.6733,1.21,2.8267,1.21],
-                        "text": "Credit Card Authorization Form",
-                        "words": [
-                            {
-                                "boundingBox": [2.8499,1.0392,3.4099,1.0387,3.4089,1.2095,2.8503,1.2038],
-                                "text": "Credit",
-                                "confidence": 0.992
-                            },
-                            {
-                                "boundingBox": [3.4422,1.0387,3.873,1.0385,3.8708,1.2124,3.4411,1.2098],
-                                "text": "Card",
-                                "confidence": 0.995
-                            },
-```
+Label files contain key-value associations that a user has entered manually. They are needed for Feedback Loop training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend 10 or more labeled files for reliable Feedback Loop training.
 
-#### Lablel file 
-A label file per form is required to train a model. For each form file, name its label file by appending the original file name with “.labels.json”. We recommend in general 10 or more labeled files for reliable feedback loop training. The Label file shall be in the following format:
+When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
+
+For each source form, the corresponding label file should have the original file name appended with `.labels.json`. The label file should have the following format. See the [sample label file](Form_01.pdf.labels.json) for a full example.
 
 ```json
 {
@@ -145,50 +141,47 @@ A label file per form is required to train a model. For each form file, name its
         },
 ```
 
-Note in the feedback loop training case, Train Model API will still be able to build models if only a subset of the input files are labeled. The unlabeled files in the folder will still be helpful for building a better model. 
-Specifying regions (exact positions of values on the document) is optional, but results will most likely have higher accuracy with them. Our recommendation is, if positions of values are available, please include them in label files. Make sure polygons are in [0, 1] scale against their corresponding page.
+## Train a model using Feedback Loop
 
-Label file sample JSON format can be downloaded [here](Form_01.pdf.labels.json)
+To train a model with Feedback Loop, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
 
-### Train a Model
-
-To train a Form Recognizer Feedback Loop model with the documents in your Azure blob container, call the **asyncTrain** API by running the following python code. Before you run the code, make these changes:
-
+1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-2. Replace `<prefix>` with the folder name in your blob container where the input data is located
+1. Replace `<prefix>` with the folder name in your blob container where the input data is located
 
 ```python
-	########### Python Form Recognizer Feedback Loop Async Train #############
-	from requests import post as http_post
+########### Python Form Recognizer Feedback Loop Async Train #############
+from requests import post as http_post
 
-	# Endpoint URL
-	base_url = r"http://localhost:5005" + "/formrecognizer/v2.0-preview"
-	source = "<SAS URL>"
-	prefix = "<folder name>"
-	includeSubFolders = "false"
-	useLabelFile = "true"
+# Endpoint URL
+base_url = r"<Endpoint>" + "/formrecognizer/v2.0-preview/custom"
+source = "<SAS URL>"
+prefix = "<folder name>"
+includeSubFolders = "false"
+useLabelFile = "true"
 
-	headers = {
-	    # Request headers
+headers = {
+    # Request headers
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+}
 
-	}
+url = base_url + "/asyncTrain" 
+body = 	{
+    "source": source,
+    "sourceFilter": {
+    "prefix": prefix,
+    "includeSubFolders": includeSubFolders
+    },
+    "useLabelFile": useLabelFile
+}
 
-	url = base_url + "/asyncTrain" 
-	body = 	{
-	  "source": source,
-	  "sourceFilter": {
-	    "prefix": prefix,
-	    "includeSubFolders": includeSubFolders
-	  },
-	  "useLabelFile": useLabelFile
-	}
-
-	try:
-	    resp = http_post(url = url, json = body, headers = headers)
-	    print("Response status code: %d" % resp.status_code)
-	    print("Response header: %s" % resp.headers) 
-	except Exception as e:
-	    print(str(e))
+try:
+    resp = http_post(url = url, json = body, headers = headers)
+    print("Response status code: %d" % resp.status_code)
+    print("Response header: %s" % resp.headers) 
+except Exception as e:
+    print(str(e))
 ```
 
 ## Get the train results
@@ -395,7 +388,7 @@ A success response is returned in JSON. It represents the key-value pairs extrac
 ```bash
 {
   "analyzeResult": {
-    "version": "2.0-preview",
+    "version": "2.0",
     "documentResults": [
       {
         "docType": "Analyze ",
