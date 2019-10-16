@@ -283,7 +283,7 @@ To add the code-behind source, follow these steps:
 1. Add the following code snippet to the method body of `InitializeDialogServiceConnector`. This code creates the `DialogServiceConnector` with your subscription information.
 
     ```csharp
-    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a Custom Commands application id and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
@@ -296,7 +296,7 @@ To add the code-behind source, follow these steps:
 
 1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md).
 
-1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`. This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its bot activities, speech recognition results, and other information.
+1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`. This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, speech recognition results, and other information.
 
     ```csharp
     // ActivityReceived is the main way your client will receive messages, audio, and events
