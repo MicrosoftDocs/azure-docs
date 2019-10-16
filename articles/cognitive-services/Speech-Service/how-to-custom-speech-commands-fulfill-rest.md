@@ -16,6 +16,9 @@ ms.author: donkim
 
 In this article, a sample REST backend will be created using an Azure function.
 
+## Prerequisites
+
+
 ## Create REST backend with an Azure function
 
 > [!TIP]
@@ -24,7 +27,10 @@ In this article, a sample REST backend will be created using an Azure function.
 
 https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code
 
-Code snippet for azure function
+To represent the REST backend we can use an Azure Function.
+
+You can find the function project at [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+
 ```C#
 [FunctionName("DeviceControlTurnOnOff")]
 public static async Task<IActionResult> Run(
@@ -33,39 +39,53 @@ public static async Task<IActionResult> Run(
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    string name = req.Query["name"];
+    string state = req.Query["state"];
+    string device = req.Query["device"];
 
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
+    if(state == null || device == null)
+    {
+        return new BadRequestObjectResult("Please specify device and state on the query string");
+    }
 
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+    string msg = $"Turning device: {device} to {state} state";
+    log.LogInformation(msg);
+    return (ActionResult)new OkObjectResult(msg);
 }
 ```
 
 ## Connect REST backend to the Custom Speech Commands app
 
-Go to http endpoints tab
-add new http endpoint "Device Control Quickstart Backend"
+Go to http endpoints tab add a new http endpoint "Device Control Quickstart Backend"
 
-uri: function uri
-headers: function key header
+![Add a Http Endpoint](media/custom-speech-commands/create-http-endpoint.png)
 
 ## Update Completion rules to invoke REST backend
 
-Go to Completion Rules section
-Add new completion rule
-Condition - Required OnOff, Required SubjectDevice
-Action Http Action
+![Add a Http Endpoint](media/custom-speech-commands/create-http-endpoint-action.png)
 
-On Success
- - No additional actions required.
-On Failure
- - Speech Response - "Sorry, unable to complete your request at this time"
+
+Setting|Suggested value|Description
+---|---|---
+Rule Name | Turn OnOff Backend |A name describing the purpose of the rule
+Conditions|<ul><li>Required Parameter - OnOff</li><li>Required Parameter - SubjectDevice</li></ul>|Conditions that determine when the rule can run
+Actions|Http Action|The action to take when the rule condition is true.
+
+For the Http Action you can configure the action taken on success or failure
+
+![Add a Http Endpoint](media/custom-speech-commands/create-http-endpoint-success-failure.png)
+
+
+Setting|Suggested value|Description
+---|---|---
+On Success |None| A name describing the purpose of the rule
+On Failure|Speech Response - "Sorry, unable to complete your request at this time"|Conditions that determine when the rule can run
 
 ## Try it out
+
+Open the Test panel try a few commands.
+
+"turn off the tv"
+
 
 
 ## Next steps
