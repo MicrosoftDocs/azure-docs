@@ -18,7 +18,7 @@ With *Standard Text-to-speech* container you should rely on the locale and voice
 
 However, for *Custom Text-to-speech* you'll need to obtain the **Voice / model** from the [Custom Voice portal](https://aka.ms/custom-voice-portal). The custom model name is synonymous with the voice name. Navigate to the **Training** page, and copy the **Voice / model** to use as the `{VOICE_NAME}` argument.
 
-:::image type="content" source="../media/custom-voice/custom-voice-model-details.png" alt-text="Custom voice model details":::
+:::image type="content" source="../media/custom-voice/custom-voice-model-voince-name.png" alt-text="Custom voice model - voice name":::
 
 ```curl
 curl -s -v -X POST {HOST}/speech/synthesize/cognitiveservices/v1 \
