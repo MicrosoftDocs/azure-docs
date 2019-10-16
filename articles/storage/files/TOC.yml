@@ -213,6 +213,8 @@
     items:
     - name: azcopy
       href: ../common/storage-ref-azcopy.md
+    - name: azcopy bench
+      href: ../common/storage-ref-azcopy-bench.md
     - name: azcopy copy
       href: ../common/storage-ref-azcopy-copy.md
     - name: azcopy doc
@@ -221,8 +223,12 @@
       href: ../common/storage-ref-azcopy-env.md
     - name: azcopy jobs
       href: ../common/storage-ref-azcopy-jobs.md
+    - name: azcopy jobs clean
+      href: ../common/storage-ref-azcopy-jobs-clean.md
     - name: azcopy jobs list
       href: ../common/storage-ref-azcopy-jobs-list.md
+    - name: azcopy jobs remove
+      href: ../common/storage-ref-azcopy-jobs-remove.md
     - name: azcopy jobs resume
       href: ../common/storage-ref-azcopy-jobs-resume.md
     - name: azcopy jobs show

@@ -28,7 +28,7 @@ azcopy jobs clean [flags]
 
 **-h, --help**                Help for clean.
 
-**--with-status** string   Only remove the jobs with this status, available values: Cancelled, Completed, Failed, InProgress, All (default "All")
+**--with-status** string   Only remove the jobs with this status, available values: Canceled, Completed, Failed, InProgress, All (default "All")
 
 ## Options inherited from parent commands
 
