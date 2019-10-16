@@ -28,7 +28,7 @@ Action plans for the above listed models are described as below:
 |1|Customer to provision the connectivity from a certified partner (no interaction with Microsoft) ​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |Connectivity costs from the Service Provider offering​. No additional data transfer costs from Microsoft​ |
 |2 (Optional)|Customer registers locations into the Azure portal​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |15 per /24 prefix per month​ ​ 
 
-# Onboarding Peering Service connection
+## Onboarding Peering Service connection
 
 To onboard the Peering Service connection, do the following:
 
@@ -36,7 +36,7 @@ To onboard the Peering Service connection, do the following:
 
 - Ensure the connectivity providers are partnered with Microsoft.
 
-# Onboarding Peering Service connection telemetry
+## Onboarding Peering Service connection telemetry
 
 In addition to the Peering Service enabled service, customers can opt for its telemetry such as route analytics to monitor networking latency and performance when accessing Microsoft network. This can be achieved by registering the connection into the Azure portal.
 

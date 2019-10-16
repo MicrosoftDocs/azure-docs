@@ -17,7 +17,7 @@ Connection telemetry is the insights collected for a Peering Service connection.
 
 ## Preview Scope
 
-Telemetry scope is comprised of the following:  
+Connection telemetry comprises of the following scopes:  
 
 **Latency measurement**
 
@@ -27,7 +27,7 @@ Measures the latency from the client to the Microsoft edge for the registered pr
 
 Monitors routing path for any suspicious activity and captures the same in the event logs. For instance, event logs are created for some of the factors specified below: 
 
-   - Prefix hijack
+   - Prefix hijacks
 
    - Prefix withdrawal
 
