@@ -1,5 +1,5 @@
 ---
-title: Active and Inactive Events - Personalizer
+title: Active and inactive events - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/30/2019
 ms.author: diberry
 ---
 
-# Active and Inactive Events
+# Active and inactive events
 
 When your application calls the Rank API, you receive which Action the application should show in the rewardActionId field.  From that moment, Personalizer will be expecting a Reward call with the same eventId. The reward score will be used to train the model that will be used for future Rank calls. If no Reward call is received for the eventId, a defaul reward will be applied. Default rewards are established in the Azure Portal.
 
@@ -25,17 +25,17 @@ Typically this happens when:
 In these cases, the correct way to use Personalizer is by calling Rank requesting the event to be _inactive_. Personalizer will not expect a reward for this event, and will not apply a default reward either. 
 Letr in your business logic, if the application uses the information from the rank call, all you need to do is _activate_ the event. From the moment the event is active, Personalizer will expect a reward for the event or apply a default reward if no explicit call gets made to the Reward API.
 
-## Getting Inactive Events
+## Get inactive events
 
 To disable training for an event, call Rank with `learningEnabled = False`.
 
 Learning for an inactive event is implicitly activated if you send a reward for the eventId, or call the `activate` API for that eventId.
 
-# Learning Settings
+## Learning settings
 
 Learning settings determines the specific *hyperparameters* of the model training. Two models of the same data, trained on different learning settings, will end up being different.
 
-### Importing and exporting Learning Policies
+### Import and export learning policies
 
 You can import and export learning policy files from the Azure portal. This allows you to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
