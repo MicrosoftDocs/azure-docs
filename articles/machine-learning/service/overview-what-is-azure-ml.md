@@ -28,11 +28,12 @@ Azure Machine Learning provides a cloud-based environment you can use to train, 
 
 The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
-Explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ The [designer](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
-+ [Jupyter notebooks](https://jupyter.org) in which you use the [Python SDK](https://docs.microsoft.com/azure/machine-learning) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
+Train, test, and deploy your models with rich tools such as:
++ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy models
++ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
+
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
@@ -50,7 +51,7 @@ Customers are responsible for costs incurred on underlying compute during this t
 
 You can [upgrade existing workspaces from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade). 
 
-## What can I do with Azure Machine Learning?
+## What can I do with the service?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
 
