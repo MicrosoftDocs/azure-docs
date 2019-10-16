@@ -33,7 +33,7 @@ For a managed instance, point-in-time restore can also:
 
 ## Limitations
 
-When restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
+When you're restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restore aren't currently supported.
 
 > [!WARNING]
 > Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
