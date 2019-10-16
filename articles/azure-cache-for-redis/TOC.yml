@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: Azure Architecture Best Practices for Caching
           href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+    - name: Patching process explained
+      href: cache-patching-process.md
 - name: How-to guides
   items:
   - name: Plan
