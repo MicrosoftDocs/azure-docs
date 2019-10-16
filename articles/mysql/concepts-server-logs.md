@@ -35,7 +35,7 @@ Other parameters you can adjust include:
 - **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
 
 > [!Note]
-> For sql_text, log will be truncated if it exceeds 2048 characters.
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
 

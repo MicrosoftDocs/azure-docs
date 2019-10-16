@@ -28,7 +28,7 @@ Other parameters you can adjust include:
 - `audit_log_exclude_users`: MySQL users to be excluded from logging. Max length of the parameter is 512 characters.
 
 > [!Note]
-> For sql_text, log will be truncated if it exceeds 2048 characters.
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 | **Event** | **Description** |
 |---|---|
