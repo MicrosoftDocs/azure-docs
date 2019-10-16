@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Service Health Documentation
-summary: Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services are or may affect you in the future. Azure Service Health is composed Azure status, the service health service, and Resource Health. 
+summary: Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services are or may affect you in the future. Azure Service Health is composed of Azure status, the service health service, and Resource Health. 
 
 metadata:
   title: Azure Service Health Documentation
@@ -31,27 +31,19 @@ landingContent:
             url: service-health-overview.md
           - text: Overview of resource health
             url: resource-health-overview.md
-
       - linkListType: video
         links:
           - text: Video introduction to Azure Service Health
             url: https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6"
   
-# Card 
-  - title: Get Started   
-    linkLists:     
-      - linkListType: get-started
-        links:
-          - text: Get started with Azure Service Health
-            url: advisor-get-started.md
-
   # Card 
   - title: Get Notified
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Get notified next time an issue with an Azure service affects you
+          - text: Get notified when an issue with an Azure service affects you
             url: /azure/azure-monitor/platform/monitoring-activity-log-alerts-on-service-notifications?toc=%2fazure%2fresource-health%2ftoc.json
-          - text: Get notified next time your Azure resource becomes unavailable
+          - text: Get notified when your Azure resource becomes unavailable
             url: resource-health-alert-arm-template-guide.md
+ 
  
