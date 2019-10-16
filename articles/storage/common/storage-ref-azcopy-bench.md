@@ -4,15 +4,13 @@ description: This article provides reference information for the azcopy bench co
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ---
 
 # azcopy bench
-
-Performs a performance benchmark.
 
 Runs a performance benchmark by uploading test data to a specified destination. The test data is automatically generated.
 
@@ -80,6 +78,3 @@ selected file count and size:
 ## See also
 
 - [azcopy](storage-ref-azcopy.md)
-- [azcopy jobs list](storage-ref-azcopy-jobs-list.md)
-- [azcopy jobs resume](storage-ref-azcopy-jobs-resume.md)
-- [azcopy jobs show](storage-ref-azcopy-jobs-show.md)
