@@ -13,7 +13,7 @@ ms.author: ravokkar
 DPS enables devices to communicate with the DPS device endpoint using:
 
 * [MQTT v3.1.1](https://mqtt.org/) on port 8883
-* MQTT v3.1.1 over WebSocket on port 443.
+* [MQTT v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127) over WebSocket on port 443.
 
 DPS is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with DPS.
 
