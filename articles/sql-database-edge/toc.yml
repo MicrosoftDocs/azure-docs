@@ -1,4 +1,17 @@
 - name: SQL Database Edge Documentation
   href: index.yml
-- name: What is SQL Database Edge?
-  href: sql-database-edge-overview.md
+- name: Overview
+  items:
+  - name: What is SQL Database Edge?
+    href: sql-database-edge-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy SQL Database Edge
+    href: sql-database-edge-deploy-portal.md 
+- name: Concepts
+  items:
+  - name: Machine learning and artificial intelligence
+    href: sql-database-edge-onnx-overview.md
+  - name: Stream analytics
+    href: sql-database-edge-stream-analytics.md
