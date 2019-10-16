@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/10/2019
 ---
 
-# Encrypt Virtual Machine Scale Sets with Azure Resource Manager
+# Encrypt virtual machine scale sets with Azure Resource Manager
 
 You can encrypt or decrypt Linux virtual machine scale sets using Azure Resource Manager templates.
 
-## deploying a templates
+## Deploying a templates
 
 First, select the template that fits your scenario.
 
@@ -20,9 +20,9 @@ First, select the template that fits your scenario.
 
 - [Enable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Deploy a virtual machine scale set of Linux VMs with a jumpbox and enables encryption on Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Deploy a virtual machine scale set of Linux VMs with a jumpbox and enables encryption on Linux virtual machine scale sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Deploy a virtual machine scale set of Windows VMs with a jumpbox and enables encryption on Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Deploy a virtual machine scale set of Windows VMs with a jumpbox and enables encryption on Windows virtual machine scale sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Disable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -34,7 +34,7 @@ Then follow these steps:
      2. Fill in the required fields then agree to the terms and conditions.
      3. Click **Purchase** to deploy the template.
 
-## Next Steps
+## Next steps
 
 - [Azure Disk Encryption for virtual machine scale sets](disk-encryption-overview.md)
 - [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
