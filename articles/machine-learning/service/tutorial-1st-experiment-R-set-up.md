@@ -12,6 +12,7 @@ ms.date: 10/14/2019
 ---
 
 # Tutorial: Get started with Azure Machine Learning and its R SDK
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning SDK for R. This tutorial is **part one of a two-part tutorial series**, and covers R environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Machine Learning studio and the SDK.
 
