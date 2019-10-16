@@ -21,7 +21,7 @@ Azure Search is a cloud search service that provides indexing and query engines 
 
 Azure Search integrates with Azure Blob storage at the indexing layer, importing your blob content as search documents that are indexed into *inverted indexes* and other query structures that support free form text queries and filter expressions. Because your blob content is indexed into a search index, access to blob content can leverage the full range of query features in Azure Search.
 
-Once the index is created and populated, it exists independetly of your blob container, but you can re-rerun indexing operations to refresh your index with changes to the underlying container. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
+Once the index is created and populated, it exists independently of your blob container, but you can re-rerun indexing operations to refresh your index with changes to the underlying container. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
 
 Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can be almost any kind of text data. If your blobs contain images, you can add [AI enrichment to blob indexing ](search-blob-ai-integration.md) to create and extract text from images.
 
