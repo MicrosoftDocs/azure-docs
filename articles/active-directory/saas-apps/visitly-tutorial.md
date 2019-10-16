@@ -136,7 +136,7 @@ To configure single sign-on on **Visitly** side, you need to send the downloaded
 
 ### Create Visitly test user
 
-In this section, a user called B.Simon is created in Visitly.This application supports automatic user provisioning, which enables automatic provisioning and deprovisioning based on your business rules.  Microsoft recommends using automatic provisioning whenever possible. See how to enable auto provisioning for [Visitly]([ProvisioningLink]).
+In this section, you create a user called Britta Simon in Visitly. Work with [Visitly support team](mailto:support@visitly.io) to add the users in the Visitly platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
