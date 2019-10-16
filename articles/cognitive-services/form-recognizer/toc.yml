@@ -47,6 +47,8 @@
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
 - name: Resources
   items: 
+  - name: What's new
+    href: whats-new.md
   - name: Pricing and limits
     href: https://go.microsoft.com/fwlink/?linkid=2087258
   - name: UserVoice
