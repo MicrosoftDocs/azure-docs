@@ -122,7 +122,7 @@
       - name: JSON
         href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: ISJSON
-        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_VALUE
         href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_QUERY
