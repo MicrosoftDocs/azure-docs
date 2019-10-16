@@ -1,7 +1,7 @@
 ---
-title: What is ML Studio @Classic@ (legacy)
+title: What is ML Studio @Classic@ 
 titleSuffix: Azure 
-description: Azure Machine Learning Studio @Classic@ (legacy) is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+description: Azure Machine Learning Studio @Classic@  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
 ---
-# What is Machine Learning Studio @Classic@ (legacy)?
+# What is Machine Learning Studio @Classic@ ?
 Microsoft Azure Machine Learning Studio @Classic@ is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio @Classic@ publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
 Machine Learning Studio @Classic@ is where data science, predictive analytics, cloud resources, and your data meet.
 
-## The Machine Learning Studio @Classic@ (legacy) interactive workspace
+## The Machine Learning Studio @Classic@  interactive workspace
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
-Azure Machine Learning Studio @Classic@ (legacy) gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio @Classic@. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
+Azure Machine Learning Studio @Classic@  gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio @Classic@. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
@@ -60,7 +60,7 @@ Download the **Microsoft Azure Machine Learning Studio @Classic@ Capabilities Ov
 
 
 
-## Components of a Studio @Classic@ (legacy) experiment
+## Components of a Studio @Classic@  experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
 
 * The experiment has at least one dataset and one module
