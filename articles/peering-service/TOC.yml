@@ -12,20 +12,18 @@
     href: peering-service-connection.md
   - name: Connection Telemetry
     href: peering-service-connection-telemetry.md
+  - name: Onboarding model
+    href: peering-service-onboarding-model.md
 - name: How-to-guide
   items:
   - name: Register Peering Service
     items:
-      - name: Onboarding Peering Service connection
-        href: peering-service-onboarding-connection.md
-      - name: Onboarding Peering Service connection telemetry
-        href: peering-service-onboarding-connection-telemetry.md
       - name: Azure Portal
         href: peering-service-azure-portal.md
       - name: Azure PowerShell
         href: peering-service-powershell.md
-      - name: Measure Connection Telemetry 
-        href: peering-service-measure-connection-telemetry.md
+  - name: Measure Connection Telemetry 
+    href: peering-service-measure-connection-telemetry.md
 - name: Reference
   items:
   - name: Azure PowerShell

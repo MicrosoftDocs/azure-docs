@@ -57,10 +57,6 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
  
 3.	Choose the **Subscription**  and the **Resource group** associated with the subscription as shown in the screen below:
 
->[!Note]
->Ensure existing resource group is chosen from the **Resource group** drop-down list, as Peering Service supports only existing ones.
->
-
 4.	Next, provide a **Name** to which the Peering Service instance should be registered.
  
 5.	Now, click on the **Next: Configuration**  button at the bottom. Doing so, Configuration page appears.
@@ -79,7 +75,7 @@ Clicking on the **Create new**  under Prefixes, text boxes appear. Now, provide 
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
  
-5.	Now, click on the **Review + create** button at the bottom right of the page. Doing so, status message will appear that depicts connection has been registered.
+5.	Now, click on the **Review + create** button at the bottom right of the page. A status message will appear that shows, connection has been registered.
 
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-service-validate.png)

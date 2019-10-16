@@ -33,18 +33,16 @@ landingContent:
             url: peering-service-location-partners.md
           - text: Connections
             url: peering-service-connection.md
-          - text: Connection Telemetry
+          - text: Connection telemetry
             url: peering-service-connection-telemetry.md
+          - text: Onboarding model
+            url: peering-service-onboarding-model.md
 
   # Card
   - title: Get-started
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Onboarding Peering Service connection
-            url: peering-service-onboarding-connection.md
-          - text: Onboarding Peering Service connection telemetry
-            url: peering-service-onboarding-connection-telemetry.md
           - text: Register Peering Service - Azure Portal
             url: peering-service-azure-portal.md
 
@@ -53,9 +51,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Connection Telemetry
+          - text: Connection telemetry
             url: peering-service-connection-telemetry.md
       - linkListType: how-to-guide
         links:
-          - text: Measure Connection telemetry
+          - text: Measure connection telemetry
             url: peering-service-measure-connection-telemetry.md

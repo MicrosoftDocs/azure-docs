@@ -16,7 +16,9 @@ ms.author: ypitsch
 
 **Q. What is Peering Service?**
 
-A. Peering Service is a networking service that aims at improving customer’s internet access to Microsoft Public services such as Office 365, Dynamics 365, SaaS services running on Azure, or any Microsoft services accessible via public IP Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable and performant internet connectivity by meeting the technical requirements in terms of resiliency, geo redundancy, and optimal routing (shortest paths and no intermediates in the routing path). 
+A. Peering Service is a networking service that aims at improving customer connectivity to Microsoft  Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with Internet Service Providers [ISP], Internet Exchange Providers [IXP] and, Software Defined Cloud Interconnect (SDCI) providers worldwide to provide highly reliable and performant public connectivity with the optimal routing to/from for its customers.
+
+By selecting “Peering Service”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal¬ latency from  cloud services to the end user location.  
 
 **Q. What Peering Service isn’t about?** 
 
@@ -24,11 +26,11 @@ A. Peering Service is not a private connectivity product like ExpressRoute or a 
 
 - It’s an IP service that uses the public internet.  
 
-- It’s a collaboration platform with SPs and a value-added service that is intended to offer optimal and reliable routing to public SPs or SaaS traffic such as Office 365, Dynamics 365 or any SaaS traffic running on Azure.  
+- It’s a collaboration platform with SPs and a value-added service that is intended to offer optimal and reliable routing to customer via partner service provider to Microsoft cloud over the public network.
 
 **Q. Why Peering Service?**
 
-A. Enterprises looking for Internet first access to the cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and performant internet connectivity. Peering Service helps customers to make that transition happen. 
+A. Enterprises looking for “Internet first” access to the cloud or considering SD SD-WAN architecture or with high usage of Microsoft SaaS services need robust and performant internet connectivity. Peering Service enables the customers to make that transition happen. Microsoft and Service Providers have partnered to deliver reliable and performance-centric public connectivity to the Microsoft cloud.  
 
 **Q. What are the key characteristics of Peering Service?** 
 
@@ -36,44 +38,59 @@ A. Enterprises looking for Internet first access to the cloud or considering SD-
 
   - Local Redundancy 
 
-  - Geo Redundancy, shortest routing path selection 
+  - Geo Redundancy, Optimized network path
 
 - Optimal Routing 
 
-  - Cold- potato 
+  - Cold-potato (Active when telemetry is enabled)
 
 - Monitoring platform 
 
-  - Latency Reporting 
+  - Latency Reporting
 
+  - Prefix monitoring offering security and high reliability 
+ 
 **Q. Who are the target customers?**  
 
-A. Enterprises who connect to Microsoft Cloud using an internet as transport.  
+A. Enterprises who connect to Microsoft Cloud using the internet as transport.  
 
 **Q. How can customers enable Peering Service?**
 
-A. Customer can perform pre-sales research and enable the service from the service provider. Following that, customer notifies Microsoft and sign up for MAPS. Customers can select a globally preferred ISP. Whenever that ISP is qualified as a MAPS partner for a given geographical region, Microsoft and ISP will automatically turn on MAPS service for the customer sites in that region.  
+A. | **Step** | **Action**| **What you get**| **Costs**|
+|-----------|---------|---------|---------|
+|1|Customer to provision the connectivity from a certified partner (no interaction with Microsoft) ​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |Connectivity costs from the Service Provider offering​. No additional data transfer costs from Microsoft​ |
+|2 (Optional)|Customer registers locations into the Azure portal​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |15 per /24 prefix per month​ ​ |
 
-Additionally, customers can overwrite and optimize Peering Service ISP per geographical region. MAPS can be signed up using two or more ISPs in any geographical region. In such a case, customer will buy internet service from these ISPs.  
+**Q. Can customers sign up for the Peering Service with multiple providers?** 
+
+A. Yes, customers can sign up for the Peering Service with multiple providers in the same region or different region, but not for the same prefix.
 
 **Q. What is Peering Service telemetry?**
 
-A. In addition to Peering Service enabled service, customers can opt for internet telemetry such as route analytics to monitor networking latency and performance in accessing Microsoft network. This capability can be achieved by registering peering service in Azure portal. 
+A. In addition to Peering Service enabled service, customers can opt for internet telemetry such as end user latency measures to Microsoft network, BGP route monitoring, and alerts against route anomaly events such as hijacks/leaks by registering their prefixes (routes) in the Azure portal.
 
-**Q. From customer perspective, what is the benefit of buying Microsoft Peering Service from ISP?** 
+**Q. How is Peering Service different from normal Internet access?**
 
-A. Customers are assured that they are accessing Microsoft using a carrier with well-established connectivity with Microsoft and that the carrier is following Microsoft connectivity guidelines. By choosing a  partner, they are guaranteed to choose market leaders in their region.  
+A. In a normal Internet access environment, there is no:
 
-**Q. Who are Peering Service partners?**
+- NO assurance that the SP is well connected/or directly connected at all to Microsoft in the required region.  This can result in the incoming and outgoing traffic for Microsoft network being served over a long/suboptimal path with multiple networks involved. The reliability of such a setup with multiple providers is generally low. 
 
-- Kordia 
-- NTT 
-- TATA 
-- CCL 
-- KDDI 
-- PCCW 
-- Intercloud 
-- Liquid Telecom 
+- Insights into performance or route protection  
+
+With Peering Service, Microsoft is delivering optimized network performance with security and telemetry. 
+
+**Q. Who are the Peering Service partners?**
+
+| BBIX |New Zealand  |
+| CCL |New Zealand  |
+| DE-CIX|New Zealand  |
+| Intercloud|France, UK  |
+| KDDI |Japan  |
+| Kordia |New Zealand  |
+| Liquid Telecom | Africa  |
+| NTT | Japan |
+| PCCW |HK   |
+| TATA | India  |
 
 **Q. What is the billing model?**
 
@@ -83,19 +100,15 @@ A. Billing model is comprised of the following:
 
 • Microsoft - Microsoft charge customers for their products and service   
 
-Note - There is no networking data transfer bill for Microsoft SaaS (for instance,O365). 
+There is no  additional/special networking data transfer bill for using Peering Services. Default billing rates are applicable as per service using data transfer. 
 
 **Q. How are customers charged for registering the Peering Service?** 
 
-A. Customers are charged from their respective Service Providers to enable the service. Microsoft do not charge anything. However, to procure Peering Service telemetry, customers are charged as per the number of prefixes that are registered. The bill rate is $15/prefix. 
+A. Customers are charged by their respective Service Providers to enable the service. However, to procure Peering Service telemetry (as well as optimal traffic routing), customers are charged as per the number of prefixes that are registered. The bill rate is $15/prefix.  Your standard rate for data transfer (without Peering Service) will continue to apply for any data transfer.  
 
 **Q. Can a customer select a unique ISP for their sites per geographical region?**  
 
-Yes, customer can do so. They can select the ISP per region that suits their business and operational needs.  
-
-**Q. Can a customer have more than one ISP as part of Peering Service connectivity for a site?**  
-
-Yes, they can.
+ Yes, customer can do so. Customers are recommended to select the Partner ISP per region that suits their business and operational needs.
 
 ## Next steps
 
@@ -103,9 +116,7 @@ Learn about [Peering Service connection](peering-service-faq.md).
 
 To find a service provider. See [Peering Service partners and locations](peering-service-location-partners.md).
 
-To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-connection.md).
-
-To onboard the Peering Service connection telemetry, see [Peering Service connection telemetry](peering-service-onboarding-connection-telemetry.md).
+To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-model.md).
 
 To register the connection, see [Peering Service connection](peering-service-azure-portal.md).
 
