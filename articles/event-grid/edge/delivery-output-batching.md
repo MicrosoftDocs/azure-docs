@@ -61,7 +61,7 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
     },
     "deliveryPolicy": {
       "maxEventsPerBatch": 10,
-      "approxBatchSizeInBytes": 65536
+      "preferredBatchSizeInKilobytes": 64
     }
   }
 }
@@ -73,7 +73,7 @@ The following deployment time settings control the maximum value allowed when cr
 
 | Property Name | Description |
 | -- | -- |
-| `api:deliveryPolicyLimits:maxBatchSizeInBytes` | Maximum value allowed for the `ApproxBatchSizeInBytes` setting. Default value: `1_058_576`.
+| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Maximum value allowed for the `ApproxBatchSizeInBytes` setting. Default value: `1033`.
 | `api:deliveryPolicyLimits:maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` setting. Default value: `50`.
 
 ## Configuring default values
