@@ -30,7 +30,7 @@ A pipeline runs on a compute target, a compute resource that is attached to your
 
 1. In the **Set up pipeline run** dialog, select **+ New experiment** for the **Experiment**
 
-    * Enter a distinguishing **Experiment Name**
+    * Enter **Experiment Name**
 
     * Select **Run**
     

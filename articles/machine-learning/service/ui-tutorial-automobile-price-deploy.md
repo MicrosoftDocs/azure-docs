@@ -14,14 +14,12 @@ ms.date: 10/09/2019
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you have trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a web service. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
-> * Prepare a model for deployment
+> * Prepare a pipeline for deployment
 > * Deploy a web service
 > * Test a web service
-> * Manage a web service
-> * Consume the web service
 
 ## Prerequisites
 
@@ -29,15 +27,15 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 ## Prepare for deployment
 
-Before you deploy your pipeline as a web service, you first have to convert publish your pipeline, and convert your *training pipeline* into a *real-time inference pipeline*.
+Before you deploy your pipeline as a web service, you first have to prepare it. You will publish your pipeline, and convert your *training pipeline* into a *real-time inference pipeline*.
 
 ### Publish the pipeline
 
-Until this point, you have been working on a *pipeline draft*. Publishing a pipeline to a Pipeline Endpoint lets you start tracking versions and reuse the pipeline in the future. Pipeline Endpoints lets you organize similar pipelines together.
+So far, you have been working on a *pipeline draft*. Publishing a pipeline to a Pipeline Endpoint confirms the configuration of your pipeline and starts version tracking. Pipeline Endpoints let you organize similar pipelines together for management and encapsulation.
 
 1. Select **Publish** at the top of the pipeline canvas.
 
-1. In the Setup **Pipeline Run** dialog, select the drop-down arrow underneath **PipelineEndpoint** and select **+New PipelineEndpoint**
+1. In the Setup **Pipeline Run** dialog, expand the **PipelineEndpoint** drop-down menu and select **+New PipelineEndpoint**
 
 1. Select **Publish**
 
@@ -45,7 +43,7 @@ Until this point, you have been working on a *pipeline draft*. Publishing a pipe
 
 ### Create a real-time inference pipeline
 
-The published training pipelines needs to be modified before it can be deployed for inferencing. Converting the training pipeline into a *real-time inference pipeline* will make these changes for you.
+Converting the training pipeline into a *real-time inference pipeline* modifies your pipeline to prepare it for deployment. It removes training modules and adds an input and output for web service requests.
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
@@ -54,7 +52,7 @@ The published training pipelines needs to be modified before it can be deployed 
     * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
     * Modules, like **Train Model** and **Split Data**, that were used for training are removed.
     * The saved trained model is added back into the pipeline.
-    * **Web Service Input** and **Web Service Output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules identify where user data will enter the model, and where data is returned.
 
     > [!Note]
     > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the visual interface.
@@ -64,17 +62,17 @@ The published training pipelines needs to be modified before it can be deployed 
 
    ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-1. Select **Run** and use the same default compute and experiment you created in part 1.
+1. Select **Run** and use the same compute target and experiment you used in part 1.
 
-1. Select **Score Model** module.
+1. Select the **Score Model** module.
 
-1. In the properties pane select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
+1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
 
 1. Select **Deploy**.
 
 ## Create the inferencing cluster
 
-In the dialog that appears, you can select from any existing Azure Kubernetes Service (AKS) cluster in your workspace to deploy your model. If you don't already have an AKS cluster, use the following instructions to create one.
+In the dialog that appears, you can select from existing Azure Kubernetes Service (AKS) clusters in your workspace to deploy your model. If you don't have an AKS cluster, use the following steps to create one.
 
 1. Select **Compute** in the dialog to navigate to the **Compute** page.
 
@@ -102,7 +100,9 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select the AKS cluster you created.
 
-1. Select **Deploy**. A a success notification above the canvas will appear when deployment completes, it may take a few minutes.
+1. Select **Deploy**.
+
+    A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
 ## Test the web service
 
