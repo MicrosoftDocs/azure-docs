@@ -202,18 +202,10 @@ If you are using Node.js:
 
 1. To start the server, run the following command from the project directory:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```bash
     npm install
     node server.js
 ```
-=======
-   ```
-       npm install
-       node server.js
-   ```
->>>>>>> 878550cd0640de1ecbc20481c2b1c602e5a62f92
 
 2. Open a web browser and go to http://localhost:30662/.
 3. Select Sign In to start the sign-in, and then call Azure API for FHIR.
