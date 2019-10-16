@@ -298,7 +298,7 @@ The following table represents the various `docker run` parameters and their cor
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom speech portal. |
 | `{MODEL_LOCALE}` | Using the [Speech-to-text language support](language-support.md#speech-to-text) table, look up the locale **Code** from the model **Language**. |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For information, see [gathering required parameters](#gathering-required-parameters). |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
 To run the *Custom Speech-to-text* container, execute the following `docker run` command:
@@ -360,7 +360,7 @@ The following table represents the various `docker run` parameters and their cor
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
 | `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom voice portal. |
 | `{MODEL_LOCALE}` | Using the [Text-to-speech language support](language-support.md#text-to-speech) table, look up the locale **Code** from the model **Language**. |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For information, see [gathering required parameters](#gathering-required-parameters). |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
 To run the *Custom Text-to-speech* container, execute the following `docker run` command:
