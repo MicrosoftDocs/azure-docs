@@ -5,7 +5,7 @@ author: rajeevmv
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 10/16/2019
 ms.author: ravokkar
 ---
 # Communicate with your DPS using the MQTT protocol
