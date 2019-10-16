@@ -397,6 +397,8 @@
         href: druva-tutorial.md
       - name: Dynamic Signal
         href: dynamicsignal-tutorial.md
+      - name: Dynatrace
+        href: dynatrace-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasyTerritory
@@ -455,8 +457,11 @@
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
         href: expiration-reminder-tutorial.md
+      - name: EZOfficeInventory
+        href: ezofficeinventory-tutorial.md
       - name: ExponentHR
         href: exponenthr-tutorial.md
+
     - name: F - G
       items:
       - name: F5
@@ -507,6 +512,8 @@
         href: freshgrade-tutorial.md
       - name: Freshservice
         href: freshservice-tutorial.md
+      - name: Freshworks
+        href: freshworks-tutorial.md
       - name: Front
         href: front-tutorial.md
       - name: Frontline Education
