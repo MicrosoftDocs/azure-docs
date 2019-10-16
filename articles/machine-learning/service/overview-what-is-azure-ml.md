@@ -25,16 +25,15 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
 
-The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-This service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical machine learnign to deep learning, supervised and unsupervised learning.
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 Train, test, and deploy your models with rich tools such as:
 + The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy models
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
-
 
 ## What can I do with the service?
 
@@ -86,7 +85,7 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
-## <a name="sku"></a>Basic vs enterprise editions
+## <a name="sku"></a>Basic & enterprise editions
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
 + Basic (generally available)
@@ -135,7 +134,6 @@ Try out the designer with [Tutorial: Predict automobile price with the designer]
   + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
-
 
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
