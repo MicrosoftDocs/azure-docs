@@ -53,7 +53,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
 
     try:
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/prebuilt/receipt/analyze", body, headers)
+        conn.request("POST", "/formrecognizer/v2.0-preview/prebuilt/receipt/analyze", body, headers)
         response = conn.getresponse()
         data = response.read()
         operationURL = "" + response.getheader("Location")
@@ -71,7 +71,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
 You'll receive a `201 (Success)` response that includes an **Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## Get the receipt results
@@ -84,7 +84,7 @@ operationId = operationURL.split("operations/")[1]
 conn = http.client.HTTPSConnection('<Endpoint>')
 while True:
     try:
-        conn.request("GET", f"/formrecognizer/v1.0-preview/prebuilt/receipt/analyzeResults/{operationId}", "", headers)
+        conn.request("GET", f"/formrecognizer/v2.0-preview/prebuilt/receipt/analyzeResults/{operationId}", "", headers)
         responseString = conn.getresponse().read().decode('utf-8')
         responseDict = json.loads(responseString)
         conn.close()
