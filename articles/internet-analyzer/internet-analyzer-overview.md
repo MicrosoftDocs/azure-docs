@@ -94,6 +94,8 @@ Once you begin a test, telemetry data can be viewed in your Internet Analyzer re
 * **Time period & end date:** Three scorecards are generated daily – each scorecard reflects a different aggregation period – that day, the seven days prior (week), and the 30 days prior (month). Use the “End Date” filter to select the last day of the time period you want to see. 
 * **Country:** Use this filter to see telemetry data on end users that reside in the specified country. The global filter is representative of all your end users.  
 
+More information scorecards can be found on the [Interpreting your scorecard](internet-analyzer-scorecard.md) page. 
+
 
 ## Next steps
 

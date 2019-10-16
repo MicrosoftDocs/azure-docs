@@ -76,5 +76,11 @@ The following preconfigured endpoints are available during preview:
 * **Azure + Azure CDN from Microsoft** - deployed on top any single Azure region combination listed above
 * **Azure + Azure Traffic Manager** - deployed on any Multiple Azure region combination listed above
 
+## How is Internet Analyzer different from other monitoring services provided by Azure? 
+
+Internet Analyzer is designed to help you understand your end users' experience today and how to make decisions to improve your end users' experience. While other Azure monitoring tools provide insights into middle-mile and data center performance, Internet Analyzer focuses on understanding last mile performance for your specific set of end users. 
+
+
+## Next Steps 
 
 To learn more, see our [Internet Analyzer Overview](internet-analyzer-overview.md).

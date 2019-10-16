@@ -1,5 +1,5 @@
 ---
-title: 'Create an Internet Analyzer  | Microsoft Docs'
+title: 'Create an Internet Analyzer test | Microsoft Docs'
 description: In this article, learn how to create your first Internet Analyzer test. 
 services: internet-analyzer
 author: megan-beatty
