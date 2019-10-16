@@ -22,7 +22,7 @@ We provide different templates to address specific onboarding scenarios. Choose 
 | [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) | Onboard one or more of a customer's resource groups to Azure delegated resource management. Use **rgDelegatedResourceManagement** for a single resource group, or **multipleRgDelegatedResourceManagement** to onboard multiple resource groups in the same subscription. |
 | [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management) | If you've [published a managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md), you can optionally use this template to onboard resources for customers who have accepted the offer. The marketplace values in the parameters file must match the values that you used when publishing your offer. |
 
-Typically, a separate deployment is required for each subscription being onboarded. The templates below can be used to deploy templates across multiple subscriptions.
+Typically, a separate deployment is required for each subscription being onboarded, but you can also deploy templates across multiple subscriptions.
 
 | **Template** | **Description** |
 |---------|---------|
@@ -40,14 +40,46 @@ These samples show how to use Azure Policy with subscriptions that have been onb
 | [policy-enforce-sub-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-sub-monitoring) | Assigns several policies to enable diagnostics on a delegated subscription, and connects all Windows & Linux VMs to the Log Analytics workspace created by the policy. For more info, see [Deploy a policy that can be remediated within a delegated subscription](../how-to/deploy-policy-remediation.md). |
 | [policy-initiative](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-initiative) | Applies an initiative (multiple related policy definitions) to a delegated subscription. |
 
-## More 
+## Azure Monitor alerts
+
+These samples show how to use Azure Monitor to create alerts for subscriptions that have been onboarded for Azure delegated resource management.
+
+| **Template** | **Description** |
+|---------|---------|
+| [alert-using-actiongroup](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/alert-using-actiongroup) | This template creates an Azure alert and connects to an existing Action Group.|
+| [multiple-loganalytics-alerts](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/multiple-loganalytics-alerts) | Creates multiple Log alerts based on Kusto queries.|
+| [delegation-alert-for-customer](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegation-alert-for-customer) | For customers who want to monitor their subscriptions, and have activity logs sent to Log Analytics, this template deploys an alert based on a log search.|
+
+## Additional cross-tenant scenarios
+
+| **Template** | **Description** |
+|---------|---------|
+| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-rg-deployment) | Deploys storage accounts into two different resource groups.|
+| [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Creates Azure management services, links them together, and deploys additional solutions. For an end-to-end deployment, use the **rgWithAzureMgmt.json** template. |
+| [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | Enables and configures Azure Security Center within the targeted Azure subscription. |
+| [deploy-azure-sentinel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-sentinel) | Deploys and enables Azure Sentinel on an existing Log Analytics workspace in a delegated subscription. |
+| [deploy-log-analytics-vm-extensions](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-log-analytics-vm-extensions) | These templates let you deploy Log Analytics VM extensions to your Windows & Linux VMs, connecting them to the designated Log Analytics workspace |
+
+
+
+Leaving out:
+create-multiple-rgs
+Creates multiple resource groups using a single Azure Resource Manager template.
+
+subscription-deployment
+This template deploys resources to an Azure subscription
+
+classic-alert
+Readme is blank
+
+policy-audit-delegation.json
+(no folder, no readme)
 
 | **Template** | **Description** |
 |---------|---------|
 | [create-multiple-rgs](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/create-multiple-rgs) | Creates multiple resource groups using a single Azure Resource Manager template. |
-| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-rg-deployment) | Deploy storage accounts into two different resource groups. |
-| [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Creates Azure management services, links them together, and deploys additional solutions. |
-| [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | Enables and configures Azure Security Center within the targeted Azure subscription. |
+
+
 
 ## Next steps
 
