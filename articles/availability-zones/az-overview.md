@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: cynthn
+ms.custom: fasttrack-edit
 ms.custom: mvc 
 ---
 
@@ -31,6 +32,9 @@ Build high-availability into your application architecture by co-locating your c
 To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
  
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
+
+> [!IMPORTANT]
+> The Availability Zone identifiers (the numbers 1, 2 and 3 in the picture above) are logically mapped to the actual physical zones for each subscription independently. That means that Availability Zone 1 in a given subscription might refer to a different physical zone than Availability Zone 1 in a different subscription. As a consequence, it's recommended to not relay in Availability Zone IDs across different subscriptions for virtual machine placement.
 
 ## Services support by region
 
