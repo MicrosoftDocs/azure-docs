@@ -26,9 +26,9 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 
   This setting sets an upper limit on the number of events that will be added to a batched delivery request.
 
-* Approximate batch size in bytes
+* Preferred Batch Size In Kilobytes
 
-  This setting is used to control the maximum number of bytes that will be sent per delivery request
+  This knob is used to further control the max number of kilobytes that will be sent over per delivery request
 
 ## Batching behavior
 
@@ -46,24 +46,25 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 
 * Default values
 
-  It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in bytes) when creating an event subscription. Event Grid uses (configurable) default values if only one setting is set. See the following sections for the default values, and how to override them.
+  It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. Event Grid uses (configurable) default values if only one setting is set. See the following sections for the default values, and how to override them.
 
 ## Turning on output batching
 
 ```json
 {
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
-      "properties": {
-        "endpointUrl": "<your_webhook_url>"
-      }
-    },
-    "deliveryPolicy": {
-      "maxEventsPerBatch": 10,
-      "preferredBatchSizeInKilobytes": 64
+    "properties":
+    {
+        "destination":
+        {
+            "endpointType": "WebHook",
+            "properties":
+             {
+                "endpointUrl": "<your_webhook_url>",
+                "maxEventsPerBatch": 10,
+                "preferredBatchSizeInKilobytes": 64
+             }
+        },
     }
-  }
 }
 ```
 
@@ -72,13 +73,13 @@ Event Grid's batching behavior can be customized per subscriber, by tweaking the
 The following deployment time settings control the maximum value allowed when creating an event subscription.
 
 | Property Name | Description |
-| -- | -- |
-| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Maximum value allowed for the `ApproxBatchSizeInBytes` setting. Default value: `1033`.
-| `api:deliveryPolicyLimits:maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` setting. Default value: `50`.
+| ------------- | ----------- | 
+| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Maximum value allowed for the `PreferredBatchSizeInKilobytes` knob. Default `1033`.
+| `api:deliveryPolicyLimits:maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` knob. Default `50`.
 
-## Configuring default values
+## Configuring runtime default values
 
-The following deployment time settings control the default value of each setting when it's not specified in the event subscription. To reiterate - at least one setting must be set on the event subscription to turn on batching behavior.
+The following deployment time settings control the runtime default value of each knob when it is not specified in the Event Subscription. To reiterate - at least one knob must be set on the Event Subscription to turn on batching behavior.
 
 | Property Name | Description |
 | -- | -- |
