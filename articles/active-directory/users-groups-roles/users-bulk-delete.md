@@ -1,5 +1,4 @@
 ---
-
 title: Bulk delete users (preview) in the Azure Active Directory portal | Microsoft Docs
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
@@ -22,18 +21,22 @@ Using Azure Active Directory (Azure AD) portal, you can remove a large number of
 
 ## To bulk delete users
 
-1. Sign in to your Azure AD organization with an account that is a User administrator in the organization.
+1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
 1. In Azure AD, select **Users** > **Bulk delete**.
-1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties, and then add the users you want to delete.
-
-   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
-
-1. When you finish editing the CSV file, select the file under **Upload your CSV file** to be validated.
+1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties.
 
    ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/bulk-delete.png)
 
-1. When the file contents are validated, you must fix any errors before the job is submitted.
-1. When your file passes validation, select **Submit** to start the Azure batch job that deletes the users. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
+1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Then save the file.
+
+   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
+
+1. On the **Bulk delete user (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
+1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
+1. When your file passes validation, select **Submit** to start the Azure bulk operation that deletes the users.
+1. When the deletion operation completes, you'll see a notification that the bulk operation succeeded.
+
+If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
 ## Check status
 
