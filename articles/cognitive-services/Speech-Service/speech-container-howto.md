@@ -231,6 +231,9 @@ The following table lists the supported locales for **text-to-speech** in the 1.
 | Spanish | `es-ES` | elenarus<br>laura-apollo<br>pablo-apollo<br> |
 | Spanish | `es-MX` | hildarus<br>raul-apollo |
 
+> [!IMPORTANT]
+> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, known as the short name. For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
+
 # [Custom Text-to-speech](#tab/ctts)
 
 #### Docker pull for the Custom Text-to-speech container

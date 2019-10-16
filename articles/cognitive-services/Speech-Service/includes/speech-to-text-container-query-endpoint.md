@@ -12,11 +12,9 @@ ms.author: dapine
 
 ### Speech-to-text or Custom Speech-to-text
 
-The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.yml).
+The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
 
-#### For C#
-
-By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
+# [C#](#tab/csharp)
 
 Change from using this Azure-cloud initialization call:
 
@@ -30,9 +28,7 @@ to this call using the container endpoint:
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"));
 ```
-#### For Python
-
-By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
+# [Python](#tab/python)
 
 Change from using this Azure-cloud initialization call:
 
@@ -47,3 +43,5 @@ to this call using the container endpoint:
 speech_config = speechsdk.SpeechConfig(
     endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
+
+***
