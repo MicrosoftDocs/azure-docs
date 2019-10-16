@@ -12,7 +12,9 @@ ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result.
+
+Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 When you're finished, you see that the event data has been sent to the web app.
 
