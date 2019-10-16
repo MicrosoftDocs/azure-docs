@@ -229,7 +229,7 @@ The process of changing the administrator may take several minutes. Then the new
 
 To later remove an Admin, at the top of the **Active Directory admin** page, select **Remove admin**, and then select **Save**.
 
-### PowerShell for Azure SQL Database
+### PowerShell for Azure SQL Database and Azure SQL Data Warehouse
 
 To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). To provision an Azure AD admin, execute the following Azure PowerShell commands:
 
