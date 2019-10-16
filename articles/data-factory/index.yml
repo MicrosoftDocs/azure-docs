@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: concept 
         links:
-          - text: What are Mapping Data Flows?
+          - text: What are mapping data flows?
             url: /azure/data-factory/concepts-data-flow-overview
       - linkListType: tutorial
         links:

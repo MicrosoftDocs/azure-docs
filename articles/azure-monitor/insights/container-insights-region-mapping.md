@@ -61,6 +61,7 @@ The AKS cluster resources or Log Analytics workspace can reside in other regions
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|US Gov Virginia |US Gov Virginia |
 
 <sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. This includes a Log Analytics workspace. However, preexisting linked resources in the region should continue to work.
 

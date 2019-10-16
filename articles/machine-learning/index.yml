@@ -110,7 +110,7 @@ landingContent:
           - text: Python SDK docs
             url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
           - text: R SDK docs
-            url: https://github.com/Azure/azureml-sdk-for-r
+            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
           - text: CLI docs
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
           - text: Algorithms & modules (Designer)
