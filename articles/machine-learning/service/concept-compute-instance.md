@@ -81,17 +81,15 @@ These tools and environments are installed on the compute instance:
 
 Compute instances are typically used as development environments.  However, they can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
-## Sharing
-
-Notebooks that you run on your instance have access to the data stores and compute resources of your workspace. The notebooks themselves are stored in a storage account of your workspace. The storage  makes it easy to share notebooks between compute instances.  The storage account also keeps your notebooks safely preserved when you delete a compute instance. 
-
-When you create a compute instance, you control whether it can be shared. Each shared compute instance has its own managed identity, so you can share access without compromising your credentials. Each person who accesses the compute instance signs in with their own identity.  
-
 ## Accessing files
 
 The Azure File Share account of your workspace is mounted as a drive on the compute instance.  The mounted drive is the default working directory for Jupyter, Jupyter Labs, and RStudio, which allows the files to be available from all compute instances.  However, writing small files is  much slower on the network drives than writing to the VM itself.  We recommended using a directory on the compute instance, such as a `/tmp` directory, when you  write small files.
 
 The mounted drive makes files  shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
+
+## Sharing
+
+When you create a compute instance, you control whether the resource can be shared. Each shared compute instance has its own managed identity, so you can share access without compromising your credentials. Each person who accesses the instance signs in with their own identity.  
 
 ## Managing a compute instance
 
