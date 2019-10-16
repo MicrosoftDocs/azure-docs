@@ -17,6 +17,7 @@
 | Throughput per disk | 25 MiB/sec | 25 MiB/sec | 25 MiB/sec |Up to 25 MiB/sec | 50 MiB/sec | 100 MiB/sec | 125 MiB/sec | 150 MiB/sec | 200 MiB/sec | 250 MiB/sec | 250 MiB/sec| 500 MiB/sec | 750 MiB/sec | 900 MiB/sec |
 | Max Burst IOPS per disk** | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 |
 | Max Burst throughput per disk** | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec |
+| Credit bucket size** | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 5,868,000 IO; 211 GiB  | 5,400,000 IO; 123 GiB  | 4,320,000 IO; 79 GiB  | 2,160,000 IO; 35 GiB  |
 
 \*Denotes a disk size that is currently in preview
 
