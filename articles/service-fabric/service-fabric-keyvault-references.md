@@ -60,8 +60,8 @@ A common challenge when building cloud applications is how to securely store sec
             ]
     ```
 
-        > [!NOTE] 
-        > It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
+    > [!NOTE] 
+    > It's recommended to use a separate encryption certificate for CSS. You can add it under the "CentralSecretService" section.
 
     ```json
         {
