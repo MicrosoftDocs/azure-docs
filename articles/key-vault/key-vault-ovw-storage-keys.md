@@ -66,11 +66,11 @@ az login
 Use the Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) command to give Key Vault access your storage account. Provide the command the following parameter values:
 
 - `--role`: Pass the "Storage Account Key Operator Service Role" RBAC role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
-- `--assignee-object-id`: Pass the value "93c27d83-f79b-4cb2-8dd4-4aa716542e74", which is the Object ID for Key Vault in the Azure public cloud. (To get the Object ID for Key Vault in the Azure Government cloud, see [Service principal application ID](#service-principal-application-id).)
+- `--assignee`: Pass the value "cfa8b339-82a2-471a-a3c9-0fc0be7a4093", which is the Application ID for Key Vault in the Azure public cloud. (To get the Application ID for Key Vault in the Azure Government cloud, see [Service principal application ID](#service-principal-application-id).)
 - `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee cfa8b339-82a2-471a-a3c9-0fc0be7a4093 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 
 ### Create a Key Vault Managed storage account
