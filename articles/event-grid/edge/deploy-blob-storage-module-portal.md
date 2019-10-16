@@ -124,7 +124,7 @@ Keep the default routes, and select **Next** to continue to the review section
     ```
 
 2. Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for **MicrosoftStorage** topic.
-    1. Create subscription5.json with the following content. For details about the payload, see our [API documentation](api.md)
+    1. Create blobsubscription.json with the following content. For details about the payload, see our [API documentation](api.md)
 
     ```json
         {
@@ -145,7 +145,7 @@ Keep the default routes, and select **Next** to continue to the review section
     2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription5.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
     3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
