@@ -4,15 +4,14 @@ description: Learn how to create backups of your apps in Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 10/16/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -72,14 +71,16 @@ The following database solutions are supported with backup feature:
    > 
    > 
 
-2. In the **Backup** page, Click **Configure**
-![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
-3. In the **Backup Configuration** page, click **Storage: Not configured** to configure a storage account.
+2. In the **Backup** page, Click **Backup is not configured. Click here to configure backup for your app**.
+
+    ![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
+
+3. In the **Backup Configuration** page, click **Storage not configured** to configure a storage account.
    
     ![Choose storage account][ChooseStorageAccount]
+
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
-   
-    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+
 5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
    
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
@@ -91,7 +92,7 @@ The following database solutions are supported with backup feature:
    > 
    > 
 6. In the **Backup Configuration** page, click **Save**.    
-7. In the  **Backups** page, click **Backup**.
+7. In the **Backups** page, click **Backup**.
    
     ![BackUpNow button][BackUpNow]
    
@@ -105,7 +106,7 @@ Once the storage account and container is configured, you can initiate a manual 
 1. In the **Backup Configuration** page, set **Scheduled backup** to **On**. 
    
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
+2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and select **OK**.
    
     ![Enable automated backups][SetAutomatedBackupOn]
 
@@ -126,9 +127,7 @@ Partial backups allow you choose exactly which files you want to back up.
 ### Exclude files from your backup
 Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases, you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
 
-An easy way to access your files is to use Kudu. Click **Advanced Tools -> Go** setting for your web app to access Kudu.
-
-![Kudu using portal][kudu-portal]
+You can access your files by navigating to `https://<app-name>.scm.azurewebsites.net/DebugConsole`. If prompted, sign in to your Azure account.
 
 Identify the folders that you want to exclude from your backups.  For example, you want to filter out the highlighted folder and files.
 
