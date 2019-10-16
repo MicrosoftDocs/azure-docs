@@ -17,7 +17,7 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-## Device identity and desktop virtualization
+# Device identity and desktop virtualization
 
 Administrators commonly deploy virtual desktop infrastructure (VDI) platforms hosting Windows operating system in their organizations. They do this to:
 
