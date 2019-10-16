@@ -35,7 +35,7 @@ This is the maximum number of AUs that can run concurrently in your account. If 
 * If you have only one job running with 32 AUs, when you submit a second job it will wait in the job queue until the first job completes.
 * If you already have four jobs running and each is using 8 AUs, when you submit a fifth job that needs 8 AUs it waits in the job queue until there are 8 AUs available.
 
-    ![Azure Data Lake Analytics limits and quota page](.\media\data-lake-analytics-quota-limits\adjust-quota-limits.png)
+    ![Azure Data Lake Analytics limits and quota page](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
 **Maximum number of Analytics Units (AUs) per job:** 250, default 32
 

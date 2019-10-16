@@ -122,7 +122,7 @@
     items:
     - name: Overview
       href: data-lake-analytics-runtime-troubleshoot.md
-    - name: Troubleshoot a .NET updgrade
+    - name: Troubleshoot a .NET upgrade
       href: data-lake-analytics-net-upgrade-troubleshoot.md
 - name: Reference
   items:
