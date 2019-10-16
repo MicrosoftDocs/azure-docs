@@ -1,7 +1,7 @@
 ---
 title: "How to use the Feedback Loop REST API with Python - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use custom training on your Form Recognizer custom models.
+description: Learn how to use the Form Recognizer Feedback Loop feature with the REST API and Python to train a custom model.
 author: PatrickFarley
 manager: nitinme
 
