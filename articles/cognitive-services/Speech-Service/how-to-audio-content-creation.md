@@ -22,13 +22,13 @@ The Audio Content Creation tool is based on [Speech Synthesis Markup Language (S
 
 This diagram shows the steps it takes to tune and export customized speech-to-text outputs. Use the links below to learn more about each step.
 
-![](media/audio-content-creation/audio_content_creation_diagram.png)
+![](media/audio-content-creation/audio-content-creation-diagram.png)
 
 1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). Once you have a subscription key, you can use it to call the Speech service, and to access [Audio Content Creation](https://aka.ms/audiocontentcreation).
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML.
 3. Choose the voice and the language that you'd like to tune. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
    >[!NOTE]
-   > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](#link-to-ethics-content).
+   > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](https://aka.ms/ignite2019/speech/ethics).
 
 4. Review the default result. Then use the tuning tool to adjust pronunciation, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md).
 5. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the  output. When you're satisfied with the output, you can create an audio generation task with the export feature. You can observe the status of the export task, and download the output for use with your apps and products.
