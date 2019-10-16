@@ -1,7 +1,7 @@
 ---
-title: What is ML Studio @Classic@ 
+title: What is ML Studio (classic) 
 titleSuffix: Azure 
-description: Azure Machine Learning Studio @Classic@  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
 ---
-# What is Machine Learning Studio @Classic@ ?
-Microsoft Azure Machine Learning Studio @Classic@ is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio @Classic@ publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+# What is Machine Learning Studio (classic) ?
+Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
-Machine Learning Studio @Classic@ is where data science, predictive analytics, cloud resources, and your data meet.
+Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
-## The Machine Learning Studio @Classic@  interactive workspace
+## The Machine Learning Studio (classic)  interactive workspace
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
-Azure Machine Learning Studio @Classic@  gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio @Classic@. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
+Azure Machine Learning Studio (classic)  gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio @Classic@. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
@@ -33,13 +33,13 @@ There is no programming required, just visually connecting datasets and modules 
 
 
 <a name="compare"></a>
-## How is Machine Learning Studio @Classic@ different from Azure Machine Learning service?
+## How is Machine Learning Studio (classic) different from Azure Machine Learning service?
 
 [Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio @Classic@. However, unlike the proprietary compute platform of Studio @Classic@, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio @Classic@ | Azure Machine Learning service:<br/>Designer|
+|| Machine Learning Studio (classic) | Azure Machine Learning service:<br/>Designer|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
@@ -50,17 +50,17 @@ Here is a quick comparison.
 Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
-> Models created in Studio @Classic@ can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
+> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
 
-## Download the Machine Learning Studio @Classic@ overview diagram
-Download the **Microsoft Azure Machine Learning Studio @Classic@ Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio @Classic@. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
+## Download the Machine Learning Studio (classic) overview diagram
+Download the **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio @Classic@. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
 
-**Download the diagram here: [Microsoft Azure Machine Learning Studio @Classic@ Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
-![Microsoft Azure Machine Learning Studio @Classic@ Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
+**Download the diagram here: [Microsoft Azure Machine Learning Studio (classic) Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+![Microsoft Azure Machine Learning Studio (classic) Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 
 
-## Components of a Studio @Classic@  experiment
+## Components of a Studio (classic)  experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
 
 * The experiment has at least one dataset and one module
@@ -76,7 +76,7 @@ For an example of creating a simple experiment, see [Create a simple experiment 
 For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning Studio @Classic@](tutorial-part1-credit-risk.md).
 
 ### Datasets
-A dataset is data that has been uploaded to Machine Learning Studio @Classic@ so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio @Classic@ for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
+A dataset is data that has been uploaded to Machine Learning Studio (classic) so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio (classic) for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
 
 * **MPG data for various automobiles** - Miles per gallon (MPG) values for automobiles identified by number of cylinders, horsepower, etc.
 * **Breast cancer data** - Breast cancer diagnosis data.
@@ -87,7 +87,7 @@ As you build an experiment, you can choose from the list of datasets available t
 For a list of sample datasets included in Machine Learning Studio @Classic@, see [Use the sample data sets in Azure Machine Learning Studio @Classic@](use-sample-datasets.md).
 
 ### Modules
-A module is an algorithm that you can perform on your data. Machine Learning Studio @Classic@ has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
+A module is an algorithm that you can perform on your data. Machine Learning Studio (classic) has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
 
 * [Convert to ARFF][convert-to-arff] - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF).
 * [Compute Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc.

@@ -18,7 +18,7 @@ This topic describes how to choose the right hyperparameter set for an algorithm
 
 
 
-There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning Studio @Classic@. Because Azure Machine Learning Studio @Classic@ supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
+There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning Studio @Classic@. Because Azure Machine Learning Studio (classic) supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
 
 There are four steps in the process of finding the best parameter set:
 

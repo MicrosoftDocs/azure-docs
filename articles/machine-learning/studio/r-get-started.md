@@ -1,7 +1,7 @@
 ---
 title: Getting started with R
 titleSuffix: Azure Machine Learning Studio @Classic@
-description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio @Classic@ to create a forecasting solution.
+description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio (classic) to create a forecasting solution.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -18,9 +18,9 @@ ms.date: 03/01/2019
 
 ## Introduction
 
-This tutorial helps you start extending Azure Machine Learning Studio @Classic@ by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio @Classic@. As you work through tutorial, you will create a complete forecasting solution by using the R language in Studio @Classic@.  
+This tutorial helps you start extending Azure Machine Learning Studio (classic) by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio @Classic@. As you work through tutorial, you will create a complete forecasting solution by using the R language in Studio @Classic@.  
 
-Microsoft Azure Machine Learning Studio @Classic@ contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Studio @Classic@ can be extended by using R. This combination provides the scalability and ease of deployment of Studio @Classic@ with the flexibility and deep analytics of R.
+Microsoft Azure Machine Learning Studio (classic) contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Studio (classic) can be extended by using R. This combination provides the scalability and ease of deployment of Studio (classic) with the flexibility and deep analytics of R.
 
 ### Forecasting and the dataset
 
@@ -34,29 +34,29 @@ The data used in this article, along with R scripts, can be downloaded from [Mac
 
 ### Organization
 
-We will progress through several steps as you learn how to create, test and execute analytics and data manipulation R code in the Azure Machine Learning Studio @Classic@ environment.  
+We will progress through several steps as you learn how to create, test and execute analytics and data manipulation R code in the Azure Machine Learning Studio (classic) environment.  
 
-* First we will explore the basics of using the R language in the Azure Machine Learning Studio @Classic@ environment.
-* Then we progress to discussing various aspects of I/O for data, R code and graphics in the Azure Machine Learning Studio @Classic@ environment.
+* First we will explore the basics of using the R language in the Azure Machine Learning Studio (classic) environment.
+* Then we progress to discussing various aspects of I/O for data, R code and graphics in the Azure Machine Learning Studio (classic) environment.
 * We will then construct the first part of our forecasting solution by creating code for data cleaning and transformation.
 * With our data prepared we will perform an analysis of the correlations between several of the variables in our dataset.
 * Finally, we will create a seasonal time series forecasting model for milk production.
 
 ## <a id="mlstudio"></a>Interact with R language in Machine Learning Studio @Classic@
 
-This section takes you through some basics of interacting with the R programming language in the Machine Learning Studio @Classic@ environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the Azure Machine Learning Studio @Classic@ environment.
+This section takes you through some basics of interacting with the R programming language in the Machine Learning Studio (classic) environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the Azure Machine Learning Studio (classic) environment.
 
-I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module in Machine Learning Studio @Classic@ ready to run.  
+I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) ready to run.  
 
 ### The Execute R Script module
 
-Within Machine Learning Studio @Classic@, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio @Classic@ is shown in Figure 1.
+Within Machine Learning Studio @Classic@, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) is shown in Figure 1.
 
  ![R programming language: The Execute R Script module selected in Machine Learning Studio @Classic@](./media/r-quickstart/fig1.png)
 
-*Figure 1. The Machine Learning Studio @Classic@ environment showing the Execute R Script module selected.*
+*Figure 1. The Machine Learning Studio (classic) environment showing the Execute R Script module selected.*
 
-Referring to Figure 1, let's look at some of the key parts of the Machine Learning Studio @Classic@ environment for working with the [Execute R Script][execute-r-script] module.
+Referring to Figure 1, let's look at some of the key parts of the Machine Learning Studio (classic) environment for working with the [Execute R Script][execute-r-script] module.
 
 * The modules in the experiment are shown in the center pane.
 * The upper part of the right pane contains a window to view and edit your R scripts.  
@@ -80,9 +80,9 @@ If you need a more complete treatment of R exception handling, I recommend you r
 
 To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the [Execute R Script][execute-r-script] itself. In addition, it is good practice to check your results in Machine Learning Studio @Classic@.
 
-Output from the execution of your R code and on the Azure Machine Learning Studio @Classic@ platform is found primarily in output.log. Some additional information will be seen in error.log.  
+Output from the execution of your R code and on the Azure Machine Learning Studio (classic) platform is found primarily in output.log. Some additional information will be seen in error.log.  
 
-If an error occurs in Machine Learning Studio @Classic@ while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, select **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
+If an error occurs in Machine Learning Studio (classic) while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, select **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
 
 For example, I ran the following R code, with an undefined variable y, in an [Execute R Script][execute-r-script] module:
 
@@ -120,11 +120,11 @@ data.set <- data.frame(installed.packages())
 maml.mapOutputPort("data.set")
 ```
 
-If you don't understand the last line of this code at the moment, read on. In the rest of this article we will extensively discuss using R in the Studio @Classic@ environment.
+If you don't understand the last line of this code at the moment, read on. In the rest of this article we will extensively discuss using R in the Studio (classic) environment.
 
 ### Introduction to RStudio
 
-RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this guide. Once the R code is tested and ready, you can simply cut and paste from the RStudio editor into a Machine Learning Studio @Classic@ [Execute R Script][execute-r-script] module.  
+RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this guide. Once the R code is tested and ready, you can simply cut and paste from the RStudio editor into a Machine Learning Studio (classic) [Execute R Script][execute-r-script] module.  
 
 If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open-source R language are available at the Comprehensive R Archive Network (CRAN) at [https://www.r-project.org/](https://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
 
@@ -146,7 +146,7 @@ The complete code for this section is in [MachineLearningSamples-Notebooks/studi
 
 We will start by loading the **csdairydata.csv** file into Azure Machine Learning Studio @Classic@.
 
-1. Start your Azure Machine Learning Studio @Classic@ environment.
+1. Start your Azure Machine Learning Studio (classic) environment.
 1. Select **+ NEW** at the lower left of your screen and select **Dataset**.
 1. Select **From Local File**, and then **Browse** to select the file.
 1. Make sure you have selected **Generic CSV file with header (.csv)** as the type for the dataset.
@@ -180,7 +180,7 @@ Let's have a look at the data we have loaded into our experiment. In the experim
 
 *Figure 4. Summary of the cadairydata.csv dataset.*
 
-In this view we see a lot of useful information. We can see the first several rows of that dataset. If we select a column, the Statistics section shows more information about the column. For example, the Feature Type row shows us what data types Azure Machine Learning Studio @Classic@ assigned to the column. Having a quick look like this is a good sanity check before we start to do any serious work.
+In this view we see a lot of useful information. We can see the first several rows of that dataset. If we select a column, the Statistics section shows more information about the column. For example, the Feature Type row shows us what data types Azure Machine Learning Studio (classic) assigned to the column. Having a quick look like this is a good sanity check before we start to do any serious work.
 
 ### First R script
 
@@ -219,7 +219,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> Azure Machine Learning Studio @Classic@ treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name. For example, if the zip contains the files `yourfile.R` and `yourData.rdata` in the root of the zip, you would address these as `src/yourfile.R` and `src/yourData.rdata` when using `source` and `load`.
+> Azure Machine Learning Studio (classic) treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name. For example, if the zip contains the files `yourfile.R` and `yourData.rdata` in the root of the zip, you would address these as `src/yourfile.R` and `src/yourData.rdata` when using `source` and `load`.
 
 We already discussed loading datasets in [Load the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
 
@@ -242,7 +242,7 @@ We already discussed loading datasets in [Load the dataset](#loading). Once you 
 
 1. Add your file to the **datasets** in Machine Learning Studio @Classic@, specifying the type as **zip**. You should now see the zip file in your datasets.
 
-1. Drag and drop the zip file from **datasets** onto the **ML Studio @Classic@ canvas**.
+1. Drag and drop the zip file from **datasets** onto the **ML Studio (classic) canvas**.
 
 1. Connect the output of the **zip data** icon to the **Script Bundle** input of the [Execute R Script][execute-r-script] module.
 
@@ -1089,7 +1089,7 @@ This generates the following.
 
 This looks better. All of the terms are significant. However, the 2e-16 value is a default value, and should not be taken too seriously.  
 
-As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Studio @Classic@ [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
+As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Studio (classic) [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1151,7 +1151,7 @@ This generates the following.
 
 We see that the model no longer has an intercept term and has 12 significant month factors. This is exactly what we wanted to see.
 
-Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Studio @Classic@ [Execute R Script][execute-r-script] to create the model and make a plot.
+Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Studio (classic) [Execute R Script][execute-r-script] to create the model and make a plot.
 
 ```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1160,7 +1160,7 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-Running this code in Azure Machine Learning Studio @Classic@ produces the plot shown in Figure 24.
+Running this code in Azure Machine Learning Studio (classic) produces the plot shown in Figure 24.
 
 ![California milk production with model including seasonal effects](./media/r-quickstart/unnamed-chunk-20.png)
 

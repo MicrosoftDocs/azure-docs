@@ -14,7 +14,7 @@ ms.date: 03/04/2019
 ---
 # Machine learning algorithm cheat sheet for Azure Machine Learning Studio @Classic@
 
-The **Azure Machine Learning Studio @Classic@ Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
+The **Azure Machine Learning Studio (classic) Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
 
 [Azure Machine Learning Studio @Classic@](https://studio.azureml.net/) has a large library of algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
@@ -24,12 +24,12 @@ The **Azure Machine Learning Studio @Classic@ Algorithm Cheat Sheet** helps you 
 
 ![Machine learning algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
-Download and print the Machine Learning Studio @Classic@ Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
+Download and print the Machine Learning Studio (classic) Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
 > [!NOTE]
 > For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning Studio @Classic@](algorithm-choice.md).
 
-## Notes and terminology definitions for the Machine Learning Studio @Classic@ algorithm cheat sheet
+## Notes and terminology definitions for the Machine Learning Studio (classic) algorithm cheat sheet
 
 * The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and the system that generated your data.
 
@@ -37,7 +37,7 @@ Download and print the Machine Learning Studio @Classic@ Algorithm Cheat Sheet i
 
 * There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
-  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points. For example, identifying new photos with the correct animal or assigning accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning Studio @Classic@ are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
+  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points. For example, identifying new photos with the correct animal or assigning accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning Studio (classic) are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
 
   * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
 
@@ -57,9 +57,9 @@ Download and print the Machine Learning Studio @Classic@ Algorithm Cheat Sheet i
 
 * For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
-* For a list by category of all the machine learning algorithms available in Machine Learning Studio @Classic@, see [Initialize Model][initialize-model] in the Machine Learning Studio @Classic@ Algorithm and Module Help.
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio @Classic@, see [Initialize Model][initialize-model] in the Machine Learning Studio (classic) Algorithm and Module Help.
 
-* For a complete alphabetical list of algorithms and modules in Machine Learning Studio @Classic@, see [A-Z list of Machine Learning Studio @Classic@ modules][a-z-list] in Machine Learning Studio @Classic@ Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in Machine Learning Studio @Classic@, see [A-Z list of Machine Learning Studio (classic) modules][a-z-list] in Machine Learning Studio (classic) Algorithm and Module Help.
 
 
 

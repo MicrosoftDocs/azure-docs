@@ -1,7 +1,7 @@
 ---
 title: Export and delete your data
 titleSuffix: Azure Machine Learning Studio @Classic@
-description: In-product data stored by Azure Machine Learning Studio @Classic@ is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
+description: In-product data stored by Azure Machine Learning Studio (classic) is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -15,7 +15,7 @@ ms.date: 05/25/2018
 
 # Export and delete in-product user data from Azure Machine Learning Studio @Classic@
 
-You can delete or export in-product data stored by Azure Machine Learning Studio @Classic@ by using the Azure portal, the Studio @Classic@ interface, PowerShell, and authenticated REST APIs. This article tells you how. 
+You can delete or export in-product data stored by Azure Machine Learning Studio (classic) by using the Azure portal, the Studio (classic) interface, PowerShell, and authenticated REST APIs. This article tells you how. 
 
 Telemetry data can be accessed through the Azure Privacy portal. 
 
@@ -23,7 +23,7 @@ Telemetry data can be accessed through the Azure Privacy portal.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## What kinds of user data does Studio @Classic@ collect?
+## What kinds of user data does Studio (classic) collect?
 
 For this service, user data consists of information about users authorized to access workspaces and telemetry records of user interactions with the service.
 
@@ -31,7 +31,7 @@ There are two kinds of user data in Machine Learning Studio @Classic@:
 - **Personal account data:** Account IDs and email addresses associated with an account.
 - **Customer data:** Data you uploaded to analyze.
 
-## Studio @Classic@ account types and how data is stored
+## Studio (classic) account types and how data is stored
 
 There are three kinds of accounts in Machine Learning Studio @Classic@. The kind of account you have determines how your data is stored and how you can delete or export it.
 
@@ -49,7 +49,7 @@ There are three kinds of accounts in Machine Learning Studio @Classic@. The kind
 	- You can export personal and customer data through the UI, REST APIs, or PowerShell package
 	- You can delete your data in the Azure portal.
 
-## <a name="delete"></a>Delete workspace data in Studio @Classic@ 
+## <a name="delete"></a>Delete workspace data in Studio (classic) 
 
 ### Delete individual assets
 
@@ -65,9 +65,9 @@ Users can also delete their entire workspace:
 
 ![Delete a free workspace in Machine Learning Studio @Classic@](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
-## Export Studio @Classic@ data with PowerShell
-Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio @Classic@ using commands. For information, see the [PowerShell module for Azure Machine Learning Studio @Classic@](powershell-module.md) article.
+## Export Studio (classic) data with PowerShell
+Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio (classic) using commands. For information, see the [PowerShell module for Azure Machine Learning Studio @Classic@](powershell-module.md) article.
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio @Classic@ REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio (classic) REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 

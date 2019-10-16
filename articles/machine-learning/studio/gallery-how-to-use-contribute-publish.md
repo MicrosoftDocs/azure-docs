@@ -24,7 +24,7 @@ The Azure AI Gallery contains a number of different resources that have been con
 * **Experiments** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio @Classic@. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 * **Tutorials** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 * **Collections** - A collection allows you to group together experiments, APIs, and other Gallery resources that address a specific solution or concept.
-* **Custom Modules** - You can download custom modules into your Studio @Classic@ workspace to use in your own experiments.
+* **Custom Modules** - You can download custom modules into your Studio (classic) workspace to use in your own experiments.
 * **Jupyter Notebooks** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
 ## Discover and contribute
@@ -45,7 +45,7 @@ You can contribute **experiments**, **tutorials**, and **collections** to the Ga
 
 ## Download experiments, modules, notebooks
 
-You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio @Classic@ workspace to use in developing your own solutions.
+You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio (classic) workspace to use in developing your own solutions.
 
 To download a resource from within the AI Gallery:
 
@@ -96,7 +96,7 @@ And you can log in with a discussion tool such as Disqus to receive notification
    You can use markdown to format your description. To see how your entries on the experiment description page will look when the experiment is published, select **Preview**.
 
    > [!TIP]
-   > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor (such as [Visual Studio @Classic@ Code](https://aka.ms/vscode)), then copy and paste the completed documentation into the text box in the Gallery.
+   > The text boxes provided for markdown editing and preview are small. We recommend that you write your experiment documentation in a markdown editor (such as [Visual Studio (classic) Code](https://aka.ms/vscode)), then copy and paste the completed documentation into the text box in the Gallery.
 
 1. On the **Image Selection** page, choose a thumbnail image for your experiment. The thumbnail image appears at the top of the experiment details page and in the experiment tile. Other users will see the thumbnail image when they browse the Gallery. You can upload an image from your computer, or select a stock image from the Gallery.
 

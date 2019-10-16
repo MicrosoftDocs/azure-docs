@@ -18,11 +18,11 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio @Classic@. You'll use Azure Machine Learning Studio @Classic@ and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio @Classic@. You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio @Classic@ workspace, uploaded data, and created an experiment.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio (classic) workspace, uploaded data, and created an experiment.
 
 In this part of the tutorial you:
  
@@ -39,7 +39,7 @@ Complete [part one of the tutorial](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Train multiple models
 
-One of the benefits of using Azure Machine Learning Studio @Classic@ for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
+One of the benefits of using Azure Machine Learning Studio (classic) for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
 
 In the experiment we're developing in this tutorial, you'll create two different types of models and then compare their scoring results to decide which algorithm you want to use in our final experiment.  
 

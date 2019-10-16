@@ -70,9 +70,9 @@ Given the problem described, what is the best way to implement an integrated mod
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
-The following diagram shows the prototype we created, which employs four scoring algorithms in Machine Learning Studio @Classic@ to predict churn. The reason for using a multi-model approach is not only to create an ensemble classifier to increase accuracy, but also to protect against over-fitting and to improve prescriptive feature selection.  
+The following diagram shows the prototype we created, which employs four scoring algorithms in Machine Learning Studio (classic) to predict churn. The reason for using a multi-model approach is not only to create an ensemble classifier to increase accuracy, but also to protect against over-fitting and to improve prescriptive feature selection.  
 
-![Screenshot depicting a complex Studio @Classic@ workspace with many interconnected modules](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![Screenshot depicting a complex Studio (classic) workspace with many interconnected modules](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figure 5: Prototype of a churn modeling approach*  
 
@@ -125,13 +125,13 @@ The following diagram illustrates a portion of the experiment design surface, wh
 ### Scoring methods
 We scored the four models by using a labeled training dataset.  
 
-We also submitted the scoring dataset to a comparable model built by using the desktop edition of SAS Enterprise Miner 12. We measured the accuracy of the SAS model and all four Machine Learning Studio @Classic@ models.  
+We also submitted the scoring dataset to a comparable model built by using the desktop edition of SAS Enterprise Miner 12. We measured the accuracy of the SAS model and all four Machine Learning Studio (classic) models.  
 
 ## Results
 In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
 
 ### Accuracy and precision of scoring
-Generally, the implementation in Azure Machine Learning Studio @Classic@ is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+Generally, the implementation in Azure Machine Learning Studio (classic) is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
@@ -148,9 +148,9 @@ AUC is used as a measure of worth for different algorithms (or different systems
 We compared the misclassification rates on the dataset in question by using the CRM data of approximately 8,000 subscriptions.  
 
 * The SAS misclassification rate was 10-15%.
-* The Machine Learning Studio @Classic@ misclassification rate was 15-20% for the top 200-300 churners.  
+* The Machine Learning Studio (classic) misclassification rate was 15-20% for the top 200-300 churners.  
 
-In the telecommunications industry, it is important to address only those customers who have the highest risk to churn by offering them a concierge service or other special treatment. In that respect, the Machine Learning Studio @Classic@ implementation achieves results on par with the SAS model.  
+In the telecommunications industry, it is important to address only those customers who have the highest risk to churn by offering them a concierge service or other special treatment. In that respect, the Machine Learning Studio (classic) implementation achieves results on par with the SAS model.  
 
 By the same token, accuracy is more important than precision because we are mostly interested in correctly classifying potential churners.  
 
@@ -168,7 +168,7 @@ The following chart displays the raw results from scoring using the Machine Lear
 *Figure 11: Boosted decision tree model characteristics*
 
 ## Performance comparison
-We compared the speed at which data was scored using the Machine Learning Studio @Classic@ models and a comparable model created by using the desktop edition of SAS Enterprise Miner 12.1.  
+We compared the speed at which data was scored using the Machine Learning Studio (classic) models and a comparable model created by using the desktop edition of SAS Enterprise Miner 12.1.  
 
 The following table summarizes the performance of the algorithms:  
 
@@ -178,7 +178,7 @@ The following table summarizes the performance of the algorithms:
 | --- | --- | --- | --- |
 | Average Model |The Best Model |Underperforming |Average Model |
 
-The models hosted in Machine Learning Studio @Classic@ outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
+The models hosted in Machine Learning Studio (classic) outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
 ## Discussion and recommendations
 In the telecommunications industry, several practices have emerged to analyze churn, including:  
@@ -194,9 +194,9 @@ The use of these four categories creates the illusion that a simple *determinist
 
 This important observation is often overlooked in business, which generally prefers a business intelligence-oriented approach to analytics, mostly because it is an easier sell and admits straightforward automation.  
 
-However, the promise of self-service analytics by using Machine Learning Studio @Classic@ is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
+However, the promise of self-service analytics by using Machine Learning Studio (classic) is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
 
-Another exciting capability coming in Azure Machine Learning Studio @Classic@ is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning Studio @Classic@ in the market place.  
+Another exciting capability coming in Azure Machine Learning Studio (classic) is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning Studio (classic) in the market place.  
 
 We hope to continue this topic in the future, especially related to big data analytics.
   

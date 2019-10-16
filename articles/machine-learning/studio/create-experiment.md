@@ -40,15 +40,15 @@ This quickstart follows the default workflow for an experiment:
 ## Get the data
 
 The first thing you need in machine learning is data.
-There are several sample datasets included with Studio @Classic@ that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
+There are several sample datasets included with Studio (classic) that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]
-> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio @Classic@** to download a copy of the experiment into your Machine Learning Studio @Classic@ workspace.
+> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio @Classic@** to download a copy of the experiment into your Machine Learning Studio (classic) workspace.
 
 Here's how to get the dataset into your experiment.
 
-1. Create a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio @Classic@ window. Select **EXPERIMENT** >  **Blank Experiment**.
+1. Create a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio (classic) window. Select **EXPERIMENT** >  **Blank Experiment**.
 
 1. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**. The name doesn't need to be unique.
 

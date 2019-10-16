@@ -16,11 +16,11 @@ ms.date: 03/12/2019
 
 Python is a valuable tool in the tool chest of many data scientists. It's used in every stage of typical machine learning workflows including data exploration, feature extraction, model training and validation, and deployment.
 
-This article describes how you can use the Execute Python Script module to use Python code in your Azure Machine Learning Studio @Classic@ experiments and web services.
+This article describes how you can use the Execute Python Script module to use Python code in your Azure Machine Learning Studio (classic) experiments and web services.
 
 ## Using the Execute Python Script module
 
-The primary interface to Python in Studio @Classic@ is through the [Execute Python Script][execute-python-script] module. It accepts up to three inputs and produces up to two outputs, similar to the [Execute R Script][execute-r-script] module. Python code is entered into the parameter box through a specially named entry-point function called `azureml_main`.
+The primary interface to Python in Studio (classic) is through the [Execute Python Script][execute-python-script] module. It accepts up to three inputs and produces up to two outputs, similar to the [Execute R Script][execute-r-script] module. Python code is entered into the parameter box through a specially named entry-point function called `azureml_main`.
 
 ![Execute Python Script module](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -48,7 +48,7 @@ The `azureml_main` function must return a single Pandas DataFrame packaged in a 
 
 ## Translation of input and output data types
 
-Studio datasets are not the same as Panda DataFrames. As a result, input datasets in Studio @Classic@ are converted to Pandas DataFrame, and output DataFrames are converted back to Studio @Classic@ datasets. During this conversion process, the following translations are also performed:
+Studio datasets are not the same as Panda DataFrames. As a result, input datasets in Studio (classic) are converted to Pandas DataFrame, and output DataFrames are converted back to Studio (classic) datasets. During this conversion process, the following translations are also performed:
 
  **Python data type** | **Studio translation procedure** |
 | --- | --- |
@@ -62,9 +62,9 @@ Studio datasets are not the same as Panda DataFrames. As a result, input dataset
 
 ## <a id="import-modules"></a>Importing existing Python script modules
 
-The backend used to execute Python is based on [Anaconda](https://www.anaconda.com/distribution/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio @Classic@ does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
+The backend used to execute Python is based on [Anaconda](https://www.anaconda.com/distribution/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio (classic) does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
 
-A common use-case is to incorporate existing Python scripts into Studio @Classic@ experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
+A common use-case is to incorporate existing Python scripts into Studio (classic) experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
 
 As an example, consider the file Hello.py containing a simple “Hello, World” function.
 
@@ -89,7 +89,7 @@ The module output shows that the zip file has been unpackaged and that the funct
 You can access data stored in an Azure Blob Storage account using these steps:
 
 1. Download the [Azure Blob Storage package for Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) locally.
-1. Upload the zip file to your Studio @Classic@ workspace as a dataset.
+1. Upload the zip file to your Studio (classic) workspace as a dataset.
 1. Create your BlobService object with `protocol='http'`
 
 ```
@@ -136,11 +136,11 @@ This process is illustrated in the following images that create a scatter plot m
 
 ![Visualizing plots for a sample experiment using Python code](./media/execute-python-scripts/figure-v2-9b.png)
 
-It's possible to return multiple figures by saving them into different images. The Studio @Classic@ runtime picks up all images and concatenates them for visualization.
+It's possible to return multiple figures by saving them into different images. The Studio (classic) runtime picks up all images and concatenates them for visualization.
 
 ## Advanced examples
 
-The Anaconda environment installed in Studio @Classic@ contains common packages such as NumPy, SciPy, and Scikits-Learn. These packages can be effectively used for data processing in a machine learning pipeline.
+The Anaconda environment installed in Studio (classic) contains common packages such as NumPy, SciPy, and Scikits-Learn. These packages can be effectively used for data processing in a machine learning pipeline.
 
 For example, the following experiment and script illustrate the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset. The scores can be used to perform supervised feature selection before being fed into another model.
 
@@ -168,7 +168,7 @@ The Python module currently does not support IDE features such as intellisense a
 
 ### Single data frame output
 
-The Python entry point is only permitted to return a single data frame as output. It is not currently possible to return arbitrary Python objects such as trained models directly back to the Studio @Classic@ runtime. Like [Execute R Script][execute-r-script], which has the same limitation, it is possible in many cases to pickle objects into a byte array and then return that inside of a data frame.
+The Python entry point is only permitted to return a single data frame as output. It is not currently possible to return arbitrary Python objects such as trained models directly back to the Studio (classic) runtime. Like [Execute R Script][execute-r-script], which has the same limitation, it is possible in many cases to pickle objects into a byte array and then return that inside of a data frame.
 
 ### Inability to customize Python installation
 

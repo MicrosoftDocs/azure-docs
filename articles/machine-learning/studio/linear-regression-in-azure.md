@@ -21,32 +21,32 @@ ms.date: 03/20/2017
 Our project started with two goals in mind: 
 
 1. Use predictive analytics to improve the accuracy of our organization’s monthly revenue projections 
-2. Use Azure Machine Learning Studio @Classic@ to confirm, optimize, increase velocity, and scale of our results. 
+2. Use Azure Machine Learning Studio (classic) to confirm, optimize, increase velocity, and scale of our results. 
 
-Like many businesses, our organization goes through a monthly revenue forecasting process. Our small team of business analysts was tasked with using Azure Machine Learning Studio @Classic@ to support the process and improve forecast accuracy. The team spent several months collecting data from multiple sources and running the data attributes through statistical analysis identifying key attributes relevant to services sales forecasting. The next step was to begin prototyping statistical regression models on the data in Excel. Within a few weeks, we had an Excel regression model that was outperforming the current field and finance forecasting processes. This became the baseline prediction result. 
+Like many businesses, our organization goes through a monthly revenue forecasting process. Our small team of business analysts was tasked with using Azure Machine Learning Studio (classic) to support the process and improve forecast accuracy. The team spent several months collecting data from multiple sources and running the data attributes through statistical analysis identifying key attributes relevant to services sales forecasting. The next step was to begin prototyping statistical regression models on the data in Excel. Within a few weeks, we had an Excel regression model that was outperforming the current field and finance forecasting processes. This became the baseline prediction result. 
 
-We then took the next step to moving our predictive analytics over to Studio @Classic@ to find out how Studio @Classic@ could improve on predictive performance.
+We then took the next step to moving our predictive analytics over to Studio (classic) to find out how Studio (classic) could improve on predictive performance.
 
 ## Achieving predictive performance parity
-Our first priority was to achieve parity between Studio @Classic@ and Excel regression models. Given the same data, and the same split for training and testing data, we wanted to achieve predictive performance parity between Excel and Studio @Classic@. Initially we failed. The Excel model outperformed the Studio @Classic@ model. The failure was due to a lack of understanding of the base tool setting in Studio @Classic@. After a sync with the Studio @Classic@ product team, we gained a better understanding of the base setting required for our data sets, and achieved parity between the two models. 
+Our first priority was to achieve parity between Studio (classic) and Excel regression models. Given the same data, and the same split for training and testing data, we wanted to achieve predictive performance parity between Excel and Studio @Classic@. Initially we failed. The Excel model outperformed the Studio (classic) model. The failure was due to a lack of understanding of the base tool setting in Studio @Classic@. After a sync with the Studio (classic) product team, we gained a better understanding of the base setting required for our data sets, and achieved parity between the two models. 
 
 ### Create regression model in Excel
 Our Excel Regression used the standard linear regression model found in the Excel Analysis ToolPak. 
 
-We calculated *Mean Absolute % Error* and used it as the performance measure for the model. It took 3 months to arrive at a working model using Excel. We brought much of the learning into the Studio @Classic@ experiment which ultimately was beneficial in understanding requirements.
+We calculated *Mean Absolute % Error* and used it as the performance measure for the model. It took 3 months to arrive at a working model using Excel. We brought much of the learning into the Studio (classic) experiment which ultimately was beneficial in understanding requirements.
 
 ### Create comparable experiment in Studio @Classic@
 We followed these steps to create our experiment in Studio @Classic@: 
 
-1. Uploaded the dataset as a csv file to Studio @Classic@ (very small file)
+1. Uploaded the dataset as a csv file to Studio (classic) (very small file)
 2. Created a new experiment and used the [Select Columns in Dataset][select-columns] module to select the same data features used in Excel 
 3. Used the [Split Data][split] module (with *Relative Expression* mode) to divide the data into the same training datasets as had been done in Excel 
 4. Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
 
 ### Review initial results
-At first, the Excel model clearly outperformed the Studio @Classic@ model: 
+At first, the Excel model clearly outperformed the Studio (classic) model: 
 
-|  | Excel | Studio @Classic@ |
+|  | Excel | Studio (classic) |
 | --- |:---:|:---:|
 | Performance | | |
 | <ul style="list-style-type: none;"><li>Adjusted R Square</li></ul> |0.96 |N/A |
@@ -62,9 +62,9 @@ When we ran our process and results by the developers and data scientists on the
 * Consider tweaking the L2 Regularization Weight parameter to improve performance. It is set to 0.001 by default, but for our small data set we set it to 0.005 to improve performance. 
 
 ### Mystery solved!
-When we applied the recommendations, we achieved the same baseline performance in Studio @Classic@ as with Excel: 
+When we applied the recommendations, we achieved the same baseline performance in Studio (classic) as with Excel: 
 
-|  | Excel | Studio @Classic@ (Initial) | Studio @Classic@ w/ Least Squares |
+|  | Excel | Studio (classic) (Initial) | Studio (classic) w/ Least Squares |
 | --- |:---:|:---:|:---:|
 | Labeled value |Actuals (numeric) |same |same |
 | Learner |Excel -> Data Analysis -> Regression |Linear Regression. |Linear Regression |
@@ -118,11 +118,11 @@ If you want to experiment with regression, a good dataset to try is the Energy E
 | Linear Regression (Ordinary Least Squares) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## Key Takeaways
-We learned a lot by from running Excel regression and Studio @Classic@ experiments in parallel. Creating the baseline model in Excel and comparing it to models using Machine Learning [Linear Regression][linear-regression] helped us learn Studio @Classic@, and we discovered opportunities to improve data selection and model performance. 
+We learned a lot by from running Excel regression and Studio (classic) experiments in parallel. Creating the baseline model in Excel and comparing it to models using Machine Learning [Linear Regression][linear-regression] helped us learn Studio @Classic@, and we discovered opportunities to improve data selection and model performance. 
 
-We also found that it is advisable to use [Filter-Based Feature Selection][filter-based-feature-selection] to accelerate future prediction projects. By applying feature selection to your data, you can create an improved model in Studio @Classic@ with better overall performance. 
+We also found that it is advisable to use [Filter-Based Feature Selection][filter-based-feature-selection] to accelerate future prediction projects. By applying feature selection to your data, you can create an improved model in Studio (classic) with better overall performance. 
 
-The ability to transfer the predictive analytic forecasting from Studio @Classic@ to Excel systemically allows a significant increase in the ability to successfully provide results to a broad business user audience. 
+The ability to transfer the predictive analytic forecasting from Studio (classic) to Excel systemically allows a significant increase in the ability to successfully provide results to a broad business user audience. 
 
 ## Resources
 Here are some resources for helping you work with regression: 

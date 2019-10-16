@@ -1,4 +1,4 @@
-- name: Machine Learning Studio @Classic@ Documentation 
+- name: Machine Learning Studio (classic) Documentation 
   href: index.yml
 - name: Overview
   expanded: true
@@ -157,7 +157,7 @@
       href: linear-regression-in-azure.md
   - name: Delete & export customer data
     items:
-    - name: Studio @Classic@ data
+    - name: Studio (classic) data
       displayName: export
       href: export-delete-personal-data-dsr.md
     - name: Gallery data

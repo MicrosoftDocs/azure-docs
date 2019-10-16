@@ -34,7 +34,7 @@ This document explains how to interpret prediction results for each of these mod
 
 This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio @Classic@](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning Studio @Classic@ and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio @Classic@](create-experiment.md) in Azure Machine Learning Studio @Classic@.
+If you are new to Azure Machine Learning Studio (classic) and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio @Classic@](create-experiment.md) in Azure Machine Learning Studio @Classic@.
 
 ## Classification
 There are two subcategories of classification problems:
@@ -42,12 +42,12 @@ There are two subcategories of classification problems:
 * Problems with only two classes (two-class or binary classification)
 * Problems with more than two classes (multi-class classification)
 
-Azure Machine Learning Studio @Classic@ has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
+Azure Machine Learning Studio (classic) has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
 
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio @Classic@ is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio (classic) is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 
@@ -232,7 +232,7 @@ You can choose what you want to do by selecting from the four options in the **R
 
 ![Matchbox recommender](./media/interpret-model-results/19_1.png)
 
-A typical Azure Machine Learning Studio @Classic@ experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+A typical Azure Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![Recommender system experiment](./media/interpret-model-results/20.png)
 

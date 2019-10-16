@@ -17,11 +17,11 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio @Classic@. You'll use Azure Machine Learning Studio @Classic@ and a Machine Learning web service for this solution. 
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio @Classic@. You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution. 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio @Classic@ workspace, uploaded data, and created an experiment.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio (classic) workspace, uploaded data, and created an experiment.
 
 In [part two of the tutorial](tutorial-part2-credit-risk-train.md), you  trained and evaluated models.
 
@@ -101,7 +101,7 @@ When you click **Set Up Web Service**, several things happen:
 
 you need to take one additional step with this particular experiment.
 you added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data. That was just a trick you needed for training and testing, so you can take out those modules in the final model.
-Machine Learning Studio @Classic@ removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now you can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
+Machine Learning Studio (classic) removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now you can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 
@@ -122,7 +122,7 @@ Run the experiment one last time (click **Run**.) If you want to verify that the
 You can deploy the experiment as either a Classic web service, or as a New web service that's based on Azure Resource Manager.
 
 ### Deploy as a Classic web service
-To deploy a Classic web service derived from our experiment, click **Deploy Web Service** below the canvas and select **Deploy Web Service [Classic]**. Machine Learning Studio @Classic@ deploys the experiment as a web service and takes you to the dashboard for that web service. From this page, you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this tutorial).
+To deploy a Classic web service derived from our experiment, click **Deploy Web Service** below the canvas and select **Deploy Web Service [Classic]**. Machine Learning Studio (classic) deploys the experiment as a web service and takes you to the dashboard for that web service. From this page, you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this tutorial).
 
 ![Web service dashboard](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -139,7 +139,7 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 
 To deploy a New web service derived from our experiment:
 
-1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio @Classic@ transfers you to the Azure Machine Learning web services **Deploy Experiment** page.
+1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio (classic) transfers you to the Azure Machine Learning web services **Deploy Experiment** page.
 
 1. Enter a name for the web service. 
 
@@ -176,7 +176,7 @@ You can test a New web service only in the **Machine Learning Web Services** por
 
 ### Test a Classic web service
 
-You can test a Classic web service in Machine Learning Studio @Classic@ or in the Machine Learning Web Services portal. 
+You can test a Classic web service in Machine Learning Studio (classic) or in the Machine Learning Web Services portal. 
 
 #### Test in Machine Learning Studio @Classic@
 

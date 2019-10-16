@@ -1,7 +1,7 @@
 ---
 title: How to choose algorithms
 titleSuffix: Azure Machine Learning Studio @Classic@
-description: How to choose Azure Machine Learning Studio @Classic@ algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
+description: How to choose Azure Machine Learning Studio (classic) algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -16,13 +16,13 @@ ms.date: 03/04/2019
 
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
-Machine Learning Studio @Classic@ provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. Machine Learning Studio @Classic@ supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](/azure/machine-learning/studio-module-reference/index).
+Machine Learning Studio (classic) provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. Machine Learning Studio (classic) supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](/azure/machine-learning/studio-module-reference/index).
 The documentation provides some information about each algorithm and how to tune parameters to optimize the algorithm for your use.  
 
 
 ## The Machine Learning Algorithm Cheat Sheet
 
-The **[Microsoft Azure Machine Learning Studio @Classic@ Algorithm Cheat Sheet](algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio @Classic@ library of algorithms.
+The **[Microsoft Azure Machine Learning Studio (classic) Algorithm Cheat Sheet](algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio (classic) library of algorithms.
 This article walks you through how to use this cheat sheet.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ can, it uses that pattern to make predictions for unlabeled testing
 data—tomorrow's prices.
 
 Supervised learning is a popular and useful type of machine learning. With one
-exception, all the modules in Azure Machine Learning Studio @Classic@ are supervised learning
+exception, all the modules in Azure Machine Learning Studio (classic) are supervised learning
 algorithms. There are several specific types of supervised learning that
 are represented within Azure Machine Learning Studio @Classic@: classification, regression, and anomaly
 detection.
@@ -168,7 +168,7 @@ the most trial and error to find a good combination.
 
 Alternatively, there is a [parameter
 sweeping](algorithm-parameters-optimize.md)
-module block in Azure Machine Learning Studio @Classic@ that automatically tries all parameter
+module block in Azure Machine Learning Studio (classic) that automatically tries all parameter
 combinations at whatever granularity you choose. While this is a great
 way to make sure you've spanned the parameter space, the time required
 to train a model increases exponentially with the number of parameters.
@@ -318,7 +318,7 @@ Neural networks are brain-inspired learning algorithms covering
 and
 [regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
 problems. They come in an infinite variety, but the neural networks
-within Azure Machine Learning Studio @Classic@ are all of the form of directed acyclic graphs. That
+within Azure Machine Learning Studio (classic) are all of the form of directed acyclic graphs. That
 means that input features are passed forward (never backward) through a
 sequence of layers before being turned into outputs. In each layer,
 inputs are weighted in various combinations, summed, and passed on to
@@ -387,7 +387,7 @@ boundary are unusual enough to be noteworthy.
 Bayesian methods have a highly desirable quality: they avoid
 overfitting. They do this by making some assumptions beforehand about
 the likely distribution of the answer. Another byproduct of this
-approach is that they have very few parameters. Azure Machine Learning Studio @Classic@ has
+approach is that they have very few parameters. Azure Machine Learning Studio (classic) has
 Bayesian algorithms for both classification ([Two-class Bayes' point
 machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine))
 and regression ([Bayesian linear
@@ -437,7 +437,7 @@ properties are determined by the two-class classifiers used.
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
 
-Azure Machine Learning Studio @Classic@ also includes access to a powerful machine learning framework
+Azure Machine Learning Studio (classic) also includes access to a powerful machine learning framework
 under the title of [Vowpal
 Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
 VW defies categorization here, since it can learn both classification
@@ -457,6 +457,6 @@ several languages.
 
 * To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
-* For a list by category of all the machine learning algorithms available in Machine Learning Studio @Classic@, see [Initialize Model](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio @Classic@ Algorithm and Module Help.
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio @Classic@, see [Initialize Model](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio (classic) Algorithm and Module Help.
 
-* For a complete alphabetical list of algorithms and modules in Machine Learning Studio @Classic@, see [A-Z list of Machine Learning Studio @Classic@ modules](/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio @Classic@ Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in Machine Learning Studio @Classic@, see [A-Z list of Machine Learning Studio (classic) modules](/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio (classic) Algorithm and Module Help.
