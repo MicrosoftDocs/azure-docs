@@ -1,6 +1,6 @@
 ﻿---
-title: VPN gateway customer facing packet capture| Microsoft Docs
-description: Learn about packet capture functionalities that customers can use on VPN Gateway.
+title: VPN gateway packet capture| Microsoft Docs
+description: Learn about packet capture functionalities that you can use on VPN Gateway.
 services: vpn-gateway
 author: radwiv
 
@@ -10,7 +10,7 @@ ms.date: 10/15/2019
 ms.author: radwiv
 ---
 
-# About packet captures on VPN Gateway
+# Configure packet captures on VPN Gateway
 
 Connectivity and performance-related issues are often times complex and take significant amount of time and effort just to narrow down the cause of the problem. Ability to packet capture greatly helps reduce time in narrowing down the scope of the problem to certain parts of the network, such as whether the issue is on the customer side of the network, the Azure side of the network, or somewhere in between. Once the issue has been narrowed down, it is much more efficient to debug and take remedial action.
 
