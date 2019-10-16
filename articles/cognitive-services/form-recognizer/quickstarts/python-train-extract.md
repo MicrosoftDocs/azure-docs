@@ -51,6 +51,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
+
     url = base_url + "/train" 
     body = {"source": source}
     try:
