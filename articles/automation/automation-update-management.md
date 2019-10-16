@@ -44,7 +44,7 @@ In addition to the scan schedule, the scan for update compliance is initiated wi
 
 For a Linux computer, the compliance scan is performed every hour by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
-The solution reports how up-to-date the computer is based on what source you're configured to sync with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Updates shows. This behavior is the same for Linux computers that are configured to report to a local repo instead of to a public repo.
+The solution reports how up-to-date the computer is based on what source you're configured to sync with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux computers that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
 > To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
@@ -53,7 +53,7 @@ You can deploy and install software updates on computers that require the update
 
 The scheduled deployment defines which target computers receive the applicable updates. It does so either by explicitly specifying certain computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is used only to determine which machines get the management packs that enable the solution.
 
-You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. Twenty minutes of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
+You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don’t require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
