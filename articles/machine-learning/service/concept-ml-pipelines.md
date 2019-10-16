@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
+ms.date: 10/10/2019
 ---
 
 # What are Azure Machine Learning pipelines?
@@ -56,7 +56,7 @@ After the pipeline is designed, there is often more fine-tuning around the train
 
 With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so your intermediate data can be shared with the downstream compute targets.
 
-You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in [Azure Machine Learning studio](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
+You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
 In short, all of the complex tasks of the machine learning lifecycle can be helped with pipelines. Other Azure pipeline technologies have their own strengths, such as [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) for working with data and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) for continuous integration and deployment. But if your focus is machine learning, Azure Machine Learning pipelines are likely to be the best choice for your workflow needs. 
 
@@ -107,6 +107,14 @@ In the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api
 An Azure ML pipeline is associated with an Azure Machine Learning workspace and a pipeline step is associated with a compute target available within that workspace. For more information, see [Create and manage Azure Machine Learning workspaces in the Azure portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) or [What are compute targets in Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 In Azure Machine Learning, a compute target is the environment in which an ML phase occurs. The software environment may be a Remote VM, Azure Machine Learning Compute, Azure Databricks, Azure Batch, and so on. The hardware environment can also vary greatly, depending on GPU support, memory, storage, and so forth. You may specify the compute target for each step, which gives you fine-grained control over costs. You can use more- or less- powerful resources for the specific action, data volume, and performance needs of your project. 
+
+## How do I build pipelines using the Azure Machine Learning visual interface?
+
+Developers who prefer a visual design surface can use the Azure Machine Learning visual interface to create pipelines. You can access this tool from the **Visual Interface** selection on the homepage of your workspace.  The visual interface allows you to drag and drop steps onto the design surface. For rapid development, you can use existing modules across the spectrum of ML tasks; existing modules cover everything from data transformation to algorithm selection to training to deployment. Or you can create a fully custom pipeline by combining your own steps defined in Python scripts.
+
+When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
+ 
+![Azure Machine Learning visual interface example](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### Understanding the execution graph
 
