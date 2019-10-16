@@ -23,13 +23,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview of Azure Service Health
+          - text: Azure Service Health
             url: overview.md
-          - text: Overview of Azure status  
+          - text: Azure status  
             url: azure-status-overview.md
-          - text: Overview of service health service
+          - text: Service health service
             url: service-health-overview.md
-          - text: Overview of resource health
+          - text: Resource Health
             url: resource-health-overview.md
       - linkListType: video
         links:
