@@ -17,7 +17,7 @@ ms.date: 10/3/2019
 
 The Data Science Virtual Machine (DSVM) bundles several popular tools in a highly productive integrated development environment (IDE). Here are some tools that are provided on the DSVM.
 
-## Visual Studio 2017
+## Visual Studio Community 2017
 
 |    |           |
 | ------------- | ------------- |
@@ -25,8 +25,11 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Software development    |
 | How is it configured and installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| How to use and run it      | Desktop shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| How to use and run it      | Desktop shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`). Graphically, open Visual Studio by using the desktop icon or the **Start** menu. Search for programs (Windows logo key+S), followed by **Visual Studio**. From there, you can create projects in languages like C#, Python, R, and Node.js.   |
 | Related tools on the DSVM      |     Visual Studio Code, RStudio, Juno  |
+
+> [!NOTE]
+> You might get a message that your evaluation period is expired. Enter your Microsoft account credentials. Or create a new free account to get access to Visual Studio Community.
 
 ## Visual Studio Code 
 

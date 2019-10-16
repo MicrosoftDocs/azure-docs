@@ -5,16 +5,6 @@
   - name: About Azure Disk Encryption
     displayName: BitLocker, bek
     href: azure-security-disk-encryption-overview.md
-  - name: Quickstarts
-    items:
-    - name: Encrypt a Linux VM with Azure CLI
-      href: ../virtual-machines/linux/disk-encryption-cli-quickstart.md
-    - name: Encrypt a Linux VM with Azure PowerShell
-      href: ../virtual-machines/linux/disk-encryption-powershell-quickstart.md
-    - name: Encrypt a Windows VM with Azure CLI
-      href: azure-disk-encryption-windows-cli-quickstart.md
-    - name: Encrypt a Windows VM with Azure PowerShell
-      href: azure-disk-encryption-windows-powershell-quickstart.md
   - name: Disk encryption prerequisites
     href: azure-security-disk-encryption-prerequisites.md
   - name: Disk encryption for Windows VMs
