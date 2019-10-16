@@ -216,7 +216,7 @@ Pre and post-tasks are run as runbooks and don't natively run on your Azure VMs 
 
 To interact with Azure machines, you should use the [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management – run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
-### Interacting with Non-Azure machines
+### Interacting with non-Azure machines
 
 Pre and post-tasks run in the Azure context and don't have access to non-Azure machines. To interact with the non-Azure machines, you must have the following items:
 
