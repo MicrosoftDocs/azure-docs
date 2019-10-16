@@ -26,6 +26,7 @@ It's important to use a data set that's optimized for training. Use the followin
 * For filled-in forms, use examples that have all of their fields filled in.
 * Use forms with different values in each field.
 * If your form images are of lower quality, use a larger data set (10-15 images, for example).
+* The total size of the training data set can be up to 50 MB.
 
 ## General input requirements
 
