@@ -2,10 +2,9 @@
 title: What is Azure Analysis Services | Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -145,7 +144,7 @@ Tabular models in Azure Analysis Services support a wide variety of data sources
 
 ## Compatibility level
 
-Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for Analysis Services tabular models](analysis-services-compat-level.md).
+Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## Your data is secure

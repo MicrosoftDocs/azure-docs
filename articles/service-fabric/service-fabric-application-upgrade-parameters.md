@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Application upgrade parameters

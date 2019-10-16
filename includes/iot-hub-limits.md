@@ -50,7 +50,7 @@ The following table lists the limits that apply to IoT Hub resources.
 > If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 IoT Hub throttles requests when the following quotas are exceeded.
 
@@ -61,7 +61,7 @@ IoT Hub throttles requests when the following quotas are exceeded.
 | Device-to-cloud sends |6,000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
 | Cloud-to-device sends | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S1 and S2). |
 | Cloud-to-device receives |833.33/sec/unit (50,000/min/unit) (for S3), 16.67/sec/unit (1,000/min/unit) (for S1 and S2). |
-| File upload operations |83.33 file upload notifications/sec/unit (5,000/min/unit) (for S3), 1.67 file upload notifications/sec/unit (100/min/unit) (for S1 and S2). <br/> 10,000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| File upload operations |83.33 file upload initiations/sec/unit (5,000/min/unit) (for S3), 1.67 file upload initiations/sec/unit (100/min/unit) (for S1 and S2). <br/> 10,000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
 | Direct methods | 24 MB/sec/unit (for S3), 480 KB/sec/unit (for S2), 160 KB/sec/unit (for S1).<br/> Based on 8-KB throttling meter size. |
 | Device twin reads | 500/sec/unit (for S3), Maximum of 100/sec or 10/sec/unit (for S2), 100/sec (for S1) |
 | Device twin updates | 250/sec/unit (for S3), Maximum of 50/sec or 5/sec/unit (for S2), 50/sec (for S1) |
