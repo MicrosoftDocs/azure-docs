@@ -21,7 +21,7 @@ landingContent:
   # Card
   - title: Build Energy Solutions
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
         - url: ./energy/overview-iot-central-energy.md
           text: Build energy solutions with IoT Central

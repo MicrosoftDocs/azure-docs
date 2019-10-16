@@ -21,27 +21,18 @@ landingContent:
    # Card
   - title: Build Government Solutions
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
-        - text: Water Quality Monitoring
-          url: placeholder.md
-        - text: Water Consumption Monitoring
-          url: placeholder.md
-        - text: Connected Waste Management
-          url: placeholder.md
+        - text: Build government solutions with IoT Central
+          url: overview-iot-central-government.md
       - linkListType: tutorial
         links:
           - text: Create a water quality monitoring app
-            url: placeholder.md
+            url: tutorial-water-quality-monitoring.md
           - text: Create a water consumption monitoring app
-            url: placeholder.md
+            url: tutorial-water-consumption-monitoring.md
           - text: Create a connected waste management app
-            url: placeholder.md
-      - linkListType: how-to-guide
-        links:
-          - text: Placeholder
-            url: placeholder.md
-
+            url: tutorial-connected-waste-management.md
 
   # Card (optional)
   - title: Get connected

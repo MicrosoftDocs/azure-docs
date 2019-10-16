@@ -22,8 +22,6 @@
       href: ../core/concepts-architecture-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Connectivity
       href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-    - name: Continuous Patient Monitoring Architecture
-      href: placeholder.md
 - name: How-to guides
   items:
     - name: Connect devices
@@ -128,10 +126,6 @@
           href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
-    - name: Azure API for FHIR
-      href: placeholder.md
-    - name: Building Secure Health Solutions
-      href: placeholder.md
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Supported browsers

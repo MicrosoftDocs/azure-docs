@@ -21,97 +21,99 @@ landingContent:
   # Card
   - title: Build Healthcare Solutions
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Continuous Patient Monitoring overview
-            url: placeholder.md
+            url: overview-iot-central-healthcare.md
       - linkListType: tutorial
         links:
-          - text: Build a Continuous Patient Monitoring solution
-            url: placeholder.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage health data privacy and compliance
-            url: placeholder.md
-          - text: Build a health data triage dashboard
-            url: placeholder.md  
-  
+          - text: Build a continuous patient monitoring solution
+            url: tutorial-continuous-patient-monitoring.md
+          - text: Create a health data triage dashboard
+            url: tutorial-health-data-triage.md
+
   # Card (optional)
   - title: Get connected
     linkLists:
       - linkListType: tutorial
         links:
           - text: Set up a device template
-            url: placeholder.md
-          - text: Connect an IoT Plug and Play device
-            url: placeholder.md
+            url: ./core/index.yml
+          - text: Connect a device
+            url: ./core/index.yml
           - text: Connect an Edge device
-            url: placeholder.md
+            url: ./core/index.yml
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
-            url: placeholder.md
+            url: ./core/howto-connect-devkit.md
           - text: Connect other IoT clouds
-            url: placeholder.md
-          - text: Connect a device
-            url: placeholder.md
+            url: ./core/howto-build-iotc-device-bridge.md
   # Card (optional)
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: placeholder.md
+            url: ./core/index.yml
           - text: Manage your devices
-            url: placeholder.md
+            url: ./core/index.yml
           - text: Run a job
-            url: placeholder.md
+            url: ./core/index.yml
           - text: Analyze your device data
-            url: placeholder.md
+            url: ./core/index.yml
       - linkListType: how-to-guide
         links:
           - text: Monitor device connectivity using command line
-            url: placeholder.md
+            url: ./core/howto-use-iotc-explorer.md
           - text: Version device template
-            url: placeholder.md
+            url: ./core/howto-version-device-template.md
+          - text: Configure application dashboard
+            url: ./core/howto-configure-homepage.md
+          - text: Create personal dashboards
+            url: ./core/howto-personalize-dashboard.md
   # Card (optional)
   - title: Transform
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create telemetry rule
-            url: placeholder.md
-          - text: Create an event rule
-            url: placeholder.md
-          - text: Export to Blob Storage (pick one)
-            url: placeholder.md
-          - text: API tutorial - TBD
-            url: placeholder.md                        
+          - text: Create a rule
+            url: ./core/tutorial-configure-rules.md
+          - text: Create an email action
+            url: ./core/index.yml
+          - text: Export to Blob Storage
+            url: ./core/howto-export-data-blob-storage-pnp.md
+          - text: Use the IoT Central Public APIs
+            url: ./core/index.yml                        
       - linkListType: how-to-guide
         links:
           - text: Export to Event Hubs and Service Bus
-            url: placeholder.md
+            url: ./core/howto-export-data-event-hubs-service-bus-pnp.md
+          - text: Create a rule on an Edge device
+            url: ./core/index.yml
           - text: Create custom rules
-            url: placeholder.md
+            url: ./core/howto-create-custom-rules.md
           - text: Create custom analytics
-            url: placeholder.md
-          - text: Visualize your data in Power BI
-            url: placeholder.md
+            url: ./core/howto-create-custom-analytics.md
 
   # Card
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Administer your application
-            url: placeholder.md
+          - text: Manage your application
+            url: ../core/howto-administer.md 
           - text: Manage users and roles
-            url: placeholder.md
+            url: ../core/howto-manage-users-roles.md 
           - text: View your bill
-            url: placeholder.md
+            url: ../core/howto-view-bill.md
           - text: Customize application UI
-            url: placeholder.md
+            url: ../core/howto-customize-ui.md  
           - text: Prepare and upload image
-            url: placeholder.md
+            url: ../core/howto-prepare-images.md
           - text: Configure application dashboard
-            url: placeholder.md
+            url: ../core/howto-configure-homepage.md
+          - text: Use dashboard tiles
+            url: ../core/howto-use-tiles.md
+          - text: Use application templates
+            url: ../core/howto-use-app-templates.md
