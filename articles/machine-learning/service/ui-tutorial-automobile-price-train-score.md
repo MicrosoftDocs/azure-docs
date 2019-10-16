@@ -107,8 +107,6 @@ Now that you have run your initial pipeline, you can visualize the data to under
 
     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the right.
 
-    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.png)](./media/ui-tutorial-automobile-price-train-score/preview-data.png#lightbox)
-
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
 ## Prepare data
