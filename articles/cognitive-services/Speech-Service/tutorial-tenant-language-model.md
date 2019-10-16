@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to:
 > * Publish a Tenant Language Model
 > * Use a Tenant Language Model with the Speech SDK
 
-![Tenant Language Model diagram](media/tenant-language-model/tenant-laguage-model-diagram.png)
+![Tenant Language Model diagram](media/tenant-language-model/tenant-language-model-diagram.png)
 
 ## Enroll using the Microsoft 365 Admin Center
 
@@ -36,9 +36,9 @@ Before you can deploy your Tenant Language Model, first need to enroll using the
 
 1. Sign into the [Microsoft 365 Admin Center](https://admin.microsoft.com ).
 2. From the left panel, select **Settings** then **Apps**.
-   ![Tenant Language Model diagram](media/tenant-language-model/tenant-laguage-model-enrollment.png)
+   ![Tenant Language Model diagram](media/tenant-language-model/tenant-language-model-enrollment.png)
 3. Locate and select **Azure Speech Services**.
-   ![Tenant Language Model diagram](media/tenant-language-model/tenant-laguage-model-enrollment-2.png)
+   ![Tenant Language Model diagram](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 4. Click the checkbox and save.
 
 If you need to turn off the Tenant Language Model, navigate back to this screen, deselect the checkbox and save.
@@ -63,7 +63,7 @@ After your admin has enabled Tenant Language Model for your organization, you ca
 
 1. Sign into the [Speech Studio](https://speech.microsoft.com/).
 2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model settings**.
-   ![Settings menu](media/tenant-language-model/tenant-laguage-settings.png)
+   ![Settings menu](media/tenant-language-model/tenant-language-settings.png)
 3. At this point you'll see a message letting you know if you are qualified to create a Tenant Language Model.
    > [!NOTE]
    > Office 365 enterprise customers in North America are eligible to create a Tenant Language Model (English). If you are a Customer Lockbox (CLB) or Customer Key (CK) customer, this feature isn't available. To determine if you are a Customer Lockbox or Customer Key customer, follow these instructions:
@@ -78,7 +78,7 @@ When your Tenant Language Model is ready, follow these steps to deploy your mode
 
 1. Click the **View model** button in confirmation email you received, or sign into the [Speech Studio](https://speech.microsoft.com/).
 2. In the upper right corner, locate and click the gear icon (settings), then select **Tenant Model settings**.
-   ![Settings menu](media/tenant-language-model/tenant-laguage-settings.png)
+   ![Settings menu](media/tenant-language-model/tenant-language-settings.png)
 3. Click **Deploy**.
 4. When your model is ready, the status will change to **Succeeded**.
 
@@ -93,7 +93,7 @@ Let's start by registering your app with AAD:
 3. Click **+New registration** to register your app.
 4. Get the **Application ID**. You'll use this with the sample code.  
 
-![App registration flow](media/tenant-language-model/tenant-laguage-model-app-registration.png)
+![App registration flow](media/tenant-language-model/tenant-language-model-app-registration.png)
 
 > [!NOTE]
 > For detailed AAD instructions, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
