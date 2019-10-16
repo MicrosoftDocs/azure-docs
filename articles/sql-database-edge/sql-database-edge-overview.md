@@ -19,7 +19,7 @@ Azure SQL Database Edge is built on the latest versions of the [Microsoft SQL Se
 
 ## Deployment Models
 
-Azure SQL Database Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Database Edge](sql-database-edge-deploy-portal.md).
+Azure SQL Database Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Database Edge](sql-database-edge-deploy-portal.md).<br>
 
 
 :::image type="content" source="media/sql-database-edge-overview/sql-database-edge-overview.png" alt-text="SQL Database Edge overview diagram":::

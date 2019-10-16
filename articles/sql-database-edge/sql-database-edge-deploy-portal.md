@@ -31,11 +31,11 @@ Azure SQL Database Edge Preview is an optimized relational database engine geare
 
 Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure SQL Database Edge can be deployed to an Edge device through the marketplace.
 
-1. Find the Azure SQL Database Edge module on the Azure Marketplace.
+1. Find the Azure SQL Database Edge module on the Azure Marketplace.<br>
 
    :::image type="content" source="media/sql-database-edge-deploy-portal/find-offer-marketplace.png" alt-text="SQL Database Edge in MarketPlace":::
 
-2. Pick the software plan that best matches your requirements and click **Create**. For more information on the editions and software plans refer [here](Insert link to overview page section on Editions)
+2. Pick the software plan that best matches your requirements and click **Create**. For more information on the editions and software plans refer [here](Insert link to overview page section on Editions).<br>
 
    :::image type="content" source="media/sql-database-edge-deploy-portal/pick-correct-plan.png" alt-text="Pick the correct software plan":::
 
