@@ -59,7 +59,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
-    Also called a reply URL, this is the endpoint to which the user is redirected by Azure AD B2C after they've completed the sign-in flow. In a production application, this is typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+    Sometimes called a reply URL, this is the endpoint to which the user (and access token or authorization code) is sent by the authorization service (in this case, Azure AD B2C) after successful authentication. In a production application, this is typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
     The following restrictions apply to redirect URIs:
 
@@ -95,7 +95,7 @@ If your application exchanges a code for a token, you need to create an applicat
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **VALUE**. You use this value for configuration in a later step.
+1. Record the secret's **VALUE**. You use this value as the application secret in your application's code.
 
 * * *
 
