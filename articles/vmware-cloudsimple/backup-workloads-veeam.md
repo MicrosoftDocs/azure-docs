@@ -165,7 +165,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
 3. Configure a network security group (NSG) for the VM. Verify that the VM does not have a public IP address and is not reachable from the public internet.
 4. Create a username and password based user account for the new VM. For instructions, see [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 5. Create 1x512 GiB standard HDD and attach it to the repository VM.  For instructions, see [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md).
-6. [Create an XFS volume on the managed disk](https://www.digitalocean.com/docs/volumes/how-to/format-and-mount). Log in to the VM using the previously mentioned credentials. Execute the following script to create a logical volume, add the disk to it, create an XFS filesystem partition and mount the partition under the /backup1 path.
+6. [Create an XFS volume on the managed disk](https://www.digitalocean.com/docs/volumes/how-to/). Log in to the VM using the previously mentioned credentials. Execute the following script to create a logical volume, add the disk to it, create an XFS filesystem [partition](https://www.digitalocean.com/docs/volumes/how-to/partition/) and [mount](https://www.digitalocean.com/docs/volumes/how-to/mount/) the partition under the /backup1 path.
 
     Example script:
 
