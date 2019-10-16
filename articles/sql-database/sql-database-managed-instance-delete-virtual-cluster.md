@@ -21,7 +21,7 @@ If you don't want to wait 12 hours and prefer to delete the virtual cluster and 
 
 > [!IMPORTANT]
 > - The virtual cluster should contain no managed instances for the deletion to be successful. 
-> - Deletion of a virtual cluster is a long running operation lasting for about an hour during which the virtual cluster will still be visible in the portal until this process is completed.
+> - Deletion of a virtual cluster is a long running operation lasting for about 1.5 hours (see [Managed instance management operations](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) for up to date virtual cluster delete time) during which the virtual cluster will still be visible in the portal until this process is completed.
 
 ## Delete virtual cluster from the Azure portal
 
@@ -33,7 +33,7 @@ After you locate the virtual cluster you want to delete, select this resource, a
 
 ![Screenshot of the Azure portal Virtual clusters dashboard, with Delete option highlighted](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Azure portal notifications will show you a confirmation that request to delete the virtual cluster has been successfully submitted. Deletion operation itself will last for about an hour during which the virtual cluster will still be visible in portal. Once the process is completed, the virtual cluster will no longer be visible and the subnet associated with it will be released for reuse.
+Azure portal notifications will show you a confirmation that request to delete the virtual cluster has been successfully submitted. Deletion operation itself will last for about 1.5 hours during which the virtual cluster will still be visible in portal. Once the process is completed, the virtual cluster will no longer be visible and the subnet associated with it will be released for reuse.
 
 > [!TIP]
 > If there are no managed instances shown in the virtual cluster, and you are unable to delete the virtual cluster, ensure that you do not have an ongoing instance deployment in progress. This includes started and canceled deployments that are still in progress (they will still use the virtual cluster preventing its deletion). Reviewing the Deployments tab of the resource group the instance was deployed to will indicate any deployments in progress. In this case, wait for deployment to complete, delete managed instance and then the virtual cluster.
