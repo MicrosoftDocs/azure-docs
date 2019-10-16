@@ -69,7 +69,7 @@
      - name: Custom rule examples
        href: ./ag/create-custom-waf-rules.md
      - name: Bot protection
-       href: bot-protection.md
+       href: ./ag/bot-protection.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
