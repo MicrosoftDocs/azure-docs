@@ -4,6 +4,10 @@
   href: overview.md
   expanded: false
   items:
+- name: Architecture and design
+  href: overview.md
+  expanded: false
+  items:
   - name: Advanced threat detection
     displayName: vulnerability, virus, IDs, incident
     href: threat-detection.md
@@ -12,14 +16,7 @@
     href: log-audit.md
   - name: Azure network security
     displayName: firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf
-    href: abstract-network-security.md
-  - name: Azure serverless platform security
-    href: abstract-serverless-platform-security.md
-  - name: Container security in Azure
-    href: abstract-container-security.md
-  - name: Enabling operational security
-    displayName: policy, policies, azure monitor, soc
-    href: abstract-operational-security.md
+    href: https://azure.microsoft.com/resources/azure-network-security/
   - name: Isolation in the Azure cloud
     displayName: trust boundary
     href: isolation-choices.md
@@ -28,8 +25,6 @@
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security technical capabilities
     href: technical-capabilities.md
-  - name: Develop secure apps on Azure
-    href: abstract-develop-secure-apps.md
 - name: Data security and encryption
   href: encryption-overview.md
   items:
@@ -90,8 +85,6 @@
           - name: Disk encryption with Azure AD app for Linux VMs 
             displayName: active directory
             href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad
-  - name: Azure Storage security
-    href: storage-overview.md
   - name: Storage security guide
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
