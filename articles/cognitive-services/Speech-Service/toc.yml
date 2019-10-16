@@ -39,18 +39,16 @@
       href: https://example.com
   - name: How-to guides
     items:
-    - name: Continuous recognition from file
+    - name: Specify source language
+      href: how-to-specify-source-language.md
+    - name: Automatic language detection
+      href: how-to-automatic-language-detection.md
+    - name: Continuous recognition
       href: shttps://example.com
-    - name: Continuous recognition from microphone
-      href: https://example.com
-    - name: Continuous recognition from stream
-      href: https://example.com
     - name: Consume compressed audio
       href: https://example.com
     - name: Select an audio input device
       href: https://example.com
-    - name: Automatic language detection
-      href: how-to-automatic-language-detection.md
   - name: Tutorials
     items:
     - name: Intent recognition with LUIS

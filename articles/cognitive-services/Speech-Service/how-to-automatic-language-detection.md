@@ -1,7 +1,7 @@
 ---
-title: 'How-to: Language ID for speech recognition - Speech Service'
+title: 'How-to: Use automatic language detection for speech to text - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: The Language ID feature in the Speech SDK enables automatic detection of the language of an audio file, which is then used to perform speech recognition.
+description: The Speech SDK supports automatic language detection for speech to text. When using this feature, the audio provided is compared against a provided list of languages, and the most likely match is determined. The returned value can then be used to select the language model used for speech to text.
 services: cognitive-services
 author: susanhu
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/04/2019
 ms.author: susanhu
 ---
 
-# Automatic language detection for speech recognition
+# Automatic language detection for speech to text
 
-Automatic language detection is used to determine the most likely match for audio passed to the Speech SDK when compared against a list of provided languages. The value returned by automatic language detection is then used to select the language model for speech recognition, providing you with a more accurate transcription. To see which languages are available, see [Language support](language-support.md).
+Automatic language detection is used to determine the most likely match for audio passed to the Speech SDK when compared against a list of provided languages. The value returned by automatic language detection is then used to select the language model for speech to text, providing you with a more accurate transcription. To see which languages are available, see [Language support](language-support.md).
 
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
@@ -23,7 +23,7 @@ In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to con
 Automatic language detection currently has a limit of two source languages on the service side that can be used for detection. Keep this in mind when construction your `AudoDetectSourceLanguageConfig` In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
 
 >[!TIP]
-> You can also specify a custom model to use when performing speech recognition. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
+> You can also specify a custom model to use when performing speech to text. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
 
 The following snippets illustrate how to use automatic language detection in your apps:
 
