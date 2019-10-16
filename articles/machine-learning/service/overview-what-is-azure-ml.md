@@ -128,7 +128,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
 
