@@ -4,7 +4,7 @@ title: Azure Advisor Documentation
 summary: Advisor scans your Azure configuration and recommends changes to optimize deployments, increase security and save you money. 
 
 metadata:
-  title: Azure Monitor Documentation
+  title: Azure Advisor Documentation
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
   services: azure-monitor
   ms.service: azure-monitor
@@ -19,13 +19,16 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card 
-  - title: About Azure Monitor
+  - title: About Azure Advisor
     linkLists:
       - linkListType: overview
         links:
           - text: Learn about Azure Advisor
             url: advisor-overview.md
-
+      - linkListType: video
+        links:
+          - text: Azure Advisor videos
+            url: https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor
   # Card 
   - title: Get Started   
     linkLists:     
