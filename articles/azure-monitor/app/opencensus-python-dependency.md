@@ -1,6 +1,6 @@
 ---
 title: Dependency Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
-description: Monitor dependency calls for your python apps via Python OpenCensus.
+description: Monitor dependency calls for your Python apps via OpenCensus Python.
 services: application-insights
 author: lzchen
 manager: carmonm
@@ -17,8 +17,7 @@ ms.author: lechen
 
 # Track dependencies with OpenCensus Python
 
-A dependency is an external component that is called by your app. For Python app, dependency data is collected via Python OpenCensus and then sent to Azure Application Insights through Azure Exporter.
-
+A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor.
 
 First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
@@ -170,5 +169,8 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## Next steps
 
-* [Python OpenCensus](../../azure-monitor/app/opencensus-python.md)
+* [Application Map](../../azure-monitor/app/app-map.md)
 * [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Search](../../azure-monitor/app/diagnostic-search.md)
+* [Log (Analytics) query](../../azure-monitor/log-query/log-query-overview.md)
+* [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
