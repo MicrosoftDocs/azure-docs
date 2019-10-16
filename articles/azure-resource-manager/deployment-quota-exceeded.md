@@ -5,7 +5,7 @@ author: tfitzmac
 
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/01/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
 ---
 
@@ -27,6 +27,18 @@ Use the [az group deployment delete](/cli/azure/group/deployment#az-group-deploy
 az group deployment delete --resource-group exampleGroup --name deploymentName
 ```
 
+To delete all deployments older than five days, use:
+
+```azurecli-interactive
+startdate=$(date +%F -d "-5days")
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+
+for deployment in $deployments
+do
+  az group deployment delete --resource-group exampleGroup --name $deployment
+done
+```
+
 You can get the current count in the deployment history with the following command:
 
 ```azurecli-interactive
@@ -41,9 +53,25 @@ Use the [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remov
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
 ```
 
+To delete all deployments older than five days, use:
+
+```azurepowershell-interactive
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -lt ((Get-Date).AddDays(-5))
+
+foreach ($deployment in $deployments) {
+  Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
+}
+```
+
 You can get the current count in the deployment history with the following command:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup).Count
 ```
 
+## Third-party solutions
+
+The following external solutions address specific scenarios:
+
+* [Azure Logic Apps and PowerShell solutions](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
+* [AzDevOps Extension](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)

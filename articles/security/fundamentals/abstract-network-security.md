@@ -2,8 +2,8 @@
 
 title: Abstract-Azure Network Security
 description: Abstract for the Azure Network Security white paper.
-author: TomShinder
-ms.author: TomSh
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 08/08/2018
 ms.topic: article
 ms.service: security
@@ -19,4 +19,3 @@ The intended audiences for this white paper include:
 
 
 [Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-network-security/Azure%20Network%20Security.pdf)
-

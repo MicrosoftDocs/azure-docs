@@ -13,7 +13,7 @@ ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
-# Quickstart: Control a device connected to an IoT hub (Node.js)
+# Quickstart: Use Node.js to control a device connected to an Azure IoT hub
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 

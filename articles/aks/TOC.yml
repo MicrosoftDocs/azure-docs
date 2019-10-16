@@ -191,6 +191,8 @@
     items:
     - name: Create service principal
       href: kubernetes-service-principal.md
+    - name: Use managed identities (preview)
+      href: use-managed-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
@@ -213,8 +215,6 @@
           href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
-    - name: Authenticate with ACR
-      href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
   - name: Monitoring and logging
     items:

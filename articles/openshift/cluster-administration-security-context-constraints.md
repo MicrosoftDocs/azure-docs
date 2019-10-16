@@ -1,6 +1,6 @@
 ---
-title: Managing security context constraints in Azure Red Hat OpenShift | Microsoft Docs
-description:  Azure Red Hat OpenShift cluster administrator managing security context constraints
+title: Manage security context constraints in Azure Red Hat OpenShift | Microsoft Docs
+description:  Security context constraints for Azure Red Hat OpenShift cluster administrators
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 09/25/2019
 #Customer intent: As a developer, I need to understand how to manage security context constraints.
 ---
-# Overview 
+# Manage security context constraints in Azure Red Hat OpenShift 
 
-Security context constraints allow administrators to control permissions for pods. To learn more about this API type, see the [security context constraints](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html) (SCCs) architecture documentation. You can manage SCCs in your instance as normal API objects using the CLI.
+Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
 
-## Listing security context constraints
+## List security context constraints
 
-To get a current list of SCCs 
+To get a current list of SCCs, use this command: 
 
 ```bash
 $ oc get scc
@@ -31,9 +31,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## Examining a security context constraints object
+## Examine an object for security context constraints
 
-To examine a particular SCC, use `oc get`, `oc describe`, or `oc edit`.  For example, to examine the **restricted** SCC:
+To examine a particular SCC, use `oc get`, `oc describe`, or `oc edit`.  For example, to examine the **restricted** SCC, use this command:
 ```bash
 $ oc describe scc restricted
 Name:					restricted
@@ -68,6 +68,5 @@ Settings:
     Ranges:				<none>
 ```
 ## Next steps
-How to configure osa-customer-admin role:
 > [!div class="nextstepaction"]
-> [Azure Active Directory integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md) 
+> [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) 
