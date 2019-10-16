@@ -62,25 +62,34 @@ The following example steps demonstrate how to configure cluster role binding fr
     metadata: 
        name: containerHealth-log-reader 
     rules: 
-       - apiGroups: [""] 
-         resources: ["pods/log", "events"] 
-         verbs: ["get", "list"]  
+        - apiGroups: ["", "metrics.k8s.io", "extensions", "apps"] 
+          resources: 
+             - "pods/log" 
+             - "events" 
+             - "nodes" 
+             - "pods" 
+             - "deployments" 
+             - "replicasets" 
+          verbs: ["get", "list"] 
     --- 
     apiVersion: rbac.authorization.k8s.io/v1 
     kind: ClusterRoleBinding 
     metadata: 
        name: containerHealth-read-logs-global 
     roleRef: 
-        kind: ClusterRole 
-        name: containerHealth-log-reader 
-        apiGroup: rbac.authorization.k8s.io 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
+       apiGroup: rbac.authorization.k8s.io 
     subjects: 
-       - kind: User 
-         name: clusterUser 
-         apiGroup: rbac.authorization.k8s.io
+    - kind: User 
+      name: clusterUser 
+      apiGroup: rbac.authorization.k8s.io 
     ```
 
 2. To update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
+
+>[!NOTE] 
+> If you have a previous version of the yaml file applied to your cluster, <update using the new code above and then run the command to apply>
 
 ## Kubernetes AD integrated authentication (existing cluster)
 
