@@ -27,7 +27,7 @@ An overview of these use scenarios is described in the following sections.
 
 ## Introduction
 
-Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights is an end-to-end, platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
@@ -91,7 +91,7 @@ Time Series Insights bridges the gap between IoT data and advanced analytics in 
 
     Time Series Insights can serve as the source of truth for all data across an organization. It creates a central repository for downstream analytics workloads to consume. Because Time Series Insights is a near real-time storage service, advanced analytics models can learn continuously from incoming IoT telemetry data. As a result, the models can make more accurate predictions.
 
-- Second, Time Series Insights can be fed the output of machine learning and prediction models to visualize and store their results. This procedure helps organizations to optimize and tweak their models. Time Series Insights makes it simple to visualize streaming telemetry data on the same plane as the trained model outputs. In this way, it helps data science teams spot anomalies and identify patterns.  
+- Second, the output of machine learning and prediction models can be fed into Time Series Insights to visualize and store their results.  This procedure helps organizations to optimize and tweak their models. Time Series Insights makes it simple to visualize streaming telemetry data on the same plane as the trained model outputs. In this way, it helps data science teams spot anomalies and identify patterns.  
 
 ## Next steps
 
