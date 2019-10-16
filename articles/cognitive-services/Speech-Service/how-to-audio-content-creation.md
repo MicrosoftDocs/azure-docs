@@ -22,7 +22,7 @@ The Audio Content Creation tool is based on [Speech Synthesis Markup Language (S
 
 This diagram shows the steps it takes to tune and export customized speech-to-text outputs. Use the links below to learn more about each step.
 
-![](media/audio-content-generation/audio_content_generation_diagram.png)
+![](media/audio-content-creation/audio_content_creation_diagram.png)
 
 1. The first step is to [create an Azure account, register a Speech resource, and get a subscription key](#create-a-speech-resource). Once you have a subscription key, you can use it to call the Speech service, and to access [Audio Content Creation](https://aka.ms/audiocontentcreation).
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML.
