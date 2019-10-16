@@ -13,7 +13,7 @@ ms.topic: overview
 
 Azure Web Application Firewall (WAF) on Azure Application Gateway provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
-WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
+WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0, or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed. 
 
 ![Application Gateway WAF diagram](../media/ag-overview/waf1.png)
 
@@ -31,6 +31,8 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 100 websites that are protected by a web application firewall.
 
+* Protect your web applications from malicious bots with the IP Reputation ruleset
+
 ### Monitoring
 
 * Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](../../azure-monitor/overview.md) to track WAF alerts and easily monitor trends.
@@ -40,6 +42,8 @@ This section describes the core benefits that WAF on Application Gateway provide
 ### Customization
 
 * You can customize WAF rules and rule groups to suit your application requirements and eliminate false positives.
+
+* You can associate a WAF Policy for each site behind your WAF to allow for site-specific configuration
 
 ## Features
 
@@ -58,6 +62,15 @@ This section describes the core benefits that WAF on Application Gateway provide
 Application Gateway supports three rule sets: CRS 3.1, CRS 3.0, and CRS 2.2.9. These rules protect your web applications from malicious activity.
 
 For more information, see [Web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+
+### Bot Mitigation (preview)
+
+A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
+
+> [!NOTE]
+> Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
+If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics.
 
 ### WAF modes
 
