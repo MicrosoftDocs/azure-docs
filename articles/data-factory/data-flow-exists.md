@@ -43,7 +43,7 @@ To create a free-form expression that contains operators other than "and" and "e
 <leftStream>, <rightStream>
     exists(
         <conditionalExpression>,
-        negate: true | <false>,
+        negate: { true | false },
         broadcast: {'none' | 'left' | 'right' | 'both'}
     ) ~> <existsTransformationName>
 ```
