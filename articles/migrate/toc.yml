@@ -66,7 +66,7 @@
     href: how-to-set-up-appliance-vmware.md
   - name: Deploy a Hyper-V appliance
     href: how-to-set-up-appliance-hyper-v.md
-  - name: Discover applications, roles and features
+  - name: Discover apps/roles/features
     href: how-to-discover-applications.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
