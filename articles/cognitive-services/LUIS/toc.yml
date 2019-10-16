@@ -199,6 +199,8 @@
         href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
+    - name: For Developers
+      href: developer-reference-resource.md
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
