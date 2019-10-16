@@ -338,6 +338,12 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 > [!NOTE]
 > Confidence ratings are not assigned to assessments of servers imported using .CSV file into Azure Migrate. 
 
+## Updating server information
+
+You can update a server information by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field. 
+
+Deleting servers is currently not supported.
+
 ## Next steps
 
 In this tutorial, you:
