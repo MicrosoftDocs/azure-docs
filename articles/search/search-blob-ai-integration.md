@@ -90,7 +90,7 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
-## Using AI-enriched output in downstream solutions
+## Use AI-enriched output in downstream solutions
 
 The output of AI enrichment is either a search index on Azure Search, or a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage.
 
