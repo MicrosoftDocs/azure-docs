@@ -16,25 +16,43 @@ ms.author: donkim
 In this article, you'll learn how to create and test a hosted Custom Speech Commands application.
 The application will recognize an utterance like "turn on the tv" and respond with a simple message "Ok, turning on the tv".
 
-> [!TIP]
-> In the previous quickstart you created a Speech subscription key and a LUIS authoring key
-> 
-> [Quickstart: Create Resources for Custom Speech Commands (Preview)](./quickstart-custom-speech-commands-resources.md)
+## Prerequisites
 
-## Sign in to the Custom Speech portal
+You'll need a Speech subscription key
+[Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
+
+> [!NOTE]
+> During preview, only the westus2 region is supported for subscription keys.
+
+You'll also need a LUIS authoring key.
+- Create a Language Understanding resource
+- Select Authoring as the create option
+- ![Create authoring resource](media/custom-speech-commands/resources-LUIS-authoring.png)
+- From the resource, select Keys under Resource Management
+- Copy and securely store one of the keys
+- ![Copy authoring key](media/custom-speech-commands/resources-LUIS-authoring-key.png)
+
+## Go to the Speech Studio for Custom Commands
 Open your web browser, and navigate to the [Custom Speech portal](https://speech.microsoft.com/)
 Enter your credentials to sign in to the portal. The default view is your list of Speech subscriptions.
 
-## Create a Custom Speech Commands application
-Select the Speech subscriptions that you previously created, then select "Go to Studio"
+> [!NOTE]
+> If you don't see the select subscription page, you can navigate to it by choosing "Select a resource" from the settings menu on the top bar.
 
-Select "Custom Speech Commands (Preview)".  The default view is your list of Custom Speech Commands applications
+Select the subscription that you created in the previous step. Then select "Go to studio".
 
-Next create a new Speech Commands application.
+Select Custom Commands (Preview)
+The default view should be a list of your created Custom Commands applications
+
+## Create a Custom Commands application
+
+Create a new application
 
 Name "Device Control Quickstart"
 Language - en-us
 Region - West US 2
+
+Your default view should now be an overview of your Commands application
 
 ## Create a new Command
 
@@ -45,15 +63,21 @@ Group|Description
 Sample Sentences|Example utterances the user can say to trigger this Command
 Parameters|Information required to complete the Command
 Completion Rules|The actions to be taken to fulfill the Command
-Advanced Rules|Additional rules to handle more specific or complex situation
+Advanced Rules|Additional rules to handle more specific or complex situations
 
-Create a new Command "TurnOn"
-CompletionStrategy OnRequiredParameters
+Let's create an example Command that will take a single utterance and respond with a message.  Later articles will extend this example.
 
-Give an example for what the user will say in Sample Sentences
-"turn on the tv"
+Create a new Command "TurnOn" and select CompletionStrategy OnRequiredParameters.
 
-Because we have no parameters, invoking this command should always run the Completion Rules.
+You should now see sections for Sample Sentences, Parameters, Completion Rules, and Advanced Rules.
+
+### Sample Sentences
+
+Let's start with Sample Sentences and provide an example of what the user can say:
+- "turn on the tv"
+
+### Completion Rules
+For now, we have no parameters so we can move on to Completion rules.
 
 Now add a Completion rule to respond to the user indicating that an action is being taken.
 
@@ -65,11 +89,13 @@ Rule Name | Confirmation Message |A name describing the purpose of the rule
 Conditions|True|Conditions that determine when the rule can run
 Actions|SpeechResponse - "Ok, turning on the TV"|The action to take when the rule condition is true.
 
+That's all we need to handle this interaction.
+
 ## Try it out
 Test the behavior using the Test chat panel
 
-type - "turn on the tv"
-response - "Ok, turning on the tv"
+- A: "turn on the tv"
+- B: "Ok, turning on the tv"
 
 ## Next steps
 > [!div class="nextstepaction"]
