@@ -1,6 +1,6 @@
 ---
-title: Aggregate transformation in Mapping Data Flow - Azure Data Factory | Microsoft Docs
-description: Learn how to aggregate data at scale in Azure Data Factory with the Mapping Data Flow Aggregate transformation.
+title: Aggregate transformation in mapping data flow - Azure Data Factory | Microsoft Docs
+description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ---
 
-# Aggregate transformation in Mapping Data Flow 
+# Aggregate transformation in mapping data flow 
 
 
 
