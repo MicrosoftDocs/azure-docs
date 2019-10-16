@@ -45,6 +45,8 @@
        items:
         - name: Create a NAT Gateway - Azure CLI
           href: quickstart-create-nat-gateway-cli.md
+        - name: Create a NAT Gateway - Azure PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
      - name: Tutorials
        items:
         - name: Create and validate NAT gateway - Azure CLI
