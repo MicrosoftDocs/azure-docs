@@ -65,17 +65,20 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free training, try:
 
-**Automated machine learning UI**
++ **Azure Machine Learning designer**
 
-Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
 
-[![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-**The designer**
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
 
-You can [drag-n-drop modules to experiment with the designer](ui-tutorial-automobile-price-train-score.md).
++ **Automated machine learning UI**
 
-![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+
+  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
 
 ### Deploy & operationalize (MLOps)
 
