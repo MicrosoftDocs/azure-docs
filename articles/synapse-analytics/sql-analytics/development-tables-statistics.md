@@ -15,7 +15,7 @@ ms.custom:
 
 # Statistics in SQL Analytics
 
-For recommendations and examples for creating and updating query-optimization statistics on tables in SQL Analytics pool check sections below, for SQL Analytics on demand check [Statistics in SQL Analytics on demand](#SQL-Analytics-on-demand).
+For recommendations and examples for creating and updating query-optimization statistics on tables in SQL Analytics pool check sections below. For SQL Analytics on demand check [Statistics in SQL Analytics on demand](#SQL-Analytics-on-demand).
 
 ## Why use statistics
 
@@ -518,7 +518,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 # Statistics in SQL Analytics on demand
 
-Recommendations and examples for creating and updating query-optimization statistics on files in SQL Analytics on demand. Please note that statistics are created per particular column for particular dataset (OENROWSET path).
+Statistics are created per particular column for particular dataset (OENROWSET path).
 
 ## Why use statistics
 
@@ -537,7 +537,7 @@ Automatic creation of statistics is done synchronously so you may incur slightly
 
 ## Manual creation of statistics
 
-SQL Analytics on demand lets you create statistics manually. It is important to note that for CSV files you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. This will be worked on in the future. Please check examples below for instructions on how to create statistics manually.
+SQL Analytics on demand lets you create statistics manually. For CSV files you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. See examples below for instructions on how to create statistics manually.
 
 ## Updating statistics
 
@@ -545,9 +545,9 @@ Changes to data in files, deleting and adding files result in data distribution 
 
 SQL Analytics on demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, current state of the dataset it also saved - file paths, sizes, last modification dates.
 
-Every time query optimizer needs statistics, it is checked whether they are stale and whether new should be created. The algorithm goes through the stored data and compares it to the current state of the dataset. If the size of changes (files deleted, added, changed) is greater than specific threshold, old stats are deleted and will be created again over the new dataset.
+If statistics are stale, new ones are created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of changes (files deleted, added, changed) is greater than specific threshold, old stats are deleted and will be created again over the new dataset.
 
-Manual stats are never declared stale nor dropped automatically.
+Manual stats are never declared stale.
 
 [!NOTE]
 Automatic recreation of statistics is turned on for Parquet files. For CSV files you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check examples below on how to drop and create statistics.
@@ -563,14 +563,14 @@ For more information, see general guidance for [Statistics](/sql/relational-data
 
 ## Implementing statistics management
 
-It is often a good idea to extend your data pipeline to ensure that statistics are updated when data is significantly changed thru addition, deletion or change of files.
+You may want to extend your data pipeline to ensure that statistics are updated when data is significantly changed through addition, deletion or change of files.
 
 The following guiding principles are provided for updating your statistics:
 
-- Ensure that each OPENROWSET path has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
+- Ensure that dataset has at least one statistics object updated. This updates size (row count and page count) information as part of the statistics update.
 - Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-- Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
-- Consider updating static distribution columns less frequently.
+- Update "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+- Update static distribution columns less frequently.
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
@@ -585,7 +585,7 @@ To create statistics on a column, provide query that returns column you need sta
 By default, SQL Analytics pool samples **5 percent** of each file in dataset when it creates statistics.
 
 [!NOTE]
-Please note that CSV sampling reads rows from top of file which means that sample will not be representative if your data is sorted by particular column within file. Sampling will be improved in the future so it will take percentage of rows from across the file, not only from beginning. It is recommended to use FULLSCAN for CSV datasets. 
+CSV sampling reads rows from top of file. Sampling will be improved in the future so it will take percentage of rows from across the file, not only from beginning. For this reason, it is recommended to use FULLSCAN for CSV datasets. 
 
 For example, to create statistics for year column for dataset based on population.csv file:
 
@@ -626,7 +626,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 ### Create single-column statistics by specifying the sample size
 
-Alternatively, you can specify the sample size as a percent:
+You can specify the sample size as a percent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
@@ -636,7 +636,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 To update statistics, you need to drop and create statistics.
 
-For example, to update statistics for year column for dataset based on population.csv file, you need to drop statistics (using sp_drop_file_statistics) and create statistics as in example above:
+To update statistics for year column for dataset based on population.csv file, you need to drop and create statistics:
 
 ```sql
 EXEC sys.sp_drop_file_statistics N'SELECT year 
