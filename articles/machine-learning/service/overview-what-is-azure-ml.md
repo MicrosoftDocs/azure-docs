@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/20/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
@@ -59,7 +59,7 @@ For code-free training, try:
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
 
 + **Automated machine learning UI**
 
@@ -131,7 +131,7 @@ Try out the designer with [Tutorial: Predict automobile price with the designer]
 
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use Rmarkdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
 
