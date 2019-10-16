@@ -146,7 +146,7 @@ The Mv2-series features high throughput, low latency platform running on a hyper
 
 Mv2-series VM’s feature Intel® Hyper-Threading Technology  
 
-<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](../articles/virtual-machines/windows/generation-2.md) for instructions on how to find and select an image.
+<sup>1</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](../articles/virtual-machines/linux/generation-2.md) for instructions on how to find and select an image.
 
 <sup>2</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only: “GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
 
