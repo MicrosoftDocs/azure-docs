@@ -42,21 +42,18 @@ Log in to the Azure portal at https://portal.azure.com.
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+3. On the **Basics** page, enter or select the following information and accept the defaults for the remaining settings:
 
     |Setting|Value|
     |---|---|
-    |Name|myVirtualNetwork1|
-    |Address space|10.0.0.0/16|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter *myResourceGroup*.|
-    |Location| Select **East US**.|
-    |Subnet Name|Subnet1|
-    |Subnet Address range|10.0.0.0/24|
-
-      ![Create a virtual network](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. Complete steps 1-3 again, with the following changes:
+    |Region| Select **East US**.|
+    |Name|myVirtualNetwork1|
+    ![Configure basic virtual network settings] (
+4. On the **IP Addresses** page, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
+   
+5. Complete steps 1-3 again, with the following changes:
 
     |Setting|Value|
     |---|---|
@@ -101,24 +98,26 @@ Create a VM in each virtual network so that you can communicate between them in 
 
     |Setting|Value|
     |---|---|
+    |Resource group| Select **Use existing** and then select **myResourceGroup**.|
     |Name|myVm1|
+    |Location| Select **East US**.|
     |User name| Enter a user name of your choosing.|
     |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Select **Use existing** and then select **myResourceGroup**.|
-    |Location| Select **East US**.|
-4. Select a VM size under **Choose a size**.
-5. Select the following values for **Settings**, then select **OK**:
+   
+4. Select a VM size for the **Size** option.
+5. Select the following values for under **Networking**:
 
     |Setting|Value|
     |---|---|
-    |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1** under **Choose virtual network**.|
-    |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1** under **Choose subnet**.|
+    |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1**.|
+    |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1**.|
     
+
     ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
- 
-6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
+
+7. Select the **Review + Create** button in the lower, left-hand corner to start the VM deployment.
 
 ### Create the second VM
 
