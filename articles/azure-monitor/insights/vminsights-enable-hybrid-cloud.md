@@ -261,5 +261,3 @@ Now that monitoring is enabled for your virtual machines, this information is av
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
-
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

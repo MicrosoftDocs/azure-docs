@@ -31,7 +31,7 @@ The features are organized into three perspectives:
 
 - Health
 - Performance
- Map
+- Map
 
 >[!NOTE]
 >We recently [announced changes](https://azure.microsoft.com/updates/upcoming-changes-for-azure-monitor-for-vms-as-we-prepare-for-ga) we are making changes to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md).  

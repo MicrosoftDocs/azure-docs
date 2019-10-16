@@ -142,7 +142,7 @@ The download file contains the following templates for different scenarios:
 - **NewVmOnboarding** template creates a virtual machine and enables Azure Monitor for VMs to monitor it.
 - **ExistingVmssOnboarding** template enables Azure Monitor for VMs if the virtual machine scale set already exists.
 - **NewVmssOnboarding** template creates virtual machine scale sets and enables Azure Monitor for VMs to monitor them.
-- **ConfigureWorksapce** template configures your Log Analytics workspace to support Azure Monitor for VMs by enabling the solutions and collection of Linux and Windows operating system performance counters.
+- **ConfigureWorkspace** template configures your Log Analytics workspace to support Azure Monitor for VMs by enabling the solutions and collection of Linux and Windows operating system performance counters.
 
 >[!NOTE]
 >If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
@@ -346,5 +346,3 @@ Now that monitoring is enabled for your virtual machines, this information is av
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md). 
-
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
