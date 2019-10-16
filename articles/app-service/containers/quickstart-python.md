@@ -1,5 +1,5 @@
 ---
-title: Create Python app on Linux - Azure App Service | Microsoft Docs
+title: 'Quickstart: Create Python app on Linux - Azure App Service'
 description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
+ms.custom: seo-python-october2019
 
 experimental: true
 experiment_id: 1e304dc9-5add-4b
 ---
-# Create a Python app in Azure App Service on Linux
+# Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
+In this article, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
 
-![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
+![Run a sample Python app in App Service in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 ## Prerequisites
 
@@ -67,7 +68,7 @@ Open a web browser, and go to the sample app at `http://localhost:5000/`.
 
 You see the **Hello World!** message from the sample app displayed in the page.
 
-![Sample app running locally](media/quickstart-python/hello-world-in-browser.png)
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -150,7 +151,7 @@ http://<app-name>.azurewebsites.net
 
 The Python sample code is running in App Service on Linux with a built-in image.
 
-![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
+![Run a sample Python app in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Congratulations!** You've deployed your first Python app to App Service on Linux.
 
@@ -158,7 +159,7 @@ The Python sample code is running in App Service on Linux with a built-in image.
 
 In the Cloud Shell, enter `code application.py` to open the Cloud Shell editor.
 
-![Code application.py](media/quickstart-python/code-applicationpy.png)
+![Open application.py in the Cloud Shell editor](./media/quickstart-python/open-application-py-in-the-cloud-shell-editor.png)
 
  Make a small change to the text in the call to `return`:
 
@@ -176,7 +177,7 @@ az webapp up -n <app-name> -l <location-name>
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
+![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 ## Manage your new Azure app
 
@@ -184,11 +185,11 @@ Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to
 
 From the left menu, select **App Services**, and then select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/quickstart-python/app-service-list.png)
+![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
 You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service page in Azure portal](media/quickstart-python/app-service-detail.png)
+![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
 The left menu provides different pages for configuring your app. 
 
