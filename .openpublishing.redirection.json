@@ -15811,6 +15811,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
