@@ -102,7 +102,7 @@
         - name: Resource Manager template
           href: ipv6-configure-template-json.md
       - name: In-place upgrade
-        href: ipv6-add-to-existing-vnet.md
+        href: ipv6-add-to-existing-vnet-powershell.md
       - name: Standard Public Load Balancer
         items: 
         - name: Azure PowerShell

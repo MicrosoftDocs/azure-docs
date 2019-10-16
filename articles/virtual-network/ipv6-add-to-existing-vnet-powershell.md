@@ -50,7 +50,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ### Create a Standard Load Balancer
-This article assumes that you deployed a Standard Load Balancer as described in [QuickStart: Create a Standard Load Balancer - Azure PowerShell](quickstart-create-standard-load-balancer-powershell.md).
+This article assumes that you deployed a Standard Load Balancer as described in [QuickStart: Create a Standard Load Balancer - Azure PowerShell](./load-balancer/quickstart-create-standard-load-balancer-powershell.md).
 
 ## Retrieve the resource group
 
