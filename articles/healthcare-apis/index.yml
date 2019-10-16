@@ -22,7 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
-      text: Learn how Azure API for FHIR can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" alt="link" height="15" width="15"></img>.
+      text: Learn how Azure API for FHIR can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
     - type: table
       style: dataMatrix
       columns:
