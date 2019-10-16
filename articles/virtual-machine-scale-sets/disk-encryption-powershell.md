@@ -2,20 +2,14 @@
 title: Encrypt disks for Azure scale sets with Azure PowerShell | Microsoft Docs
 description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows virtual machine scale set
 services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
-ms.author: cynthn
+ms.date: 10/15/2019
+ms.author: mbaldwin
 
 ---
 
