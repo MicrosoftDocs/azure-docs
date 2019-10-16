@@ -3192,6 +3192,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/sql-database-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SQL Database Edge</h3>
+                                                    <p>Azure SQL Database Edge is a relational database engine optimized for IoT and Edge deployments.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
