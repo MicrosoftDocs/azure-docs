@@ -72,12 +72,14 @@
   items:
   - name: Classroom labs - class types
     items:
-    - name: Class types
+    - name: Class types overview
       href: classroom-labs/class-types.md
     - name: Deep learning in natural processing
       href: classroom-labs/class-type-deep-learning-natural-processing.md
     - name: Shell scripting on Linux
       href: classroom-labs/class-type-shell-scripting-linux.md
+    - name: Ethical hacking
+      href: classroom-labs/class-type-ethical-hacking.md
   - name: Classroom labs
     items: 
     - name: Create and configure lab accounts (lab account owner)
@@ -94,20 +96,22 @@
       items:        
       - name: Create and manage classroom labs
         href: classroom-labs/how-to-manage-classroom-labs.md
-      - name: Set up and publish templates
+      - name: Set up, customize, and publish templates
         href: classroom-labs/how-to-create-manage-template.md
-      - name: Configure and control usage
+      - name: Set up and manage virtual machine pool 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
+      - name: Add and manage lab users
         href: classroom-labs/how-to-configure-student-usage.md      
       - name: Create and manage schedules
         href: classroom-labs/how-to-create-schedules.md
-      - name: Create an environment with multiple VMs inside a template VM
-        href: classroom-labs/how-to-enable-multi-vm-environment.md
       - name: Use a shared image gallery
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
-      - name: Set or reset passwords for virtual machines 
-        href: classroom-labs/how-to-set-virtual-machine-passwords.md
+      - name: Enable nested virtualization on a template VM
+        href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+      - name: Create an environment with multiple VMs inside a template VM
+        href: classroom-labs/how-to-enable-multi-vm-environment.md
     - name: Connect to VMs in classroom labs (student)
       items:        
       - name: Access classroom labs
@@ -220,6 +224,8 @@
         href: connect-environment-lab-virtual-network.md
       - name: Configure test environments with nested templates
         href: deploy-nested-template-environments.md
+      - name: Use Azure managed identities to deploy environments
+        href: use-managed-identities-environments.md
     - name: Manage reusable templates
       items: 
       - name: Custom images vs. formulas

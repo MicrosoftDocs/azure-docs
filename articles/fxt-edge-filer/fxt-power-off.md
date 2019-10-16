@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # How to safely power off Azure FXT Edge Filer hardware

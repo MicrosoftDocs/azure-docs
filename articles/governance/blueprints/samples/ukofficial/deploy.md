@@ -1,13 +1,12 @@
 ---
-title: Sample - UK OFFICIAL and UK NHS blueprint - Deploy steps
-description: Deploy steps of the UK OFFICIAL and UK NHS blueprint samples.
+title: UK OFFICIAL & UK NHS blueprint samples - Deploy steps
+description: Deploy steps for the UK OFFICIAL and UK NHS blueprint samples including blueprint artifact parameter details.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Deploy the UK OFFICIAL and UK NHS blueprint samples
 

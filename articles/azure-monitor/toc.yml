@@ -119,6 +119,10 @@
       href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
+  - name: Monitoring scenarios
+    items:
+    - name: Monitor Azure service
+      href: insights/monitor-azure-resource.md
   - name: Manage Azure Monitor
     items:
     - name: Design a workspace deployment
@@ -198,10 +202,10 @@
             href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
           - name: Troubleshoot
             href: app/java-troubleshoot.md
-        - name: Node.js apps
-          items:
-          - name: Node.js
-            href: app/nodejs.md
+        - name: Node.js 
+          href: app/nodejs.md
+        - name: Python
+          href: app/opencensus-python.md
         - name: Web pages
           items:
           - name: Client-side JavaScript
@@ -213,7 +217,7 @@
           href: app/asp-net-troubleshoot-no-data.md
       - name: Codeless monitoring
         items: 
-        - name: Azure VM and Azure virtual machine scale set
+        - name: Azure VM and scale set
           href: app/azure-vm-vmss-apps.md
         - name: Azure App Service
           displayname: App Service, web app, PaaS, Azure web app
@@ -227,10 +231,10 @@
         - name: Kubernetes applications
           displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
           href: app/kubernetes.md
-        - name: Status Monitor 
+        - name: Status Monitor (legacy)
           displayname: IIS monitoring, on premises monitoring, on prem, 
           href: app/monitor-performance-live-website-now.md
-        - name: Status Monitor v2 
+        - name: On-Premises servers
           items:
           - name: Overview
             displayname: IIS monitoring, on premises monitoring, on prem, 
@@ -276,6 +280,9 @@
         - name: Multi-step tests
           displayname: availability, GSM, visual studio web test, web test
           href: app/availability-multistep.md
+        - name: Availability + Azure Functions
+          href: app/availability-azure-functions.md
+          displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayname: alerts, global, alerting
           href: app/availability-alerts.md
@@ -293,8 +300,6 @@
           displayname: correlation headers, w3c, distributed tracing, tracing
         - name: Local forwarder
           href: app/opencensus-local-forwarder.md
-        - name: Python
-          href: app/opencensus-python.md
         - name: Go
           href: app/opencensus-go.md
       - name: Live Metric stream
@@ -602,6 +607,8 @@
           href: insights/vminsights-overview.md
         - name: Known issues
           href: insights/vminsights-known-issues.md
+        - name: General Availability FAQ
+          href: insights/vminsights-ga-release-faq.md  
         - name: FAQ
           href: insights/vminsights-faq.md
         - name: Enable monitoring
@@ -830,6 +837,8 @@
           href: log-query/app-expression.md
         - name: workspace expression
           href: log-query/workspace-expression.md   
+        - name: resource expression
+          href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
       - name: Examples and guidance

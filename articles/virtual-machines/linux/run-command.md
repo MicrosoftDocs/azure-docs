@@ -35,6 +35,19 @@ The following are a list of restrictions that are present when using Run Command
 > [!NOTE]
 > To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
+## Available Commands
+
+This table shows the list of commands available for Linux VMs. The **RunShellScript** command can be used to run any custom script you want. When using Azure CLI or PowerShell to run a command, the value you provide for the `--command-id` or `-CommandId` parameter must be one of the values listed below. When you specify a value that is not an available command, you receive the error.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Name**|**Description**|
+|---|---|
+|**RunShellScript**|Executes a Linux shell script.|
+|**ifconfig**| Get the configuration of all network interfaces.|
+
 ## Azure CLI
 
 The following is an example using the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
@@ -61,14 +74,13 @@ Once the command is chosen, click **Run** to run the script. The script runs and
 
 ![Run command script output](./media/run-command/run-command-script-output.png)
 
-## Available Commands
+### PowerShell
 
-This table shows the list of commands available for Linux VMs. The **RunShellScript** command can be used to run any custom script you want.
+The following is an example using the [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
 
-|**Name**|**Description**|
-|---|---|
-|**RunShellScript**|Executes a Linux shell script.|
-|**ifconfig**| Get the configuration of all network interfaces.|
+```powershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+```
 
 ## Limiting access to Run Command
 
