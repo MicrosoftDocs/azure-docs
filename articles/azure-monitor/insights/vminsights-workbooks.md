@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.date: 10/15/2019
 ms.author: magoedte
 ---
 
@@ -247,4 +247,7 @@ To pin a link to a workbook to an Azure Dashboard:
 3. Click **Pin to dashboard**.
 
 ## Next steps
-To learn how to use the health feature, see [View Azure VM Health](vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
+
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
+
+- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

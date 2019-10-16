@@ -14,7 +14,7 @@ ms.author: diberry
 
 ---
 
-# Quickstart: Personalize client library for .NET
+# Quickstart: Personalizer client library for .NET
 
 Display personalized content in this C# quickstart with the Personalizer service.
 
