@@ -36,11 +36,15 @@ In this walkthrough, you:
 ## Prerequisites
 
 - Python 3.4 or later, with `pip` installed and updated.
+  
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+  
 - An active Event Hubs namespace and event hub, created by following the instructions at [Quickstart: Create an event hub using Azure portal](event-hubs-create.md). Make a note of your namespace and event hub names to use later in this walkthrough. 
+  
   > [!NOTE]
   > If you already have a storage container to use, you can enable Capture and select the storage container when you create the Event Hub. 
   > 
+  
 - Your Event Hubs shared access key name and primary key value. Find or create these values under **Shared access policies** on your Event Hubs page. The default access key name is **RootManageSharedAccessKey**. Copy the access key name and the primary key value to use later in this walkthrough. 
 
 ## Create an Azure Blob storage account and container
