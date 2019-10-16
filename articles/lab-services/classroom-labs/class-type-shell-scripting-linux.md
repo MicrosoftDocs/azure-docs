@@ -37,7 +37,7 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Small  |
 | VM image | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
+| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## Install desktop and xrdp
@@ -93,9 +93,9 @@ This article walked you through the steps to create a lab for scripting classes.
 Next steps are common to setting up any lab:
 
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users). 
 
 
 
