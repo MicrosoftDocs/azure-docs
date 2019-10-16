@@ -12,7 +12,7 @@ ms.author: dapine
 
 The container provides [REST-based endpoint APIs](../rest-text-to-speech.md). There are many [sample source code projects](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) for platform, framework, and language variations available.
 
-With *Standard Text-to-speech* container, you should rely on the locale and voice of the image tag you downloaded. For example, if you downloaded the `latest` tag the default locale is `en-US` and the `JessaRUS` voice. The `{VOICE_NAME}` argument would then be `en-US-JessaRUS`.
+With the *Standard Text-to-speech* container, you should rely on the locale and voice of the image tag you downloaded. For example, if you downloaded the `latest` tag the default locale is `en-US` and the `JessaRUS` voice. The `{VOICE_NAME}` argument would then be `en-US-JessaRUS`.
 
 However, for *Custom Text-to-speech* you'll need to obtain the **Voice / model** from the [Custom Voice portal](https://aka.ms/custom-voice-portal). The custom model name is synonymous with the voice name. Navigate to the **Training** page, and copy the **Voice / model** to use as the `{VOICE_NAME}` argument.
 
