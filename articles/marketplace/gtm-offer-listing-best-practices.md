@@ -29,6 +29,30 @@ The tables in this section provide suggestions for creating and engaging marketp
 | Products that your app works with (3 max): AppSource apps only | List additional products and technologies that your solution uses or extends. For example, Azure IoT Hub or Azure Machine Learning. |
 | Search keywords (3 max) | Search keywords can help business users find your offer when they search <ul> <li> in the Azure Marketplace </li> <li> on AppSource </li> <li> using search engines </li> </ul> For your listing to appear in these searches, you need to: <ul> <li> Identify the top three search keywords for your offer; </li> <li> incorporate the search keywords in your offer summary and description; </li> <li> list the search keywords here. </li> </ul> |
 
+### Category
+
+Azure Marketplace and Microsoft AppSource are storefronts that serve different and unique customer requirements. Choose the right storefront and categories for each offer to target your customers by role. 
+
+You may select up to two categories and two subcategories for an offer. The categories and subcategories listed below are available in both storefronts.  Please make sure your category selection is aligned with the intended audience, as well as your offer description and value proposition.
+
+| **Industry**    | **Sub-industry**  | 
+| :------------------- | :-------------------|
+| *Automotive     | *Automotive |
+| Agriculture     | *Other - Unsegmented |
+| Distribution    | *Wholesale <br> *Parcel & Package Shipping |
+| Education     | *Higher Education <br> *Primary & Secondary Education / K-12 <br> *Libraries & Museums |
+| Financial Services     | *Banking & Capital Markets <br> *Insurance |
+| Government    | *Defense & Intelligence (used to be called National and Public Security) <br> *Public Safety & Justice <br> *Civilian Government |
+| Healthcare (used to be called Health)   | *Health Payor <br> *Health Provider <br> *Pharmaceuticals |
+| Manufacturing & Resources (used to be called Manufacturing)   | *Chemical & Agrochemical <br> *Discrete Manufacturing <br> *Energy |
+| Retail & Consumer Goods (used to be called Retail)  | *Consumer Goods <br> *Retailers |
+| *Media & Communications (used to be called Media and Entertainment)  | *Media & Entertainment <br> *Telecommunications |
+| Professional Services  | *Legal <br> *Partner Professional Services |
+| *Architecture & Construction (used to be called Architecture Engineering)  | *Other - Unsegmented |
+| *Hospitality & Travel  | *Hotels & Leisure <br> *Travel & Transportation <br> *Restaurants & Food Services |
+| *Other Public Sector Industries  | *Forestry & Fishing <br> *Nonprofits |
+| *Real Estate  | *Other - Unsegmented |
+
 ## Storefront marketing details
 | Storefront setting | Best practice |
 |:--- |:--- |  

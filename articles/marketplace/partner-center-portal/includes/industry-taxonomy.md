@@ -20,8 +20,10 @@ ms.custom: include file
 
 You can optionally select up to two industries and two sub-industries for each industry. These are used for grouping your offer into the appropriate marketplace search areas. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description.
 
+You can optionally select up to two industries, and two verticals under each industry. These are used for displaying your offer, when industry and verticals are used in search filters and applied in the Storefront.  If your offer is industry and/or vertical specific, please make sure to describe how your offer supports the selected industries or verticals in the offer description.  Otherwise, if your offer is not industry specific, do not make a selection and leave this section blank.
+
 >[!NOTE]
->We are in the process of introducing new industry taxonomy to the marketplace. You may not see all the taxonomy available in Partner Center. \* denotes industries not yet available in the marketplace. We are working on having consistent taxonomy across all portals, meanwhile your offer will still be discoverable in the marketplace under the existing industries. Your offer will also still be discoverable via keyword search in the marketplace.
+>As we work to introduce new industries and verticals to improve the offer discovery experience, some industries or verticals may not yet be visible on the Storefront. Industries and verticals marked with a (*) will be available at a future date. All published offers are discoverable via keyword search.
 
 | **Industry**    | **Sub-industry**  | 
 | :------------------- | :-------------------|
