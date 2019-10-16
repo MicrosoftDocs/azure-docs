@@ -15,13 +15,12 @@ ms.date: 12/04/2018
 ---
 # Uninstall Elastic Database jobs components
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 **Elastic Database jobs** components can be uninstalled using either the Azure portal or PowerShell.
 
 ## Uninstall Elastic Database jobs components using the Azure portal
+
 1. Open the [Azure portal](https://portal.azure.com/).
 2. Navigate to the subscription that contains **Elastic Database jobs** components, namely the subscription in which Elastic Database jobs components were installed.
 3. Click **Browse** and click **Resource groups**.
@@ -29,13 +28,15 @@ ms.date: 12/04/2018
 5. Delete the resource group.
 
 ## Uninstall  Elastic Database jobs components using PowerShell
+
 1. Launch a Microsoft Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type **cd tools**.
-   
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
 2. Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.
-   
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+
+     ```cmd
+     Unblock-File .\UninstallElasticDatabaseJobs.ps1
+     .\UninstallElasticDatabaseJobs.ps1
+     ```
 
 Or simply, execute the following script, assuming default values where used on installation of the components:
 
@@ -44,8 +45,7 @@ $ResourceGroupName = "__ElasticDatabaseJob"
 Switch-AzureMode AzureResourceManager
 
 $resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
-if(!$resourceGroup)
-{
+if(!$resourceGroup) {
      Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
      return
 }
@@ -56,6 +56,7 @@ Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  El
 ```
 
 ## Next steps
+
 To re-install Elastic Database jobs, see [Installing the Elastic Database job service](sql-database-elastic-jobs-service-installation.md)
 
 For an overview of Elastic Database jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md).

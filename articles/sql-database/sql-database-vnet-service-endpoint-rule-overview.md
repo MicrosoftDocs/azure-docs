@@ -143,8 +143,7 @@ However removing this affects the following features:
 
 ### Import Export Service
 
-Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
-database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
+Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
 You can work around the problem. Run the BACPAC import or export directly in your code by using the DACFx API. Ensure that this is deployed in a VM that is in the VNet-subnet for which you have set the firewall rule.
 
 ### SQL Database Query Editor
@@ -184,8 +183,8 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 
    ```powershell
    Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Select-AzSubscription -SubscriptionId <subscriptionId>
+   Set-AzSqlServer -ResourceGroupName <resourceGroupName> -ServerName <servername> -AssignIdentity
    ```
 
    1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

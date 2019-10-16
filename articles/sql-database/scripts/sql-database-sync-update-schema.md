@@ -35,7 +35,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 The following example refreshes the database schema and adds all valid tables in the hub database to the sync schema.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
 ### Example 2 - Add and remove tables and columns
@@ -43,7 +43,9 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 The following example adds `[dbo].[Table1]` and `[dbo].[Table2].[Column1]` to the sync schema and removes `[dbo].[Table3]`.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> `
+    -DatabaseName <databaseName> -SyncGroupName <syncGroupName> `
+    -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
 ## Script parameters
@@ -63,7 +65,6 @@ The **UpdateSyncSchema** script has the following parameters:
 | $AddAllTables | If this value is true, all valid tables and columns are added to the sync schema. The values of $TablesAndColumnsToAdd and $TablesAndColumnsToRemove are ignored. |
 | $TablesAndColumnsToAdd | Specify tables or columns to be added to the sync schema. Each table or column name needs to be fully delimited with the schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
 | $TablesAndColumnsToRemove | Specify tables or columns to be removed from the sync schema. Each table or column name needs to be fully delimited with schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
-|||
 
 ## Script explanation
 
@@ -76,7 +77,6 @@ The **UpdateSyncSchema** script uses the following commands. Each command in the
 | [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returns info about a sync member. |
 | [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Returns info about a sync schema. |
 | [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Updates a sync schema. |
-|||
 
 ## Next steps
 
@@ -86,20 +86,20 @@ Additional SQL Database PowerShell script samples can be found in [Azure SQL Dat
 
 For more info about SQL Data Sync, see:
 
--   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
--   Set up Data Sync
+- Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
+- Set up Data Sync
     - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-database-get-started-sql-data-sync.md)
     - With PowerShell
-        -  [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
-        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
--   Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
--   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
--   Update the sync schema
-    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)
+        - [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
+        - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
+- Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
+- Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
+- Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
+- Update the sync schema
+    - With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)
 
 For more info about SQL Database, see:
 
--   [SQL Database Overview](../sql-database-technical-overview.md)
--   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+- [SQL Database Overview](../sql-database-technical-overview.md)
+- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

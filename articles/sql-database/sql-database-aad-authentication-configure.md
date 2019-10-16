@@ -19,10 +19,12 @@ This article shows you how to create and populate Azure AD, and then use Azure A
 
 > [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
 > [!IMPORTANT]  
 > Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
@@ -35,9 +37,11 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 ## Associate or add an Azure subscription to Azure Active Directory
 
 1. Associate your Azure subscription to Azure Active Directory by making the directory a trusted directory for the Azure subscription hosting the database. For details, see [How Azure subscriptions are associated with Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+
 2. Use the directory switcher in the Azure portal to switch to the subscription associated with domain.
 
-   **Additional information:** Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](../active-directory/active-directory-b2b-admin-add-users.md). To learn more about this trusted relationship see [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   > [!INFORMATION]
+   > Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](../active-directory/active-directory-b2b-admin-add-users.md). To learn more about this trusted relationship see [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Create an Azure AD administrator for Azure SQL server
 
@@ -56,9 +60,11 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 Your Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant permissions to Managed Instance to read Azure AD. There are two ways to do it: from Portal and PowerShell. The following steps both methods.
 
 1. In the Azure portal, in the upper-right corner, select your connection to drop down a list of possible Active Directories.
+
 2. Choose the correct Active Directory as the default Azure AD.
 
    This step links the subscription associated with Active Directory with Managed Instance making sure that the same subscription is used for both Azure AD and the Managed Instance.
+
 3. Navigate to Managed Instance and select one that you want to use for Azure AD integration.
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
@@ -87,13 +93,11 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
     # Get service principal for managed instance
     $roleMember = Get-AzureADServicePrincipal -SearchString $managedInstanceName
     $roleMember.Count
-    if ($roleMember -eq $null)
-    {
+    if ($roleMember -eq $null) {
         Write-Output "Error: No Service Principals with name '$    ($managedInstanceName)', make sure that managedInstanceName parameter was     entered correctly."
         exit
     }
-    if (-not ($roleMember.Count -eq 1))
-    {
+    if (-not ($roleMember.Count -eq 1)) {
         Write-Output "Error: More than one service principal with name pattern '$    ($managedInstanceName)'"
         Write-Output "Dumping selected service principals...."
         $roleMember
@@ -104,8 +108,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
     $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
     $selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
 
-    if ($selDirReader -eq $null)
-    {
+    if ($selDirReader -eq $null) {
         # Add principal to readers role
         Write-Output "Adding service principal '$($managedInstanceName)' to     'Directory Readers' role'..."
         Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
@@ -115,8 +118,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
         #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
         #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
     }
-    else
-    {
+    else {
         Write-Output "Service principal '$($managedInstanceName)' is already     member of 'Directory Readers' role'."
     }
     ```
@@ -166,13 +168,17 @@ The following two procedures show you how to provision an Azure Active Directory
     > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar.
 
 3. On **SQL Server** page, select **Active Directory admin**.
+
 4. In the **Active Directory admin** page, select **Set admin**.
+
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
 
 5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
 
 6. At the top of the **Active Directory admin** page, select **SAVE**.
+
     ![save admin](./media/sql-database-aad-authentication/save-admin.png)
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
@@ -202,8 +208,7 @@ Use PowerShell command get-help to see more information for each of these comman
 The following script provisions an Azure AD administrator group named **DBA_Group** (object ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) for the **demo_server** server in a resource group named **Group-23**:
 
 ```powershell
-Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
--ServerName "demo_server" -DisplayName "DBA_Group"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 The **DisplayName** input parameter accepts either the Azure AD display name or the User Principal Name. For example, ``DisplayName="John Smith"`` and ``DisplayName="johns@contoso.com"``. For Azure AD groups only the Azure AD display name is supported.
@@ -214,8 +219,8 @@ The **DisplayName** input parameter accepts either the Azure AD display name or 
 The following example uses the optional **ObjectID**:
 
 ```powershell
-Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
--ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" `
+    -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
 > [!NOTE]
@@ -253,24 +258,25 @@ For more information about CLI commands, see [SQL - az sql](https://docs.microso
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:
 
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library for SQL Server (**ADALSQL.DLL**) is available in multiple languages (both x86 and amd64) from the download center at [Microsoft Active Directory Authentication Library for Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory Authentication Library for SQL Server (*ADALSQL.DLL*) is available in multiple languages (both x86 and amd64) from the download center at [Microsoft Active Directory Authentication Library for Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
 
 You can meet these requirements by:
 
 - Installing either [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) or [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) meets the .NET Framework 4.6 requirement.
-- SSMS installs the x86 version of **ADALSQL.DLL**.
-- SSDT installs the amd64 version of **ADALSQL.DLL**.
-- The latest Visual Studio from [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) meets the .NET Framework 4.6 requirement, but does not install the required amd64 version of **ADALSQL.DLL**.
+- SSMS installs the x86 version of *ADALSQL.DLL*.
+- SSDT installs the amd64 version of *ADALSQL.DLL*.
+- The latest Visual Studio from [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) meets the .NET Framework 4.6 requirement, but does not install the required amd64 version of *ADALSQL.DLL*.
 
 ## Create contained database users in your database mapped to Azure AD identities
 
->[!IMPORTANT]
->Managed Instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your Managed Instance without requiring database users to be created as a contained database user. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+> [!IMPORTANT]
+> Managed Instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your Managed Instance without requiring database users to be created as a contained database user. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
 > Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to SQL Server, SQL Database, or SQL Data Warehouse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database or SQL Data Warehouse. The access permission must be granted directly in the database using Transact-SQL statements.
+
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL CREATE LOGIN and CREATE USER statements are not supported.
 
@@ -310,6 +316,7 @@ For more information about creating contained database users based on Azure Acti
 
 > [!NOTE]
 > Removing the Azure Active Directory administrator for Azure SQL server prevents any Azure AD authentication user from connecting to the server. If necessary, unusable Azure AD users can be dropped manually by a SQL Database administrator.
+
 > [!NOTE]
 > If you receive a **Connection Timeout Expired**, you may need to set the `TransparentNetworkIPResolution`
 parameter of the connection string to false. For more information, see [Connection timeout issue with .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
@@ -319,7 +326,6 @@ A federated domain user account that is imported into a managed domain as an ext
 
 > [!NOTE]
 > Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
->
 
 ## Connect to the user database or data warehouse by using SSMS or SSDT  
 
@@ -351,10 +357,13 @@ Use this method when connecting with an Azure AD principal name using the Azure 
 Use this method to authenticate to SQL DB/DW with Azure AD for native or federated Azure AD users. A native user is one explicitly created in Azure AD and being authenticated using user name and password, while a federated user is a Windows user whose domain is federated with Azure AD. The latter method (using user & password) can be used when a user wants to use their windows credential, but their local machine is not joined with the domain (for example, using a remote access). In this case, a Windows user can indicate their domain account and password and can authenticate to SQL DB/DW using federated credentials.
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
+
 2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
+
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
 
     ![Select AD Password Authentication][12]
+
 4. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (See the graphic in the previous option.)
 
 ## Using an Azure AD identity to connect from a client application
@@ -367,20 +376,19 @@ To use integrated Windows authentication, your domain’s Active Directory must 
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to Active Directory Integrated. The following C# code sample uses ADO .NET.
 
-```C#
-string ConnectionString =
-@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
+```csharp
+string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-The connection string keyword ``Integrated Security=True`` is not supported for connecting to Azure SQL Database. When making an ODBC connection, you will need to remove spaces and set Authentication to 'ActiveDirectoryIntegrated'.
+The connection string keyword `Integrated Security=True` is not supported for connecting to Azure SQL Database. When making an ODBC connection, you will need to remove spaces and set Authentication to 'ActiveDirectoryIntegrated'.
 
 ### Active Directory password authentication
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
 
-```C#
+```csharp
 string ConnectionString =
 @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 SqlConnection conn = new SqlConnection(ConnectionString);
@@ -400,7 +408,7 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 
 Sample connection string:
 
-```c#
+```csharp
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
 conn.AccessToken = "Your JWT token"
@@ -427,7 +435,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
 
 <!--Image references-->
-
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png

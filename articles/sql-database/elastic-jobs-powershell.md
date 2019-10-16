@@ -58,12 +58,11 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-- In addition to the **Az.Sql** 1.1.1-preview module, this tutorial also requires the *sqlserver* PowerShell module. For details, see [Install SQL Server PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
-
+In addition to the **Az.Sql** 1.1.1-preview module, this tutorial also requires the *sqlserver* PowerShell module. For details, see [Install SQL Server PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 ## Create required resources
 
-Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](sql-database-job-automation-overview.md#job-database). 
+Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](sql-database-job-automation-overview.md#job-database).
 
 *The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with 2 blank databases to execute jobs against.*
 
@@ -88,7 +87,8 @@ $AdminLogin = Read-Host "Please enter the server admin name"
 $AdminPassword = Read-Host "Please enter the server admin password"
 $AdminPasswordSecure = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
 $AdminCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AdminLogin, $AdminPasswordSecure
-$AgentServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$AgentServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location `
+    -ServerName $AgentServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set server firewall rules to allow all Azure IPs
 Write-Output "Creating a server firewall rule..."
@@ -107,7 +107,8 @@ $JobDatabase
 Write-Output "Creating target server..."
 $TargetServerName = Read-Host "Please enter a target server name"
 $TargetServerName = $TargetServerName + "-" + [guid]::NewGuid()
-$TargetServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
+$TargetServer = New-AzSqlServer -ResourceGroupName $ResourceGroupName -Location $Location `
+    -ServerName $TargetServerName -ServerVersion "12.0" -SqlAdministratorCredentials ($AdminCred)
 
 # Set target server firewall rules to allow all Azure IPs
 $TargetServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
@@ -246,7 +247,6 @@ $Job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $ServerGroup.Targe
 $Job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $ServerGroupExcludingDb2.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText2
 ```
 
-
 ## Run the job
 
 To start the job immediately, run the following command:
@@ -259,11 +259,7 @@ $JobExecution
 
 After successful completion you should see two new tables in TargetDb1, and only one new table in TargetDb2:
 
-
    ![new tables verification in SSMS](media/elastic-jobs-overview/job-execution-verification.png)
-
-
-
 
 ## Monitor status of job executions
 
@@ -295,12 +291,10 @@ Delete the Azure resources created in this tutorial by deleting the resource gro
 
 > [!TIP]
 > If you plan to continue to work with these jobs, do not clean up the resources created in this article. If you do not plan to continue, use the following steps to delete all resources created in this article.
->
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
 ```
-
 
 ## Next steps
 
