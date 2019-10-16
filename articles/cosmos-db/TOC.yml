@@ -599,8 +599,10 @@
       items: 
       - name: Introduction
         href: mongodb-introduction.md
-      - name: Wire protocol support
+      - name: Wire protocol support (3.2)
         href: mongodb-feature-support.md
+      - name: Wire protocol support (3.6)
+        href: mongodb-feature-support-36.md
       - name: Quickstarts
         items:
         - name: .NET

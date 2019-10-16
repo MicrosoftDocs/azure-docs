@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB's API for MongoDB (3.2 version) supported features and syntax
-description: Learn about Azure Cosmos DB's API for MongoDB (3.2 version) supported features and syntax.
+title: Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax
+description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -9,18 +9,15 @@ author: sivethe
 ms.author: sivethe
 ---
 
-# Azure Cosmos DB's API for MongoDB (3.2 version): supported features and syntax
+# Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
-> [!NOTE]
-> This article is for Azure Cosmos DB's API for MongoDB 3.2. For MongoDB 3.6 version, see [MongoDB 3.6 supported features and syntax](mongodb-feature-support-36.md).
-
 ## Protocol Support
 
-All new accounts for Azure Cosmos DB's API for MongoDB are compatible with MongoDB server version **3.6**. This article covers MongoDB version 3.2. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
+The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
 
 ## Query language support
 
@@ -49,6 +46,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 ### Administration commands
 
 - dropDatabase
+- listDatabases
 - listCollections
 - drop
 - create
@@ -58,6 +56,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 - dropIndexes
 - connectionStatus
 - reIndex
+- killCursors
 
 ### Diagnostics commands
 
@@ -71,8 +70,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 <a name="aggregation-pipeline"/>
 
 ## Aggregation pipeline</a>
-
-Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See the [Azure blog](https://aka.ms/mongodb-aggregation) for instructions on how to onboard to the public preview.
 
 ### Aggregation commands
 
@@ -94,6 +91,8 @@ Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See t
 - $out
 - $count
 - $addFields
+- $redact
+- $replaceRoot
 
 ### Aggregation expressions
 
@@ -191,14 +190,10 @@ Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See t
 
 ## Aggregation accumulators
 
-- $sum
-- $avg
-- $first
-- $last
-- $max
-- $min
-- $push
-- $addToSet
+Cosmos DB supports all MongoDB v3.6 accumulators except:
+
+- $stdDevPop
+- $stdDevSamp
 
 ## Operators
 
@@ -270,7 +265,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 - $addToSet
 - $pop
 - $pullAll
-- $pull  (Note: $pull with condition is not supported)
+- $pull
 - $pushAll
 - $push
 - $each
@@ -307,7 +302,7 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 Operator | Example | Notes
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Not supported. Use $regex instead.
@@ -328,9 +323,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort 
 
 ## Unique indexes
 
-Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default `_id` key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique' constraint.
-
-Unique indexes are available for all Cosmos accounts using Azure Cosmos DB's API for MongoDB.
+Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique’ constraint.
 
 ## Time-to-live (TTL)
 
@@ -350,7 +343,11 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 
 ## Sharding
 
-Azure Cosmos DB supports automatic, server-side sharding. It manages shard creation, placement, and balancing automatically. Azure Cosmos DB does not support manual sharding commands, which means you don't have to invoke commands such as shardCollection, addShard, balancerStart, moveChunk etc. You only need to specify the shard key while creating the containers or querying the data.
+Azure Cosmos DB supports automatic, server-side sharding. It manages shard creation, placement, and balancing automatically. Azure Cosmos DB does not support manual sharding commands, which means you don't have to invoke commands such as addShard, balancerStart, moveChunk etc. You only need to specify the shard key while creating the containers or querying the data.
+
+## Sessions
+
+Azure Cosmos DB does not yet support server side sessions commands.
 
 ## Next steps
 
