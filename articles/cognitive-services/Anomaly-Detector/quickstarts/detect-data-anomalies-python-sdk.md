@@ -37,7 +37,7 @@ Use the Anomaly Detector client library for Python to:
 
 ### Create a new python application
 
- Create a new Python application in your preferred editor or IDE. Then import the following libraries.
+ Create a new Python file and import the following libraries.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -107,7 +107,7 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 ## Run the application
 
-Run the application in your IDE, or in the command line with the `python` command and your file name.
+Run the application with the `python` command and your file name.
  
 ## Clean up resources
 

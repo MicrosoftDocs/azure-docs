@@ -38,7 +38,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Create a new application
 
-1. In your favorite text editor or IDE, create a new python file. Add the following imports.
+1. Create a new python file and add the following imports.
 
     [!code-python[import statements](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=imports)]
 

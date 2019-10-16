@@ -66,15 +66,13 @@ Within the application directory, install the Anomaly Detector client library fo
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
-From the project directory, open the *program.cs* file in your preferred editor or IDE. Add the following using `directives`:
+From the project directory, open the *program.cs* file and add the following using `directives`:
 
 [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
 
 In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
 
 [!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
-If you're using the Visual Studio IDE, the client library is available as a NuGet package. 
 
 ## Object model
 

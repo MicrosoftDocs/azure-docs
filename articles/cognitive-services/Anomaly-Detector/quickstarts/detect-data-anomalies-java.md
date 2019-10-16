@@ -39,7 +39,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Create a new application
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project and import the following libraries.
     
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
