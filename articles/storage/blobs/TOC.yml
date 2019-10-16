@@ -431,39 +431,39 @@
     - name: AzCopy v10
       items:
       - name: azcopy
-        href: ../common/storage-ref-azcopy.md
+        href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy bench
-        href: ../common/storage-ref-azcopy-bench.md
+        href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy copy
-        href: ../common/storage-ref-azcopy-copy.md
+        href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy doc
-        href: ../common/storage-ref-azcopy-doc.md
+        href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy env
-        href: ../common/storage-ref-azcopy-env.md
+        href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs
-        href: ../common/storage-ref-azcopy-jobs.md
+        href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs clean
-        href: ../common/storage-ref-azcopy-jobs-clean.md
+        href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs list
-        href: ../common/storage-ref-azcopy-jobs-list.md
+        href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs remove
-        href: ../common/storage-ref-azcopy-jobs-remove.md
+        href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs resume
-        href: ../common/storage-ref-azcopy-jobs-resume.md
+        href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
-        href: ../common/storage-ref-azcopy-jobs-show.md
+        href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
-        href: ../common/storage-ref-azcopy-list.md
+        href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
-        href: ../common/storage-ref-azcopy-login.md
+        href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy logout
-        href: ../common/storage-ref-azcopy-logout.md
+        href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy make
-        href: ../common/storage-ref-azcopy-make.md
+        href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy remove
-        href: ../common/storage-ref-azcopy-remove.md
+        href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
-        href: ../common/storage-ref-azcopy-sync.md
+        href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
