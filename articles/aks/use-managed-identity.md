@@ -20,7 +20,7 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 AKS creates two managed identities:
 
 - **System-assigned managed identity**: The identity that the Kubernetes cloud provider uses to create Azure resources on behalf of the user. The life cycle of the system-assigned identity is tied to that of the cluster. The identity is deleted when the cluster is deleted.
-- **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize aAKS to use access control records (ACRs), or to authorize the kubelet to get metadata from Azure.
+- **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize AKS to use access control records (ACRs), or to authorize the kubelet to get metadata from Azure.
 
 In this preview period, a service principal is still required. It's used for authorization of add-ons such as monitoring, virtual nodes, Azure Policy, and HTTP application routing. Work is underway to remove the dependency of add-ons on the service principal name (SPN). Eventually, the requirement of an SPN in AKS will be removed completely.
 
