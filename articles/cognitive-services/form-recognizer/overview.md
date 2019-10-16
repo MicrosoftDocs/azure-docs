@@ -68,11 +68,11 @@ You use the following APIs to train and extract structured data from forms.
 
 |||
 |---|---|
-| Train Model| Train a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
-| Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
-| Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
+| **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
+| **Analyze Form** |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
+| **Analyze Receipt** |Analyze a single receipt document to extract key information and other receipt text.|
 
-Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 
+Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ## Data privacy and security
 
