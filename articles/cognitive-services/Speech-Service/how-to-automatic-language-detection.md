@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: susanhu
+ms.author: qiohu
 ---
 
 # Automatic language detection for speech to text
