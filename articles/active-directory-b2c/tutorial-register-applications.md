@@ -59,7 +59,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
-    Also called a reply URL, this is the endpoint to which the user is redirected by Azure AD B2C after they've completed the sign-in flow. In a production application, this is typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+    The redirect URI is the endpoint to which the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
     The following restrictions apply to redirect URIs:
 
@@ -82,12 +82,22 @@ Once the application registration is complete, enable the implicit grant flow:
 
 If your application exchanges a code for a token, you need to create an application secret.
 
+#### [Applications](#tab/portal/)
+
+1. In the **Azure AD B2C - Applications** page, select the application you created, for example *webapp1*.
+1. Select **Keys** and then select **Generate key**.
+1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
+
+#### [App registrations (Preview)](#tab/portal-preview/)
+
 1. In the **Azure AD B2C - Applications (Preview)** page, select the application you created, for example *webapp1*.
 1. Under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **VALUE**. You use this value for configuration in a later step.
+1. Record the secret's **VALUE**. You use this value as the application secret in your application's code.
+
+* * *
 
 ## Next steps
 
