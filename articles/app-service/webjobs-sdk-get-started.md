@@ -41,16 +41,12 @@ This article shows you how to deploy WebJobs as a .NET Core console app. To depl
 
 ## WebJobs NuGet packages
 
-1. Install the latest stable 3.x versions of the following NuGet packages:
+1. Install the latest stable 3.x version of the `Microsoft.Azure.WebJobs.Extensions` NuGet package, which includes `Microsoft.Azure.WebJobs`.
 
-   * `Microsoft.Azure.WebJobs`
-   * `Microsoft.Azure.WebJobs.Extensions`
-
-     Here's the **Package Manager Console** commands for version 3.0.4:
+     Here's the **Package Manager Console** command for version 3.0.2:
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
 ## Create the Host
@@ -87,16 +83,9 @@ In ASP.NET Core, host configurations are set by calling methods on the [`HostBui
 
 In this section, you set up console logging that uses the [ASP.NET Core logging framework](/aspnet/core/fundamentals/logging).
 
-1. Install the latest stable version of the following NuGet packages:
+1. Install the latest stable version of the `Microsoft.Extensions.Logging.Console` NuGet package, which includes `Microsoft.Extensions.Logging`.
 
-   * `Microsoft.Extensions.Logging` - The logging framework.
-   * `Microsoft.Extensions.Logging.Console` - The console provider, which sends logs to the console.
-
-   Here are the **Package Manager Console** commands for version 2.2.0:
-
-   ```powershell
-   Install-Package Microsoft.Extensions.Logging -version 2.2.0
-   ```
+   Here's the **Package Manager Console** command for version 2.2.0:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
@@ -152,10 +141,10 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 1. Install the latest stable version of the  [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. 
 
-    Here is the **Package Manager Console** command for version 3.0.3:
+    Here's the **Package Manager Console** command for version 3.0.4:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
 2. In the `ConfigureWebJobs` extension method, call the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like the following example:

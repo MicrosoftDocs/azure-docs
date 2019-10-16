@@ -12,7 +12,7 @@ ms.date: 06/26/2019
 ms.author: dapine
 ---
 
-# Deploy the Language detection container to Azure Kubernetes Service
+# Deploy the Text Analytics language detection container to Azure Kubernetes Service
 
 Learn how to deploy the language detection container. This procedure shows you how create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser.
 
