@@ -174,7 +174,7 @@ dotnet run {ServiceConnectionString} MyDevice 2222
 Now use your SSH client application and connect to service-local proxy application on port 2222 (instead of the SSH daemon directly).
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 At this point, the SSH sign-in window prompts you to enter your credentials.

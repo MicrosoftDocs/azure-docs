@@ -193,7 +193,7 @@ As discussed in the "How it works" section, establishing an end-to-end stream to
 After both the device- and service-local proxies are running, use your SSH client program and connect to the service-local proxy on port 2222 (instead of the SSH daemon directly).
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 At this point, the SSH sign-in window prompts you to enter your credentials.
