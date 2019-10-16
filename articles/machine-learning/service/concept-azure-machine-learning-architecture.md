@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
@@ -45,7 +45,7 @@ Use these tools for Azure Machine Learning:
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use [Azure Machine Learning designer](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
 
 
 > [!NOTE]

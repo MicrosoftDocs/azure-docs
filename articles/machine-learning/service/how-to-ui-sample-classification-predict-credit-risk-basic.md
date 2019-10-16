@@ -1,7 +1,7 @@
 ---
 title: "Designer example #3: Classification to predict credit risk"
 titleSuffix: Azure Machine Learning
-description: Learn how to build a machine learning classifier without writing a single line of code using the designer.
+description: Learn how to build a machine learning classifier without writing a single line of code using the designer (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,8 +13,9 @@ ms.date: 05/10/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning classifier without writing a single line of code using the designer. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
+Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 

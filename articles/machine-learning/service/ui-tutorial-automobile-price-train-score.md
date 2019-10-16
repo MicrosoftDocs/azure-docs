@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Predict automobile price with the designer (preview)
 
 In this two-part tutorial, you learn how to use Azure Machine Learning designer to develop and deploy a predictive analytic solution that predicts the price of any car. 
 

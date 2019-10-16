@@ -12,7 +12,7 @@ ms.date: 05/15/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
-# What is Azure Machine Learning designer? 
+# What is Azure Machine Learning designer (preview)? 
 
 The designer for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
