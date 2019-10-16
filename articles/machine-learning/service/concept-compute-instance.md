@@ -38,9 +38,9 @@ These tools and environments are installed on the compute instance:
 
 * CUDA, cuDNN, NVIDIA Drivers
 * Intel MPI library
-* RStudio server community edition
+* RStudio Server Open Source Edition
 * R kernel
-* Azure Machine Learning SDK for R
+* [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html)
 * Anaconda Python
 * Jupyter and extensions
 * Jupyterlab and extensions
@@ -61,7 +61,7 @@ These tools and environments are installed on the compute instance:
     * `tqdm`
     * `joblib`
     * `nodejs`
-* PyPI packages:
+* [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)from PyPI including:
     * `azureml-sdk[notebooks,contrib,automl,explain]`
     * `azureml-contrib-datadrift`
     * `azureml-telemetry`
@@ -69,11 +69,12 @@ These tools and environments are installed on the compute instance:
     * `azureml-contrib-opendatasets`
     * `azureml-opendatasets`
     * `azureml-contrib-reinforcementlearning`
+* Other PyPI packages:
     * `jupytext`
     * `jupyterlab-git`
     * `tensorboard`
     * `nbconvert`
-* Azure CLI
+* [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 * Docker
 * Blob FUSE driver
 * Nginx
