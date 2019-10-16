@@ -40,10 +40,6 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 For a device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
 
-In the Azure IoT explorer tool, you can open new windows to by holding down the shift key when you select an item. For
-
-
-
 ### Connect to your hub
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
@@ -78,11 +74,11 @@ On the **Devices** list page you can:
 
 ## Interact with a device
 
-On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. If you hold down the shift key when you select a device, the **Device** page opens in a new window. For each device  there are two sections: **Device** and **Digital Twin**.
+On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. For each device  there are two sections: **Device** and **Digital Twin**.
 
 ### Device
 
-This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs. If you hold down the shift key when you select a tab, the tab opens in a new window.
+This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs.
 
 - You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
 - You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
@@ -92,7 +88,7 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this section of the tool. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). If you hold down the shift key when you select a tab, the tab opens in a new window.
+You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this section of the tool. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ### Interface
 
