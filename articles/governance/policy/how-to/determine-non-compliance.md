@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Determine causes of non-compliance
 

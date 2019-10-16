@@ -1,12 +1,11 @@
 ---
-title: Sample - NIST SP 800-53 R4 blueprint - Control mapping
-description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy.
+title: NIST SP 800-53 R4 blueprint sample - Control mapping
+description: Control mapping of the NIST SP 800-53 R4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the NIST SP 800-53 R4 blueprint sample
 
@@ -134,11 +133,11 @@ definitions to monitor and enforce use of advanced data security on SQL server.
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
 
 This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
-definitions to monitors that remote debugging for Azure App Service application is turned off and
-policy definitions that audit Linux virtual machines that allow remote connections from accounts
-without passwords. This blueprint also assigns an Azure Policy definition that helps you monitor
-unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
-access methods comply with your security policy.
+definitions to monitor that remote debugging for Azure App Service application is turned off. The
+blueprint also assigns policy definitions that audit Linux virtual machines that allow remote
+connections from accounts without passwords. Additionally, the blueprint assigns an Azure Policy
+definition that helps you monitor unrestricted access to storage accounts. Monitoring these
+indicators can help you ensure remote access methods comply with your security policy.
 
 - \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords

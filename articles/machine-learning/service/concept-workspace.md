@@ -63,9 +63,6 @@ Machine learning tasks read and/or write artifacts to your workspace.
 + View machine learning artifacts such as experiments, pipelines, models, deployments.
 + Track and monitor models.
 
-
-
-
 ## Workspace management
 
 You can also perform the following workspace management tasks:
@@ -77,7 +74,7 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   | |  **&check;**    |
 | Create a notebook VM | **&check;**   | |     |
 
-### <a name='create-workspace'></a> Create a workspace
+## <a name='create-workspace'></a> Create a workspace
 
 There are multiple ways to create a workspace.
 

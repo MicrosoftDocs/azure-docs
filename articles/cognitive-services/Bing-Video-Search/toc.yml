@@ -50,7 +50,8 @@
   - name: Get trending videos
     href: trending-videos.md
   - name: Page videos
-    href: paging-videos.md
+    maintainContext: true
+    href: ../Bing-Web-Search/paging-search-results.md
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md

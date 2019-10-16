@@ -1,5 +1,5 @@
 - name: SQL Data Warehouse Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is SQL Data Warehouse?
@@ -73,12 +73,14 @@
       items:
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      - name: Private Link
+        href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Virtual network service endpoints
         href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Authentication
       items:
       - name: Overview
-        href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+        href: sql-data-warehouse-authentication.md
       - name: Azure Active Directory
         href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Logins and users
@@ -92,9 +94,11 @@
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
-        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data protection
       items:
+      - name: Dynamic data masking
+        href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Transparent Data Encryption (TDE) overview
         href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
@@ -116,35 +120,49 @@
     - name: JSON
       items:
       - name: JSON
-        href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: ISJSON
-        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_VALUE
-        href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_QUERY
-        href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: JSON_MODIFY
-        href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: OPENJSON
-        href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+        href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Materialized view
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-materialized-views.md
       - name: Create
-        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Alter
-        href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: Check view overhead
+        href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Ordered clustered columnstore index
       items:
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
+      - name: Create table
+        href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: CTAS   
+        href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: Create and change index
+        href: /sql/t-sql/statements/create-index-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and- 
     - name: Result set caching
       items:
+      - name: Performance tuning guidance 
+        href: performance-tuning-result-set-caching.md
       - name: Set for a database
-        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
+        href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Set for a session 
-        href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+        href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest  
+      - name: Check cache size 
+        href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+      - name: Clean up cache
+        href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Tables
       items:
       - name: Overview
@@ -218,13 +236,7 @@
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules
-    items:
-    - name: Overview
-      href: maintenance-scheduling.md
-    - name: View maintenance schedule
-      href: viewing-maintenance-schedule.md
-    - name: Change maintenance schedule
-      href: changing-maintenance-schedule.md
+    href: maintenance-scheduling.md
   - name: Integration
     items:
     - name: Overview
@@ -234,9 +246,9 @@
   - name: Secure
     items:
     - name: Configure Azure AD auth
-      href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Conditional Access
-      href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Enable encryption - portal
@@ -338,7 +350,7 @@
   - name: T-SQL
     items:
     - name: Full reference
-      href: /sql/t-sql/language-reference
+      href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: SQL DW language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
     - name: SQL DW statements
