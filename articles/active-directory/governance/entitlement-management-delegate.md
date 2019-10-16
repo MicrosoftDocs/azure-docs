@@ -98,6 +98,7 @@ The following table lists the tasks that the entitlement management roles can pe
 | Task | Admin | Catalog creator | Catalog owner | Access package manager |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegate to a catalog creator](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Add a connected organization](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Create a new catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Add a resource to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Add a catalog owner](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
