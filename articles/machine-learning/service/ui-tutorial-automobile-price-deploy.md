@@ -54,9 +54,9 @@ Before you deploy your pipeline as a web service, you first have to convert your
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
-Your pipeline should now look like this:  
+   Your pipeline should now look like this:  
 
-![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
 1. Select **Deploy**.
 
