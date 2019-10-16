@@ -1,6 +1,6 @@
 ---
 title: Deploy Studio (classic) workspace with Azure Resource Manager
-titleSuffix: Azure Machine Learning Studio @Classic@
+titleSuffix: Azure Machine Learning Studio (classic)
 description: How to deploy a workspace for Azure Machine Learning Studio (classic) using Azure Resource Manager template
 services: machine-learning
 ms.service: machine-learning
@@ -132,7 +132,7 @@ Another way to retrieve tokens of existing workspace is to use the Invoke-AzReso
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-After the workspace is provisioned, you can also automate many Azure Machine Learning Studio (classic) tasks using the [PowerShell Module for Azure Machine Learning Studio @Classic@](https://aka.ms/amlps).
+After the workspace is provisioned, you can also automate many Azure Machine Learning Studio (classic) tasks using the [PowerShell Module for Azure Machine Learning Studio (classic)](https://aka.ms/amlps).
 
 ## Next steps
 

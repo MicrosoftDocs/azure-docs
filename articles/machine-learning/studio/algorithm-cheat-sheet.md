@@ -1,7 +1,7 @@
 ---
 title: Machine learning algorithm cheat sheet
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio @Classic@.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,11 +12,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ---
-# Machine learning algorithm cheat sheet for Azure Machine Learning Studio @Classic@
+# Machine learning algorithm cheat sheet for Azure Machine Learning Studio (classic)
 
 The **Azure Machine Learning Studio (classic) Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
 
-[Azure Machine Learning Studio @Classic@](https://studio.azureml.net/) has a large library of algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) has a large library of algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
 ## Download: Machine learning algorithm cheat sheet
 
@@ -24,12 +24,12 @@ The **Azure Machine Learning Studio (classic) Algorithm Cheat Sheet** helps you 
 
 ![Machine learning algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
-Download and print the Machine Learning Studio (classic) Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
+Download and print the classic version of Machine Learning Studio Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
 > [!NOTE]
-> For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning Studio @Classic@](algorithm-choice.md).
+> For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning Studio (classic)](algorithm-choice.md).
 
-## Notes and terminology definitions for the Machine Learning Studio (classic) algorithm cheat sheet
+## Notes and terminology definitions for the classic version of Machine Learning Studio algorithm cheat sheet
 
 * The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and the system that generated your data.
 
@@ -57,9 +57,9 @@ Download and print the Machine Learning Studio (classic) Algorithm Cheat Sheet i
 
 * For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
-* For a list by category of all the machine learning algorithms available in Machine Learning Studio @Classic@, see [Initialize Model][initialize-model] in the Machine Learning Studio (classic) Algorithm and Module Help.
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio (classic), see [Initialize Model][initialize-model] in the Machine Learning Studio (classic) Algorithm and Module Help.
 
-* For a complete alphabetical list of algorithms and modules in Machine Learning Studio @Classic@, see [A-Z list of Machine Learning Studio (classic) modules][a-z-list] in Machine Learning Studio (classic) Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in Machine Learning Studio (classic), see [A-Z list of Machine Learning Studio (classic) modules][a-z-list] in Machine Learning Studio (classic) Algorithm and Module Help.
 
 
 

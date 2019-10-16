@@ -1,7 +1,7 @@
 ---
 title: Analyze customer churn
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: Case study of developing an integrated model for analyzing and scoring customer churn using Azure Machine Learning Studio @Classic@.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Case study of developing an integrated model for analyzing and scoring customer churn using Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,12 +12,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ---
-# Analyze Customer Churn using Azure Machine Learning Studio @Classic@
+# Analyze Customer Churn using Azure Machine Learning Studio (classic)
 ## Overview
-This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio @Classic@. In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
+This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio (classic). In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 
 ### Acknowledgements
-This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning Studio @Classic@. The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
+This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning Studio (classic). The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
 
 > [!NOTE]
 > The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](https://gallery.azure.ai/)
@@ -65,8 +65,8 @@ An interesting addition here is big data analytics. Today's telecommunication an
 
  
 
-## Implementing the modeling archetype in Machine Learning Studio @Classic@
-Given the problem described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio @Classic@.  
+## Implementing the modeling archetype in Machine Learning Studio (classic)
+Given the problem described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using the classic version of Azure Machine Learning Studio.  
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
@@ -76,18 +76,18 @@ The following diagram shows the prototype we created, which employs four scoring
 
 *Figure 5: Prototype of a churn modeling approach*  
 
-The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio @Classic@.  
+The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio (classic).  
 
 ### Data selection and preparation
 The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business-related information about the customers; for example, it does not include loyalty metadata or credit scores.  
 
 For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.
 
-Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio @Classic@, we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.
+Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio (classic), we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.
 
 We also captured temporal information for the most recent six months. We analyzed data for one year and we established that even if there were statistically significant trends, the effect on churn is greatly diminished after six months.  
 
-The most important point is that the entire process, including ETL, feature selection, and modeling was implemented in Machine Learning Studio @Classic@, using data sources in Microsoft Azure.   
+The most important point is that the entire process, including ETL, feature selection, and modeling was implemented in Machine Learning Studio (classic), using data sources in Microsoft Azure.   
 
 The following diagrams illustrate the data that was used.  
 
@@ -120,7 +120,7 @@ The following diagram illustrates a portion of the experiment design surface, wh
 
 ![Screenshot of a small section of the studio experiment canvas](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*Figure 8: Creating models in Machine Learning Studio @Classic@*  
+*Figure 8: Creating models in Machine Learning Studio (classic)*  
 
 ### Scoring methods
 We scored the four models by using a labeled training dataset.  
@@ -131,7 +131,7 @@ We also submitted the scoring dataset to a comparable model built by using the d
 In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
 
 ### Accuracy and precision of scoring
-Generally, the implementation in Azure Machine Learning Studio (classic) is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+Generally, the implementation in the classic version of Azure Machine Learning Studio is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
@@ -196,13 +196,13 @@ This important observation is often overlooked in business, which generally pref
 
 However, the promise of self-service analytics by using Machine Learning Studio (classic) is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
 
-Another exciting capability coming in Azure Machine Learning Studio (classic) is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning Studio (classic) in the market place.  
+Another exciting capability coming in the classic version of Azure Machine Learning Studio is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of the classic version of Azure Machine Learning Studio in the market place.  
 
 We hope to continue this topic in the future, especially related to big data analytics.
   
 
 ## Conclusion
-This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning Studio @Classic@. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
+This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using the classic version of Azure Machine Learning Studio. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
 
  
 

@@ -1,7 +1,7 @@
 ---
 title: Create a Machine Learning Studio (classic) workspace
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: To use Azure Machine Learning Studio @Classic@, you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -15,7 +15,7 @@ ms.date: 12/07/2017
 
 # Create and share an Azure Machine Learning Studio (classic) workspace
 
-To use Azure Machine Learning Studio @Classic@, you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
 ## Create a Studio (classic) workspace
 
@@ -43,7 +43,7 @@ To use Azure Machine Learning Studio @Classic@, you need to have a Machine Learn
 > Machine Learning Studio (classic) relies on an Azure storage account that you provide to save intermediary data when it executes the workflow. After the workspace is created, if the storage account is deleted, or if the access keys are changed, the workspace will stop functioning and all experiments in that workspace will fail.
 If you accidentally delete the storage account, recreate the storage account with the same name in the same region as the deleted storage account and resync the access key. If you changed storage account access keys, resync the access keys in the workspace by using the Azure portal.
 
-Once the workspace is deployed, you can open it in Machine Learning Studio @Classic@.
+Once the workspace is deployed, you can open it in Machine Learning Studio (classic).
 
 1. Browse to Machine Learning Studio (classic) at [https://studio.azureml.net/](https://studio.azureml.net/).
 

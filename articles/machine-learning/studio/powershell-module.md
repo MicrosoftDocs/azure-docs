@@ -1,6 +1,6 @@
 ---
-title: PowerShell modules for Machine Learning Studio @Classic@
-titleSuffix: Azure Machine Learning Studio @Classic@
+title: PowerShell modules for Machine Learning Studio (classic)
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Use PowerShell to create and manage Azure Machine Learning Studio (classic) workspaces, experiments, web services, and more. 
 services: machine-learning
 ms.service: machine-learning
@@ -11,7 +11,7 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
 ---
-# PowerShell modules for Azure Machine Learning Studio @Classic@
+# PowerShell modules for Azure Machine Learning Studio (classic)
 
 Using PowerShell modules, you can programmatically manage your Studio (classic) resources and assets such as workspaces, datasets, and web services.
 

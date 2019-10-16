@@ -1,7 +1,7 @@
 ---
 title: Get support & training
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: Get support and training and provide feedback for Azure Machine Learning Studio @Classic@
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Get support and training and provide feedback for Azure Machine Learning Studio (classic)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,11 +11,11 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019 
 ---
-# Get support and training for Azure Machine Learning Studio @Classic@
+# Get support and training for Azure Machine Learning Studio (classic)
 
 This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
 
-## Learn more about Studio @Classic@
+## Learn more about Studio (classic)
 
 See our learning resources:
 + [Tutorials and how-to articles](../studio/index.yml) 

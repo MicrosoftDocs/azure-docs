@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting a workspace
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio (classic) workspaces.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: This guide provides solutions for some frequently encountered challenges when you are setting up the classic version of Azure Machine Learning Studio workspaces.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -18,7 +18,7 @@ This guide provides solutions for some frequently encountered challenges when yo
 
 
 ## Workspace owner
-To open a workspace in Machine Learning Studio @Classic@, you must be signed in to the Microsoft Account you used to create the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can manage the workspace, which includes the ability to configure access.
+To open a workspace in Machine Learning Studio (classic), you must be signed in to the Microsoft Account you used to create the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can manage the workspace, which includes the ability to configure access.
 
 For more information on managing a workspace, see [Manage an Azure Machine Learning Studio (classic) workspace].
 
@@ -50,7 +50,7 @@ After the new Machine Learning Studio (classic) workspace is created, you can si
 
    ![Delete cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning Studio @Classic@](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
+After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning Studio (classic)](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
 
 ## Comments
 

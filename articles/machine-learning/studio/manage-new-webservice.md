@@ -1,6 +1,6 @@
 ---
 title: Manage web services
-titleSuffix: Azure Machine Learning Studio @Classic@
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
 ms.service: machine-learning
@@ -24,7 +24,7 @@ In the Machine Learning Web Services portal you can:
 * Add and delete endpoints (Classic only)
 
 >[!NOTE]
->You also can manage Classic web services in [Machine Learning Studio @Classic@](https://studio.azureml.net) on the **Web services** tab.
+>You also can manage Classic web services in [Machine Learning Studio (classic)](https://studio.azureml.net) on the **Web services** tab.
 
 ## Permissions to manage New Resources Manager based web services
 
@@ -81,7 +81,7 @@ You can update the following properties:
 * **Title** allows you to enter a title for the Web service
 * **Keys** allows you to rotate your primary and secondary API keys.
 * **Storage account key** allows you to update the key for the storage account associated with the Web service changes. 
-* **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio @Classic@, the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
+* **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio (classic), the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
 
 ### Managing billing plans
 Click the **Plans** menu option from the web services Quickstart page. You can also click the plan associated with specific Web service to manage that plan.
@@ -146,6 +146,6 @@ You can update the following properties:
 
 * **Description** allows you to enter a description for the Web service. Description is a required field.
 * **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](web-services-logging.md).
-* **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio @Classic@, the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
+* **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio (classic), the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
 
 

@@ -22,11 +22,11 @@ landingContent:
 # Start card title with a verb
 
   # GET STARTED CARD
-  - title: Get started with Studio @Classic@
+  - title: Get started with Studio (classic)
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is Studio @Classic@?
+          - text: What is Studio (classic)?
             url: what-is-ml-studio.md
           - text: Create your first ML experiment
             url: create-experiment.md

@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: Machine Learning Studio @Classic@
+  - name: Machine Learning Studio (classic)
     displayName: overview
     href: what-is-ml-studio.md
   - name: Compare our ML products
@@ -153,7 +153,7 @@
       href: azure-ml-customer-churn-scenario.md
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
-    - name: Migrate analytics from Excel to Studio @Classic@
+    - name: Migrate analytics from Excel to Studio (classic)
       href: linear-regression-in-azure.md
   - name: Delete & export customer data
     items:

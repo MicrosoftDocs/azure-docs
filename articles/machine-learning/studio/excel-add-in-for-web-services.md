@@ -1,6 +1,6 @@
 ---
 title: Excel add-in for web services
-titleSuffix: Azure Machine Learning Studio @Classic@
+titleSuffix: Azure Machine Learning Studio (classic)
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
 ms.service: machine-learning
@@ -38,7 +38,7 @@ Get the API key for your web service. Where you perform this action depends on w
 
 **Use a Classic web service** 
 
-1. In Machine Learning Studio @Classic@, click the **WEB SERVICES** section in the left pane, and then select the web service.
+1. In Machine Learning Studio (classic), click the **WEB SERVICES** section in the left pane, and then select the web service.
    
     ![Studio select a Web service](./media/excel-add-in-for-web-services/image4.png)
 2. Copy the API key for the web service.

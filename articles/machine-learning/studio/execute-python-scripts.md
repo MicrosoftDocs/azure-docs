@@ -1,7 +1,7 @@
 ---
 title: Execute Python machine learning scripts
-titleSuffix: Azure Machine Learning Studio @Classic@
-description: Learn how to use Python in Azure Machine Learning Studio @Classic@.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Learn how to use Python in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ---
-# Execute Python machine learning scripts in Azure Machine Learning Studio @Classic@
+# Execute Python machine learning scripts in Azure Machine Learning Studio (classic)
 
 Python is a valuable tool in the tool chest of many data scientists. It's used in every stage of typical machine learning workflows including data exploration, feature extraction, model training and validation, and deployment.
 
@@ -74,7 +74,7 @@ Next, we create a file Hello.zip that contains Hello.py:
 
 ![Zip file containing user-defined Python code](./media/execute-python-scripts/figure5.png)
 
-Upload the zip file as a dataset into Studio @Classic@. Then create and run an experiment that uses the Python code in the Hello.zip file by attaching it to the third input port of the **Execute Python Script** module as shown in the following image.
+Upload the zip file as a dataset into Studio (classic). Then create and run an experiment that uses the Python code in the Hello.zip file by attaching it to the third input port of the **Execute Python Script** module as shown in the following image.
 
 ![Sample experiment with Hello.zip as an input to an Execute Python Script module](./media/execute-python-scripts/figure6a.png)
 
@@ -148,7 +148,7 @@ Here is the Python function used to compute the importance scores and order the 
 
 ![Function to rank features by scores](./media/execute-python-scripts/figure8.png)
 
-The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in Azure Machine Learning Studio @Classic@:
+The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in the classic version of Azure Machine Learning Studio:
 
 ![Experiment to rank features in the Pima Indian Diabetes dataset using Python](./media/execute-python-scripts/figure9a.png)
 

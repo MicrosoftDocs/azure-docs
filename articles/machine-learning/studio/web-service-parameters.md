@@ -36,14 +36,14 @@ You can decide whether to provide a default value for the Web Service Parameter.
 The API documentation for the web service includes information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.
 
 > [!NOTE]
-> The API documentation for a classic web service is provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio @Classic@. The API documentation for a new web service is provided through the [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portal on the **Consume** and **Swagger API** pages for your web service.
+> The API documentation for a classic web service is provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio (classic). The API documentation for a new web service is provided through the [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portal on the **Consume** and **Swagger API** pages for your web service.
 > 
 > 
 
 ## Example
 As an example, let's assume we have an experiment with an [Export Data][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
 
-1. In Machine Learning Studio @Classic@, click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
+1. In Machine Learning Studio (classic), click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
 2. Specify the storage type:
    
    * Under **Please specify data destination**, select "Azure Blob Storage".
