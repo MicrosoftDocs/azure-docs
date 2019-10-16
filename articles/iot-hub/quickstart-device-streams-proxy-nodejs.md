@@ -144,7 +144,7 @@ Console output on the service-local after SSH session is established (the servic
 
 ![SSH terminal output](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Console output of the SSH client application (SSH client communicates to SSH daemon by connecting to port 22, which the service-local proxy application is listening on):
+Console output of the SSH client application (SSH client communicates to SSH daemon by connecting to port 22, where the service-local proxy application is listening):
 
 ![SSH client output](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 

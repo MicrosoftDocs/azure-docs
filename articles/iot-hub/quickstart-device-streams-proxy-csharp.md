@@ -145,7 +145,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### Run the service-local proxy application
 
-In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
+In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
@@ -193,7 +193,7 @@ Console output of the SSH client application. The SSH client communicates to the
 
 ## RDP to a device via device streams
 
-The setup for RDP is very similar to the setup for SSH (described above). You use the RDP destination IP and port 3389 instead and use the RDP client (instead of the SSH client).
+The setup for RDP is similar to the setup for SSH (described above). You use the RDP destination IP and port 3389 instead and use the RDP client (instead of the SSH client).
 
 ### Run the device-local proxy application (RDP)
 
@@ -220,7 +220,7 @@ dotnet run {DeviceConnectionString} localhost 3389
 
 ### Run the service-local proxy application (RDP)
 
-In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
+In another local terminal window, navigate to `device-streams-proxy/service` in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|

@@ -181,7 +181,7 @@ To run the device-side application, follow these steps:
 
 ### Run the service-side application
 
-As mentioned previously, the IoT Hub C SDK supports device streams on the device side only. To build and run the service-side application, follow the instructions in one of the following quickstarts:
+As mentioned previously, the IoT Hub C SDK supports device streams on the device side only. To build and run the accompanying service-side application, follow the instructions in one of the following quickstarts:
 
 * [Communicate to a device app in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
 

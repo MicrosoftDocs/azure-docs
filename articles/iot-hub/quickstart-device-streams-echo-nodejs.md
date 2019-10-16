@@ -1,6 +1,6 @@
 ﻿---
 title: Communicate to a device app in Node.js via IoT Hub device streams (preview) | Microsoft Docs
-description: In this quickstart, you will run a Node.js service-side applications that communicates with an IoT device via a device stream.
+description: In this quickstart, you will run a Node.js service-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -43,7 +43,7 @@ The preview of device streams is currently only supported for IoT Hubs created i
 
 *  **Central US EUAP**
 
-To run the service-side application in this quickstart you need Node.js v10.x.x or later on your development machine.
+To run the service-side application in this quickstart, you need Node.js v10.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [Nodejs.org](https://nodejs.org).
 
@@ -53,7 +53,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -101,7 +101,7 @@ In this section, you run both the device-side application and the service-side a
 
 ### Run the device-side application
 
-As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-side application, use the accompanying device program available in one of these quickstarts:
+As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For a device-side application, use one of the accompanying device programs available in these quickstarts:
 
    * [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md)
 

@@ -17,7 +17,7 @@ ms.author: wesmc
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry to an IoT Hub from an Android application running on a physical or simulated device.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you send telemetry to an IoT Hub from an Android application running on a physical or simulated device.
 
 The quickstart uses a pre-written Android application to send the telemetry. The telemetry will be read from the IoT Hub using the Azure Cloud Shell. Before you run the application, you create an IoT hub and register a device with the hub.
 
@@ -100,7 +100,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

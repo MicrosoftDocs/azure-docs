@@ -17,7 +17,7 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
 
 The quickstart uses two pre-written .NET applications:
 
@@ -105,7 +105,7 @@ You use this value later in the quickstart. This service connection string is di
 
 ## Listen for direct method calls
 
-The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
+The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
 1. In a local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
@@ -131,7 +131,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Call the direct method
 
-The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
+The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub back-end application typically runs in the cloud.
 
 1. In another local terminal window, navigate to the root folder of the sample C# project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
@@ -151,7 +151,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     dotnet run
     ```
 
-    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgement:
+    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
     ![Run the back-end application](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 

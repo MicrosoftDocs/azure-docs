@@ -17,7 +17,7 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-In this quickstart, you use a *direct method* to control a simulated device connected to your Azure IoT hub with a Java application. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. 
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your Azure IoT hub with a Java application. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. 
 
 The quickstart uses two pre-written Java applications:
 

@@ -23,7 +23,7 @@ This quickstart describes the setup for tunneling Secure Shell (SSH) traffic (us
 
 ## How it works
 
-The following figure illustrates how the device- and service-local proxy programs enable end-to-end connectivity between the SSH client and SSH daemon processes. During public preview, the C SDK supports device streams on the device side only. As a result, this quickstart covers instructions to run only the device-local proxy application. You should run one of the following service-side quickstarts:
+The following figure illustrates how the device- and service-local proxy programs enable end-to-end connectivity between the SSH client and SSH daemon processes. During public preview, the C SDK supports device streams on the device side only. As a result, this quickstart covers instructions to run only the device-local proxy application. To build and run the accompanying service-side application, follow the instructions in one of the following quickstarts:
 
 * [SSH/RDP over IoT Hub device streams using C# proxy](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP over IoT Hub device streams using NodeJS proxy](./quickstart-device-streams-proxy-nodejs.md).
