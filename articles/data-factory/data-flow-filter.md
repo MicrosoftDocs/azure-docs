@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Filter Transformation
-description: Azure Data Factory Mapping Data Flow Filter Transformation
+title: Azure Data Factory mapping data flow Filter Transformation
+description: Azure Data Factory mapping data flow Filter Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
