@@ -32,8 +32,8 @@ landingContent:
             url: durable-functions-types-features-overview.md
       - linkListType: video
         links:
-          - text: Serverless actors, orchestrations, and stateful functions
-            url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
+          - text: Break through serverless barriers
+            url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
 
   # Card (optional)
   - title: Get started
@@ -52,6 +52,26 @@ landingContent:
         links:
           - text: Watch how to get started
             url: https://azure.microsoft.com/en-us/resources/videos/azure-friday-durable-functions-in-azure-functions/
+
+  # Card
+  - title: Key concepts
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Orchestrations
+            url: durable-functions-orchestrations.md
+          - text: Stateful entities
+            url: durable-functions-entities.md
+          - text: HTTP features
+            url: durable-functions-http-features.md
+          - text: Task hubs
+            url: durable-functions-task-hubs.md
+          - text: Versioning
+            url: durable-functions-versioning.md
+      - linkListType: video
+        links:
+          - text: Serverless entities, orchestrations, and stateful functions
+            url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
           
   # Card
   - title: Application patterns
