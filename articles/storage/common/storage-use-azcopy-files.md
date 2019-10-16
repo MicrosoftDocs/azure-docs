@@ -242,11 +242,6 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
 
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy sync 'https://<storage-account-name>.file.core.windows.net/<file-share-name>' 'C:\myDirectory' --recursive` |
-| **Example** | `azcopy sync 'https://mystorageaccount.file.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-
 ### Update a file share with changes to another file share
 
 The first file share that appears in this command is the source. The second one is the destination.
