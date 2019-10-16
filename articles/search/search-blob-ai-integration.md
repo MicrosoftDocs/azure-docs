@@ -26,7 +26,7 @@ AI enrichment creates new information, captured as text, stored in fields. Post-
 
 In this article, we view AI enrichment through a wide lens so that you can quickly grasp the entire process, from transforming raw data in blobs, to queryable information in either a search index or a knowledge store.
 
-## What it means to "enrich" blob data
+## What it means to "enrich" blob data with AI
 
 *AI enrichment* is part of the indexing architecture of Azure Search that integrates built-in AI from Microsoft or custom AI that you provide. It helps you implement end-to-end scenarios where you need to process blobs (both existing ones and new ones as they come in or are updated), crack open all file formats to extract images and text, extract the desired information using various AI capabilities, and index them in an Azure Search index for fast search, retrieval and exploration. 
 
@@ -90,7 +90,7 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
-## Use AI-enriched output in downstream solutions
+## Consume AI-enriched output in downstream solutions
 
 The output of AI enrichment is either a search index on Azure Search, or a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage.
 
