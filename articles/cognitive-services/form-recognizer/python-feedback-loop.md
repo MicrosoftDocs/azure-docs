@@ -184,272 +184,99 @@ except Exception as e:
     print(str(e))
 ```
 
-## Get the train results
+## Get training results
 
-After you've called the **Async Train** API, you call the **Get Train Status** API to get the status of the operation and the model data. Use the following code to get the train status and model ID. Replace the `<operation ID>` with the operation ID you recevied in the asyncTrain request. 
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
 
-```python
-import json
-from requests import get as http_get
+```python 
+operationId = operationURL.split("operations/")[1]
 
-# Endpoint URL
-base_url = r"http://localhost:5005" + "/formrecognizer/v2.0-preview"
-
-url = base_url + "/asyncTrainOperations/<operation ID>" 
-
-try:
-    resp = http_get(url = url)
-		
-    print("Response status code: %d" % resp.status_code)
-    print("url: %s" % resp.url)
-    print("Response body: %s" % json.dumps(resp.json()))  
-except Exception as e:
-    print(str(e))
+conn = http.client.HTTPSConnection('<Endpoint>')
+while True:
+    try:
+        conn.request("GET", f"/formrecognizer/v1.0-preview/custom/models/{operationId}", "", headers)
+        responseString = conn.getresponse().read().decode('utf-8')
+        responseDict = json.loads(responseString)
+        conn.close()
+        print(responseString)
+        if 'status' in responseDict and responseDict['status'] not in ['creating','created']:
+            break
+        time.sleep(1)
+    except Exception as e:
+        print(e)
+        exit()
 ```
 
-You'll receive a 200 (Success) response with the model details this JSON output:
+When the training process is completed, you'll receive a `200 (Success)` response with JSON content like the following:
+
 ```json
-{
-  "status": "Succeeded",
-  "createdDateTime": "2019-09-25T21:35:08.1247958+00:00",
-  "lastUpdatedDateTime": "2019-09-25T21:35:16.1592136+00:00",
-  "trainResult": {
-    "modelId": "b2bb0071-0a22-4cb0-aedb-482a9e3cdd93",
-    "trainingDocuments": [
-      {
-        "documentName": "Form_01.pdf",
-        "pages": 1,
-        "status": "Success"
+{ 
+  "modelInfo":{ 
+    "status":"ready",
+    "createdDateTime":"2019-10-08T10:20:31.957784",
+    "lastUpdatedDateTime":"2019-10-08T14:20:41+00:00",
+    "modelId":"1cfb372bab404ba3aa59481ab2c63da5"
+  },
+  "trainResult":{ 
+    "trainingDocuments":[ 
+      { 
+        "documentName":"invoices\\Invoice_1.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       },
-      {
-        "documentName": "Form_02.pdf",
-        "pages": 1,
-        "status": "Success"
+      { 
+        "documentName":"invoices\\Invoice_2.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       },
-      {
-        "documentName": "Form_03.pdf",
-        "pages": 1,
-        "status": "Success"
+      { 
+        "documentName":"invoices\\Invoice_3.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       },
-      {
-        "documentName": "Form_04.pdf",
-        "pages": 1,
-        "status": "Success"
+      { 
+        "documentName":"invoices\\Invoice_4.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       },
-      {
-        "documentName": "Form_05.pdf",
-        "pages": 1,
-        "status": "Success"
-      },
-      {
-        "documentName": "Form_06.pdf",
-        "pages": 1,
-        "status": "Success"
-      },
-      {
-        "documentName": "Form_07.pdf",
-        "pages": 1,
-        "status": "Success"
-      },
-      {
-        "documentName": "Form_08.pdf",
-        "pages": 1,
-        "status": "Success"
-      },
-      {
-        "documentName": "Form_09.pdf",
-        "pages": 1,
-        "status": "Success"
-      },
-      {
-        "documentName": "Form_10.pdf",
-        "pages": 1,
-        "status": "Success"
+      { 
+        "documentName":"invoices\\Invoice_5.pdf",
+        "pages":1,
+        "errors":[ 
+
+        ],
+        "status":"succeeded"
       }
     ],
-    "trainingFields": {
-      "fields": [
-        {
-          "fieldName": "Card Type",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Cardholder Name",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Card Number",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Expiration Date",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Cardholder Zip Code",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Authorize",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Date",
-          "accuracy": 1
-        },
-        {
-          "fieldName": "Signature",
-          "accuracy": 0.6
-        }
-      ],
-      "averageModelAccuracy": 0.95
-    },
-    "errors": []
+    "errors":[ 
+
+    ]
+  },
+  "keys":{ 
+    "0":[ 
+      "Address:",
+      "Invoice For:",
+      "Microsoft",
+      "Page"
+    ]
   }
 }
 ```
 
-Note the `"modelId"` value. You'll need it for the following steps.
-  
-## Extract key-value pairs from forms
-
-Next, you'll analyze a document and extract key-value pairs from it. Call the **Async Analyze** API by running the Python script that follows. Before you run the command, make these changes:
-
-1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
-2. Replace `<modelID>` with the model ID you received in the previous section.
-
-
-```python
-	########### Python Form Recognizer Feedback Loop Async Analyze #############
-	import json
-	from requests import post as http_post
-
-	# Endpoint
-	base_url = r"http://localhost:5005" + "/formrecognizer/v2.0-preview/models"
-	file_path = r"<path to your form>"
-	model_id = "<model_id>"
-	headers = {
-	    # Request headers
-	    'Content-Type': 'application/pdf'
-	}
-
-	try:
-	    url = base_url + "/" + model_id + "/asyncAnalyze/?includeTextDetails=false"  
-
-
-	    with open(file_path, "rb") as f:
-		data_bytes = f.read()  
-	    resp = http_post(url = url, files = dict(analyzeFile = (file_path, data_bytes, 'application/pdf')))
-
-	    print("Response status code: %d" % resp.status_code)    
-	    print("Response header: %s" % resp.headers)  
-	except Exception as e:
-	    print(str(e))
- ```
-
-1. Save the code in a file with a .py extension. For example, *form-recognize-analyze.py*.
-1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
-
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the operation and get the analysis results. In the following example value, the string after `operations/` is the operation ID.
-
-```console
-operation-location: http://localhost:5005/formrecognizer/v2.0-preview/models/asyncAnalyzeOperations/<operationId>
-```
-
-## Get the analyze results
-
-After you've called the **Async Analyze** API, you call the **Get Analyze Status** API to get the status of the operation and the model data. Use the following code to get the train status and model ID. Replace the `<operation ID>` with the operation ID you recevied in the asyncAnaluze request.  
-
-```python
-import json
-from requests import get as http_get
-
-# Endpoint URL
-base_url = r"http://localhost:5005" + "/formrecognizer/v2.0-preview/models"
-
-url = base_url + "/asyncAnalyzeOperations/<operation_ID>" 
-
-try:
-    resp = http_get(url = url)
-		
-    print("Response status code: %d" % resp.status_code)
-    print("url: %s" % resp.url)
-    print("Response body: %s" % json.dumps(resp.json()))  
-except Exception as e:
-    print(str(e))
-	
-```
-
-### Examine the response
-
-A success response is returned in JSON. It represents the key-value pairs extracted from the form:
-
-```bash
-{
-  "analyzeResult": {
-    "version": "2.0",
-    "documentResults": [
-      {
-        "docType": "Analyze ",
-        "pageRange": [
-          1,
-          1
-        ],
-        "fields": {
-          "Card Type": {
-            "type": "string",
-            "valueString": "Visa",
-            "text": "Visa",
-            "boundingBox": [
-              1.565,
-              2.555,
-              1.875,
-              2.555,
-              1.875,
-              2.74,
-              1.565,
-              2.74
-            ],
-            "pageNumber": 1,
-            "confidence": 1
-          },
-          "Cardholder Zip Code": {
-            "type": "string",
-            "valueString": "37867",
-            "text": "37867",
-            "boundingBox": [
-              4.805,
-              4.29,
-              5.215,
-              4.29,
-              5.215,
-              4.42,
-              4.805,
-              4.42
-            ],
-            "pageNumber": 1,
-            "confidence": 1
-          },
-          "Expiration Date": {
-            "type": "string",
-            "valueString": "01/21",
-            "text": "01/21",
-            "boundingBox": [
-              2.74,
-              3.875,
-              3.1,
-              3.875,
-              3.1,
-              4.07,
-              2.74,
-              4.07
-            ],
-            "pageNumber": 1,
-            "confidence": 1
-          },
-```
+From here, you can copy the `"modelId"` value and use it in additional API calls to analyze form documents. Follow the same process as in the [Python train and extract quickstart](./quickstarts/python-train-extract.md).
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer Feedback Loop REST API with Python to train a model and extract key value pairs in a sample scenario. Next, see the [API reference documentation](http://localhost:5005/swagger) to explore the Form Recognizer Feedback Loop API in more depth.
+In this guide, you learned how to use the Form Recognizer Feedback Loop REST API with Python to train a model with user-entered data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
