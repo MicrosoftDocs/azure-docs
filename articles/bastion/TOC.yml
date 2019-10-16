@@ -34,6 +34,8 @@
     href: diagnostic-logs.md
   - name: Monitor and manage sessions
     href: session-monitoring.md
+  - name: Troubleshoot
+    href: troubleshoot.md
 - name: Resources
   items:
   - name: Bastion FAQ
