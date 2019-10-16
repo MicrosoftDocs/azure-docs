@@ -31,10 +31,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
+- [Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-physical.md#prepare-azure) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+    - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
+    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
 ## Set up an Azure Migrate project
@@ -51,7 +51,7 @@ Set up a new Azure Migrate project as follows.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
 6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
 
-    - The project geography is used only to store the metadata gathered from on-premises VMs.
+    - The project geography is used only to store the metadata gathered from on-premises servers.
     - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-physical/migrate-project.png)
@@ -116,7 +116,7 @@ Once it is complete, the appliance management app will open up in the browser.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-url-access-requirements).
+Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
 
 
 ### Configure the appliance
@@ -190,7 +190,7 @@ Run an assessment as follows:
     ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
 
 3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
-4. In **Add machines to the group**, select VMs to add to the group.
+4. In **Add machines to the group**, select servers to add to the group.
 5. Click **Create Assessment** to create the group, and run the assessment.
 
     ![Create an assessment](./media/tutorial-assess-physical/assessment-create.png)
@@ -239,7 +239,7 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
     - The cost estimation is for running the on-premises servers as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
 
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
-3. You can drill down to see details for specific VMs.
+3. You can drill down to see details for specific servers.
 
 
 ### Review confidence rating
