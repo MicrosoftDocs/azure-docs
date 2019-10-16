@@ -101,6 +101,20 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
+## <a name="sku"></a>Basic vs enterprise editions
+
+Azure Machine Learning offers two editions tailored for your machine learning needs:
++ Basic (generally available)
++ Enterprise (preview)
+
+These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
+
+Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+
+You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+
+Customers are responsible for costs incurred on underlying compute during this time. 
+
 ## How does Azure Machine Learning differ from Studio?
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
