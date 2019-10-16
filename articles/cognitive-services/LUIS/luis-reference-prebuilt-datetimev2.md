@@ -127,8 +127,7 @@ The **datetimeV2** prebuilt entity has the following subtypes, and examples of e
 * `daterange`
 * `timerange`
 * `datetimerange`
-* `duration`
-* `set`
+
 
 ## Values of resolution
 * The array has one element if the date or time in the utterance is fully specified and unambiguous.
