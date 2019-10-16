@@ -27,7 +27,7 @@ Azure Spring Cloud enhances the application diagnostics experience for the devel
 
 ### What service plans does Azure Spring Cloud offer?
 
-Azure Spring Cloud is free during the preview period.
+Azure Spring Cloud offers one service plan during the preview period.
 
 Resource | Amount
 ------- | -------
