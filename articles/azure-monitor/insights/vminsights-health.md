@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
 ---
 
@@ -112,7 +112,7 @@ An Unknown health state can be caused by the following issues:
 - The agent was reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - The VM was deleted.
 - The workspace associated with Azure Monitor for VMs was deleted. You can recover the workspace if you have Premier support benefits. Go to [Premier](https://premier.microsoft.com/) and open a support request.
-- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, reinstall these solutions by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Or, use the Configure Workspace option found in the Get Started tab.
+- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, reinstall the ServiceMap solution by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). To reinstall the InfastructureInsights solution, email vminsights@microsoft.com. 
 - The VM was shut down.
 - The Azure VM service is unavailable, or maintenance is being performed.
 - The workspace [daily data or retention limit](../platform/manage-cost-storage.md) was met.
@@ -435,5 +435,6 @@ Azure Monitor for VMs health supports SMS and email notifications when alerts ar
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM performance](vminsights-performance.md).
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
+
 - To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
