@@ -66,8 +66,8 @@ To configure and test Azure AD SSO with Visit.org, complete the following buildi
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Visit.org SSO](#configure-visit.org-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Visit.org test user](#create-visit.org-test-user)** - to have a counterpart of B.Simon in Visit.org that is linked to the Azure AD representation of user.
+1. **[Configure Visit.org SSO](#configure-visitorg-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Visit.org test user](#create-visitorg-test-user)** - to have a counterpart of B.Simon in Visit.org that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
