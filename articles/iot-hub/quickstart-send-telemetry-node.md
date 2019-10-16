@@ -75,7 +75,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 

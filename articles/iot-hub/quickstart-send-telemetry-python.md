@@ -65,7 +65,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyPythonDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart.
+    You'll use this value later in the quickstart.
 
 ## Send simulated telemetry
 

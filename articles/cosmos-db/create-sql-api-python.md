@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Python and the SQL API'
+title: 'Quickstart: Build a Python app using Azure Cosmos DB SQL API account'
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-
+ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
 ---
 # Azure Cosmos DB: Build a Python application using Azure Cosmos DB SQL API account
 
@@ -20,9 +20,11 @@ ms.author: sngun
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
+This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md).
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query documents, key/value, wide column and graph databases. All of these operations benefit from the distribution and scale of Azure Cosmos DB.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md). This quickstart uses version 3.0 of the [Python SDK](https://pypi.org/project/azure-cosmos).
+This quickstart uses version 3.0 of the [Python SDK](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
