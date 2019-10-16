@@ -37,7 +37,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
 4. Select **Review + create**, then select **Create**.
 
-![WAF policy basics](../media/create-waf-policy-ag/waf-policy-basics.png)
+   ![WAF policy basics](../media/create-waf-policy-ag/waf-policy-basics.png)
 
 ## Configure WAF rules (optional)
 
