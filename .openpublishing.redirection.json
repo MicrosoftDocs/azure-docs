@@ -35999,13 +35999,15 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/howto-connect-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
       "redirect_document_id": false
     },
-
-
-
+    {
+      "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-central/howto-generate-connection-string.md",
       "redirect_url": "/azure/iot-central",
