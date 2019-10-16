@@ -117,7 +117,7 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 1.	Create partitions on the target large table (called Table A).
 2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
 3.	Switch one partition from Table A to Table B.
-4.	Run ALTER INDEX <Ordered_CCI_Index> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
+4.	Run ALTER INDEX <Ordered_CCI_Index> ON <Table B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
 5.	Repeat step 3 and 4 for each partition in Table A.
 6.	Once all partitions are switched from Table A to Table B and have been rebuilt, drop Table A, and rename Table B to Table A. 
 
