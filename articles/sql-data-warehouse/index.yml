@@ -4,7 +4,7 @@ title: Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse)  # <
 summary: Learn how to use Azure Synapse Analytics, which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
 
 metadata:
-  title: Azure Synapse Analytics  # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: description # Required; article description that is displayed in search results. < 160 chars.
   services: sql-data-warehouse
   ms.service: sql-data-warehouse #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Learn to manage and monitor your SQL Data Warehouse
+          - text: Learn to manage and monitor your data warehouse
             url: sql-data-warehouse-overview-manageability-monitoring.md
       #     - text: linktext2
       #       url: file2.md
