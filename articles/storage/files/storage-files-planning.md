@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ---

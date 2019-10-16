@@ -4,7 +4,7 @@ description: In this article, you learn how to enable and create large file shar
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.

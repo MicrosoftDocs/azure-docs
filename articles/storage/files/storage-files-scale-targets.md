@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ---
