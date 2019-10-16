@@ -14,7 +14,7 @@ ms.date: 10/08/2019
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance is a fully managed cloud-based workstation.  It's easy to get started with Azure Machine Learning using the management and enterprise readiness capabilities of this compute resource. Use a compute instance as your fully configured and managed development environment in the cloud.
+An Azure Machine Learning compute instance is a fully managed cloud-based workstation.  It's easy to get started with Azure Machine Learning. Enjoy the management and enterprise readiness capabilities of this compute resource. Use a compute instance as your fully configured and managed development environment in the cloud.
 
 ## Why use a compute instance?
 
@@ -30,21 +30,54 @@ A compute instance is a single managed VM, optimized to be your development envi
 
 * Fully customizable: Broad support for Azure VM types including GPUs and persisted low-level customization makes advanced scenarios a breeze.
 
-## Tools and environments
+##<a name="contents"></a>Tools and environments
 
-Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace. 
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience](tutorial-1st-experiment-R-set-up.md) in your workspace.
 
-Use these pre-configured tools on the compute instance:
+These tools and environments are installed on the compute instance:
 
-* Jupyter
-* Jupyter Labs
-* RStudio
-* VS Code
-
-These environments are installed for your machine learning tasks:
-
-* Python
-* R
+* CUDA, cuDNN, NVIDIA Drivers
+* Intel MPI library
+* RStudio server community edition
+* R kernel
+* Azure Machine Learning SDK for R
+* Anaconda Python
+* Jupyter and extensions
+* Jupyterlab and extensions
+* Deep learning packages:
+    * `PyTorch`
+    * `TensorFlow`
+    * `Keras`
+    * `Horovod`
+    * `MLFlow`
+    * `pandas-ml`
+    * `scrapbook`
+* Conda packages:
+    * `cython`
+    * `numpy`
+    * `ipykernel`
+    * `scikit-learn`
+    * `matplotlib`
+    * `tqdm`
+    * `joblib`
+    * `nodejs`
+* PyPI packages:
+    * `azureml-sdk[notebooks,contrib,automl,explain]`
+    * `azureml-contrib-datadrift`
+    * `azureml-telemetry`
+    * `azureml-tensorboard`
+    * `azureml-contrib-opendatasets`
+    * `azureml-opendatasets`
+    * `azureml-contrib-reinforcementlearning`
+    * `jupytext`
+    * `jupyterlab-git`
+    * `tensorboard`
+    * `nbconvert`
+* Azure CLI
+* Docker
+* Blob FUSE driver
+* Nginx
+* Azure Machine Learning samples
 
 Compute instances can be used as a compute target for training and inferencing.  For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
@@ -56,13 +89,13 @@ When you create a compute instance, you control whether it can be shared. Each s
 
 ## Accessing files
 
-The Azure File Share account of your workspace is mounted as a drive on the compute instance.  This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio, which allows the files to be available from all compute instances.  However, writing small files is  much slower on the network drives than writing to the VM itself.  We recommended using a directory on the compute instance, such as a `/tmp` directory, when you  write small files.
+The Azure File Share account of your workspace is mounted as a drive on the compute instance.  The mounted drive is the default working directory for Jupyter, Jupyter Labs, and RStudio, which allows the files to be available from all compute instances.  However, writing small files is  much slower on the network drives than writing to the VM itself.  We recommended using a directory on the compute instance, such as a `/tmp` directory, when you  write small files.
 
-This makes files  shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
+The mounted drive makes files  shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
 
 ## Managing a compute instance
 
-In your workspace in [Azure Machine Learning studio](https://ml.azure.com), use the **Compute** section to perform the following actions on your compute instance:
+In your workspace in [Azure Machine Learning studio](https://ml.azure.com), use the **Compute** section for the following actions on your compute instance:
 * Create
 * Refresh
 * Start
