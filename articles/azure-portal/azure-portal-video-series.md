@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: kfollis
 ms.author: kfollis
-ms.date: 09/12/2019
+ms.date: 10/16/2019
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,12 +17,18 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we explore the self-help support options available in the Azure portal.
+In this featured video, we explore how to diagnose and solve the most common problems with Azure resources.
 
+> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
 
-> [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
+[Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
 
-[Explore self-help support options](https://www.youtube.com/watch?v=gNhzR5FE9DY)
+Catch up on these recent videos you may have missed:
+|  |  |  |
+| ---------- | ---------- | ---------- |
+| [![Image of YouTube video about cost management](http://img.youtube.com/vi/mfxysF-kTFA/0.jpg)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](http://img.youtube.com/vi/UrkHiUx19Po/0.jpg)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image of YouTube video about making the most of Azure Advisor](http://img.youtube.com/vi/ANz3cCiFsJw/0.jpg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+
 
 ## Video playlist
 
@@ -31,5 +37,3 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 ## Next steps:
 
 Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
-
-
