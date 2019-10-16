@@ -1,6 +1,6 @@
 ---
 title: Exists transformation in Azure Data Factory mapping data flow | Microsoft Docs
-description: Check for existing rows using data factory mapping data flows with exists transformation
+description: Check for existing rows using the exists transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -11,13 +11,13 @@ ms.date: 10/16/2019
 
 # Mapping data flow exists transformation
 
-The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or do not exist in the right stream. The exists Transform is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
+The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
 
 ## Configuration
 
-Choose which data stream you are checking for existence in the **Right stream** dropdown.
+Choose which data stream you're checking for existence in the **Right stream** dropdown.
 
-Specify whether you are looking for the data to exist or not exist in the **Exist type** setting.
+Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
 
 Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a compute value, hover over the column dropdown and select **Computed column**.
 
@@ -50,7 +50,7 @@ To create a free-form expression that contains operators other than "and" and "e
 
 ### Example
 
-The below example is a exists transformation named `checkForChanges` that takes left stream `NameNorm2` and right stream `TypeConversions`.  The exists condition is the expression `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` which returns true if both the `EMPID` and `Region` columns in each stream matches. As we are checking for existence, `negate` is false. We aren't enabling any broadcasting in the optimize tab so `broadcast` has value `'none'`.
+The below example is an exists transformation named `checkForChanges` that takes left stream `NameNorm2` and right stream `TypeConversions`.  The exists condition is the expression `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` that returns true if both the `EMPID` and `Region` columns in each stream matches. As we're checking for existence, `negate` is false. We aren't enabling any broadcasting in the optimize tab so `broadcast` has value `'none'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
