@@ -64,7 +64,7 @@ Premium Storage caching: Supported
 
 Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
 
-[Click here to signup for the preview](http://aka.ms/azureamdpreview).
+[Sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Premium Storage caching: Not Supported
 
 Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
 
-[Click here to signup for the preview](http://aka.ms/azureamdpreview).
+[Sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |------------------|------|-------------|-------------------------|
