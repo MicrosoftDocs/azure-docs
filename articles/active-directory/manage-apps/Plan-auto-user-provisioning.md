@@ -80,7 +80,7 @@ The Azure AD provisioning service provisions users to SaaS apps and other system
 
 In this example, users and or groups are created in an HR database connected to an on-premises directory. The Azure AD provisioning service manages automatic user provisioning to the target SaaS applications.
 
- ![user provisioning](media/auto-user-provision-dp/HybridProvisioning.png)
+ ![user provisioning](media/auto-user-provision-dp/hybridprovisioning.png)
 
 **Description of workflow:**
 
@@ -96,7 +96,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications:
 
-![Picture 2](media/auto-user-provision-dp/CloudProvisioning.png)
+![Picture 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -110,7 +110,7 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 In this example, the users and or groups are created in a cloud HR application like Workday.
 
-![Picture 2](media/auto-user-provision-dp/WorkdayProvisioning.png)
+![Picture 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
 1. Accounts created in cloud HR system
 1. Data flows into on-premises AD through Azure AD provisioning service and the provisioning agent.
@@ -167,7 +167,7 @@ Setting up automatic user provisioning is a per-application process. For each ap
 
 The image below shows one version of the required admin credentials:
 
-![Provisioning screen to manage user account provisioning settings](media/auto-user-provision-dp/UserProvisioning_AdminCredentials.png)
+![Provisioning screen to manage user account provisioning settings](media/auto-user-provision-dp/userprovisioning_admincredentials.png)
 
 While some applications require the admin username and password, others may require a bearer token.
 
