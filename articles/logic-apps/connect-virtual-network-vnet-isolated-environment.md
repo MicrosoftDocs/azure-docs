@@ -90,13 +90,13 @@ Here is the table that describes the ports in your virtual network that your ISE
 | Intersubnet communication | Inbound & Outbound | 80, 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
 | Communication to Azure Logic Apps | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers. |
 | Logic app run history | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
-| Connection management | Outbound | 443 | VirtualNetwork  | Internet | |
+| Connection management | Outbound | 443 | VirtualNetwork  | AppService | |
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication from Azure Traffic Manager | Inbound | 443 | AzureTrafficManager | VirtualNetwork | |
 | Logic Apps Designer - dynamic properties | Inbound | 454 | Internet | VirtualNetwork | Requests come from the Logic Apps [access endpoint inbound IP addresses in that region](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | App Service Management dependency | Inbound | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Connector deployment | Inbound | 454 | AzureConnectors | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
-| Connector policy deployment | Inbound | 3443 | Internet | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Connector policy deployment | Inbound | 3443 | AppService | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Outbound | 1886 | VirtualNetwork | AzureMonitor | For publishing health status to Resource Health |
 | API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
