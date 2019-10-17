@@ -60,7 +60,7 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading AAD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading AAD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 See below on how these actions can be rectified.
