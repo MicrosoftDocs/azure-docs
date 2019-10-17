@@ -48,7 +48,7 @@ To create and verify a custom domain:
 1. Enter your custom domain name and select **Add Domain**. 
 1. On the domain page, copy the TXT record information for your domain. 
 1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
-1. After you register the domain, on the Azure Active Directory domain page, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
+1. After you register the domain, on the domain's page in Azure Active Directory, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
 
 For more detailed instructions, see [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
 
@@ -60,7 +60,7 @@ To publish your app through Application Proxy with a custom domain:
    
    For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
 
-1. On the **Application Proxy** page, in the **External URL** field, drop down the list and select the custom domain you want to use. 
+1. On the **Application proxy** page, in the **External Url** field, drop down the list and select the custom domain you want to use. 
    
 1. Select **Save**.
    
@@ -70,20 +70,20 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. On the **SSL Certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates](#certificates) section.
+1. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates](#certificates) section.
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
-   > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate is applied automatically when you use that custom domain for other apps.
+   > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate is applied automatically when you use the custom domain for other apps.
    
 1. If you added a certificate, on the **Application Proxy** page, select **Save**. 
    
-1. In the information bar on the **Application Proxy** page, note the CNAME entry you need to add to your DNS provider. 
+1. In the information bar on the **Application Proxy** page, note the CNAME entry you need to add to your DNS zone. 
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. Add the [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration, see the [DNS entries](#dns-entries) section.
+1. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration, see the [DNS entries](#dns-entries) section.
    
 1. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
 
@@ -113,7 +113,7 @@ Don't use a private root CA. The private root CA would also need to be pushed to
 
 All certificate management is through the individual application pages. Go to the application's **Application Proxy** page to access the **Certificate** field.
 
-You can use the same certificate for many applications, as long as they share an external host. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
+You can use the same certificate for many applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
 
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application Proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
