@@ -24,8 +24,8 @@ There are two ways to create an Internet Analyzer resource:
 ## Before you begin
 
 The public preview is available to use globally; however, data storage is limited to the following Azure public regions:
-* US West 2
 * US East
+* US West 2
 
 
 ## Portal  
@@ -35,14 +35,14 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 ### Basics 
 
 1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
-2. From the home page in the [Azure portal - Internet Analyzer preview](https://preview.portal.azure.com), click **+ Create a resource**. Make sure to use the link provided to access the portal for this preview, not the regular Azure portal. 
-3. On the **New** page, in the *Search the Marketplace* field, type Internet Analyzer, then click **Enter** to get to the search results.
+2. From the home page in the [Azure portal - Internet Analyzer preview](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the *preview* Azure portal. 
+3. On the **New** page, search for "Internet Analyzer" in the *Search the Marketplace* field. 
 4. Click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 5. On the **Internet Analyzer (preview)** page, click **Create** to open the **Create an Internet Analyzer** page.
 6. Specify the following configuration settings for your Internet Analyzer resource:
 
-    * **Subscription:** The Azure subscription to host the new Internet Analyzer resource. Use the subscription id provided with your previous access request. 
-    * **Resource Group:** The Azure resource group in which the new Internet Analyzer resource will be created in. If you don’t have an existing resource group, you can create a new one.
+    * **Subscription:** The Azure subscription to host the new Internet Analyzer resource. Use the same Subscription ID used to request access.  
+    * **Resource Group:** The Azure resource group which the new Internet Analyzer resource will be created in. If you don’t have an existing resource group, you can create a new one.
     * **Name:** The name of the new Internet Analyzer resource profile. 
     * **Region:** The Azure public region that the resource will be created in. 
 
@@ -51,10 +51,10 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 ### Configuration 
 
 **Embed Client**
-To begin any test, the JavaScript client must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will begin until this step is complete. 
+To begin any test, the JavaScript client must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will be collected until this step is complete. 
 
 **Setup Tests**
-1. Give your test a name in the **Test Name** box. The name must be unique to the profile and not contain any spaces. 
+1. Give your test a name in the **Test Name** box.
 2. Add a description for your test in the **Description** field. 
 3. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint.
 
