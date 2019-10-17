@@ -65,6 +65,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## Finding wait queries
 
+> [!IMPORTANT]
+> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely. 
+
+
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
 
 Here are some examples of how you can gain more insights into your workload using the wait statistics in Query Store:
@@ -168,7 +172,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 - If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
-- Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
+- Wait statistics uses sample to capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
 
 ## Next steps
 
