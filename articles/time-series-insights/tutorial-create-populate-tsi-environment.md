@@ -100,13 +100,15 @@ Second, create a Time Series Insights environment in your Azure subscription.
    **Tier** | Choose the throughput needed. Select **S1**.
    **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of **1**.
 
-   When finished, select **Review + create** to proceed to the next step.
+   When finished, select **Next: Event Source** to proceed to the next step.
 
    [![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
 
 1. Now, connect the Time Series Insights environment to the IoT hub created by the Solution Accelerator. Set **Select a hub** to `Select existing`. Then, choose the IoT hub created by the Solution Accelerator when setting **IoT Hub name**.
 
    [![Connect the Time Series Insights environment to the created IoT hub](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
+
+   Lastly, select **Review + create**.
 
 1. Check the **Notifications** panel to monitor deployment completion. 
 
