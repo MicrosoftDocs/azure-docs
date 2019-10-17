@@ -42,8 +42,7 @@ The Azure Cache for Redis service regularly does maintenance to update your cach
 
 1. The management service selects one node to be patched.
 1. If the selected node is a master node, its replica node cooperatively promotes itself. This promotion is considered a planned failover.
-1. The selected node reboots to take the new changes and comes back up as a replica node.
-1. The selected node connects to the master node and synchronize data.
+1. The selected node reboots to take the new changes and comes back up as a replica node. Replica nodes connect to the master node and synchronize data.
 1. When data sync completes, the patching process repeats for the remaining nodes.
 
 Since patching is a planned failover, the replica node quickly promotes itself to become a master and begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update completes. Each shard of a clustered cache is patched separately and won't close connections to another shard.
