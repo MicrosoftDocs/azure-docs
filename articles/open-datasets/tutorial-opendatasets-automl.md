@@ -17,7 +17,7 @@ In this tutorial, you leverage the convenience of Azure Open Datasets along with
 
 In this tutorial you learn the following tasks:
 
-- Configure an Azure Machine Learning service workspace
+- Configure an Azure Machine Learning workspace
 - Set up a local Python environment
 - Access, transform, and join data using Azure Open Datasets
 - Train an automated machine learning regression model
@@ -27,7 +27,7 @@ In this tutorial you learn the following tasks:
 
 This tutorial requires the following prerequisites.
 
-* An Azure Machine Learning service workspace
+* An Azure Machine Learning workspace
 * A Python 3.6 environment
 
 ### Create a workspace
@@ -1795,7 +1795,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 ### Load workspace and configure experiment
 
-Load your Azure Machine Learning service workspace using the `get()` function with your subscription and workspace information. Create an experiment within your workspace to store and monitor your model runs.
+Load your Azure Machine Learning workspace using the `get()` function with your subscription and workspace information. Create an experiment within your workspace to store and monitor your model runs.
 
 
 ```python
