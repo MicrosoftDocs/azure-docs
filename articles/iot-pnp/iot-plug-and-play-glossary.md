@@ -112,7 +112,7 @@ A [device developer](#device-developer) uses the [Digital Twin Definition Langua
 
 ## Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/core/concepts-connectivity-pnp.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Device registration
 
